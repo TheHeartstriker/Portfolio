@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Nav() {
   const containerRef = useRef(null);
@@ -9,8 +10,10 @@ function Nav() {
       for (let i = 0; i < 40; i++) {
         let span = document.createElement("span");
         container.appendChild(span);
+        // Get the current top value from CSS
+        let currentTop = parseFloat(window.getComputedStyle(span).top) || 0;
         // Pushes each element slightly down
-        span.style.top = `${i + 1}px`;
+        span.style.top = `${currentTop + i + 1}px`;
         // Random delay
         let ranDelay = Math.random() * 0.25;
         span.style.transitionDelay = ranDelay + "s";
@@ -67,17 +70,24 @@ function Nav() {
   }, [About, Skill, Contact]);
 
   return (
-    <div className="Container" ref={containerRef}>
-      <button id="AboutBtn" onClick={handleAbout}>
-        AboutMe
-      </button>
-      <button id="SkillBtn" onClick={handleSkill}>
-        Skills/Projects
-      </button>
-      <button id="ContactBtn" onClick={handleContact}>
-        Contacts
-      </button>
-    </div>
+    <>
+      <Link to="/about">
+        <button id="AboutBtn" onClick={handleAbout}>
+          AboutMe
+        </button>
+      </Link>
+      <Link to="/skills">
+        <button id="SkillBtn" onClick={handleSkill}>
+          Skills/Projects
+        </button>
+      </Link>
+      <Link to="/contact">
+        <button id="ContactBtn" onClick={handleContact}>
+          Contacts
+        </button>
+      </Link>
+      <div className="Container" ref={containerRef}></div>
+    </>
   );
 }
 
