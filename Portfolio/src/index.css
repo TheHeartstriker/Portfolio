@@ -4,7 +4,9 @@
 }
 body {
   background-color: var(--back-round-grey);
+  font-family: "Protest Guerrilla", sans-serif;
 }
+
 .Container {
   position: relative;
   width: 100%;
@@ -83,4 +85,10 @@ body {
   left: 100%;
   width: 60px;
   height: 60px;
+}
+
+#AboutBtn,
+#SkillBtn,
+#ContactBtn {
+  font-family: "Protest Guerrilla", sans-serif;
 }
