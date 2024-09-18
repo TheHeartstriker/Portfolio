@@ -71,7 +71,7 @@ function Nav() {
 
   return (
     <>
-      <Link to="">
+      <Link to="/">
         <button id="AboutBtn" onClick={handleAbout}>
           AboutMe
         </button>

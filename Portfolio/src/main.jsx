@@ -8,14 +8,14 @@ import Contact from "./Contact.jsx";
 //Nav components
 import Nav from "./Nav.jsx";
 //Styles
+import "./Navigate.css";
 import "./index.css";
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<About />} />
         <Route path="/skills" element={<Skill />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
