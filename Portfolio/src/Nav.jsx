@@ -72,17 +72,17 @@ function Nav() {
   return (
     <>
       <Link to="/">
-        <button id="AboutBtn" onClick={handleAbout}>
+        <button className="button" id="AboutBtn" onClick={handleAbout}>
           AboutMe
         </button>
       </Link>
       <Link to="/skills">
-        <button id="SkillBtn" onClick={handleSkill}>
-          Skills/Projects
+        <button className="button" id="SkillBtn" onClick={handleSkill}>
+          Skills and Projects
         </button>
       </Link>
       <Link to="/contact">
-        <button id="ContactBtn" onClick={handleContact}>
+        <button className="button" id="ContactBtn" onClick={handleContact}>
           Contacts
         </button>
       </Link>
