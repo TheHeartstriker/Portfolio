@@ -20,6 +20,7 @@
   color: white;
   margin: 100px;
   border: 2.5px solid var(--neon-blue);
+  height: auto;
 }
 
 .Project1 {
@@ -28,7 +29,110 @@
   align-items: center;
   position: relative;
   color: white;
-  padding: 100px;
+  top: 50%;
+
   margin: 100px;
+  margin-top: 20%;
+  height: 500px;
+  width: 50%;
+  border: 50px solid var(--neon-blue);
+}
+
+.Project1Text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  bottom: 20%;
+  left: 100%;
+  width: 50%;
+  height: 75%;
+  padding: 50px;
+  margin: 50px;
+  border: 2.5px solid var(--neon-blue);
+}
+
+.Project1Text h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.Project1Text h3::after {
+  content: "";
+  background-color: var(--neon-blue);
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transition: bottom 0.5s ease; /* Add transition for bottom property */
+}
+
+.Project1Text h3:hover::after {
+  bottom: 100%; /* Move the underline up on hover */
+}
+
+.Project2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  top: 50%;
+  left: 30%;
+
+  margin: 100px;
+  margin-top: 20%;
+  height: 500px;
+  width: 50%;
+  border: 50px solid var(--neon-blue);
+}
+
+.Project2Text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: white;
+  bottom: 20%;
+  right: 100%;
+
+  width: 50%;
+  height: 75%;
+  padding: 50px;
+  margin: 50px;
+  border: 2.5px solid var(--neon-blue);
+}
+
+.Project3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  top: 50%;
+
+  margin: 100px;
+  margin-top: 20%;
+  height: 500px;
+  width: 50%;
+  border: 50px solid var(--neon-blue);
+}
+
+.Project3Text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: white;
+  bottom: 20%;
+  left: 100%;
+
+  width: 50%;
+  height: 75%;
+  padding: 50px;
+  margin: 50px;
   border: 2.5px solid var(--neon-blue);
 }
