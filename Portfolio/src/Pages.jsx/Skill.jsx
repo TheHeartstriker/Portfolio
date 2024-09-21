@@ -7,9 +7,9 @@ function Skill() {
       <div className="SkillContainer">
         <h2>HTML, CSS, Javascript</h2>
       </div>
-      <div className="Project1">
+      <div className="ProjectBase Project1">
         <h2>Dynamic animations</h2>
-        <div className="Project1Text">
+        <div className="ProjectText Project1Text">
           <h4>
             A front end project that uses React and HTML canvas to create
             interactive and controlable dynamic animations.
@@ -19,9 +19,9 @@ function Skill() {
         </div>
       </div>
       {/* Second Project */}
-      <div className="Project2">
+      <div className="ProjectBase Project2">
         <h2>Responsive Design</h2>
-        <div className="Project2Text">
+        <div className="ProjectText Project2Text">
           <h4>
             A front end project that uses React and CSS to create a responsive
             design that works on all devices.
@@ -29,9 +29,9 @@ function Skill() {
         </div>
       </div>
       {/* Third Project */}
-      <div className="Project3">
+      <div className="ProjectBase Project3">
         <h2>Full Stack Development</h2>
-        <div className="Project3Text">
+        <div className="ProjectText Project3Text">
           <h4>
             A full stack project that uses React, Node.js, and MongoDB to create
             a full stack web application.
