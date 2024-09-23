@@ -1,0 +1,132 @@
+:root {
+  --back-round-grey: rgb(46, 46, 46);
+  --neon-blue: rgb(0, 204, 255);
+}
+
+#SkillHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  color: white;
+}
+
+.SkillContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  margin: 100px;
+  border: 2.5px solid var(--neon-blue);
+  height: auto;
+}
+.ProjectBase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+
+  margin: 100px;
+  margin-top: 20%;
+  height: 500px;
+  width: 50%;
+  border: 50px solid var(--neon-blue);
+}
+
+.Project1 {
+  top: 50%;
+}
+
+.Project2 {
+  top: 50%;
+  left: 30%;
+}
+
+.Project2 {
+  top: 50%;
+}
+
+.ProjectText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  background-color: var(--back-round-grey);
+
+  width: 50%;
+  height: 75%;
+  padding: 50px;
+  margin: 50px;
+}
+
+.Project1Text {
+  bottom: 20%;
+  left: 100%;
+}
+
+.Project2Text {
+  bottom: 20%;
+  right: 100%;
+}
+
+.Project3Text {
+  bottom: 20%;
+  left: 100%;
+}
+/* Css hover over links */
+.ProjectText h3 {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to bottom, var(--neon-blue) 0%, violet 100%);
+  background-size: 100% 0;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease;
+  margin: 10px;
+  padding: 0;
+}
+
+.ProjectText h3::after {
+  content: "";
+  background-color: var(--neon-blue);
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transition: bottom 0.5s ease;
+}
+/* Reveals the backround */
+.ProjectText h3:hover {
+  background-size: 100% 100%;
+}
+/* Moves the underline */
+.ProjectText h3:hover::after {
+  height: 0;
+  bottom: 100%;
+}
+
+.ProjectText::after,
+.ProjectText::before {
+  content: "";
+  background-image: conic-gradient(
+    var(--neon-blue),
+    blueviolet,
+    var(--neon-blue)
+  );
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  z-index: -1;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.ProjectText::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
