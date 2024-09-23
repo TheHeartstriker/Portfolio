@@ -1,0 +1,18 @@
+.ContactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100vh;
+}
+
+.ContactContainer h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 4em;
+}
+
+.ContactContainer h5 {
+  font-size: 25px;
+}

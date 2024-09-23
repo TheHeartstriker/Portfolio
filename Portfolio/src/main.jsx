@@ -11,6 +11,7 @@ import Nav from "./Nav.jsx";
 import "./Navigate.css";
 import "./PagesCss/about.css";
 import "./PagesCss/skill.css";
+import "./PagesCss/contact.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

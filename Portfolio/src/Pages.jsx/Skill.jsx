@@ -26,6 +26,8 @@ function Skill() {
             A front end project that uses React and CSS to create a responsive
             design that works on all devices.
           </h4>
+          <h3>Link</h3>
+          <h3>Code</h3>
         </div>
       </div>
       {/* Third Project */}
@@ -36,6 +38,8 @@ function Skill() {
             A full stack project that uses React, Node.js, and MongoDB to create
             a full stack web application.
           </h4>
+          <h3>Link</h3>
+          <h3>Code</h3>
         </div>
       </div>
     </>
