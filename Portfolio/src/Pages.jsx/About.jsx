@@ -19,13 +19,28 @@ function About() {
       </div>
       <div className="AboutContainer">
         <p>
-          I am a full stack developer with a passion for creating beautiful and
-          functional web applications. I have experience with a variety of
-          technologies including HTML, CSS, JavaScript, React, and Node.js. I
-          love to learn new things and am always looking for ways to improve my
-          skills. In my free time, I enjoy drawing, painting, and playing video
-          games. I am currently looking for new opportunities to work on
-          exciting projects and expand my knowledge of web development.
+          <h1>Who am I</h1>
+          Hello my name is kaden wildauer and I am a developer, programmer, and
+          enginer. I enjoy programming, learning, art, music, books, anime,
+          fitness and video games. Yet I am always looking for new ways to
+          further myself, my skills and intrests.
+        </p>
+        <p>
+          <h1>How it started</h1>I have always been interested in computers and
+          technology I got into programming when I was about 16 with the simple
+          goal of keeping my mind sharp... After awhile I got hooked. The idea
+          of being able to create almost anything within the confines of a
+          computer and share it is unbelievable to me. I find creation and
+          improvment to be my reason for living.
+        </p>
+        <p>
+          <h1>What I am working on</h1>
+          <p>
+            Currently I am working on improving my current projects and skills.
+            I also do graphics programming on the side I am sure you did not see
+            the intrest suprise! I am also working on a real time typescript
+            drawing app similar to r/place.
+          </p>
         </p>
       </div>
     </>

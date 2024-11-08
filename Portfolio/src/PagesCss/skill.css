@@ -19,8 +19,9 @@
   position: relative;
   color: white;
   margin: 100px;
-  border: 2.5px solid var(--neon-blue);
-  height: auto;
+  padding: 2%;
+  background: var(--back-round-grey);
+  border: 5px solid var(--neon-blue);
 }
 .ProjectBase {
   display: flex;
@@ -28,12 +29,15 @@
   align-items: center;
   position: relative;
   color: white;
+  background-color: var(--back-round-grey);
 
   margin: 100px;
   margin-top: 20%;
   height: 500px;
   width: 50%;
   border: 50px solid var(--neon-blue);
+  border-radius: 2.5px;
+  z-index: 0;
 }
 
 .Project1 {
@@ -120,7 +124,7 @@
   );
   height: 100%;
   width: 100%;
-  padding: 10px;
+  padding: 30px;
   z-index: -1;
   border-radius: 10px;
   position: absolute;

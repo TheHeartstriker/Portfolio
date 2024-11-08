@@ -70,6 +70,8 @@ h3 span::before {
   background-color: var(--back-round-grey);
   align-items: center;
   border: 5px solid var(--neon-blue);
+  flex-direction: column;
+  text-align: center;
   box-sizing: border-box;
   height: 100vh;
 }
@@ -77,6 +79,6 @@ h3 span::before {
 .AboutContainer p {
   color: white;
   padding: 0 100px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 }
