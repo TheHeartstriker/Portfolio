@@ -3,7 +3,6 @@
   --neon-blue: rgb(0, 204, 255);
 }
 body {
-  background-color: var(--back-round-grey);
   font-family: "Protest Guerrilla", sans-serif;
 }
 

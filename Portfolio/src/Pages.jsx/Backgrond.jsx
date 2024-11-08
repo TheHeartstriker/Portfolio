@@ -33,13 +33,41 @@ function Background() {
   const [validPoints, setValidPoints] = useState([]);
   function AddValid() {
     setValidPoints([
-      { x1: 0, y1: 0, x2: 0, y2: window.innerHeight / 4, valid: true },
+      // From the left side
       {
         x1: 0,
+        y1: Math.random() * window.innerHeight,
+        x2: Math.random() * window.innerWidth,
+        y2: Math.random() * window.innerHeight,
+        TurnDistance: 20 + Math.random() * 80,
+        lineWidth: Math.random() * 5,
+      },
+      // From the right side
+      {
+        x1: window.innerWidth,
+        y1: Math.random() * window.innerHeight,
+        x2: Math.random() * window.innerWidth,
+        y2: Math.random() * window.innerHeight,
+        TurnDistance: 20 + Math.random() * 80,
+        lineWidth: Math.random() * 5,
+      },
+      // From the top side
+      {
+        x1: Math.random() * window.innerWidth,
         y1: 0,
-        x2: 0,
-        y2: window.innerHeight - window.innerHeight / 4,
-        valid: true,
+        x2: Math.random() * window.innerWidth,
+        y2: Math.random() * window.innerHeight,
+        TurnDistance: 20 + Math.random() * 80,
+        lineWidth: Math.random() * 5,
+      },
+      // From the bottom side
+      {
+        x1: Math.random() * window.innerWidth,
+        y1: window.innerHeight,
+        x2: Math.random() * window.innerWidth,
+        y2: Math.random() * window.innerHeight,
+        TurnDistance: 20 + Math.random() * 80,
+        lineWidth: Math.random() * 5,
       },
     ]);
   }
@@ -51,17 +79,17 @@ function Background() {
       let direction = Math.random() * 4;
 
       if (direction < 1) {
-        point.x2 = point.x1 - 100;
+        point.x2 = point.x1 - point.TurnDistance;
         point.y2 = point.y1;
       } else if (direction < 2) {
-        point.x2 = point.x1 + 100;
+        point.x2 = point.x1 + point.TurnDistance;
         point.y2 = point.y1;
       } else if (direction < 3) {
         point.x2 = point.x1;
-        point.y2 = point.y1 - 100;
+        point.y2 = point.y1 - point.TurnDistance;
       } else {
         point.x2 = point.x1;
-        point.y2 = point.y1 + 100;
+        point.y2 = point.y1 + point.TurnDistance;
       }
 
       if (
@@ -74,7 +102,7 @@ function Background() {
         point.y2 >= 0 &&
         point.y2 <= window.innerHeight
       ) {
-        DrawLine(point.x1, point.y1, point.x2, point.y2);
+        DrawLine(point.x1, point.y1, point.x2, point.y2, point.lineWidth);
         // Update x1 and y1 to the new position
         point.x1 = point.x2;
         point.y1 = point.y2;
@@ -86,13 +114,13 @@ function Background() {
     setValidPoints(newPoints);
   }
 
-  function DrawLine(x1, y1, x2, y2) {
+  function DrawLine(x1, y1, x2, y2, lineWidth) {
     if (!ctx) return;
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     //Colors
-    ctx.lineWidth = 10;
+    ctx.lineWidth = lineWidth;
     ctx.strokeStyle = "black";
     //Glow
     ctx.shadowColor = "blue";

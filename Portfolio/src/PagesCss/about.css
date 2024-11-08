@@ -1,5 +1,5 @@
 :root {
-  --back-round-grey: rgb(46, 46, 46);
+  --back-round-grey: rgb(30, 30, 30);
   --neon-blue: rgb(0, 204, 255);
 }
 
@@ -67,6 +67,7 @@ h3 span::before {
 .AboutContainer {
   display: flex;
   justify-content: center;
+  background-color: var(--back-round-grey);
   align-items: center;
   border: 5px solid var(--neon-blue);
   box-sizing: border-box;
