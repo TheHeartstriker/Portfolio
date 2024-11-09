@@ -33,8 +33,8 @@
 
   margin: 100px;
   margin-top: 20%;
-  height: 500px;
-  width: 50%;
+  height: 50vh;
+  width: 55vw;
   border: 50px solid var(--neon-blue);
   border-radius: 2.5px;
   z-index: 0;
@@ -42,6 +42,10 @@
 
 .Project1 {
   top: 50%;
+  background-image: url("src/Images/DynamicPortfolio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .Project2 {

@@ -21,8 +21,20 @@ function Skill() {
             happen to have an extra screen thats not being used. Deployed using
             azure.
           </h4>
-          <h3>Link</h3>
-          <h3>Code</h3>
+          <a
+            href="https://www.dynamicanimations.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Link</h3>
+          </a>
+          <a
+            href="https://github.com/TheHeartstriker/DynamicAnimations"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Code</h3>
+          </a>
         </div>
       </div>
       {/* Second Project */}

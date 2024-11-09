@@ -1,3 +1,8 @@
+:root {
+  --back-round-grey: rgb(46, 46, 46);
+  --neon-blue: rgb(0, 204, 255);
+}
+
 .ContactContainer {
   display: flex;
   justify-content: center;
@@ -7,10 +12,23 @@
   height: 100vh;
 }
 
+.ContactHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  color: white;
+  background-color: var(--back-round-grey);
+  border: 5px solid var(--neon-blue);
+  border-radius: 5px;
+}
+
 .ContactContainer h3 {
   margin: 0;
   padding: 0;
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .ContactContainer h5 {
