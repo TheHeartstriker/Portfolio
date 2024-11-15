@@ -48,8 +48,20 @@ function Skill() {
             Along with storing them in folders. Deployed using an ec2 instance
             through AWS cloud using Caddy.
           </h4>
-          <h3>Link</h3>
-          <h3>Code</h3>
+          <a
+            href="https://www.genesistodo.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Link</h3>
+          </a>
+          <a
+            href="https://github.com/TheHeartstriker/ToDoApp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Code</h3>
+          </a>
         </div>
       </div>
       {/* Third Project */}
@@ -62,8 +74,20 @@ function Skill() {
             calories burned, total time spent working out in a spefied period of
             time. Deployed using an ec2 instance through AWS cloud using Caddy.
           </h4>
-          <h3>Link</h3>
-          <h3>Code</h3>
+          <a
+            href="https://www.fgraphs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Link</h3>
+          </a>
+          <a
+            href="https://github.com/TheHeartstriker/FitnessApp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>Code</h3>
+          </a>
         </div>
       </div>
     </>
