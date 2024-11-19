@@ -51,10 +51,18 @@
 .Project2 {
   top: 50%;
   left: 30%;
+  background-image: url("src/Images/ToDoPortfolio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.Project2 {
+.Project3 {
   top: 50%;
+  background-image: url("src/Images/FitnessPortfolio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .ProjectText {

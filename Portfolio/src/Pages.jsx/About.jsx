@@ -31,8 +31,8 @@ function About() {
           programming when I was 16 with the simple goal of keeping my mind
           sharp... After awhile I got hooked. The idea of being able to create
           almost anything within the confines of a computer and share it is
-          unbelievable to me. I find creation and improvment to be my reason for
-          living as I enjoy them the most.
+          endlessly entertaining to me. I find creation and improvment to be my
+          reason for living as I enjoy them the most.
         </p>
         <h1>What I am working on</h1>
         <p>
