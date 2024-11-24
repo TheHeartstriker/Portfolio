@@ -16,25 +16,14 @@ h3 {
   padding: 0 100px;
   font-size: 5rem;
   font-weight: 600;
+  position: relative;
 }
 
 h3 span {
   position: relative;
   color: rgba(255, 255, 255, 0.1);
-  animation: animate1 12s infinite;
-  animation-delay: calc(-4s * var(--i));
 }
 /* When the specfic animation appear and is hidden */
-@keyframes animate1 {
-  0% {
-    display: inline-block;
-  }
-  33.33%,
-  100% {
-    display: none;
-  }
-}
-
 h3 span::before {
   content: attr(data-text);
   position: absolute;
@@ -42,26 +31,9 @@ h3 span::before {
   left: 0;
   width: 100%;
   overflow: hidden;
-  /* Slowly revealed backround */
   color: var(--neon-blue);
-  /* Color of the border */
-  border-right: 4px solid var(--neon-blue);
 
   filter: drop-shadow(0 0 6px) drop-shadow(0 0 25px);
-  /* Movment speed of the border highlight */
-  animation: animate2 4s linear infinite;
-}
-
-@keyframes animate2 {
-  0%,
-  10%,
-  100% {
-    width: 0;
-  }
-  70%,
-  90% {
-    width: 100%;
-  }
 }
 
 .AboutContainer {

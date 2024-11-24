@@ -5,7 +5,7 @@ function Contact() {
     <div className="ContactContainer">
       <div className="ContactHeader">
         <h3>Contacts</h3>
-        <h5>Email:SerKadenWildauer</h5>
+        <h5>Email:SerKadenWildauer@gmail.com</h5>
         <h3>Code/Github</h3>
         <a
           href="https://github.com/TheHeartstriker"

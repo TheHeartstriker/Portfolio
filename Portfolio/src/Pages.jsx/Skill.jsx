@@ -7,9 +7,13 @@ function Skill() {
       <div className="SkillContainer">
         {/* Make bigger */}
         <h2>
-          HTML, CSS, Javascript, Node.js, React.js, Express, Mysql, Azure, AWS,
-          Python, Git, JWT, CI/CD, RESTful API, C++,
+          HTML, CSS, Javascript, Node.js, React.js, Express, Mysql, Python, JWT,
+          CI/CD, RESTful API, C++,
         </h2>
+      </div>
+      <h1 id="SkillHeader">Tools</h1>
+      <div className="SkillContainer">
+        <h2>Caddy, azure, aws, figma, git</h2>
       </div>
       <div className="ProjectBase Project1">
         <h2>Dynamic animations</h2>
