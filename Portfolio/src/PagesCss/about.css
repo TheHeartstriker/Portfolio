@@ -1,5 +1,5 @@
 :root {
-  --back-round-grey: rgb(46, 46, 46);
+  --back-round-grey: rgb(30, 30, 30);
   --neon-blue: rgb(0, 204, 255);
 }
 
@@ -16,66 +16,63 @@ h3 {
   padding: 0 100px;
   font-size: 5rem;
   font-weight: 600;
-}
-
-h3 span {
   position: relative;
-  color: rgba(255, 255, 255, 0.1);
-  animation: animate1 12s infinite;
-  animation-delay: calc(-4s * var(--i));
-}
-/* When the specfic animation appear and is hidden */
-@keyframes animate1 {
-  0% {
-    display: inline-block;
-  }
-  33.33%,
-  100% {
-    display: none;
-  }
 }
 
 h3 span::before {
   content: attr(data-text);
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  overflow: hidden;
-  /* Slowly revealed backround */
   color: var(--neon-blue);
-  /* Color of the border */
-  border-right: 4px solid var(--neon-blue);
 
   filter: drop-shadow(0 0 6px) drop-shadow(0 0 25px);
-  /* Movment speed of the border highlight */
-  animation: animate2 4s linear infinite;
 }
 
-@keyframes animate2 {
-  0%,
-  10%,
-  100% {
-    width: 0;
-  }
-  70%,
-  90% {
-    width: 100%;
-  }
+h3 span {
+  display: block;
 }
 
 .AboutContainer {
+  top: 145vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   border: 5px solid var(--neon-blue);
+  flex-direction: column;
+  text-align: center;
   box-sizing: border-box;
-  height: 100vh;
+  border-radius: 2.5px;
+
+  height: 85vh;
+  width: 85vw;
+  backdrop-filter: blur(20px);
 }
 
 .AboutContainer p {
   color: white;
   padding: 0 100px;
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 600;
+}
+
+.AboutContainer h1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  position: relative;
+  width: max-content;
+}
+
+.AboutContainer h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--neon-blue), silver);
+  z-index: -1;
 }
