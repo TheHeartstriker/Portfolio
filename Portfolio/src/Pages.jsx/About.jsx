@@ -5,21 +5,19 @@ function About() {
     <>
       <div className="IAmContainer">
         <h3>
-          Hello my name is kaden and I am a{" "}
-          <span style={{ "--i": 0 }} data-text="Developer!">
-            Developer.
-          </span>
+          Hello my name is kaden and I am a
+          <span data-text=" Fullstack web developer."></span>
         </h3>
       </div>
       <div className="AboutContainer">
         <h1>Who am I</h1>
         <p>
-          Hello my name is kaden wildauer and I am a fullstack web developer,
-          programmer, and enginer. I like a varity of things including
-          programming, learning, art, music, books, anime, fitness and video
-          games. A large part of my life is trying to further my intrests and
-          skills in these areas. Although currently I am average at best in all
-          but programming and fitness.
+          Hello my name is kaden wildauer and I am a web developer, programmer,
+          and software enginer. I like a varity of things including programming,
+          learning, art, music, books, anime, fitness and video games. A large
+          part of my life is trying to further my intrests and skills in these
+          areas. Although currently I am average at best in all but programming
+          and fitness.
         </p>
         <h1>How it started</h1>
         <p>

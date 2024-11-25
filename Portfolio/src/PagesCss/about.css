@@ -19,25 +19,21 @@ h3 {
   position: relative;
 }
 
-h3 span {
-  position: relative;
-  color: rgba(255, 255, 255, 0.1);
-}
-/* When the specfic animation appear and is hidden */
 h3 span::before {
   content: attr(data-text);
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  overflow: hidden;
   color: var(--neon-blue);
 
   filter: drop-shadow(0 0 6px) drop-shadow(0 0 25px);
 }
 
+h3 span {
+  display: block;
+}
+
 .AboutContainer {
-  top: 150vh;
+  top: 145vh;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -49,6 +45,7 @@ h3 span::before {
   text-align: center;
   box-sizing: border-box;
   border-radius: 2.5px;
+
   height: 85vh;
   width: 85vw;
   backdrop-filter: blur(20px);

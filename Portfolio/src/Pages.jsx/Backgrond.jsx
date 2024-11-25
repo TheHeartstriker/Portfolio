@@ -77,7 +77,7 @@ function Background() {
 
     const newPoints = validPoints.map((point) => {
       let direction = Math.random() * 4;
-
+      //Pick a random direction
       if (direction < 1) {
         point.x2 = point.x1 - point.TurnDistance;
         point.y2 = point.y1;
@@ -113,7 +113,7 @@ function Background() {
 
     setValidPoints(newPoints);
   }
-
+  //Helper function to draw lines
   function DrawLine(x1, y1, x2, y2, lineWidth) {
     if (!ctx) return;
     ctx.beginPath();
