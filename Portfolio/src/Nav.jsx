@@ -15,7 +15,7 @@ function Nav() {
         // Pushes each element slightly down
         span.style.top = `${currentTop + i + 1}px`;
         // Random delay
-        let ranDelay = Math.random() * 0.25;
+        let ranDelay = Math.random() * 0.35;
         span.style.transitionDelay = ranDelay + "s";
       }
     }
