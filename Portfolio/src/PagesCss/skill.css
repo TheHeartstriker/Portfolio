@@ -1,6 +1,7 @@
 :root {
   --back-round-grey: rgb(46, 46, 46);
   --neon-blue: rgb(0, 204, 255);
+  --neon-blue-a: rgba(0, 204, 255, 0.5);
 }
 /* Maind container that holds all the elements of the skills page */
 .MainSkillContainer {
@@ -8,7 +9,6 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100%;
   flex-direction: column;
 }
@@ -69,8 +69,8 @@
   border: 50px solid var(--neon-blue);
   border-radius: 2.5px;
   z-index: 0;
-  box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue),
-    0 0 30px var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-blue-a), 0 0 40px var(--neon-blue-a),
+    0 0 60px var(--neon-blue-a);
 }
 /* The offset and the iamges themselfs */
 .Project1 {
@@ -157,7 +157,7 @@
   height: 0;
   bottom: 100%;
 }
-
+/* Text border */
 .ProjectText::after,
 .ProjectText::before {
   content: "";

@@ -20,8 +20,8 @@ function Skill() {
           <div className="ProjectText Project1Text">
             <h4>
               A front end project that uses React, HTML canvas and complex logic
-              to create interactive and controlable dynamic animations. It
-              includes wether animations, falling sand simulations, Gravity
+              to create interactive and controllable dynamic animations. It
+              includes weather animations, falling sand simulations, Gravity
               simulations and more. Deployed using azure.
             </h4>
             <a
@@ -76,7 +76,7 @@ function Skill() {
               A full stack project that uses React, Node.js, express and mysql.
               Gives the user and overview of their fitness progress tracking
               total calories burned, time, zones, heartrate along with other
-              metrics. It also includes the abilty to share data with others
+              metrics. It also includes the ability to share data with others
               also using or visiting the application. Deployed using an ec2
               instance through AWS cloud using Caddy.
             </h4>

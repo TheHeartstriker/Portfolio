@@ -2,17 +2,16 @@
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: rgb(0, 204, 255);
 }
-
+/* Container for the entire page */
 .MainAboutContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   height: 150vh;
-  width: 100vw;
   flex-direction: column;
 }
-
+/* Container for the glowing text element */
 .IAmContainer {
   display: flex;
   justify-content: center;
@@ -42,7 +41,7 @@ h3 span::before {
 h3 span {
   display: block;
 }
-
+/* Text container */
 .AboutContainer {
   position: relative;
   top: 40%;
