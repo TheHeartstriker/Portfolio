@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 
 function About() {
+  function scrollDown() {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <>
       <div className="MainAboutContainer">
@@ -10,6 +17,7 @@ function About() {
             <span data-text=" Fullstack web developer!"></span>
           </h3>
         </div>
+        <button className="MoveDownBtn" onClick={scrollDown}></button>
         <div className="AboutContainer">
           <h1>Where I am at and where to see my work</h1>
           <p>
