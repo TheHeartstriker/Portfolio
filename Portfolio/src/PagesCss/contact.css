@@ -32,7 +32,7 @@
 }
 
 .ContactContainer h5 {
-  font-size: 25px;
+  font-size: 2em;
   animation: pulse 2s infinite;
   text-shadow: 0 0 10px hsla(244, 62%, 51%, 0.3),
     0 0 20px hsla(244, 62%, 51%, 0.3), 0 0 30px hsla(244, 62%, 51%, 0.3);
@@ -55,5 +55,11 @@
   }
   100% {
     color: var(--neon-blue);
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactHeader h5 {
+    font-size: 1em;
   }
 }
