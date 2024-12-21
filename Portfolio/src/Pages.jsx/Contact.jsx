@@ -15,7 +15,7 @@ function Contact() {
           <h5>Github</h5>
         </a>
 
-        <h3>Linkin</h3>
+        <h3>LinkedIn</h3>
         <a
           href="https://www.linkedin.com/in/kaden-wildauer-155307337/"
           target="_blank"
