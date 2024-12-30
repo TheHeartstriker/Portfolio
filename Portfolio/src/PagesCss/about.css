@@ -49,18 +49,37 @@ h3 span {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid var(--neon-blue);
   flex-direction: column;
   text-align: center;
   box-sizing: border-box;
-  border-radius: 2.5px;
   margin-top: 70vh;
-  height: 85vh;
-  width: 85vw;
-  backdrop-filter: blur(20px);
+  height: 100%;
+  width: 100%;
 }
 
-.AboutContainer p {
+.AboutLegend,
+.AboutPersonal,
+.AboutStart {
+  padding: 20px;
+  margin: 20px;
+  width: 65vh;
+  height: 65vh;
+  border-radius: 50%; /* Ensure this is set to 50% */
+  background-color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word; /* Add this property */
+  overflow-wrap: break-word; /* Add this property */
+  font-size: 1.3rem;
+}
+
+/* .AboutContainer p {
   color: white;
   padding: 0 100px;
   font-size: 1.5rem;
@@ -84,7 +103,7 @@ h3 span {
   height: 5px;
   background: linear-gradient(to right, var(--neon-blue), silver);
   z-index: -1;
-}
+} */
 
 .MoveDownBtn {
   position: relative;
