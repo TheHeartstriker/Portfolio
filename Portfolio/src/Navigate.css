@@ -63,6 +63,31 @@ body {
   font-family: "Protest Guerrilla", sans-serif;
 }
 
+/* Cursor styles */
+.Cursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid var(--neon-blue);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 1s ease-in-out;
+}
+/* When the slow cursor is not near the mouse */
+.Cursor.shrink {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.Cursor.Change {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: violet;
+  box-shadow: none;
+  border: none;
+}
+
 /* Specific styles for each button */
 #AboutBtn {
   left: 0%;
