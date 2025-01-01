@@ -75,14 +75,13 @@ function Nav() {
   //Cursor
   //Cursor handlers
   const handleMouseOver = (e) => {
-    if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+    const computedStyle = window.getComputedStyle(e.target);
+    if (computedStyle.cursor === "pointer") {
       setClickable(true);
     }
   };
   const handleMouseOut = (e) => {
-    if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
-      setClickable(false);
-    }
+    setClickable(false);
   };
   const handleMouseMove = (e) => {
     mouseX.current = e.clientX;
@@ -132,6 +131,7 @@ function Nav() {
   }
 
   useEffect(() => {
+    console.log(Clickable);
     let clean = animateCursor(Clickable, 0.1);
     return clean;
   }, [Clickable]);

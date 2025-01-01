@@ -15,7 +15,6 @@ body {
   background: var(--Grey-Blue);
   filter: drop-shadow(0 0 10px var(--neon-blue))
     drop-shadow(0 0 30px var(--neon-blue));
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,13 +60,14 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Protest Guerrilla", sans-serif;
+  cursor: pointer;
 }
 
 /* Cursor styles */
 .Cursor {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 3px solid var(--neon-blue);
   z-index: 100;
