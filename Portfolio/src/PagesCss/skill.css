@@ -73,6 +73,7 @@
   z-index: 0;
   box-shadow: 0 0 20px var(--neon-blue-a), 0 0 40px var(--neon-blue-a),
     0 0 60px var(--neon-blue-a);
+  transition: 1.5s;
 }
 /* The offset and the iamges themselfs */
 .Project1 {
@@ -105,12 +106,11 @@
   position: absolute;
   color: white;
   background-color: var(--back-round-grey);
-  font-size: 1.1vw;
-
   width: 30vw;
   height: 40vh;
   padding: 50px;
   margin: 50px;
+  transition: 1.5s;
 }
 /* Specfic offset occording to their locations */
 .Project1Text {
@@ -179,6 +179,30 @@
 .ProjectText::before {
   filter: blur(1.5rem);
   opacity: 0.5;
+}
+
+.ProjectBase.Alter {
+  height: 45vh;
+  width: 45vw;
+}
+
+.ProjectText.Alter {
+  width: 40vw;
+  height: 60vh;
+  padding: 10px;
+  margin: 25px;
+  /* To change the botton layout */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ProjectBase pre {
+  flex-direction: row;
+  width: 100%;
+  white-space: pre-wrap;
+  font-size: 1.1vw;
+  font-family: "Protest Guerrilla", sans-serif;
 }
 
 @media (max-width: 768px) {

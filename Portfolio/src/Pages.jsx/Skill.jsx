@@ -1,6 +1,55 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+//Text
+import { DynamicAniGitText, BasicDynamicText } from "./Text.js";
+import { BasicToDoAppText, ToDoAppGitText } from "./Text.js";
+import { BasicFitnessAppText, FitnessAppGitText } from "./Text.js";
 
 function Skill() {
+  const Text1Parent = useRef(null);
+  const Text1Container = useRef(null);
+  const [Text1, setText1] = useState(BasicDynamicText);
+
+  const Text2Parent = useRef(null);
+  const Text2Container = useRef(null);
+  const [Text2, setText2] = useState(BasicToDoAppText);
+
+  const Text3Parent = useRef(null);
+  const Text3Container = useRef(null);
+  const [Text3, setText3] = useState(BasicFitnessAppText);
+
+  function TextOne() {
+    if (Text1 === DynamicAniGitText) {
+      setText1(BasicDynamicText);
+    } else {
+      setText1(DynamicAniGitText);
+    }
+  }
+
+  function TextTwo() {
+    if (Text2 === ToDoAppGitText) {
+      setText2(BasicToDoAppText);
+    } else {
+      setText2(ToDoAppGitText);
+    }
+  }
+
+  function TextThree() {
+    if (Text3 === FitnessAppGitText) {
+      setText3(BasicFitnessAppText);
+    } else {
+      setText3(FitnessAppGitText);
+    }
+  }
+
+  function buttonOnclick(num) {
+    const textParent =
+      num === 1 ? Text1Parent : num === 2 ? Text2Parent : Text3Parent;
+    const textContainer =
+      num === 1 ? Text1Container : num === 2 ? Text2Container : Text3Container;
+    textParent.current.classList.toggle("Alter");
+    textContainer.current.classList.toggle("Alter");
+  }
+
   return (
     <>
       <div className="MainSkillContainer">
@@ -15,15 +64,18 @@ function Skill() {
           </h2>
         </div>
 
-        <div className="ProjectBase Project1">
+        <div className="ProjectBase Project1" ref={Text1Parent}>
           <h2>Dynamic animations</h2>
-          <div className="ProjectText Project1Text">
-            <h4>
-              A front end project that uses React, HTML canvas and complex logic
-              to create interactive and controllable dynamic animations. It
-              includes weather animations, falling sand simulations, Gravity
-              simulations and more. Deployed using azure.
-            </h4>
+          <div className="ProjectText Project1Text" ref={Text1Container}>
+            <pre>{Text1}</pre>
+            <button
+              className="Expandbtn"
+              onClick={() => {
+                buttonOnclick(1), TextOne();
+              }}
+            >
+              Expand
+            </button>
             <a
               href="https://www.dynamicanimations.com/"
               target="_blank"
@@ -41,17 +93,19 @@ function Skill() {
           </div>
         </div>
         {/* Second Project */}
-        <div className="ProjectBase Project2">
+        <div className="ProjectBase Project2" ref={Text2Parent}>
           <h2>ToDo App</h2>
-          <div className="ProjectText Project2Text">
-            <h4>
-              This is a front and backend project that uses React, Node.js,
-              express and mysql to create a full stack ToDo app. It includes
-              user authentication, and the ability to create, edit, and delete
-              tasks. Along with storing them in folders does not require login
-              to be used. Deployed using an ec2 instance through AWS cloud using
-              Caddy.
-            </h4>
+          <div className="ProjectText Project2Text" ref={Text2Container}>
+            <pre>{Text2}</pre>
+            <button
+              className="Expandbtn"
+              onClick={() => {
+                TextTwo();
+                buttonOnclick(2);
+              }}
+            >
+              Expand
+            </button>
             <a
               href="https://www.genesistodo.com"
               target="_blank"
@@ -69,17 +123,19 @@ function Skill() {
           </div>
         </div>
         {/* Third Project */}
-        <div className="ProjectBase Project3">
+        <div className="ProjectBase Project3" ref={Text3Parent}>
           <h2>Fitness tracker</h2>
-          <div className="ProjectText Project3Text">
-            <h4>
-              A full stack project that uses React, Node.js, express and mysql.
-              Gives the user and overview of their fitness progress tracking
-              total calories burned, time, zones, heartrate along with other
-              metrics. It also includes the ability to share data with others
-              also using or visiting the application. Deployed using an ec2
-              instance through AWS cloud using Caddy.
-            </h4>
+          <div className="ProjectText Project3Text" ref={Text3Container}>
+            <pre>{Text3}</pre>
+            <button
+              className="Expandbtn"
+              onClick={() => {
+                TextThree();
+                buttonOnclick(3);
+              }}
+            >
+              Expand
+            </button>
             <a
               href="https://www.fgraphs.com"
               target="_blank"
