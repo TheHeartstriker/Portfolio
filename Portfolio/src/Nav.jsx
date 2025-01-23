@@ -132,7 +132,7 @@ function Nav() {
 
   useEffect(() => {
     console.log(Clickable);
-    let clean = animateCursor(Clickable, 0.1);
+    let clean = animateCursor(Clickable, 0.2);
     return clean;
   }, [Clickable]);
 

@@ -201,7 +201,11 @@
   flex-direction: row;
   width: 100%;
   white-space: pre-wrap;
-  font-size: 1.1vw;
+  font-family: "Protest Guerrilla", sans-serif;
+}
+
+.ProjectBase h4 {
+  font-size: 1rem;
   font-family: "Protest Guerrilla", sans-serif;
 }
 

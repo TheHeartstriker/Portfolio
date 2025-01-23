@@ -16,31 +16,43 @@ function Skill() {
   const Text3Parent = useRef(null);
   const Text3Container = useRef(null);
   const [Text3, setText3] = useState(BasicFitnessAppText);
+  //Switches the text on click
+  function SwitcherOne(num) {
+    const setTextFunctions = [setText1, setText2, setText3];
+    const Text = [Text1, Text2, Text3];
+    const ToCompareGit = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
+    const ToReturnBasic = [
+      BasicDynamicText,
+      BasicToDoAppText,
+      BasicFitnessAppText,
+    ];
 
-  function TextOne() {
-    if (Text1 === DynamicAniGitText) {
-      setText1(BasicDynamicText);
+    if (Text[num] === ToCompareGit[num]) {
+      setTextFunctions[num](ToReturnBasic[num]);
     } else {
-      setText1(DynamicAniGitText);
+      setTextFunctions[num](ToCompareGit[num]);
+    }
+  }
+  //If we pass in basic text we get a h4
+  function TextHandler(num, TextToCompare) {
+    const Text = [Text1, Text2, Text3];
+    const Pretext = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
+    if (Pretext[num] === TextToCompare) {
+      return <pre>{Text[num]}</pre>;
+    } else {
+      return <h4>{Text[num]}</h4>;
     }
   }
 
-  function TextTwo() {
-    if (Text2 === ToDoAppGitText) {
-      setText2(BasicToDoAppText);
+  function TextFontSize(len) {
+    if (len < 400) {
+      return "1.5em";
+    } else if (len < 1000) {
+      return "1.3em";
     } else {
-      setText2(ToDoAppGitText);
+      return "1.1em";
     }
   }
-
-  function TextThree() {
-    if (Text3 === FitnessAppGitText) {
-      setText3(BasicFitnessAppText);
-    } else {
-      setText3(FitnessAppGitText);
-    }
-  }
-
   function buttonOnclick(num) {
     const textParent =
       num === 1 ? Text1Parent : num === 2 ? Text2Parent : Text3Parent;
@@ -67,11 +79,11 @@ function Skill() {
         <div className="ProjectBase Project1" ref={Text1Parent}>
           <h2>Dynamic animations</h2>
           <div className="ProjectText Project1Text" ref={Text1Container}>
-            <pre>{Text1}</pre>
+            {TextHandler(0, Text1)}
             <button
               className="Expandbtn"
               onClick={() => {
-                buttonOnclick(1), TextOne();
+                buttonOnclick(1), SwitcherOne(0);
               }}
             >
               Expand
@@ -96,11 +108,12 @@ function Skill() {
         <div className="ProjectBase Project2" ref={Text2Parent}>
           <h2>ToDo App</h2>
           <div className="ProjectText Project2Text" ref={Text2Container}>
-            <pre>{Text2}</pre>
+            {TextHandler(1, Text2)}
+            {/* <pre style={{ fontSize: TextFontSize(Text2.length) }}>{Text2}</pre> */}
             <button
               className="Expandbtn"
               onClick={() => {
-                TextTwo();
+                SwitcherOne(1);
                 buttonOnclick(2);
               }}
             >
@@ -126,11 +139,12 @@ function Skill() {
         <div className="ProjectBase Project3" ref={Text3Parent}>
           <h2>Fitness tracker</h2>
           <div className="ProjectText Project3Text" ref={Text3Container}>
-            <pre>{Text3}</pre>
+            {TextHandler(2, Text3)}
+            {/* <pre style={{ fontSize: TextFontSize(Text3.length) }}>{Text3}</pre> */}
             <button
               className="Expandbtn"
               onClick={() => {
-                TextThree();
+                SwitcherOne(2);
                 buttonOnclick(3);
               }}
             >
