@@ -180,7 +180,7 @@
   filter: blur(1.5rem);
   opacity: 0.5;
 }
-
+/* Container alter values */
 .ProjectBase.Alter {
   height: 45vh;
   width: 45vw;
@@ -191,21 +191,45 @@
   height: 60vh;
   padding: 10px;
   margin: 25px;
-  /* To change the botton layout */
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
+.Expandbtn {
+  background-color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+  border-radius: 2px;
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  height: 1vw;
+  width: 7.5vw;
+  cursor: pointer;
+  transition: 1s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Expandbtn.Alter {
+  height: 2vh;
+  width: 7.5vh;
+  transform: rotate(90deg);
+}
+
+/* Text styles  */
 .ProjectBase pre {
   flex-direction: row;
   width: 100%;
   white-space: pre-wrap;
   font-family: "Protest Guerrilla", sans-serif;
+  text-align: left;
 }
-
 .ProjectBase h4 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: "Protest Guerrilla", sans-serif;
 }
 
@@ -221,7 +245,7 @@
   .ProjectText {
     font-size: 0.6rem;
   }
-  .ProjectText h3 {
-    font-size: 3rem;
+  .ProjectText h4 {
+    font-size: 0.6rem;
   }
 }

@@ -16,6 +16,10 @@ function Skill() {
   const Text3Parent = useRef(null);
   const Text3Container = useRef(null);
   const [Text3, setText3] = useState(BasicFitnessAppText);
+  //Button
+  const Expand1 = useRef(null);
+  const Expand2 = useRef(null);
+  const Expand3 = useRef(null);
   //Switches the text on click
   function SwitcherOne(num) {
     const setTextFunctions = [setText1, setText2, setText3];
@@ -38,19 +42,23 @@ function Skill() {
     const Text = [Text1, Text2, Text3];
     const Pretext = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
     if (Pretext[num] === TextToCompare) {
-      return <pre>{Text[num]}</pre>;
+      return (
+        <pre style={{ fontSize: TextFontSize(Text[num].length) }}>
+          {Text[num]}
+        </pre>
+      );
     } else {
       return <h4>{Text[num]}</h4>;
     }
   }
 
   function TextFontSize(len) {
-    if (len < 400) {
-      return "1.5em";
-    } else if (len < 1000) {
+    if (len < 700) {
       return "1.3em";
+    } else if (len < 1000) {
+      return "1.2em";
     } else {
-      return "1.1em";
+      return "1em";
     }
   }
   function buttonOnclick(num) {
@@ -58,8 +66,10 @@ function Skill() {
       num === 1 ? Text1Parent : num === 2 ? Text2Parent : Text3Parent;
     const textContainer =
       num === 1 ? Text1Container : num === 2 ? Text2Container : Text3Container;
+    const Expand = num === 1 ? Expand1 : num === 2 ? Expand2 : Expand3;
     textParent.current.classList.toggle("Alter");
     textContainer.current.classList.toggle("Alter");
+    Expand.current.classList.toggle("Alter");
   }
 
   return (
@@ -72,7 +82,8 @@ function Skill() {
           {/* Make bigger */}
           <h2>
             HTML, CSS, Javascript, Node.js, React.js, Express, Mysql, Python,
-            JWT, CI/CD, RESTful API, C++, Caddy, Azure, Aws, Figma, Git
+            JWT, CI/CD, RESTful API, C++, Caddy, Azure, Aws, Figma, Git,
+            Typescript
           </h2>
         </div>
 
@@ -85,6 +96,7 @@ function Skill() {
               onClick={() => {
                 buttonOnclick(1), SwitcherOne(0);
               }}
+              ref={Expand1}
             >
               Expand
             </button>
@@ -109,13 +121,13 @@ function Skill() {
           <h2>ToDo App</h2>
           <div className="ProjectText Project2Text" ref={Text2Container}>
             {TextHandler(1, Text2)}
-            {/* <pre style={{ fontSize: TextFontSize(Text2.length) }}>{Text2}</pre> */}
             <button
               className="Expandbtn"
               onClick={() => {
                 SwitcherOne(1);
                 buttonOnclick(2);
               }}
+              ref={Expand2}
             >
               Expand
             </button>
@@ -140,13 +152,13 @@ function Skill() {
           <h2>Fitness tracker</h2>
           <div className="ProjectText Project3Text" ref={Text3Container}>
             {TextHandler(2, Text3)}
-            {/* <pre style={{ fontSize: TextFontSize(Text3.length) }}>{Text3}</pre> */}
             <button
               className="Expandbtn"
               onClick={() => {
                 SwitcherOne(2);
                 buttonOnclick(3);
               }}
+              ref={Expand3}
             >
               Expand
             </button>
