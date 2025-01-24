@@ -50,10 +50,11 @@
   margin: 50px auto;
   width: 80vw;
   padding: 25px;
-  border-radius: 2.5px;
+  border-radius: 50px;
   background: var(--back-round-grey);
   border: 5px solid var(--neon-blue);
 }
+
 /* The box the containers the image */
 .ProjectBase {
   display: flex;
@@ -73,6 +74,7 @@
   z-index: 0;
   box-shadow: 0 0 20px var(--neon-blue-a), 0 0 40px var(--neon-blue-a),
     0 0 60px var(--neon-blue-a);
+  transition: 1.5s;
 }
 /* The offset and the iamges themselfs */
 .Project1 {
@@ -105,12 +107,11 @@
   position: absolute;
   color: white;
   background-color: var(--back-round-grey);
-  font-size: 1.1vw;
-
   width: 30vw;
   height: 40vh;
   padding: 50px;
   margin: 50px;
+  transition: 1.5s;
 }
 /* Specfic offset occording to their locations */
 .Project1Text {
@@ -180,6 +181,58 @@
   filter: blur(1.5rem);
   opacity: 0.5;
 }
+/* Container alter values */
+.ProjectBase.Alter {
+  height: 45vh;
+  width: 45vw;
+}
+
+.ProjectText.Alter {
+  width: 40vw;
+  height: 60vh;
+  padding: 10px;
+  margin: 25px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/* Expand button for the text */
+.Expandbtn {
+  background-color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+  border-radius: 2px;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  height: 1vw;
+  width: 7.5vw;
+  cursor: pointer;
+  transition: 1s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Expandbtn.Alter {
+  height: 2vh;
+  width: 7.5vh;
+  transform: rotate(90deg);
+}
+
+/* Text styles  */
+.ProjectBase pre {
+  flex-direction: row;
+  width: 100%;
+  white-space: pre-wrap;
+  font-family: "Protest Guerrilla", sans-serif;
+  text-align: left;
+}
+.ProjectBase h4 {
+  font-size: 1.1rem;
+  font-family: "Protest Guerrilla", sans-serif;
+}
 
 @media (max-width: 768px) {
   .ProjectBase {
@@ -193,7 +246,7 @@
   .ProjectText {
     font-size: 0.6rem;
   }
-  .ProjectText h3 {
-    font-size: 3rem;
+  .ProjectText h4 {
+    font-size: 0.6rem;
   }
 }

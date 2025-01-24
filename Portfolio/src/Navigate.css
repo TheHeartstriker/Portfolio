@@ -15,7 +15,6 @@ body {
   background: var(--Grey-Blue);
   filter: drop-shadow(0 0 10px var(--neon-blue))
     drop-shadow(0 0 30px var(--neon-blue));
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,6 +60,32 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Protest Guerrilla", sans-serif;
+  cursor: pointer;
+}
+
+/* Cursor styles */
+.Cursor {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid violet;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 1s ease-in-out;
+}
+/* When the slow cursor is not near the mouse */
+.Cursor.shrink {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.Cursor.Change {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: violet;
+  box-shadow: none;
+  border: none;
 }
 
 /* Specific styles for each button */
