@@ -54,6 +54,7 @@
   background: var(--back-round-grey);
   border: 5px solid var(--neon-blue);
 }
+
 /* The box the containers the image */
 .ProjectBase {
   display: flex;
