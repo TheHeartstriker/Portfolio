@@ -31,7 +31,10 @@ function Background() {
     };
   }, []);
   const [validPoints, setValidPoints] = useState([]);
+  // Adds the valid point locations to the canvas
   function AddValid() {
+    let RefWidth = window.innerWidth / 200;
+    console.log(RefWidth);
     setValidPoints([
       // From the left side
       {
@@ -39,8 +42,8 @@ function Background() {
         y1: Math.random() * window.innerHeight,
         x2: Math.random() * window.innerWidth,
         y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 80,
-        lineWidth: Math.random() * 5,
+        TurnDistance: 20 + Math.random() * 60,
+        lineWidth: Math.random() * RefWidth,
       },
       // From the right side
       {
@@ -48,8 +51,8 @@ function Background() {
         y1: Math.random() * window.innerHeight,
         x2: Math.random() * window.innerWidth,
         y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 80,
-        lineWidth: Math.random() * 5,
+        TurnDistance: 20 + Math.random() * 60,
+        lineWidth: Math.random() * RefWidth,
       },
       // From the top side
       {
@@ -57,8 +60,8 @@ function Background() {
         y1: 0,
         x2: Math.random() * window.innerWidth,
         y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 80,
-        lineWidth: Math.random() * 5,
+        TurnDistance: 20 + Math.random() * 60,
+        lineWidth: Math.random() * RefWidth,
       },
       // From the bottom side
       {
@@ -66,12 +69,12 @@ function Background() {
         y1: window.innerHeight,
         x2: Math.random() * window.innerWidth,
         y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 80,
-        lineWidth: Math.random() * 5,
+        TurnDistance: 20 + Math.random() * 60,
+        lineWidth: Math.random() * RefWidth,
       },
     ]);
   }
-
+  //Main function to draw the pattern
   function DrawPattern() {
     if (!ctx) return;
 
@@ -91,7 +94,7 @@ function Background() {
         point.x2 = point.x1;
         point.y2 = point.y1 + point.TurnDistance;
       }
-
+      //Check if the point is within the canvas
       if (
         point.x1 >= 0 &&
         point.x1 <= window.innerWidth &&
@@ -137,7 +140,7 @@ function Background() {
   useEffect(() => {
     const interval = setInterval(() => {
       DrawPattern();
-    }, 100); // Adjust the interval as needed
+    }, 150); // Adjust the interval as needed
     return () => clearInterval(interval);
   }, [validPoints, ctx]);
 

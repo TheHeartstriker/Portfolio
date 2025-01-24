@@ -196,7 +196,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
+/* Expand button for the text */
 .Expandbtn {
   background-color: var(--neon-blue);
   border: 1px solid var(--neon-blue);
@@ -229,7 +229,7 @@
   text-align: left;
 }
 .ProjectBase h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: "Protest Guerrilla", sans-serif;
 }
 

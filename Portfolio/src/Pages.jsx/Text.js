@@ -63,7 +63,7 @@ I find it nice to zoom out a bit and look at the total effort you have put in th
 A zoomed out look at what you or others with the share feature have done in a period of time.
 
 Technologies Used:
-React, Node.js, Express, Mysql, JWT, Caddy, AWS, Typescript, Figma, D3.js
+React, Node.js, Express, Mysql, JWT, Caddy, AWS, Figma, D3.js
 
 Reasoning:
 I like fitness and I noticed that there was a lot of fitness trackers and the like.
