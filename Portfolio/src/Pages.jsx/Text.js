@@ -10,7 +10,7 @@ Dynamic Animations
 Description and usage:
 This is a canvas and react project leveraging a heavy use of logic to create dynamic
 and in some cases interactable animations.
-The main goal is for someone to have fun messing around with the project and its respective animations (:
+The main goal is for someone to have fun messing around with the project and its respective simulations (:
 In the case that a monitor is not being used it can be a great thing to just leave running on the side.
 
 Technologies Used:
@@ -56,20 +56,19 @@ instance through AWS cloud using Caddy.`;
 
 export const FitnessAppGitText = `
 Description:
-This app tracks a few simple metrics time, effort, weight and heartrate. It was meant to give a look at the overall progress without wasting your time.
+This app tracks a few simple metrics time, effort, weight and heartrate. It was meant to give a look at your overall fitness progress without wasting your time.
 It tracks things like how much time you have spent in specific zones overall over a period of time and how many calories have you burned in that time.
-Average heart rate average weight etcetera. 
+Average heart rate, average weight etcetera. 
 I find it nice to zoom out a bit and look at the total effort you have put in that's mainly what this app is.
 A zoomed out look at what you or others with the share feature have done in a period of time.
 
 Technologies Used:
-React, Node.js, Express, Mysql, JWT, Caddy, AWS, Figma, D3.js
+React, Node.js, Express, Mysql, JWT, Caddy, AWS, Figma, D3.js, Javascript
 
 Reasoning:
 I like fitness and I noticed that there was a lot of fitness trackers and the like.
 They do things along the line of tracking sets and or diet and while that's great on the surface I found that tracking sets can be easily tracked in notepad along with a diet.
 I don't know if others ever felt the same but it kind of felt like a waste of time.
-Further more diet trackers are hard to use because doing it in a closed of ecosystem in the form of an app loses its purpose of tracking everything precisely.
-So I wanted to make something that I would actually use and benefit from and maybe others would to. It was also a great way to test my skills in a full stack project in a environment
-with less constraints with many possible features to add an incorporate.
+Further more diet trackers are hard to use. And they often include closed of ecosystem's in the form of an app, deit's, exercises it loses its purpose of tracking everything precisely.
+So I wanted to make something that I would actually use and benefit from and maybe others would to. It was also a great way to test my skills in a more complex project.
 `;

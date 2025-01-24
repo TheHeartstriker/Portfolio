@@ -92,9 +92,9 @@ function Skill() {
     } else {
       //Width
       if (Width < 1600) {
-        return "0.8em";
-      } else {
         return "0.9em";
+      } else {
+        return "1em";
       }
     }
   }
@@ -157,11 +157,11 @@ function Skill() {
           {/* Make bigger */}
           <h2>
             HTML, CSS, Javascript, Node.js, React.js, Express, Mysql, Python,
-            JWT, CI/CD, RESTful API, C++, Caddy, Azure, Aws, Figma, Git,
+            JWT, CI/CD, RESTful API's, C++, Azure, Aws, Figma, Web Assembly,
             Typescript
           </h2>
         </div>
-        {/* First project no functions because it messes with the alter states*/}
+        {/* First project no functions yet it messes with the states*/}
         <div className="ProjectBase Project1" ref={Text1Parent}>
           <h2>Dynamic Animations</h2>
           <div className="ProjectText Project1Text" ref={Text1Container}>
