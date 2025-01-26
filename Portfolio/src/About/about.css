@@ -44,7 +44,7 @@ h3 span {
   display: block;
 }
 /* Text container */
-.AboutContainer {
+/* .AboutContainer {
   position: relative;
   top: 20%;
   display: flex;
@@ -56,7 +56,7 @@ h3 span {
   margin-top: 70vh;
   height: 100%;
   width: 100%;
-}
+} */
 
 .AboutLegend,
 .AboutPersonal,
@@ -84,8 +84,8 @@ h3 span {
 }
 
 .AboutLegend {
-  right: 20vw;
   transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .AboutPersonal {

@@ -12,11 +12,21 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
   //Keeps track of the mouse position
   function MouseTracker(e) {
     const newMousePosition = { x: e.clientX, y: e.clientY };
+    // Ball1Ref.current.style.left = newMousePosition.x + "px";
+    // Ball1Ref.current.style.top = newMousePosition.y + "px";
     setMouse(newMousePosition);
+    console.log(Mouse, "Mouse");
+    console.log(Ball1, "Ball1");
+    console.log(
+      Ball1Ref.current.style.left,
+      Ball1Ref.current.style.top,
+      "Left and Top"
+    );
   }
   function MouseDown(Down) {
     setMouseDownBool(Down);
   }
+  useEffect(() => {}, [MouseDownBool]);
   //Keeps track of the clicked ball
   function Which() {
     let ball = WhichBall();
@@ -66,33 +76,17 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
     }
   }
   function MoveBall(ball) {
-    let diffX = Mouse.x;
-    let diffY = Mouse.y;
     if (ball === 1) {
-      const ballWidth = Ball1Ref.current.offsetWidth;
-      const ballHeight = Ball1Ref.current.offsetHeight;
-      Ball1Ref.current.style.left = diffX - ballWidth / 2 + "px";
-      Ball1Ref.current.style.top = diffY - ballHeight / 2 + "px";
-    } else if (ball === 2) {
-      const ballWidth = Ball2Ref.current.offsetWidth;
-      const ballHeight = Ball2Ref.current.offsetHeight;
-      Ball2Ref.current.style.left = diffX - ballWidth / 2 + "px";
-      Ball2Ref.current.style.top = diffY - ballHeight / 2 + "px";
-    } else if (ball === 3) {
-      const ballWidth = Ball3Ref.current.offsetWidth;
-      const ballHeight = Ball3Ref.current.offsetHeight;
-      Ball3Ref.current.style.left = diffX - ballWidth / 2 + "px";
-      Ball3Ref.current.style.top = diffY - ballHeight / 2 + "px";
-    } else {
-      return;
+      Ball1Ref.current.style.left = Mouse.x + "px";
+      Ball1Ref.current.style.top = Mouse.y + "px";
     }
-    console.log(
-      Ball1Ref.current.style.left,
-      Ball1Ref.current.style.top,
-      "Left and Top"
-    );
-    console.log(Ball1, "Our saved x and y");
-    console.log(Mouse, "Mouse");
+    // console.log(
+    //   Ball1Ref.current.style.left,
+    //   Ball1Ref.current.style.top,
+    //   "Left and Top"
+    // );
+    // console.log(Ball1, "Our saved x and y");
+    // console.log(Mouse, "Mouse");
   }
 
   useEffect(() => {
