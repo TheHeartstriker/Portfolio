@@ -1,6 +1,7 @@
 :root {
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: rgb(0, 204, 255);
+  --circle-radius: 32.5vh;
 }
 /* Container for the entire page */
 .MainAboutContainer {
@@ -62,6 +63,7 @@ h3 span {
 .AboutStart {
   position: relative;
   padding: 30px;
+  /* The radius needs to be exported keep to vh*/
   width: 65vh;
   height: 65vh;
   border-radius: 50%;
@@ -78,10 +80,12 @@ h3 span {
   font-size: 1.3rem;
   background-clip: padding-box;
   background: rgba(0, 0, 0, 0.5);
+  cursor: grab;
 }
 
 .AboutLegend {
   right: 20vw;
+  transform: translate(-50%, -50%);
 }
 
 .AboutPersonal {

@@ -1,6 +1,11 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
+import Playground from "./Playground";
 
 function About() {
+  const Ball1 = useRef(null);
+  const Ball2 = useRef(null);
+  const Ball3 = useRef(null);
+
   function scrollDown() {
     window.scrollTo({
       top: window.innerHeight,
@@ -11,6 +16,7 @@ function About() {
   return (
     <>
       <div className="MainAboutContainer">
+        <Playground Ball1Ref={Ball1} Ball2Ref={Ball2} Ball3Ref={Ball3} />
         <div className="IAmContainer">
           <h3>
             Hello my name is kaden and I am a
@@ -19,7 +25,7 @@ function About() {
         </div>
         <button className="MoveDownBtn" onClick={scrollDown}></button>
         <div className="AboutContainer">
-          <div className="AboutLegend">
+          <div className="AboutLegend" ref={Ball1}>
             <h1>Where I am at and where to see my work</h1>
             <p>
               You can find my current work and projects on my GitHub which is
@@ -30,7 +36,7 @@ function About() {
               surprise! I am among other things taking the cs50 course for fun.
             </p>
           </div>
-          <div className="AboutPersonal">
+          <div className="AboutPersonal" ref={Ball2}>
             <h1>Who am I</h1>
             <p>
               Hello my name is kaden wildauer and I am a web developer,
@@ -41,7 +47,7 @@ function About() {
               average at best in all but programming and fitness.
             </p>
           </div>
-          <div className="AboutStart">
+          <div className="AboutStart" ref={Ball3}>
             <h1>How it started</h1>
             <p>
               I have always been interested in computers and technology I got
