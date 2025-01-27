@@ -44,19 +44,6 @@ h3 span {
   display: block;
 }
 /* Text container */
-/* .AboutContainer {
-  position: relative;
-  top: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  box-sizing: border-box;
-  margin-top: 70vh;
-  height: 100%;
-  width: 100%;
-} */
 
 .AboutLegend,
 .AboutPersonal,
@@ -86,16 +73,22 @@ h3 span {
 .AboutLegend {
   transform: translate(-50%, -50%);
   position: absolute;
+  left: 30vw;
+  top: 140vh;
 }
 
 .AboutPersonal {
-  left: 20vw;
-  bottom: 10vw;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 190vh;
+  left: 70vw;
 }
 
 .AboutStart {
-  right: 20vw;
-  bottom: 20vw;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 30vw;
+  top: 240vh;
 }
 
 .MoveDownBtn {
