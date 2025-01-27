@@ -8,7 +8,6 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
   const [Ball2, setBall2] = useState({ x: 0, y: 0 });
   const [Ball3, setBall3] = useState({ x: 0, y: 0 });
   const [MouseDownBool, setMouseDownBool] = useState(false);
-
   const [circleRadius, setCircleRadius] = useState(0);
 
   //Keeps track of the mouse position
@@ -18,12 +17,6 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
   }
   function MouseDown(Down) {
     setMouseDownBool(Down);
-    if (Down) {
-      Offset.current = {
-        x: Mouse.x - Ball1.x,
-        y: Mouse.y - Ball1.y,
-      };
-    }
   }
   //Keeps track of the clicked ball
   function Which() {
@@ -74,30 +67,36 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
     }
   }
   function MoveBall(ball) {
+    console.log(Offset.current);
     if (ball === 1) {
       Ball1Ref.current.style.left = Mouse.x - Offset.current.x + "px";
       Ball1Ref.current.style.top = Mouse.y - Offset.current.y + "px";
     } else if (ball === 2) {
-      Ball2Ref.current.style.left = Mouse.x + "px";
-      Ball2Ref.current.style.top = Mouse.y + "px";
+      Ball2Ref.current.style.left = Mouse.x - Offset.current.x + "px";
+      Ball2Ref.current.style.top = Mouse.y - Offset.current.y + "px";
     } else if (ball === 3) {
-      Ball3Ref.current.style.left = Mouse.x + "px";
-      Ball3Ref.current.style.top = Mouse.y + "px";
+      Ball3Ref.current.style.left = Mouse.x - Offset.current.x + "px";
+      Ball3Ref.current.style.top = Mouse.y - Offset.current.y + "px";
     } else {
       return;
     }
   }
 
   useEffect(() => {
+    const handleMouseDown = () => MouseDown(true);
+    const handleMouseUp = () => MouseDown(false);
+
     document.addEventListener("mousemove", MouseTracker);
-    document.addEventListener("mousedown", () => MouseDown(true));
-    document.addEventListener("mouseup", () => MouseDown(false));
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
+
     return () => {
-      document.removeEventListener("mousemove", () => MouseTracker);
-      document.removeEventListener("mousedown", () => MouseDown(true));
-      document.removeEventListener("mouseup", () => MouseDown(false));
+      document.removeEventListener("mousemove", MouseTracker);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [Mouse]);
+  }, []);
+
   //Set the circle radius
   useEffect(() => {
     const rootStyles = getComputedStyle(document.documentElement);
@@ -117,6 +116,21 @@ function Playground({ Ball1Ref, Ball2Ref, Ball3Ref }) {
       MoveBall(ball);
     }
   }, [MouseDownBool, Mouse]);
+
+  useEffect(() => {
+    if (MouseDownBool) {
+      let ball = Which();
+      if (ball === 0) {
+        return;
+      }
+      let Balls = [Ball1, Ball2, Ball3];
+      Offset.current = {
+        x: Mouse.x - Balls[ball - 1].x,
+        y: Mouse.y - Balls[ball - 1].y,
+      };
+    }
+  }, [MouseDownBool]);
+  return null;
 }
 
 export default Playground;
