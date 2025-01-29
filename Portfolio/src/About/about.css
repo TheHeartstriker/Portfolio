@@ -3,6 +3,14 @@
   --neon-blue: rgb(0, 204, 255);
   --circle-radius: 32.5vh;
 }
+
+.PlayGround {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
 /* Container for the entire page */
 .MainAboutContainer {
   display: flex;

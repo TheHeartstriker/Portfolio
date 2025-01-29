@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Playground from "./UserMove";
+import PlayGround from "./PlayGround";
 
 function About() {
   const Ball1 = useRef(null);
@@ -16,7 +16,7 @@ function About() {
   return (
     <>
       <div className="MainAboutContainer">
-        <Playground Ball1Ref={Ball1} Ball2Ref={Ball2} Ball3Ref={Ball3} />
+        <PlayGround />
         <div className="IAmContainer">
           <h3>
             Hello my name is kaden and I am a
