@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import PlayGround from "./PlayGround";
 
 function About() {
   const Ball1 = useRef(null);
@@ -16,7 +15,6 @@ function About() {
   return (
     <>
       <div className="MainAboutContainer">
-        <PlayGround />
         <div className="IAmContainer">
           <h3>
             Hello my name is kaden and I am a
@@ -24,7 +22,7 @@ function About() {
           </h3>
         </div>
         <button className="MoveDownBtn" onClick={scrollDown}></button>
-        <div className="AboutLegend" ref={Ball1}>
+        {/* <div className="AboutLegend" ref={Ball1}>
           <h1>Where I am at and where to see my work</h1>
           <p>
             You can find my current work and projects on my GitHub which is
@@ -56,7 +54,7 @@ function About() {
             endlessly entertaining to me. I find creation and improvement in the
             realm of computer science to be very fulfilling.
           </p>
-        </div>
+        </div> */}
       </div>
     </>
   );

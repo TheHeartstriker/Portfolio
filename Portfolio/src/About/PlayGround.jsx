@@ -1,4 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import {
+  Header1,
+  MainText1,
+  Header2,
+  MainText2,
+  Header3,
+  MainText3,
+} from "./Text.js";
 
 function PlayGround(Text1, Text2, Text3) {
   const Playground = useRef(null);
@@ -9,8 +17,8 @@ function PlayGround(Text1, Text2, Text3) {
     // Creates references to current canvases
     const backgroundCanvas = Playground.current;
     // Sets the default canvas sizes to the window size
-    backgroundCanvas.width = window.innerWidth;
-    backgroundCanvas.height = window.innerHeight;
+    backgroundCanvas.width = document.documentElement.scrollWidth;
+    backgroundCanvas.height = document.documentElement.scrollHeight;
     // Gets the context of the canvas
     const backgroundContext = backgroundCanvas.getContext("2d");
     // Sets the context to the state
@@ -18,8 +26,8 @@ function PlayGround(Text1, Text2, Text3) {
     // Function to resize the canvas
     const resizeCanvas = () => {
       // The resize
-      backgroundCanvas.width = window.innerWidth;
-      backgroundCanvas.height = window.innerHeight;
+      backgroundCanvas.width = document.documentElement.scrollWidth;
+      backgroundCanvas.height = document.documentElement.scrollHeight;
       // After resizing the canvas, we need to get the context again
       setCtx(backgroundCanvas.getContext("2d"));
       // Where the redrawing of the canvas happens
@@ -31,7 +39,7 @@ function PlayGround(Text1, Text2, Text3) {
     };
   }, []);
 
-  function DrawTextBlurb(Header, x, y) {
+  function DrawTextBlurb(Header, MainT, x, y) {
     if (ctx) {
       //Shape
       ctx.beginPath();
@@ -63,7 +71,7 @@ function PlayGround(Text1, Text2, Text3) {
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillStyle = "white";
-      TextBreaker(maint, x, y - 25, 20);
+      TextBreaker(MainT, x, y - 25, 20);
     }
   }
 
@@ -91,23 +99,18 @@ function PlayGround(Text1, Text2, Text3) {
     }
   }
 
-  const header = "Where I am at and where to see my work";
-  const maint = `You can find my current work and projects on my GitHub which is
-located in the contacts section and my live projects and known tech
-stacks in the skills section. Currently I am working on improving my
-current projects and skills. I also do graphics programming on the
-side I am sure you did not see the interest surprise! I am among
-other things taking the cs50 course for fun.`;
   useEffect(() => {
-    DrawTextBlurb(header, 300, 300);
+    DrawTextBlurb(Header1, MainText1, 300, 300);
+    DrawTextBlurb(Header2, MainText2, 300, 700);
+    DrawTextBlurb(Header3, MainText3, 300, 2000);
   }, [ctx]);
 
   return (
     <canvas
       ref={Playground}
       className="PlayGround"
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={document.documentElement.scrollWidth}
+      height={document.documentElement.scrollHeight}
     ></canvas>
   );
 }
