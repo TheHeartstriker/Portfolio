@@ -13,9 +13,11 @@ function PlayGround(Text1, Text2, Text3) {
   const [ctx, setCtx] = useState(null);
   const [ObjectData, setObjectData] = useState();
   const [OnMouseDown, setOnMouseDown] = useState(false);
-  const [Mouse, setMouse] = useState({ x: 0, y: 0 });
+  const Mouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
   const Which = useRef(null);
+  const Gravity = 9.8;
+  const Radius = 330;
 
   // Creates a canvas
   useEffect(() => {
@@ -48,7 +50,7 @@ function PlayGround(Text1, Text2, Text3) {
     if (ctx) {
       //Shape
       ctx.beginPath();
-      ctx.arc(x, y, 330, 0, Math.PI * 2);
+      ctx.arc(x, y, Radius, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
       ctx.fill();
       //Glow
@@ -125,12 +127,13 @@ function PlayGround(Text1, Text2, Text3) {
     ]);
   }
   function WhichOne() {
+    if (ObjectData == null) return;
     for (let i = 0; i < ObjectData.length; i++) {
       let distance = Math.sqrt(
-        Math.pow(Mouse.x - ObjectData[i].x, 2) +
-          Math.pow(Mouse.y - ObjectData[i].y, 2)
+        Math.pow(Mouse.current.x - ObjectData[i].x, 2) +
+          Math.pow(Mouse.current.y - ObjectData[i].y, 2)
       );
-      if (distance < 330) {
+      if (distance < Radius) {
         return i;
       }
     }
@@ -141,36 +144,75 @@ function PlayGround(Text1, Text2, Text3) {
   }
 
   function MouseTracker(e) {
-    setMouse({ x: e.pageX, y: e.pageY });
+    Mouse.current.x = e.pageX;
+    Mouse.current.y = e.pageY;
   }
 
   function OffsetSetter() {
     if (OnMouseDown) {
       if (Which.current != null) {
-        ObjectData[Which.current].x = Mouse.x - Offset.current.x;
-        ObjectData[Which.current].y = Mouse.y - Offset.current.y;
+        console.log(Which.current);
+        Offset.current.x = Mouse.current.x - ObjectData[Which.current].x;
+        Offset.current.y = Mouse.current.y - ObjectData[Which.current].y;
       }
     }
   }
 
   function Drag() {
-    if (OnMouseDown) {
-      ObjectData[Which.current].x = Mouse.x;
-      ObjectData[Which.current].y = Mouse.y;
+    if (Which.current != null) {
+      console.log(Which.current);
+      console.log(Mouse.current);
+      ObjectData[Which.current].x = Mouse.current.x - Offset.current.x;
+      ObjectData[Which.current].y = Mouse.current.y - Offset.current.y;
+    }
+  }
+
+  function Collision(data) {
+    //Window collision's
+    if (data.x < Radius) {
+      data.x = Radius;
+    }
+    if (data.x > document.documentElement.scrollWidth - Radius) {
+      data.x = document.documentElement.scrollWidth - Radius;
+    }
+    if (data.y < Radius) {
+      data.y = Radius;
+    }
+    if (data.y > document.documentElement.scrollHeight - Radius) {
+      data.y = document.documentElement.scrollHeight - Radius;
+    }
+    //Object collision's
+    for (let i = 0; i < ObjectData.length; i++) {
+      if (data === ObjectData[i]) continue;
+      let distance = Math.sqrt(
+        Math.pow(data.x - ObjectData[i].x, 2) +
+          Math.pow(data.y - ObjectData[i].y, 2)
+      );
+      if (distance < Radius * 2) {
+        let angle = Math.atan2(
+          data.y - ObjectData[i].y,
+          data.x - ObjectData[i].x
+        );
+        data.x = ObjectData[i].x + Math.cos(angle) * Radius * 2;
+        data.y = ObjectData[i].y + Math.sin(angle) * Radius * 2;
+      }
     }
   }
 
   function Main() {
     if (ctx && ObjectData) {
+      Drag();
       ctx.clearRect(
         0,
         0,
         document.documentElement.scrollHeight,
         document.documentElement.scrollHeight
       );
-      console.log(Which.current);
       const newData = ObjectData.map((data) => {
+        data.y += Gravity;
+        Collision(data);
         DrawTextBlurb(data.Header, data.MainText, data.x, data.y);
+        return data;
       });
       setObjectData(newData);
     }
@@ -200,13 +242,14 @@ function PlayGround(Text1, Text2, Text3) {
 
   useEffect(() => {
     Down();
-    console.log(Which.current);
   }, [OnMouseDown]);
 
   useEffect(() => {
     if (ctx == null) return;
     InitData();
-    Main();
+    if (ObjectData) {
+      Main();
+    }
   }, [ctx]);
 
   return (
