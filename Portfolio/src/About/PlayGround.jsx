@@ -11,6 +11,11 @@ import {
 function PlayGround(Text1, Text2, Text3) {
   const Playground = useRef(null);
   const [ctx, setCtx] = useState(null);
+  const [ObjectData, setObjectData] = useState();
+  const [OnMouseDown, setOnMouseDown] = useState(false);
+  const [Mouse, setMouse] = useState({ x: 0, y: 0 });
+  const Offset = useRef({ x: 0, y: 0 });
+  const Which = useRef(null);
 
   // Creates a canvas
   useEffect(() => {
@@ -43,7 +48,7 @@ function PlayGround(Text1, Text2, Text3) {
     if (ctx) {
       //Shape
       ctx.beginPath();
-      ctx.arc(x, y, 300, 0, Math.PI * 2);
+      ctx.arc(x, y, 330, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
       ctx.fill();
       //Glow
@@ -74,7 +79,6 @@ function PlayGround(Text1, Text2, Text3) {
       TextBreaker(MainT, x, y - 25, 20);
     }
   }
-
   function TextBreaker(text, x, y, lengthWisSpace) {
     const words = text.split(" ");
     let line = "";
@@ -98,19 +102,119 @@ function PlayGround(Text1, Text2, Text3) {
       ctx.fillText(lines[j], x, y + 20 + j * lengthWisSpace);
     }
   }
+  function InitData() {
+    setObjectData([
+      {
+        Header: Header1,
+        MainText: MainText1,
+        x: 500,
+        y: 1350,
+      },
+      {
+        Header: Header2,
+        MainText: MainText2,
+        x: 1420,
+        y: 1850,
+      },
+      {
+        Header: Header3,
+        MainText: MainText3,
+        x: 500,
+        y: 2350,
+      },
+    ]);
+  }
+  function WhichOne() {
+    for (let i = 0; i < ObjectData.length; i++) {
+      let distance = Math.sqrt(
+        Math.pow(Mouse.x - ObjectData[i].x, 2) +
+          Math.pow(Mouse.y - ObjectData[i].y, 2)
+      );
+      if (distance < 330) {
+        return i;
+      }
+    }
+  }
+
+  function OnDrag(Bool) {
+    setOnMouseDown(Bool);
+  }
+
+  function MouseTracker(e) {
+    setMouse({ x: e.pageX, y: e.pageY });
+  }
+
+  function OffsetSetter() {
+    if (OnMouseDown) {
+      if (Which.current != null) {
+        ObjectData[Which.current].x = Mouse.x - Offset.current.x;
+        ObjectData[Which.current].y = Mouse.y - Offset.current.y;
+      }
+    }
+  }
+
+  function Drag() {
+    if (OnMouseDown) {
+      ObjectData[Which.current].x = Mouse.x;
+      ObjectData[Which.current].y = Mouse.y;
+    }
+  }
+
+  function Main() {
+    if (ctx && ObjectData) {
+      ctx.clearRect(
+        0,
+        0,
+        document.documentElement.scrollHeight,
+        document.documentElement.scrollHeight
+      );
+      console.log(Which.current);
+      const newData = ObjectData.map((data) => {
+        DrawTextBlurb(data.Header, data.MainText, data.x, data.y);
+      });
+      setObjectData(newData);
+    }
+    requestAnimationFrame(Main);
+  }
+
+  function Down() {
+    if (OnMouseDown) {
+      let index = WhichOne();
+      Which.current = index;
+      OffsetSetter();
+    } else {
+      Which.current = null;
+    }
+  }
 
   useEffect(() => {
-    DrawTextBlurb(Header1, MainText1, 300, 300);
-    DrawTextBlurb(Header2, MainText2, 300, 700);
-    DrawTextBlurb(Header3, MainText3, 300, 2000);
+    document.addEventListener("mousemove", MouseTracker);
+    document.addEventListener("mousedown", () => OnDrag(true));
+    document.addEventListener("mouseup", () => OnDrag(false));
+    return () => {
+      document.removeEventListener("mousemove", MouseTracker);
+      document.removeEventListener("mousedown", () => OnDrag(true));
+      document.removeEventListener("mouseup", () => OnDrag(false));
+    };
+  }, []);
+
+  useEffect(() => {
+    Down();
+    console.log(Which.current);
+  }, [OnMouseDown]);
+
+  useEffect(() => {
+    if (ctx == null) return;
+    InitData();
+    Main();
   }, [ctx]);
 
   return (
     <canvas
       ref={Playground}
       className="PlayGround"
-      width={document.documentElement.scrollWidth}
-      height={document.documentElement.scrollHeight}
+      width={window.innerWidth}
+      height={window.innerHeight}
     ></canvas>
   );
 }
