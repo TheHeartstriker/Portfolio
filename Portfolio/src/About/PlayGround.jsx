@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { DrawTextBlurb } from "./HelperPg.jsx";
 import {
   Header1,
   MainText1,
@@ -7,17 +8,23 @@ import {
   Header3,
   MainText3,
 } from "./Text.js";
+import { use } from "react";
 
 function PlayGround(Text1, Text2, Text3) {
   const Playground = useRef(null);
   const [ctx, setCtx] = useState(null);
   const [ObjectData, setObjectData] = useState();
   const [OnMouseDown, setOnMouseDown] = useState(false);
+  const MouseDownStartTime = useRef(null);
+
   const Mouse = useRef({ x: 0, y: 0 });
+
+  const InitalMouse = useRef({ x: 0, y: 0 });
+  const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
   const Which = useRef(null);
-  const Gravity = 9.8;
   const Radius = 330;
+  const TimeStep = 0.016;
 
   // Creates a canvas
   useEffect(() => {
@@ -46,64 +53,6 @@ function PlayGround(Text1, Text2, Text3) {
     };
   }, []);
 
-  function DrawTextBlurb(Header, MainT, x, y) {
-    if (ctx) {
-      //Shape
-      ctx.beginPath();
-      ctx.arc(x, y, Radius, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
-      ctx.fill();
-      //Glow
-      ctx.shadowColor = "rgba(5, 120, 250, 0.8)";
-      ctx.shadowBlur = 50;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
-      //Border
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "rgb(5, 120, 250)";
-      ctx.stroke();
-      //Reset Shadow
-      ctx.shadowColor = "transparent";
-      ctx.shadowBlur = 0;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
-      //Header
-      ctx.font = "2.5rem Protest Guerrilla";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "white";
-      TextBreaker(Header, x, y - 100, 30);
-      //Main Text
-      ctx.font = "1.3rem Protest Guerrilla";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "white";
-      TextBreaker(MainT, x, y - 25, 20);
-    }
-  }
-  function TextBreaker(text, x, y, lengthWisSpace) {
-    const words = text.split(" ");
-    let line = "";
-    const lines = [];
-    const maxWidth = 550;
-    //Builds the individual lines
-    for (let i = 0; i < words.length; i++) {
-      const testLine = line + words[i] + " ";
-      const LengthMet = ctx.measureText(testLine);
-      const testWidth = LengthMet.width;
-      if (testWidth > maxWidth && i > 0) {
-        lines.push(line);
-        line = words[i] + " ";
-      } else {
-        line = testLine;
-      }
-    }
-    lines.push(line);
-
-    for (let j = 0; j < lines.length; j++) {
-      ctx.fillText(lines[j], x, y + 20 + j * lengthWisSpace);
-    }
-  }
   function InitData() {
     setObjectData([
       {
@@ -111,18 +60,24 @@ function PlayGround(Text1, Text2, Text3) {
         MainText: MainText1,
         x: 500,
         y: 1350,
+        velocity: { x: 100, y: 100 },
+        Active: false,
       },
       {
         Header: Header2,
         MainText: MainText2,
         x: 1420,
         y: 1850,
+        velocity: { x: 0, y: 0 },
+        Active: false,
       },
       {
         Header: Header3,
         MainText: MainText3,
         x: 500,
         y: 2350,
+        velocity: { x: 0, y: 0 },
+        Active: false,
       },
     ]);
   }
@@ -139,8 +94,19 @@ function PlayGround(Text1, Text2, Text3) {
     }
   }
 
-  function OnDrag(Bool) {
-    setOnMouseDown(Bool);
+  function MouseDown() {
+    setOnMouseDown(true);
+    MouseDownStartTime.current = Date.now() / 1000;
+    InitalMouse.current.x = Mouse.current.x;
+    InitalMouse.current.y = Mouse.current.y;
+  }
+
+  function MouseUp() {
+    console.log(Date.now() / 1000 - MouseDownStartTime.current);
+    setOnMouseDown(false);
+    MouseDownStartTime.current = null;
+    EndMouse.current.x = Mouse.current.x;
+    EndMouse.current.y = Mouse.current.y;
   }
 
   function MouseTracker(e) {
@@ -157,29 +123,50 @@ function PlayGround(Text1, Text2, Text3) {
       }
     }
   }
-
   function Drag() {
     if (Which.current != null) {
-      console.log(Which.current);
-      console.log(Mouse.current);
-      ObjectData[Which.current].x = Mouse.current.x - Offset.current.x;
-      ObjectData[Which.current].y = Mouse.current.y - Offset.current.y;
+      let Object = ObjectData[Which.current];
+      let { velocityX, velocityY } = CalVelocity(
+        InitalMouse.current,
+        Mouse.current,
+        Date.now() / 1000 - MouseDownStartTime.current
+      );
+      // Actual Dragging
+      Object.x = Mouse.current.x - Offset.current.x;
+      Object.y = Mouse.current.y - Offset.current.y;
+      // Velocity
+      Object.velocity.x = velocityX;
+      Object.velocity.y = velocityY;
     }
   }
 
+  function CalVelocity(Start, End, Time) {
+    const velocityX = (End.x - Start.x) / Time + Time * 5;
+    const velocityY = (End.y - Start.y) / Time + Time * 5;
+
+    return { velocityX, velocityY };
+  }
   function Collision(data) {
     //Window collision's
     if (data.x < Radius) {
       data.x = Radius;
+      data.velocity.x *= 0.7;
+      data.velocity.x *= -1;
     }
     if (data.x > document.documentElement.scrollWidth - Radius) {
       data.x = document.documentElement.scrollWidth - Radius;
+      data.velocity.x *= 0.7;
+      data.velocity.x *= -1;
     }
     if (data.y < Radius) {
       data.y = Radius;
+      data.velocity.y *= 0.7;
+      data.velocity.y *= -1;
     }
     if (data.y > document.documentElement.scrollHeight - Radius) {
       data.y = document.documentElement.scrollHeight - Radius;
+      data.velocity.y *= 0.7;
+      data.velocity.y *= -1;
     }
     //Object collision's
     for (let i = 0; i < ObjectData.length; i++) {
@@ -193,8 +180,17 @@ function PlayGround(Text1, Text2, Text3) {
           data.y - ObjectData[i].y,
           data.x - ObjectData[i].x
         );
-        data.x = ObjectData[i].x + Math.cos(angle) * Radius * 2;
-        data.y = ObjectData[i].y + Math.sin(angle) * Radius * 2;
+        let overlap = Radius * 2 - distance;
+        let moveX = (Math.cos(angle) * overlap) / 2;
+        let moveY = (Math.sin(angle) * overlap) / 2;
+
+        // Move both objects away from each other
+        data.x += moveX;
+        data.y += moveY;
+        ObjectData[i].x -= moveX;
+        ObjectData[i].y -= moveY;
+        ObjectData[i].velocity.x = data.velocity.x;
+        ObjectData[i].velocity.y = data.velocity.y;
       }
     }
   }
@@ -209,9 +205,16 @@ function PlayGround(Text1, Text2, Text3) {
         document.documentElement.scrollHeight
       );
       const newData = ObjectData.map((data) => {
-        data.y += Gravity;
+        if (data.Active == false) {
+          data.x += data.velocity.x * TimeStep;
+          data.y += data.velocity.y * TimeStep;
+          data.velocity.x *= 0.95;
+          data.velocity.y *= 0.95;
+          data.y += 0.1;
+        }
+        //Friction
         Collision(data);
-        DrawTextBlurb(data.Header, data.MainText, data.x, data.y);
+        DrawTextBlurb(data.Header, data.MainText, data.x, data.y, Radius, ctx);
         return data;
       });
       setObjectData(newData);
@@ -220,23 +223,28 @@ function PlayGround(Text1, Text2, Text3) {
   }
 
   function Down() {
-    if (OnMouseDown) {
+    if (OnMouseDown && ObjectData) {
       let index = WhichOne();
       Which.current = index;
+      if (index == null) return;
+      ObjectData[index].Active = true;
       OffsetSetter();
     } else {
+      if (Which.current != null && ObjectData) {
+        ObjectData[Which.current].Active = false;
+      }
       Which.current = null;
     }
   }
 
   useEffect(() => {
     document.addEventListener("mousemove", MouseTracker);
-    document.addEventListener("mousedown", () => OnDrag(true));
-    document.addEventListener("mouseup", () => OnDrag(false));
+    document.addEventListener("mousedown", () => MouseDown());
+    document.addEventListener("mouseup", () => MouseUp());
     return () => {
       document.removeEventListener("mousemove", MouseTracker);
-      document.removeEventListener("mousedown", () => OnDrag(true));
-      document.removeEventListener("mouseup", () => OnDrag(false));
+      document.removeEventListener("mousedown", () => MouseDown());
+      document.removeEventListener("mouseup", () => MouseUp());
     };
   }, []);
 
@@ -256,8 +264,8 @@ function PlayGround(Text1, Text2, Text3) {
     <canvas
       ref={Playground}
       className="PlayGround"
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={document.documentElement.scrollWidthX}
+      height={document.documentElement.scrollHeightY}
     ></canvas>
   );
 }
