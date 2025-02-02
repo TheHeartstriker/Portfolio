@@ -6,7 +6,8 @@
 
 .PlayGround {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
+  cursor: default;
   width: 100vw;
 }
 
@@ -22,6 +23,7 @@
 }
 /* Container for the glowing text element */
 .IAmContainer {
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,6 +103,7 @@ h3 span {
 .MoveDownBtn {
   position: relative;
   width: 7vh;
+  z-index: 1;
   height: 7vh;
   background-image: url("../Images/DownArr.svg");
   background-size: contain;

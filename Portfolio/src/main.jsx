@@ -18,7 +18,6 @@ import "./Backgrounds/background.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <PlayGround />
       <Nav />
       <Background />
       <Routes>

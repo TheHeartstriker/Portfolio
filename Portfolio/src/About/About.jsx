@@ -1,10 +1,6 @@
-import { useRef } from "react";
+import PlayGround from "./PlayGround";
 
 function About() {
-  const Ball1 = useRef(null);
-  const Ball2 = useRef(null);
-  const Ball3 = useRef(null);
-
   function scrollDown() {
     window.scrollTo({
       top: window.innerHeight,
@@ -17,11 +13,12 @@ function About() {
       <div className="MainAboutContainer">
         <div className="IAmContainer">
           <h3>
-            Hello my name is kaden and I am a
-            <span data-text=" Fullstack web developer!"></span>
+            Hello my name Is Kaden and I am a
+            <span data-text=" Fullstack Web Developer!"></span>
           </h3>
         </div>
         <button className="MoveDownBtn" onClick={scrollDown}></button>
+        <PlayGround />
         {/* <div className="AboutLegend" ref={Ball1}>
           <h1>Where I am at and where to see my work</h1>
           <p>
