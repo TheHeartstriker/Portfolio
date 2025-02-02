@@ -54,52 +54,6 @@ h3 span {
 }
 /* Text container */
 
-.AboutLegend,
-.AboutPersonal,
-.AboutStart {
-  position: relative;
-  padding: 30px;
-  /* The radius needs to be exported keep to vh*/
-  width: 65vh;
-  height: 65vh;
-  border-radius: 50%;
-  backdrop-filter: blur(25px);
-  border: 7.5px var(--neon-blue) solid;
-  box-shadow: 0 0 45px rgba(0, 204, 255, 0.5);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  font-size: 1.3rem;
-  background-clip: padding-box;
-  background: rgba(0, 0, 0, 0.5);
-  cursor: grab;
-}
-
-.AboutLegend {
-  transform: translate(-50%, -50%);
-  position: absolute;
-  left: 30vw;
-  top: 140vh;
-}
-
-.AboutPersonal {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 190vh;
-  left: 70vw;
-}
-
-.AboutStart {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 30vw;
-  top: 240vh;
-}
-
 .MoveDownBtn {
   position: relative;
   width: 7vh;
@@ -134,41 +88,8 @@ h3 span {
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
-  .IAmContainer {
-    top: 5vh;
-  }
-
   h3 {
     font-size: 2.5rem;
     padding: 0 20px;
-  }
-
-  .MoveDownBtn {
-    top: 20vh;
-  }
-
-  .AboutContainer {
-    width: 95vw;
-    margin-top: 30vh;
-    height: auto;
-    padding: 20px;
-  }
-
-  .AboutContainer h1 {
-    font-size: 1.5rem;
-    width: 100%;
-  }
-
-  .AboutContainer p {
-    padding: 0 20px;
-    font-size: 1rem;
-  }
-
-  .AboutLegend,
-  .AboutPersonal,
-  .AboutStart {
-    width: 50vh;
-    height: 50vh;
-    font-size: 1rem;
   }
 }

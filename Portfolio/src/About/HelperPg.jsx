@@ -19,14 +19,28 @@ export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
     ctx.shadowBlur = 0;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
+    //Slight helpe
+    let screenWidth = window.innerWidth;
+    let headerFontSize;
+    let mainTextFontSize;
+    if (screenWidth < 800) {
+      headerFontSize = "0.9rem";
+      mainTextFontSize = "0.6rem";
+    } else if (screenWidth < 1200) {
+      headerFontSize = "1.2rem";
+      mainTextFontSize = "0.8rem";
+    } else {
+      headerFontSize = "2.5rem";
+      mainTextFontSize = "1.3rem";
+    }
     //Header
-    ctx.font = "2.5rem Protest Guerrilla";
+    ctx.font = `${headerFontSize} Protest Guerrilla`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = "white";
     TextBreaker(Header, x, y - 100, 30, ctx);
     //Main Text
-    ctx.font = "1.3rem Protest Guerrilla";
+    ctx.font = `${mainTextFontSize} Protest Guerrilla`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = "white";
@@ -37,7 +51,14 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
   const words = text.split(" ");
   let line = "";
   const lines = [];
-  const maxWidth = 550;
+  let maxWidth = 550;
+  if (window.innerWidth < 1200) {
+    lengthWisSpace = 15;
+    maxWidth = 300;
+  } else if (window.innerWidth < 800) {
+    lengthWisSpace = 10;
+    maxWidth = 150;
+  }
   //Builds the individual lines
   for (let i = 0; i < words.length; i++) {
     const testLine = line + words[i] + " ";
