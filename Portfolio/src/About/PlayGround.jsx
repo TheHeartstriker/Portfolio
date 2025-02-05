@@ -294,9 +294,10 @@ function PlayGround(Text1, Text2, Text3) {
     if (window.innerWidth < 550) {
       Radius.current = 200;
     } else {
-      Radius.current = window.innerWidth / 5;
+      let calculatedRadius = window.innerWidth * 0.25;
+      Radius.current = Math.min(calculatedRadius, 400);
     }
-  }, [window.innerWidth, isCalled]);
+  }, [window.innerWidth]);
 
   return (
     <canvas
