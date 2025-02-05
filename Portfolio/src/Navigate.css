@@ -88,6 +88,13 @@ body {
   border: none;
 }
 
+.Cursor.Grab {
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: orangered;
+  box-shadow: none;
+  border: none;
+}
+
 /* Specific styles for each button */
 #AboutBtn {
   left: 0%;

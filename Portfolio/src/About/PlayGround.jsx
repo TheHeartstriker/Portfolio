@@ -8,11 +8,10 @@ import {
   Header3,
   MainText3,
 } from "./Text.js";
-import { use } from "react";
 
 function PlayGround(Text1, Text2, Text3) {
   const [ctx, setCtx] = useState(null);
-  const [ObjectData, setObjectData] = useState();
+  const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
   //Used to render on load
   const [isCalled, setIsCalled] = useState(false);
@@ -46,7 +45,7 @@ function PlayGround(Text1, Text2, Text3) {
       // After resizing the canvas, we need to get the context again
       setCtx(backgroundCanvas.getContext("2d"));
       // Where the redrawing of the canvas happens
-      Radius.current = window.innerWidth < 550 ? 200 : window.innerWidth / 5;
+      Radius.current = window.innerWidth < 550 ? 200 : window.innerWidth / 6.5;
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
@@ -56,12 +55,12 @@ function PlayGround(Text1, Text2, Text3) {
   }, []);
 
   function InitData() {
-    setObjectData([
+    ObjectData.current = [
       {
         Header: Header1,
         MainText: MainText1,
         x: window.innerWidth / 3,
-        y: 1300,
+        y: window.innerHeight * 1.5,
         velocity: { x: 100, y: 100 },
         Active: false,
       },
@@ -69,7 +68,7 @@ function PlayGround(Text1, Text2, Text3) {
         Header: Header2,
         MainText: MainText2,
         x: window.innerWidth * 0.65,
-        y: 1800,
+        y: window.innerHeight * 2,
         velocity: { x: 0, y: 0 },
         Active: false,
       },
@@ -77,19 +76,19 @@ function PlayGround(Text1, Text2, Text3) {
         Header: Header3,
         MainText: MainText3,
         x: window.innerWidth / 3,
-        y: 2300,
+        y: window.innerHeight * 2.5,
         velocity: { x: 0, y: 0 },
         Active: false,
       },
-    ]);
+    ];
   }
   //Given the current mouse position, it will return the index of the object that is being hovered over
   function WhichOne() {
-    if (ObjectData == null) return;
-    for (let i = 0; i < ObjectData.length; i++) {
+    if (ObjectData.current == null) return;
+    for (let i = 0; i < ObjectData.current.length; i++) {
       let distance = Math.sqrt(
-        Math.pow(Mouse.current.x - ObjectData[i].x, 2) +
-          Math.pow(Mouse.current.y - ObjectData[i].y, 2)
+        Math.pow(Mouse.current.x - ObjectData.current[i].x, 2) +
+          Math.pow(Mouse.current.y - ObjectData.current[i].y, 2)
       );
       if (distance < Radius.current) {
         return i;
@@ -119,15 +118,17 @@ function PlayGround(Text1, Text2, Text3) {
   function OffsetSetter() {
     if (OnMouseDown) {
       if (Which.current != null) {
-        Offset.current.x = Mouse.current.x - ObjectData[Which.current].x;
-        Offset.current.y = Mouse.current.y - ObjectData[Which.current].y;
+        Offset.current.x =
+          Mouse.current.x - ObjectData.current[Which.current].x;
+        Offset.current.y =
+          Mouse.current.y - ObjectData.current[Which.current].y;
       }
     }
   }
   //Updates velocity and position of the object being dragged
   function Drag() {
     if (Which.current != null) {
-      let Object = ObjectData[Which.current];
+      let Object = ObjectData.current[Which.current];
       let { velocityX, velocityY } = CalVelocity(
         InitalMouse.current,
         Mouse.current,
@@ -172,16 +173,16 @@ function PlayGround(Text1, Text2, Text3) {
       data.velocity.y *= -1;
     }
     //Object collision's
-    for (let i = 0; i < ObjectData.length; i++) {
-      if (data === ObjectData[i]) continue;
+    for (let i = 0; i < ObjectData.current.length; i++) {
+      if (data === ObjectData.current[i]) continue;
       let Distance = Math.sqrt(
-        Math.pow(data.x - ObjectData[i].x, 2) +
-          Math.pow(data.y - ObjectData[i].y, 2)
+        Math.pow(data.x - ObjectData.current[i].x, 2) +
+          Math.pow(data.y - ObjectData.current[i].y, 2)
       );
       if (Distance < Radius.current * 2) {
         let angle = Math.atan2(
-          data.y - ObjectData[i].y,
-          data.x - ObjectData[i].x
+          data.y - ObjectData.current[i].y,
+          data.x - ObjectData.current[i].x
         );
         let overlap = Radius.current * 2 - Distance;
         let moveX = (Math.cos(angle) * overlap) / 2;
@@ -191,24 +192,24 @@ function PlayGround(Text1, Text2, Text3) {
         // Move both objects away from each other
         data.x += moveX;
         data.y += moveY;
-        ObjectData[i].x -= moveX;
-        ObjectData[i].y -= moveY;
+        ObjectData.current[i].x -= moveX;
+        ObjectData.current[i].y -= moveY;
         // Swap velocities
-        data.velocity.x = ObjectData[i].velocity.x;
-        data.velocity.y = ObjectData[i].velocity.y;
-        ObjectData[i].velocity.x = tempVelocityX;
-        ObjectData[i].velocity.y = tempVelocityY;
+        data.velocity.x = ObjectData.current[i].velocity.x;
+        data.velocity.y = ObjectData.current[i].velocity.y;
+        ObjectData.current[i].velocity.x = tempVelocityX;
+        ObjectData.current[i].velocity.y = tempVelocityY;
         //Decrement the velocity
-        data.velocity.x *= 0.8;
-        data.velocity.y *= 0.8;
-        ObjectData[i].velocity.x *= 0.8;
-        ObjectData[i].velocity.y *= 0.8;
+        data.velocity.x *= 0.85;
+        data.velocity.y *= 0.85;
+        ObjectData.current[i].velocity.x *= 0.85;
+        ObjectData.current[i].velocity.y *= 0.85;
       }
     }
   }
   //Main loop
   function Main() {
-    if (ctx && ObjectData) {
+    if (ctx && ObjectData.current && Playground.current) {
       CursorChange();
       Drag();
       ctx.clearRect(
@@ -217,7 +218,7 @@ function PlayGround(Text1, Text2, Text3) {
         document.documentElement.scrollHeight,
         document.documentElement.scrollHeight
       );
-      const newData = ObjectData.map((data) => {
+      const newData = ObjectData.current.map((data) => {
         if (data.Active == false) {
           data.x += data.velocity.x * TimeStep;
           data.y += data.velocity.y * TimeStep;
@@ -236,21 +237,21 @@ function PlayGround(Text1, Text2, Text3) {
         );
         return data;
       });
-      setObjectData(newData);
+      ObjectData.current = newData;
     }
     requestAnimationFrame(Main);
   }
   //Called on mouse down setting important vars for main
   function Down() {
-    if (OnMouseDown && ObjectData) {
+    if (OnMouseDown && ObjectData.current) {
       let index = WhichOne();
       Which.current = index;
       if (index == null) return;
-      ObjectData[index].Active = true;
+      ObjectData.current[index].Active = true;
       OffsetSetter();
     } else {
-      if (Which.current != null && ObjectData) {
-        ObjectData[Which.current].Active = false;
+      if (Which.current != null && ObjectData.current) {
+        ObjectData.current[Which.current].Active = false;
       }
       Which.current = null;
     }
@@ -283,11 +284,11 @@ function PlayGround(Text1, Text2, Text3) {
     InitData();
   }, [ctx]);
   useEffect(() => {
-    if (ObjectData && !isCalled) {
+    if (ObjectData.current && !isCalled && Playground.current) {
       Main();
       setIsCalled(true);
     }
-  }, [ObjectData, isCalled]);
+  }, [ctx]);
   //Phone and screen size
   useEffect(() => {
     if (window.innerWidth < 550) {

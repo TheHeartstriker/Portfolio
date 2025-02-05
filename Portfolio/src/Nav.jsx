@@ -1,20 +1,11 @@
-import { use } from "react";
 import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import NavCursor from "./NavCursor.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
-  //Cursor states
-  const [Clickable, setClickable] = useState(false);
-  const CursorRef = useRef(null);
-  //UseRef so there is no constant re-rendering
-  let mouseX = useRef(0);
-  let mouseY = useRef(0);
-  let cursorX = useRef(0);
-  let cursorY = useRef(0);
-  //Animation frame
-  let animationFrameId = useRef(null);
 
+  //For the buttons
   function BoxElements() {
     const container = containerRef.current;
     // Create 40 span elements, append them and give them a movement delay
@@ -32,6 +23,17 @@ function Nav() {
       }
     }
   }
+  //Simple path verification
+  function PathChecker() {
+    const paths = ["/", "/skills", "/contact"];
+    const currentPath = window.location.pathname;
+    if (paths.includes(currentPath)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   //Simple state management for the buttons
   const [About, setAbout] = useState(false);
   const [Skill, setSkill] = useState(false);
@@ -72,68 +74,12 @@ function Nav() {
       container.classList.remove("contact");
     }
   }
-  //Cursor
-  //Cursor handlers
-  const handleMouseOver = (e) => {
-    const computedStyle = window.getComputedStyle(e.target);
-    if (computedStyle.cursor === "pointer") {
-      setClickable(true);
-    }
-  };
-  const handleMouseOut = (e) => {
-    setClickable(false);
-  };
-  const handleMouseMove = (e) => {
-    mouseX.current = e.clientX;
-    mouseY.current = e.clientY;
-    CursorRef.current.style.opacity = "1";
-  };
-  //Animation function
-  function animateCursor(Click, CursorMSpeed) {
-    let speed = CursorMSpeed;
-    let cursor = CursorRef.current;
-    //Infinity loop animate function
-    const animate = () => {
-      //Distance between cursor and mouse
-      let distance = Math.sqrt(
-        Math.pow(cursorX.current - mouseX.current, 2) +
-          Math.pow(cursorY.current - mouseY.current, 2)
-      );
-      //Movement
-      cursorX.current += (mouseX.current - cursorX.current) * speed;
-      cursorY.current += (mouseY.current - cursorY.current) * speed;
-      cursor.style.left = cursorX.current + "px";
-      cursor.style.top = cursorY.current + "px";
-      //If the cursor is over a clickable element
-      if (distance > 40) {
-        cursor.classList.add("shrink");
-      } else if (Click === true) {
-        cursor.classList.add("Change");
-      } else {
-        cursor.className = "Cursor";
-      }
-      //Update the cursor position
-      animationFrameId.current = requestAnimationFrame(animate);
-    };
-    //Initial call handlers
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
-    animate();
-    //Clean up on unmount
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseover", handleMouseOver);
-      document.removeEventListener("mouseout", handleMouseOut);
-      //Cancel the frame
-      cancelAnimationFrame(animationFrameId.current);
-    };
-  }
-
+  //Simple path verification
   useEffect(() => {
-    let clean = animateCursor(Clickable, 0.2);
-    return clean;
-  }, [Clickable]);
+    if (PathChecker() == false) {
+      window.location.href = "/";
+    }
+  }, [window.location.pathname]);
 
   useEffect(() => {
     BoxElements();
@@ -145,7 +91,7 @@ function Nav() {
 
   return (
     <>
-      <div className="Cursor" ref={CursorRef}></div>
+      <NavCursor />
       <Link to="/">
         <button className="button" id="AboutBtn" onClick={handleAbout}>
           AboutMe

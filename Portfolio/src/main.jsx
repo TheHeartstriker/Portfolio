@@ -18,6 +18,7 @@ import "./Backgrounds/background.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      {/* Nav bar path verification  */}
       <Nav />
       <Background />
       <Routes>
