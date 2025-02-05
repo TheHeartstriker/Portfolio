@@ -34,7 +34,6 @@ function Background() {
   // Adds the valid point locations to the canvas
   function AddValid() {
     let RefWidth = window.innerWidth / 200;
-    console.log(RefWidth);
     setValidPoints([
       // From the left side
       {

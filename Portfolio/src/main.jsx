@@ -6,6 +6,7 @@ import About from "./About/About.jsx";
 import Skill from "./Skills/Skill.jsx";
 import Contact from "./Contact/Contact.jsx";
 import Background from "./Backgrounds/Backgrond.jsx";
+import PlayGround from "./About/PlayGround.jsx";
 //Nav components
 import Nav from "./Nav.jsx";
 //Styles
@@ -17,6 +18,7 @@ import "./Backgrounds/background.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      {/* Nav bar path verification  */}
       <Nav />
       <Background />
       <Routes>
