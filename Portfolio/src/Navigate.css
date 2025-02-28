@@ -3,9 +3,6 @@
   --neon-blue: rgb(0, 204, 255);
   --Grey-Blue: rgb(25, 25, 25);
 }
-body {
-  font-family: "Protest Guerrilla", sans-serif;
-}
 
 .Container {
   position: relative;

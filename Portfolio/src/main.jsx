@@ -6,13 +6,12 @@ import About from "./About/About.jsx";
 import Skill from "./Skills/Skill.jsx";
 import Contact from "./Contact/Contact.jsx";
 import Background from "./Backgrounds/Backgrond.jsx";
-import PlayGround from "./About/PlayGround.jsx";
-//Nav components
 import Nav from "./Nav.jsx";
 //Styles
 import "./Navigate.css";
 import "./About/about.css";
 import "./Skills/skill.css";
+import "./Site.css";
 import "./Contact/contact.css";
 import "./Backgrounds/background.css";
 createRoot(document.getElementById("root")).render(

@@ -1,0 +1,27 @@
+* {
+  font-family: "Protest Guerrilla", sans-serif;
+}
+
+@media (min-width: 1500) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1300) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1000) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 600) {
+  html {
+    font-size: 7px;
+  }
+}

@@ -47,11 +47,7 @@ function Skill() {
     const Text = [Text1, Text2, Text3];
     const Pretext = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
     if (Pretext[num] === TextToCompare) {
-      return (
-        <pre style={{ fontSize: TextFontSize(Text[num].length) }}>
-          {Text[num]}
-        </pre>
-      );
+      return <pre>{Text[num]}</pre>;
     } else {
       return <h4>{Text[num]}</h4>;
     }
@@ -70,34 +66,7 @@ function Skill() {
     }
   }
   //Font changer makes it more friendly for smaller monitors
-  function TextFontSize(len) {
-    let Width = window.innerWidth;
-    //Less than 700 word
-    if (len < 700) {
-      //Width
-      if (Width < 1500) {
-        return "1em";
-      } else {
-        return "1.2em";
-      }
-      //Between 700 and 1000
-    } else if (len < 1000) {
-      //Width
-      if (Width < 1500) {
-        return "1em";
-      } else {
-        return "1.1em";
-      }
-      //Greater than 1000
-    } else {
-      //Width
-      if (Width < 1600) {
-        return "0.9em";
-      } else {
-        return "1em";
-      }
-    }
-  }
+
   //Resets all the alter classes used for when Button is false
   //Indicating that the screen is too small for the text to be expanded
   function resetAll() {

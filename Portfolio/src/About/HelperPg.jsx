@@ -19,7 +19,7 @@ export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
     ctx.shadowBlur = 0;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
-    //Slight helpe
+    //Slight helper
     let screenWidth = window.innerWidth;
     let headerFontSize;
     let mainTextFontSize;
