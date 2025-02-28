@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 function Background() {
   const backgroundRef = useRef(null);
   const [ctx, setCtx] = useState(null);
+  const offsetRef = useRef(0);
+  const SquareGridSize = 50;
+  const SquareLine = 1;
 
   // Creates a canvas
   useEffect(() => {
@@ -30,91 +33,32 @@ function Background() {
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
-  const [validPoints, setValidPoints] = useState([]);
-  // Adds the valid point locations to the canvas
-  function AddValid() {
-    let RefWidth = window.innerWidth / 200;
-    setValidPoints([
-      // From the left side
-      {
-        x1: 0,
-        y1: Math.random() * window.innerHeight,
-        x2: Math.random() * window.innerWidth,
-        y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 60,
-        lineWidth: Math.random() * RefWidth,
-      },
-      // From the right side
-      {
-        x1: window.innerWidth,
-        y1: Math.random() * window.innerHeight,
-        x2: Math.random() * window.innerWidth,
-        y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 60,
-        lineWidth: Math.random() * RefWidth,
-      },
-      // From the top side
-      {
-        x1: Math.random() * window.innerWidth,
-        y1: 0,
-        x2: Math.random() * window.innerWidth,
-        y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 60,
-        lineWidth: Math.random() * RefWidth,
-      },
-      // From the bottom side
-      {
-        x1: Math.random() * window.innerWidth,
-        y1: window.innerHeight,
-        x2: Math.random() * window.innerWidth,
-        y2: Math.random() * window.innerHeight,
-        TurnDistance: 20 + Math.random() * 60,
-        lineWidth: Math.random() * RefWidth,
-      },
-    ]);
-  }
-  //Main function to draw the pattern
-  function DrawPattern() {
+  function Draw() {
     if (!ctx) return;
+    offsetRef.current += 0.5;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    let GridWidth = window.innerWidth / SquareGridSize;
+    let GridHeight = (window.innerHeight / SquareGridSize) * 2;
+    let HeightMove = (offsetRef.current % SquareGridSize) - SquareGridSize;
 
-    const newPoints = validPoints.map((point) => {
-      let direction = Math.random() * 4;
-      //Pick a random direction
-      if (direction < 1) {
-        point.x2 = point.x1 - point.TurnDistance;
-        point.y2 = point.y1;
-      } else if (direction < 2) {
-        point.x2 = point.x1 + point.TurnDistance;
-        point.y2 = point.y1;
-      } else if (direction < 3) {
-        point.x2 = point.x1;
-        point.y2 = point.y1 - point.TurnDistance;
-      } else {
-        point.x2 = point.x1;
-        point.y2 = point.y1 + point.TurnDistance;
-      }
-      //Check if the point is within the canvas
-      if (
-        point.x1 >= 0 &&
-        point.x1 <= window.innerWidth &&
-        point.y1 >= 0 &&
-        point.y1 <= window.innerHeight &&
-        point.x2 >= 0 &&
-        point.x2 <= window.innerWidth &&
-        point.y2 >= 0 &&
-        point.y2 <= window.innerHeight
-      ) {
-        DrawLine(point.x1, point.y1, point.x2, point.y2, point.lineWidth);
-        // Update x1 and y1 to the new position
-        point.x1 = point.x2;
-        point.y1 = point.y2;
-      }
+    for (let i = 0; i < GridWidth; i++) {
+      DrawLine(0, HeightMove, window.innerWidth, HeightMove, SquareLine);
+      HeightMove += SquareGridSize;
+    }
 
-      return point;
-    });
-
-    setValidPoints(newPoints);
+    for (let i = 0; i < GridHeight; i++) {
+      DrawLine(
+        i * SquareGridSize,
+        0,
+        i * SquareGridSize,
+        window.innerHeight,
+        SquareLine
+      );
+    }
+    requestAnimationFrame(Draw);
   }
+
+  //Main function to draw the pattern
   //Helper function to draw lines
   function DrawLine(x1, y1, x2, y2, lineWidth) {
     if (!ctx) return;
@@ -123,9 +67,8 @@ function Background() {
     ctx.lineTo(x2, y2);
     //Colors
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "#1B1B1B";
     //Glow
-    ctx.shadowColor = "blue";
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
@@ -133,23 +76,16 @@ function Background() {
   }
 
   useEffect(() => {
-    AddValid();
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      DrawPattern();
-    }, 150); // Adjust the interval as needed
-    return () => clearInterval(interval);
-  }, [validPoints, ctx]);
+    Draw();
+  }, [ctx]);
 
   return (
     <div>
       <canvas
         ref={backgroundRef}
         id="backgroundId"
-        width={window.innerWidth}
-        height={window.innerHeight}
+        width={window.innerWidth + 100}
+        height={window.innerHeight + 100}
       />
     </div>
   );
