@@ -11,6 +11,13 @@
   width: 100vw;
 }
 
+.Shadow {
+  position: absolute;
+  z-index: 1;
+  cursor: default;
+  width: 100vw;
+}
+
 /* Container for the entire page */
 .MainAboutContainer {
   display: flex;

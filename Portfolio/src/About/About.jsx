@@ -1,4 +1,5 @@
-import PlayGround from "./PlayGround";
+import PlayGround from "./Playground/PlayGround";
+import Shadow from "./Playground/Shadow";
 
 function About() {
   function scrollDown() {

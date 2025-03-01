@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       {/* Nav bar path verification  */}
       <Nav />
-      <Background />
+      {/* <Background /> */}
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/skills" element={<Skill />} />

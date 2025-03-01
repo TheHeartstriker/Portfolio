@@ -7,7 +7,7 @@ import {
   MainText2,
   Header3,
   MainText3,
-} from "./Text.js";
+} from "../Text.js";
 
 function PlayGround(Text1, Text2, Text3) {
   const [ctx, setCtx] = useState(null);
