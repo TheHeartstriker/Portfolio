@@ -19,6 +19,7 @@ function About() {
           </h3>
         </div>
         <button className="MoveDownBtn" onClick={scrollDown}></button>
+        <Shadow />
         <PlayGround />
         {/* <div className="AboutLegend" ref={Ball1}>
           <h1>Where I am at and where to see my work</h1>
