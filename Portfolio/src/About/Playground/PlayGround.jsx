@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import Shadow from "./Shadow";
 import { DrawTextBlurb } from "./HelperPg.jsx";
 import {
   Header1,
@@ -9,7 +10,7 @@ import {
   MainText3,
 } from "../Text.js";
 
-function PlayGround(Text1, Text2, Text3) {
+function PlayGround() {
   const [ctx, setCtx] = useState(null);
   const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
@@ -238,9 +239,11 @@ function PlayGround(Text1, Text2, Text3) {
         return data;
       });
       ObjectData.current = newData;
+      //    setUpdate((prev) => prev + 1);
     }
     requestAnimationFrame(Main);
   }
+  //  const [update, setUpdate] = useState(0);
   //Called on mouse down setting important vars for main
   function Down() {
     if (OnMouseDown && ObjectData.current) {
@@ -289,6 +292,7 @@ function PlayGround(Text1, Text2, Text3) {
       setIsCalled(true);
     }
   }, [ctx]);
+
   //Phone and screen size
   useEffect(() => {
     if (window.innerWidth < 550) {
@@ -300,12 +304,21 @@ function PlayGround(Text1, Text2, Text3) {
   }, [window.innerWidth]);
 
   return (
-    <canvas
-      ref={Playground}
-      className="PlayGround"
-      width={document.documentElement.scrollWidthX}
-      height={document.documentElement.scrollHeightY}
-    ></canvas>
+    <>
+      <canvas
+        ref={Playground}
+        className="PlayGround"
+        width={document.documentElement.scrollWidthX}
+        height={document.documentElement.scrollHeightY}
+      ></canvas>
+      {/* {ObjectData.current && (
+        <Shadow
+          x={ObjectData.current[0].x}
+          y={ObjectData.current[0].y}
+          radius={Radius.current}
+        />
+      )} */}
+    </>
   );
 }
 

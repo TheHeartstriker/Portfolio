@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function Shadow() {
+function Shadow({ x, y, radius }) {
+  //Shadow information
   const ShadowData = useRef({});
-  const ShadowCircles = 1;
-  const DitherAmount = 200;
-  const [ctx, setCtx] = useState(null);
+  const ShadowCircles = 18;
+  const DitherAmount = 500;
   const ShadowRef = useRef(null);
+
+  const [ctx, setCtx] = useState(null);
+  const xRef = useRef(x);
+  const yRef = useRef(y);
   // Creates a canvas
   useEffect(() => {
     // Creates references to current canvases
@@ -35,6 +39,7 @@ function Shadow() {
   //Pixel information
   // Pixel information
   function InputShadowData(x, y, radius) {
+    ctx.fillStyle = "blue";
     for (let i = 0; i < ShadowCircles; i++) {
       let NewShadowInfo = [];
       for (let j = 0; j < DitherAmount; j++) {
@@ -42,7 +47,7 @@ function Shadow() {
         let RanRadius = Math.sqrt(Math.random()) * radius;
         let RanX = Math.cos(RanAngle) * RanRadius;
         let RanY = Math.sin(RanAngle) * RanRadius;
-        ctx.fillRect(x + RanX, y + RanY, 1, 1);
+        ctx.fillRect(x + RanX, y + RanY, 2, 2);
         NewShadowInfo.push([x + RanX, y + RanY]);
       }
       ShadowData.current[`Circle${i}`] = NewShadowInfo;
@@ -64,13 +69,22 @@ function Shadow() {
       if (time - lastTime >= interval) {
         lastTime = time;
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        InputShadowData(300, 300, 50);
+        InputShadowData(xRef.current, yRef.current, radius + 50);
       }
       requestAnimationFrame(animate);
     }
 
     requestAnimationFrame(animate);
   }
+
+  function Update() {
+    xRef.current = x;
+    yRef.current = y;
+  }
+
+  useEffect(() => {
+    Update();
+  }, [x, y]);
 
   useEffect(() => {
     if (ctx) {
@@ -79,7 +93,7 @@ function Shadow() {
         Main();
       }
     }
-  }, []);
+  }, [ctx]);
 
   return (
     <canvas

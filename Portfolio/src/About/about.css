@@ -6,14 +6,12 @@
 
 .PlayGround {
   position: absolute;
-  z-index: 2;
   cursor: default;
   width: 100vw;
 }
 
 .Shadow {
   position: absolute;
-  z-index: 1;
   cursor: default;
   width: 100vw;
 }

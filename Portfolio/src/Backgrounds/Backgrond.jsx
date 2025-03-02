@@ -37,16 +37,21 @@ function Background() {
     if (!ctx) return;
     offsetRef.current += 0.5;
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    let GridWidth = window.innerWidth / SquareGridSize;
-    let GridHeight = (window.innerHeight / SquareGridSize) * 2;
+    let GridWidth = Math.ceil(window.innerWidth / SquareGridSize);
+    let GridHeight = Math.ceil(window.innerHeight / SquareGridSize);
     let HeightMove = (offsetRef.current % SquareGridSize) - SquareGridSize;
 
-    for (let i = 0; i < GridWidth; i++) {
-      DrawLine(0, HeightMove, window.innerWidth, HeightMove, SquareLine);
-      HeightMove += SquareGridSize;
+    for (let i = 0; i <= GridHeight; i++) {
+      DrawLine(
+        0,
+        HeightMove + i * SquareGridSize,
+        window.innerWidth,
+        HeightMove + i * SquareGridSize,
+        SquareLine
+      );
     }
 
-    for (let i = 0; i < GridHeight; i++) {
+    for (let i = 0; i <= GridWidth; i++) {
       DrawLine(
         i * SquareGridSize,
         0,
