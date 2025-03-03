@@ -43,6 +43,7 @@ h3 {
   font-size: 5rem;
   font-weight: 600;
   position: relative;
+  letter-spacing: 0.2rem;
 }
 
 h3 span::before {
@@ -50,19 +51,19 @@ h3 span::before {
   position: absolute;
   width: 100%;
   color: var(--neon-blue);
-  filter: drop-shadow(0 0 6px) drop-shadow(0 0 25px);
+  filter: drop-shadow(0 0 3px) drop-shadow(0 0 13px);
   animation: colorFlow 3s infinite alternate;
 }
 
 @keyframes colorFlow {
   0% {
     color: var(--neon-blue);
-    filter: drop-shadow(0 0 6px var(--neon-blue))
-      drop-shadow(0 0 25px var(--neon-blue));
+    filter: drop-shadow(0 0 3px var(--neon-blue))
+      drop-shadow(0 0 13px var(--neon-blue));
   }
   100% {
     color: #0099ff;
-    filter: drop-shadow(0 0 6px #0099ff) drop-shadow(0 0 25px #0099ff);
+    filter: drop-shadow(0 0 3px #0099ff) drop-shadow(0 0 13px #0099ff);
   }
 }
 
@@ -93,10 +94,13 @@ h3 span {
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 100px;
 }
 .DownContainer path {
   animation: Arrow 2s infinite;
   -webkit-animation: Arrow 2s infinite;
+  transform-origin: center;
+  transform: scale(0.8);
 }
 
 #Vec1 {

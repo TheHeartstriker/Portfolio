@@ -1,7 +1,7 @@
 :root {
   --back-round-grey: rgb(46, 46, 46);
   --neon-blue: rgb(0, 204, 255);
-  --Grey-Blue: rgb(25, 25, 25);
+  --Grey-Blue: rgb(17, 17, 17);
 }
 
 .Container {
@@ -10,8 +10,7 @@
   width: 100%;
   height: 70px;
   background: var(--Grey-Blue);
-  filter: drop-shadow(0 0 10px var(--neon-blue))
-    drop-shadow(0 0 30px var(--neon-blue));
+  filter: drop-shadow(0 0 20px #004488) drop-shadow(0 0 60px #004488);
   display: flex;
   justify-content: center;
   align-items: center;
