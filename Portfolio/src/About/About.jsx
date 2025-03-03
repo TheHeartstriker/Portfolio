@@ -1,5 +1,6 @@
 import PlayGround from "./Playground/PlayGround";
 import { useRef, useState, useEffect } from "react";
+import DownArr from "../Images/DownArrow";
 
 function About() {
   const ColoredTextRef = useRef(null);
@@ -74,7 +75,7 @@ function About() {
             ></span>
           </h3>
         </div>
-        <button className="MoveDownBtn" onClick={scrollDown}></button>
+        <DownArr onClick={scrollDown} />
         <PlayGround />
         {/* <div className="AboutLegend" ref={Ball1}>
           <h1>Where I am at and where to see my work</h1>

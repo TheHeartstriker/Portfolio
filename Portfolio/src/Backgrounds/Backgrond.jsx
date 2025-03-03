@@ -6,6 +6,7 @@ function Background() {
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
   const SquareLine = 1;
+  const Mouse = useRef({ x: 0, y: 0 });
 
   // Creates a canvas
   useEffect(() => {
@@ -29,10 +30,18 @@ function Background() {
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
+  function handleMouseMove(e) {
+    Mouse.current.x = e.clientX;
+    Mouse.current.y = e.clientY;
+  }
+
   function Draw() {
     if (!ctx) return;
     offsetRef.current += 0.5;
@@ -60,6 +69,7 @@ function Background() {
         SquareLine
       );
     }
+    DrawRadial(Mouse.current.x, Mouse.current.y);
     requestAnimationFrame(Draw);
   }
 
@@ -80,6 +90,18 @@ function Background() {
     ctx.stroke();
   }
 
+  function DrawRadial(x, y) {
+    if (!ctx) return;
+    const radius = 600;
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+    gradient.addColorStop(0, "rgba(29, 78, 216, 0.15)");
+    gradient.addColorStop(1, "transparent");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
   useEffect(() => {
     Draw();
   }, [ctx]);
@@ -89,8 +111,8 @@ function Background() {
       <canvas
         ref={backgroundRef}
         id="backgroundId"
-        width={window.innerWidth + 100}
-        height={window.innerHeight + 100}
+        width={window.innerWidth}
+        height={window.innerHeight}
       />
     </div>
   );

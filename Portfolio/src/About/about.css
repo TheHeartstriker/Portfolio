@@ -1,7 +1,6 @@
 :root {
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: #00ccff;
-  --neon-purple: rgb(204, 0, 255);
   --circle-radius: 32.5vh;
 }
 
@@ -35,7 +34,7 @@
   align-items: center;
   box-sizing: border-box;
   position: relative;
-  bottom: 110vh;
+  bottom: 115vh;
 }
 
 h3 {
@@ -70,23 +69,6 @@ h3 span::before {
 h3 span {
   display: block;
 }
-/* Text container */
-
-.MoveDownBtn {
-  position: relative;
-  width: 7vh;
-  z-index: 1;
-  height: 7vh;
-  background-image: url("../Images/DownArr.svg");
-  background-size: contain;
-  border: none;
-  filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
-  bottom: 80vh;
-  border-radius: 50%;
-  cursor: pointer;
-  animation: scaleInOut 2s infinite;
-  transition: box-shadow 0.5s ease-in-out;
-}
 
 .MoveDownBtn:hover {
   box-shadow: 0 0 80px 40px rgba(255, 255, 255, 1);
@@ -104,10 +86,66 @@ h3 span {
   }
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  h3 {
-    font-size: 2.5rem;
-    padding: 0 20px;
+.DownContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.DownContainer path {
+  animation: Arrow 2s infinite;
+  -webkit-animation: Arrow 2s infinite;
+}
+
+#Vec1 {
+  transform-origin: center;
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  stroke: #0099ff;
+}
+#Vec2 {
+  transform-origin: center;
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  stroke: #0099ff;
+}
+
+#Vec3 {
+  transform-origin: center;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  stroke: #0099ff;
+}
+
+@keyframes Arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes Arrow {
+  /* Safari and Chrome */
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
