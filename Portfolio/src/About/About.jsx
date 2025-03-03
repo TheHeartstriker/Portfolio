@@ -1,6 +1,13 @@
 import PlayGround from "./Playground/PlayGround";
+import { useRef, useState, useEffect } from "react";
 
 function About() {
+  const ColoredTextRef = useRef(null);
+  const [MouseOver, setMouseOver] = useState(false);
+  const Orginal = " Fullstack Web Developer!";
+  const [Text, setText] = useState(" Fullstack Web Developer!");
+  const Alphabet = "abcdefghijklmnopqrstuvwxyz";
+
   function scrollDown() {
     window.scrollTo({
       top: window.innerHeight,
@@ -8,13 +15,63 @@ function About() {
     });
   }
 
+  function TextScramble() {
+    let Iter = 0;
+    let Interval = setInterval(() => {
+      setText((prevText) => {
+        //Placeholder
+        let newText = prevText
+          .split("")
+          .map((char, index) => {
+            //Dont scramble spaces
+            if (char === " ") {
+              return char;
+            }
+            //If we have reached the end of the text
+            if (Iter >= Orginal.length) {
+              clearInterval(Interval);
+              return Orginal[index];
+            }
+            //Slowly reveal the text
+            if (index < Iter) {
+              return Orginal[index];
+            }
+            //Scramble the text
+            let Num = Math.floor(Math.random() * 26);
+            if (char === char.toUpperCase()) {
+              return Alphabet[Num].toUpperCase();
+            } else {
+              return Alphabet[Num];
+            }
+          })
+          .join("");
+        return newText;
+      });
+      Iter += 1;
+    }, 50);
+    setMouseOver(false);
+  }
+
+  useEffect(() => {
+    if (MouseOver) {
+      TextScramble();
+    }
+  }, [MouseOver]);
+
   return (
     <>
       <div className="MainAboutContainer">
         <div className="IAmContainer">
           <h3>
             Hello my name Is Kaden and I am a
-            <span data-text=" Fullstack Web Developer!"></span>
+            <span
+              data-text={Text}
+              ref={ColoredTextRef}
+              className="anim-text-flow"
+              onMouseEnter={() => {
+                setMouseOver(true);
+              }}
+            ></span>
           </h3>
         </div>
         <button className="MoveDownBtn" onClick={scrollDown}></button>
