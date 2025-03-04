@@ -5,8 +5,8 @@ import DownArr from "../Images/DownArrow";
 function About() {
   const ColoredTextRef = useRef(null);
   const [MouseOver, setMouseOver] = useState(false);
-  const Orginal = " Fullstack Web Developer!";
-  const [Text, setText] = useState(" Fullstack Web Developer!");
+  const Orginal = " Hi, my name is";
+  const [Text, setText] = useState(" Hi, my name is");
   const Alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   function scrollDown() {
@@ -54,6 +54,7 @@ function About() {
   }
 
   useEffect(() => {
+    console.log(MouseOver);
     if (MouseOver) {
       TextScramble();
     }
@@ -63,17 +64,23 @@ function About() {
     <>
       <div className="MainAboutContainer">
         <div className="IAmContainer">
-          <h3>
-            Hello my name Is Kaden and I am a
-            <span
-              data-text={Text}
-              ref={ColoredTextRef}
-              className="anim-text-flow"
-              onMouseEnter={() => {
-                setMouseOver(true);
-              }}
-            ></span>
-          </h3>
+          <h1
+            className="Text1"
+            ref={ColoredTextRef}
+            onMouseEnter={() => {
+              console.log("Mouse entered");
+              setMouseOver(true);
+            }}
+          >
+            {Text}
+          </h1>
+          <h2 className="Text2">Kaden Wildauer.</h2>
+          <h3 className="Text3">I build things for the web.</h3>
+          <p className="Text4">
+            I'm a software engineer specializing in building websites and web
+            applications. I enjoy creating efficient, scalable, and visually
+            appealing digital experiences. You can find my work here!
+          </p>
         </div>
         <DownArr onClick={scrollDown} />
         <PlayGround />

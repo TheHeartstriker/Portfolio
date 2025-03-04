@@ -2,6 +2,7 @@
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: #00ccff;
   --circle-radius: 32.5vh;
+  --Teal: rgb(100, 255, 218);
 }
 
 .PlayGround {
@@ -29,22 +30,46 @@
 }
 /* Container for the glowing text element */
 .IAmContainer {
-  z-index: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
   position: relative;
-  bottom: 115vh;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 60%;
+  bottom: 112vh;
 }
 
-h3 {
+.Text1 {
+  font-size: 2rem;
+  color: var(--neon-blue);
+  margin: 0px 0px 30px 4px;
+  font-weight: 400;
+  filter: drop-shadow(0 0 2px var(--neon-blue));
+}
+
+.Text2 {
+  font-size: 5.5rem;
   color: white;
-  padding: 0 100px;
-  font-size: 5rem;
+  opacity: 0.8;
+  margin: 0;
   font-weight: 600;
-  position: relative;
-  letter-spacing: 0.1rem;
+  line-height: 1.1;
+}
+
+.Text3 {
+  font-size: 5.5rem;
+  color: white;
+  margin: 0;
+  opacity: 0.6;
+  line-height: 0.9;
+}
+
+.Text4 {
+  font-size: 1.5rem;
+  width: 75%;
+  color: white;
+  margin: 20px 0px 0px;
+  opacity: 0.4;
 }
 
 h3 span::before {

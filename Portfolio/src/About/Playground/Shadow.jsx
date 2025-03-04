@@ -91,7 +91,6 @@ function Shadow({ x, y, radius }) {
   useEffect(() => {
     if (!ctx) return;
     RowGradient(5);
-    console.log(MouseDis.current);
   }, [MouseDis.current]);
 
   return (
