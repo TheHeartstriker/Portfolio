@@ -7,6 +7,7 @@ function Background() {
   const SquareGridSize = 50;
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
+  const FrameId = useRef(null);
 
   // Creates a canvas
   useEffect(() => {
@@ -70,7 +71,7 @@ function Background() {
       );
     }
     DrawRadial(Mouse.current.x, Mouse.current.y);
-    requestAnimationFrame(Draw);
+    FrameId.current = requestAnimationFrame(Draw);
   }
 
   //Main function to draw the pattern
@@ -82,7 +83,7 @@ function Background() {
     ctx.lineTo(x2, y2);
     //Colors
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = "#1B1B1B";
+    ctx.strokeStyle = "#1E293B";
     //Glow
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 0;
@@ -104,6 +105,9 @@ function Background() {
 
   useEffect(() => {
     Draw();
+    return () => {
+      cancelAnimationFrame(FrameId.current);
+    };
   }, [ctx]);
 
   return (

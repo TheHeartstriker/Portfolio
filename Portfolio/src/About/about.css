@@ -14,6 +14,7 @@
   position: absolute;
   cursor: default;
   width: 100vw;
+  z-index: -1;
 }
 
 /* Container for the entire page */
@@ -43,7 +44,7 @@ h3 {
   font-size: 5rem;
   font-weight: 600;
   position: relative;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
 }
 
 h3 span::before {

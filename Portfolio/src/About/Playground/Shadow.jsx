@@ -1,15 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
 function Shadow({ x, y, radius }) {
-  //Shadow information
-  const ShadowData = useRef({});
-  const ShadowCircles = 18;
-  const DitherAmount = 500;
   const ShadowRef = useRef(null);
-
   const [ctx, setCtx] = useState(null);
-  const xRef = useRef(x);
-  const yRef = useRef(y);
+  const Mouse = useRef({ x: 0, y: 0 });
+  const MouseDis = useRef(0);
+  radius = 450;
   // Creates a canvas
   useEffect(() => {
     // Creates references to current canvases
@@ -32,68 +28,71 @@ function Shadow({ x, y, radius }) {
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("mousemove", HandleMouse);
+
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", HandleMouse);
     };
   }, []);
-  //Pixel information
-  // Pixel information
-  function InputShadowData(x, y, radius) {
-    ctx.fillStyle = "blue";
-    for (let i = 0; i < ShadowCircles; i++) {
-      let NewShadowInfo = [];
-      for (let j = 0; j < DitherAmount; j++) {
-        let RanAngle = Math.random() * Math.PI * 2;
-        let RanRadius = Math.sqrt(Math.random()) * radius;
-        let RanX = Math.cos(RanAngle) * RanRadius;
-        let RanY = Math.sin(RanAngle) * RanRadius;
-        ctx.fillRect(x + RanX, y + RanY, 2, 2);
-        NewShadowInfo.push([x + RanX, y + RanY]);
-      }
-      ShadowData.current[`Circle${i}`] = NewShadowInfo;
-    }
+
+  function HandleMouse(e) {
+    Mouse.current.x = e.pageX;
+    Mouse.current.y = e.pageY;
+    MouseDis.current = Math.sqrt(
+      (Mouse.current.x - x) ** 2 + (Mouse.current.y - y) ** 2
+    );
   }
 
-  function EmptyFill() {
-    for (let i = 0; i < ShadowCircles; i++) {
-      let Curr = new Array(DitherAmount).fill(0);
-      ShadowData.current[`Circle${i}`] = Curr;
-    }
+  function RadialGradient(x, y, radius) {
+    if (!ctx) return;
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+    gradient.addColorStop(0, "rgba(0, 0, 0, 0.15)");
+    gradient.addColorStop(1, "transparent");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
   }
-  function Main() {
-    const fps = 30;
-    const interval = 1000 / fps;
-    let lastTime = 0;
+  function RowGradient(Range) {
+    if (!ctx) return;
 
-    function animate(time) {
-      if (time - lastTime >= interval) {
-        lastTime = time;
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        InputShadowData(xRef.current, yRef.current, radius + 50);
-      }
-      requestAnimationFrame(animate);
+    ctx.clearRect(
+      0,
+      0,
+      document.documentElement.scrollWidth,
+      document.documentElement.scrollHeight
+    );
+
+    // Calculate the direction vector from the circle's center to the mouse position
+    const directionX = Mouse.current.x - x;
+    const directionY = Mouse.current.y - y;
+
+    // Normalize the direction vector
+    const length = Math.sqrt(directionX * directionX + directionY * directionY);
+    const normalizedDirectionX = directionX / length;
+    const normalizedDirectionY = directionY / length;
+
+    // Invert the direction vector to get the opposite direction
+    const oppositeDirectionX = -normalizedDirectionX;
+    const oppositeDirectionY = -normalizedDirectionY;
+
+    // Scale the offset based on the distance
+    const scaleFactor = length / 15; // Adjust the divisor to control the scaling
+
+    for (let i = 0; i < Range; i++) {
+      // Adjust the position of the gradients using the opposite direction vector and scale factor
+      const offsetX = oppositeDirectionX * i * scaleFactor;
+      const offsetY = oppositeDirectionY * i * scaleFactor;
+      RadialGradient(x + offsetX, y + offsetY, radius + i * 30);
     }
-
-    requestAnimationFrame(animate);
-  }
-
-  function Update() {
-    xRef.current = x;
-    yRef.current = y;
   }
 
   useEffect(() => {
-    Update();
-  }, [x, y]);
-
-  useEffect(() => {
-    if (ctx) {
-      EmptyFill();
-      if (ShadowData.current.Circle0) {
-        Main();
-      }
-    }
-  }, [ctx]);
+    if (!ctx) return;
+    RowGradient(5);
+    console.log(MouseDis.current);
+  }, [MouseDis.current]);
 
   return (
     <canvas

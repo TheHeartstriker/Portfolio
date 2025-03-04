@@ -239,11 +239,11 @@ function PlayGround() {
         return data;
       });
       ObjectData.current = newData;
-      //    setUpdate((prev) => prev + 1);
+      setUpdate((prev) => prev + 1);
     }
     requestAnimationFrame(Main);
   }
-  //  const [update, setUpdate] = useState(0);
+  const [update, setUpdate] = useState(0);
   //Called on mouse down setting important vars for main
   function Down() {
     if (OnMouseDown && ObjectData.current) {
@@ -311,13 +311,13 @@ function PlayGround() {
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
-      {/* {ObjectData.current && (
+      {ObjectData.current && (
         <Shadow
           x={ObjectData.current[0].x}
           y={ObjectData.current[0].y}
           radius={Radius.current}
         />
-      )} */}
+      )}
     </>
   );
 }
