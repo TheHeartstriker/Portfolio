@@ -1,253 +1,175 @@
 :root {
-  --back-round-grey: rgb(46, 46, 46);
-  --neon-blue: rgb(0, 204, 255);
-  --neon-blue-a: rgba(0, 204, 255, 0.5);
+  --back-round-grey: rgb(30, 30, 30);
+  --neon-blue: #00ccff;
+  --Low-blue: #0e2250;
 }
-/* Maind container that holds all the elements of the skills page */
+
 .MainSkillContainer {
   display: flex;
-  position: relative;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
-  width: auto;
-  flex-direction: column;
 }
-/* The text box at the begining of the page */
-.SkillHeader {
-  margin-top: 70px;
-  margin-bottom: 30px;
-}
-
-.SkillHeader h1 {
+/* All h1 will be able to scramble and be 100% neon and glow  */
+.MainSkillContainer h1 {
   font-size: 2.5rem;
-  position: relative;
-  color: violet;
-  z-index: 1;
-  /* Gradient text effect */
-  background: linear-gradient(10deg, violet, blue);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* Glowing h1 bar */
-.SkillHeader h1::after {
-  content: "";
-  background: linear-gradient(10deg, blueviolet, blue);
-  height: 5px;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  box-shadow: 0 -10px 20px rgba(0, 4, 255, 0.9);
-}
-/* Container of known/learned skills */
-.SkillContainer {
-  position: relative;
-  color: white;
-  text-align: center;
-  margin: 50px auto;
-  width: 80vw;
-  padding: 25px;
-  border-radius: 50px;
-  background: var(--back-round-grey);
-  border: 5px solid var(--neon-blue);
+  font-weight: 700;
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 5px var(--neon-blue));
+  margin-bottom: 1rem;
 }
 
-/* The box the containers the image */
-.ProjectBase {
+.TechStacksContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  color: white;
-  background-color: var(--back-round-grey);
-  margin: 75px;
-  margin-top: 15%;
-  height: 55vh;
-  width: 55vw;
-  right: 15%;
-  border: 50px solid var(--neon-blue);
-  border-radius: 2.5px;
-  z-index: 0;
-  box-shadow: 0 0 20px var(--neon-blue-a), 0 0 40px var(--neon-blue-a),
-    0 0 60px var(--neon-blue-a);
-  transition: 1.5s;
-}
-/* The offset and the iamges themselfs */
-.Project1 {
-  background-image: url("../Images/DynamicPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.Project2 {
-  left: 15%;
-  background-image: url("../Images/ToDoPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.Project3 {
-  background-image: url("../Images/FitnessPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/* The text box its postioned around projectbase with a offset using absolute */
-.ProjectText {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  position: absolute;
-  color: white;
-  background-color: var(--back-round-grey);
-  width: 30vw;
-  height: 40vh;
-  padding: 50px;
-  margin: 50px;
-  transition: 1.5s;
-}
-/* Specfic offset occording to their locations */
-.Project1Text {
-  bottom: 20%;
-  left: 90%;
-}
-
-.Project2Text {
-  bottom: 20%;
-  right: 90%;
-}
-
-.Project3Text {
-  bottom: 20%;
-  left: 90%;
-}
-/* Css hover over links */
-.ProjectText h3 {
-  font-size: 5rem;
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(to bottom, var(--neon-blue) 0%, violet 100%);
-  background-size: 100% 0;
-  background-repeat: no-repeat;
-  transition: background-size 0.5s ease;
-  margin: 10px;
-  padding: 0;
-}
-
-.ProjectText h3::after {
-  content: "";
-  background-color: var(--neon-blue);
-  height: 2px;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  transition: bottom 0.5s ease;
-}
-/* Reveals the backround */
-.ProjectText h3:hover {
-  background-size: 100% 100%;
-}
-/* Moves the underline */
-.ProjectText h3:hover::after {
-  height: 0;
-  bottom: 100%;
-}
-/* Text border */
-.ProjectText::after,
-.ProjectText::before {
-  content: "";
-  background-image: conic-gradient(
-    var(--neon-blue),
-    blueviolet,
-    var(--neon-blue)
-  );
   height: 100%;
-  width: 100%;
-  padding: 30px;
-  z-index: -1;
-  border-radius: 10px;
-  position: absolute;
+  margin-top: 5rem;
 }
 
-.ProjectText::before {
-  filter: blur(1.5rem);
-  opacity: 0.5;
-}
-/* Container alter values */
-.ProjectBase.Alter {
-  height: 45vh;
-  width: 45vw;
-}
-
-.ProjectText.Alter {
-  width: 40vw;
-  height: 60vh;
-  padding: 10px;
-  margin: 25px;
-
+.TechStacks {
+  position: relative;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-}
-/* Expand button for the text */
-.Expandbtn {
-  background-color: var(--neon-blue);
-  border: 1px solid var(--neon-blue);
-  border-radius: 2px;
-  color: white;
-  padding: 5px;
-  margin: 5px;
-  height: 1vw;
-  width: 7.5vw;
-  cursor: pointer;
-  transition: 1s;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  width: 85vw;
+  height: 20vh;
+  padding: 15px;
+  margin-top: 5%;
+  border-radius: 100px;
+  background-color: var(--Low-blue);
+}
+
+.BluePill {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 13%;
+  height: 4rem;
+  border-radius: 100px;
+  margin: 10px;
+  color: var(--neon-blue);
+  background-color: rgba(0, 204, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BluePill2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 25%;
+  height: 3rem;
+  border-radius: 100px;
+  margin: 10px;
+  color: var(--neon-blue);
+  background-color: rgba(0, 204, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Separator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 8%;
+  right: 10%;
+}
+
+.Separator h1 {
+  margin: 15px;
+}
+
+.Separator hr {
+  margin: 15px;
+  width: 50%;
+  color: var(--neon-blue);
+  background-color: var(--neon-blue);
+}
+
+.FeaturedApps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+/* Main app container */
+.AppF {
   display: flex;
   align-items: center;
+  text-align: center;
+  position: relative;
+  width: 75vw;
+  height: 50vh;
+  /* Temp indicator */
+}
+/* The image takes half of Appf */
+.AppImage {
+  width: 50%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: var(--neon-blue);
+}
+/* Takes up 60% of the main container overlaping over app image a small bit */
+.AppText {
+  position: absolute;
+  width: 60%;
+  left: 40%;
+  height: 100%;
+  text-align: right;
+  color: white;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.Expandbtn.Alter {
-  height: 2vh;
-  width: 7.5vh;
-  transform: rotate(90deg);
-}
-
-/* Text styles  */
-.ProjectBase pre {
-  flex-direction: row;
+.AppHeader {
   width: 100%;
-  white-space: pre-wrap;
-  font-family: "Protest Guerrilla", sans-serif;
-  text-align: left;
-  font-size: 1.1rem;
-}
-.ProjectBase h4 {
-  font-size: 1.1rem;
-  font-family: "Protest Guerrilla", sans-serif;
+  height: 33%;
+  padding: 15px;
+  background-color: transparent;
 }
 
-@media (max-width: 768px) {
-  .ProjectBase {
-    margin: 25px;
-    margin-top: 15%;
-    height: 55vh;
-    width: 55vw;
-    right: 15%;
-  }
+.AppHeader h1 {
+  font-size: 1.5rem;
+}
 
-  .ProjectText {
-    font-size: 0.6rem;
-  }
-  .ProjectText h4 {
-    font-size: 0.6rem;
-  }
+.AppHeader h3 {
+  font-size: 2rem;
+  color: white;
+}
+
+.AppPara {
+  width: 100%;
+  height: 33%;
+  padding: 15px;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 1.5rem;
+
+  background-color: var(--Low-blue);
+}
+
+.AppSkills {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 33%;
+  padding: 15px;
+  left: 10%;
 }
