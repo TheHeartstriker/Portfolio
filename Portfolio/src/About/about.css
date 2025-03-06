@@ -38,7 +38,6 @@
   width: 60%;
   bottom: 105vh;
   z-index: 1;
-  user-select: none;
 }
 
 /* In the nav folder the css file consider the container appearing time */
@@ -94,47 +93,7 @@
   }
 }
 
-h3 span::before {
-  content: attr(data-text);
-  position: absolute;
-  width: 100%;
-  color: var(--neon-blue);
-  filter: drop-shadow(0 0 3px) drop-shadow(0 0 13px);
-  animation: colorFlow 3s infinite alternate;
-}
-
-@keyframes colorFlow {
-  0% {
-    color: var(--neon-blue);
-    filter: drop-shadow(0 0 3px var(--neon-blue))
-      drop-shadow(0 0 13px var(--neon-blue));
-  }
-  100% {
-    color: #0099ff;
-    filter: drop-shadow(0 0 3px #0099ff) drop-shadow(0 0 13px #0099ff);
-  }
-}
-
-h3 span {
-  display: block;
-}
-
-.MoveDownBtn:hover {
-  box-shadow: 0 0 80px 40px rgba(255, 255, 255, 1);
-}
-
-@keyframes scaleInOut {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
+/* Down indicator */
 .DownContainer {
   display: flex;
   justify-content: center;
@@ -200,4 +159,54 @@ h3 span {
   100% {
     opacity: 0;
   }
+}
+
+@media (max-width: 1000px) {
+  .IAmContainer {
+    bottom: 20vh;
+    width: 75%;
+  }
+}
+
+.MobileAbout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 170vh;
+  top: 15vh;
+}
+
+.Journey,
+.Beyond,
+.More {
+  height: 45vh;
+  position: relative;
+  width: 45vh;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: rgba(14, 34, 80, 0.95);
+  border: 5px rgba(5, 120, 250, 1) solid;
+  box-shadow: 0 0 20px 10px rgba(5, 120, 250, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.Journey {
+  left: 15%;
+}
+
+.Beyond {
+  right: 15%;
+}
+
+.More {
+  left: 15%;
 }

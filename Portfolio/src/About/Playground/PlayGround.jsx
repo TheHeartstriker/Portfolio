@@ -40,14 +40,15 @@ function PlayGround() {
     // Sets the context to the state
     setCtx(backgroundContext);
     // Function to resize the canvas
+    Radius.current = window.innerWidth / 5;
     const resizeCanvas = () => {
       // The resize
       backgroundCanvas.width = document.documentElement.scrollWidth;
       backgroundCanvas.height = document.documentElement.scrollHeight;
       // After resizing the canvas, we need to get the context again
       setCtx(backgroundCanvas.getContext("2d"));
-      // Where the redrawing of the canvas happens
-      Radius.current = window.innerWidth < 550 ? 200 : window.innerWidth / 6.5;
+      // New radius
+      Radius.current = window.innerWidth / 5;
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
@@ -296,16 +297,6 @@ function PlayGround() {
       };
     }
   }, [ctx]);
-
-  //Phone and screen size
-  useEffect(() => {
-    if (window.innerWidth < 550) {
-      Radius.current = 200;
-    } else {
-      let calculatedRadius = window.innerWidth * 0.25;
-      Radius.current = Math.min(calculatedRadius, 400);
-    }
-  }, [window.innerWidth]);
 
   return (
     <>

@@ -1,12 +1,15 @@
 import PlayGround from "./Playground/PlayGround";
 import { useRef, useState, useEffect } from "react";
 import DownArr from "../Images/DownArrow";
+import { Header1, Header2, Header3 } from "./Text";
+import { MainText1, MainText2, MainText3 } from "./Text";
 
 function About() {
   const ColoredTextRef = useRef(null);
   const [MouseOver, setMouseOver] = useState(false);
-  const Orginal = " Hi, my name is";
   const [Text, setText] = useState(" Hi, my name is");
+  const [ToSmall, setToSmall] = useState(false);
+  const Orginal = " Hi, my name is";
   const Alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   function scrollDown() {
@@ -54,11 +57,23 @@ function About() {
   }
 
   useEffect(() => {
-    console.log(MouseOver);
     if (MouseOver) {
       TextScramble();
     }
   }, [MouseOver]);
+
+  useEffect(() => {
+    function handleResize() {
+      setToSmall(window.innerWidth < 1000);
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial value
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -83,40 +98,23 @@ function About() {
           </p>
         </div>
         <DownArr onClick={scrollDown} />
-        <PlayGround />
-        {/* <div className="AboutLegend" ref={Ball1}>
-          <h1>Where I am at and where to see my work</h1>
-          <p>
-            You can find my current work and projects on my GitHub which is
-            located in the contacts section and my live projects and known tech
-            stacks in the skills section. Currently I am working on improving my
-            current projects and skills. I also do graphics programming on the
-            side I am sure you did not see the interest surprise! I am among
-            other things taking the cs50 course for fun.
-          </p>
-        </div>
-        <div className="AboutPersonal" ref={Ball2}>
-          <h1>Who am I</h1>
-          <p>
-            Hello my name is kaden wildauer and I am a web developer,
-            programmer, and software engineer. I like a variety of things
-            including programming, learning, art, music, books, anime, fitness
-            and video games. A large part of my life is trying to further my
-            interests and skills in these areas. Although currently I am average
-            at best in all but programming and fitness.
-          </p>
-        </div>
-        <div className="AboutStart" ref={Ball3}>
-          <h1>How it started</h1>
-          <p>
-            I have always been interested in computers and technology I got into
-            programming when I was 16 with the simple goal of keeping my mind
-            sharp... After awhile I got hooked. The idea of being able to create
-            almost anything within the confines of a computer and share it is
-            endlessly entertaining to me. I find creation and improvement in the
-            realm of computer science to be very fulfilling.
-          </p>
-        </div> */}
+        {ToSmall === false && <PlayGround />}
+        {ToSmall && (
+          <div className="MobileAbout">
+            <div className="Journey">
+              <h1>{Header1}</h1>
+              <p>{MainText1}</p>
+            </div>
+            <div className="Beyond">
+              <h1>{Header2}</h1>
+              <p>{MainText2}</p>
+            </div>
+            <div className="More">
+              <h1>{Header3}</h1>
+              <p>{MainText3}</p>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
