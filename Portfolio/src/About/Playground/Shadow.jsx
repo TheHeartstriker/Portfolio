@@ -84,13 +84,13 @@ function Shadow({ x, y, radius }) {
       // Adjust the position of the gradients using the opposite direction vector and scale factor
       const offsetX = oppositeDirectionX * i * scaleFactor;
       const offsetY = oppositeDirectionY * i * scaleFactor;
-      RadialGradient(x + offsetX, y + offsetY, radius + i * 30);
+      RadialGradient(x + offsetX, y + offsetY, radius + i * 40);
     }
   }
 
   useEffect(() => {
     if (!ctx) return;
-    RowGradient(5);
+    RowGradient(8);
   }, [MouseDis.current]);
 
   return (

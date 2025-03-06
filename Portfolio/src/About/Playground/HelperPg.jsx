@@ -3,7 +3,7 @@ export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
     //Shape
     ctx.beginPath();
     ctx.arc(x, y, Radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
+    ctx.fillStyle = "rgba(14, 34, 80, 0.95)";
     ctx.fill();
     //Glow
     ctx.shadowColor = "rgba(5, 120, 250, 0.8)";

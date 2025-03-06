@@ -48,8 +48,8 @@ function About() {
           .join("");
         return newText;
       });
-      Iter += 1;
-    }, 50);
+      Iter += 0.7;
+    }, 40);
     setMouseOver(false);
   }
 

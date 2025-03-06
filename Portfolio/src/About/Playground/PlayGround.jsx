@@ -311,13 +311,13 @@ function PlayGround() {
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
-      {ObjectData.current && (
+      {/* {ObjectData.current && (
         <Shadow
           x={ObjectData.current[0].x}
           y={ObjectData.current[0].y}
           radius={Radius.current}
         />
-      )}
+      )} */}
     </>
   );
 }
