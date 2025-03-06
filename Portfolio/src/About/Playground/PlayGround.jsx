@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import Shadow from "./Shadow";
 import { DrawTextBlurb } from "./HelperPg.jsx";
+import { AddMember, RemoveMember } from "./AniFrame";
 import {
   Header1,
   MainText1,
@@ -239,11 +240,8 @@ function PlayGround() {
         return data;
       });
       ObjectData.current = newData;
-      setUpdate((prev) => prev + 1);
     }
-    requestAnimationFrame(Main);
   }
-  const [update, setUpdate] = useState(0);
   //Called on mouse down setting important vars for main
   function Down() {
     if (OnMouseDown && ObjectData.current) {
@@ -288,8 +286,14 @@ function PlayGround() {
   }, [ctx]);
   useEffect(() => {
     if (ObjectData.current && !isCalled && Playground.current) {
-      Main();
+      function UpdateMembers() {
+        Main();
+      }
+      AddMember(UpdateMembers);
       setIsCalled(true);
+      return () => {
+        RemoveMember(UpdateMembers);
+      };
     }
   }, [ctx]);
 
