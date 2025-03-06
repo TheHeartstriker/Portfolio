@@ -75,7 +75,6 @@ function NavCursor() {
   }
 
   useEffect(() => {
-    console.log(Grabable);
     let clean = animateCursor(Clickable, Grabable, 0.2);
     return clean;
   }, [Clickable, Grabable]);
