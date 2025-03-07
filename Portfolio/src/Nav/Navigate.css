@@ -2,6 +2,7 @@
   --back-round-grey: rgb(46, 46, 46);
   --neon-blue: rgb(0, 204, 255);
   --Grey-Blue: rgb(0, 13, 40);
+  --Teal: rgba(100, 255, 218);
 }
 
 .Container {
@@ -67,12 +68,12 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid violet;
+  border: 2px solid rgba(100, 255, 218, 0.5);
   z-index: 100;
   pointer-events: none;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, background-color 1s ease-in-out;
 }
 /* When the slow cursor is not near the mouse */
 .Cursor.shrink {
@@ -81,14 +82,14 @@
 
 .Cursor.Change {
   transform: translate(-50%, -50%) scale(0.5);
-  background-color: violet;
+  background-color: rgba(100, 255, 218, 0.8);
   box-shadow: none;
   border: none;
 }
 
 .Cursor.Grab {
   transform: translate(-50%, -50%) scale(0.8);
-  background-color: orangered;
+  background-color: rgba(100, 255, 218, 0.8);
   box-shadow: none;
   border: none;
 }

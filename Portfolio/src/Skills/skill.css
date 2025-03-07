@@ -3,7 +3,7 @@
   --neon-blue: #00ccff;
   --Low-blue: #0e2250;
 }
-
+/* The container for the entire page */
 .MainSkillContainer {
   display: flex;
   flex-direction: column;
@@ -14,13 +14,13 @@
 }
 /* All h1 will be able to scramble and be 100% neon and glow  */
 .MainSkillContainer h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--neon-blue);
   filter: drop-shadow(0 0 5px var(--neon-blue));
   margin-bottom: 1rem;
 }
-
+/* For the teck stack */
 .TechStacksContainer {
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@
   height: 100%;
   margin-top: 5rem;
 }
-
+/* The container that holder the skills */
 .TechStacks {
   position: relative;
   display: flex;
@@ -45,7 +45,8 @@
   border-radius: 100px;
   background-color: var(--Low-blue);
 }
-
+/* Used across the skill.jsx to hold tech info */
+/* Used in tech stacks container */
 .BluePill {
   font-size: 1rem;
   font-weight: 700;
@@ -59,7 +60,7 @@
   justify-content: center;
   align-items: center;
 }
-
+/* Smaller version used in featured apps */
 .BluePill2 {
   font-size: 0.7rem;
   font-weight: 700;
@@ -73,7 +74,7 @@
   justify-content: center;
   align-items: center;
 }
-
+/* Seperator for tech stacks and Featured apps */
 .Separator {
   position: relative;
   display: flex;
@@ -81,9 +82,8 @@
   align-items: center;
   text-align: center;
   flex-direction: row;
-  width: 100%;
-  margin-top: 8%;
-  right: 10%;
+  width: 150%;
+  margin: 7.5vh;
 }
 
 .Separator h1 {
@@ -96,14 +96,14 @@
   color: var(--neon-blue);
   background-color: var(--neon-blue);
 }
-
+/* Container for the featured apps */
 .FeaturedApps {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 /* Main app container */
 .AppF {
@@ -113,15 +113,42 @@
   position: relative;
   width: 75vw;
   height: 50vh;
-  /* Temp indicator */
+  margin-bottom: 15vh;
 }
-/* The image takes half of Appf */
+/* The image takes half of AppF */
 .AppImage {
   width: 50%;
   height: 100%;
   border-radius: 15px;
-  background-color: var(--neon-blue);
 }
+/* Images for the image half of the container */
+#F1 {
+  background-image: url("../Images/DynamicShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#F2 {
+  background-image: url("../Images/FitShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#F3 {
+  background-image: url("../Images/ToDoShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* Oppacity overlay for image */
+.TransparentFill {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 204, 255, 0.2);
+  border-radius: 15px;
+}
+
 /* Takes up 60% of the main container overlaping over app image a small bit */
 .AppText {
   position: absolute;
@@ -134,7 +161,7 @@
   flex-direction: column;
   justify-content: center;
 }
-
+/* Header text*/
 .AppHeader {
   width: 100%;
   height: 33%;
@@ -145,12 +172,12 @@
 .AppHeader h1 {
   font-size: 1.5rem;
 }
-
+/* Secondary header */
 .AppHeader h3 {
   font-size: 2rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 }
-
+/* The paragraph showing some info about the app */
 .AppPara {
   width: 100%;
   height: 33%;
@@ -158,10 +185,11 @@
   border-radius: 15px;
   padding: 20px;
   font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
 
   background-color: var(--Low-blue);
 }
-
+/* The skill container holds used tech */
 .AppSkills {
   position: relative;
   display: flex;
@@ -171,5 +199,61 @@
   width: 100%;
   height: 33%;
   padding: 15px;
-  left: 10%;
+  transform: translateX(6%);
+}
+/* Mirror info */
+.AppF.mirror {
+  flex-direction: row-reverse;
+}
+
+.AppText.mirror {
+  left: 0%;
+  text-align: left;
+}
+
+.AppSkills.mirror {
+  transform: translateX(-10%);
+}
+/* Header container for non featured apps */
+.NonFeaturedHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  margin-bottom: 10vh;
+}
+/* Container for non featured apps */
+.FolderContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5.5rem;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.Folder {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20vw;
+  height: 20vw;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--Low-blue);
+}
+
+.FolderSvgContainer {
+  width: 30%;
+  height: 30%;
+  background-image: url("../images/folder.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Folder p {
+  color: rgba(255, 255, 255, 0.7);
 }

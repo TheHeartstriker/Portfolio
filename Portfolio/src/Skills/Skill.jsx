@@ -30,19 +30,47 @@ function Skill() {
     "Azure",
   ];
 
+  const UsedTechApp2 = [
+    "HTML/CSS",
+    "MySQL/Express",
+    "Node.js",
+    "React.js",
+    "JavaScript",
+    "Ec2/AWS",
+  ];
+
+  const UsedTechApp3 = [
+    "HTML/CSS",
+    "MySQL/Express",
+    "Node.js",
+    "React.js",
+    "TypeScript",
+    "Ec2/AWS",
+  ];
+
   const Paras = [
     `A web app to show the beauty of programming. Simulate natural phenomena such as lightning, sand or just look at beautiful simulations all within the web browser.`,
+    `A modern fitness tracker. Track heart rate, Time, calories and weight. Features graphs a custom made login system and method to share fitness history with others.`,
+    `A simple todo app. Add, remove, edit, folders and marking as done are the main features. The app is was made to further my backend knowledge.`,
+  ];
+
+  const NoteWortheyH = ["CS50", "Portfolio", "CS Final Project"];
+  const NoteWortheyP = [
+    "All my code from the Harvard CS50 problem sets",
+    "The code base for this website! Wondering how its done check here :)",
   ];
 
   const Header = ["Dynamic Animations", "FGraphs", "GenesisToDo"];
 
-  function CreateFeatured({ Header, Para, Skills }) {
+  function CreateFeatured({ Header, Para, Skills, Mirror, Id }) {
     return (
       <>
         {/* Main app split into two container one for image and other for text */}
-        <div className="AppF">
-          <div className="AppImage"></div>
-          <div className="AppText">
+        <div className={`AppF ${Mirror ? "mirror" : ""}`}>
+          <div className="AppImage" id={Id}>
+            <div className="TransparentFill"></div>
+          </div>
+          <div className={`AppText ${Mirror ? "mirror" : ""}`}>
             <div className="AppHeader">
               <h1>Featured project</h1>
               <h3>{Header}</h3>
@@ -50,7 +78,7 @@ function Skill() {
             <div className="AppPara">
               <p>{Para}</p>
             </div>
-            <div className="AppSkills">
+            <div className={`AppSkills ${Mirror ? "mirror" : ""}`}>
               {Skills.map((tech, index) => (
                 <div className="BluePill2" key={index}>
                   <h2>{tech}</h2>
@@ -60,6 +88,16 @@ function Skill() {
           </div>
         </div>
       </>
+    );
+  }
+
+  function CreateFolder({ Header, Para }) {
+    return (
+      <div className="Folder">
+        <div className="FolderSvgContainer"></div>
+        <h1>{Header}</h1>
+        <p>{Para}</p>
+      </div>
     );
   }
 
@@ -87,10 +125,32 @@ function Skill() {
           Header={Header[0]}
           Para={Paras[0]}
           Skills={UsedTechApp1}
+          Id="F1"
+        />
+        <CreateFeatured
+          Header={Header[1]}
+          Para={Paras[1]}
+          Skills={UsedTechApp2}
+          Mirror={true}
+          Id="F2"
+        />
+        <CreateFeatured
+          Header={Header[2]}
+          Para={Paras[2]}
+          Skills={UsedTechApp3}
+          Id="F3"
         />
       </div>
       {/* Main container for folder aka less important apps and code */}
-      <div className="NoFeaturedApps"></div>
+      <div className="NoFeaturedApps">
+        <div className="NonFeaturedHeader">
+          <h1>Other Noteworthey Code</h1>
+        </div>
+        <div className="FolderContainer">
+          <CreateFolder Header={NoteWortheyH[0]} Para={NoteWortheyP[0]} />
+          <CreateFolder Header={NoteWortheyH[1]} Para={NoteWortheyP[1]} />
+        </div>
+      </div>
     </div>
   );
 }
