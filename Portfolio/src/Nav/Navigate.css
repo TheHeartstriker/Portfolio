@@ -83,8 +83,6 @@
 .Cursor.Change {
   transform: translate(-50%, -50%) scale(0.5);
   background-color: rgba(100, 255, 218, 0.8);
-  box-shadow: none;
-  border: none;
 }
 
 .Cursor.Grab {

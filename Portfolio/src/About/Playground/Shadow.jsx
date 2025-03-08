@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AddMember, RemoveMember } from "./AniFrame";
+import { AddMember, RemoveMember } from "../../Helper/AniFrame";
 
 function Shadow({ x, y, radius, update }) {
   const ShadowRef = useRef(null);

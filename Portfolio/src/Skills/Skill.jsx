@@ -1,66 +1,50 @@
 import { useState, useRef, useEffect } from "react";
 //Text
-import { DynamicAniGitText, BasicDynamicText } from "./Text.js";
-import { BasicToDoAppText, ToDoAppGitText } from "./Text.js";
-import { BasicFitnessAppText, FitnessAppGitText } from "./Text.js";
+import {
+  TechStacks,
+  Header,
+  Paras,
+  UsedTechApp1,
+  UsedTechApp2,
+  UsedTechApp3,
+  NoteWortheyH,
+  NoteWortheyP,
+} from "./Text.js";
+import { TextScramble } from "../Helper/Scramble.jsx";
 
 function Skill() {
-  const TechStacks = [
-    "HTML/CSS",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "React.js",
-    "Express",
-    "Mysql",
-    "Python",
-    "C++",
-    "Azure",
-    "Aws",
-    "Figma",
-    "WebAssembly",
-  ];
-
-  const UsedTechApp1 = [
-    "React.js",
-    "JavaScript",
-    "HTML Canvas",
-    "C++",
-    "WebAssembly",
-    "Azure",
-  ];
-
-  const UsedTechApp2 = [
-    "HTML/CSS",
-    "MySQL/Express",
-    "Node.js",
-    "React.js",
-    "JavaScript",
-    "Ec2/AWS",
-  ];
-
-  const UsedTechApp3 = [
-    "HTML/CSS",
-    "MySQL/Express",
-    "Node.js",
-    "React.js",
-    "TypeScript",
-    "Ec2/AWS",
-  ];
-
-  const Paras = [
-    `A web app to show the beauty of programming. Simulate natural phenomena such as lightning, sand or just look at beautiful simulations all within the web browser.`,
-    `A modern fitness tracker. Track heart rate, Time, calories and weight. Features graphs a custom made login system and method to share fitness history with others.`,
-    `A simple todo app. Add, remove, edit, folders and marking as done are the main features. The app is was made to further my backend knowledge.`,
-  ];
-
-  const NoteWortheyH = ["CS50", "Portfolio", "CS Final Project"];
-  const NoteWortheyP = [
-    "All my code from the Harvard CS50 problem sets",
-    "The code base for this website! Wondering how its done check here :)",
-  ];
-
-  const Header = ["Dynamic Animations", "FGraphs", "GenesisToDo"];
+  const [TextState, setTextState] = useState({
+    S1: {
+      Text: "Known tech",
+      Original: "Known tech",
+      Mouse: false,
+    },
+    S2: {
+      Text: "Stuff I made",
+      Original: "Stuff I made",
+      Mouse: false,
+    },
+    S3: {
+      Text: "Featured project",
+      Original: "Featured project",
+      Mouse: false,
+    },
+    S4: {
+      Text: "Featured project",
+      Original: "Featured project",
+      Mouse: false,
+    },
+    S5: {
+      Text: "Featured project",
+      Original: "Featured project",
+      Mouse: false,
+    },
+    S6: {
+      Text: "Other Noteworthey Code",
+      Original: "Other Noteworthey Code",
+      Mouse: false,
+    },
+  });
 
   function CreateFeatured({ Header, Para, Skills, Mirror, Id }) {
     return (
@@ -105,7 +89,7 @@ function Skill() {
     <div className="MainSkillContainer">
       {/* Over head container for teck stacks */}
       <div className="TechStacksContainer">
-        <h1>Known tech</h1>
+        <h1>{TextState.S1.Text}</h1>
         <div className="TechStacks">
           {TechStacks.map((tech, index) => (
             <div className="BluePill" key={index}>
@@ -116,7 +100,7 @@ function Skill() {
       </div>
       {/* Seperator element */}
       <div className="Separator">
-        <h1>Stuff I made</h1>
+        <h1>{TextState.S2.Text}</h1>
         <hr></hr>
       </div>
       {/* Overhead container for main apps */}
