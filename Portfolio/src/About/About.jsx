@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import DownArr from "../Images/DownArrow";
 import { Header1, Header2, Header3 } from "./Text";
 import { MainText1, MainText2, MainText3 } from "./Text";
-
+import { TextScramble } from "../Helper/Scramble";
 function About() {
   const ColoredTextRef = useRef(null);
   const [MouseOver, setMouseOver] = useState(false);
@@ -19,46 +19,10 @@ function About() {
     });
   }
 
-  function TextScramble() {
-    let Iter = 0;
-    let Interval = setInterval(() => {
-      setText((prevText) => {
-        //Placeholder
-        let newText = prevText
-          .split("")
-          .map((char, index) => {
-            //Dont scramble spaces
-            if (char === " ") {
-              return char;
-            }
-            //If we have reached the end of the text
-            if (Iter >= Orginal.length) {
-              clearInterval(Interval);
-              return Orginal[index];
-            }
-            //Slowly reveal the text
-            if (index < Iter) {
-              return Orginal[index];
-            }
-            //Scramble the text
-            let Num = Math.floor(Math.random() * 26);
-            if (char === char.toUpperCase()) {
-              return Alphabet[Num].toUpperCase();
-            } else {
-              return Alphabet[Num];
-            }
-          })
-          .join("");
-        return newText;
-      });
-      Iter += 0.7;
-    }, 40);
-    setMouseOver(false);
-  }
-
   useEffect(() => {
     if (MouseOver) {
-      TextScramble();
+      TextScramble(Orginal, Text, Alphabet, setText, 0.5);
+      setMouseOver(false);
     }
   }, [MouseOver]);
 

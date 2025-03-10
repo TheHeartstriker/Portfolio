@@ -76,8 +76,9 @@ createRoot(document.getElementById("root")).render(
 
 //
 // Website structure:
-// - Nav contains the nav along with the css and jsx related to the cursor
+// - Nav contains the nav bar along with the css and jsx related to the cursor
 // - Backgrounds contains the background animation currently a moving grid it also handles the radial gradient that follows the mouse
 // - Images contains .svg and .jsx related to images used in the project
 // - Skills, About, and Contact contain the jsx and css for the respective pages
+// - Helper contains imported helper function such as main render and text scrambling.
 //

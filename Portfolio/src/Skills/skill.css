@@ -1,253 +1,382 @@
 :root {
-  --back-round-grey: rgb(46, 46, 46);
-  --neon-blue: rgb(0, 204, 255);
-  --neon-blue-a: rgba(0, 204, 255, 0.5);
+  --back-round-grey: rgb(30, 30, 30);
+  --neon-blue: #00ccff;
+  --neon-dull: rgb(0, 188, 235);
+  --Low-blue: #0e2250;
+  --Teal: rgb(100, 255, 218);
 }
-/* Maind container that holds all the elements of the skills page */
+/* The container for the entire page */
 .MainSkillContainer {
   display: flex;
-  position: relative;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: auto;
-  flex-direction: column;
-}
-/* The text box at the begining of the page */
-.SkillHeader {
-  margin-top: 70px;
-  margin-bottom: 30px;
-}
-
-.SkillHeader h1 {
-  font-size: 2.5rem;
-  position: relative;
-  color: violet;
-  z-index: 1;
-  /* Gradient text effect */
-  background: linear-gradient(10deg, violet, blue);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* Glowing h1 bar */
-.SkillHeader h1::after {
-  content: "";
-  background: linear-gradient(10deg, blueviolet, blue);
-  height: 5px;
   width: 100%;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  box-shadow: 0 -10px 20px rgba(0, 4, 255, 0.9);
+  height: 100%;
 }
-/* Container of known/learned skills */
-.SkillContainer {
-  position: relative;
-  color: white;
-  text-align: center;
-  margin: 50px auto;
-  width: 80vw;
-  padding: 25px;
-  border-radius: 50px;
-  background: var(--back-round-grey);
-  border: 5px solid var(--neon-blue);
+/* All h1 will be able to scramble and be 100% neon and glow  */
+.MainSkillContainer h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 5px var(--neon-dull));
 }
-
-/* The box the containers the image */
-.ProjectBase {
+/* For the teck stack */
+.TechStacksContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  color: white;
-  background-color: var(--back-round-grey);
-  margin: 75px;
-  margin-top: 15%;
-  height: 55vh;
-  width: 55vw;
-  right: 15%;
-  border: 50px solid var(--neon-blue);
-  border-radius: 2.5px;
-  z-index: 0;
-  box-shadow: 0 0 20px var(--neon-blue-a), 0 0 40px var(--neon-blue-a),
-    0 0 60px var(--neon-blue-a);
-  transition: 1.5s;
-}
-/* The offset and the iamges themselfs */
-.Project1 {
-  background-image: url("../Images/DynamicPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.Project2 {
-  left: 15%;
-  background-image: url("../Images/ToDoPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.Project3 {
-  background-image: url("../Images/FitnessPortfolio.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/* The text box its postioned around projectbase with a offset using absolute */
-.ProjectText {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  position: absolute;
-  color: white;
-  background-color: var(--back-round-grey);
-  width: 30vw;
-  height: 40vh;
-  padding: 50px;
-  margin: 50px;
-  transition: 1.5s;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
-/* Specfic offset occording to their locations */
-.Project1Text {
-  bottom: 20%;
-  left: 90%;
-}
-
-.Project2Text {
-  bottom: 20%;
-  right: 90%;
-}
-
-.Project3Text {
-  bottom: 20%;
-  left: 90%;
-}
-/* Css hover over links */
-.ProjectText h3 {
-  font-size: 5rem;
+/* The container that holder the skills */
+.TechStacks {
   position: relative;
-  display: inline-block;
-  background: linear-gradient(to bottom, var(--neon-blue) 0%, violet 100%);
-  background-size: 100% 0;
-  background-repeat: no-repeat;
-  transition: background-size 0.5s ease;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 85vw;
+  height: 20vh;
+  padding: 15px;
+  border-radius: 100px;
+  background-color: var(--Low-blue);
+  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
+}
+
+/* Used across the skill.jsx to hold tech info */
+/* Used in tech stacks container */
+.BluePill {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 13%;
+  height: 4rem;
+  border-radius: 100px;
   margin: 10px;
-  padding: 0;
+  color: rgba(0, 188, 235, 0.8);
+  background-color: rgba(0, 188, 235, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+}
+/* Smaller version used in featured apps */
+.BluePill2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 25%;
+  height: 3rem;
+  border-radius: 100px;
+  margin: 10px;
+  color: rgba(0, 188, 235, 0.8);
+  background-color: rgba(0, 188, 235, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
 }
 
-.ProjectText h3::after {
-  content: "";
-  background-color: var(--neon-blue);
-  height: 2px;
+.BluePill:hover,
+.BluePill2:hover {
+  background-color: rgba(0, 188, 235, 0.8);
+  color: var(--Teal);
+}
+
+/* Container for the featured apps */
+.FeaturedApps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  transition: bottom 0.5s ease;
-}
-/* Reveals the backround */
-.ProjectText h3:hover {
-  background-size: 100% 100%;
-}
-/* Moves the underline */
-.ProjectText h3:hover::after {
-  height: 0;
-  bottom: 100%;
-}
-/* Text border */
-.ProjectText::after,
-.ProjectText::before {
-  content: "";
-  background-image: conic-gradient(
-    var(--neon-blue),
-    blueviolet,
-    var(--neon-blue)
-  );
   height: 100%;
-  width: 100%;
-  padding: 30px;
-  z-index: -1;
-  border-radius: 10px;
+  animation: forwards FadeUpEnterAni 3s ease-in-out;
+}
+/* Main app container */
+.AppF {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 75vw;
+  height: 50vh;
+  margin-bottom: 15vh;
+}
+/* The image takes half of AppF */
+.AppImage {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  width: 50%;
+  height: 100%;
+  border-radius: 15px;
+}
+/* Images for the image half of the container */
+#F1 {
+  background-image: url("../Images/DynamicShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#F2 {
+  background-image: url("../Images/FitShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#F3 {
+  background-image: url("../Images/ToDoShot.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* Oppacity overlay for image */
+.TransparentFill {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 204, 255, 0.25);
+  transition: background-color ease-in-out 0.8s;
+  border-radius: 15px;
 }
 
-.ProjectText::before {
-  filter: blur(1.5rem);
+.TransparentFill:hover {
+  background-color: transparent;
+}
+
+/* Takes up 60% of the main container overlaping over app image a small bit */
+.AppText {
+  position: absolute;
+  width: 60%;
+  left: 40%;
+  height: 100%;
+  text-align: right;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Header text*/
+.AppHeader {
+  width: 100%;
+  height: 33%;
+  padding: 15px;
+  background-color: transparent;
+}
+
+.AppHeader h1 {
+  font-size: 1.5rem;
+}
+/* Secondary header */
+.AppHeader h3 {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+/* The paragraph showing some info about the app */
+.AppPara {
+  width: 100%;
+  height: 33%;
+  padding: 15px;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+
+  background-color: var(--Low-blue);
+  transition: color ease-in-out 0.5s;
+}
+
+.AppPara:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* The skill container holds used tech */
+.AppSkills {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 33%;
+  padding: 15px;
+  transform: translateX(6%);
+}
+/* Mirror info */
+.AppF.mirror {
+  flex-direction: row-reverse;
+}
+
+.AppText.mirror {
+  left: 0%;
+  text-align: left;
+}
+
+.AppSkills.mirror {
+  transform: translateX(-10%);
+}
+/* Header container for non featured apps */
+.NonFeaturedHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10vh;
+}
+/* Container for non featured apps */
+.FolderContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5.5rem;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: auto;
+}
+
+.Folder {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20vw;
+  height: 20vw;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--Low-blue);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background ease-in-out 0.6s, filter ease-in-out 0.6s;
+}
+
+.Folder h1 {
+  font-size: 2rem;
+  color: var(--Teal);
+}
+
+.Folder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: radial-gradient(
+    circle,
+    rgba(100, 255, 218, 0) 50%,
+    rgba(100, 255, 218, 0.1) 100%
+  );
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.Folder:hover::before {
+  opacity: 1; /* Fully visible on hover */
+}
+
+.Folder:hover {
+  filter: drop-shadow(0 0 15px rgba(0, 204, 255, 0.4));
+}
+
+.FolderSvgContainer {
+  width: 30%;
+  height: 30%;
+  background-image: url("../images/folder.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Folder p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.Seperator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  height: 100%;
+  border-radius: 50px;
+  color: var(--Teal);
+  margin: 4vw;
+}
+
+.Seperator h1 {
+  font-size: 3.5rem;
+  margin: 35px;
+}
+
+.Separator h2 {
+  font-size: 2rem;
+  margin: 35px;
+}
+
+.Seperator hr {
+  width: 50vw;
+  height: 2px;
+  border: none;
+  background-color: var(--Teal);
   opacity: 0.5;
 }
-/* Container alter values */
-.ProjectBase.Alter {
-  height: 45vh;
-  width: 45vw;
+
+#Sep1 {
+  animation: forwards FadeUpEnterAni 1s ease-in-out;
 }
 
-.ProjectText.Alter {
-  width: 40vw;
-  height: 60vh;
-  padding: 10px;
-  margin: 25px;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-/* Expand button for the text */
-.Expandbtn {
-  background-color: var(--neon-blue);
-  border: 1px solid var(--neon-blue);
-  border-radius: 2px;
-  color: white;
-  padding: 5px;
-  margin: 5px;
-  height: 1vw;
-  width: 7.5vw;
-  cursor: pointer;
-  transition: 1s;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#Sep2 {
+  animation: forwards FadeUpEnterAni 2s ease-in-out;
 }
 
-.Expandbtn.Alter {
-  height: 2vh;
-  width: 7.5vh;
-  transform: rotate(90deg);
-}
-
-/* Text styles  */
-.ProjectBase pre {
-  flex-direction: row;
+#lottie-container {
+  position: absolute;
   width: 100%;
-  white-space: pre-wrap;
-  font-family: "Protest Guerrilla", sans-serif;
-  text-align: left;
-  font-size: 1.1rem;
-}
-.ProjectBase h4 {
-  font-size: 1.1rem;
-  font-family: "Protest Guerrilla", sans-serif;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: -1;
 }
 
-@media (max-width: 768px) {
-  .ProjectBase {
-    margin: 25px;
-    margin-top: 15%;
-    height: 55vh;
-    width: 55vw;
-    right: 15%;
-  }
+.Logocontainer {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  margin-left: 15px;
+  margin: 10px;
+  background-color: transparent;
+  z-index: 1;
+}
 
-  .ProjectText {
-    font-size: 0.6rem;
+.ImgBackLogo1 {
+  background-image: url("../Images/link.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.ImgBackLogo2 {
+  background-image: url("../Images/github.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@keyframes FadeUpEnterAni {
+  0% {
+    transform: translateY(75px); /* Start from 50px below */
+    opacity: 0;
   }
-  .ProjectText h4 {
-    font-size: 0.6rem;
+  100% {
+    transform: translateY(0px); /* End at the original position */
+    opacity: 1;
   }
 }

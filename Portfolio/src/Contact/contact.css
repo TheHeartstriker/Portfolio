@@ -1,6 +1,7 @@
 :root {
   --back-round-grey: rgb(46, 46, 46);
   --neon-blue: rgb(0, 204, 255);
+  --neon-dull: rgb(0, 188, 235);
 }
 
 .ContactContainer {

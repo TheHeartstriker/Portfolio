@@ -1,235 +1,198 @@
 import { useState, useRef, useEffect } from "react";
 //Text
-import { DynamicAniGitText, BasicDynamicText } from "./Text.js";
-import { BasicToDoAppText, ToDoAppGitText } from "./Text.js";
-import { BasicFitnessAppText, FitnessAppGitText } from "./Text.js";
+import {
+  TechStacks,
+  Header,
+  Paras,
+  UsedTechApp1,
+  UsedTechApp2,
+  UsedTechApp3,
+  NoteWortheyH,
+  NoteWortheyP,
+} from "./Text.js";
+import lottie from "lottie-web";
+import { TextScramble } from "../Helper/Scramble.jsx";
 
 function Skill() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  //Refs for each project helps control the alter sub class
-  const Text1Parent = useRef(null);
-  const Text1Container = useRef(null);
-  const [Text1, setText1] = useState(BasicDynamicText);
+  const [Text, setText] = useState(" Known tech");
+  const [Text2, setText2] = useState(" Stuff I made");
+  const Orginal = " Known tech";
+  const Orginal2 = " Stuff I made";
 
-  const Text2Parent = useRef(null);
-  const Text2Container = useRef(null);
-  const [Text2, setText2] = useState(BasicToDoAppText);
-
-  const Text3Parent = useRef(null);
-  const Text3Container = useRef(null);
-  const [Text3, setText3] = useState(BasicFitnessAppText);
-  //Indivdual button refs for each project
-  const Expand1 = useRef(null);
-  const Expand2 = useRef(null);
-  const Expand3 = useRef(null);
-  //Used to see if the expand button should be shown
-  const [Button, setButton] = useState(false);
-  //Switches the text on click
-  function SwitcherOne(num) {
-    const setTextFunctions = [setText1, setText2, setText3];
-    const Text = [Text1, Text2, Text3];
-    const ToCompareGit = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
-    const ToReturnBasic = [
-      BasicDynamicText,
-      BasicToDoAppText,
-      BasicFitnessAppText,
-    ];
-
-    if (Text[num] === ToCompareGit[num]) {
-      setTextFunctions[num](ToReturnBasic[num]);
-    } else {
-      setTextFunctions[num](ToCompareGit[num]);
-    }
+  function handleLink(Link) {
+    window.open(Link, "_blank", "noopener,noreferrer");
   }
-  //Handles the switch between the longer text and shorter text
-  //Happens when the expand button is clicked
-  function TextHandler(num, TextToCompare) {
-    const Text = [Text1, Text2, Text3];
-    const Pretext = [DynamicAniGitText, ToDoAppGitText, FitnessAppGitText];
-    if (Pretext[num] === TextToCompare) {
-      return <pre>{Text[num]}</pre>;
-    } else {
-      return <h4>{Text[num]}</h4>;
-    }
-  }
-  //Turns on the alter class for the text
-  function buttonOnclick(num) {
-    const textParent =
-      num === 1 ? Text1Parent : num === 2 ? Text2Parent : Text3Parent;
-    const textContainer =
-      num === 1 ? Text1Container : num === 2 ? Text2Container : Text3Container;
-    const Expand = num === 1 ? Expand1 : num === 2 ? Expand2 : Expand3;
-    if (textParent.current && textContainer.current && Expand.current) {
-      textParent.current.classList.toggle("Alter");
-      textContainer.current.classList.toggle("Alter");
-      Expand.current.classList.toggle("Alter");
-    }
-  }
-  //Font changer makes it more friendly for smaller monitors
 
-  //Resets all the alter classes used for when Button is false
-  //Indicating that the screen is too small for the text to be expanded
-  function resetAll() {
-    const elements = [
-      Text1Parent,
-      Text2Parent,
-      Text3Parent,
-      Text1Container,
-      Text2Container,
-      Text3Container,
-      Expand1,
-      Expand2,
-      Expand3,
-    ];
-    elements.forEach((element) => {
-      if (element.current && element.current.classList.contains("Alter")) {
-        element.current.classList.remove("Alter");
-      }
+  function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
+    return (
+      <>
+        {/* Main app split into two container one for image and other for text */}
+        <div className={`AppF ${Mirror ? "mirror" : ""}`}>
+          <div className="AppImage" id={Id}>
+            <div className="TransparentFill"></div>
+            <div
+              className="Logocontainer ImgBackLogo1"
+              onClick={() => {
+                handleLink(Link1);
+              }}
+            ></div>
+            <div
+              className="Logocontainer ImgBackLogo2"
+              onClick={() => {
+                handleLink(Link2);
+              }}
+            ></div>
+          </div>
+          <div className={`AppText ${Mirror ? "mirror" : ""}`}>
+            <div className="AppHeader">
+              <h1>Featured project</h1>
+              <h3>{Header}</h3>
+            </div>
+            <div className="AppPara">
+              <p>{Para}</p>
+            </div>
+
+            <div className={`AppSkills ${Mirror ? "mirror" : ""}`}>
+              {Skills.map((tech, index) => (
+                <div className="BluePill2" key={index}>
+                  <h2>{tech}</h2>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  function CreateFolder({ Header, Para, Link }) {
+    return (
+      <div className="Folder" onClick={() => handleLink(Link)}>
+        <div className="FolderSvgContainer"></div>
+        <h1>{Header}</h1>
+        <p>{Para}</p>
+      </div>
+    );
+  }
+
+  const AniRef1 = useRef(null);
+  const AniRef2 = useRef(null);
+  const Container1Ref = useRef(null);
+  const Container2Ref = useRef(null);
+
+  function CreateLottie() {
+    AniRef1.current = lottie.loadAnimation({
+      container: Container1Ref.current,
+      renderer: "svg",
+      loop: false,
+      path: "/src/Images/Glitch2.json",
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    });
+    AniRef2.current = lottie.loadAnimation({
+      container: Container2Ref.current,
+      renderer: "svg",
+      loop: false,
+      path: "/src/Images/Glitch2.json",
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
     });
   }
-  //Tracks the window width
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  //Makes changes based on screen size
-  useEffect(() => {
-    //Removes the button and sets the text to the basic text
-    if (windowWidth < 1100) {
-      setButton(false);
-      setText1(BasicDynamicText);
-      setText2(BasicToDoAppText);
-      setText3(BasicFitnessAppText);
-      resetAll();
-    } else {
-      setButton(true);
-    }
-    //Re runs the text handler and changes the text based on the window size
-    TextHandler(0, Text1);
-    TextHandler(1, Text2);
-    TextHandler(2, Text3);
-  }, [windowWidth]);
 
+  useEffect(() => {
+    CreateLottie();
+    setTimeout(() => {
+      TextScramble(Orginal, Text, "abcdefghijklmnopqrstuvwxyz", setText, 0.5);
+      TextScramble(
+        Orginal2,
+        Text2,
+        "abcdefghijklmnopqrstuvwxyz",
+        setText2,
+        0.5
+      );
+    }, 800);
+  }, []);
+  // Code links
+  //Animations
   return (
-    <>
-      <div className="MainSkillContainer">
-        <div className="SkillHeader">
-          <h1>Skills and Tools</h1>
-        </div>
-        <div className="SkillContainer">
-          {/* Make bigger */}
-          <h2>
-            HTML, CSS, Javascript, Node.js, React.js, Express, Mysql, Python,
-            JWT, CI/CD, RESTful API's, C++, Azure, Aws, Figma, Web Assembly,
-            Typescript
-          </h2>
-        </div>
-        {/* First project no functions yet it messes with the states*/}
-        <div className="ProjectBase Project1" ref={Text1Parent}>
-          <h2>Dynamic Animations</h2>
-          <div className="ProjectText Project1Text" ref={Text1Container}>
-            {TextHandler(0, Text1)}
-            {Button && (
-              <button
-                className="Expandbtn"
-                onClick={() => {
-                  buttonOnclick(1), SwitcherOne(0);
-                }}
-                ref={Expand1}
-              >
-                Expand
-              </button>
-            )}
-            <a
-              href="https://www.dynamicanimations.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Link</h3>
-            </a>
-            <a
-              href="https://github.com/TheHeartstriker/DynamicAnimations"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Code</h3>
-            </a>
-          </div>
-        </div>
-        {/* Second Project */}
-        <div className="ProjectBase Project2" ref={Text2Parent}>
-          <h2>GenesisTodo</h2>
-          <div className="ProjectText Project2Text" ref={Text2Container}>
-            {TextHandler(1, Text2)}
-            {Button && (
-              <button
-                className="Expandbtn"
-                onClick={() => {
-                  SwitcherOne(1);
-                  buttonOnclick(2);
-                }}
-                ref={Expand2}
-              >
-                Expand
-              </button>
-            )}
-            <a
-              href="https://www.genesistodo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Link</h3>
-            </a>
-            <a
-              href="https://github.com/TheHeartstriker/ToDoApp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Code</h3>
-            </a>
-          </div>
-        </div>
-        {/* Third Project */}
-        <div className="ProjectBase Project3" ref={Text3Parent}>
-          <h2>FGraphs</h2>
-          <div className="ProjectText Project3Text" ref={Text3Container}>
-            {TextHandler(2, Text3)}
-            {Button && (
-              <button
-                className="Expandbtn"
-                onClick={() => {
-                  SwitcherOne(2);
-                  buttonOnclick(3);
-                }}
-                ref={Expand3}
-              >
-                Expand
-              </button>
-            )}
-            <a
-              href="https://www.fgraphs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Link</h3>
-            </a>
-            <a
-              href="https://github.com/TheHeartstriker/FitnessApp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>Code</h3>
-            </a>
-          </div>
+    <div className="MainSkillContainer">
+      {/* Over head container for teck stacks */}
+      <div className="Seperator" id="Sep1">
+        <h2>01.</h2>
+        <h1>{Text}</h1>
+        <hr></hr>
+        <div id="lottie-container" ref={Container1Ref}></div>
+      </div>
+      <div className="TechStacksContainer">
+        <div className="TechStacks">
+          {TechStacks.map((tech, index) => (
+            <div className="BluePill" key={index}>
+              <h2>{tech}</h2>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+      {/* Seperator element */}
+      <div className="Seperator" id="Sep2">
+        <hr></hr>
+        <h1>{Text2}</h1>
+        <h2>.02</h2>
+        <div id="lottie-container" ref={Container2Ref}></div>
+      </div>
+      {/* Overhead container for main apps */}
+      <div className="FeaturedApps">
+        <CreateFeatured
+          Header={Header[0]}
+          Para={Paras[0]}
+          Skills={UsedTechApp1}
+          Id="F1"
+          Link1="https://www.dynamicanimations.com"
+          Link2="https://github.com/TheHeartstriker/DynamicAnimations"
+        />
+        <CreateFeatured
+          Header={Header[1]}
+          Para={Paras[1]}
+          Skills={UsedTechApp2}
+          Mirror={true}
+          Id="F2"
+          Link1="https://www.fgraphs.com"
+          Link2="https://github.com/TheHeartstriker/FitnessApp"
+        />
+        <CreateFeatured
+          Header={Header[2]}
+          Para={Paras[2]}
+          Skills={UsedTechApp3}
+          Id="F3"
+          Link1="https://www.genesistodo.com"
+          Link2="https://github.com/TheHeartstriker/ToDoApp"
+        />
+      </div>
+      {/* Main container for folder aka less important apps and code */}
+      <div className="NoFeaturedApps">
+        <div className="NonFeaturedHeader">
+          <h1>Other Noteworthey Code</h1>
+        </div>
+        <div className="FolderContainer">
+          <CreateFolder
+            Header={NoteWortheyH[0]}
+            Para={NoteWortheyP[0]}
+            Link={"https://github.com/TheHeartstriker/CS50"}
+          />
+          <CreateFolder
+            Header={NoteWortheyH[1]}
+            Para={NoteWortheyP[1]}
+            Link={"https://github.com/TheHeartstriker/Portfolio"}
+          />
+          <CreateFolder
+            Header={NoteWortheyH[2]}
+            Para={NoteWortheyP[2]}
+            Link={"https://github.com/TheHeartstriker/CS50Final"}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

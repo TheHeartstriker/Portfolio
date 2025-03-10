@@ -1,6 +1,7 @@
 :root {
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: #00ccff;
+  --neon-dull: rgb(0, 188, 235);
   --circle-radius: 32.5vh;
   --Teal: rgb(100, 255, 218);
 }
@@ -44,7 +45,7 @@
 
 .Text1 {
   font-size: 2rem;
-  color: var(--neon-blue);
+  color: var(--neon-dull);
   margin: 0px 0px 30px 4px;
   font-weight: 400;
   filter: drop-shadow(0 0 2px var(--neon-blue));
