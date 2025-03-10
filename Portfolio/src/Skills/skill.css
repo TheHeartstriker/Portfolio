@@ -1,6 +1,7 @@
 :root {
   --back-round-grey: rgb(30, 30, 30);
   --neon-blue: #00ccff;
+  --neon-dull: rgb(0, 188, 235);
   --Low-blue: #0e2250;
   --Teal: rgb(100, 255, 218);
 }
@@ -15,11 +16,10 @@
 }
 /* All h1 will be able to scramble and be 100% neon and glow  */
 .MainSkillContainer h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
-  color: var(--neon-blue);
-  filter: drop-shadow(0 0 5px var(--neon-blue));
-  margin-bottom: 1rem;
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 5px var(--neon-dull));
 }
 /* For the teck stack */
 .TechStacksContainer {
@@ -45,7 +45,9 @@
   margin-top: 5%;
   border-radius: 100px;
   background-color: var(--Low-blue);
+  animation: forwards FadeUpEnter 1.2s ease-in-out;
 }
+
 /* Used across the skill.jsx to hold tech info */
 /* Used in tech stacks container */
 .BluePill {
@@ -55,8 +57,8 @@
   height: 4rem;
   border-radius: 100px;
   margin: 10px;
-  color: rgba(0, 204, 255, 0.8);
-  background-color: rgba(0, 204, 255, 0.5);
+  color: rgba(0, 188, 235, 0.8);
+  background-color: rgba(0, 188, 235, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,8 +72,8 @@
   height: 3rem;
   border-radius: 100px;
   margin: 10px;
-  color: rgba(0, 204, 255, 0.8);
-  background-color: rgba(0, 204, 255, 0.5);
+  color: rgba(0, 188, 235, 0.8);
+  background-color: rgba(0, 188, 235, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,32 +82,10 @@
 
 .BluePill:hover,
 .BluePill2:hover {
-  background-color: rgba(0, 204, 255, 0.8);
+  background-color: rgba(0, 188, 235, 0.8);
   color: var(--Teal);
 }
 
-/* Seperator for tech stacks and Featured apps */
-.Separator {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  width: 160%;
-  margin: 15vh;
-}
-
-.Separator h1 {
-  margin: 15px;
-}
-
-.Separator hr {
-  margin: 15px;
-  width: 50%;
-  color: var(--neon-blue);
-  background-color: var(--neon-blue);
-}
 /* Container for the featured apps */
 .FeaturedApps {
   display: flex;
@@ -155,7 +135,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 204, 255, 0.2);
+  background-color: rgba(0, 204, 255, 0.25);
   transition: background-color ease-in-out 0.8s;
   border-radius: 15px;
 }
@@ -203,6 +183,7 @@
   color: rgba(255, 255, 255, 0.7);
 
   background-color: var(--Low-blue);
+  transition: color ease-in-out 0.5s;
 }
 
 .AppPara:hover {
@@ -304,4 +285,58 @@
 
 .Folder p {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.Seperator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  height: 100%;
+  border-radius: 50px;
+  color: var(--Teal);
+  margin: 3vw;
+}
+
+.Seperator h1 {
+  font-size: 3.5rem;
+  margin: 35px;
+}
+
+.Separator h2 {
+  font-size: 2rem;
+  margin: 35px;
+}
+
+.Seperator hr {
+  width: 50vw;
+  height: 2px;
+  border: none;
+  background-color: var(--Teal);
+  opacity: 0.5;
+}
+
+#Sep1 {
+  top: 4vw;
+}
+
+#lottie-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+@keyframes FadeUpEnter {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-30px);
+  }
 }
