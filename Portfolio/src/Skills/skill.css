@@ -28,8 +28,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-  margin-top: 5rem;
+  height: auto;
 }
 /* The container that holder the skills */
 .TechStacks {
@@ -42,10 +41,9 @@
   width: 85vw;
   height: 20vh;
   padding: 15px;
-  margin-top: 5%;
   border-radius: 100px;
   background-color: var(--Low-blue);
-  animation: forwards FadeUpEnter 1.2s ease-in-out;
+  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
 }
 
 /* Used across the skill.jsx to hold tech info */
@@ -94,6 +92,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  animation: forwards FadeUpEnterAni 3s ease-in-out;
 }
 /* Main app container */
 .AppF {
@@ -107,6 +106,10 @@
 }
 /* The image takes half of AppF */
 .AppImage {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
   width: 50%;
   height: 100%;
   border-radius: 15px;
@@ -132,7 +135,7 @@
 }
 /* Oppacity overlay for image */
 .TransparentFill {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 204, 255, 0.25);
@@ -221,7 +224,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10vh;
+  height: auto;
   margin-bottom: 10vh;
 }
 /* Container for non featured apps */
@@ -231,7 +234,7 @@
   grid-gap: 5.5rem;
   grid-template-rows: repeat(3, 1fr);
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .Folder {
@@ -246,7 +249,13 @@
   border-radius: 15px;
   background-color: var(--Low-blue);
   overflow: hidden;
+  cursor: pointer;
   transition: background ease-in-out 0.6s, filter ease-in-out 0.6s;
+}
+
+.Folder h1 {
+  font-size: 2rem;
+  color: var(--Teal);
 }
 
 .Folder::before {
@@ -297,7 +306,7 @@
   height: 100%;
   border-radius: 50px;
   color: var(--Teal);
-  margin: 3vw;
+  margin: 4vw;
 }
 
 .Seperator h1 {
@@ -319,7 +328,11 @@
 }
 
 #Sep1 {
-  top: 4vw;
+  animation: forwards FadeUpEnterAni 1s ease-in-out;
+}
+
+#Sep2 {
+  animation: forwards FadeUpEnterAni 2s ease-in-out;
 }
 
 #lottie-container {
@@ -331,12 +344,39 @@
   z-index: -1;
 }
 
-@keyframes FadeUpEnter {
+.Logocontainer {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  margin-left: 15px;
+  margin: 10px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.ImgBackLogo1 {
+  background-image: url("../Images/link.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.ImgBackLogo2 {
+  background-image: url("../Images/github.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@keyframes FadeUpEnterAni {
   0% {
-    transform: translateY(0);
+    transform: translateY(75px); /* Start from 50px below */
     opacity: 0;
   }
   100% {
-    transform: translateY(-30px);
+    transform: translateY(0px); /* End at the original position */
+    opacity: 1;
   }
 }

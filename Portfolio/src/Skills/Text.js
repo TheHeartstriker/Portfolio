@@ -127,10 +127,11 @@ export const Paras = [
 
 ///////////////////////////////////////////////FolderTexts///////////////////////////////////////////////
 
-export const NoteWortheyH = ["CS50", "Portfolio", "CS Final Project"];
+export const NoteWortheyH = ["CS50", "Portfolio", "CS50 Final Project"];
 export const NoteWortheyP = [
   "All my code from the Harvard CS50 problem sets",
   "The code base for this website! Wondering how its done check here :)",
+  "My CS50 final project. A staging website for learning how to use WebAssembly. Mainly a personal learning project to be able to implement it in future projects.",
 ];
 
 export const Header = ["Dynamic Animations", "FGraphs", "GenesisToDo"];

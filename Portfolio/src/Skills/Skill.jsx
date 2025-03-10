@@ -19,13 +19,29 @@ function Skill() {
   const Orginal = " Known tech";
   const Orginal2 = " Stuff I made";
 
-  function CreateFeatured({ Header, Para, Skills, Mirror, Id }) {
+  function handleLink(Link) {
+    window.open(Link, "_blank", "noopener,noreferrer");
+  }
+
+  function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
     return (
       <>
         {/* Main app split into two container one for image and other for text */}
         <div className={`AppF ${Mirror ? "mirror" : ""}`}>
           <div className="AppImage" id={Id}>
             <div className="TransparentFill"></div>
+            <div
+              className="Logocontainer ImgBackLogo1"
+              onClick={() => {
+                handleLink(Link1);
+              }}
+            ></div>
+            <div
+              className="Logocontainer ImgBackLogo2"
+              onClick={() => {
+                handleLink(Link2);
+              }}
+            ></div>
           </div>
           <div className={`AppText ${Mirror ? "mirror" : ""}`}>
             <div className="AppHeader">
@@ -49,9 +65,9 @@ function Skill() {
     );
   }
 
-  function CreateFolder({ Header, Para }) {
+  function CreateFolder({ Header, Para, Link }) {
     return (
-      <div className="Folder">
+      <div className="Folder" onClick={() => handleLink(Link)}>
         <div className="FolderSvgContainer"></div>
         <h1>{Header}</h1>
         <p>{Para}</p>
@@ -98,6 +114,8 @@ function Skill() {
       );
     }, 800);
   }, []);
+  // Code links
+  //Animations
   return (
     <div className="MainSkillContainer">
       {/* Over head container for teck stacks */}
@@ -117,7 +135,7 @@ function Skill() {
         </div>
       </div>
       {/* Seperator element */}
-      <div className="Seperator">
+      <div className="Seperator" id="Sep2">
         <hr></hr>
         <h1>{Text2}</h1>
         <h2>.02</h2>
@@ -130,6 +148,8 @@ function Skill() {
           Para={Paras[0]}
           Skills={UsedTechApp1}
           Id="F1"
+          Link1="https://www.dynamicanimations.com"
+          Link2="https://github.com/TheHeartstriker/DynamicAnimations"
         />
         <CreateFeatured
           Header={Header[1]}
@@ -137,12 +157,16 @@ function Skill() {
           Skills={UsedTechApp2}
           Mirror={true}
           Id="F2"
+          Link1="https://www.fgraphs.com"
+          Link2="https://github.com/TheHeartstriker/FitnessApp"
         />
         <CreateFeatured
           Header={Header[2]}
           Para={Paras[2]}
           Skills={UsedTechApp3}
           Id="F3"
+          Link1="https://www.genesistodo.com"
+          Link2="https://github.com/TheHeartstriker/ToDoApp"
         />
       </div>
       {/* Main container for folder aka less important apps and code */}
@@ -151,8 +175,21 @@ function Skill() {
           <h1>Other Noteworthey Code</h1>
         </div>
         <div className="FolderContainer">
-          <CreateFolder Header={NoteWortheyH[0]} Para={NoteWortheyP[0]} />
-          <CreateFolder Header={NoteWortheyH[1]} Para={NoteWortheyP[1]} />
+          <CreateFolder
+            Header={NoteWortheyH[0]}
+            Para={NoteWortheyP[0]}
+            Link={"https://github.com/TheHeartstriker/CS50"}
+          />
+          <CreateFolder
+            Header={NoteWortheyH[1]}
+            Para={NoteWortheyP[1]}
+            Link={"https://github.com/TheHeartstriker/Portfolio"}
+          />
+          <CreateFolder
+            Header={NoteWortheyH[2]}
+            Para={NoteWortheyP[2]}
+            Link={"https://github.com/TheHeartstriker/CS50Final"}
+          />
         </div>
       </div>
     </div>
