@@ -46,7 +46,7 @@
 
 /* Shared styles for all buttons */
 .button {
-  z-index: 1;
+  z-index: 998;
   position: absolute;
   top: 70px;
   width: 60px;

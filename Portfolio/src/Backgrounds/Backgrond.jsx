@@ -1,13 +1,14 @@
 import { useState, useRef, useEffect } from "react";
+import { AddMember, RemoveMember } from "../Helper/AniFrame.jsx";
 
 function Background() {
   const backgroundRef = useRef(null);
+
   const [ctx, setCtx] = useState(null);
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
-  const FrameId = useRef(null);
 
   // Creates a canvas
   useEffect(() => {
@@ -71,7 +72,6 @@ function Background() {
       );
     }
     DrawRadial(Mouse.current.x, Mouse.current.y);
-    FrameId.current = requestAnimationFrame(Draw);
   }
 
   //Main function to draw the pattern
@@ -104,9 +104,12 @@ function Background() {
   }
 
   useEffect(() => {
-    Draw();
+    function Update() {
+      Draw();
+    }
+    AddMember(Update);
     return () => {
-      cancelAnimationFrame(FrameId.current);
+      RemoveMember(Update);
     };
   }, [ctx]);
 

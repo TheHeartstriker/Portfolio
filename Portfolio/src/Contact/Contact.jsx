@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { DrawCircle } from "./CanvasH";
+import { AddMember, RemoveMember } from "../Helper/AniFrame.jsx";
 
 function Contact() {
   //Github
@@ -10,17 +11,12 @@ function Contact() {
   const Contact = useRef(null);
 
   const ObjectData = useRef([]);
-  const [OnMouseDown, setOnMouseDown] = useState(false);
   //Used to render on load
   const [isCalled, setIsCalled] = useState(false);
-  const MouseDownStartTime = useRef(null);
+  const [Text, setText] = useState("SerKadenWildauer@gmail.com");
   const Mouse = useRef({ x: 0, y: 0 });
-
-  const InitalMouse = useRef({ x: 0, y: 0 });
-  const EndMouse = useRef({ x: 0, y: 0 });
-  const Offset = useRef({ x: 0, y: 0 });
-  const Which = useRef(null);
   const TimeStep = 0.16;
+  const Clicked = useRef(false);
 
   // Creates a canvas
   useEffect(() => {
@@ -43,21 +39,43 @@ function Contact() {
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("mousemove", MouseTracker);
+    window.addEventListener("click", Click);
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", MouseTracker);
+      window.removeEventListener("click", Click);
     };
   }, []);
 
+  function MouseTracker(e) {
+    Mouse.current.x = e.clientX;
+    Mouse.current.y = e.clientY;
+  }
+
+  function Click(e) {
+    Clicked.current = true;
+    let index = WhichOne();
+    if (index != null) {
+      if (ObjectData.current[index].GitOrLi === "Github") {
+        window.open("https://github.com/TheHeartstriker");
+      } else {
+        window.open("https://www.linkedin.com/in/kaden-wildauer/");
+      }
+    }
+  }
+
   function InitData() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 15; i++) {
       ObjectData.current.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         velocity: {
-          x: Math.random() * 100,
-          y: Math.random() * 100,
+          x: (Math.random() - 0.5) * 400,
+          y: (Math.random() - 0.5) * 400,
         },
         Active: false,
+        GitOrLi: Math.random() > 0.5 ? "Github" : "LinkedIn",
       });
     }
   }
@@ -124,7 +142,7 @@ function Contact() {
   //Main loop
   function Main() {
     if (ctx && ObjectData.current && Contact.current) {
-      //CursorChange();
+      CursorChange();
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       const newData = ObjectData.current.map((data) => {
@@ -136,12 +154,19 @@ function Contact() {
         Collision(data);
         //Gravity
         data.velocity.y += (9.8 * TimeStep) / 2;
-        DrawCircle("#000000", data.x, data.y, Radius.current, ctx);
+        //64ffdb
+        DrawCircle(
+          "#64ffdb",
+          data.x,
+          data.y,
+          Radius.current,
+          ctx,
+          data.GitOrLi
+        );
         return data;
       });
       ObjectData.current = newData;
     }
-    requestAnimationFrame(Main);
   }
 
   //Changes the cursor to a grab when hovering over an object
@@ -159,8 +184,13 @@ function Contact() {
   }, [ctx]);
   useEffect(() => {
     if (ObjectData.current && !isCalled && Contact.current && ctx) {
-      Main();
-      setIsCalled(true);
+      function Update() {
+        Main();
+      }
+      AddMember(Update);
+      return () => {
+        RemoveMember(Update);
+      };
     }
   }, [ctx]);
 
@@ -170,7 +200,7 @@ function Contact() {
       <div className="ContactContainer">
         <div className="Contact">
           <h1>Contact me :)</h1>
-          <button>SerKadenWildauer@gmail.com</button>
+          <button>{Text}</button>
         </div>
       </div>
     </>
