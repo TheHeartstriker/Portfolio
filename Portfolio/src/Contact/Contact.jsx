@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { DrawCircle } from "./CanvasH";
 import { AddMember, RemoveMember } from "../Helper/AniFrame.jsx";
-
+import { TextScramble } from "../Helper/Scramble";
 function Contact() {
   //Github
   //LinkedIn
@@ -14,6 +14,9 @@ function Contact() {
   //Used to render on load
   const [isCalled, setIsCalled] = useState(false);
   const [Text, setText] = useState("SerKadenWildauer@gmail.com");
+  const Orginal = "SerKadenWildauer@gmail.com";
+  const [Scramble, setScramble] = useState(false);
+  const Alphabet = "abcdefghijklmnopqrstuvwxyz";
   const Mouse = useRef({ x: 0, y: 0 });
   const TimeStep = 0.16;
   const Clicked = useRef(false);
@@ -51,6 +54,14 @@ function Contact() {
   function MouseTracker(e) {
     Mouse.current.x = e.clientX;
     Mouse.current.y = e.clientY;
+  }
+
+  function ChangeText() {
+    TextScramble("Copied to Clipboard", Text, Alphabet, setText, 0.8);
+    navigator.clipboard.writeText(Text);
+    setTimeout(() => {
+      TextScramble(Orginal, Text, Alphabet, setText, 0.8);
+    }, 3000);
   }
 
   function Click(e) {
@@ -182,6 +193,7 @@ function Contact() {
     if (ctx == null) return;
     InitData();
   }, [ctx]);
+
   useEffect(() => {
     if (ObjectData.current && !isCalled && Contact.current && ctx) {
       function Update() {
@@ -194,13 +206,21 @@ function Contact() {
     }
   }, [ctx]);
 
+  useEffect(() => {}, [Scramble]);
+
   return (
     <>
       <canvas id="ContactCanvas" ref={Contact}></canvas>
       <div className="ContactContainer">
         <div className="Contact">
           <h1>Contact me :)</h1>
-          <button>{Text}</button>
+          <button
+            onClick={() => {
+              ChangeText();
+            }}
+          >
+            {Text}
+          </button>
         </div>
       </div>
     </>
