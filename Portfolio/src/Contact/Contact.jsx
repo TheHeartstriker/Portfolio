@@ -7,7 +7,7 @@ function Contact() {
   //LinkedIn
   //Email
   const [ctx, setCtx] = useState(null);
-  const Radius = useRef(100);
+  const Radius = useRef(null);
   const Contact = useRef(null);
 
   const ObjectData = useRef([]);
@@ -32,11 +32,18 @@ function Contact() {
     const backgroundContext = backgroundCanvas.getContext("2d");
     // Sets the context to the state
     setCtx(backgroundContext);
-
+    Radius.current = window.innerWidth * 0.06;
+    if (window.innerWidth < 1000) {
+      Radius.current = window.innerWidth * 0.15;
+    }
     const resizeCanvas = () => {
+      if (window.innerWidth < 1000) {
+        Radius.current = window.innerWidth * 0.15;
+      }
       // The resize
       backgroundCanvas.width = window.innerWidth;
       backgroundCanvas.height = window.innerHeight;
+
       // After resizing the canvas, we need to get the context again
       setCtx(backgroundCanvas.getContext("2d"));
     };
