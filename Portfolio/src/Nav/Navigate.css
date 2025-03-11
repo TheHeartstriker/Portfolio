@@ -10,8 +10,8 @@
   top: 0;
   width: 100%;
   height: 70px;
-  background: transparent;
-  filter: drop-shadow(0 0 20px #004488) drop-shadow(0 0 60px #004488);
+  box-shadow: 0 0 20px #004488, 0 0 60px #004488;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,7 @@
 
 /* Shared styles for all buttons */
 .button {
-  z-index: 1;
+  z-index: 998;
   position: absolute;
   top: 70px;
   width: 60px;

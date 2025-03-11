@@ -1,4 +1,4 @@
-export function TextScramble(Original, Text, Alphabet, setText, speed, id) {
+export function TextScramble(Original, Text, Alphabet, setText, speed) {
   let Iter = 0;
   let Interval = setInterval(() => {
     let newText = Text.split("")
@@ -26,20 +26,8 @@ export function TextScramble(Original, Text, Alphabet, setText, speed, id) {
       })
       .join("");
     Iter += speed;
-    //Check for id (if the file has multiple scrambleable text then it will have an id)
-    if (id) {
-      setText((prev) => ({
-        ...prev,
-        [id]: { Text: newText },
-      }));
-    }
-    //Id nor found
-    else {
-      setText(newText);
-    }
+
+    setText(newText);
   }, 40);
-  // setText((prev) => ({
-  //   ...prev,
-  //   [id]: { ...prev[id], Mouse: false },
-  // }));
+  return true;
 }

@@ -1,66 +1,63 @@
 :root {
-  --back-round-grey: rgb(46, 46, 46);
-  --neon-blue: rgb(0, 204, 255);
+  --back-round-grey: rgb(30, 30, 30);
+  --neon-blue: #00ccff;
   --neon-dull: rgb(0, 188, 235);
+  --Low-blue: #0e2250;
+  --Teal: rgb(100, 255, 218);
 }
 
 .ContactContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
-  height: 100vh;
 }
 
-.ContactHeader {
+.Contact {
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 100px;
-  width: 20vw;
-
-  color: white;
-  background-color: var(--back-round-grey);
-  border: 5px solid var(--neon-blue);
-  border-radius: 5px;
 }
 
-.ContactContainer h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 3em;
+.Contact h1 {
+  color: var(--neon-blue);
+  font-size: 7rem;
+  font-weight: 700;
+  z-index: 2;
 }
 
-.ContactContainer h5 {
-  font-size: 2em;
-  animation: pulse 2s infinite;
-  text-shadow: 0 0 10px hsla(244, 62%, 51%, 0.3),
-    0 0 20px hsla(244, 62%, 51%, 0.3), 0 0 30px hsla(244, 62%, 51%, 0.3);
+.Contact button {
+  position: relative;
+  background: linear-gradient(to top, var(--Teal) 0%, var(--Teal) 100%);
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  border: 3px solid var(--Teal);
+  background-color: var(--Low-blue);
+  color: var(--Teal);
+  width: 85%;
+  height: 6.5vh;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  transition: background-size 0.6s ease-in-out, color 0.6s ease-in-out,
+    border 0.6s ease-in-out;
+  z-index: 10;
+  font-family: "Protest Guerrilla";
+  cursor: pointer;
 }
 
-.ContactContainer h5::after {
-  content: " ";
-  display: block;
+.Contact button:hover {
+  border: #00ccff 3px solid;
+  background-size: 100% 100%;
+  color: black; /* Change text color for better visibility */
+}
+#ContactCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 2px;
-  background-color: var(--neon-blue);
-}
-
-@keyframes pulse {
-  0% {
-    color: var(--neon-blue);
-  }
-  50% {
-    color: white;
-  }
-  100% {
-    color: var(--neon-blue);
-  }
-}
-
-@media (max-width: 768px) {
-  .ContactHeader h5 {
-    font-size: 1em;
-  }
+  height: 100%;
+  z-index: 1;
 }
