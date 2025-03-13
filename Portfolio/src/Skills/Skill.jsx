@@ -12,6 +12,7 @@ import {
 } from "./Text.js";
 import lottie from "lottie-web";
 import { TextScramble } from "../Helper/Scramble.jsx";
+import glitchAni from "../Images/Glitch2.json";
 
 function Skill() {
   const [Text, setText] = useState(" Known tech");
@@ -85,7 +86,7 @@ function Skill() {
       container: Container1Ref.current,
       renderer: "svg",
       loop: false,
-      path: "/src/Images/Glitch2.json",
+      animationData: glitchAni,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
       },
@@ -94,7 +95,7 @@ function Skill() {
       container: Container2Ref.current,
       renderer: "svg",
       loop: false,
-      path: "/src/Images/Glitch2.json",
+      animationData: glitchAni,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
       },
