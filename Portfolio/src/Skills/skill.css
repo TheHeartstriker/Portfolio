@@ -287,7 +287,7 @@
 .FolderSvgContainer {
   width: 30%;
   height: 30%;
-  background-image: url("../images/folder.svg");
+  background-image: url("../Images/Folder.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -363,7 +363,7 @@
 }
 
 .ImgBackLogo2 {
-  background-image: url("../Images/github.svg");
+  background-image: url("../Images/Github.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
