@@ -9,7 +9,7 @@
 .PlayGround {
   position: absolute;
   cursor: default;
-  width: 100vw;
+  width: 100%;
 }
 
 .Shadow {

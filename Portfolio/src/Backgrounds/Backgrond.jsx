@@ -15,8 +15,8 @@ function Background() {
     // Creates references to current canvases
     const backgroundCanvas = backgroundRef.current;
     // Sets the default canvas sizes to the window size
-    backgroundCanvas.width = window.innerWidth;
-    backgroundCanvas.height = window.innerHeight;
+    backgroundCanvas.width = document.documentElement.clientWidth;
+    backgroundCanvas.height = document.documentElement.clientHeight;
     // Gets the context of the canvas
     const backgroundContext = backgroundCanvas.getContext("2d");
     // Sets the context to the state
@@ -24,8 +24,8 @@ function Background() {
     // Function to resize the canvas
     const resizeCanvas = () => {
       // The resize
-      backgroundCanvas.width = window.innerWidth;
-      backgroundCanvas.height = window.innerHeight;
+      backgroundCanvas.width = document.documentElement.clientWidth;
+      backgroundCanvas.height = document.documentElement.clientHeight;
       // After resizing the canvas, we need to get the context again
       setCtx(backgroundCanvas.getContext("2d"));
       // Where the redrawing of the canvas happens
@@ -47,16 +47,25 @@ function Background() {
   function Draw() {
     if (!ctx) return;
     offsetRef.current += 0.5;
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    let GridWidth = Math.ceil(window.innerWidth / SquareGridSize);
-    let GridHeight = Math.ceil(window.innerHeight / SquareGridSize);
+    ctx.clearRect(
+      0,
+      0,
+      document.documentElement.clientWidth,
+      document.documentElement.clientHeight
+    );
+    let GridWidth = Math.ceil(
+      document.documentElement.clientWidth / SquareGridSize
+    );
+    let GridHeight = Math.ceil(
+      document.documentElement.clientHeight / SquareGridSize
+    );
     let HeightMove = (offsetRef.current % SquareGridSize) - SquareGridSize;
 
     for (let i = 0; i <= GridHeight; i++) {
       DrawLine(
         0,
         HeightMove + i * SquareGridSize,
-        window.innerWidth,
+        document.documentElement.clientWidth,
         HeightMove + i * SquareGridSize,
         SquareLine
       );
@@ -67,7 +76,7 @@ function Background() {
         i * SquareGridSize,
         0,
         i * SquareGridSize,
-        window.innerHeight,
+        document.documentElement.clientHeight,
         SquareLine
       );
     }
@@ -118,8 +127,8 @@ function Background() {
       <canvas
         ref={backgroundRef}
         id="backgroundId"
-        width={window.innerWidth}
-        height={window.innerHeight}
+        width={document.documentElement.clientWidth}
+        height={document.documentElement.clientHeight}
       />
     </div>
   );
