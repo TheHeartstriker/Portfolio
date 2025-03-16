@@ -37,9 +37,11 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
   const lines = [];
   let maxWidth = 550;
   if (window.innerWidth < 1350) {
-    lengthWisSpace = 25;
     y -= 50;
-    maxWidth = 350;
+    maxWidth = 375;
+  } else if (window.innerWidth > 2000) {
+    maxWidth = 700;
+    lengthWisSpace = 30;
   }
   //Builds the individual lines
   for (let i = 0; i < words.length; i++) {

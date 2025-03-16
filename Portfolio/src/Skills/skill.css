@@ -245,6 +245,7 @@
   flex-direction: column;
   width: 20vw;
   height: 20vw;
+  border: 2px solid rgb(100, 255, 218);
   padding: 15px;
   border-radius: 15px;
   background-color: var(--Low-blue);
