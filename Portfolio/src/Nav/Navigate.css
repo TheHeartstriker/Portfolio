@@ -49,18 +49,19 @@
   z-index: 998;
   position: absolute;
   top: 70px;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
   background-color: var(--neon-dull);
+  color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Protest Guerrilla";
   cursor: pointer;
   animation: FadeIn 1s forwards ease-in;
-  transition: background-color 0.5s ease-in-out, box-shadow ease-in-out 0.5s;
+  transition: background-color 0.3s ease-in-out, box-shadow ease-in-out 0.3s;
 }
 
 .button:hover {
