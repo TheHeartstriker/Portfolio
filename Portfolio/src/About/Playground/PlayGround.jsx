@@ -64,7 +64,7 @@ function PlayGround() {
         MainText: MainText1,
         x: window.innerWidth / 3,
         y: window.innerHeight * 1.5,
-        velocity: { x: 100, y: 100 },
+        velocity: { x: Math.random() * 1500, y: Math.random() * 1500 },
         Active: false,
       },
       {
@@ -72,7 +72,7 @@ function PlayGround() {
         MainText: MainText2,
         x: window.innerWidth * 0.65,
         y: window.innerHeight * 2,
-        velocity: { x: 0, y: 0 },
+        velocity: { x: Math.random() * 1500, y: Math.random() * 1500 },
         Active: false,
       },
       {
@@ -80,7 +80,7 @@ function PlayGround() {
         MainText: MainText3,
         x: window.innerWidth / 3,
         y: window.innerHeight * 2.5,
-        velocity: { x: 0, y: 0 },
+        velocity: { x: Math.random() * 1500, y: Math.random() * 1500 },
         Active: false,
       },
     ];
