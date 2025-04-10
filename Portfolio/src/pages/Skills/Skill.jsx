@@ -11,8 +11,8 @@ import {
   NoteWortheyP,
 } from "./Text.js";
 import lottie from "lottie-web";
-import { TextScramble } from "../Helper/Scramble.jsx";
-import glitchAni from "../Images/Glitch2.json";
+import { TextScramble } from "../../Helper/Scramble.jsx";
+import glitchAni from "../../Assets/Glitch2.json";
 
 function Skill() {
   const [Text, setText] = useState(" Known tech");

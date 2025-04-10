@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { DrawCircle } from "./CanvasH";
-import { AddMember, RemoveMember } from "../Helper/AniFrame.jsx";
-import { TextScramble } from "../Helper/Scramble";
+import { DrawCircle } from "./CanvasH.jsx";
+import { AddMember, RemoveMember } from "../../Helper/AniFrame.jsx";
+import { TextScramble } from "../../Helper/Scramble.jsx";
 function Contact() {
   //Github
   //LinkedIn
