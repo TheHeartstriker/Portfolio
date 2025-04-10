@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavCursor from "./NavCursor.jsx";
+import "./Navigate.css";
 
 function Nav() {
   const containerRef = useRef(null);

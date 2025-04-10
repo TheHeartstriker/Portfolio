@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-
+import "./background.css";
 function Background() {
   const backgroundRef = useRef(null);
 

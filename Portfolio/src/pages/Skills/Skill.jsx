@@ -13,6 +13,7 @@ import {
 import lottie from "lottie-web";
 import { TextScramble } from "../../Helper/Scramble.jsx";
 import glitchAni from "../../Assets/Glitch2.json";
+import "./skill.css";
 
 function Skill() {
   const [Text, setText] = useState(" Known tech");

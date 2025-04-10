@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import Shadow from "./Shadow";
 import { DrawTextBlurb } from "./HelperPg.jsx";
-import { AddMember, RemoveMember } from "../../Helper/AniFrame.jsx";
+import { AddMember, RemoveMember } from "../../../Helper/AniFrame.jsx";
 import {
   Header1,
   MainText1,

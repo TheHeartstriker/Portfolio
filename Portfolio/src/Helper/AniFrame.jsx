@@ -1,3 +1,5 @@
+// Puts everything canvas related under one loop
+
 const Members = new Set();
 
 function UpdateMembers() {
