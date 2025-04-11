@@ -1,4 +1,4 @@
-import gitImageSrc from "../Images/Github.svg";
+import gitImageSrc from "../../assets/Github.svg";
 
 const gitImage = new Image();
 gitImage.src = gitImageSrc;

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavCursor from "./NavCursor.jsx";
+import "./Navigate.css";
 
 function Nav() {
   const containerRef = useRef(null);
@@ -21,16 +22,6 @@ function Nav() {
         let ranDelay = Math.random() * 0.35;
         span.style.transitionDelay = ranDelay + "s";
       }
-    }
-  }
-  //Simple path verification
-  function PathChecker() {
-    const paths = ["/", "/skills", "/contact"];
-    const currentPath = window.location.pathname;
-    if (paths.includes(currentPath)) {
-      return true;
-    } else {
-      return false;
     }
   }
 
@@ -74,12 +65,6 @@ function Nav() {
       container.classList.remove("contact");
     }
   }
-  //Simple path verification
-  useEffect(() => {
-    if (PathChecker() == false) {
-      window.location.href = "/";
-    }
-  }, [window.location.pathname]);
 
   useEffect(() => {
     BoxElements();

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-
+import { AddMember, RemoveMember } from "../../utils/AniFrame";
+import "./background.css";
 function Background() {
   const backgroundRef = useRef(null);
 
@@ -81,7 +82,6 @@ function Background() {
       );
     }
     DrawRadial(Mouse.current.x, Mouse.current.y);
-    aniId.current = requestAnimationFrame(Draw);
   }
 
   //Main function to draw the pattern
@@ -114,11 +114,13 @@ function Background() {
   }
 
   useEffect(() => {
-    if (ctx) {
+    if (!ctx) return;
+    function update() {
       Draw();
     }
+    AddMember(update);
     return () => {
-      cancelAnimationFrame(aniId.current);
+      RemoveMember(update);
     };
   }, [ctx]);
 

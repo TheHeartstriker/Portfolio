@@ -116,19 +116,19 @@
 }
 /* Images for the image half of the container */
 #F1 {
-  background-image: url("../Images/DynamicShot.svg");
+  background-image: url("../../assets/DynamicShot.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 #F2 {
-  background-image: url("../Images/FitShot.svg");
+  background-image: url("../../assets/FitShot.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 #F3 {
-  background-image: url("../Images/ToDoShot.svg");
+  background-image: url("../../assets/ToDoShot.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -232,9 +232,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5.5rem;
-  grid-template-rows: repeat(3, 1fr);
-  width: 100%;
-  height: auto;
+  grid-template-rows: auto;
+  width: auto;
+  min-height: 20vh;
 }
 
 .Folder {
@@ -288,7 +288,7 @@
 .FolderSvgContainer {
   width: 30%;
   height: 30%;
-  background-image: url("../Images/Folder.svg");
+  background-image: url("../../assets/Folder.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -379,5 +379,28 @@
   100% {
     transform: translateY(0px); /* End at the original position */
     opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .TechStacks {
+    width: 100%;
+    height: auto;
+  }
+  .BluePill {
+    width: 15%;
+    height: 15%;
+    font-size: 1.5rem;
+  }
+  .BluePill2 {
+    width: 80%;
+  }
+
+  .FolderContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .Folder {
+    width: 40vw;
+    height: 40vw;
   }
 }
