@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { Header1, Header2, Header3 } from "./Text";
 import { MainText1, MainText2, MainText3 } from "./Text";
 import { TextScramble } from "../../utils/Scramble";
-import "./About.css";
+import "./about.css";
 function About() {
   const ColoredTextRef = useRef(null);
   const [MouseOver, setMouseOver] = useState(false);
