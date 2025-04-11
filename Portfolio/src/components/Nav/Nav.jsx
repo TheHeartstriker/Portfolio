@@ -24,16 +24,6 @@ function Nav() {
       }
     }
   }
-  //Simple path verification
-  function PathChecker() {
-    const paths = ["/", "/skills", "/contact"];
-    const currentPath = window.location.pathname;
-    if (paths.includes(currentPath)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   //Simple state management for the buttons
   const [About, setAbout] = useState(false);
@@ -75,12 +65,6 @@ function Nav() {
       container.classList.remove("contact");
     }
   }
-  //Simple path verification
-  useEffect(() => {
-    if (PathChecker() == false) {
-      window.location.href = "/";
-    }
-  }, [window.location.pathname]);
 
   useEffect(() => {
     BoxElements();

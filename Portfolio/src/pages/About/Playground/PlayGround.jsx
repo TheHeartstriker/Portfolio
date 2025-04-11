@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { DrawTextBlurb } from "./HelperPg.jsx";
-import { AddMember, RemoveMember } from "../../../Helper/AniFrame.jsx";
+import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
 import {
   Header1,
   MainText1,
