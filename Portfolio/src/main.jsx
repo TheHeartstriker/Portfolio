@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")).render(
 //
 // Website structure:
 // - assets contains all the images and videos
-// - components contains all the components used in the website so the background, the nav and the cursor
+// - components contains all the components used globally in the website so the background, the nav and the cursor
 // - pages contains all the pages used in the website so the about, skills and contact pages
 // - routing centralizes the routing of the website
 // - utils contains all the utils used in the website the most notable is the animationFrame it centralizes
