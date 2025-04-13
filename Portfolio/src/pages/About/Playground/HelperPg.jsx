@@ -61,3 +61,14 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
     ctx.fillText(lines[j], x, y + 20 + j * lengthWisSpace);
   }
 }
+
+export function RadialGradient(x, y, radius) {
+  if (!ctx) return;
+  const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+  gradient.addColorStop(0, "rgba(0, 0, 0, 0.30)");
+  gradient.addColorStop(1, "transparent");
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
+}

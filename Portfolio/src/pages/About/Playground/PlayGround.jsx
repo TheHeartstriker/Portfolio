@@ -1,12 +1,11 @@
-import {
-  useState,
-  useRef,
-  useEffect,
-  useImperativeHandle,
-  forwardRef,
-} from "react";
+import { useState, useRef, useEffect } from "react";
 import { DrawTextBlurb } from "./HelperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
+import {
+  setupCanvasBall,
+  WhichOne,
+  CursorChange,
+} from "../../../utils/shared.jsx";
 import {
   Header1,
   MainText1,
@@ -15,7 +14,6 @@ import {
   Header3,
   MainText3,
 } from "../Text.js";
-import ShadowRenderer from "./Shadow.jsx";
 
 function PlayGround() {
   const [ctx, setCtx] = useState(null);
@@ -34,35 +32,6 @@ function PlayGround() {
   const Which = useRef(null);
   const shadowRef = useRef(null);
   const TimeStep = 0.016;
-
-  // Creates a canvas
-  useEffect(() => {
-    // Creates references to current canvases
-    const backgroundCanvas = Playground.current;
-    // Sets the default canvas sizes to the window size
-    backgroundCanvas.width = document.documentElement.scrollWidth;
-    backgroundCanvas.height = document.documentElement.scrollHeight;
-    // Gets the context of the canvas
-    const backgroundContext = backgroundCanvas.getContext("2d");
-    // Sets the context to the state
-    setCtx(backgroundContext);
-    // Function to resize the canvas
-    Radius.current = window.innerWidth / 5;
-    const resizeCanvas = () => {
-      // The resize
-      backgroundCanvas.width = document.documentElement.scrollWidth;
-      backgroundCanvas.height = document.documentElement.scrollHeight;
-      // After resizing the canvas, we need to get the context again
-      setCtx(backgroundCanvas.getContext("2d"));
-      // New radius
-      Radius.current = window.innerWidth / 5;
-    };
-    // Event listener where the resizeCanvas function is called
-    window.addEventListener("resize", resizeCanvas);
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, []);
 
   function InitData() {
     ObjectData.current = [
@@ -91,19 +60,6 @@ function PlayGround() {
         Active: false,
       },
     ];
-  }
-  //Given the current mouse position, it will return the index of the object that is being hovered over
-  function WhichOne() {
-    if (ObjectData.current == null) return;
-    for (let i = 0; i < ObjectData.current.length; i++) {
-      let distance = Math.sqrt(
-        Math.pow(Mouse.current.x - ObjectData.current[i].x, 2) +
-          Math.pow(Mouse.current.y - ObjectData.current[i].y, 2)
-      );
-      if (distance < Radius.current) {
-        return i;
-      }
-    }
   }
   //Set mouseDown to true and set the initial mouse position for velocity calculation
   function MouseDown() {
@@ -220,7 +176,7 @@ function PlayGround() {
   //Main loop
   function Main() {
     if (ctx && ObjectData.current && Playground.current) {
-      CursorChange();
+      CursorChange("grab", Playground, ObjectData, Mouse, Radius);
       Drag();
       ctx.clearRect(
         0,
@@ -255,7 +211,7 @@ function PlayGround() {
   //Called on mouse down setting important vars for main
   function Down() {
     if (OnMouseDown && ObjectData.current) {
-      let index = WhichOne();
+      let index = WhichOne(ObjectData, Mouse, Radius);
       Which.current = index;
       if (index == null) return;
       ObjectData.current[index].Active = true;
@@ -267,14 +223,7 @@ function PlayGround() {
       Which.current = null;
     }
   }
-  //Changes the cursor to a grab when hovering over an object
-  function CursorChange() {
-    if (Playground.current != null && WhichOne() != null) {
-      Playground.current.style.cursor = "grab";
-    } else {
-      Playground.current.style.cursor = "default";
-    }
-  }
+
   useEffect(() => {
     document.addEventListener("mousemove", MouseTracker);
     document.addEventListener("mousedown", () => MouseDown());
@@ -308,27 +257,11 @@ function PlayGround() {
   }, [ctx]);
 
   useEffect(() => {
-    console.log("Playground mounted");
-  });
-
-  const Shadow = forwardRef(({ getData }, ref) => {
-    useImperativeHandle(ref, () => ({
-      updateShadow() {
-        const { x, y, radius } = getData();
-      },
-    }));
-    return (
-      <>
-        {ObjectData.current && (
-          <ShadowRenderer
-            x={ObjectData.current[0].x}
-            y={ObjectData.current[0].y}
-            radius={Radius.current}
-          />
-        )}
-      </>
-    );
-  });
+    const cleanup = setupCanvasBall(Playground, setCtx, Radius, 5);
+    return () => {
+      cleanup();
+    };
+  }, []);
 
   return (
     <>
@@ -338,14 +271,6 @@ function PlayGround() {
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
-      <Shadow
-        ref={shadowRef}
-        getData={() => ({
-          x: ObjectData.current[0].x,
-          y: ObjectData.current[0].y,
-          radius: Radius.current,
-        })}
-      />
     </>
   );
 }
