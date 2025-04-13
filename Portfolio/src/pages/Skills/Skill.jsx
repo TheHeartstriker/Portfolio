@@ -9,7 +9,7 @@ import {
   UsedTechApp3,
   NoteWortheyH,
   NoteWortheyP,
-} from "./Text.js";
+} from "./text.js";
 import lottie from "lottie-web";
 import { TextScramble } from "../../utils/Scramble.jsx";
 import glitchAni from "../../assets/Glitch2.json";

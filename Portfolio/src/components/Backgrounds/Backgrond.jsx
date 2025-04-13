@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { AddMember, RemoveMember } from "../../utils/AniFrame";
+import { AddMember, RemoveMember } from "../../utils/aniFrame";
+import { defaultCanvas } from "../../utils/canvas";
 import "./background.css";
 function Background() {
   const backgroundRef = useRef(null);
@@ -33,10 +34,8 @@ function Background() {
     };
     // Event listener where the resizeCanvas function is called
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -123,6 +122,13 @@ function Background() {
       RemoveMember(update);
     };
   }, [ctx]);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div>

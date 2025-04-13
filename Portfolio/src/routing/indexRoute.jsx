@@ -1,9 +1,9 @@
 //Components
-import About from "../pages/About/About.jsx";
-import Skill from "../pages/Skills/Skill.jsx";
-import Contact from "../pages/Contact/Contact.jsx";
+import About from "../pages/about/about.jsx";
+import Skill from "../pages/skills/skill.jsx";
+import Contact from "../pages/contact/contact.jsx";
 import { Routes, Route, useLocation } from "react-router-dom";
-import FadeSettings from "../utils/fadeRoute.jsx";
+import FadeSettings from "./fadeSettings.jsx";
 import { AnimatePresence } from "framer-motion";
 
 function AppRoutes() {

@@ -22,10 +22,8 @@ export function setupCanvasBall(canvasRef, setCtx, radiusRef, shrinkFactor) {
       radiusRef.current = window.innerWidth / shrinkFactor;
     }
   };
-
   // Add the resize event listener
   window.addEventListener("resize", resizeCanvas);
-
   // Cleanup function to remove the event listener
   return () => {
     window.removeEventListener("resize", resizeCanvas);

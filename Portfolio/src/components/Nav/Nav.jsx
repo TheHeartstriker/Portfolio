@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import NavCursor from "./NavCursor.jsx";
+import NavCursor from "./navCursor.jsx";
 import "./Navigate.css";
 
 function Nav() {

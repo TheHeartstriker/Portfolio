@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { DrawTextBlurb } from "./HelperPg.jsx";
-import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
+import { DrawTextBlurb } from "./helperPg.jsx";
+import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import { defaultCanvas } from "../../../utils/canvas.jsx";
-import { RadialGradient } from "./HelperPg.jsx";
+import { RadialGradient } from "./helperPg.jsx";
 import {
   setupCanvasBall,
   WhichOne,
@@ -15,7 +15,7 @@ import {
   MainText2,
   Header3,
   MainText3,
-} from "../Text.js";
+} from "../text.js";
 
 function PlayGround() {
   //
@@ -232,7 +232,7 @@ function PlayGround() {
         RadialGradient(
           ObjectData.current[i].x + offsetX,
           ObjectData.current[i].y + offsetY,
-          Radius.current + j * 40,
+          Radius.current + j * 60,
           shadowCtx
         );
       }

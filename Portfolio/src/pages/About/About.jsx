@@ -1,8 +1,8 @@
-import PlayGround from "./Playground/PlayGround";
+import PlayGround from "./playground/playGround";
 import DownArr from "../../assets/DownArrow";
 import { useRef, useState, useEffect } from "react";
-import { Header1, Header2, Header3 } from "./Text";
-import { MainText1, MainText2, MainText3 } from "./Text";
+import { Header1, Header2, Header3 } from "./text";
+import { MainText1, MainText2, MainText3 } from "./text";
 import { TextScramble } from "../../utils/Scramble";
 import "./about.css";
 function About() {
@@ -55,7 +55,7 @@ function About() {
             {Text}
           </h1>
           <h2 className="Text2">Kaden Wildauer.</h2>
-          <h3 className="Text3">I build things for the web.</h3>
+          <h3 className="Text3">I build things for the web!</h3>
           <p className="Text4">
             I'm a software engineer specializing in building websites and web
             applications. I enjoy creating efficient, scalable, and visually
