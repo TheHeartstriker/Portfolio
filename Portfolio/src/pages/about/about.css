@@ -1,0 +1,209 @@
+:root {
+  --back-round-grey: rgb(30, 30, 30);
+  --neon-blue: #00ccff;
+  --neon-dull: rgb(0, 188, 235);
+  --circle-radius: 32.5vh;
+  --Teal: rgb(100, 255, 218);
+}
+
+.PlayGround {
+  position: absolute;
+  cursor: default;
+  width: 100%;
+}
+
+.Shadow {
+  position: absolute;
+  cursor: default;
+  width: 100%;
+  z-index: -1;
+}
+
+/* Container for the entire page */
+.MainAboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 300vh;
+  width: auto;
+  flex-direction: column;
+}
+/* Container for the glowing text element */
+.IAmContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 60%;
+  bottom: 105vh;
+  z-index: 1;
+}
+
+/* In the nav folder the css file consider the container appearing time */
+
+.Text1 {
+  font-size: 2rem;
+  color: var(--neon-dull);
+  margin: 0px 0px 30px 4px;
+  font-weight: 400;
+  filter: drop-shadow(0 0 2px var(--neon-blue));
+  animation: FadeUpEnter 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.Text2 {
+  font-size: 5.5rem;
+  color: white;
+  opacity: 0.9;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.1;
+  animation: FadeUpEnter 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.Text3 {
+  font-size: 5.5rem;
+  color: white;
+  margin: 0;
+  opacity: 0.7;
+  line-height: 0.9;
+  animation: FadeUpEnter 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.Text4 {
+  font-size: 1.5rem;
+  width: 75%;
+  color: white;
+  margin: 20px 0px 0px;
+  opacity: 0.5;
+  animation: FadeUpEnter 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+@keyframes FadeUpEnter {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Down indicator */
+.DownContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+.DownContainer path {
+  animation: Arrow 2s infinite;
+  -webkit-animation: Arrow 2s infinite;
+  transform-origin: center;
+  transform: scale(0.8);
+}
+
+#Vec1 {
+  transform-origin: center;
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  stroke: #0099ff;
+}
+#Vec2 {
+  transform-origin: center;
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  stroke: #0099ff;
+}
+
+#Vec3 {
+  transform-origin: center;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  stroke: #0099ff;
+}
+
+@keyframes Arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes Arrow {
+  /* Safari and Chrome */
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .IAmContainer {
+    bottom: 20vh;
+    width: 75%;
+  }
+}
+
+.MobileAbout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 170vh;
+  top: 15vh;
+}
+
+.Journey,
+.Beyond,
+.More {
+  height: 45vh;
+  position: relative;
+  width: 45vh;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: rgba(14, 34, 80, 0.95);
+  border: 5px rgba(5, 120, 250, 1) solid;
+  box-shadow: 0 0 20px 10px rgba(5, 120, 250, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.Journey {
+  left: 15%;
+}
+
+.Beyond {
+  right: 15%;
+}
+
+.More {
+  left: 15%;
+}
