@@ -3,7 +3,7 @@ import DownArr from "../../assets/DownArrow";
 import { useRef, useState, useEffect } from "react";
 import { Header1, Header2, Header3 } from "./text";
 import { MainText1, MainText2, MainText3 } from "./text";
-import { TextScramble } from "../../utils/Scramble";
+import { TextScramble } from "../../utils/scramble";
 import "./about.css";
 function About() {
   const ColoredTextRef = useRef(null);

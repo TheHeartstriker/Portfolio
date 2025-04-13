@@ -11,7 +11,7 @@ import {
   NoteWortheyP,
 } from "./text.js";
 import lottie from "lottie-web";
-import { TextScramble } from "../../utils/Scramble.jsx";
+import { TextScramble } from "../../utils/scramble.jsx";
 import glitchAni from "../../assets/Glitch2.json";
 import "./skill.css";
 

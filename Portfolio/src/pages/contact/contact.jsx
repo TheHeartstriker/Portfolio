@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { DrawCircle } from "./canvasH.jsx";
-import { AddMember, RemoveMember } from "../../utils/AniFrame.jsx";
-import { TextScramble } from "../../utils/Scramble.jsx";
+import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
+import { TextScramble } from "../../utils/scramble.jsx";
 import "./contact.css";
 import {
   setupCanvasBall,
