@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
-import { defaultCanvas } from "../../utils/canvas";
 import "./background.css";
 function Background() {
   const backgroundRef = useRef(null);

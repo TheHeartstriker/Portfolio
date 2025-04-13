@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AppRoutes } from "./routing/indexRoute.jsx";
 //Components
-import Background from "./components/backgrounds/backgrond.jsx";
+import Background from "./components/backgrounds/background.jsx";
 import Nav from "./components/nav/nav.jsx";
 //Styles
 import "./Site.css";
