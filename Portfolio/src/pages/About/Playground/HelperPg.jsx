@@ -1,6 +1,8 @@
+//
+//Object drawing functions
+//
 const headerFontSize = "2.5rem";
 const mainTextFontSize = "1.3rem";
-
 export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
   if (ctx) {
     //Shape
@@ -60,4 +62,15 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
   for (let j = 0; j < lines.length; j++) {
     ctx.fillText(lines[j], x, y + 20 + j * lengthWisSpace);
   }
+}
+
+export function RadialGradient(x, y, radius, ctx) {
+  if (!ctx) return;
+  const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+  gradient.addColorStop(0, "rgba(0, 0, 0, 0.35)");
+  gradient.addColorStop(1, "transparent");
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
 }

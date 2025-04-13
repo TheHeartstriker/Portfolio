@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from "react";
-import { DrawCircle } from "./CanvasH.jsx";
+import { DrawCircle } from "./canvasH.jsx";
 import { AddMember, RemoveMember } from "../../utils/AniFrame.jsx";
 import { TextScramble } from "../../utils/Scramble.jsx";
 import "./contact.css";
+import {
+  setupCanvasBall,
+  WhichOne,
+  CursorChange,
+} from "../../utils/shared.jsx";
 function Contact() {
   //Github
   //LinkedIn
   //Email
   const [ctx, setCtx] = useState(null);
-  const Radius = useRef(null);
+  const Radius = useRef(0);
   const Contact = useRef(null);
 
   const ObjectData = useRef([]);
@@ -21,43 +26,6 @@ function Contact() {
   const Mouse = useRef({ x: 0, y: 0 });
   const TimeStep = 0.16;
   const Clicked = useRef(false);
-
-  // Creates a canvas
-  useEffect(() => {
-    // Creates references to current canvases
-    const backgroundCanvas = Contact.current;
-    // Sets the default canvas sizes to the window size
-    backgroundCanvas.width = window.innerWidth;
-    backgroundCanvas.height = window.innerHeight;
-    // Gets the context of the canvas
-    const backgroundContext = backgroundCanvas.getContext("2d");
-    // Sets the context to the state
-    setCtx(backgroundContext);
-    Radius.current = window.innerWidth * 0.06;
-    if (window.innerWidth < 1000) {
-      Radius.current = window.innerWidth * 0.15;
-    }
-    const resizeCanvas = () => {
-      if (window.innerWidth < 1000) {
-        Radius.current = window.innerWidth * 0.15;
-      }
-      // The resize
-      backgroundCanvas.width = window.innerWidth;
-      backgroundCanvas.height = window.innerHeight;
-
-      // After resizing the canvas, we need to get the context again
-      setCtx(backgroundCanvas.getContext("2d"));
-    };
-    // Event listener where the resizeCanvas function is called
-    window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("mousemove", MouseTracker);
-    window.addEventListener("click", Click);
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("mousemove", MouseTracker);
-      window.removeEventListener("click", Click);
-    };
-  }, []);
 
   function MouseTracker(e) {
     Mouse.current.x = e.clientX;
@@ -74,7 +42,7 @@ function Contact() {
 
   function Click(e) {
     Clicked.current = true;
-    let index = WhichOne();
+    let index = WhichOne(ObjectData, Mouse, Radius);
     if (index != null) {
       if (ObjectData.current[index].GitOrLi === "Github") {
         window.open("https://github.com/TheHeartstriker");
@@ -96,19 +64,6 @@ function Contact() {
         Active: false,
         GitOrLi: Math.random() > 0.5 ? "Github" : "LinkedIn",
       });
-    }
-  }
-  //Given the current mouse position, it will return the index of the object that is being hovered over
-  function WhichOne() {
-    if (ObjectData.current == null) return;
-    for (let i = 0; i < ObjectData.current.length; i++) {
-      let distance = Math.sqrt(
-        Math.pow(Mouse.current.x - ObjectData.current[i].x, 2) +
-          Math.pow(Mouse.current.y - ObjectData.current[i].y, 2)
-      );
-      if (distance < Radius.current) {
-        return i;
-      }
     }
   }
 
@@ -161,7 +116,7 @@ function Contact() {
   //Main loop
   function Main() {
     if (ctx && ObjectData.current && Contact.current) {
-      CursorChange();
+      CursorChange("grab", Contact, ObjectData, Mouse, Radius);
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       const newData = ObjectData.current.map((data) => {
@@ -189,14 +144,24 @@ function Contact() {
   }
 
   //Changes the cursor to a grab when hovering over an object
-  function CursorChange() {
-    if (Contact.current != null && WhichOne() != null) {
-      Contact.current.style.cursor = "pointer";
-    } else {
-      Contact.current.style.cursor = "default";
-    }
-  }
 
+  useEffect(() => {
+    //Event listeners
+    Contact.current.addEventListener("mousemove", MouseTracker);
+    Contact.current.addEventListener("click", Click);
+    return () => {
+      if (Contact.current == null) return;
+      Contact.current.removeEventListener("mousemove", MouseTracker);
+      Contact.current.removeEventListener("click", Click);
+    };
+  }, []);
+
+  useEffect(() => {
+    const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15);
+    return () => {
+      cleanup();
+    };
+  }, []);
   useEffect(() => {
     if (ctx == null) return;
     InitData();
@@ -213,8 +178,6 @@ function Contact() {
       };
     }
   }, [ctx]);
-
-  useEffect(() => {}, [Scramble]);
 
   return (
     <>

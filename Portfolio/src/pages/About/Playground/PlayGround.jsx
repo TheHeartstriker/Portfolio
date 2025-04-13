@@ -1,6 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { DrawTextBlurb } from "./HelperPg.jsx";
-import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
+import { DrawTextBlurb } from "./helperPg.jsx";
+import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
+import { defaultCanvas } from "../../../utils/canvas.jsx";
+import { RadialGradient } from "./helperPg.jsx";
+import {
+  setupCanvasBall,
+  WhichOne,
+  CursorChange,
+} from "../../../utils/shared.jsx";
 import {
   Header1,
   MainText1,
@@ -8,9 +15,12 @@ import {
   MainText2,
   Header3,
   MainText3,
-} from "../Text.js";
+} from "../text.js";
 
 function PlayGround() {
+  //
+  // Regular Variables for the about balls
+  //
   const [ctx, setCtx] = useState(null);
   const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
@@ -20,41 +30,20 @@ function PlayGround() {
   const MouseDownStartTime = useRef(null);
   const Radius = useRef(0);
   const Mouse = useRef({ x: 0, y: 0 });
-
   const InitalMouse = useRef({ x: 0, y: 0 });
   const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
   const Which = useRef(null);
   const TimeStep = 0.016;
-
-  // Creates a canvas
-  useEffect(() => {
-    // Creates references to current canvases
-    const backgroundCanvas = Playground.current;
-    // Sets the default canvas sizes to the window size
-    backgroundCanvas.width = document.documentElement.scrollWidth;
-    backgroundCanvas.height = document.documentElement.scrollHeight;
-    // Gets the context of the canvas
-    const backgroundContext = backgroundCanvas.getContext("2d");
-    // Sets the context to the state
-    setCtx(backgroundContext);
-    // Function to resize the canvas
-    Radius.current = window.innerWidth / 5;
-    const resizeCanvas = () => {
-      // The resize
-      backgroundCanvas.width = document.documentElement.scrollWidth;
-      backgroundCanvas.height = document.documentElement.scrollHeight;
-      // After resizing the canvas, we need to get the context again
-      setCtx(backgroundCanvas.getContext("2d"));
-      // New radius
-      Radius.current = window.innerWidth / 5;
-    };
-    // Event listener where the resizeCanvas function is called
-    window.addEventListener("resize", resizeCanvas);
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, []);
+  //
+  // Shadow vars
+  //
+  const shadowRef = useRef(null);
+  const [shadowCtx, setShadowCtx] = useState(null);
+  const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
+  //
+  // Regular functions for the about balls
+  //
 
   function InitData() {
     ObjectData.current = [
@@ -83,19 +72,6 @@ function PlayGround() {
         Active: false,
       },
     ];
-  }
-  //Given the current mouse position, it will return the index of the object that is being hovered over
-  function WhichOne() {
-    if (ObjectData.current == null) return;
-    for (let i = 0; i < ObjectData.current.length; i++) {
-      let distance = Math.sqrt(
-        Math.pow(Mouse.current.x - ObjectData.current[i].x, 2) +
-          Math.pow(Mouse.current.y - ObjectData.current[i].y, 2)
-      );
-      if (distance < Radius.current) {
-        return i;
-      }
-    }
   }
   //Set mouseDown to true and set the initial mouse position for velocity calculation
   function MouseDown() {
@@ -209,10 +185,66 @@ function PlayGround() {
       }
     }
   }
-  //Main loop
+
+  //
+  // Shadow related code
+  //
+
+  function HandleMouse(e) {
+    if (ObjectData.current == null) return;
+    Mouse.current.x = e.pageX;
+    Mouse.current.y = e.pageY;
+    for (let i = 0; i < ObjectData.current.length; i++) {
+      mouseDis.current[`Dis${i + 1}`] = Math.sqrt(
+        (Mouse.current.x - ObjectData.current[i].x) ** 2 +
+          (Mouse.current.y - ObjectData.current[i].y) ** 2
+      );
+    }
+  }
+
+  function RowGradient(Range) {
+    if (!shadowCtx) return;
+
+    shadowCtx.clearRect(
+      0,
+      0,
+      document.documentElement.scrollWidth,
+      document.documentElement.scrollHeight
+    );
+
+    for (let i = 0; i < ObjectData.current.length; i++) {
+      // Calculate direction vec
+      let directionX = Mouse.current.x - ObjectData.current[i].x;
+      let directionY = Mouse.current.y - ObjectData.current[i].y;
+      // Normalize the direction vector
+      let length = Math.sqrt(directionX * directionX + directionY * directionY);
+      let normalizedDirectionX = directionX / length;
+      let normalizedDirectionY = directionY / length;
+      // Invert the direction vector to get the opposite direction
+      let oppositeDirectionX = -normalizedDirectionX;
+      let oppositeDirectionY = -normalizedDirectionY;
+      // Scale the offset based on the distance
+      let scaleFactor = length / 10; // Adjust scale if desired
+      // Adjust the position of the gradients using the opposite direction vector and scale factor
+      for (let j = 0; j < Range; j++) {
+        let offsetX = oppositeDirectionX * j * scaleFactor;
+        let offsetY = oppositeDirectionY * j * scaleFactor;
+        RadialGradient(
+          ObjectData.current[i].x + offsetX,
+          ObjectData.current[i].y + offsetY,
+          Radius.current + j * 60,
+          shadowCtx
+        );
+      }
+    }
+  }
+
+  //
+  // Main loop for both shadow and main circles
+  //
   function Main() {
     if (ctx && ObjectData.current && Playground.current) {
-      CursorChange();
+      CursorChange("grab", Playground, ObjectData, Mouse, Radius);
       Drag();
       ctx.clearRect(
         0,
@@ -239,13 +271,15 @@ function PlayGround() {
         );
         return data;
       });
+      //Shadow
+      RowGradient(4);
       ObjectData.current = newData;
     }
   }
   //Called on mouse down setting important vars for main
   function Down() {
     if (OnMouseDown && ObjectData.current) {
-      let index = WhichOne();
+      let index = WhichOne(ObjectData, Mouse, Radius);
       Which.current = index;
       if (index == null) return;
       ObjectData.current[index].Active = true;
@@ -257,20 +291,17 @@ function PlayGround() {
       Which.current = null;
     }
   }
-  //Changes the cursor to a grab when hovering over an object
-  function CursorChange() {
-    if (Playground.current != null && WhichOne() != null) {
-      Playground.current.style.cursor = "grab";
-    } else {
-      Playground.current.style.cursor = "default";
-    }
-  }
+
   useEffect(() => {
-    document.addEventListener("mousemove", MouseTracker);
+    function handleMouseMove(e) {
+      MouseTracker(e);
+      HandleMouse(e);
+    }
+    document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mousedown", () => MouseDown());
     document.addEventListener("mouseup", () => MouseUp());
     return () => {
-      document.removeEventListener("mousemove", MouseTracker);
+      document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", () => MouseDown());
       document.removeEventListener("mouseup", () => MouseUp());
     };
@@ -297,6 +328,15 @@ function PlayGround() {
     }
   }, [ctx]);
 
+  useEffect(() => {
+    const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5);
+    const cleanup2 = defaultCanvas(shadowRef, setShadowCtx);
+    return () => {
+      cleanup1();
+      cleanup2();
+    };
+  }, []);
+
   return (
     <>
       <canvas
@@ -305,13 +345,12 @@ function PlayGround() {
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
-      {/* {ObjectData.current && (
-        <Shadow
-          x={ObjectData.current[0].x}
-          y={ObjectData.current[0].y}
-          radius={Radius.current}
-        />
-      )} */}
+      <canvas
+        ref={shadowRef}
+        className="Shadow"
+        width={document.documentElement.scrollWidthX}
+        height={document.documentElement.scrollHeightY}
+      ></canvas>
     </>
   );
 }

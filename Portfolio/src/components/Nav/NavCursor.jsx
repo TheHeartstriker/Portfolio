@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import "./Navigate.css";
+import "./navigate.css";
 function NavCursor() {
   const [Clickable, setClickable] = useState(false);
   const [Grabable, setGrabable] = useState(false);
