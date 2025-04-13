@@ -20,7 +20,7 @@ createRoot(document.getElementById("root")).render(
 );
 
 //
-// Website structure:
+// Website Structure:
 // - assets contains all the images and videos
 // - components contains all the components used globally in the website so the background, the nav and the cursor
 // - pages contains all the pages used in the website so the about, skills and contact pages
