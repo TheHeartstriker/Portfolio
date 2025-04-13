@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AddMember, RemoveMember } from "../../Helper/AniFrame";
+import { AddMember, RemoveMember } from "../../../utils/AniFrame";
 
-function Shadow({ x, y, radius, update }) {
+function ShadowRenderer({ x, y, radius }) {
   const ShadowRef = useRef(null);
   const [ctx, setCtx] = useState(null);
-  const AniFrame = useRef(null);
+
   const Mouse = useRef({ x: 0, y: 0 });
-  const LatestVal = useRef({ x, y, radius });
   const MouseDis = useRef(0);
   // Creates a canvas
   useEffect(() => {
@@ -66,7 +65,6 @@ function Shadow({ x, y, radius, update }) {
       document.documentElement.scrollHeight
     );
 
-    const { x, y, radius } = LatestVal.current;
     // Calculate the direction vector from the circle's center to the mouse position
     const directionX = Mouse.current.x - x;
     const directionY = Mouse.current.y - y;
@@ -94,13 +92,11 @@ function Shadow({ x, y, radius, update }) {
   useEffect(() => {
     function UpdateMembers() {
       RowGradient(5);
-      console.log(x, y, radius);
     }
-    LatestVal.current = { x, y, radius };
 
     AddMember(UpdateMembers);
     return () => RemoveMember(UpdateMembers);
-  }, [x, y, radius]);
+  }, [ctx]);
 
   return (
     <canvas
@@ -112,4 +108,4 @@ function Shadow({ x, y, radius, update }) {
   );
 }
 
-export default Shadow;
+export default ShadowRenderer;

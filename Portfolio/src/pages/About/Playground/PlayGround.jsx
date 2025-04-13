@@ -1,4 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import { DrawTextBlurb } from "./HelperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
 import {
@@ -9,6 +15,7 @@ import {
   Header3,
   MainText3,
 } from "../Text.js";
+import ShadowRenderer from "./Shadow.jsx";
 
 function PlayGround() {
   const [ctx, setCtx] = useState(null);
@@ -25,6 +32,7 @@ function PlayGround() {
   const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
   const Which = useRef(null);
+  const shadowRef = useRef(null);
   const TimeStep = 0.016;
 
   // Creates a canvas
@@ -240,6 +248,8 @@ function PlayGround() {
         return data;
       });
       ObjectData.current = newData;
+      // Draw the shadow
+      shadowRef.current?.updateShadow();
     }
   }
   //Called on mouse down setting important vars for main
@@ -297,6 +307,29 @@ function PlayGround() {
     }
   }, [ctx]);
 
+  useEffect(() => {
+    console.log("Playground mounted");
+  });
+
+  const Shadow = forwardRef(({ getData }, ref) => {
+    useImperativeHandle(ref, () => ({
+      updateShadow() {
+        const { x, y, radius } = getData();
+      },
+    }));
+    return (
+      <>
+        {ObjectData.current && (
+          <ShadowRenderer
+            x={ObjectData.current[0].x}
+            y={ObjectData.current[0].y}
+            radius={Radius.current}
+          />
+        )}
+      </>
+    );
+  });
+
   return (
     <>
       <canvas
@@ -305,13 +338,14 @@ function PlayGround() {
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
-      {/* {ObjectData.current && (
-        <Shadow
-          x={ObjectData.current[0].x}
-          y={ObjectData.current[0].y}
-          radius={Radius.current}
-        />
-      )} */}
+      <Shadow
+        ref={shadowRef}
+        getData={() => ({
+          x: ObjectData.current[0].x,
+          y: ObjectData.current[0].y,
+          radius: Radius.current,
+        })}
+      />
     </>
   );
 }
