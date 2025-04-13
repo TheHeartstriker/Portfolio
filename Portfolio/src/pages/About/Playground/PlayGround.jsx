@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { DrawTextBlurb } from "./HelperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/AniFrame.jsx";
+import { defaultCanvas } from "../../../utils/canvas.jsx";
+import { RadialGradient } from "./HelperPg.jsx";
 import {
   setupCanvasBall,
   WhichOne,
@@ -16,6 +18,9 @@ import {
 } from "../Text.js";
 
 function PlayGround() {
+  //
+  // Regular Variables for the about balls
+  //
   const [ctx, setCtx] = useState(null);
   const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
@@ -25,13 +30,20 @@ function PlayGround() {
   const MouseDownStartTime = useRef(null);
   const Radius = useRef(0);
   const Mouse = useRef({ x: 0, y: 0 });
-
   const InitalMouse = useRef({ x: 0, y: 0 });
   const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
   const Which = useRef(null);
-  const shadowRef = useRef(null);
   const TimeStep = 0.016;
+  //
+  // Shadow vars
+  //
+  const shadowRef = useRef(null);
+  const [shadowCtx, setShadowCtx] = useState(null);
+  const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
+  //
+  // Regular functions for the about balls
+  //
 
   function InitData() {
     ObjectData.current = [
@@ -173,7 +185,63 @@ function PlayGround() {
       }
     }
   }
-  //Main loop
+
+  //
+  // Shadow related code
+  //
+
+  function HandleMouse(e) {
+    if (ObjectData.current == null) return;
+    Mouse.current.x = e.pageX;
+    Mouse.current.y = e.pageY;
+    for (let i = 0; i < ObjectData.current.length; i++) {
+      mouseDis.current[`Dis${i + 1}`] = Math.sqrt(
+        (Mouse.current.x - ObjectData.current[i].x) ** 2 +
+          (Mouse.current.y - ObjectData.current[i].y) ** 2
+      );
+    }
+  }
+
+  function RowGradient(Range) {
+    if (!shadowCtx) return;
+
+    shadowCtx.clearRect(
+      0,
+      0,
+      document.documentElement.scrollWidth,
+      document.documentElement.scrollHeight
+    );
+
+    for (let i = 0; i < ObjectData.current.length; i++) {
+      // Calculate direction vec
+      let directionX = Mouse.current.x - ObjectData.current[i].x;
+      let directionY = Mouse.current.y - ObjectData.current[i].y;
+      // Normalize the direction vector
+      let length = Math.sqrt(directionX * directionX + directionY * directionY);
+      let normalizedDirectionX = directionX / length;
+      let normalizedDirectionY = directionY / length;
+      // Invert the direction vector to get the opposite direction
+      let oppositeDirectionX = -normalizedDirectionX;
+      let oppositeDirectionY = -normalizedDirectionY;
+      // Scale the offset based on the distance
+      let scaleFactor = length / 10; // Adjust scale if desired
+      // Adjust the position of the gradients using the opposite direction vector and scale factor
+      for (let j = 0; j < Range; j++) {
+        let offsetX = oppositeDirectionX * j * scaleFactor;
+        let offsetY = oppositeDirectionY * j * scaleFactor;
+        RadialGradient(
+          ObjectData.current[i].x + offsetX,
+          ObjectData.current[i].y + offsetY,
+          Radius.current + j * 40,
+          shadowCtx
+        );
+      }
+    }
+  }
+
+  //
+  // Main loop for both shadow and main circles
+  //
   function Main() {
     if (ctx && ObjectData.current && Playground.current) {
       CursorChange("grab", Playground, ObjectData, Mouse, Radius);
@@ -203,9 +271,9 @@ function PlayGround() {
         );
         return data;
       });
+      //Shadow
+      RowGradient(4);
       ObjectData.current = newData;
-      // Draw the shadow
-      shadowRef.current?.updateShadow();
     }
   }
   //Called on mouse down setting important vars for main
@@ -225,11 +293,15 @@ function PlayGround() {
   }
 
   useEffect(() => {
-    document.addEventListener("mousemove", MouseTracker);
+    function handleMouseMove(e) {
+      MouseTracker(e);
+      HandleMouse(e);
+    }
+    document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mousedown", () => MouseDown());
     document.addEventListener("mouseup", () => MouseUp());
     return () => {
-      document.removeEventListener("mousemove", MouseTracker);
+      document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", () => MouseDown());
       document.removeEventListener("mouseup", () => MouseUp());
     };
@@ -257,9 +329,11 @@ function PlayGround() {
   }, [ctx]);
 
   useEffect(() => {
-    const cleanup = setupCanvasBall(Playground, setCtx, Radius, 5);
+    const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5);
+    const cleanup2 = defaultCanvas(shadowRef, setShadowCtx);
     return () => {
-      cleanup();
+      cleanup1();
+      cleanup2();
     };
   }, []);
 
@@ -268,6 +342,12 @@ function PlayGround() {
       <canvas
         ref={Playground}
         className="PlayGround"
+        width={document.documentElement.scrollWidthX}
+        height={document.documentElement.scrollHeightY}
+      ></canvas>
+      <canvas
+        ref={shadowRef}
+        className="Shadow"
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
