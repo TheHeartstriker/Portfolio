@@ -12,69 +12,18 @@ import {
 } from "./text.js";
 import lottie from "lottie-web";
 import { TextScramble } from "../../utils/scramble.jsx";
-import glitchAni from "../../assets/Glitch2.json";
+import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
 
 function Skill() {
   const [Text, setText] = useState(" Known tech");
   const [Text2, setText2] = useState(" Stuff I made");
+
   const Orginal = " Known tech";
   const Orginal2 = " Stuff I made";
 
   function handleLink(Link) {
     window.open(Link, "_blank", "noopener,noreferrer");
-  }
-
-  function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
-    return (
-      <>
-        {/* Main app split into two container one for image and other for text */}
-        <div className={`AppF ${Mirror ? "mirror" : ""}`}>
-          <div className="AppImage" id={Id}>
-            <div className="TransparentFill"></div>
-            <div
-              className="Logocontainer ImgBackLogo1"
-              onClick={() => {
-                handleLink(Link1);
-              }}
-            ></div>
-            <div
-              className="Logocontainer ImgBackLogo2"
-              onClick={() => {
-                handleLink(Link2);
-              }}
-            ></div>
-          </div>
-          <div className={`AppText ${Mirror ? "mirror" : ""}`}>
-            <div className="AppHeader">
-              <h1>Featured project</h1>
-              <h3>{Header}</h3>
-            </div>
-            <div className="AppPara">
-              <p>{Para}</p>
-            </div>
-
-            <div className={`AppSkills ${Mirror ? "mirror" : ""}`}>
-              {Skills.map((tech, index) => (
-                <div className="BluePill2" key={index}>
-                  <h2>{tech}</h2>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-
-  function CreateFolder({ Header, Para, Link }) {
-    return (
-      <div className="Folder" onClick={() => handleLink(Link)}>
-        <div className="FolderSvgContainer"></div>
-        <h1>{Header}</h1>
-        <p>{Para}</p>
-      </div>
-    );
   }
 
   const AniRef1 = useRef(null);
@@ -83,23 +32,28 @@ function Skill() {
   const Container2Ref = useRef(null);
 
   function CreateLottie() {
-    AniRef1.current = lottie.loadAnimation({
-      container: Container1Ref.current,
-      renderer: "svg",
-      loop: false,
-      animationData: glitchAni,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
+    import("../../assets/Glitch2.json").then((animationData) => {
+      AniRef1.current = lottie.loadAnimation({
+        container: Container1Ref.current,
+        renderer: "svg",
+        loop: false,
+        animationData: animationData.default,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      });
     });
-    AniRef2.current = lottie.loadAnimation({
-      container: Container2Ref.current,
-      renderer: "svg",
-      loop: false,
-      animationData: glitchAni,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
+
+    import("../../assets/Glitch2.json").then((animationData) => {
+      AniRef2.current = lottie.loadAnimation({
+        container: Container2Ref.current,
+        renderer: "svg",
+        loop: false,
+        animationData: animationData.default,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      });
     });
   }
 
@@ -116,8 +70,7 @@ function Skill() {
       );
     }, 800);
   }, []);
-  // Code links
-  //Animations
+
   return (
     <div className="MainSkillContainer">
       {/* Over head container for teck stacks */}
