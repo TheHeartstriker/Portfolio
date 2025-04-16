@@ -1,6 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 //Text
 import {
+  animate,
+  createAnimatable,
+  createScope,
+  createSpring,
+  utils,
+} from "animejs";
+import {
   TechStacks,
   Header,
   Paras,
@@ -21,15 +28,13 @@ function Skill() {
 
   const Orginal = " Known tech";
   const Orginal2 = " Stuff I made";
-
-  function handleLink(Link) {
-    window.open(Link, "_blank", "noopener,noreferrer");
-  }
-
   const AniRef1 = useRef(null);
   const AniRef2 = useRef(null);
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
+  //Anime
+  const root = useRef(null);
+  const scope = useRef(null);
 
   function CreateLottie() {
     import("../../assets/Glitch2.json").then((animationData) => {
@@ -71,8 +76,56 @@ function Skill() {
     }, 800);
   }, []);
 
+  useEffect(() => {
+    const bluePills = Array.from(document.querySelectorAll(".BluePill"));
+
+    // Create individual animations for each BluePill
+    const animatablePills = bluePills.map((pill) =>
+      createAnimatable(pill, {
+        x: 500,
+        y: 500,
+        ease: "ease(2)",
+      })
+    );
+
+    function onMouseMove(event) {
+      const { clientX, clientY } = event;
+
+      bluePills.forEach((pill, index) => {
+        const bounding = pill.getBoundingClientRect();
+        const { left, top, width, height } = bounding;
+
+        // Calculate distance from the mouse to the center of the pill
+        const dx = clientX - (left + width / 2);
+        const dy = clientY - (top + height / 2);
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // If the mouse is close enough, animate the individual pill
+        if (distance < 100) {
+          const hw = width / 2;
+          const hh = height / 2;
+          const x = utils.clamp(-(clientX - left - hw), -hw, hw);
+          const y = utils.clamp(-(clientY - top - hh), -hh, hh);
+
+          animatablePills[index].x(x); // Animate the x value for this pill
+          animatablePills[index].y(y); // Animate the y value for this pill
+        } else {
+          // Reset the animation if the mouse is not close enough
+          animatablePills[index].x(0);
+          animatablePills[index].y(0);
+        }
+      });
+    }
+
+    window.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="MainSkillContainer">
+    <div className="MainSkillContainer" ref={root}>
       {/* Over head container for teck stacks */}
       <div className="Seperator" id="Sep1">
         <h2>01.</h2>

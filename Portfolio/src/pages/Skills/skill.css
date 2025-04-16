@@ -328,14 +328,6 @@
   opacity: 0.5;
 }
 
-#Sep1 {
-  animation: forwards FadeUpEnterAni 1s ease-in-out;
-}
-
-#Sep2 {
-  animation: forwards FadeUpEnterAni 2s ease-in-out;
-}
-
 #lottie-container {
   position: absolute;
   width: 100%;
