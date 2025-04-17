@@ -75,11 +75,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+  transition: background-color ease-out 1s, color ease-out 1s;
 }
 
-.BluePill:hover,
-.BluePill2:hover {
+.BluePill.hovered,
+.BluePill2.hovered {
   background-color: rgba(0, 188, 235, 0.8);
   color: var(--Teal);
 }
@@ -344,7 +344,6 @@
   height: 6rem;
   margin-left: 15px;
   margin: 10px;
-  background-color: black;
   padding: 5px;
   border-radius: 50%;
   z-index: 1;

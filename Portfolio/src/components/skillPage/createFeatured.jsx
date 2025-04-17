@@ -1,5 +1,4 @@
 import React from "react";
-
 function handleLink(Link) {
   window.open(Link, "_blank", "noopener,noreferrer");
 }

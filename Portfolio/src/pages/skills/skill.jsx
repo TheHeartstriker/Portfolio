@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 //Text
-import { animate, createAnimatable, utils } from "animejs";
+import { createAnimatable, utils } from "animejs";
 import {
   TechStacks,
   Header,
@@ -12,6 +12,7 @@ import {
   NoteWortheyP,
 } from "./text.js";
 import lottie from "lottie-web";
+import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
 import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
 
@@ -35,7 +36,7 @@ function Skill() {
       });
     });
   }
-
+  //Manipulates the pills on mouse move
   function onMouseMove(event, animatablePills, bluePills) {
     const { clientX, clientY } = event;
     bluePills.forEach((pill, index) => {
@@ -55,19 +56,17 @@ function Skill() {
         //Update x and y
         animatablePills[index].x(x);
         animatablePills[index].y(y);
+        pill.classList.add("hovered");
       } else {
         animatablePills[index].x(0);
         animatablePills[index].y(0);
+        pill.classList.remove("hovered");
       }
     });
   }
-
-  useEffect(() => {
-    createLottie(Container1Ref, AniRef1);
-    createLottie(Container2Ref, AniRef2);
-  }, []);
-
-  useEffect(() => {
+  //Inits the animatable and return them
+  function initalize() {
+    // Selects them all
     const bluePills = Array.from(
       document.querySelectorAll(
         ".BluePill, .BluePill h2, .BluePill2, .BluePill2 h2"
@@ -81,12 +80,39 @@ function Skill() {
         ease: "ease(2)",
       })
     );
-    const handleMouseMove = (event) =>
-      onMouseMove(event, animatablePills, bluePills);
+    return { animatablePills, bluePills };
+  }
+
+  useEffect(() => {
+    createLottie(Container1Ref, AniRef1);
+    createLottie(Container2Ref, AniRef2);
+  }, []);
+
+  useEffect(() => {
+    const InitVals = initalize();
+    //Track mouse position
+    let mouseX = 0;
+    let mouseY = 0;
+    const handleMouseMove = (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    };
+    //Adds the mouse move to a 60fps loop
+    //Its dom and css so its better performance wise
+    function Update() {
+      onMouseMove(
+        { clientX: mouseX, clientY: mouseY },
+        InitVals.animatablePills,
+        InitVals.bluePills
+      );
+    }
+    AddMember(Update);
     window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
-      // Cleanup event listener
+      // Cleanup event listener and remove from animation loop
       window.removeEventListener("mousemove", handleMouseMove);
+      RemoveMember(Update);
     };
   }, []);
   return (
