@@ -168,6 +168,7 @@
 }
 
 .AppHeader h1 {
+  display: inline-block;
   font-size: 1.5rem;
 }
 /* Secondary header */
@@ -339,17 +340,19 @@
 
 .Logocontainer {
   position: relative;
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 6rem;
+  height: 6rem;
   margin-left: 15px;
   margin: 10px;
-  background-color: transparent;
+  background-color: black;
+  padding: 5px;
+  border-radius: 50%;
   z-index: 1;
 }
 
 .ImgBackLogo1 {
   background-image: url("../../assets/link.svg");
-  background-size: contain;
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -365,11 +368,11 @@
 
 @keyframes FadeUpEnterAni {
   0% {
-    transform: translateY(75px); /* Start from 50px below */
+    transform: translateY(75px);
     opacity: 0;
   }
   100% {
-    transform: translateY(0px); /* End at the original position */
+    transform: translateY(0px);
     opacity: 1;
   }
 }

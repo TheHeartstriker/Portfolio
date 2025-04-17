@@ -1,12 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 //Text
-import {
-  animate,
-  createAnimatable,
-  createScope,
-  createSpring,
-  utils,
-} from "animejs";
+import { animate, createAnimatable, utils } from "animejs";
 import {
   TechStacks,
   Header,
@@ -18,40 +12,20 @@ import {
   NoteWortheyP,
 } from "./text.js";
 import lottie from "lottie-web";
-import { TextScramble } from "../../utils/scramble.jsx";
 import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
 
 function Skill() {
-  const [Text, setText] = useState(" Known tech");
-  const [Text2, setText2] = useState(" Stuff I made");
-
-  const Orginal = " Known tech";
-  const Orginal2 = " Stuff I made";
   const AniRef1 = useRef(null);
   const AniRef2 = useRef(null);
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
-  //Anime
-  const root = useRef(null);
-  const scope = useRef(null);
-
-  function CreateLottie() {
+  const root = useRef(null); // for animejs
+  //Creates the lottie animation
+  function createLottie(containerRef, animationRef) {
     import("../../assets/Glitch2.json").then((animationData) => {
-      AniRef1.current = lottie.loadAnimation({
-        container: Container1Ref.current,
-        renderer: "svg",
-        loop: false,
-        animationData: animationData.default,
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice",
-        },
-      });
-    });
-
-    import("../../assets/Glitch2.json").then((animationData) => {
-      AniRef2.current = lottie.loadAnimation({
-        container: Container2Ref.current,
+      animationRef.current = lottie.loadAnimation({
+        container: containerRef.current,
         renderer: "svg",
         loop: false,
         animationData: animationData.default,
@@ -62,74 +36,65 @@ function Skill() {
     });
   }
 
+  function onMouseMove(event, animatablePills, bluePills) {
+    const { clientX, clientY } = event;
+    bluePills.forEach((pill, index) => {
+      const bounding = pill.getBoundingClientRect();
+      const { left, top, width, height } = bounding;
+      // Calculate distance from the mouse to the center of the pill
+      const dx = clientX - (left + width / 2);
+      const dy = clientY - (top + height / 2);
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      // Activate on distance
+      if (distance < 150) {
+        const hw = width / 2;
+        const hh = height / 2;
+        const x = utils.clamp(-(clientX - left - hw), -hw, hw);
+        const y = utils.clamp(-(clientY - top - hh), -hh, hh);
+        //Update x and y
+        animatablePills[index].x(x);
+        animatablePills[index].y(y);
+      } else {
+        animatablePills[index].x(0);
+        animatablePills[index].y(0);
+      }
+    });
+  }
+
   useEffect(() => {
-    CreateLottie();
-    setTimeout(() => {
-      TextScramble(Orginal, Text, "abcdefghijklmnopqrstuvwxyz", setText, 0.5);
-      TextScramble(
-        Orginal2,
-        Text2,
-        "abcdefghijklmnopqrstuvwxyz",
-        setText2,
-        0.5
-      );
-    }, 800);
+    createLottie(Container1Ref, AniRef1);
+    createLottie(Container2Ref, AniRef2);
   }, []);
 
   useEffect(() => {
-    const bluePills = Array.from(document.querySelectorAll(".BluePill"));
-
+    const bluePills = Array.from(
+      document.querySelectorAll(
+        ".BluePill, .BluePill h2, .BluePill2, .BluePill2 h2"
+      )
+    );
     // Create individual animations for each BluePill
     const animatablePills = bluePills.map((pill) =>
       createAnimatable(pill, {
-        x: 500,
-        y: 500,
+        x: 300,
+        y: 300,
         ease: "ease(2)",
       })
     );
-
-    function onMouseMove(event) {
-      const { clientX, clientY } = event;
-
-      bluePills.forEach((pill, index) => {
-        const bounding = pill.getBoundingClientRect();
-        const { left, top, width, height } = bounding;
-
-        // Calculate distance from the mouse to the center of the pill
-        const dx = clientX - (left + width / 2);
-        const dy = clientY - (top + height / 2);
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        // If the mouse is close enough, animate the individual pill
-        if (distance < 100) {
-          const hw = width / 2;
-          const hh = height / 2;
-          const x = utils.clamp(-(clientX - left - hw), -hw, hw);
-          const y = utils.clamp(-(clientY - top - hh), -hh, hh);
-
-          animatablePills[index].x(x); // Animate the x value for this pill
-          animatablePills[index].y(y); // Animate the y value for this pill
-        } else {
-          // Reset the animation if the mouse is not close enough
-          animatablePills[index].x(0);
-          animatablePills[index].y(0);
-        }
-      });
-    }
-
-    window.addEventListener("mousemove", onMouseMove);
-
+    const handleMouseMove = (event) =>
+      onMouseMove(event, animatablePills, bluePills);
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
+      // Cleanup event listener
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
   return (
     <div className="MainSkillContainer" ref={root}>
       {/* Over head container for teck stacks */}
       <div className="Seperator" id="Sep1">
         <h2>01.</h2>
-        <h1>{Text}</h1>
+        <h1 id="TestId">Known tech</h1>
         <hr></hr>
         <div id="lottie-container" ref={Container1Ref}></div>
       </div>
@@ -145,7 +110,7 @@ function Skill() {
       {/* Seperator element */}
       <div className="Seperator" id="Sep2">
         <hr></hr>
-        <h1>{Text2}</h1>
+        <h1>Stuff I made</h1>
         <h2>.02</h2>
         <div id="lottie-container" ref={Container2Ref}></div>
       </div>
