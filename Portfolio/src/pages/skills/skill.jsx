@@ -75,9 +75,9 @@ function Skill() {
     // Create individual animations for each BluePill
     const animatablePills = bluePills.map((pill) =>
       createAnimatable(pill, {
-        x: 300,
-        y: 300,
-        ease: "ease(2)",
+        x: 400,
+        y: 400,
+        ease: "ease(3)",
       })
     );
     return { animatablePills, bluePills };
@@ -90,29 +90,35 @@ function Skill() {
 
   useEffect(() => {
     const InitVals = initalize();
-    //Track mouse position
     let mouseX = 0;
     let mouseY = 0;
+    let prevMouseX = null;
+    let prevMouseY = null;
+
     const handleMouseMove = (event) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
     };
-    //Adds the mouse move to a 60fps loop
-    //Its dom and css so its better performance wise
-    function Update() {
-      onMouseMove(
-        { clientX: mouseX, clientY: mouseY },
-        InitVals.animatablePills,
-        InitVals.bluePills
-      );
+
+    function update() {
+      // Only update if the mouse position has changed
+      if (mouseX !== prevMouseX || mouseY !== prevMouseY) {
+        onMouseMove(
+          { clientX: mouseX, clientY: mouseY },
+          InitVals.animatablePills,
+          InitVals.bluePills
+        );
+        prevMouseX = mouseX;
+        prevMouseY = mouseY;
+      }
     }
-    AddMember(Update);
+
+    AddMember(update);
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      // Cleanup event listener and remove from animation loop
       window.removeEventListener("mousemove", handleMouseMove);
-      RemoveMember(Update);
+      RemoveMember(update);
     };
   }, []);
   return (
