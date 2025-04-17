@@ -75,11 +75,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+  transition: background-color ease-out 1s, color ease-out 1s;
 }
 
-.BluePill:hover,
-.BluePill2:hover {
+.BluePill.hovered,
+.BluePill2.hovered {
   background-color: rgba(0, 188, 235, 0.8);
   color: var(--Teal);
 }
@@ -168,6 +168,7 @@
 }
 
 .AppHeader h1 {
+  display: inline-block;
   font-size: 1.5rem;
 }
 /* Secondary header */
@@ -328,14 +329,6 @@
   opacity: 0.5;
 }
 
-#Sep1 {
-  animation: forwards FadeUpEnterAni 1s ease-in-out;
-}
-
-#Sep2 {
-  animation: forwards FadeUpEnterAni 2s ease-in-out;
-}
-
 #lottie-container {
   position: absolute;
   width: 100%;
@@ -347,17 +340,18 @@
 
 .Logocontainer {
   position: relative;
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 6rem;
+  height: 6rem;
   margin-left: 15px;
   margin: 10px;
-  background-color: transparent;
+  padding: 5px;
+  border-radius: 50%;
   z-index: 1;
 }
 
 .ImgBackLogo1 {
   background-image: url("../../assets/link.svg");
-  background-size: contain;
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -373,11 +367,11 @@
 
 @keyframes FadeUpEnterAni {
   0% {
-    transform: translateY(75px); /* Start from 50px below */
+    transform: translateY(75px);
     opacity: 0;
   }
   100% {
-    transform: translateY(0px); /* End at the original position */
+    transform: translateY(0px);
     opacity: 1;
   }
 }

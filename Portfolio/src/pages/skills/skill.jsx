@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 //Text
+import { createAnimatable, utils } from "animejs";
 import {
   TechStacks,
   Header,
@@ -11,119 +12,115 @@ import {
   NoteWortheyP,
 } from "./text.js";
 import lottie from "lottie-web";
-import { TextScramble } from "../../utils/scramble.jsx";
-import glitchAni from "../../assets/Glitch2.json";
+import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
+import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
 
 function Skill() {
-  const [Text, setText] = useState(" Known tech");
-  const [Text2, setText2] = useState(" Stuff I made");
-  const Orginal = " Known tech";
-  const Orginal2 = " Stuff I made";
-
-  function handleLink(Link) {
-    window.open(Link, "_blank", "noopener,noreferrer");
-  }
-
-  function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
-    return (
-      <>
-        {/* Main app split into two container one for image and other for text */}
-        <div className={`AppF ${Mirror ? "mirror" : ""}`}>
-          <div className="AppImage" id={Id}>
-            <div className="TransparentFill"></div>
-            <div
-              className="Logocontainer ImgBackLogo1"
-              onClick={() => {
-                handleLink(Link1);
-              }}
-            ></div>
-            <div
-              className="Logocontainer ImgBackLogo2"
-              onClick={() => {
-                handleLink(Link2);
-              }}
-            ></div>
-          </div>
-          <div className={`AppText ${Mirror ? "mirror" : ""}`}>
-            <div className="AppHeader">
-              <h1>Featured project</h1>
-              <h3>{Header}</h3>
-            </div>
-            <div className="AppPara">
-              <p>{Para}</p>
-            </div>
-
-            <div className={`AppSkills ${Mirror ? "mirror" : ""}`}>
-              {Skills.map((tech, index) => (
-                <div className="BluePill2" key={index}>
-                  <h2>{tech}</h2>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-
-  function CreateFolder({ Header, Para, Link }) {
-    return (
-      <div className="Folder" onClick={() => handleLink(Link)}>
-        <div className="FolderSvgContainer"></div>
-        <h1>{Header}</h1>
-        <p>{Para}</p>
-      </div>
-    );
-  }
-
   const AniRef1 = useRef(null);
   const AniRef2 = useRef(null);
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
+  const root = useRef(null); // for animejs
+  //Creates the lottie animation
+  function createLottie(containerRef, animationRef) {
+    import("../../assets/Glitch2.json").then((animationData) => {
+      animationRef.current = lottie.loadAnimation({
+        container: containerRef.current,
+        renderer: "svg",
+        loop: false,
+        animationData: animationData.default,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      });
+    });
+  }
+  //Manipulates the pills on mouse move
+  function onMouseMove(event, animatablePills, bluePills) {
+    const { clientX, clientY } = event;
+    bluePills.forEach((pill, index) => {
+      const bounding = pill.getBoundingClientRect();
+      const { left, top, width, height } = bounding;
+      // Calculate distance from the mouse to the center of the pill
+      const dx = clientX - (left + width / 2);
+      const dy = clientY - (top + height / 2);
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
-  function CreateLottie() {
-    AniRef1.current = lottie.loadAnimation({
-      container: Container1Ref.current,
-      renderer: "svg",
-      loop: false,
-      animationData: glitchAni,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
+      // Activate on distance
+      if (distance < 150) {
+        const hw = width / 2;
+        const hh = height / 2;
+        const x = utils.clamp(-(clientX - left - hw), -hw, hw);
+        const y = utils.clamp(-(clientY - top - hh), -hh, hh);
+        //Update x and y
+        animatablePills[index].x(x);
+        animatablePills[index].y(y);
+        pill.classList.add("hovered");
+      } else {
+        animatablePills[index].x(0);
+        animatablePills[index].y(0);
+        pill.classList.remove("hovered");
+      }
     });
-    AniRef2.current = lottie.loadAnimation({
-      container: Container2Ref.current,
-      renderer: "svg",
-      loop: false,
-      animationData: glitchAni,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
-    });
+  }
+  //Inits the animatable and return them
+  function initalize() {
+    // Selects them all
+    const bluePills = Array.from(
+      document.querySelectorAll(
+        ".BluePill, .BluePill h2, .BluePill2, .BluePill2 h2"
+      )
+    );
+    // Create individual animations for each BluePill
+    const animatablePills = bluePills.map((pill) =>
+      createAnimatable(pill, {
+        x: 300,
+        y: 300,
+        ease: "ease(2)",
+      })
+    );
+    return { animatablePills, bluePills };
   }
 
   useEffect(() => {
-    CreateLottie();
-    setTimeout(() => {
-      TextScramble(Orginal, Text, "abcdefghijklmnopqrstuvwxyz", setText, 0.5);
-      TextScramble(
-        Orginal2,
-        Text2,
-        "abcdefghijklmnopqrstuvwxyz",
-        setText2,
-        0.5
-      );
-    }, 800);
+    createLottie(Container1Ref, AniRef1);
+    createLottie(Container2Ref, AniRef2);
   }, []);
-  // Code links
-  //Animations
+
+  useEffect(() => {
+    const InitVals = initalize();
+    //Track mouse position
+    let mouseX = 0;
+    let mouseY = 0;
+    const handleMouseMove = (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    };
+    //Adds the mouse move to a 60fps loop
+    //Its dom and css so its better performance wise
+    function Update() {
+      onMouseMove(
+        { clientX: mouseX, clientY: mouseY },
+        InitVals.animatablePills,
+        InitVals.bluePills
+      );
+    }
+    AddMember(Update);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      // Cleanup event listener and remove from animation loop
+      window.removeEventListener("mousemove", handleMouseMove);
+      RemoveMember(Update);
+    };
+  }, []);
   return (
-    <div className="MainSkillContainer">
+    <div className="MainSkillContainer" ref={root}>
       {/* Over head container for teck stacks */}
       <div className="Seperator" id="Sep1">
         <h2>01.</h2>
-        <h1>{Text}</h1>
+        <h1 id="TestId">Known tech</h1>
         <hr></hr>
         <div id="lottie-container" ref={Container1Ref}></div>
       </div>
@@ -139,7 +136,7 @@ function Skill() {
       {/* Seperator element */}
       <div className="Seperator" id="Sep2">
         <hr></hr>
-        <h1>{Text2}</h1>
+        <h1>Stuff I made</h1>
         <h2>.02</h2>
         <div id="lottie-container" ref={Container2Ref}></div>
       </div>
