@@ -116,7 +116,7 @@ function Contact() {
   //Main loop
   function Main() {
     if (ctx && ObjectData.current && Contact.current) {
-      CursorChange("grab", Contact, ObjectData, Mouse, Radius);
+      CursorChange("pointer", Contact, ObjectData, Mouse, Radius);
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       const newData = ObjectData.current.map((data) => {
