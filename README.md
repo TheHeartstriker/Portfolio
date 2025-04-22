@@ -1,18 +1,18 @@
 # Portfolio
 
-A fun playground made to display of all my projects and skills I have accumulated (: Hosted on azure! Built to be fun to visit for anyone not just a boring sell of myself but a show of vision and evolution
+A fun playground made to display all of my projects and the skills I’ve accumulated (: Hosted on Azure! Built to be fun to visit for anyone — not just a boring sell of myself, but a showcase of vision and evolution.
 
 ## Where its going
 
-I still plan on adding lots of fun stuff. Currently the main attention grabber Is the about page its has text blurbs that have friction, velocity, gravity(if needed) and can be throw around. A similar system was ported over to the contact's page
-which has like 20 or so balls with links to my github and linkedin. I want to add square collisions for the folders on the skills page, shadows in the about page for the blurb and text collisions. I was also thinking about using c++ and wasm if needed.
+I still plan on adding lots of fun stuff. Currently, the main attention grabber is the About page. It has text blurbs that have friction, velocity, and gravity (if needed) and can be thrown around. A similar system was ported over to the Contact page,
+which has about 20 or so balls with links to my GitHub and LinkedIn. I want to add square collisions for the folders on the Skills page, shadows on the About page for the blurbs, and text collisions. I was also thinking about using C++ and WASM if needed.
 
 ## Tech stack
 
 - **Frontend**: JavaScript, React, Anime.js
-- **Styling**: CSS (with custom animations)
+- **Styling**: CSS 
 - **Hosting**: Azure Static Web Apps
-- **Build Tool**: Vite (or specify your tool)
+- **Build Tool**: Vite
 
 ## Features
 
@@ -33,4 +33,6 @@ www.kadenwildauer.com
 
 ## Note
 
-Come back here everyonce an awhile. Maybe some things might have changed or been added. If you blink you might miss something cool :)
+Come back here every once in a while. Maybe some things have changed or been added. If you blink, you might miss something cool :)
+
+
