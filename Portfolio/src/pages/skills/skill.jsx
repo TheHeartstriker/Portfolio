@@ -183,7 +183,7 @@ function Skill() {
           <CreateFolder
             Header={NoteWortheyH[0]}
             Para={NoteWortheyP[0]}
-            Link={"https://github.com/TheHeartstriker/CS50"}
+            Link={"https://github.com/TheHeartstriker/BookApp"}
           />
           <CreateFolder
             Header={NoteWortheyH[1]}

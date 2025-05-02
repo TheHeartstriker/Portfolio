@@ -52,9 +52,13 @@ export const Paras = [
 
 ///////////////////////////////////////////////FolderTexts///////////////////////////////////////////////
 
-export const NoteWortheyH = ["CS50", "Portfolio", "CS50 Final Project"];
+export const NoteWortheyH = [
+  "Production Book app",
+  "Portfolio",
+  "CS50 Final Project",
+];
 export const NoteWortheyP = [
-  "All my code from the Harvard CS50 problem sets",
+  "A simple book app made as part of an interview process. I followed strict guidelines and a custom-made backend design, which I later improved upon and used in my own projects.",
   "The code base for this website! Wondering how its done check here :)",
   "My CS50 final project. A staging website for learning how to use WebAssembly. Mainly a personal learning project to be able to implement it in future projects.",
 ];
