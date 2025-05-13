@@ -83,10 +83,10 @@ function Skill() {
     return { animatablePills, bluePills };
   }
 
-  useEffect(() => {
-    createLottie(Container1Ref, AniRef1);
-    createLottie(Container2Ref, AniRef2);
-  }, []);
+  // useEffect(() => {
+  //   createLottie(Container1Ref, AniRef1);
+  //   createLottie(Container2Ref, AniRef2);
+  // }, []);
 
   useEffect(() => {
     const InitVals = initalize();
