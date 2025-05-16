@@ -2,6 +2,7 @@
 import About from "../pages/about/about.jsx";
 import Skill from "../pages/skills/skill.jsx";
 import Contact from "../pages/contact/contact.jsx";
+import Scriptorium from "../pages/scriptorium/scriptorium.jsx";
 import { Routes, Route, useLocation } from "react-router-dom";
 import FadeSettings from "./fadeSettings.jsx";
 import { AnimatePresence } from "framer-motion";
@@ -27,6 +28,16 @@ function AppRoutes() {
             </FadeSettings>
           }
         />
+
+        <Route
+          path="/scriptorium"
+          element={
+            <FadeSettings>
+              <Scriptorium />
+            </FadeSettings>
+          }
+        />
+
         <Route
           path="/contact"
           element={

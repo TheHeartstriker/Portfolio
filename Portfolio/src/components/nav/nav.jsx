@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
+import scriptorium from "../../pages/scriptorium/scriptorium.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
@@ -26,40 +27,35 @@ function Nav() {
   }
 
   //Simple state management for the buttons
-  const [About, setAbout] = useState(false);
-  const [Skill, setSkill] = useState(false);
-  const [Contact, setContact] = useState(false);
+  const [btnState, setBtnState] = useState({
+    About: true,
+    Skill: false,
+    Contact: false,
+    scriptorium: false,
+  });
 
-  function handleAbout() {
-    setAbout(true);
-    setSkill(false);
-    setContact(false);
-  }
-
-  function handleSkill() {
-    setSkill(true);
-    setAbout(false);
-    setContact(false);
-  }
-
-  function handleContact() {
-    setContact(true);
-    setAbout(false);
-    setSkill(false);
+  function setValue(name, value) {
+    setBtnState({
+      About: false,
+      Skill: false,
+      Contact: false,
+      scriptorium: false,
+      [name]: value,
+    });
   }
 
   function Toggler() {
     const container = containerRef.current;
-    if (About) {
+    if (btnState.About) {
       container.classList.remove("skill");
       container.classList.remove("contact");
     }
-    if (Skill) {
+    if (btnState.Skill) {
       container.classList.add("skill");
     } else {
       container.classList.remove("skill");
     }
-    if (Contact) {
+    if (btnState.Contact) {
       container.classList.add("contact");
     } else {
       container.classList.remove("contact");
@@ -72,24 +68,46 @@ function Nav() {
 
   useEffect(() => {
     Toggler();
-  }, [About, Skill, Contact]);
+  }, [btnState]);
 
   return (
     <>
       <NavCursor />
       <Link to="/">
-        <button className="button" id="AboutBtn" onClick={handleAbout}>
+        <button
+          className="button"
+          id="AboutBtn"
+          onClick={() => setValue("About", true)}
+        >
           AboutMe
         </button>
       </Link>
       <Link to="/skills">
-        <button className="button" id="SkillBtn" onClick={handleSkill}>
+        <button
+          className="button"
+          id="SkillBtn"
+          onClick={() => setValue("Skill", true)}
+        >
           Skills and Projects
         </button>
       </Link>
       <Link to="/contact">
-        <button className="button" id="ContactBtn" onClick={handleContact}>
+        <button
+          className="button"
+          id="ContactBtn"
+          onClick={() => setValue("Contact", true)}
+        >
           Contacts
+        </button>
+      </Link>
+      {/* blog */}
+      <Link to="/scriptorium">
+        <button
+          className="button"
+          id="scriptoriumBtn"
+          onClick={() => setValue("scriptorium", true)}
+        >
+          Scriptorium
         </button>
       </Link>
       <div className="Container" ref={containerRef}></div>
