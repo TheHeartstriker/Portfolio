@@ -1,9 +1,23 @@
+import ReactMarkdown from "react-markdown";
+//
+//
+//
+
+function articleChecker(item) {
+  if (typeof item === "string") {
+    return <ReactMarkdown>{item}</ReactMarkdown>;
+  } else if (typeof item === "function") {
+    return <div className="componentContainer">{item()}</div>;
+  }
+}
+
 export function SubjectContainer({
   title,
   subject,
   description,
   active,
   onClick,
+  article,
 }) {
   return (
     <div className="subject-container" onClick={onClick}>
@@ -16,13 +30,7 @@ export function SubjectContainer({
       </div>
       <div className="mainArticle">
         <div className={`articleTextContainer${active ? " active" : ""}`}>
-          <h1>Article</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            tincidunt, nunc at bibendum facilisis, nunc nisl aliquet nunc, eget
-            aliquam nisl nunc eget nunc. Sed tincidunt, nunc at bibendum
-            facilisis, nunc nisl aliquet nunc, eget aliquam nisl nunc eget nunc.
-          </p>
+          <ReactMarkdown>{article}</ReactMarkdown>
         </div>
       </div>
     </div>
