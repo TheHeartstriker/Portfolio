@@ -3,6 +3,8 @@
   --neon-blue: #00ccff;
   --neon-dull: rgb(0, 188, 235);
   --Low-blue: #0e2250;
+  --Dark-blue: #0b1a3d;
+
   --Teal: rgb(100, 255, 218);
 }
 
@@ -25,9 +27,10 @@
   align-items: center;
   justify-content: center;
   width: 75%;
-  height: 12vw;
+  height: auto;
   background-color: var(--Low-blue);
   border-radius: 40px;
+  z-index: 1;
 }
 
 .subjectTextContainer {
@@ -70,6 +73,25 @@
   padding: 10px;
   color: rgba(255, 255, 255, 0.8);
 }
+
+.articleTextContainer {
+  width: auto;
+  height: 0;
+  display: none;
+}
+
+.articleTextContainer.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+  border-radius: 40px;
+  background-color: var(--Dark-blue);
+  margin: 5px;
+}
+
 /*  */
 /* Text container css */
 /*  */
