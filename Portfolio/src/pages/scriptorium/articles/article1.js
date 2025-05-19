@@ -71,9 +71,11 @@ Here is the model I created for a particle.
     }
   }
 \`\`\`
-Now using applyForce we can apply forces to any particle. This next part I will showcase making different funtions for the particle class. And at the end display the end result.
-Gravity a great first start the formula for gravity is F = G(m1 * m2) / r^2. So lets make it!
+Now using applyForce we can apply forces to any particle. Now the next part is going to be prett common place simplyfing these formulas to make them easier to use.
+For example the universal gravitation formula is: F = G(m1m2)/r². We simply dont need that here it talks about the force of attraction between two objects. We just want a downward force.
+So we will incorporate mass and constant for gravity. Now the next is friction. f = uN the u aka the friction coefficient is constant we are not simulating a surface or other object like ice or rubber.
+Its just a imgainary circle. Now the normal force is something we can easily calculate and keeps this example simple the normal force is equal to the mass of the object times gravity. So we can use this to calculate the friction force.
 \`\`\`
 gravity(particleVec)
-
+\`\`\`
 `;

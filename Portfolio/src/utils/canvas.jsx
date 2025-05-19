@@ -1,14 +1,24 @@
-export function defaultCanvas(canvasRef, onContextUpdate) {
+export function defaultCanvas(canvasRef, onContextUpdate, size) {
   const defaultCanvasRef = canvasRef.current;
-  defaultCanvasRef.width = document.documentElement.scrollWidth;
-  defaultCanvasRef.height = document.documentElement.scrollHeight;
+  if (size == "default") {
+    defaultCanvasRef.width = window.innerWidth;
+    defaultCanvasRef.height = window.innerHeight;
+  } else if (size == "abs") {
+    defaultCanvasRef.width = document.documentElement.scrollWidth;
+    defaultCanvasRef.height = document.documentElement.scrollHeight;
+  }
   const backgroundContext = defaultCanvasRef.getContext("2d");
   onContextUpdate(backgroundContext);
 
   // Function to resize the canvas
   const resizeCanvas = () => {
-    defaultCanvasRef.width = document.documentElement.scrollWidth;
-    defaultCanvasRef.height = document.documentElement.scrollHeight;
+    if (size == "default") {
+      defaultCanvasRef.width = window.innerWidth;
+      defaultCanvasRef.height = window.innerHeight;
+    } else if (size == "abs") {
+      defaultCanvasRef.width = document.documentElement.scrollWidth;
+      defaultCanvasRef.height = document.documentElement.scrollHeight;
+    }
     onContextUpdate(defaultCanvasRef.getContext("2d"));
   };
 

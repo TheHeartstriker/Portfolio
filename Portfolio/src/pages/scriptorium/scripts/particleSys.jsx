@@ -11,9 +11,7 @@ function particleSys() {
   const particlesRef = useRef([]);
 
   const radius = 5;
-  const gravConstant = 0.5;
-  const gravMass = 300;
-  const frictionCoeff = 0.3;
+  const frictionCoefficient = 0.1;
 
   class Vector {
     constructor(x, y) {
@@ -73,6 +71,79 @@ function particleSys() {
       this.acceleration.mult(0);
     }
 
+    applyGravity() {
+      const g = 0.01;
+      const gravityForce = new Vector(0, this.mass * g);
+      this.applyForce(gravityForce);
+    }
+
+    checkEdges() {
+      let bounce = -0.9;
+      let height = canvasRef.current.height;
+      if (this.position.y > height - this.radius) {
+        this.position.y = height - this.radius;
+        this.velocity.y *= bounce;
+      }
+    }
+
+    applyFriction() {
+      if (this.position.y > canvasRef.current.height - this.radius - 1) {
+        let frictionMag = frictionCoefficient * this.mass * 0.01;
+        let frictionCopy = new Vector(this.velocity.x, this.velocity.y);
+        frictionCopy.mult(-1);
+        frictionCopy.normalize();
+        frictionCopy.mult(frictionMag);
+        this.applyForce(frictionCopy);
+      }
+    }
+
+    collision() {
+      for (let i = 0; i < particlesRef.current.length; i++) {
+        const other = particlesRef.current[i];
+        if (other !== this) {
+          const dx = this.position.x - other.position.x;
+          const dy = this.position.y - other.position.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < this.radius + other.radius) {
+            const energyLoss = 0.4;
+
+            // Normal vector
+            const nx = dx / distance;
+            const ny = dy / distance;
+
+            // Relative velocity
+            const dvx = this.velocity.x - other.velocity.x;
+            const dvy = this.velocity.y - other.velocity.y;
+
+            // Velocity along normal
+            const vn = dvx * nx + dvy * ny;
+
+            // Only separate if moving towards each other
+            if (vn < 0) {
+              // Impulse scalar
+              const impulse =
+                (-(1 + energyLoss) * vn) / (1 / this.mass + 1 / other.mass);
+
+              // Apply impulse
+              this.velocity.x += (impulse / this.mass) * nx;
+              this.velocity.y += (impulse / this.mass) * ny;
+              other.velocity.x -= (impulse / other.mass) * nx;
+              other.velocity.y -= (impulse / other.mass) * ny;
+            }
+
+            // Separate overlapping particles
+            const overlap = this.radius + other.radius - distance;
+            const totalMass = this.mass + other.mass;
+            this.position.x += nx * (overlap * (other.mass / totalMass));
+            this.position.y += ny * (overlap * (other.mass / totalMass));
+            other.position.x -= nx * (overlap * (this.mass / totalMass));
+            other.position.y -= ny * (overlap * (this.mass / totalMass));
+          }
+        }
+      }
+    }
+
     draw(ctx) {
       ctx.beginPath();
       ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
@@ -100,9 +171,12 @@ function particleSys() {
     }
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     particlesRef.current.forEach((particle) => {
-      particle.update(); // Update velocity and position
-
       particle.draw(ctx); // Draw particle
+      particle.applyGravity(); // Apply gravity
+      particle.checkEdges(); // Check for edges
+      particle.applyFriction(); // Apply friction
+      //particle.collision(); // Check for collisions
+      particle.update(); // Update velocity and position
     });
   }
 
@@ -116,7 +190,7 @@ function particleSys() {
   }, [ctx]);
 
   useEffect(() => {
-    const cleanup = defaultCanvas(canvasRef, setCtx);
+    const cleanup = defaultCanvas(canvasRef, setCtx, "default");
     return () => {
       cleanup();
     };
