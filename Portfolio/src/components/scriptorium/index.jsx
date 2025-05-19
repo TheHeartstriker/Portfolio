@@ -28,10 +28,14 @@ export function SubjectContainer({
       <div className="subjectDescriptionContainer">
         <p>{description}</p>
       </div>
-      <div className="mainArticle">
-        <div className={`articleTextContainer${active ? " active" : ""}`}>
+      <div className={`articleTextContainer${active ? " active" : ""}`}>
+        {Array.isArray(article) ? (
+          article.map((item, idx) => (
+            <div key={idx}>{articleChecker(item)}</div>
+          ))
+        ) : (
           <ReactMarkdown>{article}</ReactMarkdown>
-        </div>
+        )}
       </div>
     </div>
   );

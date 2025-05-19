@@ -40,6 +40,7 @@
   justify-content: center;
   width: 100%;
   height: 40%;
+  margin-top: 20px;
   border-radius: 40px;
 }
 
@@ -80,31 +81,39 @@
 /*  */
 .articleTextContainer {
   width: auto;
-  height: 0;
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out,
+    padding 0.8s ease-in-out, color 0.8s ease-in-out,
+    background-color 0.8s ease-in-out, border-radius 0.8s ease-in-out;
+}
+
+.canvasScript {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 40px;
 }
 
 .articleTextContainer.active {
-  display: flex;
+  display: block;
+  opacity: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  max-height: 3000px;
   padding: 10px;
   border-radius: 40px;
   background-color: var(--Dark-blue);
-  margin: 5px;
   color: white;
 }
 
-.componentContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* .componentContainer {
   width: 100%;
   height: 25vh;
   margin-bottom: 20px;
-}
+} */
 
 pre,
 code {
@@ -112,6 +121,13 @@ code {
   color: rgba(255, 255, 255, 0.7);
   border-radius: 6px;
   padding: 5px;
+}
+
+p {
+  white-space: normal;
+  word-break: break-word;
+  margin: 0.5em 0;
+  display: inline-block;
 }
 
 code {
