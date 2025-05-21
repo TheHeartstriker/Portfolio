@@ -102,18 +102,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 3000px;
+  max-height: 5000px;
   padding: 10px;
   border-radius: 40px;
   background-color: var(--Dark-blue);
   color: white;
 }
-
-/* .componentContainer {
-  width: 100%;
-  height: 25vh;
-  margin-bottom: 20px;
-} */
 
 pre,
 code {

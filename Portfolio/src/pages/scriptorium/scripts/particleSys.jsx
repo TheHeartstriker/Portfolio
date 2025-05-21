@@ -80,9 +80,27 @@ function particleSys() {
     checkEdges() {
       let bounce = -0.9;
       let height = canvasRef.current.height;
+      let width = canvasRef.current.width;
+
+      // Bottom edge
       if (this.position.y > height - this.radius) {
         this.position.y = height - this.radius;
         this.velocity.y *= bounce;
+      }
+      // Top edge
+      if (this.position.y < this.radius) {
+        this.position.y = this.radius;
+        this.velocity.y *= bounce;
+      }
+      // Right edge
+      if (this.position.x > width - this.radius) {
+        this.position.x = width - this.radius;
+        this.velocity.x *= bounce;
+      }
+      // Left edge
+      if (this.position.x < this.radius) {
+        this.position.x = this.radius;
+        this.velocity.x *= bounce;
       }
     }
 
@@ -101,44 +119,51 @@ function particleSys() {
       for (let i = 0; i < particlesRef.current.length; i++) {
         const other = particlesRef.current[i];
         if (other !== this) {
-          const dx = this.position.x - other.position.x;
-          const dy = this.position.y - other.position.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
+          //Get the distance
+          const diff = new Vector(this.position.x, this.position.y).sub(
+            other.position
+          );
+          const distance = diff.mag();
+          //Check if close enough to collide
           if (distance < this.radius + other.radius) {
             const energyLoss = 0.4;
+            const normal = diff.normalize();
 
-            // Normal vector
-            const nx = dx / distance;
-            const ny = dy / distance;
-
-            // Relative velocity
-            const dvx = this.velocity.x - other.velocity.x;
-            const dvy = this.velocity.y - other.velocity.y;
-
-            // Velocity along normal
-            const vn = dvx * nx + dvy * ny;
-
-            // Only separate if moving towards each other
+            // Relative velocity where we are moving relative to the other particle
+            const relVel = new Vector(this.velocity.x, this.velocity.y).sub(
+              other.velocity
+            );
+            // Velocity along normal aka are we moving towards each other also known as the dot product
+            const vn = relVel.x * normal.x + relVel.y * normal.y;
+            // Only separate and apply impulse if moving towards each other
             if (vn < 0) {
-              // Impulse scalar
+              // Impulse scalar considers how fast we are moving and how much energy we want to lose
               const impulse =
                 (-(1 + energyLoss) * vn) / (1 / this.mass + 1 / other.mass);
 
               // Apply impulse
-              this.velocity.x += (impulse / this.mass) * nx;
-              this.velocity.y += (impulse / this.mass) * ny;
-              other.velocity.x -= (impulse / other.mass) * nx;
-              other.velocity.y -= (impulse / other.mass) * ny;
+              const impulseVec = new Vector(normal.x, normal.y).mult(impulse);
+              this.velocity.add(
+                new Vector(impulseVec.x, impulseVec.y).div(this.mass)
+              );
+              other.velocity.sub(
+                new Vector(impulseVec.x, impulseVec.y).div(other.mass)
+              );
             }
 
             // Separate overlapping particles
+            // We do this to avoid sticking and other issues
             const overlap = this.radius + other.radius - distance;
             const totalMass = this.mass + other.mass;
-            this.position.x += nx * (overlap * (other.mass / totalMass));
-            this.position.y += ny * (overlap * (other.mass / totalMass));
-            other.position.x -= nx * (overlap * (this.mass / totalMass));
-            other.position.y -= ny * (overlap * (this.mass / totalMass));
+            const separation = new Vector(normal.x, normal.y).mult(overlap);
+            this.position.add(
+              new Vector(separation.x, separation.y).mult(
+                other.mass / totalMass
+              )
+            );
+            other.position.sub(
+              new Vector(separation.x, separation.y).mult(this.mass / totalMass)
+            );
           }
         }
       }
@@ -175,7 +200,7 @@ function particleSys() {
       particle.applyGravity(); // Apply gravity
       particle.checkEdges(); // Check for edges
       particle.applyFriction(); // Apply friction
-      //particle.collision(); // Check for collisions
+      particle.collision(); // Check for collisions
       particle.update(); // Update velocity and position
     });
   }
@@ -196,11 +221,7 @@ function particleSys() {
     };
   }, [ctx]);
 
-  return (
-    <div className="componentContainer">
-      <canvas ref={canvasRef} className="canvasScript" />
-    </div>
-  );
+  return <canvas ref={canvasRef} className="canvasScript" />;
 }
 
 export default particleSys;
