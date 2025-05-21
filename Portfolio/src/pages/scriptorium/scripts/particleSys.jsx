@@ -10,7 +10,7 @@ function particleSys() {
   const [ctx, setCtx] = useState(null);
   const particlesRef = useRef([]);
 
-  const radius = 5;
+  const radius = 15;
   const frictionCoefficient = 0.1;
 
   class Vector {
@@ -178,9 +178,25 @@ function particleSys() {
     }
   }
 
+  function mouseAura(particle, mousePosRef) {
+    const mousePos = mousePosRef.current;
+    const diff = new Vector(particle.position.x, particle.position.y).sub(
+      mousePos
+    );
+    const distance = diff.mag();
+    if (distance < 200) {
+      const force = new Vector(particle.position.x, particle.position.y).sub(
+        mousePos
+      );
+      force.normalize();
+      force.mult(0.3);
+      particle.applyForce(force);
+    }
+  }
+
   function createParticles() {
     const particles = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       const x = Math.random() * canvasRef.current.width;
       const y = Math.random() * canvasRef.current.height;
       const mass = Math.random() * 10 + 1;
@@ -190,13 +206,14 @@ function particleSys() {
   }
 
   function mainLoop() {
-    if (!ctx) return;
+    if (!ctx || !canvasRef.current) return;
     if (particlesRef.current.length === 0) {
       createParticles();
     }
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     particlesRef.current.forEach((particle) => {
       particle.draw(ctx); // Draw particle
+      mouseAura(particle, mousePosRef); // Apply mouse aura
       particle.applyGravity(); // Apply gravity
       particle.checkEdges(); // Check for edges
       particle.applyFriction(); // Apply friction
@@ -206,6 +223,7 @@ function particleSys() {
   }
 
   useEffect(() => {
+    console.log("Canvas context set");
     if (ctx) {
       const animationId = AddMember(mainLoop);
       return () => {
@@ -214,10 +232,22 @@ function particleSys() {
     }
   }, [ctx]);
 
+  const mousePosRef = useRef({ x: 0, y: 0 });
   useEffect(() => {
     const cleanup = defaultCanvas(canvasRef, setCtx, "default");
+    // Set up mouse position tracking
+    function handleMouseMove(event) {
+      const rect = canvasRef.current.getBoundingClientRect();
+      const scaleX = canvasRef.current.width / rect.width;
+      const scaleY = canvasRef.current.height / rect.height;
+      mousePosRef.current.x = (event.clientX - rect.left) * scaleX;
+      mousePosRef.current.y = (event.clientY - rect.top) * scaleY;
+    }
+    window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
       cleanup();
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [ctx]);
 

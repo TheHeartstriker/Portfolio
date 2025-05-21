@@ -1,13 +1,13 @@
 export const markdown = `
 # Subject
 The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math and programming to create something in nature.
-It's a great way to practice fundamentals and improve problem solving skills because you see the results of your work in real time. Although this is just an example / baseline with this
+It's a great way to practice fundamentals and improve problem solving skills because you see the results of your work in real time. Although this is just an example / baseline 
 after this hopefully you will have the tools to create anything you want things such as lightning, fire, wind the possibilities are endless.
 
 ## Creating a particle system
-Here we are creating a particle we are going to model gravity, friction, force and more. First lets define the most fundamental part of a pysics system, the vector. 
+Here we are modeling a particle system we are going to model gravity, friction, force and more. First lets define the most fundamental part of a pysics system, the vector. 
 If you want to use formulas and model real forces you need to understand vectors. I will not go into much detail about vectors but I will provide a link to reasources at the end of this article.
-Here is a vector class that I created to start with. For simplicity I will not be using a compiled language so here JS.
+Here is a vector class that I created to start with. For simplicity I will not be using a compiled language so here I am using JS.
 
 \`\`\`
   class Vector {
@@ -16,16 +16,24 @@ Here is a vector class that I created to start with. For simplicity I will not b
       this.y = y;
     }
     add(v) {
-      return new Vector(this.x + v.x, this.y + v.y);
+      this.x += v.x;
+      this.y += v.y;
+      return this;
     }
     sub(v) {
-      return new Vector(this.x - v.x, this.y - v.y);
+      this.x -= v.x;
+      this.y -= v.y;
+      return this;
     }
     mult(scalar) {
-      return new Vector(this.x * scalar, this.y * scalar);
+      this.x *= scalar;
+      this.y *= scalar;
+      return this;
     }
     div(scalar) {
-      return new Vector(this.x / scalar, this.y / scalar);
+      this.x /= scalar;
+      this.y /= scalar;
+      return this;
     }
     mag() {
       return Math.sqrt(this.x * this.x + this.y * this.y);
@@ -37,10 +45,11 @@ Here is a vector class that I created to start with. For simplicity I will not b
       }
       return new Vector(0, 0);
     }
-} 
+  }
 \`\`\`
 Now the most important part of a particle system the particle itself. Once we create this class we can start applying forces to create the effect we want.
-Here is the model I created for a particle.
+It will also define how far mathmatically we want to go how far we want to model. Here we are defineing the important stuff like position, velocity, mass, acceleration and radius. 
+And some fundamental methods like applyForce, update and draw. Of corse we are missing things that could further the simulation but this is a good start.
 \`\`\`
   class Particle {
     constructor(x, y, mass) {
@@ -51,9 +60,9 @@ Here is the model I created for a particle.
     }
 
     applyForce(force) {
-      forceCopy = force;
-      forceCopy = forceCopy.div(this.mass);
-      this.acceleration.add(forceCopy);
+      let temp = new Vector(force.x, force.y);
+      temp.div(this.mass);
+      this.acceleration.add(temp);
     }
 
     update() {
@@ -71,18 +80,36 @@ Here is the model I created for a particle.
     }
   }
 \`\`\`
-Now using applyForce we can apply forces to any particle. Now the next part is going to be prett common place simplyfing these formulas to make them easier to use.
-For example the universal gravitation formula is: F = G(m1m2)/r². We simply dont need that here it talks about the force of attraction between two objects. We just want a downward force.
-So we will incorporate mass and constant for gravity. Now the next is friction. f = uN the u aka the friction coefficient is constant we are not simulating a surface or other object like ice or rubber.
+Now using applyForce we can apply forces to any particle this is what were are going to work around. Now the next part is going to be pretty common place using an simplifiying physics formulas.
+For example the universal gravitation formula is: F = G(m1m2)/r². We simply dont need that here it talks about the force of attraction between two objects. We just want a constant downward force we dont need to model the entire thing.
+So we will incorporate mass and a constant for downward pull. Now the next is friction. f = uN the u aka the friction coefficient is constant we are not simulating a surface or other object like ice or rubber.
 Its just a imgainary circle. Now the normal force is something we can easily calculate and keeps this example simple the normal force is equal to the mass of the object times gravity. So we can use this to calculate the friction force.
 Here is the code for both of these implementations.
 \`\`\`
     checkEdges() {
       let bounce = -0.9;
       let height = canvasRef.current.height;
+      let width = canvasRef.current.width;
+
+      // Bottom edge
       if (this.position.y > height - this.radius) {
         this.position.y = height - this.radius;
         this.velocity.y *= bounce;
+      }
+      // Top edge
+      if (this.position.y < this.radius) {
+        this.position.y = this.radius;
+        this.velocity.y *= bounce;
+      }
+      // Right edge
+      if (this.position.x > width - this.radius) {
+        this.position.x = width - this.radius;
+        this.velocity.x *= bounce;
+      }
+      // Left edge
+      if (this.position.x < this.radius) {
+        this.position.x = this.radius;
+        this.velocity.x *= bounce;
       }
     }
 
@@ -97,9 +124,9 @@ Here is the code for both of these implementations.
       }
     }
 \`\`\`
-Next to complete this system is collision's. And a small mouse tracker feature for you to play and test with. Here I am going to be using a brute force check to focus on pysics and math. Now if you look up any implmentations of this you will see a lot of
-different ways to do this. What I am doing here is a semi realistic but simplified version of a collision. We are ignoring certain things friction for example and creating a impulse force instead to show different ways to use these basic orginal principles aka
-applying force.
+Next to complete this system is collision's. And a small mouse tracker feature for you to play and test with. Here I am going to be using a brute force check to focus on physics and math. Now if you look up any implmentations of this you will see a lot of
+different ways to do this. What I am doing here is a semi realistic but simplified version of a collision. We are ignoring certain things friction, spin, proper angles and momentum. Here we are creating a impulse force instead to show different ways to use these basic orginal principles aka
+applying force. The goal here is if and object collides with another object we are applying force to both objects. This is a simplified version of a inelastic collision's.
 \`\`\`
 
     collision() {
@@ -159,7 +186,7 @@ applying force.
 
 \`\`\`
 Now I know in general this is a lot of math mainly so I would definitely recommend studying this a bit more. But this is a good place to start. If you want a more in depth collision system I would recommend googleing inelastic collision and move forward from there.
-
+But we are just applying force two objects that are colliding the rest is just details.
 
 
 ## Web Performance
@@ -180,6 +207,6 @@ Think of what this went over that learning value here. You are naturally thinkin
 Yet its ussualy boring and dry. But here you can practice this stuff and learn and implement it in a fun and creative way. Lightning? Fire? Wind? Math? Physics? What to recreate something google the formula and start from there.
 
 
-### Rendering
+### Example / application
 
 `;
