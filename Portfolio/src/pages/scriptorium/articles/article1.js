@@ -1,13 +1,13 @@
 export const markdown = `
 # Subject
-The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math and programming to create something in nature.
-It's a great way to practice fundamentals and improve problem solving skills because you see the results of your work in real time. Although this is just an example / baseline 
-after this hopefully you will have the tools to create anything you want things such as lightning, fire, wind the possibilities are endless.
+The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math, and programming to create something from nature.
+It's a great way to practice fundamentals and improve problem-solving skills because you see the results of your work in real time. Although this is just an example/baseline,
+hopefully, after this, you will have the tools to create anything you want—things such as lightning, fire, wind—the possibilities are endless.
 
 ## Creating a particle system
-Here we are modeling a particle system we are going to model gravity, friction, force and more. First lets define the most fundamental part of a pysics system, the vector. 
-If you want to use formulas and model real forces you need to understand vectors. I will not go into much detail about vectors but I will provide a link to reasources at the end of this article.
-Here is a vector class that I created to start with. For simplicity I will not be using a compiled language so here I am using JS.
+First, let’s define the most fundamental part of a physics system: the vector and functions for common math operations we are going to need.
+If you want to use formulas and model real forces, you need to understand vectors. I will not go into much detail about vectors, but I will provide a link to resources at the end of this article.
+Here is a vector class that I created to start with. For simplicity, I will not be using a compiled language, so here I am using JS.
 
 \`\`\`
   class Vector {
@@ -47,9 +47,10 @@ Here is a vector class that I created to start with. For simplicity I will not b
     }
   }
 \`\`\`
-Now the most important part of a particle system the particle itself. Once we create this class we can start applying forces to create the effect we want.
-It will also define how far mathmatically we want to go how far we want to model. Here we are defineing the important stuff like position, velocity, mass, acceleration and radius. 
-And some fundamental methods like applyForce, update and draw. Of corse we are missing things that could further the simulation but this is a good start.
+Now, the most important part of a particle system: the particle itself. Once we create this class, we can start applying forces to create the effect we want.
+It will also define how far mathematically we want to go—how far we want to model. Here, we are defining the important components like position, velocity, mass, acceleration, and radius,
+along with some fundamental methods like applyForce, update, and draw.
+Of course, we are missing things that could further the simulation, but this is a good start.
 \`\`\`
   class Particle {
     constructor(x, y, mass) {
@@ -58,7 +59,7 @@ And some fundamental methods like applyForce, update and draw. Of corse we are m
       this.mass = mass;
       this.radius = radius;
     }
-
+    //Lets you apply force from and direction and speed to a particle
     applyForce(force) {
       let temp = new Vector(force.x, force.y);
       temp.div(this.mass);
@@ -80,37 +81,19 @@ And some fundamental methods like applyForce, update and draw. Of corse we are m
     }
   }
 \`\`\`
-Now using applyForce we can apply forces to any particle this is what were are going to work around. Now the next part is going to be pretty common place using an simplifiying physics formulas.
-For example the universal gravitation formula is: F = G(m1m2)/r². We simply dont need that here it talks about the force of attraction between two objects. We just want a constant downward force we dont need to model the entire thing.
-So we will incorporate mass and a constant for downward pull. Now the next is friction. f = uN the u aka the friction coefficient is constant we are not simulating a surface or other object like ice or rubber.
-Its just a imgainary circle. Now the normal force is something we can easily calculate and keeps this example simple the normal force is equal to the mass of the object times gravity. So we can use this to calculate the friction force.
+Now, using applyForce, we can apply forces to any particle—this is what we are going to build around. The next part is going to be fairly commonplace, using simplified physics formulas.
+For example, the universal gravitation formula is: F = G(m₁m₂)/r². We simply don’t need that here; it describes the force of attraction between two objects. We just want a constant downward force—we don’t need to model the entire thing.
+So, we will incorporate mass and a constant for the downward pull.
+
+Next is friction: f = μN. The μ, also known as the friction coefficient, is constant—we are not simulating a surface or other object like ice or rubber.
+It’s just an imaginary circle. The normal force is something we can easily calculate, and it keeps this example simple. The normal force is equal to the mass of the object times gravity, so we can use this to calculate the friction force.
+
 Here is the code for both of these implementations.
 \`\`\`
-    checkEdges() {
-      let bounce = -0.9;
-      let height = canvasRef.current.height;
-      let width = canvasRef.current.width;
-
-      // Bottom edge
-      if (this.position.y > height - this.radius) {
-        this.position.y = height - this.radius;
-        this.velocity.y *= bounce;
-      }
-      // Top edge
-      if (this.position.y < this.radius) {
-        this.position.y = this.radius;
-        this.velocity.y *= bounce;
-      }
-      // Right edge
-      if (this.position.x > width - this.radius) {
-        this.position.x = width - this.radius;
-        this.velocity.x *= bounce;
-      }
-      // Left edge
-      if (this.position.x < this.radius) {
-        this.position.x = this.radius;
-        this.velocity.x *= bounce;
-      }
+    applyGravity() {
+      const g = 0.01;
+      const gravityForce = new Vector(0, this.mass * g);
+      this.applyForce(gravityForce);
     }
 
     applyFriction() {
@@ -124,11 +107,15 @@ Here is the code for both of these implementations.
       }
     }
 \`\`\`
-Next to complete this system is collision's. And a small mouse tracker feature for you to play and test with. Here I am going to be using a brute force check to focus on physics and math. Now if you look up any implmentations of this you will see a lot of
-different ways to do this. What I am doing here is a semi realistic but simplified version of a collision. We are ignoring certain things friction, spin, proper angles and momentum. Here we are creating a impulse force instead to show different ways to use these basic orginal principles aka
-applying force. The goal here is if and object collides with another object we are applying force to both objects. This is a simplified version of a inelastic collision's.
-\`\`\`
+Next, to complete this system, are collisions—and a small mouse tracker feature for you to play with and test. Here, I am going to use a brute-force check to focus on physics and math.
+Now, if you look up any implementations of this, you will see a lot of different ways to do it. What I am doing here is a semi-realistic but simplified version of an inelastic collision.
+We are ignoring certain things like friction, spin, proper angles, and momentum.
 
+Here, we are creating an impulse force instead, to show different ways to use these basic original principles—aka applying force.
+The goal is: if an object collides with another object, we apply force to both objects in the opposite direction of the collision.
+
+Read this carefully, and look up any terms if needed. I will also showcase the collision for the edge of the canvas.
+\`\`\`
     collision() {
       for (let i = 0; i < particlesRef.current.length; i++) {
         const other = particlesRef.current[i];
@@ -184,29 +171,69 @@ applying force. The goal here is if and object collides with another object we a
     }
 
 
+    checkEdges() {
+      let bounce = -0.9;
+      let height = canvasRef.current.height;
+      let width = canvasRef.current.width;
+
+      // Bottom edge
+      if (this.position.y > height - this.radius) {
+        this.position.y = height - this.radius;
+        this.velocity.y *= bounce;
+      }
+      // Top edge
+      if (this.position.y < this.radius) {
+        this.position.y = this.radius;
+        this.velocity.y *= bounce;
+      }
+      // Right edge
+      if (this.position.x > width - this.radius) {
+        this.position.x = width - this.radius;
+        this.velocity.x *= bounce;
+      }
+      // Left edge
+      if (this.position.x < this.radius) {
+        this.position.x = this.radius;
+        this.velocity.x *= bounce;
+      }
+    }
+
+
+
 \`\`\`
-Now I know in general this is a lot of math mainly so I would definitely recommend studying this a bit more. But this is a good place to start. If you want a more in depth collision system I would recommend googleing inelastic collision and move forward from there.
-But we are just applying force two objects that are colliding the rest is just details.
+Now, I know this is a lot of math in general, so I would definitely recommend studying it a bit more. But this is a good place to start.
+If you want a more in-depth collision system, I would recommend googling "inelastic collision" and moving forward from there.
+But at the core, we are just applying force to two objects that are colliding—the rest is just details.
 
 
 ## Web Performance
 ### Collision
-Anaylzing what we made we can see the biggest tanks in performance which is the 0(n²) collision check. And the rendering of the canvas. So lets address these.
-First the collision check is a brute force but at face value neccesary check. But lets improve that my first idea is seperating the space into a grid. Lets say a 4x4 grid.
-Each particle will be assigned the grid cell it is in. And unless on or close to the edge of the cell it will not check for collisions in nearby cells. Here is the names for some of these techniques. 
-Spatial partitioning what I just described more complex implementations are quadtrees and octrees. BHV, filtering, and sweep and prune. These are all techniques to reduce the number of checks needed to be done.
-Considering only the collision logic
+Analyzing what we made, we can see the biggest tanks in performance are the O(n²) collision check and the rendering of the canvas. So, let’s address these.
+First, the collision check is a brute-force but, at face value, necessary check. But let’s improve that. My first idea is separating the space into a grid—let’s say a 4x4 grid.
+Each particle will be assigned the grid cell it is in, and unless on or close to the edge of the cell, it will not check for collisions in nearby cells. Here are the names for some of these techniques:
+Spatial partitioning (what I just described); more complex implementations are quadtrees and octrees. BVH, filtering, and sweep and prune are other techniques. These all reduce the number of checks needed to be done, considering only the collision logic.
 ### Rendering
-The rendering is a bit less straight forward. This entire project that I described is running on html canvas. This is a great way to start but most everything is done on the CPU. So we are limited can this alone still be fast enough?
-Yes in most cases it will be the background of this site? The front page particle system with the text blurbs? All runs with html canvas. But what if you want to do something more complex or render a lot of particles? To do that 
-you need to improve your CPU usage or move to the GPU. What I suggest is simply using webGL. You are given access to the GPU, shaders, batched rendering, and more. This is a great way to improve performance especially if you are hitting a wall.
-Now considering improve CPU usage the main thing to do is improve your method or move to Web Assembly. This requires a lot of learning and is not straight forward. But if you want to build something that GPU wont take care of or something really, really complex
-using Web Assembly and or openGl is your best bet. If you want to see where some of this can be taken I built a project that uses all of this you can check it out in the projects section :)
+The rendering is a bit less straightforward. This entire project that I described is running on HTML canvas. This is a great way to start, but most everything is done on the CPU, so we are limited. Can this alone still be fast enough?
+Yes, in most cases it will be. The background of this site? The front-page particle system with the text blurbs? All run with HTML canvas. But what if you want to do something more complex or render a lot of particles? To do that,
+you need to improve your CPU usage or move to the GPU. What I suggest is simply using WebGL. You are given access to the GPU, shaders, batched rendering, and more. This is a great way to improve performance, especially if you are hitting a wall.
+Now, considering improved CPU usage, the main thing to do is improve your method or move to WebAssembly. This requires a lot of learning and is not straightforward. But if you want to build something that the GPU won’t take care of or something really, really complex,
+using WebAssembly and/or OpenGL is your best bet. If you want to see where some of this can be taken, I built a project that uses all of this—you can check it out in the projects section :)
 ## Conclusion
-Think of what this went over that learning value here. You are naturally thinking of time complexity, space complexity and algorithms, I mentioned quadtrees, octrees, sweep and prune and matrix data. This is the stuff you will be tested on in interviews and college.
-Yet its ussualy boring and dry. But here you can practice this stuff and learn and implement it in a fun and creative way. Lightning? Fire? Wind? Math? Physics? What to recreate something google the formula and start from there.
+Think about what this went over it was a basic system and I glossed over some thing but think how far this can be taken! 
+You are naturally thinking of time complexity, space complexity, and algorithms. I mentioned quadtrees, octrees, sweep and prune, and matrix data. This is the stuff you will be tested on in interviews and college.
+Yet it’s usually boring and dry. But here you can practice this stuff and learn and implement it in a fun and creative way. Lightning? Fire? Wind? Math? Physics? Want to recreate something? Google the formula and start from there.
+## Resources
+For resources, I would recommend reading The Nature of Code. It’s a free book that goes more in-depth about this stuff and was an inspiration for this article. There is also The Coding Train website and YouTube channel. Although I recommend the book and checking out
+the website and coding examples for learning.
+
+- [Book](https://natureofcode.com)
+
+- [Code](https://thecodingtrain.com)
+
+- [YouTube](https://www.youtube.com/@TheCodingTrain)
 
 
 ### Example / application
+Move the cursor around :)
 
 `;

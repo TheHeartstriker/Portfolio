@@ -59,6 +59,7 @@ function particleSys() {
       this.radius = radius;
     }
 
+    //Lets you apply force from and direction and speed to a particle
     applyForce(force) {
       let temp = new Vector(force.x, force.y);
       temp.div(this.mass);
