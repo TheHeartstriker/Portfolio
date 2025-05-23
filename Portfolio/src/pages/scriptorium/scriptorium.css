@@ -32,6 +32,12 @@
   background-color: var(--Low-blue);
   border-radius: 40px;
   z-index: 1;
+  transition: transform 0.5s ease-in-out;
+}
+
+.pointer:hover {
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 .subjectTextContainer {
@@ -80,14 +86,18 @@
 /* Text container css */
 /*  */
 .articleTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: auto;
   max-height: 0;
   opacity: 0;
   font-family: "Exo 2", Courier, monospace;
   overflow: hidden;
-  transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out,
-    padding 0.8s ease-in-out, color 0.8s ease-in-out,
-    background-color 0.8s ease-in-out, border-radius 0.8s ease-in-out;
+  transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out,
+    padding 1.2s ease-in-out, color 1.2s ease-in-out,
+    background-color 1.2s ease-in-out, border-radius 1.2s ease-in-out;
 }
 
 .articleTextContainer a {
@@ -107,7 +117,7 @@
 }
 
 .articleTextContainer.active {
-  display: block;
+  display: flex;
   opacity: 1;
   flex-direction: column;
   justify-content: center;
@@ -117,6 +127,30 @@
   border-radius: 40px;
   background-color: var(--Dark-blue);
   color: white;
+}
+
+.componentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.unFurl {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vh;
+  height: 15vh;
+  cursor: pointer;
+  border: none;
+  background-color: var(--Low-blue);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 10px;
+  transform-origin: center;
+  transform: rotate(180deg);
 }
 
 pre,

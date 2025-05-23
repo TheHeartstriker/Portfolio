@@ -86,7 +86,7 @@ For example, the universal gravitation formula is: F = G(m₁m₂)/r². We simpl
 So, we will incorporate mass and a constant for the downward pull.
 
 Next is friction: f = μN. The μ, also known as the friction coefficient, is constant—we are not simulating a surface or other object like ice or rubber.
-It’s just an imaginary circle. The normal force is something we can easily calculate, and it keeps this example simple. The normal force is equal to the mass of the object times gravity, so we can use this to calculate the friction force.
+It’s just an imaginary circle for the sake of simplicity. The normal force is something we can easily calculate, and it keeps this example simple. The normal force is equal to the mass of the object times gravity, so we can use this to calculate the friction force.
 
 Here is the code for both of these implementations.
 \`\`\`js
@@ -219,9 +219,9 @@ you need to improve your CPU usage or move to the GPU. What I suggest is simply 
 Now, considering improved CPU usage, the main thing to do is improve your method or move to WebAssembly. This requires a lot of learning and is not straightforward. But if you want to build something that the GPU won’t take care of or something really, really complex,
 using WebAssembly and/or OpenGL is your best bet. If you want to see where some of this can be taken, I built a project that uses all of this—you can check it out in the projects section :)
 ## Conclusion
-Think about what this went over it was a basic system and I glossed over some thing but think how far this can be taken! 
-You are naturally thinking of time complexity, space complexity, and algorithms. I mentioned quadtrees, octrees, sweep and prune, and matrix data. This is the stuff you will be tested on in interviews and college.
-Yet it’s usually boring and dry. But here you can practice this stuff and learn and implement it in a fun and creative way. Lightning? Fire? Wind? Math? Physics? Want to recreate something? Google the formula and start from there.
+Think about what this went over it was a basic system and I glossed over tons of stuff but think how far this can be taken!
+You are naturally thinking of time complexity, space complexity, spatial reasoning, optimizations, and algorithms. I mentioned quadtrees, octrees, sweep and prune, and matrix data. This is the stuff you will be tested on in interviews and college.
+Yet it’s usually boring and dry. But here you can practice this stuff, learn and implement it in a fun and creative way. Lightning? Fire? Wind? Math? Physics? Want to recreate something? Research the math and physics behind it, and then try to recreate it.
 ## Resources
 For resources, I would recommend reading The Nature of Code. It’s a free book that goes more in-depth about this stuff and was an inspiration for this article. There is also The Coding Train website and YouTube channel. Although I recommend the book and checking out
 the website and coding examples for learning.

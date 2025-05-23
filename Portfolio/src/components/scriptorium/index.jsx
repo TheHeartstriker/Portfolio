@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import DownArr from "../../assets/DownArrow";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 //
@@ -44,9 +45,13 @@ export function SubjectContainer({
   active,
   onClick,
   article,
+  articleName,
 }) {
   return (
-    <div className="subject-container" onClick={onClick}>
+    <div
+      className={`subject-container${!active ? " pointer" : ""}`}
+      onClick={() => onClick(articleName, true)}
+    >
       <div className="subjectTextContainer">
         <h1>{title}</h1>
         <h2>{subject}</h2>
@@ -62,6 +67,9 @@ export function SubjectContainer({
         ) : (
           <ReactMarkdown>{article}</ReactMarkdown>
         )}
+        <button className="unFurl" onClick={() => onClick(articleName, false)}>
+          <DownArr />
+        </button>
       </div>
     </div>
   );
