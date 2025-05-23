@@ -9,7 +9,7 @@ First, let’s define the most fundamental part of a physics system: the vector 
 If you want to use formulas and model real forces, you need to understand vectors. I will not go into much detail about vectors, but I will provide a link to resources at the end of this article.
 Here is a vector class that I created to start with. For simplicity, I will not be using a compiled language, so here I am using JS.
 
-\`\`\`
+\`\`\`js
   class Vector {
     constructor(x, y) {
       this.x = x;
@@ -51,7 +51,7 @@ Now, the most important part of a particle system: the particle itself. Once we 
 It will also define how far mathematically we want to go—how far we want to model. Here, we are defining the important components like position, velocity, mass, acceleration, and radius,
 along with some fundamental methods like applyForce, update, and draw.
 Of course, we are missing things that could further the simulation, but this is a good start.
-\`\`\`
+\`\`\` js
   class Particle {
     constructor(x, y, mass) {
       this.position = new Vector(x, y);
@@ -89,7 +89,7 @@ Next is friction: f = μN. The μ, also known as the friction coefficient, is co
 It’s just an imaginary circle. The normal force is something we can easily calculate, and it keeps this example simple. The normal force is equal to the mass of the object times gravity, so we can use this to calculate the friction force.
 
 Here is the code for both of these implementations.
-\`\`\`
+\`\`\`js
     applyGravity() {
       const g = 0.01;
       const gravityForce = new Vector(0, this.mass * g);
@@ -115,7 +115,7 @@ Here, we are creating an impulse force instead, to show different ways to use th
 The goal is: if an object collides with another object, we apply force to both objects in the opposite direction of the collision.
 
 Read this carefully, and look up any terms if needed. I will also showcase the collision for the edge of the canvas.
-\`\`\`
+\`\`\` js
     collision() {
       for (let i = 0; i < particlesRef.current.length; i++) {
         const other = particlesRef.current[i];

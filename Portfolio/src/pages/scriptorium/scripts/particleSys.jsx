@@ -10,8 +10,9 @@ function particleSys() {
   const [ctx, setCtx] = useState(null);
   const particlesRef = useRef([]);
 
-  const radius = 15;
+  const radius = 25;
   const frictionCoefficient = 0.1;
+  const amount = 25;
 
   class Vector {
     constructor(x, y) {
@@ -185,7 +186,7 @@ function particleSys() {
       mousePos
     );
     const distance = diff.mag();
-    if (distance < 200) {
+    if (distance < 250) {
       const force = new Vector(particle.position.x, particle.position.y).sub(
         mousePos
       );
@@ -197,7 +198,7 @@ function particleSys() {
 
   function createParticles() {
     const particles = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < amount; i++) {
       const x = Math.random() * canvasRef.current.width;
       const y = Math.random() * canvasRef.current.height;
       const mass = Math.random() * 10 + 1;
