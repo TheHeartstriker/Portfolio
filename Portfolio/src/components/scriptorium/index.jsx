@@ -34,7 +34,7 @@ function articleChecker(item) {
       </ReactMarkdown>
     );
   } else if (typeof item === "function") {
-    return <div className="componentContainer">{item()}</div>;
+    return <div className="componentContainerArticle">{item()}</div>;
   }
 }
 
@@ -49,14 +49,14 @@ export function SubjectContainer({
 }) {
   return (
     <div
-      className={`subject-container${!active ? " pointer" : ""}`}
+      className={`subject-container-article${!active ? " pointerScript" : ""}`}
       onClick={() => onClick(articleName, true)}
     >
-      <div className="subjectTextContainer">
+      <div className="subjectTextContainerArticle">
         <h1>{title}</h1>
         <h2>{subject}</h2>
       </div>
-      <div className="subjectDescriptionContainer">
+      <div className="subjectDescriptionContainerArticle">
         <p>{description}</p>
       </div>
       <div className={`articleTextContainer${active ? " active" : ""}`}>
@@ -67,7 +67,10 @@ export function SubjectContainer({
         ) : (
           <ReactMarkdown>{article}</ReactMarkdown>
         )}
-        <button className="unFurl" onClick={() => onClick(articleName, false)}>
+        <button
+          className="unFurlArticle"
+          onClick={() => onClick(articleName, false)}
+        >
           <DownArr />
         </button>
       </div>

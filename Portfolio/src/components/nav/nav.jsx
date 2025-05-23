@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
-import scriptorium from "../../pages/scriptorium/scriptorium.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useRef({});
+  const current = useRef("About");
 
   //For the buttons
   function BoxElements() {
@@ -26,91 +28,98 @@ function Nav() {
     }
   }
 
-  //Simple state management for the buttons
-  const [btnState, setBtnState] = useState({
-    About: true,
-    Skill: false,
-    Contact: false,
-    scriptorium: false,
-  });
+  function locationFill() {
+    location.current = {
+      Skill: document.getElementById("SkillBtn").getBoundingClientRect(),
+      About: document.getElementById("AboutBtn").getBoundingClientRect(),
+      Script: document.getElementById("scriptoriumBtn").getBoundingClientRect(),
+      Contact: document.getElementById("ContactBtn").getBoundingClientRect(),
+    };
+  }
 
-  function setValue(name, value) {
-    setBtnState({
-      About: false,
-      Skill: false,
-      Contact: false,
-      scriptorium: false,
-      [name]: value,
+  function spanMoveer(amountX) {
+    const container = containerRef.current;
+    const spans = container.querySelectorAll("span");
+    // Get container's left position
+    const containerLeft = container.getBoundingClientRect().left;
+    // Calculate relative X
+    const relativeX = amountX + containerLeft / 2;
+    spans.forEach((span) => {
+      span.style.transform = `translateX(${relativeX}px)`;
     });
   }
 
-  function Toggler() {
-    const container = containerRef.current;
-    if (btnState.About) {
-      container.classList.remove("skill");
-      container.classList.remove("contact");
-    }
-    if (btnState.Skill) {
-      container.classList.add("skill");
-    } else {
-      container.classList.remove("skill");
-    }
-    if (btnState.Contact) {
-      container.classList.add("contact");
-    } else {
-      container.classList.remove("contact");
-    }
+  function setValue(name) {
+    current.current = name;
   }
 
   useEffect(() => {
     BoxElements();
+    locationFill();
+    spanMoveer(location.current.About.left);
   }, []);
 
   useEffect(() => {
-    Toggler();
-  }, [btnState]);
+    function handleResize() {
+      locationFill();
+      spanMoveer(location.current[current.current].left);
+    }
+    window.addEventListener("resize", handleResize);
+    // Initial fill in case of resize before mount
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
       <NavCursor />
-      <Link to="/">
+      <div className="Container" ref={containerRef}>
         <button
           className="button"
           id="AboutBtn"
-          onClick={() => setValue("About", true)}
+          onClick={() => {
+            setValue("About", true);
+            navigate("/");
+            spanMoveer(location.current.About.left);
+          }}
         >
           AboutMe
         </button>
-      </Link>
-      <Link to="/skills">
         <button
           className="button"
           id="SkillBtn"
-          onClick={() => setValue("Skill", true)}
+          onClick={() => {
+            setValue("Skill", true);
+            navigate("/skills");
+            spanMoveer(location.current.Skill.left);
+          }}
         >
           Skills and Projects
         </button>
-      </Link>
-      <Link to="/contact">
-        <button
-          className="button"
-          id="ContactBtn"
-          onClick={() => setValue("Contact", true)}
-        >
-          Contacts
-        </button>
-      </Link>
-      {/* blog */}
-      <Link to="/scriptorium">
+        {/* blog */}
         <button
           className="button"
           id="scriptoriumBtn"
-          onClick={() => setValue("scriptorium", true)}
+          onClick={() => {
+            setValue("Script", true);
+            navigate("/scriptorium");
+            spanMoveer(location.current.Script.left);
+          }}
         >
-          Scriptorium
+          Script's
         </button>
-      </Link>
-      <div className="Container" ref={containerRef}></div>
+        <button
+          className="button"
+          id="ContactBtn"
+          onClick={() => {
+            setValue("Contact", true);
+            navigate("/contact");
+            spanMoveer(location.current.Contact.left);
+          }}
+        >
+          Contacts
+        </button>
+      </div>
     </>
   );
 }
