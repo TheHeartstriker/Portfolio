@@ -309,7 +309,7 @@
   border-radius: 50px;
   color: var(--Teal);
   margin: 4vw;
-  animation: forwards FadeUpEnterAni 3s ease-in-out;
+  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
 }
 
 .Seperator h1 {

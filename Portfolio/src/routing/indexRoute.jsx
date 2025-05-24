@@ -1,52 +1,55 @@
 //Components
-import About from "../pages/about/about.jsx";
-import Skill from "../pages/skills/skill.jsx";
-import Contact from "../pages/contact/contact.jsx";
-import Scriptorium from "../pages/scriptorium/scriptorium.jsx";
+
 import { Routes, Route, useLocation } from "react-router-dom";
 import FadeSettings from "./fadeSettings.jsx";
 import { AnimatePresence } from "framer-motion";
+import { Suspense, lazy } from "react";
+
+const About = lazy(() => import("../pages/about/about.jsx"));
+const Skill = lazy(() => import("../pages/skills/skill.jsx"));
+const Contact = lazy(() => import("../pages/contact/contact.jsx"));
+const Scriptorium = lazy(() => import("../pages/scriptorium/scriptorium.jsx"));
 
 function AppRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <FadeSettings>
-              <About />
-            </FadeSettings>
-          }
-        />
-        <Route
-          path="/skills"
-          element={
-            <FadeSettings>
-              <Skill />
-            </FadeSettings>
-          }
-        />
-
-        <Route
-          path="/scriptorium"
-          element={
-            <FadeSettings>
-              <Scriptorium />
-            </FadeSettings>
-          }
-        />
-
-        <Route
-          path="/contact"
-          element={
-            <FadeSettings>
-              <Contact />
-            </FadeSettings>
-          }
-        />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <FadeSettings>
+                <About />
+              </FadeSettings>
+            }
+          />
+          <Route
+            path="/skills"
+            element={
+              <FadeSettings>
+                <Skill />
+              </FadeSettings>
+            }
+          />
+          <Route
+            path="/scriptorium"
+            element={
+              <FadeSettings>
+                <Scriptorium />
+              </FadeSettings>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <FadeSettings>
+                <Contact />
+              </FadeSettings>
+            }
+          />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }
