@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { AddMember, RemoveMember } from "../../utils/aniFrame";
 import "./navigate.css";
 function NavCursor() {
   const [Clickable, setClickable] = useState(false);
@@ -7,8 +8,7 @@ function NavCursor() {
   let Mouse = useRef({ x: 0, y: 0 });
   let cursorX = useRef(0);
   let cursorY = useRef(0);
-  //Animation frame
-  let animationFrameId = useRef(null);
+
   //Using mouse over is more flexable than mouse over and the like
   const handleMouseMove = (e) => {
     Mouse.current.x = e.clientX;
@@ -34,52 +34,52 @@ function NavCursor() {
     }
   };
 
-  //Animation function
-  function animateCursor(Click, Grab, CursorMSpeed) {
-    let speed = CursorMSpeed;
+  function animate() {
+    let speed = 0.2;
     let cursor = CursorRef.current;
-    //Infinity loop animate function
-    const animate = () => {
-      //Distance between cursor and mouse
-      let distance = Math.sqrt(
-        Math.pow(cursorX.current - Mouse.current.x, 2) +
-          Math.pow(cursorY.current - Mouse.current.y, 2)
-      );
-      //Movement
-      cursorX.current += (Mouse.current.x - cursorX.current) * speed;
-      cursorY.current += (Mouse.current.y - cursorY.current) * speed;
-      cursor.style.left = cursorX.current + "px";
-      cursor.style.top = cursorY.current + "px";
-      //If the cursor is over a clickable element
-      if (distance > 40) {
-        cursor.classList.add("shrink");
-      } else if (Click === true) {
-        cursor.classList.add("Change");
-      } else if (Grab === true) {
-        cursor.classList.add("Grab");
-      } else {
-        cursor.className = "Cursor";
-      }
-      //Update the cursor position
-      animationFrameId.current = requestAnimationFrame(animate);
-    };
-    //Initial call handlers
+    if (!cursor) return;
+    // Distance between cursor and mouse
+    let distance = Math.sqrt(
+      Math.pow(cursorX.current - Mouse.current.x, 2) +
+        Math.pow(cursorY.current - Mouse.current.y, 2)
+    );
+    // Movement
+    cursorX.current += (Mouse.current.x - cursorX.current) * speed;
+    cursorY.current += (Mouse.current.y - cursorY.current) * speed;
+    // Move cursor with translate3d for gpu acceleration
+    cursor.style.transform = `translate3d(${cursorX.current}px, ${cursorY.current}px, 0) translate(-50%, -50%)`;
+    // Remove all state classes first
+    cursor.classList.remove("shrink", "Change", "Grab");
+
+    // Add only the relevant class
+    if (distance > 40) {
+      cursor.classList.add("shrink");
+    } else if (Clickable) {
+      cursor.classList.add("Change");
+    } else if (Grabable) {
+      cursor.classList.add("Grab");
+    }
+  }
+  //Why re do?
+  useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
-    animate();
-    //Clean up on unmount
+    AddMember(animate);
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      //Cancel the frame
-      cancelAnimationFrame(animationFrameId.current);
+      RemoveMember(animate);
     };
-  }
+    // Only re-run if Clickable or Grabable changes
+  }, []);
 
-  useEffect(() => {
-    let clean = animateCursor(Clickable, Grabable, 0.2);
-    return clean;
-  }, [Clickable, Grabable]);
-
-  return <div className="Cursor" ref={CursorRef}></div>;
+  return (
+    <div className="Cursor" ref={CursorRef}>
+      <div
+        className={`CursorInner${Clickable ? " Change" : ""}${
+          Grabable ? " Grab" : ""
+        }`}
+      ></div>
+    </div>
+  );
 }
 
 export default NavCursor;

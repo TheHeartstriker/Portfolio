@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 
@@ -8,13 +8,15 @@ function Nav() {
   const navigate = useNavigate();
   const location = useRef({});
   const current = useRef("About");
+  const height = 40; // 40 spans that are 1px apart and 1px high
 
   //For the buttons
+
   function BoxElements() {
     const container = containerRef.current;
     // Create 40 span elements, append them and give them a movement delay
     if (container) {
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < height; i++) {
         let span = document.createElement("span");
         container.appendChild(span);
         // Get the current top value from CSS
@@ -43,6 +45,7 @@ function Nav() {
     // Get container's left position
     const containerLeft = container.getBoundingClientRect().left;
     // Calculate relative X
+    // We consider the left position of the container to center the spans
     const relativeX = amountX + containerLeft / 2;
     spans.forEach((span) => {
       span.style.transform = `translateX(${relativeX}px)`;
@@ -54,9 +57,8 @@ function Nav() {
   }
 
   useEffect(() => {
-    BoxElements();
     locationFill();
-    spanMoveer(location.current.About.left);
+    BoxElements();
   }, []);
 
   useEffect(() => {
