@@ -62,7 +62,9 @@ function About() {
             appealing digital experiences. You can find my work here!
           </p>
         </div>
-        <DownArr onClick={scrollDown} />
+        <div className="DownContainer">
+          <DownArr onClick={scrollDown} />
+        </div>
         {ToSmall === false && <PlayGround />}
         {ToSmall && (
           <div className="MobileAbout">

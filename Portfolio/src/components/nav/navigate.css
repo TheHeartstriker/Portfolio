@@ -11,11 +11,11 @@
   width: 100%;
   height: 70px;
   box-shadow: 0 0 20px #004488, 0 0 60px #004488;
-
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   animation: FadeIn 1s forwards ease-in;
+  z-index: 10;
 }
 .Container::before {
   content: "";
@@ -23,11 +23,10 @@
   inset: -4px;
   border: 1px solid var(--neon-dull);
 }
-
+/* Height is found in the jsx file */
 .Container span {
   position: absolute;
-  left: 0%;
-  bottom: 55px;
+  top: 15px;
   width: 40px;
   height: 1px;
   background-color: var(--neon-dull);
@@ -35,20 +34,10 @@
   transition: 0.7s ease-in-out;
 }
 
-.Container.skill span {
-  left: 50%;
-  transform: translateX(-50%);
-}
-.Container.contact span {
-  left: 100%;
-  transform: translateX(-100%);
-}
-
 /* Shared styles for all buttons */
 .button {
-  z-index: 998;
-  position: absolute;
-  top: 70px;
+  position: relative;
+  top: 60px;
   width: 65px;
   height: 65px;
   border: none;
@@ -56,6 +45,7 @@
   background-color: var(--neon-dull);
   color: whitesmoke;
   display: flex;
+  font-size: 0.9em;
   justify-content: center;
   align-items: center;
   font-family: "Protest Guerrilla";
@@ -69,31 +59,38 @@
   box-shadow: 0 0 15px var(--neon-blue);
 }
 
-/* Cursor styles */
 .Cursor {
   position: fixed;
+  left: 0;
+  top: 0;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  border: 2px solid rgba(100, 255, 218, 0.5);
-  z-index: 100;
   pointer-events: none;
+  z-index: 100;
   opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: transform 1s ease-in-out, background-color 1s ease-in-out;
-}
-/* When the slow cursor is not near the mouse */
-.Cursor.shrink {
-  transform: translate(-50%, -50%) scale(0.8);
 }
 
-.Cursor.Change {
-  transform: translate(-50%, -50%) scale(0.5);
+.CursorInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(100, 255, 218, 0.5);
+  background: transparent;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.9s;
+  will-change: transform, background-color;
+}
+
+.CursorInner.shrink {
+  transform: scale(0.8);
+}
+
+.CursorInner.Change {
+  transform: scale(0.5);
   background-color: rgba(100, 255, 218, 0.8);
 }
 
-.Cursor.Grab {
-  transform: translate(-50%, -50%) scale(0.8);
+.CursorInner.Grab {
+  transform: scale(0.8);
   background-color: rgba(100, 255, 218, 0.8);
   box-shadow: none;
   border: none;
@@ -109,16 +106,9 @@
 }
 
 /* Specific styles for each button */
-#AboutBtn {
-  left: 0%;
-}
 
-#SkillBtn {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#ContactBtn {
-  left: 100%;
-  transform: translateX(-100%);
-}
+/* @media (max-width: 1000px) {
+  .button {
+    font-size: 10rem;
+  }
+} */

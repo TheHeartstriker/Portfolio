@@ -21,7 +21,6 @@ function Contact() {
   const [isCalled, setIsCalled] = useState(false);
   const [Text, setText] = useState("SerKadenWildauer@gmail.com");
   const Orginal = "SerKadenWildauer@gmail.com";
-  const [Scramble, setScramble] = useState(false);
   const Alphabet = "abcdefghijklmnopqrstuvwxyz";
   const Mouse = useRef({ x: 0, y: 0 });
   const TimeStep = 0.16;
@@ -58,8 +57,8 @@ function Contact() {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         velocity: {
-          x: (Math.random() - 0.5) * 400,
-          y: (Math.random() - 0.5) * 400,
+          x: (Math.random() - 0.5) * 200,
+          y: (Math.random() - 0.5) * 200,
         },
         Active: false,
         GitOrLi: Math.random() > 0.5 ? "Github" : "LinkedIn",

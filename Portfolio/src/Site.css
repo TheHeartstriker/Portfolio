@@ -3,6 +3,10 @@ body {
   font-size: 16px;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 @media (min-width: 2000px) {
   html {
     font-size: 20px;

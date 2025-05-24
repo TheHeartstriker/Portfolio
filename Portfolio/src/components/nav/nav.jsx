@@ -1,17 +1,22 @@
-import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 
 function Nav() {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useRef({});
+  const current = useRef("About");
+  const height = 40; // 40 spans that are 1px apart and 1px high
 
   //For the buttons
+
   function BoxElements() {
     const container = containerRef.current;
     // Create 40 span elements, append them and give them a movement delay
     if (container) {
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < height; i++) {
         let span = document.createElement("span");
         container.appendChild(span);
         // Get the current top value from CSS
@@ -25,74 +30,98 @@ function Nav() {
     }
   }
 
-  //Simple state management for the buttons
-  const [About, setAbout] = useState(false);
-  const [Skill, setSkill] = useState(false);
-  const [Contact, setContact] = useState(false);
-
-  function handleAbout() {
-    setAbout(true);
-    setSkill(false);
-    setContact(false);
+  function locationFill() {
+    location.current = {
+      Skill: document.getElementById("SkillBtn").getBoundingClientRect(),
+      About: document.getElementById("AboutBtn").getBoundingClientRect(),
+      Script: document.getElementById("scriptoriumBtn").getBoundingClientRect(),
+      Contact: document.getElementById("ContactBtn").getBoundingClientRect(),
+    };
   }
 
-  function handleSkill() {
-    setSkill(true);
-    setAbout(false);
-    setContact(false);
-  }
-
-  function handleContact() {
-    setContact(true);
-    setAbout(false);
-    setSkill(false);
-  }
-
-  function Toggler() {
+  function spanMoveer(amountX) {
     const container = containerRef.current;
-    if (About) {
-      container.classList.remove("skill");
-      container.classList.remove("contact");
-    }
-    if (Skill) {
-      container.classList.add("skill");
-    } else {
-      container.classList.remove("skill");
-    }
-    if (Contact) {
-      container.classList.add("contact");
-    } else {
-      container.classList.remove("contact");
-    }
+    const spans = container.querySelectorAll("span");
+    // Get container's left position
+    const containerLeft = container.getBoundingClientRect().left;
+    // Calculate relative X
+    // We consider the left position of the container to center the spans
+    const relativeX = amountX + containerLeft / 2;
+    spans.forEach((span) => {
+      span.style.transform = `translateX(${relativeX}px)`;
+    });
+  }
+
+  function setValue(name) {
+    current.current = name;
   }
 
   useEffect(() => {
+    locationFill();
     BoxElements();
   }, []);
 
   useEffect(() => {
-    Toggler();
-  }, [About, Skill, Contact]);
+    function handleResize() {
+      locationFill();
+      spanMoveer(location.current[current.current].left);
+    }
+    window.addEventListener("resize", handleResize);
+    // Initial fill in case of resize before mount
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
       <NavCursor />
-      <Link to="/">
-        <button className="button" id="AboutBtn" onClick={handleAbout}>
+      <div className="Container" ref={containerRef}>
+        <button
+          className="button"
+          id="AboutBtn"
+          onClick={() => {
+            setValue("About", true);
+            navigate("/");
+            spanMoveer(location.current.About.left);
+          }}
+        >
           AboutMe
         </button>
-      </Link>
-      <Link to="/skills">
-        <button className="button" id="SkillBtn" onClick={handleSkill}>
+        <button
+          className="button"
+          id="SkillBtn"
+          onClick={() => {
+            setValue("Skill", true);
+            navigate("/skills");
+            spanMoveer(location.current.Skill.left);
+          }}
+        >
           Skills and Projects
         </button>
-      </Link>
-      <Link to="/contact">
-        <button className="button" id="ContactBtn" onClick={handleContact}>
+        {/* blog */}
+        <button
+          className="button"
+          id="scriptoriumBtn"
+          onClick={() => {
+            setValue("Script", true);
+            navigate("/scriptorium");
+            spanMoveer(location.current.Script.left);
+          }}
+        >
+          Script's
+        </button>
+        <button
+          className="button"
+          id="ContactBtn"
+          onClick={() => {
+            setValue("Contact", true);
+            navigate("/contact");
+            spanMoveer(location.current.Contact.left);
+          }}
+        >
           Contacts
         </button>
-      </Link>
-      <div className="Container" ref={containerRef}></div>
+      </div>
     </>
   );
 }

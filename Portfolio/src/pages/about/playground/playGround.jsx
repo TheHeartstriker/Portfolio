@@ -272,7 +272,7 @@ function PlayGround() {
         return data;
       });
       //Shadow
-      RowGradient(4);
+      RowGradient(3);
       ObjectData.current = newData;
     }
   }
@@ -330,7 +330,7 @@ function PlayGround() {
 
   useEffect(() => {
     const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5);
-    const cleanup2 = defaultCanvas(shadowRef, setShadowCtx);
+    const cleanup2 = defaultCanvas(shadowRef, setShadowCtx, "abs");
     return () => {
       cleanup1();
       cleanup2();
