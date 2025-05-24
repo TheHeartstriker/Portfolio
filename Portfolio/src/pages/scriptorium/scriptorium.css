@@ -32,8 +32,8 @@
   background-color: var(--Low-blue);
   border-radius: 40px;
   z-index: 1;
+  margin-bottom: 30px;
   transition: transform 0.5s ease-in-out;
-  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
 }
 
 .pointerScript:hover {
@@ -151,6 +151,26 @@
   margin-left: auto;
   margin-right: auto;
   transform: rotate(180deg);
+}
+
+#Vec1 {
+  transform-origin: center;
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  stroke: #0099ff;
+}
+#Vec2 {
+  transform-origin: center;
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  stroke: #0099ff;
+}
+
+#Vec3 {
+  transform-origin: center;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  stroke: #0099ff;
 }
 
 pre,
