@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   animation: FadeIn 1s forwards ease-in;
-  z-index: 2;
+  z-index: 10;
 }
 .Container::before {
   content: "";
@@ -36,7 +36,6 @@
 
 /* Shared styles for all buttons */
 .button {
-  z-index: 10;
   position: relative;
   top: 60px;
   width: 65px;

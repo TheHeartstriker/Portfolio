@@ -12,7 +12,6 @@ function Scriptorium() {
   });
 
   function handleClick(article, furl) {
-    console.log(article);
     if (activeArts[article] === true && furl === true) return;
     setActiveArts((prevState) => ({
       ...prevState,

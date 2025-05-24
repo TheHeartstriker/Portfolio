@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import DownArr from "../../assets/DownArrow";
+import { useState, useEffect } from "react";
+import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 //
@@ -34,8 +36,22 @@ function articleChecker(item) {
       </ReactMarkdown>
     );
   } else if (typeof item === "function") {
-    return <div className="componentContainerArticle">{item()}</div>;
+    // Render as a component, not as a function call!
+    return (
+      <div className="componentContainerArticle">
+        {React.createElement(item)}
+      </div>
+    );
   }
+}
+
+function renderArticles(showContent, article) {
+  if (showContent && Array.isArray(article)) {
+    return article.map((item, idx) => (
+      <div key={idx}>{articleChecker(item)}</div>
+    ));
+  }
+  return null;
 }
 
 export function SubjectContainer({
@@ -47,6 +63,18 @@ export function SubjectContainer({
   article,
   articleName,
 }) {
+  const [showContent, setShowContent] = useState(active);
+
+  useEffect(() => {
+    let timeout;
+    if (active) {
+      setShowContent(true);
+    } else {
+      timeout = setTimeout(() => setShowContent(false), 1500);
+    }
+    return () => clearTimeout(timeout);
+  }, [active]);
+
   return (
     <div
       className={`subject-container-article${!active ? " pointerScript" : ""}`}
@@ -60,19 +88,17 @@ export function SubjectContainer({
         <p>{description}</p>
       </div>
       <div className={`articleTextContainer${active ? " active" : ""}`}>
-        {Array.isArray(article) ? (
-          article.map((item, idx) => (
-            <div key={idx}>{articleChecker(item)}</div>
-          ))
-        ) : (
-          <ReactMarkdown>{article}</ReactMarkdown>
+        {renderArticles(showContent, article)}
+        {active && (
+          <button
+            className="unFurlArticle"
+            onClick={() => {
+              onClick(articleName, false);
+            }}
+          >
+            <DownArr />
+          </button>
         )}
-        <button
-          className="unFurlArticle"
-          onClick={() => onClick(articleName, false)}
-        >
-          <DownArr />
-        </button>
       </div>
     </div>
   );
