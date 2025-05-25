@@ -14,7 +14,7 @@ function AppRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={null}>
         <Routes location={location} key={location.pathname}>
           <Route
             path="/"

@@ -3,15 +3,11 @@ import DownArr from "../../assets/DownArrow";
 import { useRef, useState, useEffect } from "react";
 import { Header1, Header2, Header3 } from "./text";
 import { MainText1, MainText2, MainText3 } from "./text";
-import { TextScramble } from "../../utils/scramble";
 import "./about.css";
 function About() {
   const ColoredTextRef = useRef(null);
-  const [MouseOver, setMouseOver] = useState(false);
-  const [Text, setText] = useState(" Hi, my name is");
+
   const [ToSmall, setToSmall] = useState(false);
-  const Orginal = " Hi, my name is";
-  const Alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   function scrollDown() {
     window.scrollTo({
@@ -19,13 +15,6 @@ function About() {
       behavior: "smooth",
     });
   }
-
-  useEffect(() => {
-    if (MouseOver) {
-      TextScramble(Orginal, Text, Alphabet, setText, 0.5);
-      setMouseOver(false);
-    }
-  }, [MouseOver]);
 
   useEffect(() => {
     function handleResize() {
@@ -44,15 +33,8 @@ function About() {
     <>
       <div className="MainAboutContainer">
         <div className="IAmContainer">
-          <h1
-            className="Text1"
-            ref={ColoredTextRef}
-            onMouseEnter={() => {
-              console.log("Mouse entered");
-              setMouseOver(true);
-            }}
-          >
-            {Text}
+          <h1 className="Text1" ref={ColoredTextRef}>
+            Hi, my name is
           </h1>
           <h2 className="Text2">Kaden Wildauer.</h2>
           <h3 className="Text3">I build things for the web!</h3>
