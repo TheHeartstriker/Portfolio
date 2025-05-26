@@ -39,4 +39,8 @@ Now here there is a wide variety of how a response is recived and sent back. In 
 
 ### VI. Response
 This response is the final step in most cases. We send back the compiled frontend code and the browser renders it. This is the end of getting a website on you screen.
+
+## Logging in
+This is meant to be a short section that important for understanding how a fullstack application works and thats logging in. And how it ties into the last section which is mapping common operations.
+
 `;
