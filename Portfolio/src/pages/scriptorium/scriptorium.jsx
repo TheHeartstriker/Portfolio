@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { SubjectContainer } from "../../components/scriptorium/index.jsx";
 import { markdown } from "./articles/article1.js";
-import { articleMappingFullStack } from "./articles/article2.js";
+import {
+  articleMappingFullStack1,
+  articleMappingFullStack2,
+} from "./articles/article2.js";
 import particleSys from "./scripts/particleSys.jsx";
 import art1Image from "../../assets/Map1.png";
 
@@ -9,7 +12,11 @@ import "./scriptorium.css";
 
 function Scriptorium() {
   const articleArr1 = [markdown, particleSys];
-  const articleArr2 = [articleMappingFullStack, art1Image];
+  const articleArr2 = [
+    articleMappingFullStack1,
+    art1Image,
+    articleMappingFullStack2,
+  ];
   const [activeArts, setActiveArts] = useState({
     article1: false,
     article2: false,
