@@ -4,6 +4,7 @@ import { markdown } from "./articles/article1.js";
 import {
   articleMappingFullStack1,
   articleMappingFullStack2,
+  articleMappingFullStack3,
 } from "./articles/article2.js";
 import particleSys from "./scripts/particleSys.jsx";
 import art1Image from "../../assets/Map1.png";
@@ -18,6 +19,7 @@ function Scriptorium() {
     art1Image,
     articleMappingFullStack2,
     art2Image,
+    articleMappingFullStack3,
   ];
   const [activeArts, setActiveArts] = useState({
     article1: false,

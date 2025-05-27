@@ -41,6 +41,23 @@ Now here there is a wide variety of how a response is recived and sent back. In 
 This response is the final step in most cases. We send back the compiled frontend code and the browser renders it. This is the end of getting a website on you screen.
 
 ## Logging in
-This is meant to be a short section that important for understanding how a fullstack application works and thats logging in. And how it ties into the last section which is mapping common operations.
+This is meant to be a short section that important for understanding how a fullstack application works and thats logging in. And how it ties into the last section which is mapping common operations. We need to know where the data is stored in this stateless application.
+
+`;
+
+export const articleMappingFullStack3 = `
+### I. User submits login form
+This is rather simple and self explanatory the user is sending login or signup information to the server.
+### II. Server validates credentials and small jwt explanation
+The server checks the credentials against a database checking if it exists, if the information is correct ecetra. And wraps the information with a JWT. I will go over why we dont store the JWT or information on the backend or database later in the article. But the JWT while having nuances
+is a kind of wraper for information it hold 3 important pieces of information. The first is the header which is the algorithm used to sign the token, the second is the data or information we are wrapping, and the third and most important is the signature which is
+a combination of the header and payload that is signed with the secret key. The idea is Header algo + Payload + Secret key = Signiture is calculated when we sign aka create the JWT. And when the data gets back we run the same calculation and compare it to the signature in the JWT.
+Someone tampering with the data does not have the secret key so they cant create a valid signature. And this is how we verify the JWT and its data.
+### III. Storing JWT in cookies and cookies explanation
+First the JWT is sent back with the important information and in this case stored / sent in a cookie. Cookies are is very similar to local storage but with the key differences. That is automatically sent with every request
+which promots security and statelessness. The second is size limitations its vastally smaller then local storage and has a limit of 4kb per cookie and most website have a max cookie limit. The third and most important is flags that can be set on a cookie like HttpOnly, Secure, SameSite, Domain and time.
+These all have meaning and resonings but here I am going to talk about time. The rest is a little bit of research you can do on your own. Time is like a jwt a cookie has a storage expiration time. Depending on the time and type of application this can be a few minutes to a few months.
+## Mapping common operations
+This section is all about mapping common operations in a fullstack application. The diagram below will be explained in numerical order and will be a walkthrough over each step and important pieces of information.
 
 `;
