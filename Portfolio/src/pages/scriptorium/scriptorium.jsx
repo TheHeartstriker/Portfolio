@@ -5,10 +5,12 @@ import {
   articleMappingFullStack1,
   articleMappingFullStack2,
   articleMappingFullStack3,
+  articleMappingFullStack4,
 } from "./articles/article2.js";
 import particleSys from "./scripts/particleSys.jsx";
 import art1Image from "../../assets/Map1.png";
 import art2Image from "../../assets/Map2.png";
+import art3Image from "../../assets/Map3.png";
 
 import "./scriptorium.css";
 
@@ -20,6 +22,8 @@ function Scriptorium() {
     articleMappingFullStack2,
     art2Image,
     articleMappingFullStack3,
+    art3Image,
+    articleMappingFullStack4,
   ];
   const [activeArts, setActiveArts] = useState({
     article1: false,
@@ -49,7 +53,7 @@ function Scriptorium() {
       <SubjectContainer
         title="Maping a full stack application"
         subject="Web development / system design"
-        description="A maping of a full stack application, using custom drawn diagrams an images to showcase the architecture and flow of a full stack application removed from abstractions like saas. This is a very fundamentall article its about what happens when you visit a website, serving code, domain names, logging in, jwt and cookies."
+        description="A maping of a full stack application, using custom drawn diagrams an images to showcase the architecture and flow of a full stack application removed from abstractions like saas. This is a very fundamentall article its about what happens when you visit a website, serving code, domain names, logging in, jwt, cookies, https and security."
         active={activeArts.article2}
         onClick={handleClick}
         article={articleArr2}
