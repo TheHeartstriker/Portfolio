@@ -44,11 +44,17 @@ function articleChecker(item) {
               </code>
             );
           },
+          a: ({ node, ...props }) => (
+            <a {...props} target="_blank" rel="noopener noreferrer">
+              {props.children}
+            </a>
+          ),
         }}
       >
         {item}
       </ReactMarkdown>
     );
+
     //
     // Check if we are a React component
     //

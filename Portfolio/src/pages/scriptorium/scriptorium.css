@@ -25,7 +25,7 @@
 .subject-container-article {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   width: 75%;
   height: auto;
@@ -44,7 +44,6 @@
 .subjectTextContainerArticle {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
   height: 40%;
   margin-top: 20px;
@@ -58,7 +57,7 @@
   font-weight: 700;
   z-index: 2;
   margin: 0;
-  margin-left: 6%;
+  margin-left: 2%;
 }
 
 .subjectTextContainerArticle h2 {
@@ -67,7 +66,7 @@
   font-weight: 500;
   z-index: 2;
   margin: 0;
-  margin-left: 6%;
+  margin-left: 2%;
 }
 .subjectDescriptionContainerArticle {
   display: flex;

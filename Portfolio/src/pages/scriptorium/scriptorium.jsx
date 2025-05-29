@@ -41,6 +41,15 @@ function Scriptorium() {
   return (
     <div className="mainScriptoriumContainer">
       <SubjectContainer
+        title="Mapping a full stack application"
+        subject="Web development / Full stack"
+        description="A mapping of a full stack application, using custom drawn diagrams an images to showcase the architecture and flow of a full stack application removed from abstractions like saas. This is a very fundamental article its about what happens when you visit a website, serving code, domain names, logging in, jwt, cookies, https and security."
+        active={activeArts.article2}
+        onClick={handleClick}
+        article={articleArr2}
+        articleName="article2"
+      />
+      <SubjectContainer
         title="Particle system's"
         subject="Mathematics's / programming "
         description="An introduction to creative coding through a particle system. Learn how logic, math, and code can recreate natural phenomena. These techniques power parts of this website and are an invaluable way to practice fundamentals and improve problem-solving skills."
@@ -48,16 +57,6 @@ function Scriptorium() {
         onClick={handleClick}
         article={articleArr1}
         articleName="article1"
-      />
-
-      <SubjectContainer
-        title="Maping a full stack application"
-        subject="Web development / system design"
-        description="A maping of a full stack application, using custom drawn diagrams an images to showcase the architecture and flow of a full stack application removed from abstractions like saas. This is a very fundamentall article its about what happens when you visit a website, serving code, domain names, logging in, jwt, cookies, https and security."
-        active={activeArts.article2}
-        onClick={handleClick}
-        article={articleArr2}
-        articleName="article2"
       />
     </div>
   );

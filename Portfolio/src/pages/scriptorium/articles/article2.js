@@ -114,11 +114,14 @@ So an abstraction? That’s light work. If you understand this stuff, maybe impl
 
 ## Conclusion
 I hope you gained something from this article and learned something new. Apart from my bad diagram skills, I hope you learned something about how a fullstack application works and how the pieces fit together. 
-Regardless, have a good day. I am going to include some resources below for steps that I had trouble with or that I think are important to understand.
+Regardless, have a good day. I am going to include some resources below for steps that I had trouble with or that I think are important to understand and as for some proof two of my
+fullstack apps used a modified version of what I just showed you with an ec2 you can see them in the skills section.
 
 - [Serverless](https://blog.purestorage.com/purely-educational/stateful-vs-stateless-applications-whats-the-difference/)
+- [DNS](https://www.cloudflare.com/learning/dns/what-is-dns/)
+- [TLS/Https](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/)
+- [JWT](https://jwt.io/introduction/)
 
-- [Code](https://thecodingtrain.com)
 
 
 `;
