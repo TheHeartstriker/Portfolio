@@ -9,6 +9,20 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 //
 
 function articleChecker(item) {
+  //
+  // Check if we are an img
+  //
+  if (typeof item === "string" && item.endsWith(".png")) {
+    // Assuming the string is a path to an image
+    return (
+      <div className="imageContainerArticle">
+        <img src={item} alt="Article related" />
+      </div>
+    );
+  }
+  //
+  // Check if we are code markdown
+  //
   if (typeof item === "string") {
     return (
       <ReactMarkdown
@@ -30,11 +44,20 @@ function articleChecker(item) {
               </code>
             );
           },
+          a: ({ node, ...props }) => (
+            <a {...props} target="_blank" rel="noopener noreferrer">
+              {props.children}
+            </a>
+          ),
         }}
       >
         {item}
       </ReactMarkdown>
     );
+
+    //
+    // Check if we are a React component
+    //
   } else if (typeof item === "function") {
     // Render as a component, not as a function call!
     return (

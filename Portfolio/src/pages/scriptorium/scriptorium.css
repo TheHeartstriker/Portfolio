@@ -25,15 +25,15 @@
 .subject-container-article {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   width: 75%;
   height: auto;
   background-color: var(--Low-blue);
   border-radius: 40px;
   z-index: 1;
+  margin-bottom: 30px;
   transition: transform 0.5s ease-in-out;
-  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
 }
 
 .pointerScript:hover {
@@ -44,7 +44,6 @@
 .subjectTextContainerArticle {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
   height: 40%;
   margin-top: 20px;
@@ -58,7 +57,7 @@
   font-weight: 700;
   z-index: 2;
   margin: 0;
-  margin-left: 6%;
+  margin-left: 2%;
 }
 
 .subjectTextContainerArticle h2 {
@@ -67,7 +66,7 @@
   font-weight: 500;
   z-index: 2;
   margin: 0;
-  margin-left: 6%;
+  margin-left: 2%;
 }
 .subjectDescriptionContainerArticle {
   display: flex;
@@ -134,6 +133,26 @@
   align-items: center;
 }
 
+.imageContainerArticle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.imageContainerArticle img {
+  max-width: 90%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: #111;
+}
+
 .unFurlArticle {
   z-index: 2;
   display: flex;
@@ -151,6 +170,26 @@
   margin-left: auto;
   margin-right: auto;
   transform: rotate(180deg);
+}
+
+#Vec1 {
+  transform-origin: center;
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  stroke: #0099ff;
+}
+#Vec2 {
+  transform-origin: center;
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  stroke: #0099ff;
+}
+
+#Vec3 {
+  transform-origin: center;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  stroke: #0099ff;
 }
 
 pre,
