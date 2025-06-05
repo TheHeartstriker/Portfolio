@@ -119,7 +119,7 @@
 
 .articleTextContainer.active {
   opacity: 1;
-  max-height: 10000px;
+  max-height: 15000px;
   padding: 10px;
   border-radius: 40px;
   background-color: var(--Dark-blue);
@@ -163,8 +163,8 @@
   cursor: pointer;
   border: none;
   background-color: var(--Low-blue);
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-radius: 25px;
+  margin: 10px;
   padding: 10px;
   transform-origin: center;
   margin-left: auto;
