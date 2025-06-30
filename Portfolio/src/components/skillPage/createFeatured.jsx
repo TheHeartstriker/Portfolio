@@ -10,18 +10,22 @@ function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
       <div className={`AppF ${Mirror ? "mirror" : ""}`}>
         <div className="AppImage" id={Id}>
           <div className="TransparentFill"></div>
-          <div
-            className="Logocontainer ImgBackLogo1"
-            onClick={() => {
-              handleLink(Link1);
-            }}
-          ></div>
-          <div
-            className="Logocontainer ImgBackLogo2"
-            onClick={() => {
-              handleLink(Link2);
-            }}
-          ></div>
+          {Link1 && (
+            <div
+              className="Logocontainer ImgBackLogo1"
+              onClick={() => {
+                handleLink(Link1);
+              }}
+            ></div>
+          )}
+          {Link2 && (
+            <div
+              className="Logocontainer ImgBackLogo2"
+              onClick={() => {
+                handleLink(Link2);
+              }}
+            ></div>
+          )}
         </div>
         <div className={`AppText ${Mirror ? "mirror" : ""}`}>
           <div className="AppHeader">

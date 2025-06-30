@@ -8,6 +8,7 @@ import {
   UsedTechApp1,
   UsedTechApp2,
   UsedTechApp3,
+  UsedTechApp4,
   NoteWortheyH,
   NoteWortheyP,
 } from "./text.js";
@@ -17,25 +18,10 @@ import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
 
 function Skill() {
-  const AniRef1 = useRef(null);
-  const AniRef2 = useRef(null);
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
   const root = useRef(null); // for animejs
   //Creates the lottie animation
-  function createLottie(containerRef, animationRef) {
-    import("../../assets/Glitch2.json").then((animationData) => {
-      animationRef.current = lottie.loadAnimation({
-        container: containerRef.current,
-        renderer: "svg",
-        loop: false,
-        animationData: animationData.default,
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice",
-        },
-      });
-    });
-  }
   //Manipulates the pills on mouse move
   function onMouseMove(event, animatablePills, bluePills) {
     const { clientX, clientY } = event;
@@ -82,11 +68,6 @@ function Skill() {
     );
     return { animatablePills, bluePills };
   }
-
-  // useEffect(() => {
-  //   createLottie(Container1Ref, AniRef1);
-  //   createLottie(Container2Ref, AniRef2);
-  // }, []);
 
   useEffect(() => {
     const InitVals = initalize();
@@ -149,9 +130,17 @@ function Skill() {
       {/* Overhead container for main apps */}
       <div className="FeaturedApps">
         <CreateFeatured
+          Header={Header[3]}
+          Para={Paras[3]}
+          Skills={UsedTechApp4}
+          Id="F4"
+          Link1="https://www.peytonrayproperties.com"
+        />
+        <CreateFeatured
           Header={Header[0]}
           Para={Paras[0]}
           Skills={UsedTechApp1}
+          Mirror={true}
           Id="F1"
           Link1="https://www.dynamicanimations.com"
           Link2="https://github.com/TheHeartstriker/DynamicAnimations"
@@ -160,7 +149,6 @@ function Skill() {
           Header={Header[1]}
           Para={Paras[1]}
           Skills={UsedTechApp2}
-          Mirror={true}
           Id="F2"
           Link1="https://www.fgraphs.com"
           Link2="https://github.com/TheHeartstriker/FitnessApp"
@@ -169,6 +157,7 @@ function Skill() {
           Header={Header[2]}
           Para={Paras[2]}
           Skills={UsedTechApp3}
+          Mirror={true}
           Id="F3"
           Link1="https://www.genesistodo.com"
           Link2="https://github.com/TheHeartstriker/ToDoApp"

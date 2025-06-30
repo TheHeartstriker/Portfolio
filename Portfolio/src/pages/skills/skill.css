@@ -128,7 +128,13 @@
   background-position: center;
 }
 #F3 {
-  background-image: url("../../assets/ToDoShot.svg");
+  background-image: url("../../assets/TodoShot.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#F4 {
+  background-image: url("../../assets/client1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
