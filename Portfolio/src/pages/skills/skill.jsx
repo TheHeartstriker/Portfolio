@@ -12,7 +12,10 @@ import {
   NoteWortheyH,
   NoteWortheyP,
 } from "./text.js";
-import lottie from "lottie-web";
+import client1 from "../../assets/client1.png";
+import dynamicAnimations from "../../assets/DynamicShot.webp";
+import fitShot from "../../assets/FitShot.webp";
+import todoShot from "../../assets/todoShot.png";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
 import { CreateFolder, CreateFeatured } from "../../components/skillPage";
 import "./skill.css";
@@ -133,7 +136,7 @@ function Skill() {
           Header={Header[3]}
           Para={Paras[3]}
           Skills={UsedTechApp4}
-          Id="F4"
+          Image={client1}
           Link1="https://www.peytonrayproperties.com"
         />
         <CreateFeatured
@@ -141,7 +144,7 @@ function Skill() {
           Para={Paras[0]}
           Skills={UsedTechApp1}
           Mirror={true}
-          Id="F1"
+          Image={dynamicAnimations}
           Link1="https://www.dynamicanimations.com"
           Link2="https://github.com/TheHeartstriker/DynamicAnimations"
         />
@@ -149,7 +152,7 @@ function Skill() {
           Header={Header[1]}
           Para={Paras[1]}
           Skills={UsedTechApp2}
-          Id="F2"
+          Image={fitShot}
           Link1="https://www.fgraphs.com"
           Link2="https://github.com/TheHeartstriker/FitnessApp"
         />
@@ -158,7 +161,7 @@ function Skill() {
           Para={Paras[2]}
           Skills={UsedTechApp3}
           Mirror={true}
-          Id="F3"
+          Image={todoShot}
           Link1="https://www.genesistodo.com"
           Link2="https://github.com/TheHeartstriker/ToDoApp"
         />

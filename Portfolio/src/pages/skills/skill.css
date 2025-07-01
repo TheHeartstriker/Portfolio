@@ -114,31 +114,16 @@
   height: 100%;
   border-radius: 15px;
 }
-/* Images for the image half of the container */
-#F1 {
-  background-image: url("../../assets/DynamicShot.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+
+.AppImage img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform ease-in-out 0.5s;
 }
-#F2 {
-  background-image: url("../../assets/FitShot.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-#F3 {
-  background-image: url("../../assets/TodoShot.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-#F4 {
-  background-image: url("../../assets/client1.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 /* Oppacity overlay for image */
 .TransparentFill {
   position: absolute;

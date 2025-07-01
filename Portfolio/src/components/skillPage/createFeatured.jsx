@@ -3,12 +3,13 @@ function handleLink(Link) {
   window.open(Link, "_blank", "noopener,noreferrer");
 }
 
-function CreateFeatured({ Header, Para, Skills, Mirror, Id, Link1, Link2 }) {
+function CreateFeatured({ Header, Para, Skills, Mirror, Image, Link1, Link2 }) {
   return (
     <>
       {/* Main app split into two container one for image and other for text */}
       <div className={`AppF ${Mirror ? "mirror" : ""}`}>
-        <div className="AppImage" id={Id}>
+        <div className="AppImage">
+          <img src={Image} alt="Project image" />
           <div className="TransparentFill"></div>
           {Link1 && (
             <div

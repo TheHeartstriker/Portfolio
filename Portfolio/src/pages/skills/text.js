@@ -73,4 +73,9 @@ export const NoteWortheyP = [
   "My CS50 final project. A staging website for learning how to use WebAssembly. Mainly a personal learning project to be able to implement it in future projects.",
 ];
 
-export const Header = ["Dynamic Animations", "FGraphs", "GenesisToDo"];
+export const Header = [
+  "Dynamic Animations",
+  "FGraphs",
+  "GenesisToDo",
+  "Peyton Ray Properties",
+];
