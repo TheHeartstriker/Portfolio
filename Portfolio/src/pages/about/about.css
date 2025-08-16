@@ -1,12 +1,3 @@
-@ -1,211 +0,2 @@
-:root {
-  --back-round-grey: rgb(30, 30, 30);
-  --neon-blue: #00ccff;
-  --neon-dull: rgb(0, 188, 235);
-  --circle-radius: 32.5vh;
-  --Teal: rgb(100, 255, 218);
-}
-
 .PlayGround {
   position: absolute;
   cursor: default;
@@ -45,29 +36,29 @@
 /* In the nav folder the css file consider the container appearing time */
 
 .Text1 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: var(--neon-dull);
   margin: 0px 0px 30px 4px;
-  font-weight: 400;
+  font-weight: 500;
   filter: drop-shadow(0 0 2px var(--neon-blue));
   animation: FadeUpEnter 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .Text2 {
-  font-size: 5.5rem;
-  color: white;
-  opacity: 0.9;
+  font-size: 5.8rem;
+  color: var(--white);
+  font-weight: 700;
   margin: 0;
-  font-weight: 600;
   line-height: 1.1;
   animation: FadeUpEnter 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .Text3 {
-  font-size: 5.5rem;
-  color: white;
+  font-size: 5.8rem;
+  color: var(--white-off);
+  font-weight: 700;
   margin: 0;
-  opacity: 0.7;
+  opacity: 0.9;
   line-height: 0.9;
   animation: FadeUpEnter 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
@@ -75,9 +66,9 @@
 .Text4 {
   font-size: 1.5rem;
   width: 75%;
-  color: white;
+  color: var(--white-light);
+  font-family: "Exo 2", sans-serif;
   margin: 20px 0px 0px;
-  opacity: 0.5;
   animation: FadeUpEnter 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
@@ -208,4 +199,3 @@
 .More {
   left: 15%;
 }
-

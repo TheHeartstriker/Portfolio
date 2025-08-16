@@ -85,7 +85,7 @@ function Nav() {
             spanMoveer(location.current.About.left);
           }}
         >
-          AboutMe
+          About Me
         </button>
         <button
           className="button"

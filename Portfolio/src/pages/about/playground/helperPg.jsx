@@ -1,8 +1,8 @@
 //
 //Object drawing functions
 //
-const headerFontSize = "2.5rem";
-const mainTextFontSize = "1.3rem";
+const headerFontSize = "2.8rem";
+const mainTextFontSize = "1.5rem";
 export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
   if (ctx) {
     //Shape
@@ -28,8 +28,8 @@ export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
     TextBreaker(Header, x, y - 100, 30, ctx);
 
     //Main Text
-    ctx.font = `${mainTextFontSize} Protest Guerrilla`;
-    TextBreaker(MainT, x, y - 25, 20, ctx);
+    ctx.font = `${mainTextFontSize} Inter`;
+    TextBreaker(MainT, x, y - 25, 25, ctx);
   }
 }
 
