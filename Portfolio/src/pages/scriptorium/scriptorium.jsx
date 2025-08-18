@@ -52,7 +52,7 @@ function Scriptorium() {
       <SubjectContainer
         title="Particle system's"
         subject="Mathematics's / programming "
-        description="An introduction to creative coding through a particle system. Learn how logic, math, and code can recreate natural phenomena. These techniques power parts of this website and are an invaluable way to practice fundamentals and improve problem-solving skills."
+        description="An introduction to creative coding through a particle system. Learn how logic, math, and code can recreate natural phenomena. These techniques power parts of this website and are an invaluable way to practice fundamentals and improve problem-solving skills. There is also a fun little demo at the end :)"
         active={activeArts.article1}
         onClick={handleClick}
         article={articleArr1}

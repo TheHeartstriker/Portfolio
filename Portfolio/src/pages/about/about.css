@@ -38,7 +38,7 @@
 .Text1 {
   font-size: 2.3rem;
   color: var(--neon-dull);
-  margin: 0px 0px 30px 4px;
+  margin: 0px 0px var(--space-3) 0;
   font-weight: 500;
   filter: drop-shadow(0 0 2px var(--neon-blue));
   animation: FadeUpEnter 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -68,7 +68,7 @@
   width: 75%;
   color: var(--white-light);
   font-family: "Exo 2", sans-serif;
-  margin: 20px 0px 0px;
+  margin: var(--space-2) 0px 0px;
   animation: FadeUpEnter 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
@@ -175,7 +175,7 @@
   position: relative;
   width: 45vh;
   border-radius: 50%;
-  padding: 20px;
+  padding: var(--space-3);
   background-color: rgba(14, 34, 80, 0.95);
   border: 5px rgba(5, 120, 250, 1) solid;
   box-shadow: 0 0 20px 10px rgba(5, 120, 250, 0.5);

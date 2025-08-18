@@ -17,6 +17,13 @@ html {
   --white: #f0f0f0;
   --white-off: #c5c5c5;
   --white-light: #969696;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
 }
 
 @media (min-width: 2000px) {

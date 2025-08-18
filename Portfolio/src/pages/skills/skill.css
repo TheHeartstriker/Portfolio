@@ -38,9 +38,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 85vw;
+  width: 80vw;
   height: 25vh;
-  padding: 15px;
+  padding: var(--space-2);
   border-radius: 100px;
   background-color: var(--Low-blue);
   animation: forwards FadeUpEnterAni 1.5s ease-in-out;
@@ -54,7 +54,7 @@
   width: 13%;
   height: 4rem;
   border-radius: 100px;
-  margin: 10px;
+  margin: var(--space-1);
   color: rgba(0, 188, 235, 0.8);
   background-color: rgba(0, 188, 235, 0.5);
   display: flex;
@@ -69,7 +69,7 @@
   width: 25%;
   height: 3rem;
   border-radius: 100px;
-  margin: 10px;
+  margin: var(--space-1);
   color: rgba(0, 188, 235, 0.8);
   background-color: rgba(0, 188, 235, 0.5);
   display: flex;
@@ -100,7 +100,7 @@
   align-items: center;
   text-align: center;
   position: relative;
-  width: 75vw;
+  width: 80vw;
   height: 50vh;
   margin-bottom: 15vh;
 }
@@ -154,7 +154,7 @@
 .AppHeader {
   width: 100%;
   height: 33%;
-  padding: 15px;
+  padding: var(--space-2);
   background-color: transparent;
 }
 
@@ -171,9 +171,8 @@
 .AppPara {
   width: 100%;
   height: 33%;
-  padding: 15px;
+  padding: var(--space-2);
   border-radius: 15px;
-  padding: 20px;
   font-size: 1.5rem;
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;
@@ -195,7 +194,7 @@
   flex-wrap: wrap;
   width: 100%;
   height: 33%;
-  padding: 15px;
+  padding: var(--space-2);
   transform: translateX(6%);
 }
 /* Mirror info */
@@ -211,6 +210,11 @@
 .AppSkills.mirror {
   transform: translateX(-10%);
 }
+
+.NoFeaturedApps {
+  width: 80%;
+}
+
 /* Header container for non featured apps */
 .NonFeaturedHeader {
   display: flex;
@@ -239,7 +243,7 @@
   width: 20vw;
   height: 20vw;
   border: 2px solid rgb(100, 255, 218);
-  padding: 15px;
+  padding: var(--space-2);
   border-radius: 15px;
   background-color: var(--Low-blue);
   overflow: hidden;
@@ -297,7 +301,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 80%;
+  width: 75%;
   height: 100%;
   border-radius: 50px;
   color: var(--Teal);
@@ -338,7 +342,7 @@
   height: 6rem;
   margin-left: 15px;
   margin: 10px;
-  padding: 5px;
+  padding: var(--space-1);
   border-radius: 50%;
   z-index: 1;
 }
