@@ -68,7 +68,7 @@ function Contact() {
 
   //Handles collision between objects and the window
   function Collision(data) {
-    //Window collision's
+    // Window collision's
     if (data.x < Radius.current) {
       data.x = Radius.current;
       data.velocity.x *= 0.7;
@@ -89,14 +89,17 @@ function Contact() {
       data.velocity.y *= 0.7;
       data.velocity.y *= -1;
     }
-    //Object collision's
+
+    // Object collision's
     for (let i = 0; i < ObjectData.current.length; i++) {
       if (data === ObjectData.current[i]) continue;
+
       let Distance = Math.sqrt(
         Math.pow(data.x - ObjectData.current[i].x, 2) +
           Math.pow(data.y - ObjectData.current[i].y, 2)
       );
-      if (Distance < Radius.current * 2) {
+
+      if (Distance < Radius.current * 2 && Distance > 0) {
         let angle = Math.atan2(
           data.y - ObjectData.current[i].y,
           data.x - ObjectData.current[i].x
@@ -104,11 +107,39 @@ function Contact() {
         let overlap = Radius.current * 2 - Distance;
         let moveX = (Math.cos(angle) * overlap) / 2;
         let moveY = (Math.sin(angle) * overlap) / 2;
+
         // Move both objects away from each other
         data.x += moveX;
         data.y += moveY;
         ObjectData.current[i].x -= moveX;
         ObjectData.current[i].y -= moveY;
+
+        // Only resolve if moving toward each other
+        let nx = Math.cos(angle);
+        let ny = Math.sin(angle);
+        let dvx = data.velocity.x - ObjectData.current[i].velocity.x;
+        let dvy = data.velocity.y - ObjectData.current[i].velocity.y;
+        let relVel = dvx * nx + dvy * ny;
+        if (relVel < 0) {
+          // Elastic collision
+          let v1n = data.velocity.x * nx + data.velocity.y * ny;
+          let v2n =
+            ObjectData.current[i].velocity.x * nx +
+            ObjectData.current[i].velocity.y * ny;
+          let v1t = data.velocity.x * -ny + data.velocity.y * nx;
+          let v2t =
+            ObjectData.current[i].velocity.x * -ny +
+            ObjectData.current[i].velocity.y * nx;
+          data.velocity.x = v2n * nx - v1t * ny;
+          data.velocity.y = v2n * ny + v1t * nx;
+          ObjectData.current[i].velocity.x = v1n * nx - v2t * ny;
+          ObjectData.current[i].velocity.y = v1n * ny + v2t * nx;
+          // Damping
+          data.velocity.x *= 0.9;
+          data.velocity.y *= 0.9;
+          ObjectData.current[i].velocity.x *= 0.9;
+          ObjectData.current[i].velocity.y *= 0.9;
+        }
       }
     }
   }

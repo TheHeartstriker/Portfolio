@@ -2,13 +2,13 @@
 
 const Members = new Set();
 
-function UpdateMembers() {
+function PrimeUpdateMembers() {
   Members.forEach((callBack) => callBack());
 
-  requestAnimationFrame(UpdateMembers);
+  requestAnimationFrame(PrimeUpdateMembers);
 }
 
-requestAnimationFrame(UpdateMembers);
+requestAnimationFrame(PrimeUpdateMembers);
 
 export function AddMember(callBack) {
   Members.add(callBack);

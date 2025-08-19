@@ -74,3 +74,40 @@ export function RadialGradient(x, y, radius, ctx) {
   ctx.arc(x, y, radius, 0, Math.PI * 2);
   ctx.fill();
 }
+
+export function RowGradient(Range, ObjectData, shadowCtx, Mouse, Radius) {
+  if (!shadowCtx || !ObjectData) return;
+
+  shadowCtx.clearRect(
+    0,
+    0,
+    document.documentElement.scrollWidth,
+    document.documentElement.scrollHeight
+  );
+
+  for (let i = 0; i < ObjectData.current.length; i++) {
+    // Calculate direction vec
+    let directionX = Mouse.current.x - ObjectData.current[i].x;
+    let directionY = Mouse.current.y - ObjectData.current[i].y;
+    // Normalize the direction vector
+    let length = Math.sqrt(directionX * directionX + directionY * directionY);
+    let normalizedDirectionX = directionX / length;
+    let normalizedDirectionY = directionY / length;
+    // Invert the direction vector to get the opposite direction
+    let oppositeDirectionX = -normalizedDirectionX;
+    let oppositeDirectionY = -normalizedDirectionY;
+    // Scale the offset based on the distance
+    let scaleFactor = length / 10; // Adjust scale if desired
+    // Adjust the position of the gradients using the opposite direction vector and scale factor
+    for (let j = 0; j < Range; j++) {
+      let offsetX = oppositeDirectionX * j * scaleFactor;
+      let offsetY = oppositeDirectionY * j * scaleFactor;
+      RadialGradient(
+        ObjectData.current[i].x + offsetX,
+        ObjectData.current[i].y + offsetY,
+        Radius.current + j * 60,
+        shadowCtx
+      );
+    }
+  }
+}
