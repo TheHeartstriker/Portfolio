@@ -4,33 +4,29 @@
 const headerFontSize = "2.8rem";
 const mainTextFontSize = "1.5rem";
 export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
-  if (ctx) {
-    //Shape
-    ctx.beginPath();
-    ctx.arc(x, y, Radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(14, 34, 80, 0.95)";
-    ctx.fill();
+  //Shape
+  ctx.beginPath();
+  ctx.arc(x, y, Radius, 0, Math.PI * 2);
+  ctx.fillStyle = "rgb(14, 34, 80)";
+  ctx.fill();
 
-    //Glow and Border
-    ctx.save();
-    ctx.shadowColor = "rgba(5, 120, 250, 0.8)";
-    ctx.shadowBlur = 50;
-    ctx.lineWidth = 5;
-    ctx.strokeStyle = "rgb(5, 120, 250)";
-    ctx.stroke();
-    ctx.restore();
+  //Glow and Border
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "rgb(5, 120, 250)";
+  ctx.stroke();
 
-    //Header
-    ctx.font = `${headerFontSize} Protest Guerrilla`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "white";
-    TextBreaker(Header, x, y - 100, 30, ctx);
+  //Text settings
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = "white";
 
-    //Main Text
-    ctx.font = `${mainTextFontSize} Inter`;
-    TextBreaker(MainT, x, y - 25, 25, ctx);
-  }
+  //Header
+  ctx.font = `${headerFontSize} Protest Guerrilla`;
+  TextBreaker(Header, x, y - 100, 30, ctx);
+
+  //Main Text
+  ctx.font = `${mainTextFontSize} Inter`;
+  TextBreaker(MainT, x, y - 25, 25, ctx);
 }
 
 function TextBreaker(text, x, y, lengthWisSpace, ctx) {
@@ -48,8 +44,7 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
   //Builds the individual lines
   for (let i = 0; i < words.length; i++) {
     const testLine = line + words[i] + " ";
-    const LengthMet = ctx.measureText(testLine);
-    const testWidth = LengthMet.width;
+    const testWidth = ctx.measureText(testLine).width;
     if (testWidth > maxWidth && i > 0) {
       lines.push(line);
       line = words[i] + " ";
