@@ -17,13 +17,19 @@ import dynamicAnimations from "../../assets/DynamicShot.webp";
 import fitShot from "../../assets/FitShot.webp";
 import todoShot from "../../assets/todoShot.png";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
-import { CreateFolder, CreateFeatured } from "../../components/skillPage";
+import {
+  CreateFolder,
+  CreateFeatured,
+} from "../../components/skillPage/skill&project/index.js";
+import PolySvg from "../../assets/poly.svg?react";
+import { useNavigate } from "react-router-dom";
 import "./skill.css";
 
 function Skill() {
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
   const root = useRef(null); // for animejs
+  const navigate = useNavigate();
   //Creates the lottie animation
   //Manipulates the pills on mouse move
   function onMouseMove(event, animatablePills, bluePills) {
@@ -108,10 +114,17 @@ function Skill() {
   return (
     <div className="MainSkillContainer" ref={root}>
       {/* Over head container for teck stacks */}
-      <div className="Seperator" id="Sep1">
+      <div
+        className="Seperator"
+        id="Sep1"
+        onClick={() => navigate("/skills/gallery")}
+      >
         <h2>01.</h2>
         <h1 id="TestId">Known tech</h1>
         <hr></hr>
+        <div className="GalleryLink">
+          <PolySvg className="GallerySvg" />
+        </div>
         <div id="lottie-container" ref={Container1Ref}></div>
       </div>
       <div className="TechStacksContainer">

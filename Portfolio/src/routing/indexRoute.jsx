@@ -9,6 +9,9 @@ const About = lazy(() => import("../pages/about/about.jsx"));
 const Skill = lazy(() => import("../pages/skills/skill.jsx"));
 const Contact = lazy(() => import("../pages/contact/contact.jsx"));
 const Scriptorium = lazy(() => import("../pages/scriptorium/scriptorium.jsx"));
+const Gallery = lazy(() =>
+  import("../components/skillPage/gallery/gallery.jsx")
+);
 
 function AppRoutes() {
   const location = useLocation();
@@ -29,6 +32,14 @@ function AppRoutes() {
             element={
               <FadeSettings>
                 <Skill />
+              </FadeSettings>
+            }
+          />
+          <Route
+            path="/skills/gallery"
+            element={
+              <FadeSettings>
+                <Gallery />
               </FadeSettings>
             }
           />

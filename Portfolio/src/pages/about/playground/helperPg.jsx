@@ -86,6 +86,7 @@ export function RowGradient(Range, ObjectData, shadowCtx, Mouse, Radius) {
     let directionY = Mouse.current.y - ObjectData.current[i].y;
     // Normalize the direction vector
     let length = Math.sqrt(directionX * directionX + directionY * directionY);
+    if (length === 0) continue;
     let normalizedDirectionX = directionX / length;
     let normalizedDirectionY = directionY / length;
     // Invert the direction vector to get the opposite direction
