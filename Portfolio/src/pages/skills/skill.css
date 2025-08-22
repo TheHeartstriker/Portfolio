@@ -317,6 +317,13 @@
   animation: infinite alternate rightLeft 2.5s ease-in-out;
 }
 
+.GalleryLink.reverse {
+  margin-left: 0;
+  margin-right: var(--space-2);
+  animation: infinite alternate leftRight 2.5s ease-in-out;
+  transform: rotate(180deg);
+}
+
 .GallerySvg {
   color: var(--neon-blue);
   width: 45px;
@@ -330,6 +337,9 @@
 .Seperator h1 {
   font-size: 3.5rem;
   margin: 35px;
+
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 5px var(--neon-dull));
 }
 
 .Separator h2 {
@@ -398,6 +408,17 @@
   }
   50% {
     transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes leftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
   }
   100% {
     transform: translateX(0);

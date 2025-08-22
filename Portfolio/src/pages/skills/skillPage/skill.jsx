@@ -12,18 +12,18 @@ import {
   NoteWortheyH,
   NoteWortheyP,
 } from "./text.js";
-import client1 from "../../assets/client1.png";
-import dynamicAnimations from "../../assets/DynamicShot.webp";
-import fitShot from "../../assets/FitShot.webp";
-import todoShot from "../../assets/todoShot.png";
-import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
+import client1 from "../../../assets/client1.png";
+import dynamicAnimations from "../../../assets/DynamicShot.webp";
+import fitShot from "../../../assets/FitShot.webp";
+import todoShot from "../../../assets/todoShot.png";
+import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import {
   CreateFolder,
   CreateFeatured,
-} from "../../components/skillPage/skill&project/index.js";
-import PolySvg from "../../assets/poly.svg?react";
+} from "../../../components/skillPage/index.js";
+import PolySvg from "../../../assets/poly.svg?react";
 import { useNavigate } from "react-router-dom";
-import "./skill.css";
+import "../skill.css";
 
 function Skill() {
   const Container1Ref = useRef(null);
