@@ -12,10 +12,10 @@ import {
   NoteWortheyH,
   NoteWortheyP,
 } from "./text.js";
-import client1 from "../../../assets/client1.png";
+import client1 from "../../../assets/skill/client1.png";
 import dynamicAnimations from "../../../assets/DynamicShot.webp";
-import fitShot from "../../../assets/FitShot.webp";
-import todoShot from "../../../assets/todoShot.png";
+import fitShot from "../../../assets/skill/FitShot.webp";
+import todoShot from "../../../assets/skill/todoShot.png";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import {
   CreateFolder,
