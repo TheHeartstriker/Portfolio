@@ -4,22 +4,22 @@ import "./skill.css";
 import { useNavigate } from "react-router-dom";
 import { galleryContentBlock } from "../../components/skillPage/gallery";
 
-import fitShot from "../../assets/skill/FitShot.webp";
-import todoShot from "../../assets/skill/todoShot.png";
-import client1 from "../../assets/skill/client1.png";
+import design from "../../assets/gallery/design1.png";
+import orginalSite from "../../assets/gallery/Mywebsite2.png";
+import video from "../../assets/gallery/Atoms.mp4";
 
-const galleryContent = [
+const galleryContent2 = [
   {
     type: "image",
-    src: fitShot,
+    src: design,
+    content:
+      "A figma design created for a client. More a mockup than a final product.",
   },
   {
-    type: "image",
-    src: todoShot,
-  },
-  {
-    type: "image",
-    src: client1,
+    type: "video",
+    src: video,
+    content:
+      "One of the earliest iterations of this website. Completely different looking from how it is now right!",
   },
 ];
 
@@ -37,9 +37,13 @@ function Gallery() {
         <h2>.04</h2>
       </div>
       <div className="galleryContainer">
+        {/* {galleryContentBlock({
+          form: "galleryThreeEven",
+          content: galleryContent1,
+        })} */}
         {galleryContentBlock({
-          form: "threeEven",
-          content: galleryContent,
+          form: "galleryTwoEven",
+          content: galleryContent2,
         })}
       </div>
     </div>

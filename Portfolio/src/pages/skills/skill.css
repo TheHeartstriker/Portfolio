@@ -16,9 +16,9 @@
 /* All h1 will be able to scramble and be 100% neon and glow  */
 .MainSkillContainer h1 {
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--neon-dull);
-  filter: drop-shadow(0 0 5px var(--neon-dull));
+  filter: drop-shadow(0 0 10px var(--main-glow));
 }
 /* For the teck stack */
 .TechStacksContainer {
@@ -49,7 +49,6 @@
 /* Used in tech stacks container */
 .BluePill {
   font-size: 1rem;
-  font-weight: 700;
   width: 13%;
   height: 4rem;
   border-radius: 100px;
@@ -64,7 +63,6 @@
 /* Smaller version used in featured apps */
 .BluePill2 {
   font-size: 0.7rem;
-  font-weight: 700;
   width: 25%;
   height: 3rem;
   border-radius: 100px;
@@ -164,6 +162,7 @@
 /* Secondary header */
 .AppHeader h3 {
   font-size: 2rem;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
 }
 /* The paragraph showing some info about the app */
@@ -334,16 +333,10 @@
 }
 
 .Seperator h1 {
-  font-size: 3.5rem;
-  margin: 35px;
-
+  font-size: 3.3rem;
+  margin: var(--space-5);
   color: var(--neon-dull);
-  filter: drop-shadow(0 0 5px var(--neon-dull));
-}
-
-.Separator h2 {
-  font-size: 2rem;
-  margin: 35px;
+  filter: drop-shadow(0 0 10px var(--main-glow));
 }
 
 .Seperator hr {
