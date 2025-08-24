@@ -8,94 +8,38 @@
 }
 
 .galleryContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 85vw;
-  height: 100%;
-}
-/* Container types */
-.galleryThreeEven {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 20vw;
-  margin-bottom: var(--space-5);
-}
-
-.galleryTwoEven {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 30vw;
-}
-/* Container elements */
-.galleryItem {
   position: relative;
-  margin: var(--space-2);
-  padding: var(--space-1);
-  height: 100%;
-  border-radius: 25px;
-  text-align: center;
-}
-
-.galleryItem h2 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  margin: 0;
-  color: var(--neon-blue);
-}
-
-.galleryText {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  left: 0;
-  right: 0;
-  top: 0;
   display: flex;
-  align-items: last baseline;
+  width: 85vw;
+  margin-left: -30px;
 }
 
-.fade-in {
-  opacity: 1;
-  pointer-events: auto;
+.galleryColumn {
+  padding-left: 30px;
 }
 
-.fade-out {
-  opacity: 0;
+.galleryDes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--Low-blue);
+  width: 65%;
+  height: auto;
+  font-size: 1.5rem;
+  padding: var(--space-3);
+  margin: var(--space-3);
+  border-radius: 100px;
+  color: var(--white-off);
+  font-family: "Exo 2", sans-serif;
 }
 
-.galleryGradient {
-  position: absolute;
-  top: 0;
-  left: 0;
+.galleryContainer img,
+.galleryContainer video {
   width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0;
-  z-index: 5;
-  border-radius: 25px;
-  transition: opacity 0.3s ease;
-}
-
-.galleryItem:hover .galleryGradient {
-  opacity: 0.2;
-}
-.galleryItem img {
-  width: 100%;
-  height: 100%;
-  object-fit: fit;
-  border-radius: 25px;
-}
-
-.galleryItem video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 30px;
 }

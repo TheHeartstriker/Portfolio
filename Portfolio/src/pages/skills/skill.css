@@ -332,6 +332,11 @@
   cursor: pointer;
 }
 
+#Sep2 {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
 .Seperator h1 {
   font-size: 3.3rem;
   margin: var(--space-5);

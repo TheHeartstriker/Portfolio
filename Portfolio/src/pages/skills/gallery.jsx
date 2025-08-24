@@ -2,11 +2,14 @@ import PolySvg from "../../assets/polyR.svg?react";
 import "./gallery.css";
 import "./skill.css";
 import { useNavigate } from "react-router-dom";
-import { galleryContentBlock } from "../../components/skillPage/gallery";
+import Masonry from "react-masonry-css";
 
 import design from "../../assets/gallery/design1.png";
 import orginalSite from "../../assets/gallery/Mywebsite2.png";
 import video from "../../assets/gallery/Atoms.mp4";
+import project2 from "../../assets/gallery/Project2.png";
+import project1 from "../../assets/gallery/Project.webp";
+import test from "../../assets/gallery/Untitled.png";
 
 const galleryContent2 = [
   {
@@ -28,7 +31,7 @@ function Gallery() {
 
   return (
     <div className="mainGalleryContainer">
-      <div className="Seperator" id="Sep1" onClick={() => navigate("/skills")}>
+      <div className="Seperator" id="Sep2" onClick={() => navigate("/skills")}>
         <div className="GalleryLink reverse">
           <PolySvg className="GallerySvg" />
         </div>
@@ -36,16 +39,25 @@ function Gallery() {
         <h1>Gallery</h1>
         <h2>.04</h2>
       </div>
-      <div className="galleryContainer">
-        {/* {galleryContentBlock({
-          form: "galleryThreeEven",
-          content: galleryContent1,
-        })} */}
-        {galleryContentBlock({
-          form: "galleryTwoEven",
-          content: galleryContent2,
-        })}
+      <div className="galleryDes">
+        <p>
+          A random collection of my work, showcasing various projects, designs,
+          and videos. Many are just fun animations that I created to explore
+          different ideas and concepts in physics, math, motion and geometry. A
+          few design ones that I created outside my main projects as well!
+        </p>
       </div>
+      <Masonry
+        breakpointCols={3}
+        className="galleryContainer"
+        columnClassName="galleryColumn"
+      >
+        <img src={project2} alt="Project 2" />
+        <video src={video} loop autoPlay muted />
+        <img src={test} alt="Test Image" />
+        <img src={orginalSite} alt="Original Website" />
+        <img src={project1} alt="Project 1" />
+      </Masonry>
     </div>
   );
 }
