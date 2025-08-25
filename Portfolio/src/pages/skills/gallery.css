@@ -11,11 +11,11 @@
   position: relative;
   display: flex;
   width: 85vw;
-  margin-left: -30px;
+  margin-left: -20px;
 }
 
 .galleryColumn {
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .galleryDes {
@@ -28,7 +28,7 @@
   height: auto;
   font-size: 1.5rem;
   padding: var(--space-3);
-  margin: var(--space-3);
+  margin: var(--space-5);
   border-radius: 100px;
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;
@@ -41,5 +41,5 @@
   object-fit: contain;
   border-radius: 8px;
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }

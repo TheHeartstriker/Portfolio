@@ -4,27 +4,14 @@ import "./skill.css";
 import { useNavigate } from "react-router-dom";
 import Masonry from "react-masonry-css";
 
-import design from "../../assets/gallery/design1.png";
-import orginalSite from "../../assets/gallery/Mywebsite2.png";
+import orginalSite from "../../assets/gallery/Mywebsite2.webp";
 import video from "../../assets/gallery/Atoms.mp4";
-import project2 from "../../assets/gallery/Project2.png";
+import video2 from "../../assets/gallery/FallingSand.mp4";
+import project2 from "../../assets/gallery/Project2.webp";
 import project1 from "../../assets/gallery/Project.webp";
-import test from "../../assets/gallery/Untitled.png";
-
-const galleryContent2 = [
-  {
-    type: "image",
-    src: design,
-    content:
-      "A figma design created for a client. More a mockup than a final product.",
-  },
-  {
-    type: "video",
-    src: video,
-    content:
-      "One of the earliest iterations of this website. Completely different looking from how it is now right!",
-  },
-];
+import test from "../../assets/gallery/Untitled.webp";
+import client from "../../assets/gallery/client.webp";
+import multCircle from "../../assets/gallery/MultCircle.mp4";
 
 function Gallery() {
   const navigate = useNavigate();
@@ -48,7 +35,12 @@ function Gallery() {
         </p>
       </div>
       <Masonry
-        breakpointCols={3}
+        breakpointCols={{
+          default: 3,
+          1100: 2,
+          700: 2,
+          500: 1,
+        }}
         className="galleryContainer"
         columnClassName="galleryColumn"
       >
@@ -57,6 +49,9 @@ function Gallery() {
         <img src={test} alt="Test Image" />
         <img src={orginalSite} alt="Original Website" />
         <img src={project1} alt="Project 1" />
+        <img src={client} alt="Client Website" />
+        <video src={video2} loop autoPlay muted />
+        <video src={multCircle} loop autoPlay muted />
       </Masonry>
     </div>
   );
