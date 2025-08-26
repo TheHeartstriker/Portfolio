@@ -211,6 +211,7 @@
 
 .NoFeaturedApps {
   width: 80%;
+  position: relative;
 }
 
 /* Header container for non featured apps */
@@ -238,8 +239,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 20vw;
-  height: 20vw;
+  width: 100%;
+  aspect-ratio: 1/1;
   border: 2px solid rgb(100, 255, 218);
   padding: var(--space-2);
   border-radius: 15px;
@@ -324,15 +325,15 @@
 
 .GallerySvg {
   color: var(--neon-blue);
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
 }
 
 #Sep1 {
   cursor: pointer;
 }
 
-#Sep2 {
+#galSep {
   cursor: pointer;
   margin-bottom: 0;
 }
@@ -404,7 +405,7 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(50%);
+    transform: translateX(30%);
   }
   100% {
     transform: translateX(0);
@@ -415,32 +416,62 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(-50%);
+    transform: translateX(-30%);
   }
   100% {
     transform: translateX(0);
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .TechStacks {
-    width: 100%;
-    height: auto;
+    height: 30vh;
   }
   .BluePill {
-    width: 15%;
-    height: 15%;
-    font-size: 1.5rem;
+    width: 20%;
+    height: 20%;
+    font-size: 1.3rem;
+  }
+
+  .Seperator {
+    margin: 12vw;
   }
   .BluePill2 {
     width: 80%;
+  }
+  .AppHeader h1 {
+    font-size: 2.5rem;
+  }
+
+  .AppHeader h3 {
+    font-size: 3rem;
+  }
+  .AppPara {
+    font-size: 1.7rem;
+  }
+
+  .GalleryLink {
+    width: 35px;
+    height: 35px;
   }
 
   .FolderContainer {
     grid-template-columns: repeat(2, 1fr);
   }
-  .Folder {
-    width: 40vw;
-    height: 40vw;
+}
+
+@media (max-width: 750px) {
+  .FolderContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .GalleryLink {
+    width: 25px;
+    height: 25px;
+  }
+  .Seperator {
+    width: 85%;
   }
 }

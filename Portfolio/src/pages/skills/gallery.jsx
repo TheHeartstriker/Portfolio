@@ -18,7 +18,11 @@ function Gallery() {
 
   return (
     <div className="mainGalleryContainer">
-      <div className="Seperator" id="Sep2" onClick={() => navigate("/skills")}>
+      <div
+        className="Seperator"
+        id="galSep"
+        onClick={() => navigate("/skills")}
+      >
         <div className="GalleryLink reverse">
           <PolySvg className="GallerySvg" />
         </div>
