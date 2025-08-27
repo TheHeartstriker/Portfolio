@@ -13,6 +13,8 @@ html {
   --neon-dull: rgb(0, 188, 235);
   --circle-radius: 32.5vh;
   --Teal: rgb(100, 255, 218);
+  --Low-blue: #0e2250;
+  --main-glow: rgba(0, 204, 255, 0.65);
   /* Whites */
   --white: #f0f0f0;
   --white-off: #c5c5c5;
