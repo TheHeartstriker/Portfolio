@@ -12,6 +12,7 @@
   display: flex;
   width: 85vw;
   margin-left: -20px;
+  animation: forwards opcaityReveal 2s ease-in-out;
 }
 
 .galleryColumn {
@@ -32,6 +33,7 @@
   border-radius: 100px;
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;
+  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
 }
 
 .galleryContainer img,
@@ -42,4 +44,13 @@
   border-radius: 8px;
   display: block;
   margin-bottom: 20px;
+}
+
+@keyframes opcaityReveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
