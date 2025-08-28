@@ -1,10 +1,10 @@
-.PlayGround {
+.play-ground {
   position: absolute;
   cursor: default;
   width: 100%;
 }
 
-.Shadow {
+.shadow {
   position: absolute;
   cursor: default;
   width: 100%;
@@ -12,7 +12,7 @@
 }
 
 /* Container for the entire page */
-.MainAboutContainer {
+.main-about-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 /* Container for the glowing text element */
-.IAmContainer {
+.i-am-container {
   display: flex;
   position: relative;
   justify-content: center;
@@ -35,55 +35,45 @@
 
 /* In the nav folder the css file consider the container appearing time */
 
-.Text1 {
+.text-1 {
   font-size: 2.3rem;
   color: var(--neon-dull);
   margin: 0px 0px var(--space-3) 0;
   font-weight: 500;
   filter: drop-shadow(0 0 2px var(--neon-blue));
-  animation: FadeUpEnter 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.Text2 {
+.text-2 {
   font-size: 5.8rem;
   color: var(--white);
   font-weight: 700;
   margin: 0;
   line-height: 1.1;
-  animation: FadeUpEnter 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  animation: fadeUpEnter0-30 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.Text3 {
+.text-3 {
   font-size: 5.8rem;
   color: var(--white-off);
   font-weight: 500;
   margin: 0;
   opacity: 0.9;
   line-height: 0.9;
-  animation: FadeUpEnter 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  animation: fadeUpEnter0-30 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.Text4 {
+.text-4 {
   font-size: 1.5rem;
   width: 75%;
   color: var(--white-light);
   font-family: "Exo 2", sans-serif;
   margin: var(--space-2) 0px 0px;
-  animation: FadeUpEnter 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
-}
-
-@keyframes FadeUpEnter {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-30px);
-  }
+  animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 /* Down indicator */
-.DownContainer {
+.down-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,9 +82,9 @@
   width: 100%;
   height: 100px;
 }
-.DownContainer path {
-  animation: Arrow 2s infinite;
-  -webkit-animation: Arrow 2s infinite;
+.down-container path {
+  animation: arrowOpacity 2s infinite;
+  -webkit-animation: arrowOpacity 2s infinite;
   transform-origin: center;
   transform: scale(0.8);
 }
@@ -119,45 +109,14 @@
   stroke: #0099ff;
 }
 
-@keyframes Arrow {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes Arrow {
-  /* Safari and Chrome */
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 @media (max-width: 1000px) {
-  .IAmContainer {
+  .i-am-container {
     bottom: 20vh;
     width: 75%;
   }
 }
 
-.MobileAbout {
+.mobile-about {
   position: relative;
   display: flex;
   justify-content: center;
@@ -168,9 +127,9 @@
   top: 15vh;
 }
 
-.Journey,
-.Beyond,
-.More {
+.journey,
+.beyond,
+.more {
   height: 45vh;
   position: relative;
   width: 45vh;
@@ -188,14 +147,14 @@
   color: white;
 }
 
-.Journey {
+.journey {
   left: 15%;
 }
 
-.Beyond {
+.beyond {
   right: 15%;
 }
 
-.More {
+.more {
   left: 15%;
 }

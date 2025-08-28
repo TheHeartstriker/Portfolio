@@ -1,4 +1,4 @@
-.mainGalleryContainer {
+.main-gallery-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,19 +7,19 @@
   height: 100%;
 }
 
-.galleryContainer {
+.gallery-container {
   position: relative;
   display: flex;
   width: 85vw;
   margin-left: -20px;
-  animation: forwards opcaityReveal 2s ease-in-out;
+  animation: forwards opacityReveal 2s ease-in-out;
 }
 
-.galleryColumn {
+.gallery-column {
   padding-left: 20px;
 }
 
-.galleryDes {
+.gallery-description {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -33,24 +33,15 @@
   border-radius: 100px;
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;
-  animation: forwards FadeUpEnterAni 1.5s ease-in-out;
+  animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
 }
 
-.galleryContainer img,
-.galleryContainer video {
+.gallery-container img,
+.gallery-container video {
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
   display: block;
   margin-bottom: 20px;
-}
-
-@keyframes opcaityReveal {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }

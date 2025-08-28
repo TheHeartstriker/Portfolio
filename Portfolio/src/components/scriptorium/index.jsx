@@ -15,7 +15,7 @@ function articleChecker(item) {
   if (typeof item === "string" && item.endsWith(".png")) {
     // Assuming the string is a path to an image
     return (
-      <div className="imageContainerArticle">
+      <div className="image-container-article">
         <img src={item} alt="Article related" />
       </div>
     );
@@ -61,7 +61,7 @@ function articleChecker(item) {
   } else if (typeof item === "function") {
     // Render as a component, not as a function call!
     return (
-      <div className="componentContainerArticle">
+      <div className="component-container-article">
         {React.createElement(item)}
       </div>
     );
@@ -100,21 +100,21 @@ export function SubjectContainer({
 
   return (
     <div
-      className={`subject-container-article${!active ? " pointerScript" : ""}`}
+      className={`subject-container-article${!active ? " pointer-script" : ""}`}
       onClick={() => onClick(articleName, true)}
     >
-      <div className="subjectTextContainerArticle">
+      <div className="subject-text-container-article">
         <h1>{title}</h1>
         <h2>{subject}</h2>
       </div>
-      <div className="subjectDescriptionContainerArticle">
+      <div className="subject-description-container-article">
         <p>{description}</p>
       </div>
-      <div className={`articleTextContainer${active ? " active" : ""}`}>
+      <div className={`article-text-container${active ? " active" : ""}`}>
         {renderArticles(showContent, article)}
         {active && (
           <button
-            className="unFurlArticle"
+            className="unfurl-article"
             onClick={() => {
               onClick(articleName, false);
             }}

@@ -1,18 +1,7 @@
-:root {
-  --back-round-grey: rgb(30, 30, 30);
-  --neon-blue: #00ccff;
-  --neon-dull: rgb(0, 188, 235);
-  --Low-blue: #0e2250;
-  --Dark-blue: #0b1a3d;
-  --super-Dark-blue: #081430;
-
-  --Teal: rgb(100, 255, 218);
-}
-
 /*  */
 /* Main showcase css */
 /*  */
-.mainScriptoriumContainer {
+.main-scriptorium-container {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -38,12 +27,12 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.pointerScript:hover {
+.pointer-script:hover {
   cursor: pointer;
   transform: scale(1.03);
 }
 
-.subjectTextContainerArticle {
+.subject-text-container-article {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -52,7 +41,7 @@
   border-radius: 40px;
 }
 
-.subjectTextContainerArticle h1 {
+.subject-text-container-article h1 {
   color: var(--neon-blue);
   filter: drop-shadow(0 0 5px var(--neon-dull));
   font-size: 2.5rem;
@@ -62,7 +51,7 @@
   margin-left: var(--space-4);
 }
 
-.subjectTextContainerArticle h2 {
+.subject-text-container-article h2 {
   color: white;
   font-size: 1.5rem;
   font-weight: 500;
@@ -70,7 +59,7 @@
   margin: 0;
   margin-left: var(--space-4);
 }
-.subjectDescriptionContainerArticle {
+.subject-description-container-article {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +77,7 @@
 /*  */
 /* Text container css */
 /*  */
-.articleTextContainer {
+.article-text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,23 +93,23 @@
     background-color 1.2s ease-in-out, border-radius 1.2s ease-in-out;
 }
 
-.articleTextContainer a {
+.article-text-container a {
   color: var(--neon-blue);
   text-decoration: none;
   font-weight: 700;
 }
-.articleTextContainer ul {
+.article-text-container ul {
   color: black;
 }
 
-.canvasScript {
+.canvas-script {
   width: 100%;
   height: 100%;
   background-color: black;
   border-radius: 40px;
 }
 
-.articleTextContainer.active {
+.article-text-container.active {
   opacity: 1;
   max-height: 15000px;
   padding: var(--space-1);
@@ -129,14 +118,14 @@
   color: white;
 }
 
-.componentContainerArticle {
+.component-container-article {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.imageContainerArticle {
+.image-container-article {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,7 +135,7 @@
   margin-bottom: var(--space-2);
 }
 
-.imageContainerArticle img {
+.image-container-article img {
   max-width: 90%;
   max-height: 60vh;
   width: auto;
@@ -157,7 +146,7 @@
   background: #111;
 }
 
-.unFurlArticle {
+.unfurl-article {
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -215,15 +204,4 @@ p {
 
 code {
   padding: 0.2em 0.4em;
-}
-
-@keyframes FadeUpEnterAni {
-  0% {
-    transform: translateY(75px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }

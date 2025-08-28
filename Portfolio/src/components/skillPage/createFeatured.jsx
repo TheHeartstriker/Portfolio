@@ -6,13 +6,13 @@ function CreateFeatured({ Header, Para, Skills, Mirror, Image, Link1, Link2 }) {
   return (
     <>
       {/* Main app split into two container one for image and other for text */}
-      <div className={`AppF ${Mirror ? "mirror" : ""}`}>
-        <div className="AppImage">
+      <div className={`app-f ${Mirror ? "mirror" : ""}`}>
+        <div className="app-image">
           <img src={Image} alt="Project image" />
-          <div className="TransparentFill"></div>
+          <div className="transparent-fill"></div>
           {Link1 && (
             <div
-              className="Logocontainer ImgBackLogo1"
+              className="logo-container img-back-logo1"
               onClick={() => {
                 handleLink(Link1);
               }}
@@ -20,25 +20,25 @@ function CreateFeatured({ Header, Para, Skills, Mirror, Image, Link1, Link2 }) {
           )}
           {Link2 && (
             <div
-              className="Logocontainer ImgBackLogo2"
+              className="logo-container img-back-logo2"
               onClick={() => {
                 handleLink(Link2);
               }}
             ></div>
           )}
         </div>
-        <div className={`AppText ${Mirror ? "mirror" : ""}`}>
-          <div className="AppHeader">
+        <div className={`app-text ${Mirror ? "mirror" : ""}`}>
+          <div className="app-header">
             <h1>Featured project</h1>
             <h3>{Header}</h3>
           </div>
-          <div className="AppPara">
+          <div className="app-para">
             <p>{Para}</p>
           </div>
 
-          <div className={`AppSkills ${Mirror ? "mirror" : ""}`}>
+          <div className={`app-skills ${Mirror ? "mirror" : ""}`}>
             {Skills.map((tech, index) => (
-              <div className="BluePill2" key={index}>
+              <div className="blue-pill2" key={index}>
                 <h2>{tech}</h2>
               </div>
             ))}

@@ -322,13 +322,13 @@ function PlayGround() {
     <>
       <canvas
         ref={Playground}
-        className="PlayGround"
+        className="play-ground"
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>
       <canvas
         ref={shadowRef}
-        className="Shadow"
+        className="shadow"
         width={document.documentElement.scrollWidthX}
         height={document.documentElement.scrollHeightY}
       ></canvas>

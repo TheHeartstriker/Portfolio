@@ -39,7 +39,7 @@ function Scriptorium() {
   }
 
   return (
-    <div className="mainScriptoriumContainer">
+    <div className="main-scriptorium-container">
       <SubjectContainer
         title="Mapping a full stack application"
         subject="Web development / Full stack"

@@ -7,6 +7,7 @@ import Background from "./components/backgrounds/background.jsx";
 import Nav from "./components/nav/nav.jsx";
 //Styles
 import "./Site.css";
+import "./animation.css";
 
 //Main render
 createRoot(document.getElementById("root")).render(

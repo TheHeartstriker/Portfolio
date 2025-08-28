@@ -4,8 +4,8 @@ function handleLink(Link) {
 
 function CreateFolder({ Header, Para, Link }) {
   return (
-    <div className="Folder" onClick={() => handleLink(Link)}>
-      <div className="FolderSvgContainer"></div>
+    <div className="folder" onClick={() => handleLink(Link)}>
+      <div className="folder-svg-container"></div>
       <h1>{Header}</h1>
       <p>{Para}</p>
     </div>

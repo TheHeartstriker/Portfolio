@@ -64,7 +64,7 @@ function Skill() {
     // Selects them all
     const bluePills = Array.from(
       document.querySelectorAll(
-        ".BluePill, .BluePill h2, .BluePill2, .BluePill2 h2"
+        ".blue-pill, .blue-pill h2, .blue-pill2, .blue-pill2 h2"
       )
     );
     // Create individual animations for each BluePill
@@ -112,39 +112,38 @@ function Skill() {
     };
   }, []);
   return (
-    <div className="MainSkillContainer" ref={root}>
+    <div className="main-skill-container" ref={root}>
       {/* Over head container for teck stacks */}
       <div
-        className="Seperator"
+        className="separator"
         id="Sep1"
         onClick={() => navigate("/skills/gallery")}
       >
         <h2>01.</h2>
         <h1 id="TestId">Known tech</h1>
         <hr></hr>
-        <div className="GalleryLink">
-          <PolySvg className="GallerySvg" />
+        <div className="gallery-link">
+          <PolySvg className="gallery-svg" />
         </div>
-        <div id="lottie-container" ref={Container1Ref}></div>
       </div>
-      <div className="TechStacksContainer">
-        <div className="TechStacks">
+      <div className="tech-stacks-container">
+        <div className="tech-stacks">
           {TechStacks.map((tech, index) => (
-            <div className="BluePill" key={index}>
+            <div className="blue-pill" key={index}>
               <h2>{tech}</h2>
             </div>
           ))}
         </div>
       </div>
-      {/* Seperator element */}
-      <div className="Seperator" id="Sep2">
+      {/* Separator element */}
+      <div className="separator" id="Sep2">
         <hr></hr>
         <h1>Stuff I made</h1>
         <h2>.02</h2>
         <div id="lottie-container" ref={Container2Ref}></div>
       </div>
       {/* Overhead container for main apps */}
-      <div className="FeaturedApps">
+      <div className="featured-apps">
         <CreateFeatured
           Header={Header[3]}
           Para={Paras[3]}
@@ -180,11 +179,11 @@ function Skill() {
         />
       </div>
       {/* Main container for folder aka less important apps and code */}
-      <div className="NoFeaturedApps">
-        <div className="NonFeaturedHeader">
-          <h1>Other Noteworthey Code</h1>
+      <div className="no-featured-apps">
+        <div className="non-featured-header">
+          <h1>Other Noteworthy Code</h1>
         </div>
-        <div className="FolderContainer">
+        <div className="folder-container">
           <CreateFolder
             Header={NoteWortheyH[0]}
             Para={NoteWortheyP[0]}

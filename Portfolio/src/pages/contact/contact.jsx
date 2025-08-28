@@ -211,9 +211,9 @@ function Contact() {
 
   return (
     <>
-      <canvas id="ContactCanvas" ref={Contact}></canvas>
-      <div className="ContactContainer">
-        <div className="Contact">
+      <canvas id="contact-canvas" ref={Contact}></canvas>
+      <div className="contact-container">
+        <div className="contact">
           <h1>Contact me :)</h1>
           <button
             onClick={() => {

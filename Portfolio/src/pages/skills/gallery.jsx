@@ -17,20 +17,20 @@ function Gallery() {
   const navigate = useNavigate();
 
   return (
-    <div className="mainGalleryContainer">
+    <div className="main-gallery-container">
       <div
-        className="Seperator"
+        className="separator"
         id="galSep"
         onClick={() => navigate("/skills")}
       >
-        <div className="GalleryLink reverse">
-          <PolySvg className="GallerySvg" />
+        <div className="gallery-link reverse">
+          <PolySvg className="gallery-svg" />
         </div>
         <hr></hr>
         <h1>Gallery</h1>
         <h2>.04</h2>
       </div>
-      <div className="galleryDes">
+      <div className="gallery-description">
         <p>
           A random collection of my work, showcasing various projects, designs,
           and videos. Many are just fun animations that I created to explore
@@ -45,8 +45,8 @@ function Gallery() {
           700: 2,
           500: 1,
         }}
-        className="galleryContainer"
-        columnClassName="galleryColumn"
+        className="gallery-container"
+        columnClassName="gallery-column"
       >
         <img src={project2} alt="Project 2" />
         <video src={video} loop autoPlay muted />

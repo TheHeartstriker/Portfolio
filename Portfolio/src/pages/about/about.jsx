@@ -31,34 +31,34 @@ function About() {
 
   return (
     <>
-      <div className="MainAboutContainer">
-        <div className="IAmContainer">
-          <h1 className="Text1" ref={ColoredTextRef}>
+      <div className="main-about-container">
+        <div className="i-am-container">
+          <h1 className="text-1" ref={ColoredTextRef}>
             Hi, my name is
           </h1>
-          <h2 className="Text2">Kaden Wildauer.</h2>
-          <h3 className="Text3">I build things for the web!</h3>
-          <p className="Text4">
+          <h2 className="text-2">Kaden Wildauer.</h2>
+          <h3 className="text-3">I build things for the web!</h3>
+          <p className="text-4">
             I'm a software engineer specializing in building websites and web
             applications. I enjoy creating efficient, scalable, and visually
             appealing digital experiences. You can find my work here!
           </p>
         </div>
-        <div className="DownContainer">
+        <div className="down-container">
           <DownArr onClick={scrollDown} />
         </div>
         {ToSmall === false && <PlayGround />}
         {ToSmall && (
-          <div className="MobileAbout">
-            <div className="Journey">
+          <div className="mobile-about">
+            <div className="journey">
               <h1>{Header1}</h1>
               <p>{MainText1}</p>
             </div>
-            <div className="Beyond">
+            <div className="beyond">
               <h1>{Header2}</h1>
               <p>{MainText2}</p>
             </div>
-            <div className="More">
+            <div className="more">
               <h1>{Header3}</h1>
               <p>{MainText3}</p>
             </div>
