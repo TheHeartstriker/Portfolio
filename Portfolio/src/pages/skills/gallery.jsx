@@ -5,13 +5,10 @@ import { useNavigate } from "react-router-dom";
 import Masonry from "react-masonry-css";
 
 import orginalSite from "../../assets/gallery/Mywebsite2.webp";
-import video from "../../assets/gallery/Atoms.mp4";
-import video2 from "../../assets/gallery/FallingSand.mp4";
 import project2 from "../../assets/gallery/Project2.webp";
 import project1 from "../../assets/gallery/Project.webp";
 import test from "../../assets/gallery/Untitled.webp";
 import client from "../../assets/gallery/client.webp";
-import multCircle from "../../assets/gallery/MultCircle.mp4";
 
 function Gallery() {
   const navigate = useNavigate();
@@ -49,13 +46,31 @@ function Gallery() {
         columnClassName="gallery-column"
       >
         <img src={project2} alt="Project 2" />
-        <video src={video} loop autoPlay muted />
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/nryWMrf9SaI?autoplay=1&controls=0&loop=1&playlist=nryWMrf9SaI"
+          title="YouTube video"
+          allowFullScreen
+        />
         <img src={test} alt="Test Image" />
         <img src={orginalSite} alt="Original Website" />
         <img src={project1} alt="Project 1" />
         <img src={client} alt="Client Website" />
-        <video src={video2} loop autoPlay muted />
-        <video src={multCircle} loop autoPlay muted />
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/RpBYimzejoA?autoplay=1&controls=0&loop=1&playlist=RpBYimzejoA"
+          title="YouTube video"
+          allowFullScreen
+        />
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/YjaAdnZ9sJ0?autoplay=1&controls=0&loop=1&playlist=YjaAdnZ9sJ0"
+          title="YouTube video"
+          allowFullScreen
+        />
       </Masonry>
     </div>
   );
