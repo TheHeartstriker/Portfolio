@@ -6,7 +6,7 @@ import { AppRoutes } from "./routing/indexRoute.jsx";
 import Background from "./components/backgrounds/background.jsx";
 import Nav from "./components/nav/nav.jsx";
 //Styles
-import "./Site.css";
+import "./site.css";
 import "./animation.css";
 
 //Main render
