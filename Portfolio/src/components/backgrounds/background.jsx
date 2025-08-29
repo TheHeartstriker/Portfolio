@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
 import "./background.css";

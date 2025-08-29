@@ -1,11 +1,12 @@
+"use client";
 import { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 
 function Nav() {
   const containerRef = useRef(null);
-  const navigate = useNavigate();
+  const router = useRouter();
   const location = useRef({});
   const current = useRef("About");
   const height = 40; // 40 spans that are 1px apart and 1px high
@@ -81,7 +82,7 @@ function Nav() {
           id="AboutBtn"
           onClick={() => {
             setValue("About", true);
-            navigate("/");
+            router.push("/");
             spanMoveer(location.current.About.left);
           }}
         >
@@ -92,7 +93,7 @@ function Nav() {
           id="SkillBtn"
           onClick={() => {
             setValue("Skill", true);
-            navigate("/skills");
+            router.push("/skills");
             spanMoveer(location.current.Skill.left);
           }}
         >
@@ -104,7 +105,7 @@ function Nav() {
           id="scriptoriumBtn"
           onClick={() => {
             setValue("Script", true);
-            navigate("/scriptorium");
+            router.push("/scriptorium");
             spanMoveer(location.current.Script.left);
           }}
         >
@@ -115,7 +116,7 @@ function Nav() {
           id="ContactBtn"
           onClick={() => {
             setValue("Contact", true);
-            navigate("/contact");
+            router.push("/contact");
             spanMoveer(location.current.Contact.left);
           }}
         >
