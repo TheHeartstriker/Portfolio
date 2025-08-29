@@ -1,3 +1,4 @@
+"use client";
 import PolySvg from "../../assets/polyR.svg?react";
 import "./gallery.css";
 import "./skill.css";

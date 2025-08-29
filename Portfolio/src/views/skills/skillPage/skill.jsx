@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useEffect } from "react";
 //Text
 import { createAnimatable, utils } from "animejs";

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { DrawCircle } from "./canvasH.jsx";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";

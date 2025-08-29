@@ -33,6 +33,7 @@ function PlayGround() {
   const InitalMouse = useRef({ x: 0, y: 0 });
   const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
+  const [docSize, setDocSize] = useState({ width: 0, height: 0 });
   const Which = useRef(null);
   const TimeStep = 0.016;
   //
@@ -276,6 +277,14 @@ function PlayGround() {
       MouseTracker(e);
       HandleMouse(e);
     }
+    function docSize() {
+      setDocSize({
+        width: document.documentElement.scrollWidth,
+        height: document.documentElement.scrollHeight,
+      });
+    }
+    docSize();
+    window.addEventListener("resize", docSize);
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mousedown", () => MouseDown());
     document.addEventListener("mouseup", () => MouseUp());
@@ -283,6 +292,7 @@ function PlayGround() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", () => MouseDown());
       document.removeEventListener("mouseup", () => MouseUp());
+      window.removeEventListener("resize", docSize);
     };
   }, []);
 
@@ -323,14 +333,14 @@ function PlayGround() {
       <canvas
         ref={Playground}
         className="play-ground"
-        width={document.documentElement.scrollWidthX}
-        height={document.documentElement.scrollHeightY}
+        width={docSize.width}
+        height={docSize.height}
       ></canvas>
       <canvas
         ref={shadowRef}
         className="shadow"
-        width={document.documentElement.scrollWidthX}
-        height={document.documentElement.scrollHeightY}
+        width={docSize.width}
+        height={docSize.height}
       ></canvas>
     </>
   );
