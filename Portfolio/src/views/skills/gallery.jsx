@@ -1,5 +1,5 @@
 "use client";
-import PolySvg from "../../../public/polyR.svg?react";
+import PolyR from "../../svg/polyR.jsx";
 import "./gallery.css";
 import "./skill.css";
 import { useRouter } from "next/navigation";
@@ -16,7 +16,7 @@ function Gallery() {
         onClick={() => router.push("/skills")}
       >
         <div className="gallery-link reverse">
-          <PolySvg className="gallery-svg" />
+          <PolyR className="gallery-svg" />
         </div>
         <hr></hr>
         <h1>Gallery</h1>

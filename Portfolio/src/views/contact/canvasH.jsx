@@ -1,7 +1,10 @@
-import gitImageSrc from "../../assets/Github.svg";
+const gitImageSrc = "/Github.svg";
 
-const gitImage = new Image();
-gitImage.src = gitImageSrc;
+let gitImage;
+if (typeof window !== "undefined") {
+  gitImage = new window.Image();
+  gitImage.src = "/Github.svg";
+}
 
 export function DrawCircle(hexColor, x, y, radius, ctx, Type) {
   ctx.beginPath();

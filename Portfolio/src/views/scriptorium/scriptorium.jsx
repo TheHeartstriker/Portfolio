@@ -9,9 +9,9 @@ import {
   articleMappingFullStack4,
 } from "./articles/article2.js";
 import particleSys from "./scripts/particleSys.jsx";
-import art1Image from "/scriptorium/Map1.png";
-import art2Image from "/scriptorium/Map2.png";
-import art3Image from "/scriptorium/Map3.png";
+const art1Image = "/scriptorium/Map1.png";
+const art2Image = "/scriptorium/Map2.png";
+const art3Image = "/scriptorium/Map3.png";
 
 import "./scriptorium.css";
 

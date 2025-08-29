@@ -22,7 +22,7 @@ import {
   CreateFolder,
   CreateFeatured,
 } from "../../../components/skillPage/index.js";
-import PolySvg from "../../../svg/poly.svg";
+import Poly from "../../../svg/poly.jsx";
 import { useRouter } from "next/navigation";
 import "../skill.css";
 
@@ -124,7 +124,7 @@ function Skill() {
         <h1 id="TestId">Known tech</h1>
         <hr></hr>
         <div className="gallery-link">
-          {/* <PolySvg className="gallery-svg" /> */}
+          <Poly className="gallery-svg" />
         </div>
       </div>
       <div className="tech-stacks-container">

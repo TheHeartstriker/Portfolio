@@ -287,7 +287,7 @@
 .folder-svg-container {
   width: 30%;
   height: 30%;
-  background-image: url(/_next/static/media/Folder.9ff3e75f.svg);
+  background-image: url("/Folder.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -368,7 +368,7 @@
 }
 
 .img-back-logo1 {
-  background-image: url(/_next/static/media/link.10736d45.svg);
+  background-image: url("/link.svg");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -376,7 +376,7 @@
 }
 
 .img-back-logo2 {
-  background-image: url(/_next/static/media/Github.9f90731a.svg);
+  background-image: url("/Github.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
