@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import DownArr from "../../assets/DownArrow";
+import DownArr from "/DownArrow.svg";
 import { useState, useEffect } from "react";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";

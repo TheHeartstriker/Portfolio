@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { SubjectContainer } from "../../components/scriptorium/index.jsx";
 import { markdown } from "./articles/article1.js";
@@ -8,9 +9,9 @@ import {
   articleMappingFullStack4,
 } from "./articles/article2.js";
 import particleSys from "./scripts/particleSys.jsx";
-import art1Image from "../../assets/scriptorium/Map1.png";
-import art2Image from "../../assets/scriptorium/Map2.png";
-import art3Image from "../../assets/scriptorium/Map3.png";
+import art1Image from "/scriptorium/Map1.png";
+import art2Image from "/scriptorium/Map2.png";
+import art3Image from "/scriptorium/Map3.png";
 
 import "./scriptorium.css";
 

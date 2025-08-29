@@ -13,24 +13,24 @@ import {
   NoteWortheyH,
   NoteWortheyP,
 } from "./text.js";
-import client1 from "../../../assets/skill/client1.webp";
-import dynamicAnimations from "../../../assets/DynamicShot.webp";
-import fitShot from "../../../assets/skill/FitShot.webp";
-import todoShot from "../../../assets/skill/todoShot.webp";
+const client1 = "/skill/client1.webp";
+const dynamicAnimations = "/DynamicShot.webp";
+const fitShot = "/skill/FitShot.webp";
+const todoShot = "/skill/todoShot.webp";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import {
   CreateFolder,
   CreateFeatured,
 } from "../../../components/skillPage/index.js";
-import PolySvg from "../../../assets/poly.svg?react";
-import { useNavigate } from "react-router-dom";
+import PolySvg from "../../../svg/poly.svg";
+import { useRouter } from "next/navigation";
 import "../skill.css";
 
 function Skill() {
   const Container1Ref = useRef(null);
   const Container2Ref = useRef(null);
   const root = useRef(null); // for animejs
-  const navigate = useNavigate();
+  const router = useRouter();
   //Creates the lottie animation
   //Manipulates the pills on mouse move
   function onMouseMove(event, animatablePills, bluePills) {
@@ -118,13 +118,13 @@ function Skill() {
       <div
         className="separator"
         id="Sep1"
-        onClick={() => navigate("/skills/gallery")}
+        onClick={() => router.push("/skills/gallery")}
       >
         <h2>01.</h2>
         <h1 id="TestId">Known tech</h1>
         <hr></hr>
         <div className="gallery-link">
-          <PolySvg className="gallery-svg" />
+          {/* <PolySvg className="gallery-svg" /> */}
         </div>
       </div>
       <div className="tech-stacks-container">

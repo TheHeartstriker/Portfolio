@@ -1,6 +1,6 @@
 "use client";
 import PlayGround from "./playground/playGround";
-import DownArr from "../../assets/DownArrow";
+import DownArr from "../../svg/DownArrow.jsx";
 import { useRef, useState, useEffect } from "react";
 import { Header1, Header2, Header3 } from "./text";
 import { MainText1, MainText2, MainText3 } from "./text";

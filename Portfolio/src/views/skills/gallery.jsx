@@ -1,25 +1,19 @@
 "use client";
-import PolySvg from "../../assets/polyR.svg?react";
+import PolySvg from "../../../public/polyR.svg?react";
 import "./gallery.css";
 import "./skill.css";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import Masonry from "react-masonry-css";
 
-import orginalSite from "../../assets/gallery/Mywebsite2.webp";
-import project2 from "../../assets/gallery/Project2.webp";
-import project1 from "../../assets/gallery/Project.webp";
-import test from "../../assets/gallery/Untitled.webp";
-import client from "../../assets/gallery/client.webp";
-
 function Gallery() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="main-gallery-container">
       <div
         className="separator"
         id="galSep"
-        onClick={() => navigate("/skills")}
+        onClick={() => router.push("/skills")}
       >
         <div className="gallery-link reverse">
           <PolySvg className="gallery-svg" />
@@ -46,7 +40,7 @@ function Gallery() {
         className="gallery-container"
         columnClassName="gallery-column"
       >
-        <img src={project2} alt="Project 2" />
+        <img src="/gallery/Project2.webp" alt="Project 2" />
         <iframe
           width="100%"
           height="315"
@@ -54,10 +48,10 @@ function Gallery() {
           title="YouTube video"
           allowFullScreen
         />
-        <img src={test} alt="Test Image" />
-        <img src={orginalSite} alt="Original Website" />
-        <img src={project1} alt="Project 1" />
-        <img src={client} alt="Client Website" />
+        <img src="/gallery/Untitled.webp" alt="Test Image" />
+        <img src="/gallery/Mywebsite2.webp" alt="Original Website" />
+        <img src="/gallery/Project.webp" alt="Project 1" />
+        <img src="/gallery/client.webp" alt="Client Website" />
         <iframe
           width="100%"
           height="315"
