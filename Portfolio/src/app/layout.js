@@ -2,10 +2,8 @@ import "../site.css";
 import "../animation.css";
 import Background from "../components/backgrounds/background";
 import Nav from "../components/nav/nav";
-import FadeSettings from "../fadeSettings";
-import { AnimatePresence } from "framer-motion";
-import { Suspense } from "react";
 
+import FadeLayout from "../route/fadeLayout";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -43,11 +41,7 @@ export default function RootLayout({ children }) {
       <body>
         <Background />
         <Nav />
-        <AnimatePresence mode="wait">
-          <Suspense fallback={null}>
-            <FadeSettings>{children}</FadeSettings>
-          </Suspense>
-        </AnimatePresence>
+        <FadeLayout>{children}</FadeLayout>
       </body>
     </html>
   );
