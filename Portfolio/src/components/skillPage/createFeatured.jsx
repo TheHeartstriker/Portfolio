@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function handleLink(Link) {
   window.open(Link, "_blank", "noopener,noreferrer");
 }
@@ -48,5 +50,15 @@ function CreateFeatured({ Header, Para, Skills, Mirror, Image, Link1, Link2 }) {
     </>
   );
 }
+
+CreateFeatured.propTypes = {
+  Header: PropTypes.string.isRequired,
+  Para: PropTypes.string.isRequired,
+  Skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  Mirror: PropTypes.bool,
+  Image: PropTypes.string.isRequired,
+  Link1: PropTypes.string,
+  Link2: PropTypes.string,
+};
 
 export default CreateFeatured;

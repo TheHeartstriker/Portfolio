@@ -2,6 +2,7 @@ import "../site.css";
 import "../animation.css";
 import Background from "../components/backgrounds/background";
 import Nav from "../components/nav/nav";
+import PropTypes from "prop-types";
 
 import FadeLayout from "../route/fadeLayout";
 export default function RootLayout({ children }) {
@@ -46,3 +47,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+RootLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

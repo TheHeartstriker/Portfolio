@@ -8,7 +8,7 @@ import {
   articleMappingFullStack3,
   articleMappingFullStack4,
 } from "./articles/article2.js";
-import particleSys from "./scripts/particleSys.jsx";
+import ParticleSys from "./scripts/particleSys.jsx";
 const art1Image = "/scriptorium/Map1.png";
 const art2Image = "/scriptorium/Map2.png";
 const art3Image = "/scriptorium/Map3.png";
@@ -16,7 +16,7 @@ const art3Image = "/scriptorium/Map3.png";
 import "./scriptorium.css";
 
 function Scriptorium() {
-  const articleArr1 = [markdown, particleSys];
+  const articleArr1 = [markdown, ParticleSys];
   const articleArr2 = [
     articleMappingFullStack1,
     art1Image,

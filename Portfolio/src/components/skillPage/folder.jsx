@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function handleLink(Link) {
   window.open(Link, "_blank", "noopener,noreferrer");
 }
@@ -11,5 +13,11 @@ function CreateFolder({ Header, Para, Link }) {
     </div>
   );
 }
+
+CreateFolder.propTypes = {
+  Header: PropTypes.string.isRequired,
+  Para: PropTypes.string.isRequired,
+  Link: PropTypes.string.isRequired,
+};
 
 export default CreateFolder;

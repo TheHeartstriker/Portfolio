@@ -1,5 +1,5 @@
 "use client";
-
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 function FadeSettings({ children }) {
   return (
@@ -13,4 +13,7 @@ function FadeSettings({ children }) {
     </motion.div>
   );
 }
+FadeSettings.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default FadeSettings;

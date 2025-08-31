@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { defaultCanvas } from "../../../utils/canvas";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame";
 
-function particleSys() {
+function ParticleSys() {
   //
   //
   const canvasRef = useRef(null);
@@ -225,13 +225,13 @@ function particleSys() {
   }
 
   useEffect(() => {
-    console.log("Canvas context set");
     if (ctx) {
       const animationId = AddMember(mainLoop);
       return () => {
         RemoveMember(animationId);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   const mousePosRef = useRef({ x: 0, y: 0 });
@@ -256,4 +256,4 @@ function particleSys() {
   return <canvas ref={canvasRef} className="canvas-script" />;
 }
 
-export default particleSys;
+export default ParticleSys;

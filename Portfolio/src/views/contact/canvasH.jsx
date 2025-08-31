@@ -1,5 +1,3 @@
-const gitImageSrc = "/Github.svg";
-
 let gitImage;
 if (typeof window !== "undefined") {
   gitImage = new window.Image();

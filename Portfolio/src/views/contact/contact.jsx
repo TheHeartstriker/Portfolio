@@ -4,11 +4,7 @@ import { DrawCircle } from "./canvasH.jsx";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
 import { TextScramble } from "../../utils/scramble.jsx";
 import "./contact.css";
-import {
-  setupCanvasBall,
-  WhichOne,
-  CursorChange,
-} from "../../utils/shared.jsx";
+import { setupCanvasBall, WhichOne, CursorChange } from "../../utils/shared.js";
 function Contact() {
   //Github
   //LinkedIn
@@ -19,7 +15,6 @@ function Contact() {
 
   const ObjectData = useRef([]);
   //Used to render on load
-  const [isCalled, setIsCalled] = useState(false);
   const [Text, setText] = useState("SerKadenWildauer@gmail.com");
   const Orginal = "SerKadenWildauer@gmail.com";
   const Alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -40,7 +35,7 @@ function Contact() {
     }, 3000);
   }
 
-  function Click(e) {
+  function Click() {
     Clicked.current = true;
     let index = WhichOne(ObjectData, Mouse, Radius);
     if (index != null) {
@@ -178,12 +173,13 @@ function Contact() {
 
   useEffect(() => {
     //Event listeners
-    Contact.current.addEventListener("mousemove", MouseTracker);
-    Contact.current.addEventListener("click", Click);
+    const currentContact = Contact.current;
+    currentContact.addEventListener("mousemove", MouseTracker);
+    currentContact.addEventListener("click", Click);
     return () => {
-      if (Contact.current == null) return;
-      Contact.current.removeEventListener("mousemove", MouseTracker);
-      Contact.current.removeEventListener("click", Click);
+      if (currentContact == null) return;
+      currentContact.removeEventListener("mousemove", MouseTracker);
+      currentContact.removeEventListener("click", Click);
     };
   }, []);
 
@@ -199,7 +195,7 @@ function Contact() {
   }, [ctx]);
 
   useEffect(() => {
-    if (ObjectData.current && !isCalled && Contact.current && ctx) {
+    if (ObjectData.current && Contact.current && ctx) {
       function Update() {
         Main();
       }
@@ -208,6 +204,7 @@ function Contact() {
         RemoveMember(Update);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   return (

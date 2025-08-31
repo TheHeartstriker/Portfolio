@@ -27,8 +27,6 @@ import { useRouter } from "next/navigation";
 import "./skill.css";
 
 function Skill() {
-  const Container1Ref = useRef(null);
-  const Container2Ref = useRef(null);
   const root = useRef(null); // for animejs
   const router = useRouter();
   //Creates the lottie animation
@@ -141,7 +139,6 @@ function Skill() {
         <hr></hr>
         <h1>Stuff I made</h1>
         <h2>.02</h2>
-        <div id="lottie-container" ref={Container2Ref}></div>
       </div>
       {/* Overhead container for main apps */}
       <div className="featured-apps">

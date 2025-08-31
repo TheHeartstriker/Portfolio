@@ -2,12 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import { defaultCanvas } from "../../../utils/canvas.jsx";
-import { RadialGradient, RowGradient } from "./helperPg.jsx";
+import { RowGradient } from "./helperPg.jsx";
 import {
   setupCanvasBall,
   WhichOne,
   CursorChange,
-} from "../../../utils/shared.jsx";
+} from "../../../utils/shared.js";
 import {
   Header1,
   MainText1,
@@ -299,6 +299,7 @@ function PlayGround() {
   //Checks and sets data on mouse down
   useEffect(() => {
     Down();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [OnMouseDown]);
   // Initializes data
   useEffect(() => {
@@ -317,6 +318,7 @@ function PlayGround() {
         RemoveMember(UpdateMembers);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   useEffect(() => {

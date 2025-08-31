@@ -1,5 +1,5 @@
 "use client";
-
+import PropTypes from "prop-types";
 import FadeSettings from "./fadeSettings";
 import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
@@ -15,3 +15,6 @@ export default function FadeLayout({ children }) {
     </AnimatePresence>
   );
 }
+FadeLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

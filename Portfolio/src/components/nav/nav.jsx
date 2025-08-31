@@ -109,7 +109,7 @@ function Nav() {
             spanMoveer(location.current.Script.left);
           }}
         >
-          Script's
+          Script&apos;s
         </button>
         <button
           className="button"

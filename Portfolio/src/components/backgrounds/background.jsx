@@ -37,21 +37,16 @@ function Background() {
     backgroundCanvas.height = canvasSize.height;
     const backgroundContext = backgroundCanvas.getContext("2d");
     setCtx(backgroundContext);
-    if (backgroundContext) {
-      Draw();
-    }
-
     const resizeCanvas = () => {
       backgroundCanvas.width = window.innerWidth;
       backgroundCanvas.height = window.innerHeight;
       setCtx(backgroundCanvas.getContext("2d"));
-      Draw();
     };
     window.addEventListener("resize", resizeCanvas);
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [canvasSize]);
+  }, [canvasSize.width, canvasSize.height]);
 
   function handleMouseMove(e) {
     Mouse.current.x = e.clientX;
@@ -67,7 +62,7 @@ function Background() {
     let HeightMove = (offsetRef.current % SquareGridSize) - SquareGridSize;
 
     for (let i = 0; i <= GridHeight; i++) {
-      DrawLine(
+      drawLine(
         0,
         HeightMove + i * SquareGridSize,
         canvasSize.width,
@@ -77,7 +72,7 @@ function Background() {
     }
 
     for (let i = 0; i <= GridWidth; i++) {
-      DrawLine(
+      drawLine(
         i * SquareGridSize,
         0,
         i * SquareGridSize,
@@ -85,10 +80,10 @@ function Background() {
         SquareLine
       );
     }
-    DrawRadial(Mouse.current.x, Mouse.current.y);
+    drawRadial(Mouse.current.x, Mouse.current.y);
   }
 
-  function DrawLine(x1, y1, x2, y2, lineWidth) {
+  function drawLine(x1, y1, x2, y2, lineWidth) {
     if (!ctx) return;
     ctx.beginPath();
     ctx.moveTo(x1, y1);
@@ -101,7 +96,7 @@ function Background() {
     ctx.stroke();
   }
 
-  function DrawRadial(x, y) {
+  function drawRadial(x, y) {
     if (!ctx) return;
     const radius = 600;
     const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
@@ -122,6 +117,7 @@ function Background() {
     return () => {
       RemoveMember(update);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx, canvasSize]);
 
   useEffect(() => {
