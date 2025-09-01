@@ -75,7 +75,7 @@ CreateFeatured.propTypes = {
   Para: PropTypes.string.isRequired,
   Skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   Mirror: PropTypes.bool,
-  Image: PropTypes.string.isRequired,
+  ImageSrc: PropTypes.string.isRequired,
   Link1: PropTypes.string,
   Link2: PropTypes.string,
   End: PropTypes.bool,
