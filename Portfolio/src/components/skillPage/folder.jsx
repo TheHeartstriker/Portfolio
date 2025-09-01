@@ -8,7 +8,7 @@ function CreateFolder({ Header, Para, Link }) {
   return (
     <div className="folder" onClick={() => handleLink(Link)}>
       <div className="folder-svg-container"></div>
-      <h1>{Header}</h1>
+      <h6>{Header}</h6>
       <p>{Para}</p>
     </div>
   );

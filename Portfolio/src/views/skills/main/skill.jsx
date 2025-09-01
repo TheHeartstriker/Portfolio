@@ -112,24 +112,27 @@ function Skill() {
   }, []);
   return (
     <div className="main-skill-container" ref={root}>
-      {/* Over head container for teck stacks */}
+      {/* For SEO */}
+      <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
+      {/* Over head container for tech stacks */}
       <div
         className="separator"
         id="Sep1"
         onClick={() => router.push("/skills/gallery")}
       >
-        <h2>01.</h2>
-        <h1 id="TestId">Known tech</h1>
+        <h3>01.</h3>
+        <h2>Known tech</h2>
         <hr></hr>
         <div className="gallery-link">
           <Poly className="gallery-svg" />
         </div>
       </div>
+      {/* Tech stacks container */}
       <div className="tech-stacks-container">
         <div className="tech-stacks">
           {TechStacks.map((tech, index) => (
             <div className="blue-pill" key={index}>
-              <h2>{tech}</h2>
+              <h4>{tech}</h4>
             </div>
           ))}
         </div>
@@ -137,8 +140,8 @@ function Skill() {
       {/* Separator element */}
       <div className="separator" id="Sep2">
         <hr></hr>
-        <h1>Stuff I made</h1>
-        <h2>.02</h2>
+        <h2>Stuff I made</h2>
+        <h3>02</h3>
       </div>
       {/* Overhead container for main apps */}
       <div className="featured-apps">
@@ -146,7 +149,7 @@ function Skill() {
           Header={Header[3]}
           Para={Paras[3]}
           Skills={UsedTechApp4}
-          Image={client1}
+          ImageSrc={client1}
           Link1="https://www.peytonrayproperties.com"
         />
         <CreateFeatured
@@ -154,7 +157,7 @@ function Skill() {
           Para={Paras[0]}
           Skills={UsedTechApp1}
           Mirror={true}
-          Image={dynamicAnimations}
+          ImageSrc={dynamicAnimations}
           Link1="https://www.dynamicanimations.com"
           Link2="https://github.com/TheHeartstriker/DynamicAnimations"
         />
@@ -162,7 +165,7 @@ function Skill() {
           Header={Header[1]}
           Para={Paras[1]}
           Skills={UsedTechApp2}
-          Image={fitShot}
+          ImageSrc={fitShot}
           Link1="https://www.fgraphs.com"
           Link2="https://github.com/TheHeartstriker/FitnessApp"
         />
@@ -171,16 +174,21 @@ function Skill() {
           Para={Paras[2]}
           Skills={UsedTechApp3}
           Mirror={true}
-          Image={todoShot}
+          End={true}
+          ImageSrc={todoShot}
           Link1="https://www.genesistodo.com"
           Link2="https://github.com/TheHeartstriker/ToDoApp"
         />
       </div>
       {/* Main container for folder aka less important apps and code */}
+      <div className="separator" id="Sep1">
+        <h3>03.</h3>
+        <h2>
+          Other Code <br></br> stuff
+        </h2>
+        <hr></hr>
+      </div>
       <div className="no-featured-apps">
-        <div className="non-featured-header">
-          <h1>Other Noteworthy Code</h1>
-        </div>
         <div className="folder-container">
           <CreateFolder
             Header={NoteWortheyH[0]}

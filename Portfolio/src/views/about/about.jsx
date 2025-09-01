@@ -49,22 +49,20 @@ function About() {
           <DownArr onClick={scrollDown} />
         </div>
         {ToSmall === false && <PlayGround />}
-        {ToSmall && (
-          <div className="mobile-about">
-            <div className="journey">
-              <h1>{Header1}</h1>
-              <p>{MainText1}</p>
-            </div>
-            <div className="beyond">
-              <h1>{Header2}</h1>
-              <p>{MainText2}</p>
-            </div>
-            <div className="more">
-              <h1>{Header3}</h1>
-              <p>{MainText3}</p>
-            </div>
+        <div className={`mobile-about${ToSmall ? "" : " hidden"}`}>
+          <div className="journey">
+            <h4>{Header1}</h4>
+            <p>{MainText1}</p>
           </div>
-        )}
+          <div className="beyond">
+            <h4>{Header2}</h4>
+            <p>{MainText2}</p>
+          </div>
+          <div className="more">
+            <h4>{Header3}</h4>
+            <p>{MainText3}</p>
+          </div>
+        </div>
       </div>
     </>
   );

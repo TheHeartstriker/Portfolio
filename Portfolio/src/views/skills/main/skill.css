@@ -48,7 +48,7 @@
 /* Used across the skill.jsx to hold tech info */
 /* Used in tech stacks container */
 .blue-pill {
-  font-size: 1rem;
+  font-size: 1.3rem;
   width: 13%;
   height: 4rem;
   border-radius: 100px;
@@ -62,7 +62,7 @@
 }
 /* Smaller version used in featured apps */
 .blue-pill2 {
-  font-size: 0.7rem;
+  font-size: 1.1rem;
   width: 25%;
   height: 3rem;
   border-radius: 100px;
@@ -155,14 +155,21 @@
   background-color: transparent;
 }
 
-.app-header h1 {
+.app-header h4 {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 10px var(--main-glow));
 }
 /* Secondary header */
-.app-header h3 {
-  font-size: 2rem;
-  font-weight: 400;
+.app-header h5 {
+  font-size: 2.3rem;
+  margin: 0;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-1);
+
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
 }
 /* The paragraph showing some info about the app */
@@ -198,6 +205,10 @@
 /* Mirror info */
 .app-f.mirror {
   flex-direction: row-reverse;
+}
+
+#end-featured {
+  margin-bottom: 0;
 }
 
 .app-text.mirror {
@@ -250,9 +261,10 @@
   transition: background ease-in-out 0.6s, filter ease-in-out 0.6s;
 }
 
-.folder h1 {
+.folder h6 {
   font-size: 2rem;
   color: var(--Teal);
+  margin: var(--space-1);
 }
 
 .folder::before {
@@ -338,11 +350,15 @@
   margin-bottom: 0;
 }
 
-.separator h1 {
+.separator h2 {
   font-size: 3.3rem;
   margin: var(--space-5);
   color: var(--neon-dull);
   filter: drop-shadow(0 0 10px var(--main-glow));
+}
+
+.separator h3 {
+  font-size: 1.5rem;
 }
 
 .separator hr {
@@ -387,7 +403,7 @@
   .blue-pill {
     width: 20%;
     height: 20%;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
 
   .separator {

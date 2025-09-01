@@ -4,6 +4,7 @@ import "./gallery.css";
 import "../main/skill.css";
 import { useRouter } from "next/navigation";
 import Masonry from "react-masonry-css";
+import Image from "next/image";
 
 function Gallery() {
   const router = useRouter();
@@ -19,8 +20,8 @@ function Gallery() {
           <PolyR className="gallery-svg" />
         </div>
         <hr></hr>
-        <h1>Gallery</h1>
-        <h2>.04</h2>
+        <h2>Gallery</h2>
+        <h3>.04</h3>
       </div>
       <div className="gallery-description">
         <p>
@@ -40,7 +41,12 @@ function Gallery() {
         className="gallery-container"
         columnClassName="gallery-column"
       >
-        <img src="/gallery/Project2.webp" alt="Project 2" />
+        <Image
+          src="/gallery/Project2.webp"
+          alt="Project 2"
+          width={400}
+          height={300}
+        />
         <iframe
           width="100%"
           height="315"
@@ -48,10 +54,30 @@ function Gallery() {
           title="YouTube video"
           allowFullScreen
         />
-        <img src="/gallery/Untitled.webp" alt="Test Image" />
-        <img src="/gallery/Mywebsite2.webp" alt="Original Website" />
-        <img src="/gallery/Project.webp" alt="Project 1" />
-        <img src="/gallery/client.webp" alt="Client Website" />
+        <Image
+          src="/gallery/Untitled.webp"
+          alt="Test Image"
+          width={400}
+          height={300}
+        />
+        <Image
+          src="/gallery/Mywebsite2.webp"
+          alt="Original Website"
+          width={400}
+          height={300}
+        />
+        <Image
+          src="/gallery/Project.webp"
+          alt="Project 1"
+          width={400}
+          height={300}
+        />
+        <Image
+          src="/gallery/client.webp"
+          alt="Client Website"
+          width={400}
+          height={300}
+        />
         <iframe
           width="100%"
           height="315"

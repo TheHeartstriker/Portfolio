@@ -127,6 +127,15 @@
   top: 15vh;
 }
 
+.mobile-about h4 {
+  font-size: 3.5rem;
+  color: white;
+}
+
+.mobile-about.hidden {
+  display: none;
+}
+
 .journey,
 .beyond,
 .more {
