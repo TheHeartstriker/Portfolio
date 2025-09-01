@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
 import "./navigate.css";
+
 function NavCursor() {
   const [Clickable, setClickable] = useState(false);
   const [Grabable, setGrabable] = useState(false);
@@ -13,7 +14,9 @@ function NavCursor() {
   const handleMouseMove = (e) => {
     Mouse.current.x = e.clientX;
     Mouse.current.y = e.clientY;
-    CursorRef.current.style.opacity = "1";
+    if (CursorRef.current) {
+      CursorRef.current.style.opacity = "1";
+    }
 
     const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
     if (elementUnderCursor) {
@@ -68,7 +71,7 @@ function NavCursor() {
       document.removeEventListener("mousemove", handleMouseMove);
       RemoveMember(animate);
     };
-    // Only re-run if Clickable or Grabable changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

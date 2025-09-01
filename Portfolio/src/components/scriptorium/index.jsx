@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
-import DownArr from "../../assets/DownArrow";
+import DownArr from "../svg/DownArrow.jsx";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -27,7 +28,7 @@ function articleChecker(item) {
     return (
       <ReactMarkdown
         components={{
-          code({ node, inline, className, children, ...props }) {
+          code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
@@ -44,7 +45,7 @@ function articleChecker(item) {
               </code>
             );
           },
-          a: ({ node, ...props }) => (
+          a: ({ ...props }) => (
             <a {...props} target="_blank" rel="noopener noreferrer">
               {props.children}
             </a>
@@ -126,3 +127,12 @@ export function SubjectContainer({
     </div>
   );
 }
+SubjectContainer.propTypes = {
+  title: PropTypes.string.isRequired,
+  subject: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  article: PropTypes.array.isRequired,
+  articleName: PropTypes.string.isRequired,
+};
