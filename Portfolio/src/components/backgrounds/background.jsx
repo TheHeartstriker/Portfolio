@@ -100,7 +100,7 @@ function Background() {
     if (!ctx) return;
     const radius = 600;
     const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-    gradient.addColorStop(0, "rgba(29, 78, 216, 0.20)");
+    gradient.addColorStop(0, "rgba(29, 78, 216, 0.19)");
     gradient.addColorStop(1, "transparent");
     ctx.fillStyle = gradient;
     ctx.beginPath();
