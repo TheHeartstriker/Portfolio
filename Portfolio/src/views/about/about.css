@@ -139,11 +139,12 @@
 .journey,
 .beyond,
 .more {
-  height: 45vh;
+  height: 80vw;
   position: relative;
-  width: 45vh;
+  width: 80vw;
   border-radius: 50%;
-  padding: var(--space-3);
+  padding: var(--space-4);
+  margin: var(--space-4);
   background-color: rgba(14, 34, 80, 0.95);
   border: 5px rgba(5, 120, 250, 1) solid;
   box-shadow: 0 0 20px 10px rgba(5, 120, 250, 0.5);
@@ -154,16 +155,4 @@
   text-align: center;
   font-size: 2rem;
   color: white;
-}
-
-.journey {
-  left: 15%;
-}
-
-.beyond {
-  right: 15%;
-}
-
-.more {
-  left: 15%;
 }

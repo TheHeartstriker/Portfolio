@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
+import "./createFeatured.css";
 
 function handleLink(Link) {
   window.open(Link, "_blank", "noopener,noreferrer");
@@ -60,7 +61,9 @@ function CreateFeatured({
           <div className={`app-skills ${Mirror ? "mirror" : ""}`}>
             {Skills.map((tech, index) => (
               <div className="blue-pill2" key={index}>
-                <h5>{tech}</h5>
+                <div className="glass">
+                  <h5>{tech}</h5>
+                </div>
               </div>
             ))}
           </div>

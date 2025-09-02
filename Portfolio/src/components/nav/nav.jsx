@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 
@@ -8,11 +8,11 @@ function Nav() {
   const containerRef = useRef(null);
   const router = useRouter();
   const location = useRef({});
+  const pathname = usePathname();
   const current = useRef("About");
   const height = 40; // 40 spans that are 1px apart and 1px high
 
-  //For the buttons
-
+  //Creates the spans for the buttons
   function BoxElements() {
     const container = containerRef.current;
     // Create 40 span elements, append them and give them a movement delay
@@ -56,12 +56,12 @@ function Nav() {
   function setValue(name) {
     current.current = name;
   }
-
+  //Gets location data and create elements
   useEffect(() => {
     locationFill();
     BoxElements();
   }, []);
-
+  // Handles calculations on window resize
   useEffect(() => {
     function handleResize() {
       locationFill();
@@ -72,6 +72,18 @@ function Nav() {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  useEffect(() => {
+    const basePath = "/" + pathname.split("/")[1];
+
+    let active = "About";
+    if (basePath === "/skills") active = "Skill";
+    else if (basePath === "/scriptorium") active = "Script";
+    else if (basePath === "/contact") active = "Contact";
+    current.current = active;
+    if (location.current[active]) {
+      spanMoveer(location.current[active].left);
+    }
+  }, [pathname]);
 
   return (
     <>
@@ -83,7 +95,6 @@ function Nav() {
           onClick={() => {
             setValue("About", true);
             router.push("/");
-            spanMoveer(location.current.About.left);
           }}
         >
           About Me
@@ -94,7 +105,6 @@ function Nav() {
           onClick={() => {
             setValue("Skill", true);
             router.push("/skills");
-            spanMoveer(location.current.Skill.left);
           }}
         >
           Skills and Projects
@@ -106,7 +116,6 @@ function Nav() {
           onClick={() => {
             setValue("Script", true);
             router.push("/scriptorium");
-            spanMoveer(location.current.Script.left);
           }}
         >
           Script&apos;s
@@ -117,7 +126,6 @@ function Nav() {
           onClick={() => {
             setValue("Contact", true);
             router.push("/contact");
-            spanMoveer(location.current.Contact.left);
           }}
         >
           Contacts

@@ -41,12 +41,25 @@
   height: 25vh;
   padding: var(--space-2);
   border-radius: 100px;
-  background-color: var(--Low-blue);
-  animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
+  animation: forwards fadeUpEnter75-0 1s ease-in-out;
 }
 
-/* Used across the skill.jsx to hold tech info */
-/* Used in tech stacks container */
+/* Pseudo-element for blur effect on the parent */
+.tech-stacks::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: inherit;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: inherit;
+  background-color: rgba(14, 34, 80, 0.3);
+}
+
 .blue-pill {
   font-size: 1.3rem;
   width: 13%;
@@ -54,30 +67,19 @@
   border-radius: 100px;
   margin: var(--space-1);
   color: rgba(0, 188, 235, 0.8);
-  background-color: rgba(0, 188, 235, 0.5);
+  background-color: rgba(0, 188, 235, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
-}
-/* Smaller version used in featured apps */
-.blue-pill2 {
-  font-size: 1.1rem;
-  width: 25%;
-  height: 3rem;
-  border-radius: 100px;
-  margin: var(--space-1);
-  color: rgba(0, 188, 235, 0.8);
-  background-color: rgba(0, 188, 235, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color ease-out 1s, color ease-out 1s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
 }
 
-.blue-pill.hovered,
-.blue-pill2.hovered {
-  background-color: rgba(0, 188, 235, 0.8);
+.blue-pill.hovered {
+  background-color: rgba(0, 188, 235, 0.5);
   color: var(--Teal);
 }
 
@@ -89,135 +91,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  animation: forwards fadeUpEnter75-0 3s ease-in-out;
-}
-/* Main app container */
-.app-f {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  width: 80vw;
-  height: 50vh;
-  margin-bottom: 15vh;
-}
-/* The image takes half of AppF */
-.app-image {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row-reverse;
-  width: 50%;
-  height: 100%;
-  border-radius: 15px;
-}
-
-.app-image img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  object-fit: cover;
-  transition: transform ease-in-out 0.5s;
-}
-
-/* Oppacity overlay for image */
-.transparent-fill {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 204, 255, 0.25);
-  transition: background-color ease-in-out 0.8s;
-  border-radius: 15px;
-}
-
-.transparent-fill:hover {
-  background-color: transparent;
-}
-
-/* Takes up 60% of the main container overlaping over app image a small bit */
-.app-text {
-  position: absolute;
-  width: 60%;
-  left: 40%;
-  height: 100%;
-  text-align: right;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-/* Header text*/
-.app-header {
-  width: 100%;
-  height: 33%;
-  padding: var(--space-2);
-  background-color: transparent;
-}
-
-.app-header h4 {
-  display: inline-block;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
-}
-/* Secondary header */
-.app-header h5 {
-  font-size: 2.3rem;
-  margin: 0;
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-1);
-
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-/* The paragraph showing some info about the app */
-.app-para {
-  width: 100%;
-  height: 33%;
-  padding: var(--space-2);
-  border-radius: 15px;
-  font-size: 1.5rem;
-  color: var(--white-off);
-  font-family: "Exo 2", sans-serif;
-  font-weight: 350;
-  background-color: var(--Low-blue);
-  transition: color ease-in-out 0.5s;
-}
-
-.app-para:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* The skill container holds used tech */
-.app-skills {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 33%;
-  padding: var(--space-2);
-  transform: translateX(6%);
-}
-/* Mirror info */
-.app-f.mirror {
-  flex-direction: row-reverse;
-}
-
-#end-featured {
-  margin-bottom: 0;
-}
-
-.app-text.mirror {
-  left: 0%;
-  text-align: left;
-}
-
-.app-skills.mirror {
-  transform: translateX(-10%);
+  animation: forwards fadeUpEnter75-0 2s ease-in-out;
 }
 
 .no-featured-apps {
@@ -254,10 +128,12 @@
   aspect-ratio: 1/1;
   border: 2px solid rgb(100, 255, 218);
   padding: var(--space-2);
-  border-radius: 15px;
-  background-color: var(--Low-blue);
+  border-radius: 50px;
+  background-color: rgba(14, 34, 80, 0.3);
   overflow: hidden;
   cursor: pointer;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   transition: background ease-in-out 0.6s, filter ease-in-out 0.6s;
 }
 
@@ -267,14 +143,14 @@
   margin: var(--space-1);
 }
 
-.folder::before {
+/* .folder::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 50px;
   background: radial-gradient(
     circle,
     rgba(100, 255, 218, 0) 50%,
@@ -283,7 +159,7 @@
   z-index: 0;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
-}
+} */
 
 .folder:hover::before {
   opacity: 1; /* Fully visible on hover */
@@ -316,8 +192,9 @@
   height: 100%;
   border-radius: 50px;
   color: var(--Teal);
-  margin: 5vw;
-  animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
+  margin: 4vw;
+  margin-top: 5vw;
+  animation: forwards fadeUpEnter75-0 1s ease-in-out;
 }
 
 .gallery-link {
@@ -369,33 +246,6 @@
   opacity: 0.5;
 }
 
-.logo-container {
-  position: relative;
-  width: 6rem;
-  height: 6rem;
-  margin-left: 15px;
-  margin: 10px;
-  padding: var(--space-1);
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.img-back-logo1 {
-  background-image: url("/link.svg");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-}
-
-.img-back-logo2 {
-  background-image: url("/Github.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-}
-
 @media (max-width: 1000px) {
   .tech-stacks {
     height: 30vh;
@@ -409,18 +259,8 @@
   .separator {
     margin: 12vw;
   }
-  .blue-pill-2 {
+  .blue-pill2 {
     width: 80%;
-  }
-  .app-header h1 {
-    font-size: 2.5rem;
-  }
-
-  .app-header h3 {
-    font-size: 3rem;
-  }
-  .app-para {
-    font-size: 1.7rem;
   }
 
   .gallery-link {
