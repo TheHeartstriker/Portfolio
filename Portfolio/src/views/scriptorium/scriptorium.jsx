@@ -12,7 +12,8 @@ import ParticleSys from "./scripts/particleSys.jsx";
 const art1Image = "/scriptorium/Map1.png";
 const art2Image = "/scriptorium/Map2.png";
 const art3Image = "/scriptorium/Map3.png";
-const thumbImage = "/article1.png";
+import { desParticle, desMappingFullstack } from "./articles/articleDes.js";
+import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 
 import "./scriptorium.css";
 
@@ -43,21 +44,9 @@ function Scriptorium() {
   return (
     <div className="main-scriptorium-container">
       <div className="article-card-container">
-        {/* Article one */}
-        <div className="script-article">
-          <div className="script-article-img">
-            <img src={thumbImage} alt="Thumbnail" />
-          </div>
-          <div className="script-article-info"></div>
-        </div>
+        <ScriptCard articleDes={desParticle} />
 
-        {/* Article two */}
-        <div className="script-article">
-          <div className="script-article-img">
-            <img src={thumbImage} alt="Thumbnail" />
-          </div>
-          <div className="script-article-info"></div>
-        </div>
+        <ScriptCard articleDes={desMappingFullstack} />
       </div>
     </div>
   );

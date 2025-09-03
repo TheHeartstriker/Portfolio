@@ -38,13 +38,27 @@
 
 .script-article {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--Low-blue);
   border-radius: 25px;
-  padding: 0;
   height: 75vh;
+}
+
+.script-article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: inherit;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: inherit;
+  background-color: rgba(14, 34, 80, 0.3);
 }
 
 .script-article-img {
@@ -54,6 +68,7 @@
   width: 100%;
   height: 50%;
   border-radius: 25px;
+  z-index: 1;
 }
 
 .script-article-img img {
@@ -68,9 +83,55 @@
   width: 100%;
   height: 50%;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
+  align-items: left;
+  text-align: left;
+  padding: var(--space-2);
+  z-index: 1;
+}
+
+.script-article-info h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-1);
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 10px var(--main-glow));
+}
+
+.script-article-info p {
+  font-size: 1.2rem;
+  font-family: "Exo 2", monospace;
+  color: var(--white);
+}
+.script-article-tags {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: var(--space-1);
+  margin-top: auto;
+  height: auto;
+}
+
+.script-article-info span {
+  font-size: 1.3rem;
+  width: 45%;
+  height: 4rem;
+  border-radius: 100px;
+  margin: var(--space-1);
+  color: rgba(0, 188, 235, 0.8);
+  background-color: rgba(0, 188, 235, 0.3);
+  display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color ease-in-out 0.5s, color ease-in-out 0.5s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
 }
 
 /*  */
@@ -107,15 +168,6 @@
   background-color: black;
   border-radius: 40px;
 }
-
-/* .article-text-container.active {
-  opacity: 1;
-  max-height: 15000px;
-  padding: var(--space-1);
-  border-radius: 75px;
-  background-color: var(--Dark-blue);
-  color: white;
-} */
 
 .component-container-article {
   display: flex;
