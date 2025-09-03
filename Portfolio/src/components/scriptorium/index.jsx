@@ -1,6 +1,4 @@
 import ReactMarkdown from "react-markdown";
-import DownArr from "../svg/DownArrow.jsx";
-import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -69,8 +67,8 @@ function articleChecker(item) {
   }
 }
 
-function renderArticles(showContent, article) {
-  if (showContent && Array.isArray(article)) {
+function renderArticles(article) {
+  if (Array.isArray(article)) {
     return article.map((item, idx) => (
       <div key={idx}>{articleChecker(item)}</div>
     ));
@@ -78,61 +76,13 @@ function renderArticles(showContent, article) {
   return null;
 }
 
-export function SubjectContainer({
-  title,
-  subject,
-  description,
-  active,
-  onClick,
-  article,
-  articleName,
-}) {
-  const [showContent, setShowContent] = useState(active);
-
-  useEffect(() => {
-    let timeout;
-    if (active) {
-      setShowContent(true);
-    } else {
-      timeout = setTimeout(() => setShowContent(false), 1500);
-    }
-    return () => clearTimeout(timeout);
-  }, [active]);
-
+export function SubjectContainer({ article }) {
   return (
-    <div
-      className={`subject-container-article${!active ? " pointer-script" : ""}`}
-      onClick={() => onClick(articleName, true)}
-    >
-      <div className="subject-text-container-article">
-        <h1>{title}</h1>
-        <h2>{subject}</h2>
-      </div>
-      <div className="subject-description-container-article">
-        <p>{description}</p>
-      </div>
-      <div className={`article-text-container${active ? " active" : ""}`}>
-        {renderArticles(showContent, article)}
-        {active && (
-          <button
-            className="unfurl-article"
-            onClick={() => {
-              onClick(articleName, false);
-            }}
-          >
-            <DownArr />
-          </button>
-        )}
-      </div>
+    <div className={`subject-container-article`}>
+      <div className={`article-text-container`}>{renderArticles(article)}</div>
     </div>
   );
 }
 SubjectContainer.propTypes = {
-  title: PropTypes.string.isRequired,
-  subject: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
   article: PropTypes.array.isRequired,
-  articleName: PropTypes.string.isRequired,
 };

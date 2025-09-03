@@ -60,7 +60,13 @@ function TextBreaker(text, x, y, lengthWisSpace, ctx) {
 }
 
 export function RadialGradient(x, y, radius, ctx) {
-  if (!ctx) return;
+  if (
+    !ctx ||
+    !Number.isFinite(x) ||
+    !Number.isFinite(y) ||
+    !Number.isFinite(radius)
+  )
+    return;
   const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
   gradient.addColorStop(0, "rgba(0, 0, 0, 0.35)");
   gradient.addColorStop(1, "transparent");
