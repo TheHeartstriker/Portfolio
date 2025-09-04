@@ -29,7 +29,6 @@
   width: 100%;
   height: auto;
 }
-/* The container that holder the skills */
 .tech-stacks {
   position: relative;
   display: flex;
@@ -42,22 +41,10 @@
   padding: var(--space-2);
   border-radius: 100px;
   animation: forwards fadeUpEnter75-0 1s ease-in-out;
-}
 
-/* Pseudo-element for blur effect on the parent */
-.tech-stacks::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  background: inherit;
+  background-color: rgba(14, 34, 80, 0.3);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: inherit;
-  background-color: rgba(14, 34, 80, 0.3);
 }
 
 .blue-pill {
@@ -75,9 +62,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   position: relative;
-  z-index: 1;
 }
-
 .blue-pill.hovered {
   background-color: rgba(0, 188, 235, 0.5);
   color: var(--Teal);

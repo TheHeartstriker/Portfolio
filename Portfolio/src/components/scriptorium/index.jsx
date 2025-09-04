@@ -27,6 +27,12 @@ function articleChecker(item) {
     return (
       <ReactMarkdown
         components={{
+          h1: ({ node, ...props }) => (
+            <div className="article-h1-container">
+              <h1 {...props} />
+            </div>
+          ),
+
           code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (

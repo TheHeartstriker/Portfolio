@@ -1,5 +1,5 @@
 export const markdown = `
-# Subject
+# Particle systems
 The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math, and programming to create something from nature.
 It's a great way to practice fundamentals and improve problem-solving skills because you see the results of your work in real time. Although this is just an example/baseline,
 hopefully, after this, you will have the tools to create anything you want—things such as lightning, fire, wind—the possibilities are endless.

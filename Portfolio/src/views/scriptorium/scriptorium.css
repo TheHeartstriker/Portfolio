@@ -31,6 +31,10 @@
   height: 75vh;
 }
 
+.script-article:hover {
+  transform: scale(1.05);
+}
+
 .script-article::before {
   content: "";
   position: absolute;
