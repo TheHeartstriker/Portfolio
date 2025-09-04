@@ -11,21 +11,6 @@
   height: 100%;
   margin-top: 15vh;
 }
-.subject-container-article {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  width: 80%;
-  min-height: 200px;
-  height: auto;
-  background-color: var(--Low-blue);
-  border-radius: 100px;
-  z-index: 1;
-  margin-bottom: var(--space-3);
-  padding: var(--space-2);
-  transition: transform 0.5s ease-in-out;
-}
 
 .article-card-container {
   display: grid;

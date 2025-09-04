@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "./index.css";
 //
 //
 //
@@ -33,6 +34,7 @@ function articleChecker(item) {
                 style={nightOwl}
                 language={match[1]}
                 PreTag="div"
+                className="code-block"
                 {...props}
               >
                 {String(children).replace(/\n$/, "")}
