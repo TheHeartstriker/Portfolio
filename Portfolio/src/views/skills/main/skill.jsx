@@ -1,4 +1,5 @@
 "use client";
+import "./skill.css";
 import { useRef, useEffect } from "react";
 //Text
 import { createAnimatable, utils } from "animejs";
@@ -24,7 +25,6 @@ import {
 } from "../../../components/skillPage/index.js";
 import Poly from "../../../components/svg/poly.jsx";
 import { useRouter } from "next/navigation";
-import "./skill.css";
 
 function Skill() {
   const root = useRef(null); // for animejs
@@ -63,7 +63,7 @@ function Skill() {
     // Selects them all
     const bluePills = Array.from(
       document.querySelectorAll(
-        ".blue-pill, .blue-pill h2, .blue-pill2, .blue-pill2 h2"
+        ".blue-pill, .blue-pill h2, .blue-pill-2, .blue-pill-2 h2"
       )
     );
     // Create individual animations for each BluePill

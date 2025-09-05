@@ -1,0 +1,133 @@
+/*  */
+/* Main showcase css */
+/*  */
+.subject-container-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: clamp(50%, 110ch, 100%);
+  height: auto;
+  background-color: var(--Low-blue);
+  border-radius: 100px;
+  z-index: 1;
+  margin-bottom: var(--space-3);
+  padding: var(--space-4);
+  transition: transform 0.5s ease-in-out;
+  box-sizing: border-box;
+  color: var(--white);
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: "Exo 2", monospace;
+  margin-top: 6%;
+}
+
+/* H1 */
+.article-h1-container {
+  position: relative;
+  background-color: var(--Dark-blue);
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+.subject-container-article h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: "Protest Guerrilla", monospace;
+  color: var(--neon-dull);
+  filter: drop-shadow(0 0 10px var(--main-glow));
+}
+/* h2 */
+
+.subject-container-article h2 {
+  color: var(--neon-dull);
+}
+
+.subject-container-article a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-weight: 700;
+}
+.subject-container-article ul {
+  color: black;
+}
+
+.canvas-script {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 50px;
+}
+
+.component-container-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container-article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.image-container-article img {
+  max-width: 90%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: #111;
+}
+
+.code-block {
+  border-radius: 25px;
+}
+
+pre,
+code {
+  color: rgba(255, 255, 255, 0.7);
+  padding: var(--space-1);
+  margin: var(--space-1);
+  font-family: monospace;
+  overflow-x: auto;
+  box-sizing: border-box;
+  line-height: 1.5;
+  border-radius: 15px;
+}
+
+p {
+  white-space: normal;
+  word-break: break-word;
+  margin: 0.5em 0;
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+@media (max-width: 1000px) {
+  .subject-container-article {
+    margin-top: 15%;
+  }
+  .subject-container-article h1 {
+    font-size: 3.5rem;
+  }
+  .article-h1-container {
+    width: 90%;
+  }
+  .component-container-article {
+    margin-bottom: 25px;
+  }
+}
