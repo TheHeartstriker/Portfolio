@@ -3,51 +3,38 @@
 /*  */
 .subject-container-article {
   display: flex;
-  position: relative;
   flex-direction: column;
-  align-items: left;
   justify-content: center;
   width: clamp(50%, 110ch, 100%);
-  min-height: 200px;
   height: auto;
   background-color: var(--Low-blue);
   border-radius: 100px;
   z-index: 1;
   margin-bottom: var(--space-3);
-  padding: var(--space-2);
+  padding: var(--space-4);
   transition: transform 0.5s ease-in-out;
+  box-sizing: border-box;
+  color: var(--white);
   margin-left: auto;
   margin-right: auto;
+
+  font-family: "Exo 2", monospace;
   margin-top: 6%;
 }
 
-.article-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
-  padding: var(--space-3);
-  height: auto;
-  color: white;
-  box-sizing: border-box;
-  font-family: "Exo 2", monospace;
-  overflow: hidden;
-  transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out,
-    padding 1.2s ease-in-out, color 1.2s ease-in-out,
-    background-color 1.2s ease-in-out, border-radius 1.2s ease-in-out;
-}
 /* H1 */
 .article-h1-container {
   position: relative;
   background-color: var(--Dark-blue);
   display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
 }
-
-.article-text-container h1 {
+.subject-container-article h1 {
   font-size: 3rem;
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
@@ -56,16 +43,16 @@
 }
 /* h2 */
 
-.article-text-container h2 {
+.subject-container-article h2 {
   color: var(--neon-dull);
 }
 
-.article-text-container a {
+.subject-container-article a {
   color: var(--neon-blue);
   text-decoration: none;
   font-weight: 700;
 }
-.article-text-container ul {
+.subject-container-article ul {
   color: black;
 }
 
@@ -73,7 +60,7 @@
   width: 100%;
   height: 100%;
   background-color: black;
-  border-radius: 40px;
+  border-radius: 50px;
 }
 
 .component-container-article {
@@ -133,5 +120,14 @@ code {
 @media (max-width: 1000px) {
   .subject-container-article {
     margin-top: 15%;
+  }
+  .subject-container-article h1 {
+    font-size: 3.5rem;
+  }
+  .article-h1-container {
+    width: 90%;
+  }
+  .component-container-article {
+    margin-bottom: 25px;
   }
 }

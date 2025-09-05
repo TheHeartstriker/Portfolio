@@ -1,19 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { createAnimatable, utils } from "animejs";
 
-import { SubjectContainer } from "../../components/scriptorium/index.jsx";
-import { markdown } from "./articles/article1.js";
-import {
-  articleMappingFullStack1,
-  articleMappingFullStack2,
-  articleMappingFullStack3,
-  articleMappingFullStack4,
-} from "./articles/article2.js";
-import ParticleSys from "./scripts/particleSys.jsx";
-const art1Image = "/scriptorium/Map1.png";
-const art2Image = "/scriptorium/Map2.png";
-const art3Image = "/scriptorium/Map3.png";
 import { desParticle, desMappingFullstack } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
@@ -23,17 +11,6 @@ import "./scriptorium.css";
 
 function Scriptorium() {
   const router = useRouter();
-  const articleArr1 = [markdown, ParticleSys];
-  const articleArr2 = [
-    articleMappingFullStack1,
-    art1Image,
-    articleMappingFullStack2,
-    art2Image,
-    articleMappingFullStack3,
-    art3Image,
-    articleMappingFullStack4,
-  ];
-
   function onMouseMove(event, animatablePills, bluePills) {
     const { clientX, clientY } = event;
     bluePills.forEach((pill, index) => {

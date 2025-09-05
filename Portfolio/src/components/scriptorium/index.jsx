@@ -27,7 +27,7 @@ function articleChecker(item) {
     return (
       <ReactMarkdown
         components={{
-          h1: ({ node, ...props }) => (
+          h1: ({ ...props }) => (
             <div className="article-h1-container">
               <h1 {...props} />
             </div>
@@ -86,9 +86,7 @@ function renderArticles(article) {
 
 export function SubjectContainer({ article }) {
   return (
-    <div className={`subject-container-article`}>
-      <div className={`article-text-container`}>{renderArticles(article)}</div>
-    </div>
+    <div className={`subject-container-article`}>{renderArticles(article)}</div>
   );
 }
 SubjectContainer.propTypes = {

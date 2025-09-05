@@ -29,6 +29,8 @@
   justify-content: center;
   border-radius: 25px;
   height: 75vh;
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .script-article:hover {
@@ -205,4 +207,16 @@ p {
 
 code {
   padding: 0.2em 0.4em;
+}
+
+@media (max-width: 1000px) {
+  .article-card-container {
+    grid-template-columns: 1fr;
+  }
+  .script-article-info h2 {
+    font-size: 3.5rem;
+  }
+  .script-article-info p {
+    font-size: 2rem;
+  }
 }

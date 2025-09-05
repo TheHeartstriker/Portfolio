@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
-import { markdown } from "@/views/scriptorium/articles/article1.js";
+
 const art1Image = "/scriptorium/Map1.png";
 const art2Image = "/scriptorium/Map2.png";
 const art3Image = "/scriptorium/Map3.png";
