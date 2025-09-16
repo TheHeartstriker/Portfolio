@@ -6,29 +6,10 @@ export const metadata = {
 
 import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
 
-const art1Image = "/scriptorium/Map1.png";
-const art2Image = "/scriptorium/Map2.png";
-const art3Image = "/scriptorium/Map3.png";
-
-import {
-  articleMappingFullStack1,
-  articleMappingFullStack2,
-  articleMappingFullStack3,
-  articleMappingFullStack4,
-} from "@/views/scriptorium/articles/article2.js";
-
-const articleArr = [
-  articleMappingFullStack1,
-  art1Image,
-  articleMappingFullStack2,
-  art2Image,
-  articleMappingFullStack3,
-  art3Image,
-  articleMappingFullStack4,
-];
+import { articleMappingFullStack } from "@/views/scriptorium/articles/article2.js";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={articleArr} />;
+  return <SubjectContainer article={[articleMappingFullStack]} />;
 }
 
 export default ScriptoriumPage;

@@ -2,7 +2,11 @@
 import { useEffect } from "react";
 import { createAnimatable, utils } from "animejs";
 
-import { desParticle, desMappingFullstack } from "./articles/articleDes.js";
+import {
+  desParticle,
+  desMappingFullstack,
+  desPolySVG,
+} from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
 import { useRouter } from "next/navigation.js";
@@ -100,6 +104,11 @@ function Scriptorium() {
         <ScriptCard
           articleDes={desMappingFullstack}
           onClick={() => router.push("/scriptorium/mapping-fullstack")}
+        />
+
+        <ScriptCard
+          articleDes={desPolySVG}
+          onClick={() => router.push("/scriptorium/poly-svg-background")}
         />
       </div>
     </div>

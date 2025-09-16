@@ -1,12 +1,12 @@
-export const articleMappingFullStack1 = `
+export const articleMappingFullStack = `
 # Mapping a Full Stack Application
 This article is going to map a fullstack system: the what, where, and why. This isn't really system design but going over a pre designed system and aimed at beginner to lower-intermediate web developers. There are going to be three sections. First is serving code; this will go over what happens when you visit a fullstack application. 
 The second is logging in, this is a smaller section, but in most fullstack applications, being logged in is fundamental.
 The third section is common operations, this section is going to go over what happens when someone logs in and is using the application. Where does JWT fit? Cookies? CORS? HTTPS? API calls? And other things that are important to understand when building a fullstack application.
 ## Serving the website
-`;
 
-export const articleMappingFullStack2 = `
+![Map1](/scriptorium/mapArticle/Map1.png)
+
 ### I. Initiation
 As shown in the image, the first step is simply typing the domain in. This is important to mention because we are going to be going over domain names and how they work.
 
@@ -44,9 +44,8 @@ This response is the final step in most cases. We send back the compiled fronten
 ## Logging In
 This is meant to be a short section that's important for understanding how a fullstack application works, and that’s logging in and how it ties into the last section, which is mapping common operations. We need to know where the data is stored in this stateless application.
 
-`;
+![Map2](/scriptorium/mapArticle/Map2.png)
 
-export const articleMappingFullStack3 = `
 ### I. User Submits Login Form
 This is rather simple and self-explanatory the user is sending login or signup information to the server.
 
@@ -65,9 +64,8 @@ Time is like a JWT a cookie has a storage expiration time. Depending on the time
 ## Mapping Common Operations
 This section is all about mapping common operations in a fullstack application. The definitely really cool, and well designed looking diagram below will be explained in numerical order and will be a walkthrough over each step and important pieces of information...
 
-`;
+![Map3](/scriptorium/mapArticle/Map3.png)
 
-export const articleMappingFullStack4 = `
 ### I. HTTPS
 Here, especially after we had that long explanation of TLS and SSL, what is the point? What does https:// do? Well, it does one really important thing and that is encrypt the data being sent and received. But only if the other endpoint is also using HTTPS.
 If not, it's a normal naked HTTP request. So, as shown on the diagram, the backend is hosted on, for example, https://kadenwildauer.com/api, so it's still protected by TLS and SSL. While our communications to the SQL database are not encrypted. It's not really needed because it's a private network and not exposed to the internet.
@@ -121,7 +119,5 @@ fullstack apps used a modified version of what I just showed you with an ec2 you
 - [DNS](https://www.cloudflare.com/learning/dns/what-is-dns/)
 - [TLS/Https](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/)
 - [JWT](https://jwt.io/introduction/)
-
-
 
 `;
