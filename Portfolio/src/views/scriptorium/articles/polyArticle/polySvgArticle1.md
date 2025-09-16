@@ -4,7 +4,7 @@ This article will go over how to transform a static SVG image into a cool mouse 
 
 ## The Idea
 
-The goal is to have a Haikei polygon background change colors on mouse hover. When a user hovers their mouse over the SVG image, the triangles below subtly change color, with a lesser effect on the immediately surrounding triangles. We can implement a few different interesting effects, such as darkening the surrounding triangles, lightening them, or adding glow effects. There is a CodePen at the end if you just want to see the result! Or just want to see any code I gloss over here.
+The goal is to have a Haikei polygon background change colors on mouse hover. When a user hovers their mouse over the SVG image, the triangles below subtly change color, with a lesser effect on the immediately surrounding triangles. We can implement a few different interesting effects, such as darkening the surrounding triangles, lightening them, or adding glow effects. There is a Showcase at the end if you just want to see the result! Or just want to see any code I gloss over here.
 
 ## Getting our background ready
 
@@ -127,7 +127,7 @@ Now this is where it gets fun; you can add glows to it as well. Reverse the effe
 
 ## Variations
 
-Here I am going to show off some images of a few variations I made before linking to a CodePen of my favorite effect. All of these can by altering the `darkenDistance` function or altering the SVG coloring on initialization. Before that, a side note if you don't want to regenerate a new SVG from Haikei to change the colors to something new, you can just stick something in the initialization stage that alters the colors to a range you desire! And here is my favorite, the simplified black and white with solid black strokes. Still using the purple poly svg.
+Here I am going to show off some images of a few variations I made before linking the showcase of my favorite effect. All of these can by altering the `darkenDistance` function or altering the SVG coloring on initialization. Before that, a side note if you don't want to regenerate a new SVG from Haikei to change the colors to something new, you can just stick something in the initialization stage that alters the colors to a range you desire! And here is my favorite, the simplified black and white with solid black strokes. Still using the purple poly svg.
 
 ![Image description](/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp)
 
@@ -139,8 +139,4 @@ Here is a fun one. I added a glow along with darkening the color. Furthermore, a
 
 ![Image description](/scriptorium/polySvgArticle/PolyGridGlow.webp)
 
-And finally, here is a CodePen so you can mess around with it yourself.
-
-## Foreword
-
-First, I hope you enjoyed this or found it interesting! I love making things like this it's highly flexible, interesting, and I could really see it making fun backgrounds for websites. I hope you learned something from this. And if you want to check out more of my stuff, you can visit my website https://www.kadenwildauer.com/ or wait for my next article it's sure to be interesting!
+And finally, here is a Component of it so you can mess around with it yourself.

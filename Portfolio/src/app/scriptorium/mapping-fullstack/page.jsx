@@ -9,7 +9,10 @@ import path from "path";
 import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
 
 const mappingArticle = fs.readFileSync(
-  path.join(process.cwd(), "src/views/scriptorium/articles/article2.md"),
+  path.join(
+    process.cwd(),
+    "src/views/scriptorium/articles/mappingArticle/map.md"
+  ),
   "utf8"
 );
 

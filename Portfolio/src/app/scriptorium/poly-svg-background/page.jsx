@@ -9,13 +9,27 @@ export const metadata = {
   Built with css and javascript.`,
 };
 
-const polySvgArticle = fs.readFileSync(
-  path.join(process.cwd(), "src/views/scriptorium/articles/polySvgArticle.md"),
+const polySvgArticle1 = fs.readFileSync(
+  path.join(
+    process.cwd(),
+    "src/views/scriptorium/articles/polyArticle/polySvgArticle1.md"
+  ),
   "utf8"
 );
 
+const polySvgArticle2 = fs.readFileSync(
+  path.join(
+    process.cwd(),
+    "src/views/scriptorium/articles/polyArticle/polySvgArticle2.md"
+  ),
+  "utf8"
+);
+
+import App from "@/views/scriptorium/scripts/polySvg.jsx";
+const articleArr = [polySvgArticle1, App, polySvgArticle2];
+
 function ScriptoriumPage() {
-  return <SubjectContainer article={[polySvgArticle]} />;
+  return <SubjectContainer article={articleArr} />;
 }
 
 export default ScriptoriumPage;

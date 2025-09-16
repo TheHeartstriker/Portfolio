@@ -67,18 +67,24 @@
   color: black;
 }
 
-.canvas-script {
+.component-container-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  width: 100%;
+}
+
+.component-container-article canvas {
   width: 100%;
   height: 100%;
   background-color: black;
   border-radius: 50px;
 }
 
-.component-container-article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.component-container-article svg {
+  border-radius: 50px;
 }
 
 .subject-container-article img {
