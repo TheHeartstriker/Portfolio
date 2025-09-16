@@ -10,17 +10,6 @@ import "./index.css";
 
 function articleChecker(item) {
   //
-  // Check if we are an img
-  //
-  if (typeof item === "string" && item.endsWith(".png")) {
-    // Assuming the string is a path to an image
-    return (
-      <div className="image-container-article">
-        <img src={item} alt="Article related" />
-      </div>
-    );
-  }
-  //
   // Check if we are code markdown
   //
   if (typeof item === "string") {
@@ -32,6 +21,7 @@ function articleChecker(item) {
               <h1 {...props} />
             </div>
           ),
+          img: ({ ...props }) => <img {...props} />,
 
           code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
@@ -78,7 +68,7 @@ function articleChecker(item) {
 function renderArticles(article) {
   if (Array.isArray(article)) {
     return article.map((item, idx) => (
-      <div key={idx}>{articleChecker(item)}</div>
+      <React.Fragment key={idx}>{articleChecker(item)}</React.Fragment>
     ));
   }
   return null;

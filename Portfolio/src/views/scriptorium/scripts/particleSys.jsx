@@ -254,7 +254,7 @@ function ParticleSys() {
     };
   }, [ctx]);
 
-  return <canvas ref={canvasRef} className="canvas-script" />;
+  return <canvas ref={canvasRef} />;
 }
 
 export default ParticleSys;

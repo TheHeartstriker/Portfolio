@@ -11,7 +11,7 @@
   border-radius: 100px;
   z-index: 1;
   margin-bottom: var(--space-3);
-  padding: var(--space-4);
+  padding: var(--space-5);
   transition: transform 0.5s ease-in-out;
   box-sizing: border-box;
   color: var(--white);
@@ -33,9 +33,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  box-sizing: border-box;
+  padding: var(--space-1);
 }
 .subject-container-article h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
   color: var(--neon-dull);
@@ -44,7 +46,16 @@
 /* h2 */
 
 .subject-container-article h2 {
+  font-size: 1.75rem;
   color: var(--neon-dull);
+  margin: var(--space-1) 0;
+  margin-bottom: 0;
+}
+
+.subject-container-article h3 {
+  font-size: 1.3rem;
+  margin: var(--space-1) 0;
+  margin-bottom: 0;
 }
 
 .subject-container-article a {
@@ -56,32 +67,28 @@
   color: black;
 }
 
-.canvas-script {
+.component-container-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  width: 100%;
+}
+
+.component-container-article canvas {
   width: 100%;
   height: 100%;
   background-color: black;
   border-radius: 50px;
 }
 
-.component-container-article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.component-container-article svg {
+  border-radius: 50px;
 }
 
-.image-container-article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-2);
-}
-
-.image-container-article img {
-  max-width: 90%;
+.subject-container-article img {
+  max-width: 100%;
   max-height: 60vh;
   width: auto;
   height: auto;
@@ -93,6 +100,11 @@
 
 .code-block {
   border-radius: 25px;
+}
+
+.subject-container-article p code {
+  background-color: var(--Dark-blue);
+  margin: 0;
 }
 
 pre,
@@ -119,15 +131,18 @@ code {
 
 @media (max-width: 1000px) {
   .subject-container-article {
-    margin-top: 15%;
+    margin-top: 20%;
   }
   .subject-container-article h1 {
     font-size: 3.5rem;
   }
+  .subject-container-article h2 {
+    font-size: 2.7rem;
+  }
+  .subject-container-article h3 {
+    font-size: 2.3rem;
+  }
   .article-h1-container {
     width: 90%;
-  }
-  .component-container-article {
-    margin-bottom: 25px;
   }
 }
