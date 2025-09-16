@@ -11,7 +11,7 @@ export const desMappingFullstack = {
   title: "Mapping A full stack application",
   tags: ["Web Development", "Full stack"],
   des: `This article is going to map a fullstack system: the what, where, and why. 
-  This isn't really system design but going over a pre designed system and aimed at beginner to lower-intermediate web developers.
+   This isn't really system design but going over a pre designed system and aimed at beginner to lower-intermediate web developers.
    There are going to be three sections. First is serving code; this will go over what happens when you visit a fullstack application. 
    The second is logging in, this is a smaller section, but in most fullstack applications, being logged in is fundamental. The third section is common operations, this section is going to go over what happens when someone logs in and is using the application. 
    Where does JWT fit? Cookies? CORS? HTTPS? API calls? And other things that are important to understand when building a fullstack application.`,

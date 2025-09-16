@@ -33,9 +33,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  box-sizing: border-box;
+  padding: var(--space-1);
 }
 .subject-container-article h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
   color: var(--neon-dull);
@@ -44,7 +46,16 @@
 /* h2 */
 
 .subject-container-article h2 {
+  font-size: 1.75rem;
   color: var(--neon-dull);
+  margin: var(--space-1) 0;
+  margin-bottom: 0;
+}
+
+.subject-container-article h3 {
+  font-size: 1.3rem;
+  margin: var(--space-1) 0;
+  margin-bottom: 0;
 }
 
 .subject-container-article a {
@@ -83,6 +94,11 @@
 
 .code-block {
   border-radius: 25px;
+}
+
+.subject-container-article p code {
+  background-color: var(--Dark-blue);
+  margin: 0;
 }
 
 pre,

@@ -1,15 +1,20 @@
 export const metadata = {
-  title: "A Full stack introduction",
-  description: `A basic introduction to fullstack development by mapping out and explaining a simple website. Goes over key stages such as serving, DNS, TCP, HTTP, JWT, Cookies, and more. Includes visual examples.
-  And simplifies complex concepts into digestible pieces.`,
+  title: "Mapping A full stack application",
+  description: `A detailed article mapping out a full stack web application, ideal for beginner to intermediate developers. 
+  Show's the interworkings of serving code, authentication, and common operations, covering key concepts like JWT, cookies, CORS, and API calls.
+  Including diagrams to illustrate the flow of data and interactions within the application.`,
 };
-
+import fs from "fs";
+import path from "path";
 import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
 
-import { articleMappingFullStack } from "@/views/scriptorium/articles/article2.js";
+const mappingArticle = fs.readFileSync(
+  path.join(process.cwd(), "src/views/scriptorium/articles/article2.md"),
+  "utf8"
+);
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={[articleMappingFullStack]} />;
+  return <SubjectContainer article={[mappingArticle]} />;
 }
 
 export default ScriptoriumPage;

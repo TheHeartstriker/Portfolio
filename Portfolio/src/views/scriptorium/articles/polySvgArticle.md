@@ -1,10 +1,12 @@
+# Building a Mouse-Responsive SVG Polygon Background with JavaScript and CSS
+
 This article will go over how to transform a static SVG image into a cool mouse responsive background! It can be used as a cool add on for a hero for portfolios, interactive websites, or even in more professional settings if you're feeling like creating something interesting. More specifically, this article is about manipulating a polygon background generated from Haikei, a free SVG pattern and effect generation resource.
 
-# The Idea
+## The Idea
 
 The goal is to have a Haikei polygon background change colors on mouse hover. When a user hovers their mouse over the SVG image, the triangles below subtly change color, with a lesser effect on the immediately surrounding triangles. We can implement a few different interesting effects, such as darkening the surrounding triangles, lightening them, or adding glow effects. There is a CodePen at the end if you just want to see the result! Or just want to see any code I gloss over here.
 
-# Getting our background ready
+## Getting our background ready
 
 Ok, let's go over where to go if you want to follow along. Here is the resource: https://app.haikei.app. Below is the image I will be using.
 
@@ -43,11 +45,11 @@ We also should put it inside a div that looks like so.
 
 Then we are good that's all the setup. Now it is the more complex stuff.
 
-# Manipulating the polygons
+## Manipulating the polygons
 
 There are multiple ways to go about this. To change a single polygon, we only need to add a `:hover` effect to the CSS for the SVG paths with a transition. But that's not the goal; we want to affect multiple. Now I had a few ideas the first was creating a grid of points around the mouse in a circle and changing the colors based on distance. But that runs into a few issues first, it's unnecessarily complicated, and we would need to constantly check the element below a point with `elementFromPoint`. Which is a little much considering we want a lightweight background. But good news! I landed on a different solution shown below.
 
-## Initialize poly data
+### Initialize poly data
 
 My idea was we iterate over the SVG internals once at the start and collect 4 values. First the distance, then the color, ID name, and finally the center of the polygon. We can then store all 108 elements in an array. The type/object structure is shown below.
 
@@ -62,7 +64,7 @@ type IdValue = {
 
 Now, why do we need to store these things? First, we need the ID for the reference and location, the distance as a placeholder, and the color as the initial value. For color, we of course need to change it, and if we want to return to the original, we need it in memory. As for `elCenter`, we only want to store each polygon's center point once on initialization or on resize. Otherwise, if we don't store it, we run `getBoundingClientRect();` every frame, which is intense and unneeded.
 
-## Mouse loop
+### Mouse loop
 
 Now we have initialized our values, we can now consider the main loop. Now I put my functions into an on mousemove event listener. We only need to consider changes when the controller aka the mouse moves. Here is what it looks like.
 
@@ -83,7 +85,7 @@ function mouseMove(e: MouseEvent) {
 
 Now we store the mouse position for use inside `updateDistances`, the bread and butter of the entire effect. Now `updateDistances` is as it sounds; we pass it every `IdValue`, it calculates the Euclidean distance from the center of the polygon to the mouse, and stores the new value inside the `IdValue`.
 
-## Applying color based on distance
+### Applying color based on distance
 
 Now from this point, every `IdValue` has the updated distance value. Now we can look at what creates our effect `darkenDistance`, which to simplify for now is just a black and white color change. The elements closer to the mouse are darker those further to a point are just white. The code and what we expand upon for the colored version is like so.
 
@@ -123,11 +125,11 @@ el.style.stroke = `hsl(${i.color[0]}, ${i.color[1]}%, ${lightness}%)`;
 
 Now this is where it gets fun; you can add glows to it as well. Reverse the effect, make it appear lighter the closer it is to the mouse. Or just decrease the effect in general, make it less noticeable so it works in a proper design instead of a fun animation.
 
-# Variations
+## Variations
 
 Here I am going to show off some images of a few variations I made before linking to a CodePen of my favorite effect. All of these can by altering the `darkenDistance` function or altering the SVG coloring on initialization. Before that, a side note if you don't want to regenerate a new SVG from Haikei to change the colors to something new, you can just stick something in the initialization stage that alters the colors to a range you desire! And here is my favorite, the simplified black and white with solid black strokes. Still using the purple poly svg.
 
-![Image description](/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webpg)
+![Image description](/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp)
 
 Here is the original idea. A little disappointing, to be honest, but I am pretty sure that's because of the colors here.
 
@@ -139,8 +141,6 @@ Here is a fun one. I added a glow along with darkening the color. Furthermore, a
 
 And finally, here is a CodePen so you can mess around with it yourself.
 
-{% codepen https://codepen.io/Kaden-Wildauer-the-sans/pen/KwdjMBL %}
-
-# Foreword
+## Foreword
 
 First, I hope you enjoyed this or found it interesting! I love making things like this it's highly flexible, interesting, and I could really see it making fun backgrounds for websites. I hope you learned something from this. And if you want to check out more of my stuff, you can visit my website https://www.kadenwildauer.com/ or wait for my next article it's sure to be interesting!
