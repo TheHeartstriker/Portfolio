@@ -4,19 +4,11 @@ export const metadata = {
   and programming to simulate natural phenomena like lightning, fire, and wind. 
   Perfect for practicing fundamentals and enhancing problem-solving skills with real-time results.`,
 };
-import fs from "fs";
-import path from "path";
 import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
 
-const particleArticle = fs.readFileSync(
-  path.join(
-    process.cwd(),
-    "src/views/scriptorium/articles/particleArticle/particle.md"
-  ),
-  "utf8"
-);
-
+import particleArticle from "@/views/scriptorium/articles/particleArticle/particle.md";
 import ParticleSys from "@/views/scriptorium/scripts/particleSys.jsx";
+
 const articleArr = [particleArticle, ParticleSys];
 
 function ScriptoriumPage() {

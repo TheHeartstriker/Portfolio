@@ -1,6 +1,6 @@
 "use client";
 import Poly from "@/components/svg/polyArt.jsx";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 //
 // Helper functions
 //
@@ -130,7 +130,6 @@ function App() {
     );
     i.distanceToMouse = distance;
   }
-
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
@@ -140,8 +139,8 @@ function App() {
       svg.removeEventListener("mousemove", mouseMove);
       window.removeEventListener("resize", updateCenter);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   useEffect(() => {
     if (otherPolyRef.current.length > 0) return;
     fillPoly();

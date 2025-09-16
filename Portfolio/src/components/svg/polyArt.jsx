@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
-const Poly = forwardRef((props, ref) => {
+const Poly = forwardRef(function Poly(props, ref) {
   return (
     <svg
       width="100%"
@@ -10,6 +10,7 @@ const Poly = forwardRef((props, ref) => {
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
+      {...props}
     >
       <g id="low-poly-grid-haikei" clipPath="url(#clip0_1_3)">
         <g id="Group">
