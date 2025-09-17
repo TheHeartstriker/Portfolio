@@ -1,4 +1,4 @@
-import AboutIsland from "./aboutIsland";
+import AboutMobile from "./aboutMobile";
 import {
   Header1,
   Header2,
@@ -22,7 +22,7 @@ function About() {
         </p>
       </div>
       {/* Client-side logic below */}
-      <AboutIsland
+      <AboutMobile
         Header1={Header1}
         Header2={Header2}
         Header3={Header3}

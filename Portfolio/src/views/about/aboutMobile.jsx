@@ -4,7 +4,7 @@ import DownArr from "../../components/svg/DownArrow.jsx";
 import { useState, useEffect } from "react";
 import "./about.css";
 
-export default function AboutIsland({
+export default function AboutMobile({
   Header1,
   Header2,
   Header3,

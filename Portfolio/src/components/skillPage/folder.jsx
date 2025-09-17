@@ -6,7 +6,8 @@ function handleLink(Link) {
 
 function CreateFolder({ Header, Para, Link }) {
   return (
-    <div className="folder" onClick={() => handleLink(Link)}>
+    <div className="folder">
+      <a href={Link} target="_blank" rel="noopener noreferrer" />
       <div className="folder-svg-container"></div>
       <h6>{Header}</h6>
       <p>{Para}</p>
