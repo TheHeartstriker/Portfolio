@@ -32,6 +32,14 @@
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
 }
+.full-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
 
 .script-article:hover {
   transform: scale(1.05);
