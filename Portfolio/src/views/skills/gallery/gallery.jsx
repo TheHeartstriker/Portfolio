@@ -2,12 +2,13 @@ import PolyR from "../../../components/svg/polyR.jsx";
 import "./gallery.css";
 import "../main/skill.css";
 import Masson from "./Masson.jsx"; //client island
+import Link from "next/link";
 
 function Gallery() {
   return (
     <div className="main-gallery-container">
       <div className="separator" id="galSep">
-        <a id="gallery-link" href="/skills/"></a>
+        <Link id="gallery-link" href="/skills/"></Link>
         <div className="gallery-link reverse">
           <PolyR className="gallery-svg" />
         </div>

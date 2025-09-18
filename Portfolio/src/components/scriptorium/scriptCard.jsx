@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 export function ScriptCard({ articleDes, link }) {
   return (
     <div className="script-article">
-      <a href={link} className="full-link-overlay" />
+      <Link href={link} className="full-link-overlay" />
       <div className="script-article-img">
         <img src={articleDes.image} alt={articleDes.title} />
       </div>

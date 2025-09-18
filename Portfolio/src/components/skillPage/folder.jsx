@@ -1,9 +1,5 @@
 import PropTypes from "prop-types";
 
-function handleLink(Link) {
-  window.open(Link, "_blank", "noopener,noreferrer");
-}
-
 function CreateFolder({ Header, Para, Link }) {
   return (
     <div className="folder">

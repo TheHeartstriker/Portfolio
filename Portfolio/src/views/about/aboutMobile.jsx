@@ -2,6 +2,7 @@
 import PlayGround from "./playground/playGround";
 import DownArr from "../../components/svg/DownArrow.jsx";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "./about.css";
 
 export default function AboutMobile({
@@ -53,3 +54,12 @@ export default function AboutMobile({
     </>
   );
 }
+
+AboutMobile.propTypes = {
+  Header1: PropTypes.string.isRequired,
+  Header2: PropTypes.string.isRequired,
+  Header3: PropTypes.string.isRequired,
+  MainText1: PropTypes.string.isRequired,
+  MainText2: PropTypes.string.isRequired,
+  MainText3: PropTypes.string.isRequired,
+};

@@ -20,7 +20,7 @@ import {
 } from "../../../components/skillPage/index.js";
 import Poly from "../../../components/svg/poly.jsx";
 import PillAnimation from "./pillAnimation";
-
+import Link from "next/link";
 function Skill() {
   return (
     <div className="main-skill-container">
@@ -28,8 +28,14 @@ function Skill() {
       {/* For SEO */}
       <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
       {/* Over head container for tech stacks */}
-      <div className="separator" id="Sep1">
-        <a id="gallery-link" href="/skills/gallery"></a>
+      <div
+        className="separator"
+        id="Sep1"
+        // onClick={() => {
+        //   router.push("/skills/gallery");
+        // }}
+      >
+        <Link id="gallery-link" href="/skills/gallery"></Link>
         <h3>01.</h3>
         <h2>Known tech</h2>
         <hr></hr>
