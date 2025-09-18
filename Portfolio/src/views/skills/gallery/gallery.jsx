@@ -1,21 +1,14 @@
-"use client";
 import PolyR from "../../../components/svg/polyR.jsx";
 import "./gallery.css";
 import "../main/skill.css";
-import { useRouter } from "next/navigation";
-import Masonry from "react-masonry-css";
-import Image from "next/image";
+import Masson from "./Masson.jsx"; //client island
+import Link from "next/link";
 
 function Gallery() {
-  const router = useRouter();
-
   return (
     <div className="main-gallery-container">
-      <div
-        className="separator"
-        id="galSep"
-        onClick={() => router.push("/skills")}
-      >
+      <div className="separator" id="galSep">
+        <Link id="gallery-link" href="/skills/"></Link>
         <div className="gallery-link reverse">
           <PolyR className="gallery-svg" />
         </div>
@@ -31,68 +24,7 @@ function Gallery() {
           few design ones that I created outside my main projects as well!
         </p>
       </div>
-      <Masonry
-        breakpointCols={{
-          default: 3,
-          1100: 2,
-          700: 2,
-          500: 1,
-        }}
-        className="gallery-container"
-        columnClassName="gallery-column"
-      >
-        <Image
-          src="/gallery/Project2.webp"
-          alt="Project 2"
-          width={400}
-          height={300}
-        />
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/nryWMrf9SaI?autoplay=1&controls=0&loop=1&playlist=nryWMrf9SaI"
-          title="YouTube video"
-          allowFullScreen
-        />
-        <Image
-          src="/gallery/Untitled.webp"
-          alt="Test Image"
-          width={400}
-          height={300}
-        />
-        <Image
-          src="/gallery/Mywebsite2.webp"
-          alt="Original Website"
-          width={400}
-          height={300}
-        />
-        <Image
-          src="/gallery/Project.webp"
-          alt="Project 1"
-          width={400}
-          height={300}
-        />
-        <Image
-          src="/gallery/client.webp"
-          alt="Client Website"
-          width={400}
-          height={300}
-        />
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/RpBYimzejoA?autoplay=1&controls=0&loop=1&playlist=RpBYimzejoA"
-          title="YouTube video"
-          allowFullScreen
-        />
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/YjaAdnZ9sJ0?autoplay=1&controls=0&loop=1&playlist=YjaAdnZ9sJ0"
-          title="YouTube video"
-          allowFullScreen
-        />
-      </Masonry>
+      <Masson />
     </div>
   );
 }

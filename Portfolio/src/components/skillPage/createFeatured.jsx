@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import "./createFeatured.css";
 
-function handleLink(Link) {
-  window.open(Link, "_blank", "noopener,noreferrer");
-}
-
 function CreateFeatured({
   Header,
   Para,
@@ -33,20 +29,22 @@ function CreateFeatured({
           />
           <div className="transparent-fill"></div>
           {Link1 && (
-            <div
+            <a
               className="logo-container img-back-logo1"
-              onClick={() => {
-                handleLink(Link1);
-              }}
-            ></div>
+              href={Link1}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open project"
+            ></a>
           )}
           {Link2 && (
-            <div
+            <a
               className="logo-container img-back-logo2"
-              onClick={() => {
-                handleLink(Link2);
-              }}
-            ></div>
+              href={Link2}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open project"
+            ></a>
           )}
         </div>
         <div className={`app-text ${Mirror ? "mirror" : ""}`}>

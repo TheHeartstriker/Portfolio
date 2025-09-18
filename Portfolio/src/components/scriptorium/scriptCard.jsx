@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
 
-export function ScriptCard({ articleDes, onClick }) {
+export function ScriptCard({ articleDes, link }) {
   return (
-    <div className="script-article" onClick={onClick}>
+    <div className="script-article">
+      <Link href={link} className="full-link-overlay" />
       <div className="script-article-img">
         <img src={articleDes.image} alt={articleDes.title} />
       </div>
@@ -26,5 +28,5 @@ ScriptCard.propTypes = {
     image: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired,
+  link: PropTypes.string.isRequired,
 };

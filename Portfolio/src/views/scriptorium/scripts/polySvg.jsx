@@ -33,23 +33,19 @@ function rgbToHsl(rgb) {
   return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 }
 
-function darkenColorDistance(i, distanceMax = 1000, intensity = [0.01, 0.99]) {
-  let el = document.getElementById(i.id);
+function darkenDistance(i, distanceMax = 1000, intensity = [0.01, 0.99]) {
+  //Collect needed elements and values
+  const el = document.getElementById(i.id);
   if (!el) return;
-  let distance = i.distanceToMouse;
-  // Normalize distance
+  const distance = Math.min(i.distanceToMouse, distanceMax);
+  const originalLightness = 100;
+  // Normalize: 0.01 (close) to 0.99 (far)
   const norm = intensity[0] + intensity[1] * (distance / distanceMax);
-  const lightness = Math.round(i.color[2] * norm);
-
-  // Glow strength: closer = stronger
-  const glowStrength = Math.round(16 * (1 - distance / distanceMax)); // 0-16px
-  const glowColor = `hsl(${i.color[0]}, ${i.color[1]}%, ${lightness + 20}%)`;
-
-  el.style.fill = `hsl(${i.color[0]}, ${i.color[1]}%, ${lightness}%)`;
-  el.style.stroke = `hsl(${i.color[0]}, ${i.color[1]}%, ${lightness}%)`;
-  el.style.transition =
-    "fill 0.3s linear, stroke 0.3s linear, filter 0.3s linear";
-  el.style.filter = `drop-shadow(0 0 ${glowStrength}px ${glowColor})`;
+  const lightness = Math.round(originalLightness * norm);
+  // Apply new color
+  el.style.fill = `hsl(0, 0%, ${lightness}%)`;
+  //el.style.stroke = `hsl(0, 0%, ${lightness}%)`;
+  el.style.transition = "fill 0.3s linear, stroke 0.3s linear";
 }
 
 // Main App
@@ -72,7 +68,7 @@ function App() {
 
     for (const i of otherPolyRef.current) {
       updateDistances(i);
-      darkenColorDistance(i, 1000, [0.2, 0.8]);
+      darkenDistance(i);
     }
   }
 
