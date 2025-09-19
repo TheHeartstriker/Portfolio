@@ -1,5 +1,5 @@
 import InteractiveBG from "./interactiveBG.jsx";
-import ContactButton from "./ContactButton.jsx";
+import ContactButton from "./contactButton.jsx";
 import "./contact.css";
 function Contact() {
   return (
