@@ -1,38 +1,38 @@
 # Flow Fields, Painting with Math
 
-This article is going to go over flow fields! A really fun and intresting concept used in computer graphics, genrative art and fluid mechanics. Flow fields can be used in so many creative way's a webiste background, for a card or maybe for Ilistrating a simple image?
-By the end you will(hopfully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. And of course all with diagrams cool imagary and a live example at the end.
+This article is going to go over flow fields! A really fun and interesting concept used in computer graphics, generative art and fluid mechanics. Flow fields can be used in so many creative ways a website background, for a card or maybe for illustrating a simple image?
+By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. And of course all with diagrams, cool imagery and a live example at the end.
 
 ## Flow fields the idea
 
-But what is a flow field? Well young padawan it's is a method for drawing lines using vector's more spefically a field of vector's. When we draw lines through the field each vector bellow it pushes it around forming a shape. Like a pen over a piece of paper that's being pushed around before it reaches it's destination. That is then repeated over and over
-until we have drawn the shape of the vector feild with the curved lines. The result can be something like the image shown bellow.
+But what is a flow field? Well young padawan, it is a method for drawing lines using vectors, more specifically a field of vectors. When we draw lines through the field, each vector below it pushes it around, forming a shape. Like a pen over a piece of paper that's being pushed around before it reaches its destination. That is then repeated over and over
+until we have drawn the shape of the vector field with the curved lines. The result can be something like the image shown below.
 
 ![Image description](/scriptorium/flowArticle/flow1.webp)
 
-This uses a smooth water like vector feild. The entire idea is switching out the program that form's the vector fields or the curve coloring to create a image. You can even form proper shape's like animales or face's.
+This uses a smooth water-like vector field. The entire idea is switching out the program that forms the vector fields or the curve coloring to create an image. You can even form proper shapes like animals or faces.
 
 ## Step's to build
 
-First let's define the stage's I will use to build a flow field. First we will build a grid like graphing paper, provding each cell a vector and finally actually drawing a curved line. Each stage's is equaly important in creating the final result.
+First let's define the stages we will use to build a flow field. First we will build a grid like graphing paper, providing each cell a vector and finally actually drawing a curved line. Each stage is equally important in creating the final result.
 
 ### Grid
 
-Here we first start by creating a grid again imagine something like graphing paper. And each cell in this grid hold's three value's a x and y location along with a vector. Think of the vector like a arrow pointing in a direction while the x and y are the cell's center.
-This grid act's as a map when we draw our curve's so we can find a vector bellow any point.
+Here we first start by creating a grid again, imagine something like graphing paper. And each cell in this grid holds three values: an x and y location along with a vector. Think of the vector like an arrow pointing in a direction while the x and y are the cell's center.
+This grid acts as a map when we draw our curves so we can find a vector below any point.
 
 ### Grid vector's and perlin noise
 
-The next is filling the grid we just created with the vector's. Now there are many way's to do this but here we are going to use [perlin noise](https://en.wikipedia.org/wiki/Perlin_noise). This allow's us to get random number's or in our case vector's that are less well... random. The idea is the number's that are generated are more gradual no huge jump which will create very cohesive and smooth wave like patern's.
+The next step is filling the grid we just created with the vectors. Now there are many ways to do this, but here we are going to use [perlin noise](https://en.wikipedia.org/wiki/Perlin_noise). This allows us to get random numbers, or in our case vectors, that are less... well, random. The idea is the numbers that are generated are more gradual no huge jumps which will create very cohesive and smooth wave like patterns.
 
 ### Curve's
 
-And that last step is drawing the line's accross the grid. The idea behind this is the line curve's according to the vector of the cell beneath it. We can then control how long the lines are and how they are colored. For example making shorter line's darker while longer line's are lighter adding depth. This step bring's the field we made in the second step to life. Like the image above!
+And the last step is drawing the lines across the grid. The idea behind this is the line curves according to the vector of the cell beneath it. We can then control how long the lines are and how they are colored. For example, making shorter lines darker while longer lines are lighter, adding depth. This step brings the field we made in the second step to life like the image above!
 
 ## Creating our grid
 
-Ok now for the fun stuff. To make our grid we need to divide our window into row's and column. But! Before that we need to define our resolution otherwise known as the width and height of each cell in our grid. Then after defining that we divide it by the legnth and height of our window.
-This will get how many cell's we need based on our window demmensions. Here is the function I am using for getting the row and collumn count.
+Ok, now for the fun stuff. To make our grid we need to divide our window into rows and columns. But! Before that we need to define our resolution, otherwise known as the width and height of each cell in our grid. Then, after defining that, we divide it by the length and height of our window.
+This will give us how many cells we need based on our window dimensions. Here is the function I am using for getting the row and column count.
 
 ```javascript
 //What
@@ -68,11 +68,12 @@ function Impose() {
 }
 ```
 
-Let's walk through this first why am I not just using `winow.innerHeight` and width? That's because when we draw the curves we want some to start off screen so some curve's can flow into the viewable space.
-That means we need cell's for this extra space and here every side get's a 25% increase from the natural window size.
-Now considering the height to get the amount of columns we need it would be screen height divded by our cell's width to get the amount of collumns we need and width diveded by cell width for rows.
+Let's walk through this first. Why am I not just using `window.innerHeight` and `window.innerWidth`? That's because when we draw the curves we want some to start off-screen so some curves can flow into the viewable space.
+That means we need cells for this extra space, and here every side gets a 25% increase from the natural window size.
 
-We now have the amount of grid's and columns we need for our grid but now let's actual create it. To this we should create a 2D array to store each cell's location and angular data. We do this in `create2DArray();`. Which looks like so.
+Now considering the height, to get the amount of columns we need, it would be screen height divided by our cell's width to get the number of columns we need, and width divided by cell width for rows.
+
+We now have the amount of rows and columns we need for our grid, but now let's actually create it. To do this we should create a 2D array to store each cell's location and angular data. We do this in `create2DArray();`, which looks like so.
 
 ```javascript
 function create2DArray(
@@ -98,9 +99,9 @@ function create2DArray(
 }
 ```
 
-Before we go into the code remember each cell's x and y represent's it location otherwise it's just a 2D array!
+Before we go into the code, remember each cell's x and y represents its location; otherwise, it's just a 2D array!
 
-So let's just diving into the code before showing the result. First we create a empty array full of unintalized slot's each slot represent's each row and it's children the collumn's. Now considering the i loop we index into the row here `arr[i] = new Array(Cols);` and fill it with empty slot's representing the amount of columns we need. Then in j we fill those columns using `arr[i][j]` so we can visualize say `arr[i][j] = 0` and Col and Row's are both 3 the data structure would look like so.
+So let's just dive into the code before showing the result. First we create an empty array full of uninitialized slots, each slot representing each row and its children, the columns. Now, considering the i loop, we index into the row here `arr[i] = new Array(Cols);` and fill it with empty slots representing the number of columns we need. Then in j we fill those columns using `arr[i][j]` so we can visualize, say `arr[i][j] = 0`, and Cols and Rows are both 3, the data structure would look like so.
 
 ```javascript
 let arr = [
@@ -110,22 +111,23 @@ let arr = [
 ];
 ```
 
-But in the final product we actually push a object so in reality imagine each 0 be a object like so `{x: 0, y: 0, angle: 0} ` with the proper x, y and a actual angle present. But we will add in the angle later for now consider the x axis of a cell specfically `x: leftX + i * Pix_size` we get the proper x location of each cell by adding the left most point then multiplying it by the index and `Pix_size` pushing it to the right by the amount of cell's that already exist. Now for a little visualzation I made a simple draw function loops over arr and draw a rectangle around the center it's width and height are of course still the `Pix_size` but I did increase `Pix_size` temperally to 25px so its more obvious.
+But in the final product we actually push an object, so in reality imagine each 0 being an object like `so {x: 0, y: 0, angle: 0}` with the proper x, y, and an actual angle present. But we will add in the angle later; for now, consider the x-axis of a cell specifically: `x: leftX + i * Pix_size`. We get the proper x location of each cell by adding the leftmost point, then multiplying it by the index and `Pix_size`, pushing it to the right by the number of cells that already exist.
+
+Now, for a little visualization, I made a simple draw function that loops over arr and draws a rectangle around the center. Its width and height are, of course, still the `Pix_size`, but I did increase `Pix_size` temporarily to 25px so it’s more obvious.
 
 ![Image description](/scriptorium/flowArticle/Grid.png)
 
 ## Grid Vector's
 
-Now let's consider how we fill our grid with angle's which is as mentiond using perlin noise. Now I could go into how perlin noise actually work's and how we can implemnt it from scratch but the truth is... I have no clue how it works! But luckly you don't really need to now how it work's just the general idea.
+Now let's consider how we fill our grid with angles, which is, as mentioned, using Perlin noise. Now I could go into how Perlin noise actually works and how we can implement it from scratch, but the truth is... I have no clue how it works! But luckily you don't really need to know how it works, just the general idea.
 
-Which is gernating smooth random number but what do I mean by smooth? I mean there no jump's in the randomness to visualize consider a moutain in array form with a max of 100 and a min of 1. Like so [0,4,8,10,15] now let's say our next number is randomized it could very well just be 80. No moutain or natural formation just suddenly gets a 5x increase in size. Perlin noise make's sure the randomness is within reason small jumps either up or down considering the moutain.
-But going back to code there is multiple npm package's and implmentation's online here is the one I am [using](https://github.com/TheHeartstriker/Myriad/blob/main/Myriad/src/flowFields/angleMath.ts)
+Which is generating smooth random numbers. But what do I mean by smooth? I mean there are no jumps in the randomness. To visualize, consider a mountain in array form with a max of 100 and a min of 1, like so [0,4,8,10,15]. Now let's say our next number is randomized it could very well just be 80. No mountain or natural formation, it just suddenly gets a 5x increase in size. Perlin noise makes sure the randomness is within reason: small jumps either up or down, considering the mountain. But going back to code, there are multiple npm packages and implementations online. Here is the one I am [using](https://github.com/TheHeartstriker/Myriad/blob/main/Myriad/src/flowFields/angleMath.ts)
 
-But moving past perlin noise lets visualize the angle's themself's. For this I am going to draw a point in the center of each rectangle and a line a fourth the size of the Pix_size in the direction of each cell's angle. Further more I am going to remove the perlin noise so you don't need it to to go further and to simplfiy the following visulzation. I also increased Pix_size to 40 so it's easier to see.
+But moving past Perlin noise, let's visualize the angles themselves. For this, I am going to draw a point in the center of each rectangle and a line a fourth the size of the `Pix_size` in the direction of each cell's angle. Furthermore, I am going to remove the Perlin noise so you don't need it to go further and to simplify the following visualization. I also increased `Pix_size` to 40 so it's easier to see.
 
 ![Image description](/scriptorium/flowArticle/GridAngle.png)
 
-Here is the new loop inside `create2DArray` with the angle's actually added this time. I am also using the simplfied angluar math instead of perlin noise here.
+Here is the new loop inside `create2DArray` with the angles actually added this time. I am also using the simplified angular math instead of Perlin noise here.
 
 ```javascript
 //Inside the create2DArray function!
@@ -134,7 +136,7 @@ for (let i = 0; i < arr.length; i++) {
   arr[i] = new Array(Cols);
   //Iterate over the empty columns in the row
   for (let j = 0; j < arr[i].length; j++) {
-    const angle = (i / Rows) * Math.PI * 2; //Simplfited angle
+    const angle = (i / Rows) * Math.PI * 2; //Simplfied angle
     arr[i][j] = {
       angle: angle,
       x: leftX + i * Pix_size,
@@ -146,7 +148,7 @@ for (let i = 0; i < arr.length; i++) {
 
 ## Drawing the curve's
 
-Before we get into the code for our curve's it's good to know how people even draw curve's in computer graphic's. And that is drawing series of very short line's to form a curve shape. And as for the next part the coloring I will be using length to deterimn color. Just keep this in mind!
+Before we get into the code for our curves, it's good to know how people even draw curves in computer graphics. And that is drawing a series of very short lines to form a curved shape. As for the next part, the coloring, I will be using length to determine color. Just keep this in mind!
 
 ```typescript
 function drawCurve(
@@ -219,14 +221,14 @@ function drawCurve(
 }
 ```
 
-Now let's walk through this first we pick our starting point in relation to the modifed canvas the random x and y. We then define the length and amount of lines which form the curve which is `num_steps` the number of stright lines that make up a single curve.
-Then `step_length` how far each straight line will travel. Depending on how these two varables are set you can get more blocky or gemotric lines here they end up pretty smooth we also set the `step_length` as any number between 1 and 5 giving us different curve length's.
-After this we pick our color ignore `lengthColorPick` I will cover that shortly. The next portion is moving our x and y to draw the curve.
+Now let's walk through this. First, we pick our starting point in relation to the modified canvas the random x and y. We then define the length and amount of lines which form the curve, which is `num_steps`, the number of straight lines that make up a single curve.
+Then `step_length` determines how far each straight line will travel. Depending on how these two variables are set, you can get more blocky or geometric lines; here they end up pretty smooth. We also set the `step_length` as any number between 1 and 5, giving us different curve lengths.
+After this, we pick our color ignore `lengthColorPick`, I will cover that shortly. The next portion is moving our x and y to draw the curve.
 
-In the loop we draw a line to x and y then the real bread and butter we find the index's so we can slice into our grid and get the location of the cell under the current lines x and y position. Store that in `colum_index` and `row_index` and then create a if check to be sure it's in bounds we do this because mathmatically we want space outside the visable space but we can't actually draw of screen. After we have the index's where set we can get the angle of the cell under the x and y location. Then we can just use cos and sin multiplyed by or step_length to get the x and y velocity and apply that change to our curves current line. This pushes the curve in that spefic angular direction creating the
-entire flow effect.
+In the loop, we draw a line to x and y, then the real bread and butter: we find the indices so we can slice into our grid and get the location of the cell under the current line's x and y position. Store that in `column_index` and `row_index`, and then create an if check to be sure it's in bounds. We do this because mathematically we want space outside the visible space, but we can't actually draw off screen.
+After we have the indices set, we can get the angle of the cell under the x and y location. Then we can just use cos and sin multiplied by our `step_length` to get the x and y velocity and apply that change to our curve's current line. This pushes the curve in that specific angular direction, creating the entire flow effect.
 
-So next let's quickly go over how we actually color the line. The `lengthColorPick` I glossed over looks like so.
+So next, let's quickly go over how we actually color the line. The `lengthColorPick` I glossed over looks like this.
 
 ```typescript
 export function lengthColorPick(
@@ -250,20 +252,19 @@ export function lengthColorPick(
 }
 ```
 
-This return's the color we set a single time for each curve. The idea is we give it a orginal color value inside `colorValues` like pure red then give it the max possible and min possilbe range. And have it normalize the distance compared to the max. For example between 0 and 1000 our normal
-would be 0.4 at 400. Using that normal we can decrease orginal lightnightness which is `adjustedLightness`. For some extra control I also added `intensity` which decrease our normal value say we use the default 0.5 for `intensity` and our normal is again equal to 0.4 we preform 0.4 \* 0.5 halfing
-our normal which in turn decrease our lightness.
+This returns the color we set a single time for each curve. The idea is we give it an original color value inside `colorValues`, like pure red, then give it the max possible and min possible range, and have it normalize the distance compared to the max. For example, between 0 and 1000, our normal would be 0.4 at 400. Using that normal, we can decrease the original lightness, which is `adjustedLightness`.
+For some extra control, I also added `intensity`, which decreases our normal value. Say we use the default 0.5 for `intensity` and our normal is again equal to 0.4; we perform 0.4 \* 0.5, halving our normal, which in turn decreases our lightness.
 
 ## Variations
 
-Now before this get's any longer I want to show you some variation's! Bellow I gave every cell a color based on it's possition collumn wise spliting it into 5 section's each holding a differnt color in the cell. Then in `drawCurve` I would slowly alter each stroke ocording to what the cell's color bellow it is.
-Which if given gold and red's look's like so.
+Now before this gets any longer, I want to show you some variations! Below, I gave every cell a color based on its position, column wise, splitting it into 5 sections, each holding a different color in the cell. Then in `drawCurve`, I would slowly alter each stroke according to what the cell's color below it is.
+Which, if given gold and reds, looks like so.
 
 ![Image description](/scriptorium/flowArticle/ColoredFlow.png)
 
-And here is a live look. Here I went back to using `lengthColorPick` but made it a loop so we slowly see the image being created
+And here is a live look. Here I went back to using `lengthColorPick` but made it a loop so we slowly see the image being created.
 
-Everything shown here only scratches the surface of flow field's so if you want to go further or just want some more resource's here are some links!
+Everything shown here only scratches the surface of flow fields, so if you want to go further or just want some more resources, here are some links!
 
 - [Great showcase type artilce](https://www.tylerxhobbs.com/words/flow-fields)
 - [Video type tutorial](https://www.youtube.com/watch?v=_HGh0tfMx7Q)
@@ -272,4 +273,4 @@ Everything shown here only scratches the surface of flow field's so if you want 
 
 ## Afterword
 
-I hope you learned something from this or at least found it to be a fun read. I did put a lot of effort into it! If you wan't to see more of what I have made then... look around this website it took way longer to make them this.
+I hope you learned something from this or at least found it to be a fun read. I did put a lot of effort into it! If you want to see more of what I have made, then... look around this website it took way longer to make than this.
