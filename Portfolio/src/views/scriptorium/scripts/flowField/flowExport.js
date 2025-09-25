@@ -28,7 +28,7 @@ export function drawCurve(
       max_step_length * num_steps,
       step_length * num_steps,
       colorValues,
-      1.5
+      0.8
     );
     ctx.strokeStyle = `hsl(${Lencolor.h}, ${Lencolor.s}%, ${Lencolor.l}%)`;
   }
