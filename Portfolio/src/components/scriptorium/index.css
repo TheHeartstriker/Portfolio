@@ -59,7 +59,7 @@
 }
 
 .subject-container-article a {
-  color: var(--neon-blue);
+  color: var(--neon-link);
   text-decoration: none;
   font-weight: 700;
 }
@@ -104,6 +104,7 @@
 
 .subject-container-article p code {
   background-color: var(--Dark-blue);
+  padding: 0 0.3em;
   margin: 0;
 }
 
