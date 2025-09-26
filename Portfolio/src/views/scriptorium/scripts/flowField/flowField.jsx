@@ -7,13 +7,7 @@ function FlowField() {
   const [ctx, setCtx] = useState(null);
   const animationIdRef = useRef(null);
   const colorValues = { h: 200, s: 0, l: 77 };
-  const colorValues2 = {
-    color1: { h: 0, s: 80, l: 55 },
-    color2: { h: 20, s: 85, l: 55 },
-    color3: { h: 35, s: 90, l: 55 },
-    color4: { h: 45, s: 90, l: 60 },
-    color5: { h: 50, s: 90, l: 65 },
-  };
+
   const gridRef = useRef([]);
   const rowRef = useRef(0);
   const colRef = useRef(0);
@@ -58,6 +52,7 @@ function FlowField() {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function render() {
@@ -65,7 +60,6 @@ function FlowField() {
     drawCurve(ctx, gridRef, leftRight, topBottom, colorValues, Pix_size, true);
   }
 
-  const seed = Math.random() * 1000;
   const scale = 0.01;
 
   function create2DArray(Rows, Cols, leftX, topY) {
@@ -103,12 +97,11 @@ function FlowField() {
     );
     gridRef.current = initialGrid;
   }
-
   useEffect(() => {
     Impose();
     render();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
-
   useEffect(() => {
     const animate = () => {
       render();
@@ -120,6 +113,7 @@ function FlowField() {
         cancelAnimationFrame(animationIdRef.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   return <canvas className="myCanvas" ref={canvasRef}></canvas>;

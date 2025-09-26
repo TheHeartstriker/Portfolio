@@ -104,6 +104,21 @@ function lengthColorPick(
   };
 }
 
+function interpolateColor(currentColor, targetColor, step) {
+  // Helper to move a value toward a target by at most 'step'
+  function approach(current, target, step) {
+    if (current < target) return Math.min(current + step, target);
+    if (current > target) return Math.max(current - step, target);
+    return current;
+  }
+
+  return {
+    h: approach(currentColor.h, targetColor.h, step),
+    s: approach(currentColor.s, targetColor.s, step),
+    l: approach(currentColor.l, targetColor.l, step),
+  };
+}
+
 //
 // Math
 //
