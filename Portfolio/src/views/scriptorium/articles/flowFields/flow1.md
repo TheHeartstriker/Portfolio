@@ -10,16 +10,17 @@ until we have drawn the shape of the vector field with the curved lines. The res
 
 ![Image description](/scriptorium/flowArticle/flow1.webp)
 
-This uses a smooth water-like vector field. The entire idea is switching out the program that forms the vector fields or the curve coloring to create an image. You can even form proper shapes like animals or faces.
+This uses a smooth water-like vector field. The entire idea is switching out the program that forms the vector fields, the curve or the coloring to create an image. You can even form proper shapes like animals or faces.
 
 ## Step's to build
 
-First let's define the stages we will use to build a flow field. First we will build a grid like graphing paper, providing each cell a vector and finally actually drawing a curved line. Each stage is equally important in creating the final result.
+First let's define the stages we will use to build a flow field. First we will build a grid think of something like graphing paper, we provide each cell a vector and finally actually drawing a curved line. Each stage is equally important in creating the final result. And as a side
+note, I will be using React and TypeScript and will have to gloss over some of the setup, i.e., canvas, for the sake of time so keep that in mind! But there is a link to the code at the end for you to peek at. Most of what's taught here is the less language-specific knowledge so don't worry.
 
 ### Grid
 
-Here we first start by creating a grid again, imagine something like graphing paper. And each cell in this grid holds three values: an x and y location along with a vector. Think of the vector like an arrow pointing in a direction while the x and y are the cell's center.
-This grid acts as a map when we draw our curves so we can find a vector below any point.
+Here we first start by creating a grid again, again imagine something like graphing paper. And each cell in this grid holds three values: an x and y location along with a vector. You can think of the vector like an arrow pointing in a direction while the x and y are the cell's center.
+This grid acts as a map when we draw our curves so we can find the vector below any point.
 
 ### Grid vector's and perlin noise
 
@@ -70,7 +71,6 @@ function Impose() {
 
 Let's walk through this first. Why am I not just using `window.innerHeight` and `window.innerWidth`? That's because when we draw the curves we want some to start off-screen so some curves can flow into the viewable space.
 That means we need cells for this extra space, and here every side gets a 25% increase from the natural window size.
-
 Now considering the height, to get the amount of columns we need, it would be screen height divided by our cell's width to get the number of columns we need, and width divided by cell width for rows.
 
 We now have the amount of rows and columns we need for our grid, but now let's actually create it. To do this we should create a 2D array to store each cell's location and angular data. We do this in `create2DArray();`, which looks like so.
@@ -121,7 +121,7 @@ Now, for a little visualization, I made a simple draw function that loops over a
 
 Now let's consider how we fill our grid with angles, which is, as mentioned, using Perlin noise. Now I could go into how Perlin noise actually works and how we can implement it from scratch, but the truth is... I have no clue how it works! But luckily you don't really need to know how it works, just the general idea.
 
-Which is generating smooth random numbers. But what do I mean by smooth? I mean there are no jumps in the randomness. To visualize, consider a mountain in array form with a max of 100 and a min of 1, like so [0,4,8,10,15]. Now let's say our next number is randomized it could very well just be 80. No mountain or natural formation, it just suddenly gets a 5x increase in size. Perlin noise makes sure the randomness is within reason: small jumps either up or down, considering the mountain. But going back to code, there are multiple npm packages and implementations online. Here is the one I am [using](https://github.com/TheHeartstriker/Myriad/blob/main/Myriad/src/flowFields/angleMath.ts)
+Which is generating smooth random numbers. But what do I mean by smooth? I mean there are no jumps in the randomness. To visualize, consider a mountain in array form with a max of 100 and a min of 1, like so [0,4,8,10,15]. Now let's say our next number is randomized it could very well just be 80. No mountain or natural formation, just suddenly gets a 5x increase in size. Perlin noise makes sure the randomness is within reason: small jumps either up or down, considering the mountain. But going back to code, there are multiple npm packages and implementations online. Here is the one I am [using](https://github.com/TheHeartstriker/Myriad/blob/main/Myriad/src/flowFields/angleMath.ts).
 
 But moving past Perlin noise, let's visualize the angles themselves. For this, I am going to draw a point in the center of each rectangle and a line a fourth the size of the `Pix_size` in the direction of each cell's angle. Furthermore, I am going to remove the Perlin noise so you don't need it to go further and to simplify the following visualization. I also increased `Pix_size` to 40 so it's easier to see.
 
@@ -169,7 +169,7 @@ function drawCurve(
   let y =
     topBottom.current.topY +
     Math.random() * (topBottom.current.bottomY - topBottom.current.topY);
-  //Line length and diffintion
+  //Line length
   const num_steps = 100;
   const max_step_length = 5;
   const step_length = Math.floor(Math.random() * max_step_length);
@@ -189,10 +189,10 @@ function drawCurve(
   ctx.moveTo(x, y);
 
   for (let i = 0; i < num_steps; i++) {
-    // Draw vertex (line to current position)
+    // This updates the line by using the new x and y
     ctx.lineTo(x, y);
 
-    // Calculate grid indices allowing us to get the GridEl of the current position
+    // Calculate grid indices allowing us to get the cell data under our current x and y
     const column_index = Math.floor((x - leftRight.current.leftX) / Pix_size);
     const row_index = Math.floor((y - topBottom.current.topY) / Pix_size);
 
@@ -223,7 +223,7 @@ function drawCurve(
 
 Now let's walk through this. First, we pick our starting point in relation to the modified canvas the random x and y. We then define the length and amount of lines which form the curve, which is `num_steps`, the number of straight lines that make up a single curve.
 Then `step_length` determines how far each straight line will travel. Depending on how these two variables are set, you can get more blocky or geometric lines; here they end up pretty smooth. We also set the `step_length` as any number between 1 and 5, giving us different curve lengths.
-After this, we pick our color ignore `lengthColorPick`, I will cover that shortly. The next portion is moving our x and y to draw the curve.
+After this, we pick our color ignore `lengthColorPick`, I will cover that shortly. The next portion is moving our x and y continually to draw the curve.
 
 In the loop, we draw a line to x and y, then the real bread and butter: we find the indices so we can slice into our grid and get the location of the cell under the current line's x and y position. Store that in `column_index` and `row_index`, and then create an if check to be sure it's in bounds. We do this because mathematically we want space outside the visible space, but we can't actually draw off screen.
 After we have the indices set, we can get the angle of the cell under the x and y location. Then we can just use cos and sin multiplied by our `step_length` to get the x and y velocity and apply that change to our curve's current line. This pushes the curve in that specific angular direction, creating the entire flow effect.
@@ -262,15 +262,4 @@ Which, if given gold and reds, looks like so.
 
 ![Image description](/scriptorium/flowArticle/ColoredFlow.png)
 
-And here is a live look. Here I went back to using `lengthColorPick` but made it a loop so we slowly see the image being created.
-
-Everything shown here only scratches the surface of flow fields, so if you want to go further or just want some more resources, here are some links!
-
-- [Great showcase type artilce](https://www.tylerxhobbs.com/words/flow-fields)
-- [Video type tutorial](https://www.youtube.com/watch?v=_HGh0tfMx7Q)
-- [Math heavy article](https://georgemsavva.github.io/creativecoding/posts/flowfields)
-- [The code used here](https://github.com/TheHeartstriker/Myriad/tree/main/Myriad/src/flowFields)
-
-## Afterword
-
-I hope you learned something from this or at least found it to be a fun read. I did put a lot of effort into it! If you want to see more of what I have made, then... look around this website it took way longer to make than this.
+And here is a live look. Here I went back to using `lengthColorPick` but put the logic into a render loop so we slowly see the image being created.
