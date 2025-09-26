@@ -2,6 +2,7 @@ import {
   desParticle,
   desMappingFullstack,
   desPolySVG,
+  desFlowField,
 } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 import PillAnimation from "./pillAnimation.jsx";
@@ -13,16 +14,20 @@ function Scriptorium() {
     <div className="main-scriptorium-container">
       <PillAnimation />
       <div className="article-card-container">
-        <ScriptCard articleDes={desParticle} link={"/scriptorium/particle"} />
-
         <ScriptCard
-          articleDes={desMappingFullstack}
-          link={"/scriptorium/mapping-fullstack"}
+          articleDes={desFlowField}
+          link={"/scriptorium/flow-fields"}
         />
 
         <ScriptCard
           articleDes={desPolySVG}
           link={"/scriptorium/poly-svg-background"}
+        />
+        <ScriptCard articleDes={desParticle} link={"/scriptorium/particle"} />
+
+        <ScriptCard
+          articleDes={desMappingFullstack}
+          link={"/scriptorium/mapping-fullstack"}
         />
       </div>
     </div>

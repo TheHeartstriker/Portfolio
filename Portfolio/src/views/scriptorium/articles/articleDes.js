@@ -27,3 +27,13 @@ export const desPolySVG = {
   More specifically, this article is about manipulating a polygon background generated from Haikei, a free SVG pattern and effect generation resource.`,
   image: "/scriptorium/thumb/thumb2.webp",
 };
+
+export const desFlowField = {
+  title: "Flow Fields, painting with math",
+  tags: ["Creative Coding", "Mathematics"],
+  des: `This article is going to go over flow fields! A really fun and interesting concept used in computer graphics, generative art and fluid mechanics.
+   Flow fields can be used in so many creative ways a website background, for a card or maybe for illustrating a simple image?
+    By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. 
+   And of course all with diagrams, cool imagery and a live example at the end.`,
+  image: "/scriptorium/flowArticle/flow1.webp",
+};
