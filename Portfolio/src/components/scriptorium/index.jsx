@@ -2,8 +2,10 @@ import ReactMarkdown from "react-markdown";
 import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import NavMenu from "./navMenu.jsx";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./index.css";
+import "./navMenu.css";
 //
 //
 //
@@ -76,7 +78,12 @@ function renderArticles(article) {
 
 export function SubjectContainer({ article }) {
   return (
-    <div className={`subject-container-article`}>{renderArticles(article)}</div>
+    <>
+      <div className={`subject-container-article`}>
+        {renderArticles(article)}
+      </div>
+      <NavMenu />
+    </>
   );
 }
 SubjectContainer.propTypes = {

@@ -12,6 +12,8 @@ html {
   --neon-blue: #00ccff;
   --neon-dull: rgb(0, 188, 235);
   --neon-link: rgb(104, 200, 224);
+  /* Darker neon colors */
+  --neon-dark-one: hsl(192, 100%, 43%);
   --circle-radius: 32.5vh;
   --Teal: rgb(100, 255, 218);
   --Low-blue: #0e2250;
