@@ -76,13 +76,13 @@ function renderArticles(article) {
   return null;
 }
 
-export function SubjectContainer({ article }) {
+export function SubjectContainer({ article, description }) {
   return (
     <>
       <div className={`subject-container-article`}>
         {renderArticles(article)}
       </div>
-      <NavMenu />
+      <NavMenu article={article} description={description} />
     </>
   );
 }

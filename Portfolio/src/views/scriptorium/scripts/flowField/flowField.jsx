@@ -64,7 +64,6 @@ function FlowField() {
 
   function create2DArray(Rows, Cols, leftX, topY) {
     let arr = new Array(Rows);
-    console.log(arr);
 
     for (let i = 0; i < arr.length; i++) {
       arr[i] = new Array(Cols);

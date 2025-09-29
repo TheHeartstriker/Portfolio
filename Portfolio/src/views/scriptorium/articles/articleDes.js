@@ -31,6 +31,7 @@ export const desPolySVG = {
 export const desFlowField = {
   title: "Flow Fields, painting with math",
   tags: ["Creative Coding", "Mathematics"],
+  date: { day: 26, month: "september", year: 2025 },
   des: `This article is going to go over flow fields! A really fun and interesting concept used in computer graphics, generative art and fluid mechanics.
    Flow fields can be used in so many creative ways a website background, for a card or maybe for illustrating a simple image?
     By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. 
