@@ -1,12 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { tocScan } from "./navMenuFunc";
 
 function NavMenu({ article, description }) {
   const [scrollPoints, setScrollPoints] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
+  const headingRef = useRef([]);
   const screenCross = window.innerHeight * 0.25;
-
+  //Collect all heading Y locations
   function collectHeadingYLocations() {
     const headings = document.querySelectorAll(
       ".subject-container-article h1, .subject-container-article h2, .subject-container-article h3"
@@ -14,16 +15,14 @@ function NavMenu({ article, description }) {
     const yLocations = Array.from(headings).map(
       (h) => h.getBoundingClientRect().top + window.scrollY
     );
-    console.log(yLocations);
+    headingRef.current = headings;
     return yLocations;
   }
-
+  // Determine current section based on scroll position
   function getCurrentSection(scrollY) {
-    const midPoint = scrollY + screenCross;
-
-    // Find the section that the midpoint has crossed
+    const screenPoint = scrollY + screenCross;
     for (let i = scrollPoints.length - 1; i >= 0; i--) {
-      if (midPoint >= scrollPoints[i]) {
+      if (screenPoint >= scrollPoints[i]) {
         return i;
       }
     }
@@ -31,24 +30,16 @@ function NavMenu({ article, description }) {
   }
 
   useEffect(() => {
-    const yLocations = collectHeadingYLocations();
-    setScrollPoints(yLocations);
+    setScrollPoints(collectHeadingYLocations());
   }, [article]);
 
   useEffect(() => {
     function handleScroll() {
-      const currentSectionIndex = getCurrentSection(window.scrollY);
-      setCurrentSection(currentSectionIndex);
-      console.log(
-        "Current Section:",
-        document.querySelector(`#toc-section-${currentSectionIndex}`)
-      );
+      setCurrentSection(getCurrentSection(window.scrollY));
     }
 
     window.addEventListener("scroll", handleScroll);
-    // Set initial section
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollPoints, screenCross]);
 
@@ -76,12 +67,10 @@ function NavMenu({ article, description }) {
       {/*  */}
       <h2>Table of Contents</h2>
       <div className="table-of-contents">
-        {tocScan(article, currentSection)}
+        {tocScan(article, currentSection, headingRef, screenCross)}
       </div>
     </div>
   );
 }
-
-//For secondary elements reduce the left side width by 20% for each level of depth
 
 export default NavMenu;

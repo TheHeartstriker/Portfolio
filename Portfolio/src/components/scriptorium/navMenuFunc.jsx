@@ -1,4 +1,5 @@
-export function tocScan(article, currentSection) {
+//Returns an array of JSX elements representing the table of contents based on the article content
+export function tocScan(article, currentSection, headingRef, crossPoint) {
   const tocItems = [];
   const headingRegex = /^(#{1,6})\s+(.*)$/gm;
   let headingIndex = 0; // Track the sequential heading number
@@ -11,66 +12,59 @@ export function tocScan(article, currentSection) {
       while ((match = headingRegex.exec(item)) !== null) {
         const level = match[1].length; // Number of #
         const headingText = match[2];
+        let obj = {
+          toc: tocItems,
+          idx: i,
+          match: match,
+          headingIndex: headingIndex,
+          currentSection: currentSection,
+          headingRef: headingRef,
+          crossPoint: crossPoint,
+          className: "",
+          headingText: headingText,
+        };
 
         if (level === 1) {
-          tocPush(
-            tocItems,
-            i,
-            match,
-            headingIndex,
-            currentSection,
-            "",
-            "Introduction"
-          );
+          obj.className = "";
+          obj.headingText = "Introduction";
+          tocPush(obj);
         }
         if (level === 2) {
-          tocPush(
-            tocItems,
-            i,
-            match,
-            headingIndex,
-            currentSection,
-            "medium",
-            headingText
-          );
+          obj.className = "medium";
+          tocPush(obj);
         }
         if (level === 3) {
-          tocPush(
-            tocItems,
-            i,
-            match,
-            headingIndex,
-            currentSection,
-            "small",
-            headingText
-          );
+          obj.className = "small";
+          tocPush(obj);
         }
 
-        headingIndex++; // Increment for each heading found
+        headingIndex++;
       }
     }
   }
   return tocItems;
 }
 
-function tocPush(
-  arr,
-  i,
-  match,
-  headingIndex,
-  currentSection,
-  className,
-  headingText
-) {
-  arr.push(
+function tocPush(objData) {
+  objData.toc.push(
     <div
-      key={`${i}-${match.index}`}
-      id={`toc-section-${headingIndex}`} // Use headingIndex instead of i
-      className={`toc-item ${className} ${
-        currentSection === headingIndex ? "active" : ""
+      key={`${objData.idx}-${objData.match}`}
+      id={`toc-section-${objData.headingIndex}`}
+      onClick={() => {
+        if (objData.headingRef.current[objData.headingIndex]) {
+          const el = objData.headingRef.current[objData.headingIndex];
+          const y = el.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: y - objData.crossPoint + 1,
+            behavior: "smooth",
+          });
+        }
+      }}
+      className={`toc-item ${objData.className} ${
+        objData.currentSection === objData.headingIndex ? "active" : ""
       }`}
     >
-      <h3>{headingText}</h3>
+      <h3>{objData.headingText}</h3>
     </div>
   );
 }

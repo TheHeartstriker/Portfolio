@@ -80,12 +80,19 @@
   margin-bottom: var(--space-1);
   letter-spacing: 0.05em;
   transition: background-color 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.toc-item:hover {
+  background-color: var(--neon-dark-one);
+  color: white;
 }
 
 .toc-item.active,
 .toc-item.medium.active,
 .toc-item.small.active {
-  background-color: var(--neon-link);
+  background-color: var(--neon-dark-one);
+  color: white;
 }
 
 .toc-item h3 {
@@ -95,11 +102,11 @@
 .toc-item.medium {
   font-size: 0.7rem;
   width: 80%;
-  margin-right: auto;
+  margin-left: auto;
 }
 
 .toc-item.small {
   font-size: 0.6rem;
   width: 60%;
-  margin-right: auto;
+  margin-left: auto;
 }
