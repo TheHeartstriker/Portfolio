@@ -1,12 +1,20 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { tocScan } from "./navMenuFunc";
+import "./navMenu.css";
 
 function NavMenu({ article, description }) {
   const [scrollPoints, setScrollPoints] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
+  const [navMenuTop, setNavMenuTop] = useState(62); // Initial top value (example: 100px)
   const headingRef = useRef([]);
-  const screenCross = window.innerHeight * 0.25;
+  const screenCross = useRef(0);
+  const linearInterNavSet = {
+    initialTop: 62,
+    finalTop: 50,
+    scrollDistance: 300,
+  };
+
   //Collect all heading Y locations
   function collectHeadingYLocations() {
     const headings = document.querySelectorAll(
@@ -18,9 +26,10 @@ function NavMenu({ article, description }) {
     headingRef.current = headings;
     return yLocations;
   }
+
   // Determine current section based on scroll position
   function getCurrentSection(scrollY) {
-    const screenPoint = scrollY + screenCross;
+    const screenPoint = scrollY + screenCross.current;
     for (let i = scrollPoints.length - 1; i >= 0; i--) {
       if (screenPoint >= scrollPoints[i]) {
         return i;
@@ -29,22 +38,43 @@ function NavMenu({ article, description }) {
     return 0;
   }
 
+  // Calculate top value based on scroll position
+  function calculateTopValue(scrollY) {
+    if (scrollY <= 0) return linearInterNavSet.initialTop;
+    if (scrollY >= linearInterNavSet.scrollDistance)
+      return linearInterNavSet.finalTop;
+
+    const progress = scrollY / linearInterNavSet.scrollDistance;
+    return (
+      linearInterNavSet.initialTop -
+      progress * (linearInterNavSet.initialTop - linearInterNavSet.finalTop)
+    );
+  }
+
   useEffect(() => {
-    setScrollPoints(collectHeadingYLocations());
+    function handleResize() {
+      screenCross.current = window.innerHeight / 3;
+      setScrollPoints(collectHeadingYLocations());
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, [article]);
 
   useEffect(() => {
     function handleScroll() {
-      setCurrentSection(getCurrentSection(window.scrollY));
+      const scrollY = window.scrollY;
+      setCurrentSection(getCurrentSection(scrollY));
+      setNavMenuTop(calculateTopValue(scrollY));
     }
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollPoints, screenCross]);
+  }, [scrollPoints, screenCross.current]);
 
   return (
-    <div className="article-nav-Menu">
+    <nav className="article-nav-Menu" style={{ top: `${navMenuTop}%` }}>
       {/* Published time */}
       {/*  */}
       <div className="published-time">
@@ -67,9 +97,9 @@ function NavMenu({ article, description }) {
       {/*  */}
       <h2>Table of Contents</h2>
       <div className="table-of-contents">
-        {tocScan(article, currentSection, headingRef, screenCross)}
+        {tocScan(article, currentSection, headingRef, screenCross.current)}
       </div>
-    </div>
+    </nav>
   );
 }
 

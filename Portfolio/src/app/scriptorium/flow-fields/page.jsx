@@ -4,7 +4,7 @@ export const metadata = {
   This article features clear explanations, diagrams, and a live example to illustrate the concept.
   By the end, you'll hopefully have your own flow field to experiment with and a deeper understanding of how it works.`,
 };
-import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
+import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
 import flowArticle1 from "@/views/scriptorium/articles/flowFields/flow1.md";
 import flowArticle2 from "@/views/scriptorium/articles/flowFields/flow2.md";
 import FlowField from "@/views/scriptorium/scripts/flowField/flowField.jsx";

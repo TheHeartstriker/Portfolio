@@ -2,10 +2,9 @@ import ReactMarkdown from "react-markdown";
 import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import NavMenu from "./navMenu.jsx";
+import NavMenu from "../mainNav/navMenu.jsx";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./index.css";
-import "./navMenu.css";
 //
 //
 //

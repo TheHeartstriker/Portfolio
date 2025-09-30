@@ -3,15 +3,16 @@
   flex-direction: column;
   align-items: center;
   width: 15%;
-  height: 75%;
+  height: 85%;
   background-color: rgba(14, 34, 80, 0.3);
   backdrop-filter: blur(12px);
   border-radius: 100px;
   -webkit-backdrop-filter: blur(12px);
   position: fixed; /* Add this line */
-  top: 10vw;
+  top: 62%;
+  transform: translateY(-50%);
   right: 5vw;
-  z-index: 1000; /* Optional: keeps it above other elements */
+  z-index: 50;
 }
 
 .article-nav-Menu h2 {

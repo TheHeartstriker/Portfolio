@@ -147,3 +147,15 @@ code {
     width: 90%;
   }
 }
+
+@media (max-width: 1750px) {
+  .subject-container-article {
+    margin-left: 10%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .subject-container-article {
+    margin-left: auto;
+  }
+}
