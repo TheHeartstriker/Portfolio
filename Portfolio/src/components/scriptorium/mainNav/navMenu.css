@@ -1,0 +1,125 @@
+.article-nav-Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  height: 85%;
+  background-color: rgba(14, 34, 80, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 100px;
+  -webkit-backdrop-filter: blur(12px);
+  position: fixed; /* Add this line */
+  transform: translateY(-50%);
+  right: 5vw;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.article-nav-Menu h2 {
+  color: var(--white-off);
+  font-size: 1.2rem;
+  margin: var(--space-1);
+}
+
+.published-time {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #070e1f;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: var(--space-1);
+  margin-top: var(--space-2);
+  width: 80%;
+}
+
+.published-time h3 {
+  color: var(--neon-blue);
+  font-size: 1.1rem;
+  margin: var(--space-2);
+}
+
+.published-time p {
+  color: var(--neon-dark-one);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.article-topic {
+  font-size: 0.7rem;
+
+  color: var(--neon-dark-one);
+  width: 80%;
+  background-color: #070e1f;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.article-topic h3 {
+  font-weight: 400;
+}
+
+/* background-color: #070e1f; */
+
+.table-of-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: auto;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.table-of-contents::-webkit-scrollbar {
+  display: none;
+}
+
+.toc-item {
+  font-size: 0.8rem;
+  color: var(--neon-dark-one);
+  width: 100%;
+  background-color: #070e1f;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.05em;
+  transition: background-color 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.toc-item:hover {
+  background-color: var(--neon-dark-one);
+  color: white;
+}
+
+.toc-item.active,
+.toc-item.medium.active,
+.toc-item.small.active {
+  background-color: var(--neon-dark-one);
+  color: white;
+}
+
+.toc-item h3 {
+  margin: var(--space-1);
+  font-weight: 400;
+}
+
+.toc-item.medium {
+  font-size: 0.7rem;
+  width: 90%;
+  margin-left: auto;
+}
+
+.toc-item.small {
+  font-size: 0.6rem;
+  width: 80%;
+  margin-left: auto;
+}

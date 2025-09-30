@@ -1,4 +1,4 @@
-import { SubjectContainer } from "../../../components/scriptorium/index.jsx";
+import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
 export const metadata = {
   title: "Building a Mouse-Responsive SVG Polygon Background",
   description: `This article will go over how to transform a static SVG image into a cool mouse responsive background! Use's
@@ -11,9 +11,10 @@ import polySvgArticle2 from "@/views/scriptorium/articles/polyArticle/polySvgArt
 import App from "@/views/scriptorium/scripts/polySvg.jsx";
 
 const articleArr = [polySvgArticle1, App, polySvgArticle2];
+import { desPolySVG } from "@/views/scriptorium/articles/articleDes.js";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={articleArr} />;
+  return <SubjectContainer article={articleArr} description={desPolySVG} />;
 }
 
 export default ScriptoriumPage;
