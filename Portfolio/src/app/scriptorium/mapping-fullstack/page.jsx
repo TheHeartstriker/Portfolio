@@ -6,9 +6,15 @@ export const metadata = {
 };
 import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
 import mappingArticle from "@/views/scriptorium/articles/mappingArticle/map.md";
+import { desMappingFullstack } from "@/views/scriptorium/articles/articleDes.js";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={[mappingArticle]} />;
+  return (
+    <SubjectContainer
+      article={[mappingArticle]}
+      description={desMappingFullstack}
+    />
+  );
 }
 
 export default ScriptoriumPage;

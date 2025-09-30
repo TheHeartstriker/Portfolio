@@ -1,14 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { tocScan } from "./navMenuFunc";
+import { tocScan } from "./navMenuHelper.jsx";
+import PropTypes from "prop-types";
 import "./navMenu.css";
 
 function NavMenu({ article, description }) {
   const [scrollPoints, setScrollPoints] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
-  const [navMenuTop, setNavMenuTop] = useState(62); // Initial top value (example: 100px)
+  const [showMenu, setShowMenu] = useState(true);
+  const [navMenuTop, setNavMenuTop] = useState(62);
   const headingRef = useRef([]);
-  const screenCross = useRef(0);
+  const [screenCross, setScreenCross] = useState(0);
   const linearInterNavSet = {
     initialTop: 62,
     finalTop: 50,
@@ -29,7 +31,7 @@ function NavMenu({ article, description }) {
 
   // Determine current section based on scroll position
   function getCurrentSection(scrollY) {
-    const screenPoint = scrollY + screenCross.current;
+    const screenPoint = scrollY + screenCross;
     for (let i = scrollPoints.length - 1; i >= 0; i--) {
       if (screenPoint >= scrollPoints[i]) {
         return i;
@@ -53,8 +55,9 @@ function NavMenu({ article, description }) {
 
   useEffect(() => {
     function handleResize() {
-      screenCross.current = window.innerHeight / 3;
+      setScreenCross(window.innerHeight / 3);
       setScrollPoints(collectHeadingYLocations());
+      setShowMenu(window.innerWidth > 1500);
     }
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -71,7 +74,11 @@ function NavMenu({ article, description }) {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollPoints, screenCross.current]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollPoints, screenCross]);
+
+  if (!showMenu) return null;
 
   return (
     <nav className="article-nav-Menu" style={{ top: `${navMenuTop}%` }}>
@@ -97,10 +104,15 @@ function NavMenu({ article, description }) {
       {/*  */}
       <h2>Table of Contents</h2>
       <div className="table-of-contents">
-        {tocScan(article, currentSection, headingRef, screenCross.current)}
+        {tocScan(article, currentSection, headingRef, screenCross)}
       </div>
     </nav>
   );
 }
+
+NavMenu.propTypes = {
+  article: PropTypes.array.isRequired,
+  description: PropTypes.object.isRequired,
+};
 
 export default NavMenu;

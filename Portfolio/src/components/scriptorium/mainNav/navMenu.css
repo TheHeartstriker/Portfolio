@@ -9,10 +9,10 @@
   border-radius: 100px;
   -webkit-backdrop-filter: blur(12px);
   position: fixed; /* Add this line */
-  top: 62%;
   transform: translateY(-50%);
   right: 5vw;
   z-index: 50;
+  overflow: hidden;
 }
 
 .article-nav-Menu h2 {
@@ -37,7 +37,7 @@
 }
 
 .published-time h3 {
-  color: var(--neon-dull);
+  color: var(--neon-blue);
   font-size: 1.1rem;
   margin: var(--space-2);
 }
@@ -45,10 +45,12 @@
 .published-time p {
   color: var(--neon-dark-one);
   font-size: 0.8rem;
+  font-weight: 400;
 }
 
 .article-topic {
   font-size: 0.7rem;
+
   color: var(--neon-dark-one);
   width: 80%;
   background-color: #070e1f;
@@ -59,6 +61,10 @@
   border-radius: 50px;
 }
 
+.article-topic h3 {
+  font-weight: 400;
+}
+
 /* background-color: #070e1f; */
 
 .table-of-contents {
@@ -67,11 +73,16 @@
   align-items: center;
   width: 80%;
   height: auto;
-  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.table-of-contents::-webkit-scrollbar {
+  display: none;
 }
 
 .toc-item {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--neon-dark-one);
   width: 100%;
   background-color: #070e1f;
@@ -98,16 +109,17 @@
 
 .toc-item h3 {
   margin: var(--space-1);
+  font-weight: 400;
 }
 
 .toc-item.medium {
   font-size: 0.7rem;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
 }
 
 .toc-item.small {
   font-size: 0.6rem;
-  width: 60%;
+  width: 80%;
   margin-left: auto;
 }

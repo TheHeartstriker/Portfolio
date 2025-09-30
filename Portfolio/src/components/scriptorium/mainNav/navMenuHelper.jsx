@@ -1,4 +1,5 @@
 //Returns an array of JSX elements representing the table of contents based on the article content
+//Each element is a toc section
 export function tocScan(article, currentSection, headingRef, crossPoint) {
   const tocItems = [];
   const headingRegex = /^(#{1,6})\s+(.*)$/gm;

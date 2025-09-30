@@ -11,9 +11,10 @@ import polySvgArticle2 from "@/views/scriptorium/articles/polyArticle/polySvgArt
 import App from "@/views/scriptorium/scripts/polySvg.jsx";
 
 const articleArr = [polySvgArticle1, App, polySvgArticle2];
+import { desPolySVG } from "@/views/scriptorium/articles/articleDes.js";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={articleArr} />;
+  return <SubjectContainer article={articleArr} description={desPolySVG} />;
 }
 
 export default ScriptoriumPage;

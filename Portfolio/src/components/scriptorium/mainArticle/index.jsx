@@ -81,10 +81,11 @@ export function SubjectContainer({ article, description }) {
       <div className={`subject-container-article`}>
         {renderArticles(article)}
       </div>
-      <NavMenu article={article} description={description} />
+      {description && <NavMenu article={article} description={description} />}
     </>
   );
 }
 SubjectContainer.propTypes = {
   article: PropTypes.array.isRequired,
+  description: PropTypes.object,
 };

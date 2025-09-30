@@ -10,9 +10,10 @@ import particleArticle from "@/views/scriptorium/articles/particleArticle/partic
 import ParticleSys from "@/views/scriptorium/scripts/particleSys.jsx";
 
 const articleArr = [particleArticle, ParticleSys];
+import { desParticle } from "@/views/scriptorium/articles/articleDes.js";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={articleArr} />;
+  return <SubjectContainer article={articleArr} description={desParticle} />;
 }
 
 export default ScriptoriumPage;
