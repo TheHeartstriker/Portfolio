@@ -36,7 +36,6 @@ Ok, now for the fun stuff. To make our grid we need to divide our window into ro
 This will give us how many cells we need based on our window dimensions. Here is the function I am using for getting the row and column count.
 
 ```javascript
-//What
 const leftRight = useRef({
   leftX: window.innerWidth * -0.25,
   rightX: window.innerWidth * 1.25,
