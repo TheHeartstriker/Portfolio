@@ -90,5 +90,106 @@ So here it would look and function like so request -> auth -> loadData. And sinc
 
 ## Middleware
 
-We have somewhat gone over what middleware which is a layer. But what this layer trully? Well its just function that does 'something' to incoming data. Sometimes that's mutation, rate limiting check's, authorization usually it represent's doing a action to a request before it reach's the core functionlity(controller's).
-Sometimes this is global like checking every request to see if they follow's our CORS setting's. Othertimes it's spefic to certain routes like authorizing GET request before fetching data for a user.
+We have somewhat gone over what middleware which is a layer. But what this layer trully? Well its just code that does 'something' to incoming data. Sometimes that's data modification, rate limiting check's, authorization or error handling usually it represent's doing a action to a request before it reach's the main controler logic. Sometimes this is global like checking every request to see if they follow's our CORS setting's. Othertimes it's spefic to certain routes like authorizing GET request before fetching data for a user. Here is one of the most common middleware's in any backend.
+
+```javascript
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+function auth(req, res, next) {
+  try {
+    const token = req.cookies?.jwtToken;
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "Authentication required", success: false });
+    }
+
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res
+      .status(401)
+      .json({ message: "Invalid or expired token", success: false });
+  }
+}
+```
+
+This is a authoirization middleware for a protected route so imagine our fronted request's data to a route that looks like so `routes.get("/getData", auth, loadData);` we added or auth middleware before our controller defining this route as 'protected' so any request has to pass through or auth first to see if the credintials are valid if they are we pass it onward using `next();` which in this case passes it to `loadData` otherwise send back a error. It in a whole would look like this Request -> auth -> loadData -> response. In our middleware here we validate data by decoding our request data using or web token key. This also show's you how convient and required a .env file is we can change access key often while also keeping it safe!
+
+Now let's show you a global middelware I glossed over at the start. Consider this line `app.use(corsMiddleware);` let see what the corsMiddleware looks like.
+
+```javascript
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+const corsMiddleware = cors(corsOptions);
+
+export default corsMiddleware;
+```
+
+All this does it implement CORS to every incoming request in our entry point through `app.use(corsMiddleware);`. The idea behind middelware is not that its a function, or secruity it's that middelware is code that does something to a request's at certain points in its journey. Sometimes that's stopping it othertimes it putting cookies under .cookies sometimes it's a error handler.
+
+## Controller's
+
+Controller's are arguably the most important part of a backend. We have went over everything that happens before reaching this point but what is a controller? Well it's just a function that completes a action sometimes that's inserting data, deleting data or checking up on data like seeing if a payment has gone through.
+You can think of a api request to a endpoint as a function call and the request body as the function paramater's and the controller is the function itself. So let's see one :)
+
+```javascript
+import db from "../../db.js"; // Assume db is a configured mysql2/promise connection
+
+// Gets the share info for the user
+async function getShareInfo(req, res, next) {
+  try {
+    const userId = req.user.id;
+    const [rows] = await db.execute(
+      "SELECT share FROM dailyfitinfo WHERE userid = ? LIMIT 1",
+      [userId]
+    );
+    if (!rows || rows.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No record found for user", success: false });
+    }
+
+    res.status(200).json({ success: true, shared: rows[0].share });
+  } catch (error) {
+    next(error);
+  }
+}
+```
+
+This is a very simple controller function using mysql it just grab's the user's information from the database and return's the share value as a response(res). Which is either true or false. Now what is db? Well here we use MySql as our database and to write query's and receive date from our database we need to connect to it and use some sort of method to send a sql query over. Here we are using the mysql2 npm package to write our query. And the connection is represented as db it looks like so.
+
+```javascript
+import mysql from "mysql2/promise";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const db = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER, // e.g. "root"
+  password: process.env.DB_PASS, // password
+  database: process.env.DB_NAME, // db name
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+export default db;
+```
+
+And as you can see all db really is a pool of connections to the database and when you write sql using `db.` it choses a connection for you to send and recevie information from your database. You of course also provide your connection information so mysql2 can locate the database and login as a user. Which happens to be sensitive information so we put that inside of .env as well.
