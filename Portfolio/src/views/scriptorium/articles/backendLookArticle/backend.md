@@ -1,11 +1,11 @@
 # What a backend looks like Javascript, Express and Node.
 
 This article is going to go over the backend! More spefically what a simple backend looks like, how everything fit's together with a database and most importantly folder structures. We are going
-to go over each folder of a common backend and discuse why they exist, what they do and how they tie in with the frontend.
+to go over each folder of a common backend and discuse why they exist, what they do, what they contain and how they tie in with the frontend.
 
-## Why this matter's //Add learning how to read
+## Why this matter's
 
-The general goal is for you to understand at a high level how a backend works even regardless of the tooling we are going to use(Express and node). But at the same time not to such a high level that you don't actually understand what a backend look's like. When I was getting into backend it was hard to find something that really showed me what a backend was through code. So to do that here I am going to go over each marjor backend directory and files those being the entry point, routing, middleware and controler's showing what each part does what it's code looks like, why it’s there, and how its expanded upon in more advanced settings.
+The general goal is for you to understand at a high level how a backend works and what it looks like code wise even regardless of the tooling we are going to use(Express and node). When I was getting into backend it was hard to find something that really showed me what a backend looked like in practice both the code, concepts and file structure. So to do that here I am going to go over each marjor backend directory and files those being the entry point, routing, middleware and controler's showing what each part does what it's code looks like, why it’s there, and how its expanded upon in more advanced settings.
 
 ## What is the backend?
 
@@ -264,4 +264,12 @@ Now remember just like routes and controlker models usually get their own folder
 
 ### Data validation
 
-Now something else that can add to backend complexity to a backend in code, files and directorys is data validation. We touched on this in ORM's by preventing the insertion of invalid data and checking syntax but this goes much deeper. First a big concept in backend is never trusting incoming data to defend against attck's possible error's when inserting data or sending it of elsewhere for reponses. We enforce this by type checking incoming data so many backend's use something like a npm package called zod. This then lead's to another folder called pipe's(or name's like validation maybe schema) when you define your zod scheme's and a zod scheme is pretty much a model for incoming api request data.
+Now something else that can add complexity to a backend in code, files and directorys is data validation. We touched on this in ORM's by preventing the insertion of invalid data and checking syntax but this goes much deeper.
+
+First a big concept in backend is never trusting incoming data. Every request can contain could include malicious or unexpected data so we need to validate the data prevent database error or secruty issues. We do this by type checking incoming data so many backend's use something like a npm package called zod. This then lead's to another folder called pipe's(or name's like validation maybe schema) where you define your zod scheme's and a zod scheme is pretty much a model for incoming api request data. This makes sure incomding data is exctally what you want it to be in type and length.
+
+So expect or implement some from of validation from a backend.
+
+## Afterword
+
+Andddd that's pretty much it! Hopfully you learned something here I spent lot's of time on this over 2700 words! Longest article I have ever writen. If you want to see other stuff I have made just look around I guess and have a good day!
