@@ -283,4 +283,4 @@ If you want to dive deeper, here are some useful resources on areas I glossed ov
 - [Prisma ORM for Postgres DB's](https://dev.to/sandrockjustin/the-prisma-orm-a-brief-overview-and-introduction-353m)
 - [Ports!](https://www.cloudflare.com/learning/network-layer/what-is-a-computer-port)
 
-Andddd that’s pretty much it! Hopefully, you learned something here I spent lots of time on this, over 2700 words! Longest article I have ever written I even drew the thumbnail(unfortunately for you!). If you want to see other stuff I have made, just look around, I guess, and have a good day!
+Andddd that’s pretty much it! Hopefully, you learned something here I spent lots of time on this, over 2700 words! Longest article I have ever written I even drew a thumbnail(didn't use it though!). If you want to see other stuff I have made, just look around, I guess, and have a good day!
