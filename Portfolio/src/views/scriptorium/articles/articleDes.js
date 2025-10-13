@@ -5,7 +5,7 @@ export const desParticle = {
   des: `The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math, and programming to create something from nature. 
   It's a great way to practice fundamentals and improve problem-solving skills because you see the results of your work in real time.
    Although this is just an example/baseline, hopefully, after this, you will have the tools to create anything you want things such as lightning, fire, wind the possibilities are endless.`,
-  image: "/scriptorium/thumb/thumb1.png",
+  image: "/scriptorium/thumb/thumb1.webp",
 };
 
 export const desMappingFullstack = {
@@ -39,5 +39,14 @@ export const desFlowField = {
    Flow fields can be used in so many creative ways a website background, for a card or maybe for illustrating a simple image?
     By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. 
    And of course all with diagrams, cool imagery and a live example at the end.`,
-  image: "/scriptorium/flowArticle/flow1.webp",
+  image: "/scriptorium/thumb/thumb3.webp",
+};
+
+export const desBackendLookLike = {
+  title: "What a backend looks like Javascript, Express and Node",
+  tags: ["Web Development", "Backend"],
+  date: { day: 13, month: "October", year: 2025 },
+  des: `This article is going to go over the backend! More specifically, what a simple backend looks like, how everything fits together with a database, and most importantly, folder structures.
+   We are going to go over each folder of a common backend and discuss why they exist, what they do, what they contain, and how they tie in with the frontend.`,
+  image: "/scriptorium/thumb/thumb4.webp",
 };
