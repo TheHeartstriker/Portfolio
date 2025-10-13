@@ -3,6 +3,7 @@ import {
   desMappingFullstack,
   desPolySVG,
   desFlowField,
+  desBackendLookLike,
 } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 import PillAnimation from "./pillAnimation.jsx";
@@ -14,6 +15,10 @@ function Scriptorium() {
     <div className="main-scriptorium-container">
       <PillAnimation />
       <div className="article-card-container">
+        <ScriptCard
+          articleDes={desBackendLookLike}
+          link={"/scriptorium/backend-look-like"}
+        />
         <ScriptCard
           articleDes={desFlowField}
           link={"/scriptorium/flow-fields"}

@@ -47,7 +47,7 @@ app.listen(PORT, () => {
 });
 ```
 
-Let’s walk through it, starting at `dotenv.config` downward. First, the line itself configures dotenv, which provides variables for the entire server. Think of integral data for our backend like: where is the database? What’s the database’s password? Username? What about the location of the frontend? What are our data encryption keys? All very important information that is sensitive and subject to change. Changes like a switch from a test database to a live one and sensitive meaning that if someone has the encryption key, they could falsify data, or if they have the database sign-in, they can steal all our data! So, .env acts as a safe storage container, basically. And `dotenv.config` allows our server to access our .env file.
+Let’s walk through it, starting at `dotenv.config` downward. First, the line itself configures dotenv, which provides variables for the entire server. Think of integral data for our backend like: where is the database? What’s the database’s password? Username? What about the location of the frontend? What are our data encryption keys? All very important information that is sensitive and subject to change. Changes like a switch from a test database to a live one and sensitive meaning that if someone has the encryption key, they could falsify data, or if they have the database sign-in, they can steal all our data! So, .env acts as a safe storage container, basically. And `dotenv.config` allows our server to access our .env file. Ps add .env in your `.gitignore` to keep them a secret!
 
 The next line initializes the Express app. After that, we get to the middleware but what is middleware? It’s kind of like a layer that data passes through before reaching something else. This middleware is located at the root, meaning all data must pass through our root middleware layer before getting to our routes. Some middleware like [CORS](https://aws.amazon.com/what-is/cross-origin-resource-sharing/) and our rate limiter act as security for our backend like Gandalf! While others, like `express.json()` and `cookieParser`, put certain data under convenient names for example, all incoming requests that have cookies are placed under `req.cookies`. More on the usage of middleware later.
 
@@ -275,4 +275,10 @@ So, expect or implement some form of validation in a backend.
 
 ## Afterword
 
-Andddd that’s pretty much it! Hopefully, you learned something here I spent lots of time on this, over 2700 words! Longest article I have ever written. If you want to see other stuff I have made, just look around, I guess, and have a good day!
+If you want to dive deeper then here are some usfull resources on area's I had glossed over a bit :)
+
+-- [Beginear error handling in js](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+-- [Article on data validation](https://dev.to/starkprince/data-validation-in-your-backend-a-practical-guide-1kn6)
+-- [Prizma ORM for postegres DB's](https://dev.to/sandrockjustin/the-prisma-orm-a-brief-overview-and-introduction-353m)
+
+Andddd that’s pretty much it! Hopefully, you learned something here I spent lots of time on this, over 2700 words! Longest article I have ever written I even drew the thumbnail! If you want to see other stuff I have made, just look around, I guess, and have a good day!
