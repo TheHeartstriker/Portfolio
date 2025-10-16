@@ -3,7 +3,6 @@ export const metadata = {
   description: `An introduction to flow fields a concept used in computer graphics, generative art, and fluid mechanics.
   This article features clear explanations, diagrams, and a live example to illustrate the concept.
   By the end, you'll hopefully have your own flow field to experiment with and a deeper understanding of how it works.`,
-  metadataBase: new URL("https://kadenwildauer.com"),
 
   openGraph: {
     title: "Flow Fields, painting with math",

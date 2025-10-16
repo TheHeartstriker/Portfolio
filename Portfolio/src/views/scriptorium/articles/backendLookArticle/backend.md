@@ -4,7 +4,7 @@ This article is going to go over the backend! More specifically, what a simple b
 
 ## Why what's the goal?
 
-The general goal is for you to understand at a high level how a backend works and what it looks like code-wise, regardless of the tooling we are going to use (Express and Node). When I was getting into backend development, it was hard to find something that really showed me what a backend looked like in practice both the code, concepts, and file structure. There was a lot of wand waving! They didn't show me what actually mattered; I had to figure that out myself.
+The general goal is for you to understand at a high level how a backend works and what it looks like code-wise, regardless of the tooling we are going to use (Express and Node). When I was getting into backend development, it was hard to find something that really showed me what a backend looked like in practice both the code, concepts, and file structure. There was a lot of wand waving! People didn't show me what actually mattered; I had to figure that out myself.
 
 So, to rectify that here, I am going to go over each major backend directory and file, those being the entry point, routing, middleware, and controllers, showing what each part does, what its code looks like, why it’s there, and how it’s expanded upon in more advanced settings.
 
