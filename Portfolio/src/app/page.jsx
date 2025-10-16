@@ -1,5 +1,4 @@
 export const metadata = {
-  metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Kaden Wildauer | Full-Stack Developer",
   description:
     "Explore my portfolio as a web developer, freelancer, and software engineer. Discover my projects, skills, coding playgrounds, and creative experiments in web development and software engineering.",
@@ -8,7 +7,7 @@ export const metadata = {
     title: "Kaden Wildauer | Full-Stack Developer",
     description:
       "Explore my portfolio as a web developer, freelancer, and software engineer. Discover my projects, skills, coding playgrounds, and creative experiments in web development and software engineering.",
-    url: "/",
+    url: "https://www.kadenwildauer.com/",
     images: [
       {
         url: "/mainThumb.webp",
