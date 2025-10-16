@@ -1,5 +1,6 @@
 import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
 export const metadata = {
+  metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Building a Mouse-Responsive SVG Polygon Background",
   description: `This article will go over how to transform a static SVG image into a cool mouse responsive background! Use's
   include portfolios, interactive websites, or even in more professional settings if you're feeling like creating something interesting.
@@ -9,7 +10,6 @@ export const metadata = {
     title: "Building a Mouse-Responsive SVG Polygon Background",
     description:
       "This article will go over how to transform a static SVG image into a cool mouse responsive background...",
-    url: "https://kadenwildauer.com/scriptorium/poly-svg-background",
     images: [
       {
         url: "/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp",

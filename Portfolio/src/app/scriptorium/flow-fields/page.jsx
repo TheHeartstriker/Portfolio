@@ -1,4 +1,5 @@
 export const metadata = {
+  metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Flow Fields, painting with math",
   description: `An introduction to flow fields a concept used in computer graphics, generative art, and fluid mechanics.
   This article features clear explanations, diagrams, and a live example to illustrate the concept.
@@ -8,7 +9,6 @@ export const metadata = {
     title: "Flow Fields, painting with math",
     description:
       "An introduction to flow fields a concept used in computer graphics...",
-    url: "https://kadenwildauer.com/scriptorium/flow-fields",
     images: [
       {
         url: "/scriptorium/thumb/thumb3.webp",

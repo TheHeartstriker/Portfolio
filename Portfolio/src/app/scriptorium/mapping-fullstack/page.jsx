@@ -1,4 +1,5 @@
 export const metadata = {
+  metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Mapping A full stack application",
   description: `A detailed article mapping out a full stack web application, ideal for beginner to intermediate developers. 
   Show's the interworkings of serving code, authentication, and common operations, covering key concepts like JWT, cookies, CORS, and API calls.
@@ -8,7 +9,6 @@ export const metadata = {
     title: "Mapping A full stack application",
     description:
       "A detailed article mapping out a full stack web application...",
-    url: "https://kadenwildauer.com/scriptorium/mapping-fullstack",
     images: [
       {
         url: "/scriptorium/mapArticle/Map3.png",

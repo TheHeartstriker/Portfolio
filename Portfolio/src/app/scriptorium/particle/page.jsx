@@ -1,4 +1,5 @@
 export const metadata = {
+  metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Particle systems",
   description: `A basic introduction to creative coding through particle systems. Learn how to use logic, math, 
   and programming to simulate natural phenomena like lightning, fire, and wind. 
@@ -8,7 +9,6 @@ export const metadata = {
     title: "Particle systems",
     description:
       "A basic introduction to creative coding through particle systems...",
-    url: "https://kadenwildauer.com/scriptorium/particle",
     images: [
       {
         url: "/scriptorium/thumb/thumb1.webp",
