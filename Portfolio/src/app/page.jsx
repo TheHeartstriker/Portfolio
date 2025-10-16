@@ -1,8 +1,8 @@
 export const metadata = {
+  metadataBase: new URL("https://kadenwildauer.com"),
   title: "Kaden Wildauer | Full-Stack Developer",
   description:
     "Explore my portfolio as a web developer, freelancer, and software engineer. Discover my projects, skills, coding playgrounds, and creative experiments in web development and software engineering.",
-  metadataBase: new URL("https://kadenwildauer.com"),
 
   openGraph: {
     title: "Kaden Wildauer | Full-Stack Developer",

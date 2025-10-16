@@ -1,7 +1,6 @@
 export const metadata = {
   title: "What a backend looks like Javascript, Express and Node",
   description: `This article goes over the backend. What a simple backends looks like, what the code may look like, file strctures, database integration, and how it all ties in with the frontend. This is aimed at beginner to lower-intermediate web developers looking to understand the backend.`,
-  metadataBase: new URL("https://kadenwildauer.com"),
   openGraph: {
     title: "What a backend looks like Javascript, Express and Node",
     description: "This article goes over the backend...",
