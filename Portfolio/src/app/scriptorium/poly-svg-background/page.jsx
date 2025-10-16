@@ -10,6 +10,7 @@ export const metadata = {
     title: "Building a Mouse-Responsive SVG Polygon Background",
     description:
       "This article will go over how to transform a static SVG image into a cool mouse responsive background...",
+    url: "https://www.kadenwildauer.com/scriptorium/poly-svg-background",
     images: [
       {
         url: "/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp",

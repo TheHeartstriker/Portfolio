@@ -5,6 +5,7 @@ export const metadata = {
   openGraph: {
     title: "What a backend looks like Javascript, Express and Node",
     description: "This article goes over the backend...",
+    url: "https://www.kadenwildauer.com/scriptorium/backend-look-like",
     images: [
       {
         url: "/scriptorium/thumb/thumb4.webp",

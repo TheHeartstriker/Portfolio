@@ -9,6 +9,7 @@ export const metadata = {
     title: "Mapping A full stack application",
     description:
       "A detailed article mapping out a full stack web application...",
+    url: "https://www.kadenwildauer.com/scriptorium/mapping-fullstack",
     images: [
       {
         url: "/scriptorium/mapArticle/Map3.png",

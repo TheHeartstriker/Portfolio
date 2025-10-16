@@ -9,6 +9,7 @@ export const metadata = {
     title: "Particle systems",
     description:
       "A basic introduction to creative coding through particle systems...",
+    url: "https://www.kadenwildauer.com/scriptorium/particle",
     images: [
       {
         url: "/scriptorium/thumb/thumb1.webp",

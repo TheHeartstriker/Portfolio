@@ -9,6 +9,7 @@ export const metadata = {
     title: "Flow Fields, painting with math",
     description:
       "An introduction to flow fields a concept used in computer graphics...",
+    url: "https://www.kadenwildauer.com/scriptorium/flow-fields",
     images: [
       {
         url: "/scriptorium/thumb/thumb3.webp",
