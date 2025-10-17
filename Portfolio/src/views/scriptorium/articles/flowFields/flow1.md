@@ -114,7 +114,7 @@ But in the final product we actually push an object, so in reality imagine each 
 
 Now, for a little visualization, I made a simple draw function that loops over arr and draws a rectangle around the center. Its width and height are, of course, still the `Pix_size`, but I did increase `Pix_size` temporarily to 25px so it’s more obvious.
 
-![Image description](/scriptorium/flowArticle/Grid.png)
+![Image description](/scriptorium/flowArticle/Grid.webp)
 
 ## Grid Vector's
 
@@ -124,7 +124,7 @@ Which is generating smooth random numbers. But what do I mean by smooth? I mean 
 
 But moving past Perlin noise, let's visualize the angles themselves. For this, I am going to draw a point in the center of each rectangle and a line a fourth the size of the `Pix_size` in the direction of each cell's angle. Furthermore, I am going to remove the Perlin noise so you don't need it to go further and to simplify the following visualization. I also increased `Pix_size` to 40 so it's easier to see.
 
-![Image description](/scriptorium/flowArticle/GridAngle.png)
+![Image description](/scriptorium/flowArticle/GridAngle.webp)
 
 Here is the new loop inside `create2DArray` with the angles actually added this time. I am also using the simplified angular math instead of Perlin noise here.
 
@@ -259,6 +259,6 @@ For some extra control, I also added `intensity`, which decreases our normal val
 Now before this gets any longer, I want to show you some variations! Below, I gave every cell a color based on its position, column wise, splitting it into 5 sections, each holding a different color in the cell. Then in `drawCurve`, I would slowly alter each stroke according to what the cell's color below it is.
 Which, if given gold and reds, looks like so.
 
-![Image description](/scriptorium/flowArticle/ColoredFlow.png)
+![Image description](/scriptorium/flowArticle/ColoredFlow.webp)
 
 And here is a live look. Here I went back to using `lengthColorPick` but put the logic into a render loop so we slowly see the image being created.
