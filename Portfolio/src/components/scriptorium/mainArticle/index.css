@@ -7,7 +7,7 @@
   justify-content: center;
   width: clamp(50%, 110ch, 100%);
   height: auto;
-  background-color: var(--Low-blue);
+  background-color: var(--color-4);
   border-radius: 100px;
   z-index: 1;
   margin-bottom: var(--space-3);
@@ -25,7 +25,7 @@
 /* H1 */
 .article-h1-container {
   position: relative;
-  background-color: var(--Dark-blue);
+  background-color: var(--color-3);
   display: flex;
   width: 100%;
   margin-left: auto;
@@ -45,14 +45,14 @@
   font-size: 2.5rem;
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 /* h2 */
 
 .subject-container-article h2 {
   font-size: 1.9rem;
-  color: var(--neon-dull);
+  color: var(--color-1);
   margin: var(--space-1) 0;
   margin-bottom: 0;
 }
@@ -64,7 +64,7 @@
 }
 
 .subject-container-article a {
-  color: var(--neon-link);
+  color: var(--color-2);
   text-decoration: none;
   font-weight: 700;
 }
@@ -108,7 +108,7 @@
 }
 
 .subject-container-article p code {
-  background-color: var(--Dark-blue);
+  background-color: var(--color-4);
   padding: 0 0.3em;
   margin: 0;
 }

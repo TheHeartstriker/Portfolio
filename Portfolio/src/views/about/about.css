@@ -40,7 +40,7 @@
   color: var(--neon-dull);
   margin: 0px 0px var(--space-3) 0;
   font-weight: 500;
-  filter: drop-shadow(0 0 2px var(--neon-blue));
+  filter: drop-shadow(0 0 5px var(--opacity-color-1));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
@@ -93,20 +93,20 @@
   transform-origin: center;
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
-  stroke: #0099ff;
+  stroke: var(--opacity-color-2);
 }
 #Vec2 {
   transform-origin: center;
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
-  stroke: #0099ff;
+  stroke: var(--opacity-color-2);
 }
 
 #Vec3 {
   transform-origin: center;
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
-  stroke: #0099ff;
+  stroke: var(--opacity-color-2);
 }
 
 @media (max-width: 1000px) {
@@ -145,9 +145,9 @@
   border-radius: 50%;
   padding: var(--space-4);
   margin: var(--space-4);
-  background-color: rgba(14, 34, 80, 0.95);
-  border: 5px rgba(5, 120, 250, 1) solid;
-  box-shadow: 0 0 20px 10px rgba(5, 120, 250, 0.5);
+  background-color: var(--color-4);
+  border: 2px var(--color-1) solid;
+  box-shadow: 0 0 20px 10px var(--opacity-color-1);
   display: flex;
   justify-content: center;
   align-items: center;

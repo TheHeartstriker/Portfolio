@@ -1,9 +1,3 @@
-:root {
-  --neon-blue: #00ccff;
-  --neon-dull: rgb(0, 188, 235);
-  --Low-blue: #0e2250;
-  --Teal: rgb(100, 255, 218);
-}
 /* The container for the entire page */
 .main-skill-container {
   display: flex;
@@ -13,13 +7,7 @@
   width: 100%;
   height: 100%;
 }
-/* All h1 will be able to scramble and be 100% neon and glow  */
-.main-skill-container h1 {
-  font-size: 4rem;
-  font-weight: 600;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
-}
+
 /* For the teck stack */
 .tech-stacks-container {
   display: flex;
@@ -57,7 +45,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: inherit;
-  background-color: rgba(14, 34, 80, 0.3);
+  background-color: var(--opacity-color-3);
 }
 
 .blue-pill {
@@ -67,7 +55,7 @@
   border-radius: 100px;
   margin: var(--space-1);
   color: rgba(0, 188, 235, 0.8);
-  background-color: rgba(0, 188, 235, 0.3);
+  background-color: var(--opacity-color-1-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,8 +66,8 @@
   z-index: 1;
 }
 .blue-pill.hovered {
-  background-color: rgba(0, 188, 235, 0.5);
-  color: var(--Teal);
+  background-color: var(--opacity-color-1);
+  color: var(--color-2);
 }
 
 /* Container for the featured apps */
@@ -125,10 +113,10 @@
   flex-direction: column;
   width: 100%;
   aspect-ratio: 1/1;
-  border: 1px solid rgb(100, 255, 218);
+  border: 1px solid var(--color-2);
   padding: var(--space-2);
   border-radius: 50px;
-  background-color: rgba(14, 34, 80, 0.3);
+  background-color: var(--opacity-color-4);
   overflow: hidden;
   cursor: pointer;
   backdrop-filter: blur(5px);
@@ -147,7 +135,7 @@
 }
 
 .folder:hover {
-  filter: drop-shadow(0 0 15px rgba(0, 204, 255, 0.4));
+  filter: drop-shadow(0 0 15px var(--opacity-color-2));
 }
 
 .folder-svg-container {
@@ -172,7 +160,7 @@
   width: auto;
   height: 100%;
   border-radius: 50px;
-  color: var(--Teal);
+  color: var(--color-2);
   margin: 4vw;
   margin-top: 5vw;
   animation: forwards fadeUpEnter75-0 1s ease-in-out;
@@ -223,8 +211,8 @@
 .separator h2 {
   font-size: 3.3rem;
   margin: var(--space-5);
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 .separator h3 {
@@ -235,7 +223,7 @@
   width: 50vw;
   height: 2px;
   border: none;
-  background-color: var(--Teal);
+  background-color: var(--color-2);
   opacity: 0.5;
 }
 

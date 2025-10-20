@@ -31,7 +31,23 @@ h5 {
   --Teal: rgb(100, 255, 218);
   --Low-blue: #0e2250;
   --Dark-blue: #0b1a3d;
-  --main-glow: rgba(0, 204, 255, 0.65);
+  /* New */
+  --color-1: rgb(0, 188, 235);
+  --color-2: #1d4ed8;
+  --color-3: #0e2250;
+  --color-4: #0b1a3d;
+  --color-5: hsl(222, 47.4%, 11%);
+  /* Graph lines */
+  --graph-line: hsl(222, 30%, 16%);
+  /* Opacity of original color */
+  --opacity-color-4: rgba(11, 26, 61, 0.5);
+  --opacity-color-3: rgb(14, 34, 80, 0.5);
+  --opacity-color-1: rgba(0, 204, 255, 0.65);
+  --opacity-color-1-light: rgba(0, 204, 255, 0.3);
+  --opacity-color-2: rgba(29, 78, 216, 0.5);
+  /* Cursor color */
+  --cursor-color: rgba(29, 78, 216, 0.2);
+
   /* Whites */
   --white: #f0f0f0;
   --white-off: #c5c5c5;

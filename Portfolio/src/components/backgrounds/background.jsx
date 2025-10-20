@@ -9,7 +9,12 @@ function Background() {
     width: 0,
     height: 0,
   });
-
+  const lineColor = getComputedStyle(document.documentElement)
+    .getPropertyValue("--graph-line")
+    .trim();
+  const cursorColor = getComputedStyle(document.documentElement)
+    .getPropertyValue("--cursor-color")
+    .trim();
   const [ctx, setCtx] = useState(null);
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
@@ -89,7 +94,7 @@ function Background() {
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = "#1E293B";
+    ctx.strokeStyle = lineColor;
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
@@ -100,7 +105,7 @@ function Background() {
     if (!ctx) return;
     const radius = 600;
     const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-    gradient.addColorStop(0, "rgba(29, 78, 216, 0.19)");
+    gradient.addColorStop(0, cursorColor);
     gradient.addColorStop(1, "transparent");
     ctx.fillStyle = gradient;
     ctx.beginPath();
