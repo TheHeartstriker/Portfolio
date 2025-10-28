@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: 300svh;
+  height: calc(var(--static-vh) * 100 * 3);
   width: auto;
   flex-direction: column;
 }
@@ -29,7 +29,7 @@
   align-items: flex-start;
   flex-direction: column;
   width: 60%;
-  bottom: 105svh;
+  bottom: calc(var(--static-vh) * 100 * 1.05);
   z-index: 1;
 }
 
@@ -111,7 +111,7 @@
 
 @media (max-width: 1000px) {
   .i-am-container {
-    bottom: 20svh;
+    bottom: calc(var(--static-vh) * 100 * 0.2);
     width: 75%;
   }
 }
@@ -123,7 +123,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 170svh;
+  height: calc(var(--static-vh) * 100 * 1.7);
   top: 15svh;
 }
 
@@ -139,9 +139,11 @@
 .journey,
 .beyond,
 .more {
-  height: 80svw;
+  height: calc(var(--static-vh) * 100 * 0.8);
+
   position: relative;
-  width: 80svw;
+  width: calc(var(--static-vw) * 100 * 0.8);
+
   border-radius: 50%;
   padding: var(--space-4);
   margin: var(--space-4);
