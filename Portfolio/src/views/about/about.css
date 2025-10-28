@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: 300dvh;
+  height: 300svh;
   width: auto;
   flex-direction: column;
 }
@@ -29,7 +29,7 @@
   align-items: flex-start;
   flex-direction: column;
   width: 60%;
-  bottom: 105dvh;
+  bottom: 105svh;
   z-index: 1;
 }
 
@@ -111,7 +111,7 @@
 
 @media (max-width: 1000px) {
   .i-am-container {
-    bottom: 20dvh;
+    bottom: 20svh;
     width: 75%;
   }
 }
@@ -123,8 +123,8 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 170dvh;
-  top: 15dvh;
+  height: 170svh;
+  top: 15svh;
 }
 
 .mobile-about h4 {
@@ -139,9 +139,9 @@
 .journey,
 .beyond,
 .more {
-  height: 80dvw;
+  height: 80svw;
   position: relative;
-  width: 80dvw;
+  width: 80svw;
   border-radius: 50%;
   padding: var(--space-4);
   margin: var(--space-4);
