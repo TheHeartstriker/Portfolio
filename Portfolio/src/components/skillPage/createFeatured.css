@@ -20,7 +20,7 @@
 }
 
 .blue-pill-2.hovered {
-  background-color: rgba(0, 188, 235, 0.5);
+  background-color: var(--opacity-color-1);
   color: var(--Teal);
 }
 
@@ -51,8 +51,8 @@
   display: inline-block;
   font-size: 1.6rem;
   font-weight: 400;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 .app-header h5 {
@@ -80,7 +80,7 @@
 }
 
 .app-para:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
 }
 
 .app-skills {

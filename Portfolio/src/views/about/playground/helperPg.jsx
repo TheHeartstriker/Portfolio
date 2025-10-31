@@ -3,22 +3,31 @@
 //
 const headerFontSize = "2.8rem";
 const mainTextFontSize = "1.5rem";
-export function DrawTextBlurb(Header, MainT, x, y, Radius, ctx) {
+
+export function DrawTextBlurb(
+  Header,
+  MainT,
+  x,
+  y,
+  Radius,
+  ctx,
+  { bgColor, brColor, textColor }
+) {
   //Shape
   ctx.beginPath();
   ctx.arc(x, y, Radius, 0, Math.PI * 2);
-  ctx.fillStyle = "rgb(14, 34, 80)";
+  ctx.fillStyle = bgColor;
   ctx.fill();
 
   //Glow and Border
   ctx.lineWidth = 5;
-  ctx.strokeStyle = "rgb(5, 120, 250)";
+  ctx.strokeStyle = brColor;
   ctx.stroke();
 
   //Text settings
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillStyle = "white";
+  ctx.fillStyle = textColor;
 
   //Header
   ctx.font = `${headerFontSize} Protest Guerrilla`;

@@ -95,8 +95,8 @@
   font-weight: 600;
   margin-top: var(--space-1);
   margin-bottom: var(--space-1);
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 .script-article-info p {
@@ -121,8 +121,8 @@
   height: 4rem;
   border-radius: 100px;
   margin: var(--space-1);
-  color: rgba(0, 188, 235, 0.8);
-  background-color: rgba(0, 188, 235, 0.3);
+  color: var(--opacity-color-1);
+  background-color: var(--opacity-color-1-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +143,7 @@
   align-items: stretch;
   width: 100%;
   height: auto;
-  color: white;
+  color: var(--white);
   box-sizing: border-box;
   font-family: "Exo 2", monospace;
   overflow: hidden;
@@ -153,7 +153,7 @@
 }
 
 .article-text-container a {
-  color: var(--neon-blue);
+  color: var(--color-1);
   text-decoration: none;
   font-weight: 700;
 }
