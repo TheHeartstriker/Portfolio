@@ -89,11 +89,11 @@ Andddd now onto effect two the dithered effect. Here is a example of what it loo
 
 //Add image latter me
 
-Here basically all we are doing is puting a canvas in our card space. Then creating a grid and 'coloring' the grid's cells randomly in a circular area on mouse hover. The logic is based on a common programing patern sometime's refered to as a 'pixel array' I have even covered this before in my article about [flow fields](https://www.kadenwildauer.com/scriptorium/flow-fields) if you intrested. But let's walk through how this effect works!
+So the idea behind how this works is puting a canvas in our card space. Then creating a grid and 'coloring' the grid's cells randomly in a circular area on mouse hover. The logic is based on a common programing patern sometime's refered to as a 'pixel array' I have even covered this before in my article about [flow fields](https://www.kadenwildauer.com/scriptorium/flow-fields) if you intrested. But let's walk through how this effect works!
 
 ### Creating the pixel array
 
-First we need to set the canvas up with a width and height of the parent aka the card if you need help or want the code here I will link the repository at the end. After that we need to create the 'pixelArray' which is just a mathmatical representation of the grid we do this so we can store the x and y location of every cell allowing us to represent the cell logicaly one after the other. To do this we first create a function called `impose();` its job is when given the size for every cell it defines how many columns and rows we need to fill the canvas. As you can imagine the lower the cell size the more cells we get an the more defined our output will appear but will also take up more compute. The cell size being 'pixSize' size here this is the code.
+First we need to set the canvas up with a width and height of the parent aka the card if you need help or want the code here I will link the repository at the end! After that we need to create the 'pixelArray' which is just a mathmatical representation of the grid we do this so we can store the x and y location of every cell allowing us to represent the cell logicaly one after the other and therefore color them in orcording to there locations. To do this we first create a function called `impose();` its job is when given the size for every cell it defines how many columns and rows we need to fill the canvas. As you can imagine the lower the cell size the more cells we get an the more defined our output will appear, but this will also take up more compute. The cell size being `pixSize` size here this is the code.
 
 ```javascript
 function Impose() {
@@ -111,7 +111,7 @@ function Impose() {
 }
 ```
 
-So we now have the size of the grid in the from of how many rows and columns we need. But we need to mathmatically represent each cell we do this by creating a 2D array and storing locations and the unique indivdual cell data inside of it. To visualize here is a 2D array.
+So we now have the size of the grid in the from of how many rows and columns we need. But as mentioned we need to mathmatically represent each cell we do this by creating a 2D array and storing locations and the unique indivdual cell data inside of it. To visualize here is a 2D array.
 
 ```javascript
 let arr = [
@@ -121,7 +121,7 @@ let arr = [
 ];
 ```
 
-Ok so imagine this is a grid each child array is a row and its children the 0's are columns. Now in practice the 0's are object's containing the cell's values like location, color and opacity. And as for how we get the x and y value its simple math we use `pixSize` and multiply. So say we the x value we just multiple by what ever column we are on if its the second column its 2 \* pixSize for the x value. Here is the code implementing this.
+Ok so imagine this is a grid each child array is a row and its children the 0's are columns. Now in practice the 0's are object's containing the cell's values like location, color and opacity. And as for how we get the x and y value its simple math we use `pixSize` and multiply. So say we the x value we just multiple by what ever column we are on if its the second column its 2 \* pixSize for the x value. Here is the code implementing this idea while creating the 2D array.
 
 ```typescript
 function create2DArray(
@@ -150,11 +150,11 @@ function create2DArray(
 }
 ```
 
-Now you should be able to color pixel's in if you want just index into your grid get your cells x and y location and then pass it to a draw function using the canvas API. Now the most important part is storing the x and y location this creates the grid but we also store opacity and color. But why? Well its for compatiblity with the third effect and to make the entire thing smoother we fill every cell with opacity, and later in the `render` function will decrease every frame so colored elments fade away rather then instantly disapearing. I also stored color in every cell this is to show that if you want you can make the cells different color's then there peer's.
+Now you should be able to color pixel's in if you want just index into your grid get a cells x and y location and then pass it to a draw function using the canvas API. Now the most important part is storing the x and y location this creates the grid but we also store opacity and color. But why? Well its for compatiblity with the third effect and to make the entire thing smoother we fill every cell with opacity, and later in the `render` function will decrease it every frame so colored elments fade away rather then instantly disapearing when we clear the frame. I also stored color in every cell this is to show that if you want you can make the cells different color's then there peer's.
 
 ### Creating the mouse effect
 
-Ok so we have defined the grid mathmatically but whats next? Well for this we have main three function's. First one that iterates over the grid we made and draw's all the cells every frame the 'render', our mouse tracker, and or MouseEffect. First we want to track our mouse acoding to its position inside the canvas so we can us it in `MouseEffect` to fill in cells to do that we store our parent's ClientRect and retrive it to subtract against our mouse like so.
+Ok so we have defined the grid mathmatically but whats next? Well for this we have main three function's. First one that iterates over the grid we made and draw's all the cells every frame the 'render', our mouse tracker, and or MouseEffect. First lets consider the mouse tracker we need to track our mouse acoding to its position inside the canvas so we can us it in `MouseEffect` to fill in cells sourunding it possition. So to do that we store our parent's ClientRect(The parent of the canvas) and retrive it to subtract against our mouse like so.
 
 ```javascript
 function mouseTracker(e: MouseEvent) {
@@ -167,13 +167,14 @@ function mouseTracker(e: MouseEvent) {
 }
 ```
 
-Now we can track its location inside our card and provide it to our `MouseEffect`. Now the function itself is pretty simple conceptually. Here is the stages.
+Now we can track its location inside our card and provide it to our `MouseEffect` so it can apply effects around the mouse. So how does this function work? Well its pretty simple conceptually. And has three main stages which is the following
 
-- We transfer the x and y into a row and collumn location
+- We transfer the x and y of the mouse into a row and collumn location
 - We define are var's like effect radius and fall of points
 - Iterate over the effect radius cells and apply or effects
 
-The main effect happens when we are iterating over a square grid around the mouse the size of our chosen radius and randomly picking a cell to increase its opacity based on distance to center. The randomness here simulates dithering. Here is the code behind that.
+So we find what column and row is under our mouse. Define how large we want our mouse to randomly pick cells from along with defining the minimum and maximum value we want to increase said cells opacity which is based on distance. This will make far of cells fade faster when the render decrease every cells opacity. Then in the third part
+iterate over the space we defined and caculate how much we increase its opacity see if its in the radius and see if its been chosen this has a about 50% chance at is what adds the dithered look because we are going to be constantly changing and increasing different cells. Now how many times did I say 'cells'... here is the code.
 
 ```javascript
 function MouseEffect() {
@@ -225,7 +226,7 @@ function MouseEffect() {
 }
 ```
 
-And truly that's the entire effect we run this under a `requestAnimationFrame` which also has the render function which is super simple. All the render function does is first clear the previous frame. Then it iterates over the cells and decrease the opacity unless its to close to 0 if it we ignore it. Which looks like so.
+And truly that's the entire effect we run this under a `requestAnimationFrame` which also has the render function which is super simple I have practically eluded to it and already explaned it but for clarity. The render function clear thes previous frame. Then it iterates over the cells and decrease the opacity unless its to close to 0 if it we ignore it. Which looks like so.
 
 ```javascript
 function render() {
@@ -255,3 +256,25 @@ function render() {
 ```
 
 We need this to update every cell visually as `MouseEffect` changes it's opacity and also a convient place to slowly decrease every cells opacity and clear the previous frame. Now all we do now is apply a :before at a higher z index then the canvas with a blur for a more subtle effect which is the image I showed. This is also most of the code since we are just altering what we already have for the next effect!
+
+## Third Effect
+
+And the final one :) here is what it looks like for refrence!
+
+//Add image me
+
+Thankfully this effect is heavily based on the fundementals of the previous one so, not much more code is needed! So first up increase `pixSize` from whatever you chose previously making each the grid cells indivdually larger decrising the overall amount. Now we dont yet have a good grid if you look closly there should be a offset. This happens because if for example the screen is 125px in width and 50px in height with a cell size of 50px what happens at the third cell? We have taken up 100px of space but those 25px well nothing there is just a gap. The previous numbers we where working with we very small there was a gap we just could not perceivce it the cells where to small. But here its a issue so we increase the resolution of the canvas based on the amount of rows and columns we need. Using something like so.
+
+````javascript
+      const cols = Math.floor(parentRect.width / pixSize);
+      const rows = Math.floor(parentRect.height / pixSize);
+      canvas.width = cols * pixSize;
+      canvas.height = rows * pixSize;
+      ```
+
+
+````
+
+So we round upwards when deciding how many columns we need and increase the canvas size acordingly. All we are really doing is increasing the resolution allowing the grids to exist 'off screen' so they are drawn normally and cutoff instead of just not existing in that space.
+
+Now
