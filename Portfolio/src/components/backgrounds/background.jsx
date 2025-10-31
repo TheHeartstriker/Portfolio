@@ -128,14 +128,12 @@ function Background() {
   }, []);
 
   return (
-    <div>
-      <canvas
-        ref={backgroundRef}
-        id="backgroundId"
-        width={canvasSize.width}
-        height={canvasSize.height}
-      />
-    </div>
+    <canvas
+      ref={backgroundRef}
+      id="backgroundId"
+      width={canvasSize.width}
+      height={canvasSize.height}
+    />
   );
 }
 
