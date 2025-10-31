@@ -1,7 +1,7 @@
 #backgroundId {
   position: fixed;
   background: rgb(15 23 42 / 1);
-  width: 100dvh;
+  width: 100dvw;
   height: 100dvh;
   top: 0;
   left: 0;
