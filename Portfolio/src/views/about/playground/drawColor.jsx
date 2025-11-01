@@ -12,7 +12,7 @@ export function useColors() {
     setColors({
       bgColor:
         root.getPropertyValue("--color-3").trim() || "rgba(255, 255, 255, 0.8)",
-      brColor: root.getPropertyValue("--color-4").trim() || "rgba(0, 0, 0, 1)",
+      brColor: root.getPropertyValue("--color-2").trim() || "rgba(0, 0, 0, 1)",
       textColor: root.getPropertyValue("--white").trim() || "rgba(0, 0, 0, 1)",
     });
   }, []); // Runs once after mount

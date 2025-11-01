@@ -35,17 +35,17 @@
 
 /* In the nav folder the css file consider the container appearing time */
 
-.text-1 {
-  font-size: 2.3rem;
-  color: var(--neon-dull);
+.i-am-container h1 {
+  font-size: 2.5rem;
+  color: var(--color-1);
   margin: 0px 0px var(--space-3) 0;
   font-weight: 500;
   filter: drop-shadow(0 0 5px var(--opacity-color-1));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.text-2 {
-  font-size: 5.8rem;
+.i-am-container h2 {
+  font-size: 6rem;
   color: var(--white);
   font-weight: 700;
   margin: 0;
@@ -53,8 +53,8 @@
   animation: fadeUpEnter0-30 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.text-3 {
-  font-size: 5.8rem;
+.i-am-container h3 {
+  font-size: 5rem;
   color: var(--white-off);
   font-weight: 500;
   margin: 0;
@@ -63,7 +63,7 @@
   animation: fadeUpEnter0-30 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-.text-4 {
+.i-am-container p {
   font-size: 1.5rem;
   width: 75%;
   color: var(--white-light);

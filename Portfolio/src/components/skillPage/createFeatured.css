@@ -52,14 +52,14 @@
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--color-1);
+  margin: var(--space-1) 0;
   filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 .app-header h5 {
   font-size: 2.3rem;
-  margin: 0;
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-1);
+  margin: var(--space-3) 0;
+  margin-bottom: auto;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -178,8 +178,11 @@
   .app-header h1 {
     font-size: 2.5rem;
   }
-  .app-header h3 {
-    font-size: 3rem;
+  .app-header h4 {
+    font-size: 2.5rem;
+  }
+  .app-header h5 {
+    font-size: 3.5rem;
   }
   .app-para {
     font-size: 1.7rem;
@@ -187,5 +190,14 @@
   .blue-pill2 {
     width: 80%;
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-header h4 {
+    font-size: 2rem;
+  }
+  .app-header h5 {
+    font-size: 3rem;
   }
 }
