@@ -263,18 +263,70 @@ And the final one :) here is what it looks like for refrence!
 
 //Add image me
 
-Thankfully this effect is heavily based on the fundementals of the previous one so, not much more code is needed! So first up increase `pixSize` from whatever you chose previously making each the grid cells indivdually larger decrising the overall amount. Now we dont yet have a good grid if you look closly there should be a offset. This happens because if for example the screen is 125px in width and 50px in height with a cell size of 50px what happens at the third cell? We have taken up 100px of space but those 25px well nothing there is just a gap. The previous numbers we where working with we very small there was a gap we just could not perceivce it the cells where to small. But here its a issue so we increase the resolution of the canvas based on the amount of rows and columns we need. Using something like so.
+Thankfully this effect is heavily based on the fundementals of the previous one so, not much more code is needed! So first up increase `pixSize` from whatever you chose previously making each the grid cells indivdually larger. Now we have a new problem if you look closly there should be a offset. This happens because if for example the screen is 125px in width and 50px in height with a cell size of 50px what happens at the third cell? We have taken up 100px of space but still have a 25px gap that cant fill it with another cell because its to big. The previous numbers we where working with we very small there was a gap we just could not perceivce it the cells where to small.
 
-````javascript
-      const cols = Math.floor(parentRect.width / pixSize);
-      const rows = Math.floor(parentRect.height / pixSize);
-      canvas.width = cols * pixSize;
-      canvas.height = rows * pixSize;
-      ```
+So the issue can be solved by increasing the resolution of the canvas based on the amount of rows and columns we need. Using something like so.
 
-
-````
+```javascript
+const cols = Math.floor(parentRect.width / pixSize);
+const rows = Math.floor(parentRect.height / pixSize);
+canvas.width = cols * pixSize;
+canvas.height = rows * pixSize;
+```
 
 So we round upwards when deciding how many columns we need and increase the canvas size acordingly. All we are really doing is increasing the resolution allowing the grids to exist 'off screen' so they are drawn normally and cutoff instead of just not existing in that space.
 
-Now
+So what about `render();` and `MouseEffect`? Well to make this work we just need to increase the opacity of the cell or mouse is under thats it. So here I just turned `MouseEffect` into a function that simply updates a overhead on what collumn and row the mouse is under. Then using that data in the `render` I updated that cell by increasing its opacity like so.
+
+```javascript
+function render() {
+  if (!ctx || !gridRef.current.length) return;
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  //Collect the current hover cell position'updated via MouseEffect
+  let hovCol = hoveredCellRef.current?.col;
+  let hovRow = hoveredCellRef.current?.row;
+  //If on screen
+  if (hovCol !== undefined && hovRow !== undefined) {
+    //Increase opacity dont pass 1
+    gridRef.current[hovRow][hovCol].opacity = clamp(
+      gridRef.current[hovRow][hovCol].opacity + 0.05,
+      0,
+      1
+    );
+  }
+  //Iterate over all cells
+  for (let i = 0; i < rowColRef.current.row; i++) {
+    for (let j = 0; j < rowColRef.current.col; j++) {
+      //If cell is not being hovered over decrease it opacity
+      if (i !== hovRow || j !== hovCol) {
+        gridRef.current[i][j].opacity = clamp(
+          gridRef.current[i][j].opacity - 0.01,
+          0,
+          1
+        );
+      }
+      //Draw cell
+      drawSquare(
+        gridRef.current[i][j].x,
+        gridRef.current[i][j].y,
+        gridRef.current[i][j].color,
+        gridRef.current[i][j].opacity
+      );
+    }
+  }
+}
+```
+
+And thats it pretty much. I also put a before over it using the cards background color that fades to transparent so the grid is only visable on the edge. In my opion it makes it more relastic for actual use by adding subtlte.
+
+## Live
+
+If you want to see this live and in practice then here :)
+
+## After word
+
+I hope you enjoyed this! It was slightly different from my usual articles more simple in a sense but still fun. But I did want link two subjects and examples of a 'pixel array' in use. Along with the codebase I made this in :)
+
+- [Falling sand](https://thecodingtrain.com/challenges/180-falling-sand)
+- [Very popular code pen uses simular princepuls to this article](https://codepen.io/hexagoncircle/pen/KwPpdBZ)
+- [Code for this article]()
