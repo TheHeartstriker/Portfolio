@@ -77,7 +77,8 @@
     width: 90vw;
   }
   .gallery-description {
-    width: 80%;
-    font-size: 1.5rem;
+    width: 90%;
+    font-size: 2rem;
+    padding: 4.5rem;
   }
 }

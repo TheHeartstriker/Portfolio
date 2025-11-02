@@ -108,10 +108,6 @@
   text-align: left;
 }
 
-.app-skills.mirror {
-  transform: translateX(-10%);
-}
-
 .logo-container {
   position: relative;
   width: 6rem;
@@ -177,6 +173,7 @@
   /* Sizing adjustments */
   .app-image {
     position: absolute;
+    justify-content: flex-end;
     width: 100%;
   }
   .app-text {
@@ -191,6 +188,27 @@
   .app-f {
     width: 90vw;
     height: 55vh;
+  }
+  /* Shrink the skills section */
+  .app-skills {
+    justify-content: flex-end;
+    margin-left: auto;
+    width: 75%;
+  }
+
+  .app-skills.mirror {
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .logo-container {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+
+  .app-image.mirror {
+    justify-content: flex-start;
   }
 
   /* Fonts */
@@ -215,7 +233,30 @@
 }
 
 @media (max-width: 800px) {
-  .app-para {
-    font-size: 2.25rem;
+  .logo-container {
+    width: 10rem;
+    height: 10rem;
   }
+
+  .app-image {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-image.mirror {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .blue-pill-2 {
+    font-size: 2rem;
+    height: 6rem;
+  }
+
+  .app-skills {
+    width: 85%;
+  }
+}
+
+@media (max-width: 600px) {
 }

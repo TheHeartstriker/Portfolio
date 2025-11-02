@@ -21,7 +21,7 @@ function CreateFeatured({
         className={`app-f ${Mirror ? "mirror" : ""}`}
         id={End ? "end-featured" : undefined}
       >
-        <div className="app-image">
+        <div className={`app-image ${Mirror ? "mirror" : ""}`}>
           <Image
             src={ImageSrc}
             alt="Project image"
