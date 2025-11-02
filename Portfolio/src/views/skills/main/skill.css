@@ -8,15 +8,6 @@
   height: 100%;
 }
 
-/* For the teck stack */
-.tech-stacks-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-}
 /* The container that holder the skills */
 .tech-stacks {
   position: relative;
@@ -47,7 +38,7 @@
   border-radius: inherit;
   background-color: var(--opacity-color-3);
 }
-
+/* Child of tech stacks */
 .blue-pill {
   font-size: 1.3rem;
   width: 13%;
@@ -70,41 +61,16 @@
   color: var(--color-2);
 }
 
-/* Container for the featured apps */
-.featured-apps {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  animation: fadeUpEnter75-0 1.3s forwards ease-in-out;
-}
-
-.no-featured-apps {
-  width: 80%;
-  position: relative;
-}
-
-/* Header container for non featured apps */
-.non-featured-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  margin-bottom: 10vh;
-}
-/* Container for non featured apps */
+/* Container for the folders */
 .folder-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5.5rem;
   grid-template-rows: auto;
-  width: auto;
+  width: 80%;
   min-height: 20vh;
 }
-
+/* Folder cards */
 .folder {
   display: flex;
   position: relative;
@@ -126,8 +92,13 @@
 
 .folder h6 {
   font-size: 2rem;
-  color: var(--Teal);
+  color: var(--color-2);
   margin: var(--space-1);
+}
+.folder p {
+  color: var(--white-off);
+  font-size: 1.25rem;
+  font-family: "Exo 2", sans-serif;
 }
 
 .folder:hover::before {
@@ -145,19 +116,14 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-.folder p {
-  color: var(--white-off);
-  font-family: "Exo 2", sans-serif;
-}
-
+/* Separator used in gallery and skills */
 .separator {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: auto;
+  width: 75%;
   height: 100%;
   border-radius: 50px;
   color: var(--color-2);
@@ -227,19 +193,26 @@
   opacity: 0.5;
 }
 
+@media (max-width: 1500px) {
+  .folder-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 1000px) {
+  /* Sizing changes */
   .tech-stacks {
     height: 30vh;
   }
-  .blue-pill {
-    width: 20%;
-    height: 20%;
-    font-size: 1.7rem;
+  .separator {
+    margin: 15vw 0;
+    width: 90%;
   }
 
-  .separator {
-    margin: 12vw;
+  #Sep1 {
+    margin-top: 20vw;
   }
+
   .blue-pill2 {
     width: 80%;
   }
@@ -250,22 +223,35 @@
   }
 
   .folder-container {
-    grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+  }
+
+  /* Sizing and font */
+  .blue-pill {
+    width: 20%;
+    height: 20%;
+    font-size: 1.7rem;
+  }
+  /* Font changes*/
+  .separator h2 {
+    font-size: 4rem;
+  }
+
+  .separator h3 {
+    font-size: 2.5rem;
+  }
+
+  .folder h6 {
+    font-size: 4rem;
+  }
+
+  .folder p {
+    font-size: 2.5rem;
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
   .folder-container {
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media (max-width: 450px) {
-  .gallery-link {
-    width: 25px;
-    height: 25px;
-  }
-  .separator {
-    width: 85%;
   }
 }

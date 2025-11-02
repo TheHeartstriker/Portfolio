@@ -156,3 +156,25 @@
   font-size: 2rem;
   color: white;
 }
+
+@media (max-width: 1000px) {
+  .i-am-container {
+    width: 90%;
+  }
+
+  .i-am-container h1 {
+    font-size: 3rem;
+  }
+
+  .i-am-container h2 {
+    font-size: 6.5rem;
+  }
+
+  .i-am-container h3 {
+    font-size: 5.5rem;
+  }
+
+  .i-am-container p {
+    font-size: 2rem;
+  }
+}

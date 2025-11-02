@@ -16,12 +16,10 @@ export function setupCanvasBall(canvasRef, setCtx, radiusRef, shrinkFactor) {
     backgroundCanvas.height = document.documentElement.scrollHeight;
     setCtx(backgroundCanvas.getContext("2d"));
     if (window.innerWidth < 1000) {
-      let tempFactor = shrinkFactor / 2;
-      radiusRef.current = window.innerWidth / tempFactor;
-    } else {
-      radiusRef.current = window.innerWidth / shrinkFactor;
+      radiusRef.current = (window.innerWidth / shrinkFactor) * 2;
     }
   };
+  resizeCanvas();
   // Add the resize event listener
   window.addEventListener("resize", resizeCanvas);
   // Cleanup function to remove the event listener
