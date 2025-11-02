@@ -54,8 +54,9 @@
 }
 
 .subject-container-article h3 {
-  font-size: 1.3rem;
-  margin: var(--space-1) 0;
+  font-size: 1.45rem;
+  color: var(--white);
+  margin: var(--space-2) 0;
   margin-bottom: 0;
 }
 
@@ -70,6 +71,7 @@
 
 .subject-container-article p {
   font-size: 1.15rem;
+  color: var(--white);
 }
 
 .component-container-article {
@@ -108,7 +110,7 @@
 }
 
 .subject-container-article p code {
-  background-color: var(--color-4);
+  background-color: var(--color-3);
   padding: 0 0.3em;
   margin: 0;
 }

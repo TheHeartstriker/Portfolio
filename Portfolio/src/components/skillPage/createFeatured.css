@@ -2,7 +2,7 @@
   position: relative;
   font-size: 1.1rem;
   width: 25%;
-  height: 3rem;
+  height: 4rem;
   border-radius: 100px;
   margin: var(--space-1);
   color: var(--color-1);
@@ -29,9 +29,8 @@
 }
 
 .app-text {
-  position: absolute;
-  width: 60%;
-  left: 40%;
+  position: relative;
+  width: 50%;
   height: 100%;
   text-align: right;
   color: white;
@@ -65,7 +64,9 @@
 }
 
 .app-para {
-  width: 100%;
+  position: relative;
+  width: 125%;
+  right: 25%;
   height: 33%;
   padding: var(--space-2);
   border-radius: 15px;
@@ -77,6 +78,10 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: color ease-in-out 0.5s;
+}
+
+.app-para-mirror {
+  left: 0%;
 }
 
 .app-para:hover {
@@ -92,7 +97,6 @@
   width: 100%;
   height: 33%;
   padding: var(--space-2);
-  transform: translateX(6%);
 }
 
 .app-f.mirror {
@@ -119,21 +123,16 @@
   z-index: 1;
 }
 
-.img-back-logo1 {
-  background-image: url("/link.svg");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+.logo-container svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-1);
   cursor: pointer;
+}
+.logo-github svg path {
+  fill: var(--color-1);
 }
 
-.img-back-logo2 {
-  background-image: url("/Github.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-}
 /* Main app container */
 .app-f {
   display: flex;
@@ -169,35 +168,54 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(11, 26, 61, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   transition: background-color ease-in-out 0.8s;
   border-radius: 15px;
 }
 
 @media (max-width: 1000px) {
+  /* Sizing adjustments */
+  .app-image {
+    position: absolute;
+    width: 100%;
+  }
+  .app-text {
+    width: 100%;
+  }
+
+  .app-para {
+    width: 100%;
+    right: 0%;
+  }
+
+  .app-f {
+    width: 90vw;
+    height: 55vh;
+  }
+
+  /* Fonts */
   .app-header h1 {
     font-size: 2.5rem;
   }
   .app-header h4 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-top: var(--space-6);
   }
   .app-header h5 {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
   .app-para {
-    font-size: 1.7rem;
-  }
-  .blue-pill2 {
-    width: 80%;
     font-size: 2rem;
+  }
+  /* Sizing and font */
+  .blue-pill-2 {
+    font-size: 2rem;
+    height: 5rem;
   }
 }
 
 @media (max-width: 800px) {
-  .app-header h4 {
-    font-size: 2rem;
-  }
-  .app-header h5 {
-    font-size: 3rem;
+  .app-para {
+    font-size: 2.25rem;
   }
 }

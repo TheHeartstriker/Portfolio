@@ -30,6 +30,7 @@
   background-color: var(--color-2);
   color: var(--white);
   width: 85%;
+  border: 2px solid var(--color-1);
   height: 6.5vh;
   font-size: 1.3rem;
   border-radius: 50px;
