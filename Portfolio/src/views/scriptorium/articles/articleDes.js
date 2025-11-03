@@ -50,3 +50,13 @@ export const desBackendLookLike = {
    We are going to go over each folder of a common backend and discuss why they exist, what they do, what they contain, and how they tie in with the frontend.`,
   image: "/scriptorium/thumb/thumb4.webp",
 };
+
+export const desHoverCards = {
+  title: "Modern Card Hover Animations, Css and Javascript",
+  tags: ["Web Development", "CSS"],
+  date: { day: 3, month: "December", year: 2025 },
+  des: `A great hover effect can make UI's feel alive a small detail that improves visual polish and depth! And this article will cover hover effect's on cards.
+   It's going to cover three custom made hover effects for a card background's. The main idea is adding unique variations to a classic effect of a card glowing subtlery over where your mouse is hovering.
+    But! As per usual with my article's there will be imagery, code examples and a live demo at the end!`,
+  image: "/scriptorium/thumb/CardThumb.webp",
+};

@@ -4,6 +4,7 @@ import {
   desPolySVG,
   desFlowField,
   desBackendLookLike,
+  desHoverCards,
 } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
 import PillAnimation from "./pillAnimation.jsx";
@@ -15,6 +16,10 @@ function Scriptorium() {
     <div className="main-scriptorium-container">
       <PillAnimation />
       <div className="article-card-container">
+        <ScriptCard
+          articleDes={desHoverCards}
+          link={"/scriptorium/hover-cards"}
+        />
         <ScriptCard
           articleDes={desBackendLookLike}
           link={"/scriptorium/backend-look-like"}

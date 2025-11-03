@@ -48,6 +48,7 @@
   color: var(--neon-dull);
   filter: drop-shadow(0 0 10px var(--main-glow));
 }
+
 /* h2 */
 
 .subject-container-article h2 {
@@ -102,6 +103,8 @@
   object-fit: contain;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   background: #111;
+  display: block;
+  margin: 0 auto;
 }
 
 .code-block {
