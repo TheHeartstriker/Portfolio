@@ -55,8 +55,9 @@ export const desHoverCards = {
   title: "Modern Card Hover Animations, Css and Javascript",
   tags: ["Web Development", "CSS"],
   date: { day: 3, month: "December", year: 2025 },
-  des: `A great hover effect can make UI's feel alive a small detail that improves visual polish and depth! And this article will cover hover effect's on cards.
-   It's going to cover three custom made hover effects for a card background's. The main idea is adding unique variations to a classic effect of a card glowing subtlery over where your mouse is hovering.
-    But! As per usual with my article's there will be imagery, code examples and a live demo at the end!`,
+  des: `A great hover effect can make user interfaces feel alive it's a small detail that adds visual polish and depth. 
+  This article will cover hover effects on cards, walking through three custom-made variations for a card's background. 
+  The main idea? Adding unique twists to the classic subtle glow where your mouse hovers.
+   As usual with my articles, expect imagery, code examples, and a live demo at the end!`,
   image: "/scriptorium/thumb/CardThumb.webp",
 };
