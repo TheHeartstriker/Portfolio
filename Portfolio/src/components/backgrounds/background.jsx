@@ -9,7 +9,7 @@ function Background() {
     width: 0,
     height: 0,
   });
-
+  const colorRef = useRef({ lineColor: "", cursorColor: "" });
   const [ctx, setCtx] = useState(null);
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
@@ -89,7 +89,7 @@ function Background() {
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = "#1E293B";
+    ctx.strokeStyle = colorRef.current.lineColor;
     ctx.shadowBlur = 10;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
@@ -100,7 +100,7 @@ function Background() {
     if (!ctx) return;
     const radius = 600;
     const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-    gradient.addColorStop(0, "rgba(29, 78, 216, 0.19)");
+    gradient.addColorStop(0, colorRef.current.cursorColor);
     gradient.addColorStop(1, "transparent");
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -121,6 +121,11 @@ function Background() {
   }, [ctx, canvasSize]);
 
   useEffect(() => {
+    const root = getComputedStyle(document.documentElement);
+    colorRef.current.lineColor = root.getPropertyValue("--graph-line").trim();
+    colorRef.current.cursorColor = root
+      .getPropertyValue("--cursor-color")
+      .trim();
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);

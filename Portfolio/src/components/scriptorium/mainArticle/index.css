@@ -7,7 +7,7 @@
   justify-content: center;
   width: clamp(50%, 110ch, 100%);
   height: auto;
-  background-color: var(--Low-blue);
+  background-color: var(--color-4);
   border-radius: 100px;
   z-index: 1;
   margin-bottom: var(--space-3);
@@ -25,7 +25,7 @@
 /* H1 */
 .article-h1-container {
   position: relative;
-  background-color: var(--Dark-blue);
+  background-color: var(--color-3);
   display: flex;
   width: 100%;
   margin-left: auto;
@@ -36,41 +36,43 @@
   box-sizing: border-box;
   padding: var(--space-1);
 }
-/* .subject-container-article p {
-  font-size: 1.1rem;
-  font-family: "Inter", sans-serif;
-} */
 
 .subject-container-article h1 {
   font-size: 2.5rem;
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 /* h2 */
 
 .subject-container-article h2 {
   font-size: 1.9rem;
-  color: var(--neon-dull);
-  margin: var(--space-1) 0;
+  color: var(--color-1);
+  margin: var(--space-2) 0;
   margin-bottom: 0;
 }
 
 .subject-container-article h3 {
-  font-size: 1.3rem;
-  margin: var(--space-1) 0;
+  font-size: 1.45rem;
+  color: var(--white);
+  margin: var(--space-2) 0;
   margin-bottom: 0;
 }
 
 .subject-container-article a {
-  color: var(--neon-link);
+  color: var(--color-2);
   text-decoration: none;
   font-weight: 700;
 }
 .subject-container-article ul {
   color: black;
+}
+
+.subject-container-article p {
+  font-size: 1.15rem;
+  color: var(--white);
 }
 
 .component-container-article {
@@ -112,7 +114,7 @@
 }
 
 .subject-container-article p code {
-  background-color: var(--Dark-blue);
+  background-color: var(--color-3);
   padding: 0 0.3em;
   margin: 0;
 }
@@ -140,24 +142,6 @@ code {
   margin: 0;
 }
 
-@media (max-width: 1000px) {
-  .subject-container-article {
-    margin-top: 20%;
-  }
-  .subject-container-article h1 {
-    font-size: 3.5rem;
-  }
-  .subject-container-article h2 {
-    font-size: 2.7rem;
-  }
-  .subject-container-article h3 {
-    font-size: 2.3rem;
-  }
-  .article-h1-container {
-    width: 90%;
-  }
-}
-
 @media (max-width: 1750px) {
   .subject-container-article {
     margin-left: 10%;
@@ -167,5 +151,36 @@ code {
 @media (max-width: 1500px) {
   .subject-container-article {
     margin-left: auto;
+  }
+
+  .subject-container-article p {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .subject-container-article {
+    margin-top: 20%;
+  }
+  .subject-container-article h1 {
+    font-size: 4rem;
+  }
+  .subject-container-article h2 {
+    font-size: 3rem;
+  }
+  .subject-container-article h3 {
+    font-size: 2.5rem;
+  }
+  .article-h1-container {
+    width: 90%;
+  }
+  .subject-container-article p {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .subject-container-article p {
+    font-size: 1.8rem;
   }
 }

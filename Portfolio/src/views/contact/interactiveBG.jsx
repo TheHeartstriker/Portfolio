@@ -10,6 +10,7 @@ function InteractiveBG() {
   const [ctx, setCtx] = useState(null);
   const Radius = useRef(0);
   const Contact = useRef(null);
+  const colorRef = useRef("");
 
   const ObjectData = useRef([]);
 
@@ -137,7 +138,7 @@ function InteractiveBG() {
         data.velocity.y += (9.8 * TimeStep) / 2;
         //64ffdb
         DrawCircle(
-          "#64ffdb",
+          colorRef.current,
           data.x,
           data.y,
           Radius.current,
@@ -164,6 +165,9 @@ function InteractiveBG() {
 
   useEffect(() => {
     const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15);
+    colorRef.current = getComputedStyle(document.documentElement)
+      .getPropertyValue("--color-2")
+      .trim();
     return () => {
       cleanup();
     };

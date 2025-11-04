@@ -38,15 +38,15 @@ export default function AboutMobile({
       </div>
       {ToSmall === false && <PlayGround />}
       <div className={`mobile-about${ToSmall ? "" : " hidden"}`}>
-        <div className="journey">
+        <div className="mobile-intro">
           <h4>{Header1}</h4>
           <p>{MainText1}</p>
         </div>
-        <div className="beyond">
+        <div className="mobile-intro">
           <h4>{Header2}</h4>
           <p>{MainText2}</p>
         </div>
-        <div className="more">
+        <div className="mobile-intro">
           <h4>{Header3}</h4>
           <p>{MainText3}</p>
         </div>

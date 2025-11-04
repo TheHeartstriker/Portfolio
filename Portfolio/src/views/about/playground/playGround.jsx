@@ -3,6 +3,7 @@ import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 import { defaultCanvas } from "../../../utils/canvas.jsx";
 import { RowGradient } from "./helperPg.jsx";
+import { useColors } from "./drawColor.jsx";
 import {
   setupCanvasBall,
   WhichOne,
@@ -42,6 +43,8 @@ function PlayGround() {
   const shadowRef = useRef(null);
   const [shadowCtx, setShadowCtx] = useState(null);
   const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
+  const colorRef = useRef({ bgColor: "", brColor: "", textColor: "" });
+  let colors = useColors();
   //
   // Regular functions for the about balls
   //
@@ -231,7 +234,7 @@ function PlayGround() {
       ctx.clearRect(
         0,
         0,
-        document.documentElement.scrollHeight,
+        document.documentElement.scrollWidth,
         document.documentElement.scrollHeight
       );
       for (const data of ObjectData.current) {
@@ -249,7 +252,8 @@ function PlayGround() {
           data.x,
           data.y,
           Radius.current,
-          ctx
+          ctx,
+          colorRef.current
         );
       }
       // Shadow
@@ -305,7 +309,8 @@ function PlayGround() {
   useEffect(() => {
     if (ctx == null) return;
     InitData();
-  }, [ctx]);
+    colorRef.current = colors;
+  }, [ctx, colors]);
   // Renders the frame
   useEffect(() => {
     if (ObjectData.current && !isCalled && Playground.current) {

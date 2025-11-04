@@ -1,17 +1,16 @@
-/* --- Moved from skill.css --- */
 .blue-pill-2 {
   position: relative;
   font-size: 1.1rem;
   width: 25%;
-  height: 3rem;
+  height: 4rem;
   border-radius: 100px;
   margin: var(--space-1);
-  color: rgba(0, 188, 235, 0.8);
+  color: var(--color-1);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color ease-out 1s, color ease-out 1s;
-  background-color: rgba(14, 34, 80, 0.3);
+  background-color: var(--opacity-color-4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -21,8 +20,8 @@
 }
 
 .blue-pill-2.hovered {
-  background-color: rgba(0, 188, 235, 0.5);
-  color: var(--Teal);
+  background-color: var(--opacity-color-1);
+  color: var(--color-2);
 }
 
 .transparent-fill:hover {
@@ -30,9 +29,8 @@
 }
 
 .app-text {
-  position: absolute;
-  width: 60%;
-  left: 40%;
+  position: relative;
+  width: 50%;
   height: 100%;
   text-align: right;
   color: white;
@@ -52,21 +50,23 @@
   display: inline-block;
   font-size: 1.6rem;
   font-weight: 400;
-  color: var(--neon-dull);
-  filter: drop-shadow(0 0 10px var(--main-glow));
+  color: var(--color-1);
+  margin: var(--space-1) 0;
+  filter: drop-shadow(0 0 10px var(--opacity-color-1));
 }
 
 .app-header h5 {
   font-size: 2.3rem;
-  margin: 0;
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-1);
+  margin: var(--space-3) 0;
+  margin-bottom: auto;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .app-para {
-  width: 100%;
+  position: relative;
+  width: 125%;
+  right: 25%;
   height: 33%;
   padding: var(--space-2);
   border-radius: 15px;
@@ -74,14 +74,18 @@
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;
   font-weight: 350;
-  background-color: rgba(14, 34, 80, 0.85);
+  background-color: var(--opacity-color-3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: color ease-in-out 0.5s;
 }
 
+.app-para-mirror {
+  left: 0%;
+}
+
 .app-para:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
 }
 
 .app-skills {
@@ -93,7 +97,6 @@
   width: 100%;
   height: 33%;
   padding: var(--space-2);
-  transform: translateX(6%);
 }
 
 .app-f.mirror {
@@ -103,10 +106,6 @@
 .app-text.mirror {
   left: 0%;
   text-align: left;
-}
-
-.app-skills.mirror {
-  transform: translateX(-10%);
 }
 
 .logo-container {
@@ -120,21 +119,16 @@
   z-index: 1;
 }
 
-.img-back-logo1 {
-  background-image: url("/link.svg");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+.logo-container svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-1);
   cursor: pointer;
+}
+.logo-github svg path {
+  fill: var(--color-1);
 }
 
-.img-back-logo2 {
-  background-image: url("/Github.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-}
 /* Main app container */
 .app-f {
   display: flex;
@@ -170,23 +164,99 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(11, 26, 61, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   transition: background-color ease-in-out 0.8s;
   border-radius: 15px;
 }
 
 @media (max-width: 1000px) {
+  /* Sizing adjustments */
+  .app-image {
+    position: absolute;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .app-text {
+    width: 100%;
+  }
+
+  .app-para {
+    width: 100%;
+    right: 0%;
+  }
+
+  .app-f {
+    width: 90vw;
+    height: 55vh;
+  }
+  /* Shrink the skills section */
+  .app-skills {
+    justify-content: flex-end;
+    margin-left: auto;
+    width: 75%;
+  }
+
+  .app-skills.mirror {
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .logo-container {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+
+  .app-image.mirror {
+    justify-content: flex-start;
+  }
+
+  /* Fonts */
   .app-header h1 {
     font-size: 2.5rem;
   }
-  .app-header h3 {
+  .app-header h4 {
     font-size: 3rem;
+    margin-top: var(--space-6);
+  }
+  .app-header h5 {
+    font-size: 4rem;
   }
   .app-para {
-    font-size: 1.7rem;
-  }
-  .blue-pill2 {
-    width: 80%;
     font-size: 2rem;
   }
+  /* Sizing and font */
+  .blue-pill-2 {
+    font-size: 2rem;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo-container {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .app-image {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-image.mirror {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .blue-pill-2 {
+    font-size: 2rem;
+    height: 6rem;
+  }
+
+  .app-skills {
+    width: 85%;
+  }
+}
+
+@media (max-width: 600px) {
 }

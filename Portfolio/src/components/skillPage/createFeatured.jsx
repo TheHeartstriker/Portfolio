@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
+import Github from "../../../public/icons/Github";
+import LinkIcon from "../../../public/icons/link";
 import "./createFeatured.css";
 
 function CreateFeatured({
@@ -19,7 +21,7 @@ function CreateFeatured({
         className={`app-f ${Mirror ? "mirror" : ""}`}
         id={End ? "end-featured" : undefined}
       >
-        <div className="app-image">
+        <div className={`app-image ${Mirror ? "mirror" : ""}`}>
           <Image
             src={ImageSrc}
             alt="Project image"
@@ -29,22 +31,16 @@ function CreateFeatured({
           />
           <div className="transparent-fill"></div>
           {Link1 && (
-            <a
-              className="logo-container img-back-logo1"
-              href={Link1}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open project"
-            ></a>
+            <div className="logo-container">
+              <LinkIcon />
+              <a href={Link1} target="_blank" rel="noopener noreferrer"></a>
+            </div>
           )}
           {Link2 && (
-            <a
-              className="logo-container img-back-logo2"
-              href={Link2}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open project"
-            ></a>
+            <div className="logo-container logo-github">
+              <Github />
+              <a href={Link2} target="_blank" rel="noopener noreferrer"></a>
+            </div>
           )}
         </div>
         <div className={`app-text ${Mirror ? "mirror" : ""}`}>
@@ -52,7 +48,7 @@ function CreateFeatured({
             <h4>Featured project</h4>
             <h5>{Header}</h5>
           </div>
-          <div className="app-para">
+          <div className={`app-para ${Mirror ? "app-para-mirror" : ""}`}>
             <p>{Para}</p>
           </div>
 

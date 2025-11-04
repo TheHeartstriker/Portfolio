@@ -1,27 +1,23 @@
-:root {
-  --back-round-grey: rgb(46, 46, 46);
-  --neon-blue: rgb(0, 204, 255);
-  --neon-dull: rgb(0, 188, 235);
-  --Teal: rgba(100, 255, 218);
-}
-
 .Container {
   position: relative;
   top: 0;
   width: 100%;
   height: 70px;
-  box-shadow: 0 0 20px #004488, 0 0 60px #004488;
+  box-shadow: 0 0 20px var(--opacity-color-1), 0 0 60px var(--opacity-color-2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   animation: FadeIn 1s forwards ease-in;
+  border-radius: 25px;
+
   z-index: 10;
 }
 .Container::before {
   content: "";
   position: absolute;
   inset: -4px;
-  border: 1px solid var(--neon-dull);
+  border-radius: 25px;
+  border: 1px solid var(--color-1);
 }
 /* Height is found in the jsx file */
 .Container span {
@@ -29,7 +25,7 @@
   top: 15px;
   width: 40px;
   height: 1px;
-  background-color: var(--neon-dull);
+  background-color: var(--color-1);
   pointer-events: none;
   transition: 0.7s ease-in-out;
 }
@@ -40,10 +36,11 @@
   top: 60px;
   width: 65px;
   height: 65px;
+  margin: 0 var(--space-1);
   border: none;
-  border-radius: 10px;
-  background-color: var(--neon-dull);
-  color: whitesmoke;
+  border-radius: 15px;
+  background-color: var(--color-1);
+  color: var(--white);
   display: flex;
   font-size: 0.9em;
   justify-content: center;
@@ -51,12 +48,11 @@
   font-family: "Protest Guerrilla", monospace;
   cursor: pointer;
   animation: FadeIn 1s forwards ease-in;
-  transition: background-color 0.3s ease-in-out, box-shadow ease-in-out 0.3s;
+  transition: background-color 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
 }
 
 .button:hover {
-  background-color: var(--neon-blue);
-  box-shadow: 0 0 15px var(--neon-blue);
+  box-shadow: 0 0 15px var(--color-1);
 }
 
 .Cursor {
@@ -74,7 +70,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid rgba(100, 255, 218, 0.5);
+  border: 2px solid var(--opacity-color-2);
   background: transparent;
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.9s;
   will-change: transform, background-color;
@@ -86,12 +82,11 @@
 
 .CursorInner.Change {
   transform: scale(0.5);
-  background-color: rgba(100, 255, 218, 0.8);
 }
 
 .CursorInner.Grab {
   transform: scale(0.8);
-  background-color: rgba(100, 255, 218, 0.8);
+  background-color: var(--color-2);
   box-shadow: none;
   border: none;
 }
