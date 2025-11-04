@@ -1,9 +1,9 @@
 :root {
-  --color-1: #171c30;
-  --color-2: #242f49;
-  --color-3: #384358;
-  --color-4: #ffa586;
-  --color-5: #b51a2b;
+  --color-1-article: #171c30;
+  --color-2-article: #242f49;
+  --color-3-article: #384358;
+  --color-4-article: #ffa586;
+  --color-5-article: #b51a2b;
 
   --mouse-glow: rgba(181, 26, 43, 0.5);
 }
@@ -16,7 +16,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-1);
+  background-color: var(--color-1-article);
 }
 
 .card {
@@ -24,11 +24,11 @@
   height: 28vh;
   margin: 20px;
   perspective: 1000px;
-  background-color: var(--color-2);
+  background-color: var(--color-2-article);
   position: relative;
   border-radius: 50px;
   overflow: hidden;
-  border: 1px solid var(--color-3);
+  border: 1px solid var(--color-3-article);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +39,7 @@
   font-size: 2rem;
   margin: var(--space-2);
   font-weight: 500;
-  color: var(--color-4);
+  color: var(--color-4-article);
   z-index: 5;
 }
 
@@ -76,7 +76,11 @@
   position: absolute;
   inset: 0;
   border-radius: 50px;
-  background: linear-gradient(315deg, var(--color-5) 10%, transparent 100%);
+  background: linear-gradient(
+    315deg,
+    var(--color-5-article) 10%,
+    transparent 100%
+  );
   opacity: 0.1;
   filter: blur(15px);
   pointer-events: none;
@@ -103,7 +107,11 @@
   position: absolute;
   inset: 0;
   border-radius: 50px;
-  background: linear-gradient(160deg, var(--color-2) 50%, transparent 100%);
+  background: linear-gradient(
+    160deg,
+    var(--color-2-article) 50%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 2;
 }
