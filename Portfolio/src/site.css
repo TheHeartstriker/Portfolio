@@ -53,6 +53,9 @@ h5 {
   --white-off: #c5c5c5;
   --white-light: #969696;
 
+  --static-vh: 1vh;
+  --static-vw: 1vw;
+
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;

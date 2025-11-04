@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
       <body>
         <Background />
         <Nav />
+
         <FadeLayout>{children}</FadeLayout>
       </body>
     </html>

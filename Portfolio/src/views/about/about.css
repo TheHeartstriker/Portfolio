@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: 300vh;
+  height: 300svh;
   width: auto;
   flex-direction: column;
 }
@@ -29,7 +29,7 @@
   align-items: flex-start;
   flex-direction: column;
   width: 60%;
-  bottom: 105vh;
+  bottom: 105svh;
   z-index: 1;
 }
 
@@ -111,7 +111,7 @@
 
 @media (max-width: 1000px) {
   .i-am-container {
-    bottom: 20vh;
+    bottom: 20svh;
     width: 75%;
   }
 }
@@ -123,8 +123,8 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 170vh;
-  top: 15vh;
+  height: 170svh;
+  top: 15svh;
 }
 
 .mobile-about h4 {
@@ -147,12 +147,6 @@
   border: 2px var(--color-2) solid;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 2rem;
-  filter: drop-shadow(0 0 15px var(--opacity-color-2));
-  color: white;
 }
 
 .mobile-intro h4 {
