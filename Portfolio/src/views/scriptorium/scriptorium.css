@@ -221,6 +221,11 @@ code {
   .article-card-container {
     grid-template-columns: 1fr;
   }
+  .article-card-container {
+    width: 90%;
+    grid-gap: 5%;
+  }
+
   .script-article-info h2 {
     font-size: 3.5rem;
   }

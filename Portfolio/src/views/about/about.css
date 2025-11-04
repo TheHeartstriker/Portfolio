@@ -169,19 +169,20 @@
   }
 
   .i-am-container h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .i-am-container h2 {
-    font-size: 6.5rem;
+    font-size: 7rem;
   }
 
   .i-am-container h3 {
-    font-size: 5.5rem;
+    font-size: 6rem;
   }
 
   .i-am-container p {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    width: 100%;
   }
 }
 

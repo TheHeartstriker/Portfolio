@@ -135,9 +135,9 @@
   align-items: center;
   text-align: center;
   position: relative;
-  width: 80vw;
-  height: 50vh;
-  margin-bottom: 15vh;
+  width: 80dvw;
+  height: 50dvh;
+  margin-bottom: 15dvh;
 }
 /* The image takes half of AppF */
 .app-image {
@@ -186,8 +186,8 @@
   }
 
   .app-f {
-    width: 90vw;
-    height: 55vh;
+    width: 90dvw;
+    height: 65dvh;
   }
   /* Shrink the skills section */
   .app-skills {
@@ -216,14 +216,14 @@
     font-size: 2.5rem;
   }
   .app-header h4 {
-    font-size: 3rem;
-    margin-top: var(--space-6);
+    font-size: 3.5rem;
+    margin-top: var(--space-8);
   }
   .app-header h5 {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
   .app-para {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   /* Sizing and font */
   .blue-pill-2 {
