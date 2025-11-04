@@ -150,21 +150,6 @@ function PixelHover() {
       }
     }
   }
-  useEffect(() => {
-    if (!ctx || !pixSize || pixSize <= 0) return;
-    Impose(pixSize);
-    function animate() {
-      frameId.current = requestAnimationFrame(animate);
-      MouseEffect();
-      render();
-    }
-    animate();
-    return () => {
-      if (frameId.current) {
-        cancelAnimationFrame(frameId.current);
-      }
-    };
-  }, [ctx]);
   function mouseTracker(e) {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -180,11 +165,28 @@ function PixelHover() {
     mousePosRef.current.y = mouseY;
   }
   useEffect(() => {
+    if (!ctx || !pixSize || pixSize <= 0) return;
+    Impose(pixSize);
+    function animate() {
+      frameId.current = requestAnimationFrame(animate);
+      MouseEffect();
+      render();
+    }
+    animate();
+    return () => {
+      if (frameId.current) {
+        cancelAnimationFrame(frameId.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ctx]);
+  useEffect(() => {
     setPixSize(window.innerWidth * 0.003);
     window.addEventListener("mousemove", mouseTracker);
     return () => {
       window.removeEventListener("mousemove", mouseTracker);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <canvas className="card-canvas" ref={canvasRef}></canvas>;

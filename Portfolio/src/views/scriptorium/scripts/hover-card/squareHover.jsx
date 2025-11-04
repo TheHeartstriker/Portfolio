@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 function SquareHover() {
   const [ctx, setCtx] = useState(null);
   const canvasRef = useRef(null);
-  const [pixSize, setPixSize] = useState(50);
+  const pixSize = 50;
   const gridRef = useRef([]);
   const rowColRef = useRef({ row: 0, col: 0 });
   const frameId = useRef(0);
@@ -37,6 +37,7 @@ function SquareHover() {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function create2DArray(Rows, Cols, leftX, topY) {
@@ -172,6 +173,7 @@ function SquareHover() {
     return () => {
       parent.removeEventListener("mousemove", mouseTracker);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -186,6 +188,7 @@ function SquareHover() {
         cancelAnimationFrame(frameId.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   return <canvas className="card-canvas2" ref={canvasRef}></canvas>;
