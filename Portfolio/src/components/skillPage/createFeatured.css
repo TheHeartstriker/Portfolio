@@ -135,9 +135,9 @@
   align-items: center;
   text-align: center;
   position: relative;
-  width: 80dvw;
-  height: 50dvh;
-  margin-bottom: 15dvh;
+  width: 80lvw;
+  height: 50lvh;
+  margin-bottom: 15lvh;
 }
 /* The image takes half of AppF */
 .app-image {
@@ -186,8 +186,8 @@
   }
 
   .app-f {
-    width: 90dvw;
-    height: 65dvh;
+    width: 90lvw;
+    height: 65lvh;
   }
   /* Shrink the skills section */
   .app-skills {
