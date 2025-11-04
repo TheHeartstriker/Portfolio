@@ -15,7 +15,7 @@
 }
 
 .contact h1 {
-  color: var(--color-1);
+  color: var(--white);
   font-size: 7rem;
   font-weight: 700;
   z-index: 5;

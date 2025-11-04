@@ -1,4 +1,4 @@
-let gitImage;
+let gitImage = null;
 if (typeof window !== "undefined") {
   // Load SVG as text, modify colors, then create data URL
   fetch("/Github.svg")
@@ -44,11 +44,14 @@ export function DrawCircle(color, x, y, radius, ctx, Type) {
   }
 
   if (Type === "Github") {
-    if (gitImage.complete) {
+    if (gitImage && gitImage.complete) {
+      // Added null check
       drawImage();
-    } else {
+    } else if (gitImage) {
+      // Added null check
       gitImage.onload = drawImage;
     }
+    // If gitImage is still null (fetch not done), do nothing - it will draw on next call
   } else {
     DrawLi();
   }

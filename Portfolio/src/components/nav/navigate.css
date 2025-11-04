@@ -36,6 +36,7 @@
   top: 60px;
   width: 65px;
   height: 65px;
+  margin: 0 var(--space-1);
   border: none;
   border-radius: 15px;
   background-color: var(--color-1);
@@ -81,12 +82,11 @@
 
 .CursorInner.Change {
   transform: scale(0.5);
-  background-color: var(--color-1);
 }
 
 .CursorInner.Grab {
   transform: scale(0.8);
-  background-color: var(--color-1);
+  background-color: var(--color-2);
   box-shadow: none;
   border: none;
 }

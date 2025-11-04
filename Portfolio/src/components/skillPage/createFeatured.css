@@ -21,7 +21,7 @@
 
 .blue-pill-2.hovered {
   background-color: var(--opacity-color-1);
-  color: var(--Teal);
+  color: var(--color-2);
 }
 
 .transparent-fill:hover {

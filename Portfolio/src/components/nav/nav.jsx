@@ -88,7 +88,7 @@ function Nav() {
   return (
     <>
       <NavCursor />
-      <div className="Container" ref={containerRef}>
+      <nav className="Container" ref={containerRef}>
         <button
           className="button"
           id="AboutBtn"
@@ -130,7 +130,7 @@ function Nav() {
         >
           Contacts
         </button>
-      </div>
+      </nav>
     </>
   );
 }
