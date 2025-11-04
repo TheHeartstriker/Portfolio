@@ -2,7 +2,7 @@
 
 A great hover effect can make user interfaces feel alive it's a small detail that adds visual polish and depth. This article will cover hover effects on cards, walking through three custom-made variations for a card's background. The main idea? Adding unique twists to the classic subtle glow where your mouse hovers. As usual with my articles, expect imagery, code examples, and a live demo at the end!
 
-## Overview of our effects!
+## Overview the effects!
 
 For this, I'll be using HTML Canvas, CSS, JavaScript, and React. But you can follow along with the ideas regardless of your tooling if you prefer GSAP or no React at all, that's fine too. The first is the classic: When the mouse hovers over a card, add a glow beneath the cursor. Simple, no?
 
