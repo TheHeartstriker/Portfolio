@@ -164,7 +164,7 @@ function InteractiveBG() {
   }, []);
 
   useEffect(() => {
-    const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15);
+    const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15, true);
     colorRef.current = getComputedStyle(document.documentElement)
       .getPropertyValue("--color-2")
       .trim();

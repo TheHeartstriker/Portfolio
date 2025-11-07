@@ -1,19 +1,28 @@
 //
 // This file contains utility for the aboutpage and contact page
 //
-export function setupCanvasBall(canvasRef, setCtx, radiusRef, shrinkFactor) {
+export function setupCanvasBall(
+  canvasRef,
+  setCtx,
+  radiusRef,
+  shrinkFactor,
+  contact
+) {
   const backgroundCanvas = canvasRef.current;
-  backgroundCanvas.width = document.documentElement.scrollWidth;
-  backgroundCanvas.height = document.documentElement.scrollHeight;
-  const backgroundContext = backgroundCanvas.getContext("2d");
-  setCtx(backgroundContext);
+
   // Set the initial radius
   radiusRef.current = window.innerWidth / shrinkFactor;
 
   // Function to resize the canvas
   const resizeCanvas = () => {
-    backgroundCanvas.width = document.documentElement.scrollWidth;
-    backgroundCanvas.height = document.documentElement.scrollHeight;
+    if (!contact) {
+      const parent = backgroundCanvas.parentElement;
+      backgroundCanvas.width = parent.clientWidth;
+      backgroundCanvas.height = parent.clientHeight;
+    } else {
+      backgroundCanvas.width = document.documentElement.scrollWidth;
+      backgroundCanvas.height = document.documentElement.scrollHeight;
+    }
     setCtx(backgroundCanvas.getContext("2d"));
     if (window.innerWidth < 1000) {
       radiusRef.current = (window.innerWidth / shrinkFactor) * 2;

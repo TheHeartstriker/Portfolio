@@ -1,6 +1,5 @@
 "use client";
 import PlayGround from "./playground/playGround";
-import DownArr from "../../components/svg/DownArrow.jsx";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./about.css";
@@ -15,13 +14,6 @@ export default function AboutMobile({
 }) {
   const [ToSmall, setToSmall] = useState(false);
 
-  function scrollDown() {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  }
-
   useEffect(() => {
     function handleResize() {
       setToSmall(window.innerWidth < 1000);
@@ -32,26 +24,21 @@ export default function AboutMobile({
   }, []);
 
   return (
-    <>
-      <div className="down-container">
-        <DownArr onClick={scrollDown} />
-      </div>
+    <div className="about-content">
       {ToSmall === false && <PlayGround />}
-      <div className={`mobile-about${ToSmall ? "" : " hidden"}`}>
-        <div className="mobile-intro">
-          <h4>{Header1}</h4>
-          <p>{MainText1}</p>
-        </div>
-        <div className="mobile-intro">
-          <h4>{Header2}</h4>
-          <p>{MainText2}</p>
-        </div>
-        <div className="mobile-intro">
-          <h4>{Header3}</h4>
-          <p>{MainText3}</p>
-        </div>
+      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+        <h4>{Header1}</h4>
+        <p>{MainText1}</p>
       </div>
-    </>
+      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+        <h4>{Header2}</h4>
+        <p>{MainText2}</p>
+      </div>
+      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+        <h4>{Header3}</h4>
+        <p>{MainText3}</p>
+      </div>
+    </div>
   );
 }
 

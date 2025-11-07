@@ -23,6 +23,7 @@ function PlayGround() {
   // Regular Variables for the about balls
   //
   const [ctx, setCtx] = useState(null);
+  const parentRef = useRef(null);
   const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
   //Used to render on load
@@ -92,8 +93,11 @@ function PlayGround() {
   }
 
   function MouseTracker(e) {
-    Mouse.current.x = e.pageX;
-    Mouse.current.y = e.pageY;
+    const rect = Playground.current?.getBoundingClientRect();
+    if (rect) {
+      Mouse.current.x = e.clientX - rect.left + window.scrollX;
+      Mouse.current.y = e.clientY - rect.top + window.scrollY;
+    }
   }
   //Sets the offset used for dragging from anywhere in the circle
   function OffsetSetter() {
@@ -132,14 +136,15 @@ function PlayGround() {
   }
   //Handles collision between objects and the window
   function Collision(data) {
+    const parent = Playground.current.parentElement;
     // Window collision's
     if (data.x < Radius.current) {
       data.x = Radius.current;
       data.velocity.x *= 0.7;
       data.velocity.x *= -1;
     }
-    if (data.x > document.documentElement.scrollWidth - Radius.current) {
-      data.x = document.documentElement.scrollWidth - Radius.current;
+    if (data.x > parent.clientWidth - Radius.current) {
+      data.x = parent.clientWidth - Radius.current;
       data.velocity.x *= 0.7;
       data.velocity.x *= -1;
     }
@@ -148,8 +153,8 @@ function PlayGround() {
       data.velocity.y *= 0.7;
       data.velocity.y *= -1;
     }
-    if (data.y > document.documentElement.scrollHeight - Radius.current) {
-      data.y = document.documentElement.scrollHeight - Radius.current;
+    if (data.y > parent.clientHeight - Radius.current) {
+      data.y = parent.clientHeight - Radius.current;
       data.velocity.y *= 0.7;
       data.velocity.y *= -1;
     }
@@ -214,8 +219,11 @@ function PlayGround() {
 
   function HandleMouse(e) {
     if (ObjectData.current == null) return;
-    Mouse.current.x = e.pageX;
-    Mouse.current.y = e.pageY;
+    const rect = Playground.current?.getBoundingClientRect();
+    if (rect) {
+      Mouse.current.x = e.clientX - rect.left;
+      Mouse.current.y = e.clientY - rect.top;
+    }
     for (let i = 0; i < ObjectData.current.length; i++) {
       mouseDis.current[`Dis${i + 1}`] = Math.sqrt(
         (Mouse.current.x - ObjectData.current[i].x) ** 2 +
@@ -275,16 +283,17 @@ function PlayGround() {
       Which.current = null;
     }
   }
-  //Applys trackers
+  //Applys trackers and save parent
   useEffect(() => {
     function handleMouseMove(e) {
       MouseTracker(e);
       HandleMouse(e);
     }
     function docSize() {
+      const rect = Playground.current?.getBoundingClientRect();
       setDocSize({
-        width: document.documentElement.scrollWidth,
-        height: document.documentElement.scrollHeight,
+        width: rect.width,
+        height: rect.height,
       });
     }
     docSize();
@@ -327,7 +336,7 @@ function PlayGround() {
   }, [ctx]);
 
   useEffect(() => {
-    const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5);
+    const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5, false);
     const cleanup2 = defaultCanvas(shadowRef, setShadowCtx, "abs");
     return () => {
       cleanup1();

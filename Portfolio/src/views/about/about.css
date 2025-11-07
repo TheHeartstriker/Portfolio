@@ -2,12 +2,15 @@
   position: absolute;
   cursor: default;
   width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .shadow {
   position: absolute;
   cursor: default;
   width: 100%;
+  height: 100%;
   z-index: -1;
 }
 
@@ -16,20 +19,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  height: 300svh;
+  height: auto;
   width: auto;
   flex-direction: column;
 }
+
+.about-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
 /* Container for the glowing text element */
 .i-am-container {
   display: flex;
-  position: relative;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   width: 60%;
-  bottom: 105svh;
   z-index: 1;
 }
 
@@ -78,9 +90,20 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: 100px;
   width: 100%;
   height: 100px;
+}
+
+.about-content {
+  position: relative;
+  width: 100%;
+  min-height: 225svh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 .down-container path {
   animation: arrowOpacity 2s infinite;
@@ -109,49 +132,26 @@
   stroke: var(--opacity-color-2);
 }
 
-@media (max-width: 1000px) {
-  .i-am-container {
-    bottom: 20svh;
-    width: 75%;
-  }
-}
-
-.mobile-about {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 170svh;
-  top: 15svh;
-}
-
-.mobile-about h4 {
-  font-size: 3.5rem;
-  color: white;
-}
-
-.mobile-about.hidden {
-  display: none;
-}
-
 .mobile-intro {
-  height: auto;
+  min-height: 50rem;
   position: relative;
-  width: 90vw;
+  width: 90%;
   border-radius: 25px;
   padding: var(--space-4);
-  margin: var(--space-4);
+  margin: var(--space-5) 0;
   background-color: var(--opacity-color-4);
-  border: 2px var(--color-2) solid;
+  border: 2px var(--color-1) solid;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
 
+.mobile-intro.hidden {
+  display: none;
+}
+
 .mobile-intro h4 {
   color: var(--color-2);
-  font-size: 4.5rem;
+  font-size: 5rem;
   margin: var(--space-4) 0;
 }
 
@@ -164,6 +164,11 @@
 }
 
 @media (max-width: 1000px) {
+  .about-content {
+    min-height: 200svh;
+  }
+  /* Font */
+
   .i-am-container {
     width: 90%;
   }
@@ -192,5 +197,22 @@
   }
   .mobile-intro p {
     font-size: 3.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-intro h4 {
+    font-size: 5rem;
+  }
+  .mobile-intro p {
+    font-size: 3.5rem;
+  }
+
+  .mobile-intro {
+    min-height: 55rem;
+  }
+
+  .about-content {
+    min-height: 150svh;
   }
 }

@@ -1,14 +1,12 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
+import { isMobile } from "@/utils/isMobile";
 import "./background.css";
 
 function Background() {
   const backgroundRef = useRef(null);
-  const [canvasSize, setCanvasSize] = useState({
-    width: 0,
-    height: 0,
-  });
+
   const colorRef = useRef({ lineColor: "", cursorColor: "" });
   const [ctx, setCtx] = useState(null);
   const offsetRef = useRef(0);
@@ -16,37 +14,31 @@ function Background() {
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
 
-  // Set canvas size after mount
-  useEffect(() => {
-    function updateSize() {
-      setCanvasSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   // Creates a canvas
   useEffect(() => {
     const backgroundCanvas = backgroundRef.current;
+    const isMobileDevice = isMobile();
     if (!backgroundCanvas) return;
-    backgroundCanvas.width = canvasSize.width;
-    backgroundCanvas.height = canvasSize.height;
-    const backgroundContext = backgroundCanvas.getContext("2d");
-    setCtx(backgroundContext);
     const resizeCanvas = () => {
-      backgroundCanvas.width = window.innerWidth;
-      backgroundCanvas.height = window.innerHeight;
+      //Static resolution for mobile devices
+      if (isMobileDevice) {
+        backgroundCanvas.width = window.screen.width;
+        backgroundCanvas.height = window.screen.height;
+      } else {
+        backgroundCanvas.width = window.innerWidth;
+        backgroundCanvas.height = window.innerHeight;
+      }
       setCtx(backgroundCanvas.getContext("2d"));
     };
-    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    //Do resizes for desktop
+    if (!isMobileDevice) {
+      window.addEventListener("resize", resizeCanvas);
+    }
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [canvasSize.width, canvasSize.height]);
+  }, []);
 
   function handleMouseMove(e) {
     Mouse.current.x = e.clientX;
@@ -56,16 +48,18 @@ function Background() {
   function Draw() {
     if (!ctx) return;
     offsetRef.current += 0.5;
-    ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
-    let GridWidth = Math.ceil(canvasSize.width / SquareGridSize);
-    let GridHeight = Math.ceil(canvasSize.height / SquareGridSize);
+    let width = backgroundRef.current.width;
+    let height = backgroundRef.current.height;
+    ctx.clearRect(0, 0, width, height);
+    let GridWidth = Math.ceil(width / SquareGridSize);
+    let GridHeight = Math.ceil(height / SquareGridSize);
     let HeightMove = (offsetRef.current % SquareGridSize) - SquareGridSize;
 
     for (let i = 0; i <= GridHeight; i++) {
       drawLine(
         0,
         HeightMove + i * SquareGridSize,
-        canvasSize.width,
+        backgroundRef.current.width,
         HeightMove + i * SquareGridSize,
         SquareLine
       );
@@ -76,7 +70,7 @@ function Background() {
         i * SquareGridSize,
         0,
         i * SquareGridSize,
-        canvasSize.height,
+        backgroundRef.current.height,
         SquareLine
       );
     }
@@ -118,7 +112,7 @@ function Background() {
       RemoveMember(update);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ctx, canvasSize]);
+  }, [ctx]);
 
   useEffect(() => {
     const root = getComputedStyle(document.documentElement);
