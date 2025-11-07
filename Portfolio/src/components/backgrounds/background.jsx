@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
-import { isMobile } from "@/utils/isMobile";
+import { isMobile } from "@/utils/mobile";
 import "./background.css";
 
 function Background() {
