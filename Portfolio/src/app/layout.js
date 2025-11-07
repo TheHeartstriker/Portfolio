@@ -3,7 +3,7 @@ import "../animation.css";
 import Background from "../components/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
-import { Mobile } from "../utils/Mobile";
+import { MobileViewport } from "../utils/Mobile";
 
 import FadeLayout from "../route/fadeLayout";
 export default function RootLayout({ children }) {
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Mobile />
+        <MobileViewport />
         <Background />
         <Nav />
 

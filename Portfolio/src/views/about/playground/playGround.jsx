@@ -23,7 +23,6 @@ function PlayGround() {
   // Regular Variables for the about balls
   //
   const [ctx, setCtx] = useState(null);
-  const parentRef = useRef(null);
   const ObjectData = useRef(null);
   const [OnMouseDown, setOnMouseDown] = useState(false);
   //Used to render on load
