@@ -23,10 +23,10 @@ function Background() {
       //Static resolution for mobile devices
       if (isMobileDevice) {
         backgroundCanvas.width = window.screen.width;
-        backgroundCanvas.height = window.screen.height;
+        backgroundCanvas.height = window.screen.height * 1.2;
       } else {
         backgroundCanvas.width = window.innerWidth;
-        backgroundCanvas.height = window.innerHeight;
+        backgroundCanvas.height = window.innerHeight * 1.2;
       }
       setCtx(backgroundCanvas.getContext("2d"));
     };
