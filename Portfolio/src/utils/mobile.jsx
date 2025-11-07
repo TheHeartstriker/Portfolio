@@ -1,38 +1,32 @@
 "use client";
 import { useEffect } from "react";
 
-function isMobile() {
-  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  );
-}
 function Mobile() {
-  function setStaticViewportHeight() {
-    // Use visualViewport for accurate mobile viewport dimensions
-    const viewport = window.visualViewport || window;
-    const vh = viewport.height * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    const vw = viewport.width * 0.01;
-    document.documentElement.style.setProperty("--vw", `${vw}px`);
-  }
-
   useEffect(() => {
-    if (isMobile()) {
-      setStaticViewportHeight();
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isMobile) return;
 
-      // Update on resize/orientation change
-      window.visualViewport?.addEventListener(
-        "resize",
-        setStaticViewportHeight
-      );
+    let done = false;
 
-      return () => {
-        window.visualViewport?.removeEventListener(
-          "resize",
-          setStaticViewportHeight
-        );
-      };
-    }
+    const lock = () => {
+      if (done) return;
+      if (window.scrollY === 0) window.scrollTo(0, 1);
+
+      setTimeout(() => {
+        const vh = window.innerHeight * 0.01;
+        const vw = window.innerWidth * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+        document.documentElement.style.setProperty("--vw", `${vw}px`);
+        done = true;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 120);
+    };
+
+    requestAnimationFrame(lock);
+    const fallback = setTimeout(lock, 1000);
+    return () => clearTimeout(fallback);
   }, []);
+
+  return null;
 }
 export default Mobile;
