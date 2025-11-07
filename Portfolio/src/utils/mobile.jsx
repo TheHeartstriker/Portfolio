@@ -19,7 +19,7 @@ function Mobile() {
         document.documentElement.style.setProperty("--vw", `${vw}px`);
         done = true;
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 120);
+      }, 300);
     };
 
     requestAnimationFrame(lock);
