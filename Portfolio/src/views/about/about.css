@@ -27,7 +27,7 @@
 .about-hero-section {
   position: relative;
   width: 100%;
-  height: calc(var(--vh) * 100);
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@
 .about-content {
   position: relative;
   width: 100%;
-  min-height: calc(var(--vh) * 225);
+  min-height: 225vh;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -165,7 +165,7 @@
 
 @media (max-width: 1000px) {
   .about-content {
-    min-height: calc(var(--vh) * 200);
+    min-height: 200vh;
   }
   /* Font */
 
@@ -191,15 +191,6 @@
   }
 }
 
-@media (max-width: 800px) {
-  .mobile-intro h4 {
-    font-size: 5rem;
-  }
-  .mobile-intro p {
-    font-size: 3.25rem;
-  }
-}
-
 @media (max-width: 600px) {
   .mobile-intro p {
     font-size: 3.5rem;
@@ -210,6 +201,6 @@
   }
 
   .about-content {
-    min-height: calc(var(--vh) * 150);
+    min-height: 150vh;
   }
 }
