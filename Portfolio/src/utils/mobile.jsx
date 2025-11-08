@@ -2,11 +2,11 @@
 import { useEffect } from "react";
 
 function Mobile() {
-  function isMobile() {
-    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-  }
+  // function isMobile() {
+  //   return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //     navigator.userAgent
+  //   );
+  // }
 
   function isGoogleApp() {
     const ua = navigator.userAgent.toLowerCase();
@@ -50,9 +50,9 @@ function Mobile() {
   }
 
   function setStaticViewportHeight() {
-    const vh = window.innerHeight * 0.01;
+    // const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${10}px`);
-    const vw = window.innerWidth * 0.01;
+    // const vw = window.innerWidth * 0.01;
     document.documentElement.style.setProperty("--vw", `${10}px`);
   }
 
