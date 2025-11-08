@@ -11,24 +11,37 @@ function Mobile() {
   function isGoogleApp() {
     const ua = navigator.userAgent.toLowerCase();
 
-    // Android Google App WebView
+    // --------------------------------------------------------------
+    // 1. Android – Google Search / Discover / News (WebView)
+    // --------------------------------------------------------------
+    //   * contains "wv"  → Android WebView
+    //   * contains "google" (or "gws") → Google-app token
+    //   * contains "version/" → Google-app version string
+    //   * does NOT contain "chrome/" (Chrome uses "chrome/")
     if (
       /android/.test(ua) &&
-      /version\/[\d.]+/.test(ua) &&
-      /wv/.test(ua) &&
-      /google/.test(ua)
+      /wv/.test(ua) && // WebView marker
+      /version\/[\d.]+/.test(ua) && // Google-app version
+      (/google/.test(ua) || /gws/.test(ua)) && // Google token
+      !/chrome\//.test(ua) // NOT Chrome
     ) {
       return true;
     }
 
-    // iOS Google App (uses Safari but injects Google tokens)
+    // --------------------------------------------------------------
+    // 2. iOS – Google Search / Discover / News (Safari-based)
+    // --------------------------------------------------------------
+    //   * iPhone/iPad/iPod
+    //   * AppleWebKit + Safari (but NOT CriOS = Chrome)
+    //   * contains "google" AND "version/" (Google-app injects these)
+    //   * does NOT contain "crios" (Chrome iOS)
     if (
       /iphone|ipad|ipod/.test(ua) &&
       /applewebkit/.test(ua) &&
-      !/crios/.test(ua) && // Not Chrome
       /safari/.test(ua) &&
+      !/crios/.test(ua) && // NOT Chrome iOS
       /google/.test(ua) &&
-      /version\//.test(ua)
+      /version\/[\d.]+/.test(ua)
     ) {
       return true;
     }
@@ -37,14 +50,14 @@ function Mobile() {
   }
 
   function setStaticViewportHeight() {
-    const vh = window.innerHeight * 0.01 * 2;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    const vw = window.innerWidth * 0.01 * 2;
-    document.documentElement.style.setProperty("--vw", `${vw}px`);
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${10}px`);
+    const vw = window.innerWidth * 0.01;
+    document.documentElement.style.setProperty("--vw", `${10}px`);
   }
 
   useEffect(() => {
-    if (isMobile() && isGoogleApp()) {
+    if (isGoogleApp()) {
       setStaticViewportHeight();
     }
   }, []);
