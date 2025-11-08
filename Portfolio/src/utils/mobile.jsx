@@ -57,9 +57,7 @@ function Mobile() {
   }
 
   useEffect(() => {
-    if (true) {
-      setStaticViewportHeight();
-    }
+    setStaticViewportHeight();
   }, []);
 }
 export default Mobile;
