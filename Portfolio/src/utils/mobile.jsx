@@ -8,46 +8,46 @@ function Mobile() {
   //   );
   // }
 
-  function isGoogleApp() {
-    const ua = navigator.userAgent.toLowerCase();
+  // function isGoogleApp() {
+  //   const ua = navigator.userAgent.toLowerCase();
 
-    // --------------------------------------------------------------
-    // 1. Android – Google Search / Discover / News (WebView)
-    // --------------------------------------------------------------
-    //   * contains "wv"  → Android WebView
-    //   * contains "google" (or "gws") → Google-app token
-    //   * contains "version/" → Google-app version string
-    //   * does NOT contain "chrome/" (Chrome uses "chrome/")
-    if (
-      /android/.test(ua) &&
-      /wv/.test(ua) && // WebView marker
-      /version\/[\d.]+/.test(ua) && // Google-app version
-      (/google/.test(ua) || /gws/.test(ua)) && // Google token
-      !/chrome\//.test(ua) // NOT Chrome
-    ) {
-      return true;
-    }
+  //   // --------------------------------------------------------------
+  //   // 1. Android – Google Search / Discover / News (WebView)
+  //   // --------------------------------------------------------------
+  //   //   * contains "wv"  → Android WebView
+  //   //   * contains "google" (or "gws") → Google-app token
+  //   //   * contains "version/" → Google-app version string
+  //   //   * does NOT contain "chrome/" (Chrome uses "chrome/")
+  //   if (
+  //     /android/.test(ua) &&
+  //     /wv/.test(ua) && // WebView marker
+  //     /version\/[\d.]+/.test(ua) && // Google-app version
+  //     (/google/.test(ua) || /gws/.test(ua)) && // Google token
+  //     !/chrome\//.test(ua) // NOT Chrome
+  //   ) {
+  //     return true;
+  //   }
 
-    // --------------------------------------------------------------
-    // 2. iOS – Google Search / Discover / News (Safari-based)
-    // --------------------------------------------------------------
-    //   * iPhone/iPad/iPod
-    //   * AppleWebKit + Safari (but NOT CriOS = Chrome)
-    //   * contains "google" AND "version/" (Google-app injects these)
-    //   * does NOT contain "crios" (Chrome iOS)
-    if (
-      /iphone|ipad|ipod/.test(ua) &&
-      /applewebkit/.test(ua) &&
-      /safari/.test(ua) &&
-      !/crios/.test(ua) && // NOT Chrome iOS
-      /google/.test(ua) &&
-      /version\/[\d.]+/.test(ua)
-    ) {
-      return true;
-    }
+  //   // --------------------------------------------------------------
+  //   // 2. iOS – Google Search / Discover / News (Safari-based)
+  //   // --------------------------------------------------------------
+  //   //   * iPhone/iPad/iPod
+  //   //   * AppleWebKit + Safari (but NOT CriOS = Chrome)
+  //   //   * contains "google" AND "version/" (Google-app injects these)
+  //   //   * does NOT contain "crios" (Chrome iOS)
+  //   if (
+  //     /iphone|ipad|ipod/.test(ua) &&
+  //     /applewebkit/.test(ua) &&
+  //     /safari/.test(ua) &&
+  //     !/crios/.test(ua) && // NOT Chrome iOS
+  //     /google/.test(ua) &&
+  //     /version\/[\d.]+/.test(ua)
+  //   ) {
+  //     return true;
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
   function setStaticViewportHeight() {
     // const vh = window.innerHeight * 0.01;
