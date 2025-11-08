@@ -49,6 +49,27 @@ function Mobile() {
   //   return false;
   // }
 
+  function isGoogleApp() {
+    const ua = navigator.userAgent.toLowerCase();
+
+    // Android WebView (used by Google app and others)
+    if (/android/.test(ua) && /wv/.test(ua)) {
+      return true;
+    }
+
+    // iOS in-app browser (check for absence of Safari/)
+    if (
+      /iphone|ipad|ipod/.test(ua) &&
+      /applewebkit/.test(ua) &&
+      !/safari\//.test(ua) &&
+      !/crios/.test(ua)
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
   function setStaticViewportHeight() {
     // const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${10}px`);
@@ -57,7 +78,11 @@ function Mobile() {
   }
 
   useEffect(() => {
-    setStaticViewportHeight();
+    if (isGoogleApp()) {
+      setStaticViewportHeight();
+    }
   }, []);
+
+  return null;
 }
 export default Mobile;
