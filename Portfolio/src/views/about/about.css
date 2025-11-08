@@ -27,7 +27,7 @@
 .about-hero-section {
   position: relative;
   width: 100%;
-  height: 100lvh;
+  height: calc(var(--vh) * 100);
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@
 .about-content {
   position: relative;
   width: 100%;
-  min-height: 225lvh;
+  min-height: calc(var(--vh) * 225);
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -165,7 +165,7 @@
 
 @media (max-width: 1000px) {
   .about-content {
-    min-height: 200lvh;
+    min-height: calc(var(--vh) * 200);
   }
   /* Font */
 
@@ -210,6 +210,6 @@
   }
 
   .about-content {
-    min-height: 150lvh;
+    min-height: calc(var(--vh) * 150);
   }
 }
