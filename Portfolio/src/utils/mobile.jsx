@@ -57,7 +57,7 @@ function Mobile() {
   }
 
   useEffect(() => {
-    if (isGoogleApp()) {
+    if (true) {
       setStaticViewportHeight();
     }
   }, []);
