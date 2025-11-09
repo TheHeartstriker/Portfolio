@@ -69,7 +69,8 @@
   font-weight: 700;
 }
 .subject-container-article ul {
-  color: black;
+  font-size: 1.35rem;
+  color: var(--color-1);
 }
 
 .subject-container-article p {
@@ -158,6 +159,10 @@ code {
   .subject-container-article p {
     font-size: 1.5rem;
   }
+
+  .subject-container-article ul {
+    font-size: 1.65rem;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -183,6 +188,9 @@ code {
   .subject-container-article p {
     font-size: 2rem;
   }
+  .subject-container-article ul {
+    font-size: 2.25rem;
+  }
 }
 
 @media (max-width: 800px) {
@@ -202,5 +210,8 @@ code {
 
   .subject-container-article p {
     font-size: 2.5rem;
+  }
+  .subject-container-article ul {
+    font-size: 2.75rem;
   }
 }

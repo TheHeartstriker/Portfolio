@@ -169,9 +169,9 @@ function mouseTracker(e) {
 
 We can now track its location inside our card. We will then provide this data to our `MouseEffect` so it can apply effects around the mouse. So how does this function work? Well, it is pretty simple conceptually. And has three main stages, which are the following.
 
-- [We transfer the x and y of the mouse into a row and column location]()
-- [We define our variables like effect radius and fall-off points]()
-- [Iterate over the effect-radius cells and apply our effects]()
+- We transfer the x and y of the mouse into a row and column location
+- We define our variables like effect radius and fall-off points
+- Iterate over the effect-radius cells and apply our effects
 
 So we find what column and row is under our mouse. Define how large an area we want our mouse to randomly pick cells from, along with defining the minimum and maximum value we want to increase said cell's opacity, which is based on distance. This will make far-off cells fade faster when the render decreases every cell's opacity. Then in the third part, iterate over the space we defined and calculate how much we increase its opacity, see if it is in the radius, and see if it has been chosen. This has about a 50% chance, and it is what adds the dithered look because we are going to be constantly changing and increasing different cells' opacity. Now how many times did I say 'cells'... here is the code.
 

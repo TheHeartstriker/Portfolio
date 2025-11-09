@@ -118,7 +118,7 @@ function Nav() {
             router.push("/scriptorium");
           }}
         >
-          Script&apos;s
+          Blog
         </button>
         <button
           className="button"
