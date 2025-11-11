@@ -20,6 +20,33 @@ function Masson() {
         width={400}
         height={300}
       />
+      <Image
+        src="/gallery/fitnessApp1.webp"
+        alt="Fitness App image"
+        width={400}
+        height={300}
+      />
+      <Image
+        src="/gallery/fitnessApp2.webp"
+        alt="Fitness App image"
+        width={400}
+        height={300}
+      />
+
+      <Image
+        src="/gallery/fitnessApp3.webp"
+        alt="Fitness App image"
+        width={400}
+        height={300}
+      />
+
+      <Image
+        src="/gallery/fitnessApp4.webp"
+        alt="Fitness App image"
+        width={400}
+        height={300}
+      />
+
       <iframe
         width="100%"
         height="315"
