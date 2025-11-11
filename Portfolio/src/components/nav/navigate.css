@@ -22,8 +22,8 @@
 /* Height is found in the jsx file */
 .Container span {
   position: absolute;
-  top: 15px;
-  width: 40px;
+  top: 10px;
+  width: 45px;
   height: 1px;
   background-color: var(--color-1);
   pointer-events: none;
@@ -33,16 +33,16 @@
 /* Shared styles for all buttons */
 .button {
   position: relative;
-  top: 60px;
-  width: 65px;
-  height: 65px;
+  top: 65px;
+  width: 70px;
+  height: 70px;
   margin: 0 var(--space-1);
   border: none;
   border-radius: 15px;
   background-color: var(--color-1);
   color: var(--white);
   display: flex;
-  font-size: 0.9em;
+  font-size: 1rem;
   justify-content: center;
   align-items: center;
   font-family: "Protest Guerrilla", monospace;
@@ -101,9 +101,32 @@
 }
 
 /* Specific styles for each button */
-
-/* @media (max-width: 1000px) {
+@media (max-width: 1400px) {
   .button {
-    font-size: 10rem;
+    font-size: 1.25rem;
   }
-} */
+}
+
+@media (max-width: 1000px) {
+  .Container span {
+    width: 40px;
+  }
+
+  .button {
+    top: 60px;
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 900px) {
+  .button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .button {
+    font-size: 2rem;
+  }
+}

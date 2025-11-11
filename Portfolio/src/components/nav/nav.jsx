@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
@@ -10,14 +10,13 @@ function Nav() {
   const location = useRef({});
   const pathname = usePathname();
   const current = useRef("About");
-  const height = 40; // 40 spans that are 1px apart and 1px high
-
+  const heightRef = useRef(45);
   //Creates the spans for the buttons
   function BoxElements() {
     const container = containerRef.current;
     // Create 40 span elements, append them and give them a movement delay
     if (container) {
-      for (let i = 0; i < height; i++) {
+      for (let i = 0; i < heightRef.current; i++) {
         let span = document.createElement("span");
         container.appendChild(span);
         // Get the current top value from CSS
@@ -64,6 +63,9 @@ function Nav() {
   // Handles calculations on window resize
   useEffect(() => {
     function handleResize() {
+      if (window.innerWidth <= 1000) {
+        heightRef.current = 40;
+      }
       locationFill();
       spanMoveer(location.current[current.current].left);
     }
@@ -107,7 +109,7 @@ function Nav() {
             router.push("/skills");
           }}
         >
-          Skills and Projects
+          Skills and Work
         </button>
         {/* blog */}
         <button
