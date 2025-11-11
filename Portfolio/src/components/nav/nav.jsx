@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
@@ -14,7 +14,7 @@ function Nav() {
   //Creates the spans for the buttons
   function BoxElements() {
     const container = containerRef.current;
-    // Create 40 span elements, append them and give them a movement delay
+    // Create 40 span elements, append them and give them a movement delays
     if (container) {
       for (let i = 0; i < heightRef.current; i++) {
         let span = document.createElement("span");
