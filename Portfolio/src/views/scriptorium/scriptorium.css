@@ -130,8 +130,8 @@
 }
 
 .script-article-info span {
-  font-size: 1.3rem;
-  width: 45%;
+  font-size: 1.25rem;
+  flex: 1;
   height: 4rem;
   border-radius: 100px;
   margin: var(--space-1);
@@ -249,6 +249,11 @@ code {
   .script-article-info p {
     font-size: 2rem;
   }
+
+  .script-article-info span {
+    font-size: 1.75rem;
+    height: 5rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -257,5 +262,11 @@ code {
   }
   .script-article {
     height: 75rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .article-card-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
