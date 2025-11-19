@@ -50,8 +50,9 @@ function Masson() {
       <iframe
         width="100%"
         height="315"
-        src="https://www.youtube.com/embed/nryWMrf9SaI?autoplay=1&controls=0&loop=1&playlist=nryWMrf9SaI"
+        src="https://www.youtube.com/embed/nryWMrf9SaI?autoplay=1&mute=1&controls=0&loop=1&playlist=nryWMrf9SaI"
         title="YouTube video"
+        allow="autoplay; encrypted-media"
         allowFullScreen
       />
       <Image
@@ -81,15 +82,17 @@ function Masson() {
       <iframe
         width="100%"
         height="315"
-        src="https://www.youtube.com/embed/RpBYimzejoA?autoplay=1&controls=0&loop=1&playlist=RpBYimzejoA"
+        src="https://www.youtube.com/embed/RpBYimzejoA?autoplay=1&mute=1&controls=0&loop=1&playlist=RpBYimzejoA"
         title="YouTube video"
+        allow="autoplay; encrypted-media"
         allowFullScreen
       />
       <iframe
         width="100%"
         height="315"
-        src="https://www.youtube.com/embed/YjaAdnZ9sJ0?autoplay=1&controls=0&loop=1&playlist=YjaAdnZ9sJ0"
+        src="https://www.youtube.com/embed/YjaAdnZ9sJ0?autoplay=1&mute=1&controls=0&loop=1&playlist=YjaAdnZ9sJ0"
         title="YouTube video"
+        allow="autoplay; encrypted-media"
         allowFullScreen
       />
     </Masonry>
