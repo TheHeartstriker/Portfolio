@@ -53,6 +53,7 @@ function Masson() {
         src="https://www.youtube.com/embed/nryWMrf9SaI?autoplay=1&mute=1&controls=0&loop=1&playlist=nryWMrf9SaI"
         title="YouTube video"
         allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowFullScreen
       />
       <Image
@@ -85,6 +86,7 @@ function Masson() {
         src="https://www.youtube.com/embed/RpBYimzejoA?autoplay=1&mute=1&controls=0&loop=1&playlist=RpBYimzejoA"
         title="YouTube video"
         allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowFullScreen
       />
       <iframe
@@ -93,6 +95,7 @@ function Masson() {
         src="https://www.youtube.com/embed/YjaAdnZ9sJ0?autoplay=1&mute=1&controls=0&loop=1&playlist=YjaAdnZ9sJ0"
         title="YouTube video"
         allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowFullScreen
       />
     </Masonry>
