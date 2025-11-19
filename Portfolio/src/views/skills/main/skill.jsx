@@ -57,7 +57,7 @@ function Skill() {
         Para={Paras[3]}
         Skills={UsedTechApp4}
         ImageSrc={client1}
-        Link1="https://www.peytonrayproperties.com"
+        Link1="https://lively-sand-0233c801e.6.azurestaticapps.net"
       />
       <CreateFeatured
         Header={Header[0]}
