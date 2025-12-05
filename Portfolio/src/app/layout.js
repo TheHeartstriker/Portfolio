@@ -5,6 +5,7 @@ import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
 
 import FadeLayout from "../route/fadeLayout";
+import LenisProvider from "@/components/nav/smoothScrool";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -41,8 +42,9 @@ export default function RootLayout({ children }) {
       <body>
         <Background />
         <Nav />
-
-        <FadeLayout>{children}</FadeLayout>
+        <LenisProvider>
+          <FadeLayout>{children}</FadeLayout>
+        </LenisProvider>
       </body>
     </html>
   );

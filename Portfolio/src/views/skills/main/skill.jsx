@@ -21,6 +21,7 @@ import {
 import Poly from "../../../components/svg/poly.jsx";
 import PillAnimation from "./pillAnimation";
 import Link from "next/link";
+
 function Skill() {
   return (
     <div className="main-skill-container">
@@ -53,8 +54,17 @@ function Skill() {
       </div>
       {/* Overhead container for main apps */}
       <CreateFeatured
+        Header={Header[1]}
+        Para={Paras[1]}
+        Skills={UsedTechApp2}
+        ImageSrc={fitShot}
+        Link1="https://www.fgraphs.com"
+        Link2="https://github.com/TheHeartstriker/FitnessApp"
+      />
+      <CreateFeatured
         Header={Header[3]}
         Para={Paras[3]}
+        Mirror={true}
         Skills={UsedTechApp4}
         ImageSrc={client1}
         Link1="https://lively-sand-0233c801e.6.azurestaticapps.net"
@@ -63,18 +73,9 @@ function Skill() {
         Header={Header[0]}
         Para={Paras[0]}
         Skills={UsedTechApp1}
-        Mirror={true}
         ImageSrc={dynamicAnimations}
         Link1="https://www.dynamicanimations.com"
         Link2="https://github.com/TheHeartstriker/DynamicAnimations"
-      />
-      <CreateFeatured
-        Header={Header[1]}
-        Para={Paras[1]}
-        Skills={UsedTechApp2}
-        ImageSrc={fitShot}
-        Link1="https://www.fgraphs.com"
-        Link2="https://github.com/TheHeartstriker/FitnessApp"
       />
       <CreateFeatured
         Header={Header[2]}

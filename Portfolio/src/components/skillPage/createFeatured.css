@@ -65,11 +65,14 @@
 
 .app-para {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 125%;
   right: 25%;
   height: 33%;
   padding: var(--space-2);
   border-radius: 15px;
+  text-align: left;
   font-size: 1.5rem;
   color: var(--white-off);
   font-family: "Exo 2", sans-serif;

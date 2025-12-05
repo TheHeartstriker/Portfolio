@@ -54,10 +54,10 @@ export const UsedTechApp4 = [
 
 ///////////////////////////////////////////////Larger texts///////////////////////////////////////////////
 export const Paras = [
-  `A web app to show the beauty of programming. Simulate natural phenomena such as lightning, sand or just look at beautiful simulations all within the web browser.`,
-  `A modern fitness tracker. Track heart rate, Time, calories and weight. Features graphs a custom made login system and method to share fitness history with others.`,
-  `A simple todo app. Add, remove, edit, folders and marking as done are the main features. The app is was made to further my backend knowledge.`,
-  `A freelance project for a client specifically, a marketing site for a small real estate business with the goal of attracting new clients. On delivery, average monthly visitors increased by 30%. Due to better design and SEO optimization.`,
+  `A web app to show the beauty of programming. Simulate natural phenomena such as lightning, sand, or just look at beautiful simulations all within the web browser. Built to push my skills in high performance software.`,
+  `A modern fitness tracker. Features graphs, a custom-made login system, a method to share fitness history, professional design, and data tracking. Built to test my skills in full-stack development with very little abstractions.`,
+  `A simple todo app. Add, remove, edit, folders, and marking as done are the main features. The app was made to further my backend knowledge. Pretty old but still functional!`,
+  `A freelance project for a client specifically, a marketing site for a small real estate business with the goal of attracting new clients. On delivery, average monthly visitors increased by 30% due to better design and SEO optimization.`,
 ];
 
 ///////////////////////////////////////////////FolderTexts///////////////////////////////////////////////

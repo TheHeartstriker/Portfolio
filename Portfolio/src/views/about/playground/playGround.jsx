@@ -30,7 +30,7 @@ function PlayGround() {
   const Playground = useRef(null);
   const MouseDownStartTime = useRef(null);
   const Radius = useRef(0); //Radius is set in setupCanvasBall
-  const Mouse = useRef({ x: 0, y: 0 });
+  const Mouse = useRef({ x: -9999, y: -9999 }); // Initialize off-screen to prevent incorrect shadow
   const InitalMouse = useRef({ x: 0, y: 0 });
   const EndMouse = useRef({ x: 0, y: 0 });
   const Offset = useRef({ x: 0, y: 0 });
