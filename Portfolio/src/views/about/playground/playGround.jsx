@@ -40,7 +40,7 @@ function PlayGround() {
   //
   // Shadow vars
   //
-  const shadowRef = useRef(null);
+  //const shadowRef = useRef(null);
   // const [shadowCtx, setShadowCtx] = useState(null);
   const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
   const colorRef = useRef({ bgColor: "", brColor: "", textColor: "" });
