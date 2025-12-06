@@ -24,8 +24,12 @@ export function setupCanvasBall(
       backgroundCanvas.height = document.documentElement.scrollHeight;
     }
     setCtx(backgroundCanvas.getContext("2d"));
+
+    // Update radius based on screen size
     if (window.innerWidth < 1000) {
       radiusRef.current = (window.innerWidth / shrinkFactor) * 2;
+    } else {
+      radiusRef.current = window.innerWidth / shrinkFactor;
     }
   };
   resizeCanvas();

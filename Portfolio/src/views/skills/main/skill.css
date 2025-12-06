@@ -101,6 +101,12 @@
   font-family: "Exo 2", sans-serif;
 }
 
+.folder a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .folder:hover::before {
   opacity: 1; /* Fully visible on hover */
 }

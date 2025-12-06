@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
-import { defaultCanvas } from "../../../utils/canvas.jsx";
-import { RowGradient } from "./helperPg.jsx";
+//import { defaultCanvas } from "../../../utils/canvas.jsx";
+//import { RowGradient } from "./helperPg.jsx";
 import { useColors } from "./drawColor.jsx";
 import {
   setupCanvasBall,
@@ -41,7 +41,7 @@ function PlayGround() {
   // Shadow vars
   //
   const shadowRef = useRef(null);
-  const [shadowCtx, setShadowCtx] = useState(null);
+  // const [shadowCtx, setShadowCtx] = useState(null);
   const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
   const colorRef = useRef({ bgColor: "", brColor: "", textColor: "" });
   let colors = useColors();
@@ -264,7 +264,7 @@ function PlayGround() {
         );
       }
       // Shadow
-      RowGradient(3, ObjectData, shadowCtx, Mouse, Radius);
+      //RowGradient(3, ObjectData, shadowCtx, Mouse, Radius);
     }
   }
   //Called on mouse down setting important vars for main
@@ -336,10 +336,10 @@ function PlayGround() {
 
   useEffect(() => {
     const cleanup1 = setupCanvasBall(Playground, setCtx, Radius, 5, false);
-    const cleanup2 = defaultCanvas(shadowRef, setShadowCtx, "abs");
+    //  const cleanup2 = defaultCanvas(shadowRef, setShadowCtx, "abs");
     return () => {
       cleanup1();
-      cleanup2();
+      //  cleanup2();
     };
   }, []);
 
@@ -351,12 +351,12 @@ function PlayGround() {
         width={docSize.width}
         height={docSize.height}
       ></canvas>
-      <canvas
+      {/* <canvas
         ref={shadowRef}
         className="shadow"
         width={docSize.width}
         height={docSize.height}
-      ></canvas>
+      ></canvas> */}
     </>
   );
 }
