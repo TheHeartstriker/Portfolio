@@ -3,9 +3,9 @@ import "../animation.css";
 import Background from "../components/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
-
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
+import { AnimationProvider } from "@/components/animationContext";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -40,11 +40,13 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Background />
-        <Nav />
-        <LenisProvider>
-          <FadeLayout>{children}</FadeLayout>
-        </LenisProvider>
+        <AnimationProvider>
+          <Background />
+          <Nav />
+          <LenisProvider>
+            <FadeLayout>{children}</FadeLayout>
+          </LenisProvider>
+        </AnimationProvider>
       </body>
     </html>
   );

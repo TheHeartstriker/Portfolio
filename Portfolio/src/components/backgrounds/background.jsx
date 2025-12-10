@@ -1,18 +1,24 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { AddMember, RemoveMember } from "../../utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
+import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
 import "./background.css";
+import { AnimationContext } from "../animationContext";
 
 function Background() {
   const backgroundRef = useRef(null);
-
   const colorRef = useRef({ lineColor: "", cursorColor: "" });
   const [ctx, setCtx] = useState(null);
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
+  //For opening animation
+  const { isAnimating } = useContext(AnimationContext);
+  const accelerationDuration = 2500;
+  const targetSpeed = 0.5;
+  const animationStartTimeRef = useRef(null);
 
   // Creates a canvas
   useEffect(() => {
@@ -45,9 +51,23 @@ function Background() {
     Mouse.current.y = e.clientY;
   }
 
-  function Draw() {
+  function Draw(animating) {
     if (!ctx) return;
-    offsetRef.current += 0.5;
+
+    // Calculate current speed based on elapsed time
+    let currentSpeed = targetSpeed;
+    if (animating) {
+      if (animationStartTimeRef.current !== null) {
+        const elapsed = Date.now() - animationStartTimeRef.current;
+        if (elapsed < accelerationDuration) {
+          // Ease-in quadratic function
+          const progress = elapsed / accelerationDuration;
+          currentSpeed = targetSpeed * progress * progress;
+        }
+      }
+    }
+
+    offsetRef.current += currentSpeed;
     let width = backgroundRef.current.width;
     let height = backgroundRef.current.height;
     ctx.clearRect(0, 0, width, height);
@@ -57,6 +77,8 @@ function Background() {
 
     for (let i = 0; i <= GridHeight; i++) {
       drawLine(
+        ctx,
+        colorRef,
         0,
         HeightMove + i * SquareGridSize,
         backgroundRef.current.width,
@@ -67,6 +89,8 @@ function Background() {
 
     for (let i = 0; i <= GridWidth; i++) {
       drawLine(
+        ctx,
+        colorRef,
         i * SquareGridSize,
         0,
         i * SquareGridSize,
@@ -74,43 +98,75 @@ function Background() {
         SquareLine
       );
     }
-    drawRadial(Mouse.current.x, Mouse.current.y);
+    drawRadial(ctx, colorRef, Mouse.current.x, Mouse.current.y);
   }
+  //Takes 2s to resolve
+  function openingAnimation() {
+    if (!ctx) return Promise.resolve(false);
 
-  function drawLine(x1, y1, x2, y2, lineWidth) {
-    if (!ctx) return;
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = colorRef.current.lineColor;
-    ctx.shadowBlur = 10;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-    ctx.stroke();
-  }
+    let width = backgroundRef.current.width;
+    let height = backgroundRef.current.height;
+    let GridWidth = Math.ceil(width / SquareGridSize);
+    let GridHeight = Math.ceil(height / SquareGridSize);
 
-  function drawRadial(x, y) {
-    if (!ctx) return;
-    const radius = 600;
-    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-    gradient.addColorStop(0, colorRef.current.cursorColor);
-    gradient.addColorStop(1, "transparent");
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fill();
+    const maxTimeoutHorizontal = GridHeight * 50;
+    const maxTimeoutVertical = GridWidth * 50;
+    const maxTimeout = Math.max(maxTimeoutHorizontal, maxTimeoutVertical) + 500;
+
+    for (let i = 0; i <= GridHeight; i++) {
+      setTimeout(() => {
+        drawLineAnimated(
+          ctx,
+          colorRef,
+          0,
+          i * SquareGridSize,
+          backgroundRef.current.width,
+          i * SquareGridSize,
+          SquareLine,
+          500
+        );
+      }, i * 50);
+    }
+
+    for (let i = GridWidth; i >= 0; i--) {
+      setTimeout(() => {
+        drawLineAnimated(
+          ctx,
+          colorRef,
+          i * SquareGridSize,
+          0,
+          i * SquareGridSize,
+          backgroundRef.current.height,
+          SquareLine,
+          500
+        );
+      }, (GridWidth - i) * 50);
+    }
+    console.log(maxTimeout);
+
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(true), maxTimeout);
+    });
   }
 
   useEffect(() => {
     if (!ctx) return;
-    function update() {
-      Draw();
+
+    async function startAnimation() {
+      if (isAnimating.current) {
+        await openingAnimation();
+      }
+      animationStartTimeRef.current = Date.now();
+      function update() {
+        Draw(isAnimating.current);
+      }
+      AddMember(update);
+      return () => {
+        RemoveMember(update);
+      };
     }
-    AddMember(update);
-    return () => {
-      RemoveMember(update);
-    };
+
+    startAnimation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
