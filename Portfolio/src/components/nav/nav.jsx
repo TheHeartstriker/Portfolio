@@ -8,7 +8,7 @@ import { AnimationContext } from "../animationContext.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
-  const { isAnimating } = useContext(AnimationContext);
+  const { isAnimating, timeline, setAddedEl } = useContext(AnimationContext);
   const router = useRouter();
   const location = useRef({});
   const pathname = usePathname();
@@ -65,13 +65,13 @@ function Nav() {
       opacity: 0,
     });
     // Main animation
-    gsap.to(element, {
+    timeline.to(element, {
       y: 0,
       opacity: 1,
-      duration: 2,
-      delay: 2.25,
-      ease: "power2.out",
+      duration: 1.75,
+      ease: "power1.out",
     });
+    setAddedEl((prev) => prev + 1);
   }
 
   function simpleFadeIn(element) {
@@ -81,7 +81,7 @@ function Nav() {
     gsap.to(element, {
       opacity: 1,
       duration: 1.5,
-      ease: "power2.out",
+      ease: "power1.out",
     });
   }
 

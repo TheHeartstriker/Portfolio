@@ -123,7 +123,7 @@ function Background() {
           backgroundRef.current.width,
           i * SquareGridSize,
           SquareLine,
-          500
+          750
         );
       }, i * 50);
     }
@@ -138,7 +138,7 @@ function Background() {
           i * SquareGridSize,
           backgroundRef.current.height,
           SquareLine,
-          500
+          750
         );
       }, (GridWidth - i) * 50);
     }
