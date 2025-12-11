@@ -8,6 +8,7 @@ function AnimatedText() {
   function gsapAnimation() {
     const textSplit = new SplitText(".text-1, .text-2, .text-3, .text-4", {
       type: "words",
+      aria: false,
     });
     const downcontainer = document.querySelector(".down-container");
 
@@ -39,6 +40,7 @@ function AnimatedText() {
     if (isAnimating.current) {
       gsapAnimation();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 

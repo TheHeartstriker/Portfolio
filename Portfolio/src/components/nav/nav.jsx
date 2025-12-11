@@ -94,6 +94,7 @@ function Nav() {
     } else {
       simpleFadeIn(containerRef.current);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Handles calculations on window resize
   useEffect(() => {
@@ -109,9 +110,9 @@ function Nav() {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   useEffect(() => {
     const basePath = "/" + pathname.split("/")[1];
-
     let active = "About";
     if (basePath === "/skills") active = "Skill";
     else if (basePath === "/scriptorium") active = "Script";

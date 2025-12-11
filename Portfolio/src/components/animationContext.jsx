@@ -1,8 +1,8 @@
 "use client";
-import { createContext, useContext, useState, useRef, useEffect } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
-
+import PropTypes from "prop-types";
 export const AnimationContext = createContext();
 
 export function AnimationProvider({ children }) {
@@ -38,3 +38,7 @@ export function AnimationProvider({ children }) {
     </AnimationContext.Provider>
   );
 }
+
+AnimationProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
