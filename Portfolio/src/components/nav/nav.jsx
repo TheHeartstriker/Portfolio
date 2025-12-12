@@ -1,11 +1,14 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
+import { gsap } from "gsap";
+import { AnimationContext } from "../animationContext.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
+  const { isAnimating, timeline, setAddedEl } = useContext(AnimationContext);
   const router = useRouter();
   const location = useRef({});
   const pathname = usePathname();
@@ -55,10 +58,43 @@ function Nav() {
   function setValue(name) {
     current.current = name;
   }
+  //Gsap animation
+  function upFadeIn(element) {
+    gsap.set(element, {
+      y: 50,
+      opacity: 0,
+    });
+    // Main animation
+    timeline.to(element, {
+      y: 0,
+      opacity: 1,
+      duration: 1.75,
+      ease: "power1.out",
+    });
+    setAddedEl((prev) => prev + 1);
+  }
+
+  function simpleFadeIn(element) {
+    gsap.set(element, {
+      opacity: 0,
+    });
+    gsap.to(element, {
+      opacity: 1,
+      duration: 1.5,
+      ease: "power1.out",
+    });
+  }
+
   //Gets location data and create elements
   useEffect(() => {
     locationFill();
     BoxElements();
+    if (isAnimating.current) {
+      upFadeIn(containerRef.current);
+    } else {
+      simpleFadeIn(containerRef.current);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Handles calculations on window resize
   useEffect(() => {
@@ -74,9 +110,9 @@ function Nav() {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   useEffect(() => {
     const basePath = "/" + pathname.split("/")[1];
-
     let active = "About";
     if (basePath === "/skills") active = "Skill";
     else if (basePath === "/scriptorium") active = "Script";

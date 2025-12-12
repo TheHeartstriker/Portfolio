@@ -1,5 +1,5 @@
 body {
-  font-family: "Protest Guerrilla", monospace;
+  font-family: var(--font-exo2), monospace;
   font-size: 16px;
 }
 
@@ -18,7 +18,7 @@ h3,
 h4,
 h5 {
   line-height: 1.2;
-  font-family: "Protest Guerrilla", sans-serif;
+  font-family: var(--font-protest-guerrilla), sans-serif;
 }
 
 :root {
