@@ -34,7 +34,7 @@ export function DrawTextBlurb(
   TextBreaker(Header, x, y - 100, 30, ctx);
 
   //Main Text
-  ctx.font = `${mainTextFontSize} Inter`;
+  ctx.font = `${mainTextFontSize} 'Exo 2'`;
   TextBreaker(MainT, x, y - 25, 25, ctx);
 }
 

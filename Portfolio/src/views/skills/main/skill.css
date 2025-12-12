@@ -92,6 +92,7 @@
 
 .folder h6 {
   font-size: 2rem;
+  font-family: "Protest Guerrilla", sans-serif;
   color: var(--color-2);
   margin: var(--space-1);
 }

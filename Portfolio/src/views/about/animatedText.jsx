@@ -32,7 +32,7 @@ function AnimatedText() {
         duration: 0.5,
         ease: "power1.out",
       },
-      "-=0.5"
+      "-=0.75"
     );
     setAddedEl((prev) => prev + 1);
   }
