@@ -138,6 +138,7 @@
   margin: var(--space-1);
   color: var(--opacity-color-1);
   background-color: var(--opacity-color-1-light);
+  font-family: "Protest Guerrilla", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;

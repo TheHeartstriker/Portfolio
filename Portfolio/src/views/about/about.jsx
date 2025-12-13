@@ -15,9 +15,9 @@ import AnimatedText from "./animatedText";
 function About() {
   return (
     <div className="main-about-container">
+      <AnimatedText />
       {/* Hero Section */}
       <div className="about-hero-section">
-        <AnimatedText />
         <div className="i-am-container">
           <h1 className="text-1">Hi, my name is</h1>
           <h2 className="text-2">Kaden Wildauer.</h2>

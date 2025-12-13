@@ -161,12 +161,12 @@ function Background() {
     if (!backgroundCtx) return;
     //Scrolling grid
     async function startAnimation() {
-      if (isAnimating.current) {
+      if (isAnimating) {
         await openingAnimation();
       }
       animationStartTimeRef.current = Date.now();
       function update() {
-        Draw(isAnimating.current);
+        Draw(isAnimating);
       }
       AddMember(update);
       return () => {

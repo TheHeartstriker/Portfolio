@@ -89,7 +89,7 @@ function Nav() {
   useEffect(() => {
     locationFill();
     BoxElements();
-    if (isAnimating.current) {
+    if (isAnimating) {
       upFadeIn(containerRef.current);
     } else {
       simpleFadeIn(containerRef.current);

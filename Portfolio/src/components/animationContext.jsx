@@ -10,17 +10,19 @@ export function AnimationProvider({ children }) {
   const timelineRef = useRef(
     gsap.timeline({
       paused: true,
-      delay: 2,
+      delay: 2, // For the background animation to finish
       onComplete: () => {
-        isAnimating.current = false;
+        setIsAnimating(false);
       },
     })
   );
-  const isAnimating = useRef(pathname === "/" ? true : false);
+  const [isAnimating, setIsAnimating] = useState(
+    pathname === "/" ? true : false
+  );
   const [addedEl, setAddedEl] = useState(0);
 
   useEffect(() => {
-    if (isAnimating.current && addedEl >= 2) {
+    if (isAnimating && addedEl >= 2) {
       timelineRef.current.play();
     }
   }, [addedEl]);

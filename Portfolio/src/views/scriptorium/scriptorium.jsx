@@ -7,14 +7,15 @@ import {
   desHoverCards,
 } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
-import PillAnimation from "./pillAnimation.jsx";
+import PillAnimation from "@/components/animations/pillAnimation.jsx";
 
 import "./scriptorium.css";
 
 function Scriptorium() {
+  const tags = [".script-article-tags span"];
   return (
     <div className="main-scriptorium-container">
-      <PillAnimation />
+      <PillAnimation tags={tags} />
       <div className="article-card-container">
         <ScriptCard
           articleDes={desHoverCards}

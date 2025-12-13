@@ -19,13 +19,19 @@ import {
   CreateFeatured,
 } from "../../../components/skillPage/index.js";
 import Poly from "../../../components/svg/poly.jsx";
-import PillAnimation from "./pillAnimation";
+import PillAnimation from "@/components/animations/pillAnimation";
 import Link from "next/link";
 
 function Skill() {
+  const tags = [
+    ".blue-pill",
+    ".blue-pill h2",
+    ".blue-pill-2",
+    ".blue-pill-2 h2",
+  ];
   return (
     <div className="main-skill-container">
-      <PillAnimation />
+      <PillAnimation tags={tags} />
       {/* For SEO */}
       <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
       {/* Over head container for tech stacks */}

@@ -1,12 +1,14 @@
 "use client";
-import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
+import { AddMember, RemoveMember } from "@/utils/aniFrame.jsx";
+import { gsap } from "gsap";
 import { useEffect } from "react";
-import { createAnimatable, utils } from "animejs";
+import PropTypes from "prop-types";
 
-function PillAnimation() {
-  function onMouseMove(event, animatablePills, bluePills) {
+//Manipulates the pills on mouse move
+function PillAnimation({ tags }) {
+  function onMouseMove(event, bluePills) {
     const { clientX, clientY } = event;
-    bluePills.forEach((pill, index) => {
+    bluePills.forEach((pill) => {
       const bounding = pill.getBoundingClientRect();
       const { left, top, width, height } = bounding;
       // Calculate distance from the mouse to the center of the pill
@@ -18,38 +20,40 @@ function PillAnimation() {
       if (distance < 150) {
         const hw = width / 2;
         const hh = height / 2;
-        const x = utils.clamp(-(clientX - left - hw), -hw, hw);
-        const y = utils.clamp(-(clientY - top - hh), -hh, hh);
-        //Update x and y
-        animatablePills[index].x(x);
-        animatablePills[index].y(y);
+        const x = Math.max(Math.min(-(clientX - left - hw), hw), -hw);
+        const y = Math.max(Math.min(-(clientY - top - hh), hh), -hh);
+
+        //Update x and y with GSAP
+        gsap.to(pill, {
+          x: x,
+          y: y,
+          duration: 2,
+          ease: "power3.out",
+        });
         pill.classList.add("hovered");
       } else {
-        animatablePills[index].x(0);
-        animatablePills[index].y(0);
+        gsap.to(pill, {
+          x: 0,
+          y: 0,
+          duration: 2,
+          ease: "power3.out",
+        });
         pill.classList.remove("hovered");
       }
     });
   }
 
-  function initalize() {
+  //Initializes and returns the pills
+  function initialize() {
     // Selects them all
     const bluePills = Array.from(
-      document.querySelectorAll(".script-article-tags span")
+      document.querySelectorAll(tags.map((tag) => `${tag}`).join(", "))
     );
-    // Create individual animations for each BluePill
-    const animatablePills = bluePills.map((pill) =>
-      createAnimatable(pill, {
-        x: 400,
-        y: 400,
-        ease: "ease(3)",
-      })
-    );
-    return { animatablePills, bluePills };
+    return bluePills;
   }
 
   useEffect(() => {
-    const InitVals = initalize();
+    const bluePills = initialize();
     let mouseX = 0;
     let mouseY = 0;
     let prevMouseX = null;
@@ -63,11 +67,7 @@ function PillAnimation() {
     function update() {
       // Only update if the mouse position has changed
       if (mouseX !== prevMouseX || mouseY !== prevMouseY) {
-        onMouseMove(
-          { clientX: mouseX, clientY: mouseY },
-          InitVals.animatablePills,
-          InitVals.bluePills
-        );
+        onMouseMove({ clientX: mouseX, clientY: mouseY }, bluePills);
         prevMouseX = mouseX;
         prevMouseY = mouseY;
       }
@@ -81,6 +81,12 @@ function PillAnimation() {
       RemoveMember(update);
     };
   }, []);
+
+  return null;
 }
 
 export default PillAnimation;
+
+PillAnimation.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

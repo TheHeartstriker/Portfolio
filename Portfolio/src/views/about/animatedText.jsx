@@ -37,7 +37,7 @@ function AnimatedText() {
     setAddedEl((prev) => prev + 1);
   }
   useEffect(() => {
-    if (isAnimating.current) {
+    if (isAnimating) {
       gsapAnimation();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
