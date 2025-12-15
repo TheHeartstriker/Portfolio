@@ -2,7 +2,7 @@
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useContext } from "react";
-import { AnimationContext } from "@/components/animationContext";
+import { AnimationContext } from "@/components/forStyle/animations/animationContext";
 function AnimatedText() {
   const { isAnimating, timeline, setAddedEl } = useContext(AnimationContext);
   function gsapAnimation() {

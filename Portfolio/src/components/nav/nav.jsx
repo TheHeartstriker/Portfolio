@@ -4,7 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
-import { AnimationContext } from "../animationContext.jsx";
+import { AnimationContext } from "../forStyle/animations/animationContext.jsx";
 
 function Nav() {
   const containerRef = useRef(null);

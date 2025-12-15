@@ -37,13 +37,14 @@
 }
 
 .published-time h3 {
-  color: var(--neon-blue);
+  color: var(--white);
   font-size: 1.1rem;
   margin: var(--space-2);
 }
 
 .published-time p {
   color: var(--color-1);
+  font-family: "Protest Guerrilla", sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
 }

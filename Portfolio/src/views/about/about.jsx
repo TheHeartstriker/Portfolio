@@ -9,7 +9,7 @@ import {
   MainText2,
   MainText3,
 } from "./text";
-
+import Footer from "@/components/footer/footer.jsx";
 import AnimatedText from "./animatedText";
 
 function About() {
@@ -41,6 +41,7 @@ function About() {
         MainText2={MainText2}
         MainText3={MainText3}
       />
+      <Footer />
     </div>
   );
 }

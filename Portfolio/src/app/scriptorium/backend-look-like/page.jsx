@@ -23,7 +23,7 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
 import backendArticle from "@/views/scriptorium/articles/backendLookArticle/backend.md";
 import { desBackendLookLike } from "@/views/scriptorium/articles/articleDes.js";
 

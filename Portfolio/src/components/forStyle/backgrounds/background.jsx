@@ -1,10 +1,10 @@
 "use client";
 import { useState, useRef, useEffect, useContext } from "react";
-import { AddMember, RemoveMember } from "../../utils/aniFrame";
+import { AddMember, RemoveMember } from "@/utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
 import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
 import "./background.css";
-import { AnimationContext } from "../animationContext";
+import { AnimationContext } from "../animations/animationContext";
 
 function Background() {
   const backgroundRef = useRef(null);

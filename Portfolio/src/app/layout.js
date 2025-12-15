@@ -1,11 +1,11 @@
 import "../site.css";
 import "../animation.css";
-import Background from "../components/backgrounds/background";
+import Background from "../components/forStyle/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { AnimationProvider } from "@/components/animationContext";
+import { AnimationProvider } from "@/components/forStyle/animations/animationContext";
 import { protestGuerrilla, exo2 } from "@/utils/fonts";
 export default function RootLayout({ children }) {
   return (
