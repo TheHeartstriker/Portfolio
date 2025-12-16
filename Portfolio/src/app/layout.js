@@ -7,6 +7,8 @@ import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { AnimationProvider } from "@/components/forStyle/animations/animationContext";
 import { protestGuerrilla, exo2 } from "@/utils/fonts";
+import ThemeGen from "@/components/forStyle/themeGen/theme";
+import { winterTheme } from "@/components/forStyle/themeGen/themes";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${exo2.variable} ${protestGuerrilla.variable}`}>
@@ -33,6 +35,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AnimationProvider>
+          <ThemeGen theme={winterTheme} />
           <Background />
           <Nav />
           <LenisProvider>

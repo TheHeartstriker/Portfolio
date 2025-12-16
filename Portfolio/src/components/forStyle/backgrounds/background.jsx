@@ -198,9 +198,9 @@ function Background() {
 
   useEffect(() => {
     const root = getComputedStyle(document.documentElement);
-    colorRef.current.lineColor = root.getPropertyValue("--graph-line").trim();
+    colorRef.current.lineColor = root.getPropertyValue("--graph-lines").trim();
     colorRef.current.cursorColor = root
-      .getPropertyValue("--cursor-color")
+      .getPropertyValue("--opacity-color-2-2")
       .trim();
     window.addEventListener("mousemove", handleMouseMove);
     return () => {

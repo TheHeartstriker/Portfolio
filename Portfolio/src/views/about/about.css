@@ -52,7 +52,7 @@
   color: var(--color-1);
   margin: 0px 0px var(--space-3) 0;
   font-weight: 500;
-  filter: drop-shadow(0 0 5px var(--opacity-color-1));
+  filter: drop-shadow(0 0 5px var(--opacity-color-1-6));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
@@ -116,20 +116,20 @@
   transform-origin: center;
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
-  stroke: var(--opacity-color-2);
+  stroke: var(--opacity-color-2-5);
 }
 #Vec2 {
   transform-origin: center;
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
-  stroke: var(--opacity-color-2);
+  stroke: var(--opacity-color-2-5);
 }
 
 #Vec3 {
   transform-origin: center;
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
-  stroke: var(--opacity-color-2);
+  stroke: var(--opacity-color-2-5);
 }
 
 .mobile-intro {
@@ -139,7 +139,7 @@
   border-radius: 25px;
   padding: var(--space-4);
   margin: var(--space-5) 0;
-  background-color: var(--opacity-color-4);
+  background-color: var(--opacity-color-4-5);
   border: 2px var(--color-1) solid;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);

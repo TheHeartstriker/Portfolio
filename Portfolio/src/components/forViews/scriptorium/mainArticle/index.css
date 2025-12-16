@@ -42,7 +42,7 @@
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
   color: var(--color-1);
-  filter: drop-shadow(0 0 10px var(--opacity-color-1));
+  filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
 /* h2 */

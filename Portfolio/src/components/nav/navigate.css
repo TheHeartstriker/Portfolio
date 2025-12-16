@@ -3,7 +3,8 @@
   top: 0;
   width: calc(100% - 2 * var(--space-1));
   height: 70px;
-  box-shadow: 0 0 20px var(--opacity-color-1), 0 0 60px var(--opacity-color-2);
+  box-shadow: 0 0 20px var(--opacity-color-1-6),
+    0 0 60px var(--opacity-color-2-5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,7 +72,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid var(--opacity-color-2);
+  border: 2px solid var(--opacity-color-2-5);
   background: transparent;
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.9s;
   will-change: transform, background-color;
