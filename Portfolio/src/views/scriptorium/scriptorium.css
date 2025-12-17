@@ -58,7 +58,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: inherit;
-  background-color: rgba(14, 34, 80, 0.3);
+  background-color: var(--opacity-color-3-5);
 }
 
 .script-article-img {
@@ -110,7 +110,7 @@
 .script-article-info p {
   font-size: 1.1rem;
   font-family: "Exo 2", monospace;
-  color: var(--white);
+  color: var(--font-high);
   /* Line ... break */
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -159,7 +159,7 @@
   align-items: stretch;
   width: 100%;
   height: auto;
-  color: var(--white);
+  color: var(--font-high);
   box-sizing: border-box;
   font-family: "Exo 2", monospace;
   overflow: hidden;

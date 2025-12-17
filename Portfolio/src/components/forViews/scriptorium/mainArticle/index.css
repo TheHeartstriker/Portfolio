@@ -14,7 +14,7 @@
   padding: var(--space-5);
   transition: transform 0.5s ease-in-out;
   box-sizing: border-box;
-  color: var(--white);
+  color: var(--font-high);
   margin-left: auto;
   margin-right: auto;
 
@@ -58,7 +58,7 @@
 .subject-container-article h3 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--font-high);
   margin: var(--space-2) 0;
   margin-bottom: 0;
 }
@@ -75,7 +75,7 @@
 
 .subject-container-article p {
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--font-high);
 }
 
 .component-container-article {

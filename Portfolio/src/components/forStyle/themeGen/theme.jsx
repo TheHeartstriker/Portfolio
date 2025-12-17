@@ -42,7 +42,7 @@ function ThemeGen({ theme }) {
     };
   }
 
-  function generateCSSString(colors) {
+  function generateCSSString(colors, isDark) {
     let cssString = ":root {\n";
 
     Object.entries(colors).forEach(([key, hexValue]) => {
@@ -52,9 +52,13 @@ function ThemeGen({ theme }) {
       if (hsl) {
         // Set base color as hsl
         cssString += `  --color-${colorNum}: hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%);\n`;
-        if (colorNum === "5") {
+        if (colorNum === "5" && isDark) {
           cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 10}%, ${
             hsl.l + 5
+          }%);\n`;
+        } else if (colorNum === "5" && !isDark) {
+          cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 10}%, ${
+            hsl.l - 5
           }%);\n`;
         }
 
@@ -65,6 +69,17 @@ function ThemeGen({ theme }) {
         }
       }
     });
+
+    // Add font colors based on theme mode
+    if (isDark) {
+      cssString += `  --font-high: #f0f0f0;\n`;
+      cssString += `  --font-middle: #c5c5c5;\n`;
+      cssString += `  --font-low: #969696;\n`;
+    } else {
+      cssString += `  --font-high: #131313ff;\n`;
+      cssString += `  --font-middle: #3a3a3a;\n`;
+      cssString += `  --font-low: #696969;\n`;
+    }
 
     cssString += "}\n";
     return cssString;
@@ -81,7 +96,7 @@ function ThemeGen({ theme }) {
       // Create and inject new style tag
       const styleTag = document.createElement("style");
       styleTag.id = "theme-variables";
-      styleTag.textContent = generateCSSString(theme);
+      styleTag.textContent = generateCSSString(theme, theme.dark);
       document.head.appendChild(styleTag);
     }
   }, [theme]);

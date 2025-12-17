@@ -60,7 +60,7 @@
   margin: var(--space-3) 0;
   margin-bottom: auto;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--font-middle);
 }
 
 .app-para {
@@ -74,7 +74,7 @@
   border-radius: 15px;
   text-align: left;
   font-size: 1.5rem;
-  color: var(--white-off);
+  color: var(--font-middle);
   font-family: "Exo 2", sans-serif;
   font-weight: 350;
   background-color: var(--opacity-color-3-5);
@@ -88,7 +88,7 @@
 }
 
 .app-para:hover {
-  color: var(--white);
+  color: var(--font-high);
 }
 
 .app-skills {

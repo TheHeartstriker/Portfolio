@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
+import Folder from "@/components/svg/Folder";
 
 function CreateFolder({ Header, Para, Link }) {
   return (
     <div className="folder">
       <a href={Link} target="_blank" rel="noopener noreferrer" />
-      <div className="folder-svg-container"></div>
+      <div className="folder-svg-container">
+        <Folder />
+      </div>
       <h6>{Header}</h6>
       <p>{Para}</p>
     </div>

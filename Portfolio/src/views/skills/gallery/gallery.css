@@ -34,7 +34,7 @@
   margin: var(--space-5);
   margin-top: var(--space-2);
   border-radius: 100px;
-  color: var(--white-off);
+  color: var(--font-middle);
   font-family: "Exo 2", sans-serif;
   animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
 }

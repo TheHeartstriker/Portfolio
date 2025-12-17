@@ -42,7 +42,7 @@
   border: none;
   border-radius: 15px;
   background-color: var(--color-1);
-  color: var(--white);
+  color: var(--font-high);
   display: flex;
   font-size: 1rem;
   justify-content: center;
