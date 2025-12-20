@@ -1,3 +1,4 @@
+/* Main container */
 .footer-container {
   background-color: var(--color-4);
   z-index: 10;
@@ -9,25 +10,64 @@
   align-items: center;
   padding: var(--space-4);
   gap: var(--space-4);
+  z-index: 5;
 }
 
+/* Container for borders */
+.container-for-corners {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+/* Square of the corner shape */
+.corner-square {
+  position: relative;
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: var(--color-4);
+  z-index: 1;
+  pointer-events: none;
+  z-index: 10;
+  mask-image: radial-gradient(circle at 100% 0%, transparent 69%, black 71%);
+  -webkit-mask-image: radial-gradient(
+    circle at 100% 0%,
+    transparent 69%,
+    black 71%
+  );
+}
+/* Settings for each corner square */
+.corner-square:nth-child(2) {
+  margin-left: auto;
+  transform: rotate(270deg);
+}
+
+/* Containers for footer content */
 .footer-content-container {
-  background-color: var(--color-3);
   height: 100%;
   flex: 1;
   display: grid;
   padding: 0;
   gap: var(--space-3);
+  position: relative;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.blue-pill {
+.footer-content-container h5 {
+  color: var(--color-1);
   font-size: 1.3rem;
-  width: 100%;
-  height: 100%;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  z-index: 10;
+  color: var(--font-high);
+}
+/* For the two pill containers / content */
+.blue-pill {
+  width: auto;
+  height: auto;
   border-radius: 100px;
   margin: 0;
-  color: rgba(0, 188, 235, 0.8);
+  color: var(--color-1);
   background-color: var(--opacity-color-1-3);
   display: flex;
   justify-content: center;
@@ -37,4 +77,62 @@
   -webkit-backdrop-filter: blur(5px);
   position: relative;
   z-index: 1;
+}
+
+.blue-pill svg {
+  width: 3rem;
+  height: 3rem;
+  margin: var(--space-2);
+  color: var(--color-1);
+  stroke: var(--color-1);
+}
+
+.blue-pill svg path {
+  color: var(--color-1);
+}
+/* For the theme container / content */
+
+.footer-content-container span {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.footer-content-container:nth-child(2) {
+  gap: 0;
+}
+.footer-content-container:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 49px;
+  z-index: 5;
+}
+/* Autumn */
+.footer-theme-element:nth-child(1) {
+  border-top-left-radius: 50px;
+  background-color: #ff4d6d;
+}
+/* Spring */
+.footer-theme-element:nth-child(2) {
+  border-top-right-radius: 50px;
+  background-color: #38b000;
+}
+/* Summer */
+.footer-theme-element:nth-child(3) {
+  border-bottom-left-radius: 50px;
+  background-color: #79dcf2;
+}
+/* Winter */
+.footer-theme-element:nth-child(4) {
+  border-bottom-right-radius: 50px;
+  background-color: #1d4ed8;
 }
