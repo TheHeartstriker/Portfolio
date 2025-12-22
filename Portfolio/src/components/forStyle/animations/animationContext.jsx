@@ -3,10 +3,13 @@ import { createContext, useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import PropTypes from "prop-types";
-export const AnimationContext = createContext();
+export const Context = createContext();
+import { winterTheme } from "@/components/forStyle/themeGen/themes";
 
-export function AnimationProvider({ children }) {
+export function Provider({ children }) {
   const pathname = usePathname();
+  const [addedEl, setAddedEl] = useState(0);
+  const [currTheme, setCurrTheme] = useState(winterTheme);
   const timelineRef = useRef(
     gsap.timeline({
       paused: true,
@@ -19,7 +22,6 @@ export function AnimationProvider({ children }) {
   const [isAnimating, setIsAnimating] = useState(
     pathname === "/" ? true : false
   );
-  const [addedEl, setAddedEl] = useState(0);
 
   useEffect(() => {
     if (isAnimating && addedEl >= 2) {
@@ -28,19 +30,21 @@ export function AnimationProvider({ children }) {
   }, [addedEl]);
 
   return (
-    <AnimationContext.Provider
+    <Context.Provider
       value={{
         isAnimating: isAnimating,
         timeline: timelineRef.current,
         addedEl: addedEl,
         setAddedEl: setAddedEl,
+        currTheme: currTheme,
+        setCurrTheme: setCurrTheme,
       }}
     >
       {children}
-    </AnimationContext.Provider>
+    </Context.Provider>
   );
 }
 
-AnimationProvider.propTypes = {
+Provider.propTypes = {
   children: PropTypes.node.isRequired,
 };

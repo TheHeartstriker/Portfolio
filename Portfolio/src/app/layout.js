@@ -5,7 +5,7 @@ import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { AnimationProvider } from "@/components/forStyle/animations/animationContext";
+import { Provider } from "@/components/forStyle/animations/animationContext";
 import { protestGuerrilla, exo2 } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import {
@@ -39,14 +39,14 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <AnimationProvider>
+        <Provider>
           <ThemeGen theme={winterTheme} />
           <Background />
           <Nav />
           <LenisProvider>
             <FadeLayout>{children}</FadeLayout>
           </LenisProvider>
-        </AnimationProvider>
+        </Provider>
       </body>
     </html>
   );

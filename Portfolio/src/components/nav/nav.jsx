@@ -4,11 +4,11 @@ import { useRouter, usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
-import { AnimationContext } from "../forStyle/animations/animationContext.jsx";
+import { Context } from "../forStyle/animations/animationContext.jsx";
 
 function Nav() {
   const containerRef = useRef(null);
-  const { isAnimating, timeline, setAddedEl } = useContext(AnimationContext);
+  const { isAnimating, timeline, setAddedEl } = useContext(Context);
   const router = useRouter();
   const location = useRef({});
   const pathname = usePathname();

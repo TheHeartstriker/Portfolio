@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
 //import { defaultCanvas } from "../../../utils/canvas.jsx";
@@ -17,8 +17,13 @@ import {
   Header3,
   MainText3,
 } from "../text.js";
+import { Context } from "@/components/forStyle/animations/animationContext";
 
 function PlayGround() {
+  //
+  //Context and theme
+  //
+  const { currTheme } = useContext(Context);
   //
   // Regular Variables for the about balls
   //
@@ -44,7 +49,7 @@ function PlayGround() {
   // const [shadowCtx, setShadowCtx] = useState(null);
   const mouseDis = useRef({ Dis1: 0, Dis2: 0, Dis3: 0 });
   const colorRef = useRef({ bgColor: "", brColor: "", textColor: "" });
-  let colors = useColors();
+  const colors = useColors(currTheme);
   //
   // Regular functions for the about balls
   //
@@ -318,7 +323,11 @@ function PlayGround() {
     if (ctx == null) return;
     InitData();
     colorRef.current = colors;
-  }, [ctx, colors]);
+  }, [ctx]);
+
+  useEffect(() => {
+    colorRef.current = colors;
+  }, [colors]);
   // Renders the frame
   useEffect(() => {
     if (ObjectData.current && !isCalled && Playground.current) {

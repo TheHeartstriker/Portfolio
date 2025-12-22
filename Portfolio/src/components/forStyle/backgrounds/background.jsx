@@ -4,7 +4,7 @@ import { AddMember, RemoveMember } from "@/utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
 import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
 import "./background.css";
-import { AnimationContext } from "../animations/animationContext";
+import { Context } from "../animations/animationContext";
 
 function Background() {
   const backgroundRef = useRef(null);
@@ -17,7 +17,7 @@ function Background() {
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
   //For opening animation
-  const { isAnimating } = useContext(AnimationContext);
+  const { isAnimating, currTheme } = useContext(Context);
   const accelerationDuration = 2500;
   const targetSpeed = 0.5;
   const animationStartTimeRef = useRef(null);
@@ -206,7 +206,7 @@ function Background() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [currTheme]);
 
   return (
     <div>

@@ -17,8 +17,8 @@ export const summerTheme = {
 };
 //Remove toxic greens
 export const springTheme = {
-  "color-1": "#aacc00",
-  "color-2": "#38b000",
+  "color-1": "#22e000",
+  "color-2": "#d0df00",
   "color-3": "#2d6a4f",
   "color-4": "#1b4332",
   "color-5": "#081c15",

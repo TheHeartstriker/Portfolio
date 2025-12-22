@@ -1,6 +1,19 @@
-/* Main container */
+:root {
+  /* Backgrounds */
+  --summer-theme-color-5: #cbb89a;
+  --winter-theme-color-5: #0f1729;
+  --spring-theme-color-5: #081c15;
+  --autumn-theme-color-5: #03071e;
+  /* Main colors */
+  --spring-theme-color-1: #22e000;
+  --winter-theme-color-1: #00bceb;
+  --summer-theme-color-1: #ff9500;
+  --autumn-theme-color-1: #d00000;
+}
+/*  */
+/* Main footer css */
+/*  */
 .footer-container {
-  background-color: var(--color-4);
   z-index: 10;
   width: 100%;
   height: 25vh;
@@ -8,12 +21,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: var(--space-4);
-  gap: var(--space-4);
+  padding: var(--space-3);
+  gap: var(--space-7);
   z-index: 5;
+  /* Glass */
+  background-color: var(--opacity-color-3-5);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
 }
-
-/* Container for borders */
 .container-for-corners {
   width: 100%;
   height: auto;
@@ -24,7 +39,6 @@
   position: relative;
   width: 7.5vw;
   height: 7.5vw;
-  background-color: var(--color-4);
   z-index: 1;
   pointer-events: none;
   z-index: 10;
@@ -34,105 +48,117 @@
     transparent 69%,
     black 71%
   );
+  background-color: var(--opacity-color-3-5);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
 }
 /* Settings for each corner square */
 .corner-square:nth-child(2) {
   margin-left: auto;
   transform: rotate(270deg);
 }
-
+/* Main footer children css */
 /* Containers for footer content */
+/*  */
+
+.footer-section {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: var(--space-2);
+  margin-right: auto;
+  text-align: center;
+  color: var(--color-1);
+}
+
 .footer-content-container {
   height: 100%;
   flex: 1;
   display: grid;
   padding: 0;
-  gap: var(--space-3);
   position: relative;
+  gap: var(--space-1);
   grid-template-columns: repeat(2, 1fr);
 }
 
 .footer-content-container h5 {
-  color: var(--color-1);
+  color: var(--font-middle);
   font-size: 1.3rem;
+
   font-weight: 500;
   margin: 0;
   text-align: center;
   z-index: 10;
-  color: var(--font-high);
 }
+
+/* Children's css */
 /* For the two pill containers / content */
-.blue-pill {
+/*  */
+.footer-blue-pill {
   width: auto;
+  border: none;
   height: auto;
   border-radius: 100px;
   margin: 0;
   color: var(--color-1);
-  background-color: var(--opacity-color-1-3);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color ease-out 0.3s, color ease-out 0.3s;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   position: relative;
   z-index: 1;
-}
 
-.blue-pill svg {
-  width: 3rem;
-  height: 3rem;
-  margin: var(--space-2);
+  background-color: var(--opacity-color-1-2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.footer-blue-pill h5 {
+  margin: 0 auto;
+}
+.footer-blue-pill svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: var(--space-4);
   color: var(--color-1);
   stroke: var(--color-1);
 }
 
-.blue-pill svg path {
+.footer-blue-pill svg path {
   color: var(--color-1);
 }
+/* Children's css */
 /* For the theme container / content */
 
-.footer-content-container span {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}
-.footer-content-container:nth-child(2) {
-  gap: 0;
-}
-.footer-content-container:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 49px;
-  z-index: 5;
-}
 /* Autumn */
-.footer-theme-element:nth-child(1) {
-  border-top-left-radius: 50px;
-  background-color: #ff4d6d;
+.footer-blue-pill-autumn {
+  background-color: var(--autumn-theme-color-5);
+}
+.footer-blue-pill-autumn h5 {
+  color: var(--autumn-theme-color-1);
 }
 /* Spring */
-.footer-theme-element:nth-child(2) {
-  border-top-right-radius: 50px;
-  background-color: #38b000;
+.footer-blue-pill-spring {
+  background-color: var(--spring-theme-color-5);
+}
+.footer-blue-pill-spring h5 {
+  color: var(--spring-theme-color-1);
 }
 /* Summer */
-.footer-theme-element:nth-child(3) {
-  border-bottom-left-radius: 50px;
-  background-color: #79dcf2;
+.footer-blue-pill-summer {
+  background-color: var(--summer-theme-color-5);
+}
+.footer-blue-pill-summer h5 {
+  color: var(--summer-theme-color-1);
 }
 /* Winter */
-.footer-theme-element:nth-child(4) {
-  border-bottom-right-radius: 50px;
-  background-color: #1d4ed8;
+.footer-blue-pill-winter {
+  background-color: var(--winter-theme-color-5);
+}
+.footer-blue-pill-winter h5 {
+  color: var(--winter-theme-color-1);
 }
