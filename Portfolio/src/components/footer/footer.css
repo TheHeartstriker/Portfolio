@@ -1,19 +1,32 @@
 :root {
   /* Backgrounds */
-  --summer-theme-color-5: #cbb89a;
+  --summer-theme-color-5: #001a26;
   --winter-theme-color-5: #0f1729;
   --spring-theme-color-5: #081c15;
-  --autumn-theme-color-5: #03071e;
+  --autumn-theme-color-5: #160c06;
   /* Main colors */
-  --spring-theme-color-1: #22e000;
-  --winter-theme-color-1: #00bceb;
-  --summer-theme-color-1: #ff9500;
-  --autumn-theme-color-1: #d00000;
+  --spring-theme-color-1: #00d66b;
+  --winter-theme-color-1: #00abd6;
+  --summer-theme-color-1: #e87a00;
+  --autumn-theme-color-1: #ed6d12;
 }
 /*  */
 /* Main footer css */
 /*  */
 .footer-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.container-for-corners {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+/* For top and bottom sections */
+.footer-top-section {
   z-index: 10;
   width: 100%;
   height: 25vh;
@@ -29,11 +42,25 @@
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
 }
-.container-for-corners {
+.footer-bottom-section {
   width: 100%;
-  height: auto;
+  height: 5vh;
+  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--opacity-color-5-5);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
 }
+
+.footer-bottom-section h4 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--font-low);
+}
+
 /* Square of the corner shape */
 .corner-square {
   position: relative;
@@ -112,11 +139,23 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  transition: background-color 0.75s ease, color 0.75s ease;
+  cursor: pointer;
 
   background-color: var(--opacity-color-1-2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+.footer-blue-pill a {
+  position: absolute;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
 .footer-blue-pill h5 {
   margin: 0 auto;
 }
@@ -131,22 +170,51 @@
 .footer-blue-pill svg path {
   color: var(--color-1);
 }
+/* Hover inversion */
+.footer-blue-pill:hover {
+  background-color: var(--color-1);
+}
+.footer-blue-pill:hover h5 {
+  color: var(--font-high);
+}
+.footer-blue-pill:hover svg {
+  color: var(--font-high);
+}
+.footer-blue-pill:hover svg path {
+  color: var(--font-high);
+}
 /* Children's css */
 /* For the theme container / content */
 
 /* Autumn */
+/*  */
 .footer-blue-pill-autumn {
   background-color: var(--autumn-theme-color-5);
 }
 .footer-blue-pill-autumn h5 {
   color: var(--autumn-theme-color-1);
 }
+
+.footer-blue-pill-autumn:hover {
+  background-color: var(--autumn-theme-color-1);
+}
+.footer-blue-pill-autumn:hover h5 {
+  color: var(--autumn-theme-color-5);
+}
+
 /* Spring */
 .footer-blue-pill-spring {
   background-color: var(--spring-theme-color-5);
 }
 .footer-blue-pill-spring h5 {
   color: var(--spring-theme-color-1);
+}
+
+.footer-blue-pill-spring:hover {
+  background-color: var(--spring-theme-color-1);
+}
+.footer-blue-pill-spring:hover h5 {
+  color: var(--spring-theme-color-5);
 }
 /* Summer */
 .footer-blue-pill-summer {
@@ -155,10 +223,23 @@
 .footer-blue-pill-summer h5 {
   color: var(--summer-theme-color-1);
 }
+.footer-blue-pill-summer:hover {
+  background-color: var(--summer-theme-color-1);
+}
+.footer-blue-pill-summer:hover h5 {
+  color: var(--summer-theme-color-5);
+}
 /* Winter */
 .footer-blue-pill-winter {
   background-color: var(--winter-theme-color-5);
 }
 .footer-blue-pill-winter h5 {
   color: var(--winter-theme-color-1);
+}
+
+.footer-blue-pill-winter:hover {
+  background-color: var(--winter-theme-color-1);
+}
+.footer-blue-pill-winter:hover h5 {
+  color: var(--winter-theme-color-5);
 }

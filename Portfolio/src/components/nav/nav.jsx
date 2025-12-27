@@ -1,15 +1,14 @@
 "use client";
 import { useRef, useEffect, useContext } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
 import { Context } from "../forStyle/animations/animationContext.jsx";
-
+import Link from "next/link";
 function Nav() {
   const containerRef = useRef(null);
   const { isAnimating, timeline, setAddedEl } = useContext(Context);
-  const router = useRouter();
   const location = useRef({});
   const pathname = usePathname();
   const current = useRef("About");
@@ -132,9 +131,9 @@ function Nav() {
           id="AboutBtn"
           onClick={() => {
             setValue("About", true);
-            router.push("/");
           }}
         >
+          <Link href="/"></Link>
           About Me
         </button>
         <button
@@ -142,9 +141,9 @@ function Nav() {
           id="SkillBtn"
           onClick={() => {
             setValue("Skill", true);
-            router.push("/skills");
           }}
         >
+          <Link href="/skills"></Link>
           Skills and Work
         </button>
         {/* blog */}
@@ -153,9 +152,9 @@ function Nav() {
           id="scriptoriumBtn"
           onClick={() => {
             setValue("Script", true);
-            router.push("/scriptorium");
           }}
         >
+          <Link href="/scriptorium"></Link>
           Blog
         </button>
         <button
@@ -163,9 +162,9 @@ function Nav() {
           id="ContactBtn"
           onClick={() => {
             setValue("Contact", true);
-            router.push("/contact");
           }}
         >
+          <Link href="/contact"></Link>
           Contacts
         </button>
       </nav>

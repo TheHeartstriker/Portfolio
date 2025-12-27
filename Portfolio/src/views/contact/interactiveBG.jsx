@@ -1,5 +1,4 @@
 "use client";
-import { DrawCircle } from "./canvasH.jsx";
 import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
 import { useState, useEffect, useRef } from "react";
 import { setupCanvasBall, WhichOne, CursorChange } from "../../utils/shared.js";
@@ -8,11 +7,72 @@ function InteractiveBG() {
   const TimeStep = 0.16;
   const Clicked = useRef(false);
   const [ctx, setCtx] = useState(null);
+  const [gitImage, setGitImage] = useState(null);
   const Radius = useRef(0);
   const Contact = useRef(null);
   const colorRef = useRef("");
-
   const ObjectData = useRef([]);
+
+  function getImage() {
+    if (typeof window !== "undefined") {
+      // Load SVG as text, modify colors, then create data URL
+      fetch("/Github.svg")
+        .then((response) => response.text())
+        .then((svgText) => {
+          // Replace original colors with desired color (e.g., white)
+          const svgColor = getComputedStyle(document.documentElement)
+            .getPropertyValue("--color-1")
+            .trim();
+          const modifiedSvg = svgText
+            .replace(/fill="[^"]*"/g, 'fill="' + svgColor + '"')
+            .replace(/stroke="[^"]*"/g, 'stroke="' + svgColor + '"');
+          const svgBlob = new Blob([modifiedSvg], { type: "image/svg+xml" });
+          const url = URL.createObjectURL(svgBlob);
+          const image = new window.Image();
+          image.src = url;
+          setGitImage(image);
+        });
+    }
+  }
+
+  function drawCircle(color, x, y, radius, ctx, Type) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    function drawImage() {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(gitImage, x - radius, y - radius, radius * 2, radius * 2);
+      ctx.restore();
+    }
+
+    function drawLi() {
+      ctx.fillStyle = "white";
+      ctx.font = `${radius}px Protest Guerrilla`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("in", x, y);
+    }
+
+    if (Type === "Github") {
+      if (gitImage && gitImage.complete) {
+        // Added null check
+        drawImage();
+      } else if (gitImage) {
+        // Added null check
+        gitImage.onload = drawImage;
+      }
+      // If gitImage is still null (fetch not done), do nothing - it will draw on next call
+    } else {
+      drawLi();
+    }
+  }
 
   function Click() {
     Clicked.current = true;
@@ -137,7 +197,7 @@ function InteractiveBG() {
         //Gravity
         data.velocity.y += (9.8 * TimeStep) / 2;
         //64ffdb
-        DrawCircle(
+        drawCircle(
           colorRef.current,
           data.x,
           data.y,
@@ -175,10 +235,11 @@ function InteractiveBG() {
   useEffect(() => {
     if (ctx == null) return;
     InitData();
+    getImage();
   }, [ctx]);
 
   useEffect(() => {
-    if (ObjectData.current && Contact.current && ctx) {
+    if (ObjectData.current && Contact.current && ctx && getImage) {
       function Update() {
         Main();
       }
@@ -188,7 +249,7 @@ function InteractiveBG() {
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ctx]);
+  }, [ctx, gitImage]);
 
   return <canvas id="contact-canvas" ref={Contact}></canvas>;
 }

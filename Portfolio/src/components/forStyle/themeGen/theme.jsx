@@ -3,7 +3,12 @@ import { useEffect } from "react";
 import { hexToHsl } from "@/utils/math";
 import { useContext } from "react";
 import { Context } from "../animations/animationContext";
-
+import {
+  winterTheme,
+  summerTheme,
+  springTheme,
+  autumnTheme,
+} from "@/components/forStyle/themeGen/themes";
 //Create theme variables and inject into document head
 function generateCSSString(colors, isDark) {
   let cssString = ":root {\n";
@@ -47,9 +52,26 @@ function generateCSSString(colors, isDark) {
   cssString += "}\n";
   return cssString;
 }
+
+export function ChooseThemeSession() {
+  const currentDate = new Date();
+  const month = currentDate.getMonth();
+  if (month === 11 || month === 0 || month === 1) {
+    // December, January, February
+    return winterTheme;
+  } else if (month >= 2 && month <= 4) {
+    // March, April, May
+    return springTheme;
+  } else if (month >= 5 && month <= 7) {
+    // June, July, August
+    return summerTheme;
+  } else {
+    // September, October, November
+    return autumnTheme;
+  }
+}
 //Function to apply theme dynamically
 export function applyTheme(theme) {
-  //Check theme vars for current theme so we dont reapply
   if (!theme) return;
   const existingStyle = document.getElementById("theme-variables");
   if (existingStyle) {
@@ -61,10 +83,11 @@ export function applyTheme(theme) {
   document.head.appendChild(styleTag);
 }
 //Sets the default theme on load
-function ThemeGen({ theme }) {
+function ThemeGen() {
   const { setCurrTheme } = useContext(Context);
 
   useEffect(() => {
+    const theme = ChooseThemeSession();
     if (theme) {
       setCurrTheme(theme);
       // Remove existing theme style if it exists
@@ -79,7 +102,7 @@ function ThemeGen({ theme }) {
       styleTag.textContent = generateCSSString(theme, theme.dark);
       document.head.appendChild(styleTag);
     }
-  }, [theme]);
+  }, []);
 
   return null;
 }

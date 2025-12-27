@@ -41,7 +41,6 @@ function About() {
         MainText2={MainText2}
         MainText3={MainText3}
       />
-      <Footer />
     </div>
   );
 }
