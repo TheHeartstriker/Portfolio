@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
-//import { defaultCanvas } from "../../../utils/canvas.jsx";
-//import { RowGradient } from "./helperPg.jsx";
 import { useColors } from "./drawColor.jsx";
 import {
   setupCanvasBall,
@@ -323,6 +321,7 @@ function PlayGround() {
     if (ctx == null) return;
     InitData();
     colorRef.current = colors;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
   useEffect(() => {

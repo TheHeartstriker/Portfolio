@@ -114,16 +114,6 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.footer-content-container h5 {
-  color: var(--font-middle);
-  font-size: 1.3rem;
-
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
-  z-index: 10;
-}
-
 /* Children's css */
 /* For the two pill containers / content */
 /*  */
@@ -145,6 +135,15 @@
   background-color: var(--opacity-color-1-2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+.footer-blue-pill h5 {
+  color: var(--font-middle);
+  font-size: 1.3rem;
+
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  z-index: 10;
 }
 
 .footer-blue-pill a {
@@ -242,4 +241,48 @@
 }
 .footer-blue-pill-winter:hover h5 {
   color: var(--winter-theme-color-5);
+}
+
+@media (max-width: 1000px) {
+  .footer-top-section {
+    flex-direction: column;
+    height: auto;
+    padding: var(--space-5);
+    gap: var(--space-5);
+  }
+  .footer-content-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .corner-square {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  .footer-blue-pill {
+    height: 6.5rem;
+  }
+
+  .footer-blue-pill h5 {
+    font-size: 2rem;
+  }
+
+  .footer-section h4 {
+    font-size: 4rem;
+  }
+
+  .footer-blue-pill svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: var(--space-5);
+  }
+
+  .footer-section {
+    width: 100%;
+    height: 5rem;
+  }
+
+  .footer-bottom-section h4 {
+    font-size: 1.75rem;
+  }
 }

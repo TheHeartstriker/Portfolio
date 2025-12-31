@@ -8,6 +8,7 @@ import {
 } from "@/components/forStyle/themeGen/themes";
 import { applyTheme } from "../forStyle/themeGen/theme";
 import { useContext } from "react";
+import PropTypes from "prop-types";
 
 export default function ThemeButton({ theme, key }) {
   const { setCurrTheme } = useContext(Context);
@@ -39,3 +40,8 @@ export default function ThemeButton({ theme, key }) {
     </button>
   );
 }
+
+ThemeButton.propTypes = {
+  theme: PropTypes.string.isRequired,
+  key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};

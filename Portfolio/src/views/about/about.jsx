@@ -9,7 +9,6 @@ import {
   MainText2,
   MainText3,
 } from "./text";
-import Footer from "@/components/footer/footer.jsx";
 import AnimatedText from "./animatedText";
 
 function About() {

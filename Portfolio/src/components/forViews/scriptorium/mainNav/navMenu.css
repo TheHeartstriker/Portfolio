@@ -8,7 +8,7 @@
   backdrop-filter: blur(12px);
   border-radius: 100px;
   -webkit-backdrop-filter: blur(12px);
-  position: fixed; /* Add this line */
+  position: fixed;
   transform: translateY(-50%);
   right: 5vw;
   z-index: 50;

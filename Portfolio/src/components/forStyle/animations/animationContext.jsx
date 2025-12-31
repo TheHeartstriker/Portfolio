@@ -27,6 +27,7 @@ export function Provider({ children }) {
     if (isAnimating && addedEl >= 2) {
       timelineRef.current.play();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addedEl]);
 
   return (

@@ -102,6 +102,7 @@ function ThemeGen() {
       styleTag.textContent = generateCSSString(theme, theme.dark);
       document.head.appendChild(styleTag);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;
