@@ -17,9 +17,9 @@ const todoShot = "/skill/todoShot.webp";
 import {
   CreateFolder,
   CreateFeatured,
-} from "../../../components/skillPage/index.js";
+} from "@/components/forViews/skillPage/index.js";
 import Poly from "../../../components/svg/poly.jsx";
-import PillAnimation from "@/components/animations/pillAnimation";
+import PillAnimation from "@/components/forStyle/animations/pillAnimation";
 import Link from "next/link";
 
 function Skill() {

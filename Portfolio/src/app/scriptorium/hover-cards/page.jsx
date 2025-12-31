@@ -28,7 +28,7 @@ export const metadata = {
   robots: "index, follow",
 };
 
-import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
 import hoverArticle1 from "@/views/scriptorium/articles/hover-cards/hoverArticle.md";
 import hoverArticle2 from "@/views/scriptorium/articles/hover-cards/hoverArticle2.md";
 import { desHoverCards } from "@/views/scriptorium/articles/articleDes.js";

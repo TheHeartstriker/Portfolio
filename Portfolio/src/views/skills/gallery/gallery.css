@@ -11,6 +11,7 @@
   position: relative;
   display: flex;
   width: 85vw;
+  overflow: scroll;
   margin-left: -20px;
   animation: forwards opacityReveal 2s ease-in-out;
 }
@@ -24,7 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--opacity-color-3);
+  background-color: var(--opacity-color-3-5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 65%;
@@ -34,7 +35,7 @@
   margin: var(--space-5);
   margin-top: var(--space-2);
   border-radius: 100px;
-  color: var(--white-off);
+  color: var(--font-middle);
   font-family: "Exo 2", sans-serif;
   animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
 }

@@ -1,10 +1,10 @@
 "use client";
 import { useState, useRef, useEffect, useContext } from "react";
-import { AddMember, RemoveMember } from "../../utils/aniFrame";
+import { AddMember, RemoveMember } from "@/utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
 import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
 import "./background.css";
-import { AnimationContext } from "../animationContext";
+import { Context } from "../animations/animationContext";
 
 function Background() {
   const backgroundRef = useRef(null);
@@ -17,7 +17,7 @@ function Background() {
   const SquareLine = 1;
   const Mouse = useRef({ x: 0, y: 0 });
   //For opening animation
-  const { isAnimating } = useContext(AnimationContext);
+  const { isAnimating, currTheme } = useContext(Context);
   const accelerationDuration = 2500;
   const targetSpeed = 0.5;
   const animationStartTimeRef = useRef(null);
@@ -198,15 +198,15 @@ function Background() {
 
   useEffect(() => {
     const root = getComputedStyle(document.documentElement);
-    colorRef.current.lineColor = root.getPropertyValue("--graph-line").trim();
+    colorRef.current.lineColor = root.getPropertyValue("--graph-lines").trim();
     colorRef.current.cursorColor = root
-      .getPropertyValue("--cursor-color")
+      .getPropertyValue("--opacity-color-2-2")
       .trim();
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [currTheme]);
 
   return (
     <div>

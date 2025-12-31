@@ -43,17 +43,11 @@ function PillAnimation({ tags }) {
     });
   }
 
-  //Initializes and returns the pills
-  function initialize() {
-    // Selects them all
+  useEffect(() => {
+    //Gets all the blue pills
     const bluePills = Array.from(
       document.querySelectorAll(tags.map((tag) => `${tag}`).join(", "))
     );
-    return bluePills;
-  }
-
-  useEffect(() => {
-    const bluePills = initialize();
     let mouseX = 0;
     let mouseY = 0;
     let prevMouseX = null;

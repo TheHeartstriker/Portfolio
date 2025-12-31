@@ -6,8 +6,8 @@ import {
   desBackendLookLike,
   desHoverCards,
 } from "./articles/articleDes.js";
-import { ScriptCard } from "../../components/scriptorium/scriptCard.jsx";
-import PillAnimation from "@/components/animations/pillAnimation.jsx";
+import { ScriptCard } from "../../components/forViews/scriptorium/scriptCard.jsx";
+import PillAnimation from "@/components/forStyle/animations/pillAnimation.jsx";
 
 import "./scriptorium.css";
 

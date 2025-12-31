@@ -20,8 +20,8 @@ export function setupCanvasBall(
       backgroundCanvas.width = parent.clientWidth;
       backgroundCanvas.height = parent.clientHeight;
     } else {
-      backgroundCanvas.width = document.documentElement.scrollWidth;
-      backgroundCanvas.height = document.documentElement.scrollHeight;
+      backgroundCanvas.width = window.innerWidth;
+      backgroundCanvas.height = window.innerHeight;
     }
     setCtx(backgroundCanvas.getContext("2d"));
 

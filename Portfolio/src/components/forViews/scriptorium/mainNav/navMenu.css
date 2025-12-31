@@ -8,7 +8,7 @@
   backdrop-filter: blur(12px);
   border-radius: 100px;
   -webkit-backdrop-filter: blur(12px);
-  position: fixed; /* Add this line */
+  position: fixed;
   transform: translateY(-50%);
   right: 5vw;
   z-index: 50;
@@ -16,7 +16,7 @@
 }
 
 .article-nav-Menu h2 {
-  color: var(--white-off);
+  color: var(--font-middle);
   font-size: 1.2rem;
   margin: var(--space-1);
 }
@@ -37,13 +37,14 @@
 }
 
 .published-time h3 {
-  color: var(--neon-blue);
+  color: var(--font-high);
   font-size: 1.1rem;
   margin: var(--space-2);
 }
 
 .published-time p {
   color: var(--color-1);
+  font-family: "Protest Guerrilla", sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
 }

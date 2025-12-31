@@ -28,7 +28,7 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
 import flowArticle1 from "@/views/scriptorium/articles/flowFields/flow1.md";
 import flowArticle2 from "@/views/scriptorium/articles/flowFields/flow2.md";
 import FlowField from "@/views/scriptorium/scripts/flowField/flowField.jsx";

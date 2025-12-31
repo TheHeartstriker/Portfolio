@@ -4,18 +4,18 @@ import { tocScan } from "./navMenuHelper.jsx";
 import PropTypes from "prop-types";
 import "./navMenu.css";
 
-function NavMenu({ article, description }) {
+function NavMenu({ article, description, articleClassName }) {
   const [scrollPoints, setScrollPoints] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [showMenu, setShowMenu] = useState(true);
   const [navMenuTop, setNavMenuTop] = useState(62);
   const headingRef = useRef([]);
   const [screenCross, setScreenCross] = useState(0);
-  const linearInterNavSet = {
-    initialTop: 62,
-    finalTop: 50,
+  const articleRef = useRef(null);
+  const navScrollSettings = useRef({
+    middle: 50,
     scrollDistance: 300,
-  };
+  });
 
   //Collect all heading Y locations
   function collectHeadingYLocations() {
@@ -42,17 +42,34 @@ function NavMenu({ article, description }) {
 
   // Calculate top value based on scroll position
   function calculateTopValue(scrollY) {
-    if (scrollY <= 0) return linearInterNavSet.initialTop;
-    if (scrollY >= linearInterNavSet.scrollDistance)
-      return linearInterNavSet.finalTop;
-
-    const progress = scrollY / linearInterNavSet.scrollDistance;
-    return (
-      linearInterNavSet.initialTop -
-      progress * (linearInterNavSet.initialTop - linearInterNavSet.finalTop)
-    );
+    const { middle, scrollDistance } = navScrollSettings.current;
+    let boundingClient = articleRef.current.getBoundingClientRect();
+    let topPxPos = boundingClient.top;
+    let bottomPxPos = boundingClient.bottom;
+    let topOffSet = (boundingClient.top / window.innerHeight) * 100 + 42.5; //Top pos but offset to start from 42.5% which is half the menu height
+    //If we are above the article top
+    if (scrollY <= 0) return `${topPxPos + window.innerHeight * 0.42}px`;
+    //If we are bellow the article bottom
+    if (scrollY + window.innerHeight >= bottomPxPos + window.scrollY) {
+      return `${bottomPxPos - window.innerHeight * 0.42}px`;
+    }
+    //If we are in the middle area
+    if (scrollY >= scrollDistance) return `${middle}%`;
+    const progress = scrollY / scrollDistance;
+    const value = topOffSet - progress * (topOffSet - middle);
+    return `${value}%`;
   }
+  //
+  // Listenrs for menu stop and start points and smoothing
+  //
+  useEffect(() => {
+    const articleElement = document.querySelector(`.${articleClassName}`);
+    articleRef.current = articleElement;
+  }, [articleClassName]);
 
+  //
+  // Resize listener to set screen cross point and show/hide menu
+  //
   useEffect(() => {
     function handleResize() {
       setScreenCross(window.innerHeight / 3);
@@ -63,7 +80,9 @@ function NavMenu({ article, description }) {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, [article]);
-
+  //
+  //Scroll listener to update current section and nav menu top
+  //
   useEffect(() => {
     function handleScroll() {
       const scrollY = window.scrollY;
@@ -81,7 +100,7 @@ function NavMenu({ article, description }) {
   if (!showMenu) return null;
 
   return (
-    <nav className="article-nav-Menu" style={{ top: `${navMenuTop}%` }}>
+    <nav className="article-nav-Menu" style={{ top: navMenuTop }}>
       {/* Published time */}
       {/*  */}
       <div className="published-time">
@@ -113,6 +132,7 @@ function NavMenu({ article, description }) {
 NavMenu.propTypes = {
   article: PropTypes.array.isRequired,
   description: PropTypes.object.isRequired,
+  articleClassName: PropTypes.string.isRequired,
 };
 
 export default NavMenu;

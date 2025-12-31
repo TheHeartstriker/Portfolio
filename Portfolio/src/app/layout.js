@@ -1,12 +1,14 @@
 import "../site.css";
 import "../animation.css";
-import Background from "../components/backgrounds/background";
+import Background from "../components/forStyle/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { AnimationProvider } from "@/components/animationContext";
+import { Provider } from "@/components/forStyle/animations/animationContext";
 import { protestGuerrilla, exo2 } from "@/utils/fonts";
+import ThemeGen from "@/components/forStyle/themeGen/theme";
+import Footer from "@/components/footer/footer";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${exo2.variable} ${protestGuerrilla.variable}`}>
@@ -32,13 +34,15 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <AnimationProvider>
+        <Provider>
+          <ThemeGen />
           <Background />
           <Nav />
           <LenisProvider>
             <FadeLayout>{children}</FadeLayout>
+            <Footer />
           </LenisProvider>
-        </AnimationProvider>
+        </Provider>
       </body>
     </html>
   );

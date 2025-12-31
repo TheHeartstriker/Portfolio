@@ -2,9 +2,9 @@
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useContext } from "react";
-import { AnimationContext } from "@/components/animationContext";
+import { Context } from "@/components/forStyle/animations/animationContext";
 function AnimatedText() {
-  const { isAnimating, timeline, setAddedEl } = useContext(AnimationContext);
+  const { isAnimating, timeline, setAddedEl } = useContext(Context);
   function gsapAnimation() {
     const textSplit = new SplitText(".text-1, .text-2, .text-3, .text-4", {
       type: "words",

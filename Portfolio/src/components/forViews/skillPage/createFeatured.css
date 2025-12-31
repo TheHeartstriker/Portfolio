@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   transition: background-color ease-out 1s, color ease-out 1s;
-  background-color: var(--opacity-color-4);
+  background-color: var(--opacity-color-4-5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -20,7 +20,7 @@
 }
 
 .blue-pill-2.hovered {
-  background-color: var(--opacity-color-1);
+  background-color: var(--opacity-color-1-6);
   color: var(--color-2);
 }
 
@@ -52,7 +52,7 @@
   font-weight: 400;
   color: var(--color-1);
   margin: var(--space-1) 0;
-  filter: drop-shadow(0 0 10px var(--opacity-color-1));
+  filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
 .app-header h5 {
@@ -60,7 +60,7 @@
   margin: var(--space-3) 0;
   margin-bottom: auto;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--font-middle);
 }
 
 .app-para {
@@ -74,10 +74,10 @@
   border-radius: 15px;
   text-align: left;
   font-size: 1.5rem;
-  color: var(--white-off);
+  color: var(--font-middle);
   font-family: "Exo 2", sans-serif;
   font-weight: 350;
-  background-color: var(--opacity-color-3);
+  background-color: var(--opacity-color-3-5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: color ease-in-out 0.5s;
@@ -88,7 +88,7 @@
 }
 
 .app-para:hover {
-  color: var(--white);
+  color: var(--font-high);
 }
 
 .app-skills {

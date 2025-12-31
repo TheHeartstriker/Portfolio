@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import NavMenu from "../mainNav/navMenu.jsx";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import "./index.css";
 //
 //
@@ -28,7 +28,7 @@ function articleChecker(item) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
-                style={nightOwl}
+                style={atomDark}
                 language={match[1]}
                 PreTag="div"
                 className="code-block"
@@ -74,14 +74,21 @@ function renderArticles(article) {
   }
   return null;
 }
-
+//Remember if you change the class name update the const here
 export function SubjectContainer({ article, description }) {
+  const articleClassName = "subject-container-article";
   return (
     <>
       <div className={`subject-container-article`}>
         {renderArticles(article)}
       </div>
-      {description && <NavMenu article={article} description={description} />}
+      {description && (
+        <NavMenu
+          article={article}
+          description={description}
+          articleClassName={articleClassName}
+        />
+      )}
     </>
   );
 }

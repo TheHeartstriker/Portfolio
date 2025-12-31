@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
-import Github from "../../../public/icons/Github";
-import LinkIcon from "../../../public/icons/link";
+import Github from "/public/icons/Github";
+import LinkIcon from "/public/icons/link";
 import "./createFeatured.css";
 
 function CreateFeatured({

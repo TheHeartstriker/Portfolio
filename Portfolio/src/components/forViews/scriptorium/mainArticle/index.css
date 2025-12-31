@@ -14,7 +14,7 @@
   padding: var(--space-5);
   transition: transform 0.5s ease-in-out;
   box-sizing: border-box;
-  color: var(--white);
+  color: var(--font-high);
   margin-left: auto;
   margin-right: auto;
 
@@ -42,7 +42,7 @@
   font-weight: 600;
   font-family: "Protest Guerrilla", monospace;
   color: var(--color-1);
-  filter: drop-shadow(0 0 10px var(--opacity-color-1));
+  filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
 /* h2 */
@@ -58,7 +58,7 @@
 .subject-container-article h3 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--font-high);
   margin: var(--space-2) 0;
   margin-bottom: 0;
 }
@@ -75,7 +75,7 @@
 
 .subject-container-article p {
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--font-high);
 }
 
 .component-container-article {
@@ -124,7 +124,7 @@
 
 pre,
 code {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--font-high);
   padding: var(--space-1);
   margin: var(--space-1);
   font-family: monospace;

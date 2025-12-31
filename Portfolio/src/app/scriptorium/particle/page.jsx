@@ -28,7 +28,7 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../components/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
 
 import particleArticle from "@/views/scriptorium/articles/particleArticle/particle.md";
 import ParticleSys from "@/views/scriptorium/scripts/particleSys.jsx";
