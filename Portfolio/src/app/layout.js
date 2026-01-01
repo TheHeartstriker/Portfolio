@@ -6,18 +6,15 @@ import PropTypes from "prop-types";
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { Provider } from "@/components/forStyle/animations/animationContext";
-import {
-  protestGuerrilla,
-  exo2,
-  orbitron,
-  rajdhani,
-  oxanium,
-} from "@/utils/fonts";
+import { rajdhaniDisplay, rajdhaniBody } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${exo2.variable} ${rajdhani.variable}`}>
+    <html
+      lang="en"
+      className={`${rajdhaniDisplay.variable} ${rajdhaniBody.variable}`}
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

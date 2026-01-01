@@ -3,16 +3,16 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useContext } from "react";
 import { Context } from "@/components/forStyle/animations/animationContext";
-function AnimatedText() {
+function AnimatedAbout() {
   const { isAnimating, timeline, setAddedEl } = useContext(Context);
   function gsapAnimation() {
     const textSplit = new SplitText(".text-1, .text-2, .text-3, .text-4", {
       type: "words",
       aria: false,
     });
-    const downcontainer = document.querySelector(".down-container");
+    const downcontainer = document.querySelector(".i-am-container button");
 
-    gsap.set(downcontainer, { opacity: 0 });
+    gsap.set(downcontainer, { opacity: 0, y: "25px" });
     gsap.set([textSplit.words], { y: "100%", opacity: 0 });
     timeline.to(
       [textSplit.words],
@@ -29,10 +29,11 @@ function AnimatedText() {
       downcontainer,
       {
         opacity: 1,
-        duration: 0.5,
+        duration: 1,
+        y: "0px",
         ease: "power1.out",
       },
-      "-=0.75"
+      "-=0.25"
     );
     setAddedEl((prev) => prev + 1);
   }
@@ -44,4 +45,4 @@ function AnimatedText() {
   }, []);
 }
 
-export default AnimatedText;
+export default AnimatedAbout;

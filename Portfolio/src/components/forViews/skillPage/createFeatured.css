@@ -75,7 +75,7 @@
   text-align: left;
   font-size: 1.5rem;
   color: var(--font-middle);
-  font-family: "Exo 2", sans-serif;
+  font-family: var(--font-text), sans-serif;
   font-weight: 350;
   background-color: var(--opacity-color-3-5);
   backdrop-filter: blur(10px);

@@ -9,12 +9,12 @@ import {
   MainText2,
   MainText3,
 } from "./text";
-import AnimatedText from "./animatedText";
+import AnimatedAbout from "./animatedText";
 
 function About() {
   return (
     <div className="main-about-container">
-      <AnimatedText />
+      <AnimatedAbout />
       {/* Hero Section */}
       <div className="about-hero-section">
         <div className="i-am-container">

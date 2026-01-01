@@ -52,16 +52,26 @@
   height: 5rem;
   margin: 0;
   background-color: var(--opacity-color-4-5);
+  font-size: 1.25rem;
+  font-family: var(--font-display);
+  color: var(--color-1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  transition: 0.5s filter ease-in-out, 0.5s font-size ease-in-out;
+  cursor: pointer;
+}
+
+.i-am-container button:hover {
+  filter: drop-shadow(0 0 15px var(--opacity-color-2-5));
+  font-size: 1.35rem;
 }
 
 /* In the nav folder the css file consider the container appearing time */
 
 .i-am-container h1 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   color: var(--color-1);
-  margin: var(--space-1) 0;
+  margin: var(--space-0) 0;
   font-weight: 600;
   filter: drop-shadow(0 0 5px var(--opacity-color-1-6));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -91,7 +101,8 @@
   font-size: 1.7rem;
   width: 85%;
   color: var(--font-low);
-  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+  font-family: var(--font-text), sans-serif;
   margin: var(--space-1) 0px 0px;
   animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
