@@ -44,7 +44,7 @@
 
 .published-time p {
   color: var(--color-1);
-  font-family: "Protest Guerrilla", sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
 }

@@ -45,42 +45,54 @@
   z-index: 1;
 }
 
+.i-am-container button {
+  border: 1px solid var(--color-2);
+  width: 15rem;
+  border-radius: 50px;
+  height: 5rem;
+  margin: 0;
+  background-color: var(--opacity-color-4-5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 /* In the nav folder the css file consider the container appearing time */
 
 .i-am-container h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: var(--color-1);
-  margin: 0px 0px var(--space-3) 0;
-  font-weight: 500;
+  margin: var(--space-1) 0;
+  font-weight: 600;
   filter: drop-shadow(0 0 5px var(--opacity-color-1-6));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .i-am-container h2 {
-  font-size: 6rem;
+  font-size: 7rem;
   color: var(--font-high);
   font-weight: 700;
   margin: 0;
-  line-height: 1.1;
+  margin-bottom: var(--space-2);
+  line-height: 1;
   animation: fadeUpEnter0-30 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .i-am-container h3 {
-  font-size: 5rem;
+  font-size: 5.75rem;
   color: var(--font-middle);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
-  opacity: 0.9;
-  line-height: 0.9;
+
+  line-height: 1;
   animation: fadeUpEnter0-30 1.1s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .i-am-container p {
-  font-size: 1.5rem;
-  width: 75%;
+  font-size: 1.7rem;
+  width: 85%;
   color: var(--font-low);
   font-family: "Exo 2", sans-serif;
-  margin: var(--space-2) 0px 0px;
+  margin: var(--space-1) 0px 0px;
   animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 

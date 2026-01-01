@@ -54,7 +54,7 @@ function InteractiveBG() {
 
     function drawLi() {
       ctx.fillStyle = "white";
-      ctx.font = `${radius}px Protest Guerrilla`;
+      ctx.font = `${radius}px var(--font-display)`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText("in", x, y);

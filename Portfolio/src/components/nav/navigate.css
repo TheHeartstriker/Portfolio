@@ -47,7 +47,9 @@
   font-size: 1rem;
   justify-content: center;
   align-items: center;
-  font-family: "Protest Guerrilla", monospace;
+  font-family: var(--font-display), monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   cursor: pointer;
   animation: FadeIn 1s forwards ease-in;
   transition: background-color 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
