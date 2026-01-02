@@ -27,9 +27,6 @@ function About() {
           </p>
           <button>See More</button>
         </div>
-        <div className="down-container">
-          <DownArr />
-        </div>
       </div>
       {/* Playground / content section */}
       <AboutMobile

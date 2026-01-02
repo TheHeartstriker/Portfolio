@@ -44,7 +44,7 @@
   background-color: var(--color-1);
   color: var(--font-high);
   display: flex;
-  font-size: 1rem;
+  font-size: 0.85rem;
   justify-content: center;
   align-items: center;
   font-family: var(--font-display), monospace;
@@ -114,11 +114,6 @@
 }
 
 /* Specific styles for each button */
-@media (max-width: 1400px) {
-  .button {
-    font-size: 1.25rem;
-  }
-}
 
 @media (max-width: 1000px) {
   .Container span {
@@ -129,17 +124,5 @@
     top: 60px;
     width: 65px;
     height: 65px;
-  }
-}
-
-@media (max-width: 900px) {
-  .button {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .button {
-    font-size: 2rem;
   }
 }
