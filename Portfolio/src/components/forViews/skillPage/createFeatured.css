@@ -205,11 +205,12 @@
   .app-para {
     width: 100%;
     right: 0%;
+    height: 40%;
   }
 
   .app-f {
     width: 90lvw;
-    height: 65lvh;
+    height: 75lvh;
   }
   /* Shrink the skills section */
   .app-skills {
@@ -244,6 +245,10 @@
     align-items: flex-start;
   }
 
+  .transparent-fill {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
   .app-image.mirror {
     flex-direction: column-reverse;
     align-items: flex-end;
@@ -259,5 +264,9 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-height: 750px) {
+  .app-f {
+    width: 90lvw;
+    height: 95lvh;
+  }
 }

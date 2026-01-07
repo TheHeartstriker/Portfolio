@@ -17,12 +17,12 @@
 
 .article-nav-Menu h2 {
   color: var(--font-middle);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin: var(--space-1);
 }
 
 .published-time {
-  font-size: 0.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,20 +38,19 @@
 
 .published-time h3 {
   color: var(--font-high);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin: var(--space-2);
 }
 
 .published-time p {
   color: var(--color-1);
   font-family: var(--font-display), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .article-topic {
-  font-size: 0.7rem;
-
   color: var(--color-1);
   width: 80%;
   background-color: var(--color-3);
@@ -61,12 +60,10 @@
   align-items: center;
   border-radius: 50px;
 }
-
 .article-topic h3 {
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
-
-/* background-color: #070e1f; */
 
 .table-of-contents {
   display: flex;
@@ -83,7 +80,6 @@
 }
 
 .toc-item {
-  font-size: 0.8rem;
   color: var(--color-1);
   width: 100%;
   background-color: var(--color-3);
@@ -109,18 +105,17 @@
 }
 
 .toc-item h3 {
+  font-size: 0.75rem;
   margin: var(--space-1);
-  font-weight: 400;
+  font-weight: 600;
 }
-
+/* These are the smaller widths given to smaller headings levels */
 .toc-item.medium {
-  font-size: 0.7rem;
-  width: 90%;
+  width: 85%;
   margin-left: auto;
 }
 
 .toc-item.small {
-  font-size: 0.6rem;
-  width: 80%;
+  width: 70%;
   margin-left: auto;
 }

@@ -9,14 +9,14 @@
   justify-content: center;
   width: 100%;
   height: auto;
-  margin: 10rem 0;
+  margin: 7.5rem 0;
   animation: fadeUpEnter75-0 0.9s forwards ease-in-out;
 }
 
 .article-card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5rem;
+  grid-gap: var(--space-6);
   grid-template-rows: auto;
   width: 80%;
   height: auto;
@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  height: 45rem;
+  height: 37.5rem;
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
 }
@@ -43,7 +43,7 @@
 }
 
 .script-article:hover {
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 .script-article::before {
@@ -87,13 +87,13 @@
   flex-direction: column;
   align-items: left;
   text-align: left;
-  padding: var(--space-2);
+  padding: var(--space-1);
   z-index: 1;
 }
 
 .script-article-info h2 {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 700;
   margin-top: var(--space-1);
   margin-bottom: var(--space-1);
   color: var(--color-1);
@@ -108,9 +108,11 @@
 }
 
 .script-article-info p {
-  font-size: 1.1rem;
-  font-family: "Exo 2", monospace;
+  font-size: 1rem;
+  font-family: var(--font-text), monospace;
+  font-weight: 400;
   color: var(--font-high);
+  margin: 0;
   /* Line ... break */
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -131,9 +133,8 @@
 }
 
 .script-article-info span {
-  font-size: 1.25rem;
   flex: 1;
-  height: 4rem;
+  height: 3.5rem;
   border-radius: 100px;
   margin: var(--space-1);
   color: var(--opacity-color-1-6);
@@ -147,6 +148,11 @@
   -webkit-backdrop-filter: blur(5px);
   position: relative;
   z-index: 1;
+}
+
+.script-article-info span h4 {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /*  */
@@ -169,9 +175,7 @@
 }
 
 .article-text-container a {
-  color: var(--color-1);
   text-decoration: none;
-  font-weight: 700;
 }
 .article-text-container ul {
   color: black;
@@ -233,6 +237,12 @@ code {
   padding: 0.2em 0.4em;
 }
 
+@media (max-width: 1500px) {
+  .article-card-container {
+    grid-gap: var(--space-3);
+  }
+}
+
 @media (max-width: 1000px) {
   .article-card-container {
     grid-template-columns: repeat(2, 1fr);
@@ -240,35 +250,45 @@ code {
   .article-card-container {
     width: 90%;
   }
-
-  .script-article {
-    height: 70rem;
-  }
-
-  .script-article-info h2 {
-    font-size: 3.5rem;
-  }
-  .script-article-info p {
-    font-size: 2rem;
-  }
-
-  .script-article-info span {
-    font-size: 1.75rem;
-    height: 5rem;
-  }
 }
+/* Phone stuff */
 
-@media (max-width: 700px) {
-  .main-scriptorium-container {
-    margin: 15rem 0;
-  }
+@media (max-width: 800px) {
   .script-article {
-    height: 75rem;
+    height: 30rem;
+  }
+
+  /* Font decrease by 20% */
+  .script-article-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .script-article-info p {
+    font-size: 0.8rem;
+  }
+
+  .script-article-info span h4 {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 500px) {
   .article-card-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .script-article {
+    height: 37.5rem;
+  }
+
+  .script-article-info h2 {
+    font-size: 1.75rem;
+  }
+
+  .script-article-info p {
+    font-size: 1rem;
+  }
+
+  .script-article-info span h4 {
+    font-size: 1rem;
   }
 }

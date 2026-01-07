@@ -12,6 +12,7 @@ function InteractiveBG() {
   const Contact = useRef(null);
   const colorRef = useRef("");
   const ObjectData = useRef([]);
+  const fontRef = useRef("");
 
   function getImage() {
     if (typeof window !== "undefined") {
@@ -54,7 +55,7 @@ function InteractiveBG() {
 
     function drawLi() {
       ctx.fillStyle = "white";
-      ctx.font = `${radius}px var(--font-display)`;
+      ctx.font = `${radius}px ${fontRef.current}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText("in", x, y);
@@ -222,20 +223,25 @@ function InteractiveBG() {
       currentContact.removeEventListener("click", Click);
     };
   }, []);
-
+  //Setup canvas
   useEffect(() => {
     const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15, true);
     colorRef.current = getComputedStyle(document.documentElement)
       .getPropertyValue("--color-2")
       .trim();
+
     return () => {
       cleanup();
     };
   }, []);
+  //Intialize
   useEffect(() => {
     if (ctx == null) return;
     InitData();
     getImage();
+    fontRef.current = getComputedStyle(document.documentElement)
+      .getPropertyValue("--font-display")
+      .trim();
   }, [ctx]);
 
   useEffect(() => {

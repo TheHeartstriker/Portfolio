@@ -13,7 +13,9 @@ export function ScriptCard({ articleDes, link }) {
         <p>{articleDes.des}</p>
         <div className="script-article-tags">
           {articleDes.tags.map((tag, index) => (
-            <span key={index}>{tag}</span>
+            <span key={index}>
+              <h4>{tag}</h4>
+            </span>
           ))}
         </div>
       </div>

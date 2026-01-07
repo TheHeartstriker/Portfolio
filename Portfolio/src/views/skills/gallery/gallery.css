@@ -30,7 +30,7 @@
   -webkit-backdrop-filter: blur(10px);
   width: 65%;
   height: auto;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   padding: var(--space-3);
   margin: var(--space-5);
   margin-top: var(--space-2);
@@ -74,13 +74,10 @@
   border: none;
 }
 
-@media (max-width: 1000px) {
-  .gallery-container {
-    width: 90vw;
-  }
+@media (max-width: 800px) {
   .gallery-description {
     width: 90%;
-    font-size: 2rem;
-    padding: 4.5rem;
+    /* 20% font size reduction */
+    font-size: 1rem;
   }
 }

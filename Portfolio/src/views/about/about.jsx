@@ -9,7 +9,7 @@ import {
   MainText2,
   MainText3,
 } from "./text";
-import AnimatedAbout from "./animatedText";
+import AnimatedAbout from "./animatedAbout";
 
 function About() {
   return (
@@ -22,8 +22,8 @@ function About() {
           <h2 className="text-2">Kaden Wildauer.</h2>
           <p className="text-4">
             I&apos;m a software engineer specializing in building websites and
-            web applications. I enjoy creating efficient, scalable, and visually
-            appealing digital experiences. You can find my work here!
+            web applications. I create efficient, scalable, and visually
+            appealing digital experiences. All of which can be found here!
           </p>
           <button>See More</button>
         </div>

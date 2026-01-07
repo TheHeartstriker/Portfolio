@@ -18,7 +18,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  font-family: "Exo 2", monospace;
+  font-family: var(--font-text), monospace;
   margin-top: 6%;
 }
 
@@ -37,27 +37,27 @@
   padding: var(--space-3);
 }
 
+/* Main heading */
 .subject-container-article h1 {
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-display), monospace;
   color: var(--color-1);
   filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
-/* h2 */
-
+/* Secondary headings */
 .subject-container-article h2 {
   font-size: 2rem;
   color: var(--color-1);
-  font-weight: 500;
+  font-weight: 600;
   margin: var(--space-2) 0;
   margin-bottom: 0;
 }
-
+/* Basic slightly large third heading */
 .subject-container-article h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.75rem;
+  font-weight: 600;
   color: var(--font-high);
   margin: var(--space-2) 0;
   margin-bottom: 0;
@@ -66,16 +66,21 @@
 .subject-container-article a {
   color: var(--color-2);
   text-decoration: none;
-  font-weight: 700;
 }
+/* Main text */
 .subject-container-article ul {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: var(--color-1);
 }
-
 .subject-container-article p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: var(--font-high);
+}
+
+.code-block {
+  font-size: 0.85rem;
 }
 
 .component-container-article {
@@ -115,7 +120,7 @@
 .code-block {
   border-radius: 25px;
 }
-
+/* Code highlight text */
 .subject-container-article p code {
   background-color: var(--color-3);
   padding: 0 0.3em;
@@ -144,74 +149,24 @@ code {
   padding: 0;
   margin: 0;
 }
-
+/* Push article to the left to make room for the navigation menu */
 @media (max-width: 1750px) {
   .subject-container-article {
     margin-left: 10%;
   }
 }
-
+/* Revert navigation menu push since its hidden */
 @media (max-width: 1500px) {
   .subject-container-article {
     margin-left: auto;
   }
-
-  .subject-container-article p {
-    font-size: 1.5rem;
-  }
-
-  .subject-container-article ul {
-    font-size: 1.65rem;
-  }
 }
-
+/* Move article down on smaller screens */
 @media (max-width: 1000px) {
   .subject-container-article {
     margin-top: 20%;
   }
-  .subject-container-article h1 {
-    font-size: 4rem;
-  }
-  .subject-container-article h2 {
-    font-size: 3rem;
-    margin: var(--space-4) 0;
-    margin-bottom: 0;
-  }
-  .subject-container-article h3 {
-    font-size: 2.5rem;
-    margin: var(--space-4) 0;
-    margin-bottom: 0;
-  }
-  .article-h1-container {
-    width: 90%;
-  }
-  .subject-container-article p {
-    font-size: 2rem;
-  }
-  .subject-container-article ul {
-    font-size: 2.25rem;
-  }
 }
 
 @media (max-width: 800px) {
-  .subject-container-article h1 {
-    font-size: 4.5rem;
-  }
-  .subject-container-article h2 {
-    font-size: 3.5rem;
-    margin: var(--space-4) 0;
-    margin-bottom: 0;
-  }
-  .subject-container-article h3 {
-    font-size: 3rem;
-    margin: var(--space-4) 0;
-    margin-bottom: 0;
-  }
-
-  .subject-container-article p {
-    font-size: 2.5rem;
-  }
-  .subject-container-article ul {
-    font-size: 2.75rem;
-  }
 }

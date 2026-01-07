@@ -1,0 +1,4 @@
+- Glassmorphism to the nav
+- fix the sizing a bit on skills for mobile
+- fix the sizing a bit for the nav bar inside the articles
+- Glassmorphism for the contact page button

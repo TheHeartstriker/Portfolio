@@ -35,9 +35,10 @@
 .i-am-container {
   display: flex;
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
@@ -51,20 +52,24 @@
 .i-am-container h1 {
   font-size: 2.25rem;
   color: var(--color-1);
-  margin: var(--space-0) 0;
   font-weight: 600;
   filter: drop-shadow(0 0 5px var(--opacity-color-1-6));
   animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  margin: 0;
 }
 
 .i-am-container h2 {
   font-size: 6rem;
   color: var(--font-high);
   font-weight: 700;
-  margin: 0;
-  margin-bottom: var(--space-2);
   line-height: 1;
-  animation: fadeUpEnter0-30 0.9s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  position: relative;
+  left: -5px; /* Shifts left by 50px */
+  animation: fadeUpEnterBigText0-30 0.9s forwards
+    cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  margin: 0;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .i-am-container p {
@@ -87,7 +92,7 @@
   background-color: var(--opacity-color-4-5);
   font-size: 1.25rem;
   font-family: var(--font-display);
-  color: var(--color-1);
+  color: var(--color-2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: 0.5s filter ease-in-out, 0.5s font-size ease-in-out;
@@ -102,7 +107,7 @@
 .about-content {
   position: relative;
   width: 100%;
-  min-height: auto;
+  height: 225vh;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -152,7 +157,7 @@
     height: auto;
   }
 }
-/* Font decrease by 10 percent */
+
 @media (max-width: 800px) {
   .i-am-container h1 {
     font-size: 1.8rem;
@@ -164,7 +169,6 @@
 
   .i-am-container p {
     font-size: 1.2rem;
-    width: 100%;
   }
 
   .i-am-container button {
@@ -177,31 +181,5 @@
 
   .mobile-intro p {
     font-size: 1rem;
-  }
-}
-/* 30% decrease */
-@media (max-width: 450px) {
-  .i-am-container h1 {
-    font-size: 1.575rem;
-  }
-
-  .i-am-container h2 {
-    font-size: 4.2rem;
-  }
-
-  .i-am-container p {
-    font-size: 1.05rem;
-  }
-
-  .i-am-container button {
-    font-size: 0.875rem;
-  }
-
-  .mobile-intro h4 {
-    font-size: 1.75rem;
-  }
-
-  .mobile-intro p {
-    font-size: 0.875rem;
   }
 }

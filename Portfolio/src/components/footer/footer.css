@@ -55,7 +55,7 @@
 }
 
 .footer-bottom-section h4 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   margin: 0;
   color: var(--font-low);
@@ -97,8 +97,8 @@
 
 .footer-section h4 {
   font-size: 2rem;
-  font-weight: 600;
-  margin: var(--space-2);
+  font-weight: 700;
+  margin: var(--space-1);
   margin-right: auto;
   text-align: center;
   color: var(--color-1);
@@ -247,27 +247,22 @@
   .footer-top-section {
     flex-direction: column;
     height: auto;
-    padding: var(--space-5);
-    gap: var(--space-5);
+    padding: var(--space-4);
   }
   .footer-content-container {
     grid-template-columns: 1fr;
-    gap: var(--space-3);
+    gap: var(--space-1);
   }
+  .footer-blue-pill {
+    padding: var(--space-2);
+  }
+
   .corner-square {
     width: 15vw;
     height: 15vw;
   }
   .footer-section {
     width: 100%;
-    height: 5rem;
-  }
-
-  .footer-top-section {
-    gap: var(--space-3);
-  }
-
-  .footer-content-container {
-    gap: var(--space-2);
+    height: 6rem;
   }
 }

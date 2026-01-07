@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useEffect, useContext } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
 import { AddMember, RemoveMember } from "../../../utils/aniFrame.jsx";
