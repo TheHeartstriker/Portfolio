@@ -1,5 +1,4 @@
 import AboutMobile from "./aboutMobile";
-import DownArr from "../../components/svg/DownArrow.jsx";
 
 import {
   Header1,

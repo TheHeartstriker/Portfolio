@@ -17,19 +17,15 @@ function CreateFeatured({
   return (
     <>
       {/* Main app split into two container one for image and other for text */}
+
       <div
         className={`app-f ${Mirror ? "mirror" : ""}`}
         id={End ? "end-featured" : undefined}
       >
         <div className={`app-image ${Mirror ? "mirror" : ""}`}>
-          <Image
-            src={ImageSrc}
-            alt="Project image"
-            fill
-            sizes="(max-width: 600px) 100vw"
-            style={{ objectFit: "cover" }}
-          />
+          <img src={ImageSrc} alt="Project image" />
           <div className="transparent-fill"></div>
+          {/* Warning future me the bullshit CLS error is bellow its magical and makes no sense */}
           {Link1 && (
             <div className="logo-container">
               <LinkIcon />
@@ -42,6 +38,7 @@ function CreateFeatured({
               <a href={Link2} target="_blank" rel="noopener noreferrer"></a>
             </div>
           )}
+          {/* The magical bs end's here :) */}
         </div>
         <div className={`app-text ${Mirror ? "mirror" : ""}`}>
           <div className="app-header">

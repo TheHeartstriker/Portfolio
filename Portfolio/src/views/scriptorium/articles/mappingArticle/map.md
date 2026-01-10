@@ -74,7 +74,7 @@ Time is like a JWT a cookie has a storage expiration time. Depending on the time
 
 This section is all about mapping common operations in a fullstack application. The definitely really cool, and well designed looking diagram below will be explained in numerical order and will be a walkthrough over each step and important pieces of information...
 
-![Map3](/scriptorium/mapArticle/Map3.png)
+![Map3](/scriptorium/mapArticle/Map3.webp)
 
 ### I. HTTPS
 

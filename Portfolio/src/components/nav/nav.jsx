@@ -124,6 +124,23 @@ function Nav() {
 
   return (
     <>
+      <svg style={{ display: "none" }}>
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.01"
+            numOctaves="2"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="20"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
       <NavCursor />
       <nav className="Container" ref={containerRef}>
         <button

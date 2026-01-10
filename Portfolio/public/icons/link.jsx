@@ -6,7 +6,6 @@ function LinkIcon() {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="#64ffdb"
-      className="size-6"
     >
       <path
         strokeLinecap="round"

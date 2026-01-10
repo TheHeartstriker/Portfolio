@@ -9,6 +9,7 @@ import { Provider } from "@/components/forStyle/animations/animationContext";
 import { rajdhaniDisplay, rajdhaniBody } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
+import Script from "next/script";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -20,23 +21,25 @@ export default function RootLayout({ children }) {
 
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png" />
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-EKDZD6L7ZT"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-EKDZD6L7ZT');
-            `,
-          }}
-        />
       </head>
       <body>
+        {/* Google analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-EKDZD6L7ZT"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EKDZD6L7ZT');
+      `,
+          }}
+        />
         <Provider>
           <ThemeGen />
           <Background />

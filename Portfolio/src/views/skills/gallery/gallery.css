@@ -25,19 +25,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--opacity-color-3-5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   width: 65%;
   height: auto;
   font-size: 1.25rem;
+  font-weight: 500;
   padding: var(--space-3);
   margin: var(--space-5);
   margin-top: var(--space-2);
   border-radius: 100px;
   color: var(--font-middle);
-  font-family: "Exo 2", sans-serif;
+  font-family: var(--font-text), sans-serif;
   animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
+  background-color: var(--opacity-color-3-5);
+
+  /* Glass effect double inset due to size */
+  box-shadow: inset 0 0 16px 2px var(--opacity-color-3-5);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 
 #gallery-link {

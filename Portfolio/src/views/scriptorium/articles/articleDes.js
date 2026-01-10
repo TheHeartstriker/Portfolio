@@ -17,7 +17,7 @@ export const desMappingFullstack = {
    There are going to be three sections. First is serving code; this will go over what happens when you visit a fullstack application. 
    The second is logging in, this is a smaller section, but in most fullstack applications, being logged in is fundamental. The third section is common operations, this section is going to go over what happens when someone logs in and is using the application. 
    Where does JWT fit? Cookies? CORS? HTTPS? API calls? And other things that are important to understand when building a fullstack application.`,
-  image: "/scriptorium/mapArticle/Map3.png",
+  image: "/scriptorium/mapArticle/Map3.webp",
 };
 
 export const desPolySVG = {

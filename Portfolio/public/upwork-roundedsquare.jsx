@@ -1,12 +1,6 @@
 function UpworkRoundedsquare() {
   return (
-    <svg
-      width="50"
-      height="50"
-      viewBox="0 0 50 50"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_460_14)">
         <path
           d="M9.212 0.0200195C4.124 0.0200195 0 4.1607 0 9.26861V40.7314C0 45.8393 4.125 49.98 9.213 49.98H40.787C45.875 49.98 50 45.8393 50 40.7314V9.26861C50 4.1607 45.875 0.0200195 40.787 0.0200195H9.212Z"
