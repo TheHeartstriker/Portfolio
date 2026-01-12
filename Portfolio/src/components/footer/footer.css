@@ -255,6 +255,10 @@
     height: auto;
     padding: var(--space-4);
   }
+  .footer-bottom-section {
+    height: auto;
+    padding: var(--space-2);
+  }
   .footer-content-container {
     grid-template-columns: 1fr;
     gap: var(--space-1);

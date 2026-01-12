@@ -34,21 +34,28 @@ function Nav() {
 
   function locationFill() {
     location.current = {
-      Skill: document.getElementById("SkillBtn").getBoundingClientRect(),
-      About: document.getElementById("AboutBtn").getBoundingClientRect(),
+      Skill: document.getElementById("skillBtn").getBoundingClientRect(),
+      About: document.getElementById("aboutBtn").getBoundingClientRect(),
       Script: document.getElementById("scriptoriumBtn").getBoundingClientRect(),
-      Contact: document.getElementById("ContactBtn").getBoundingClientRect(),
+      Contact: document.getElementById("contactBtn").getBoundingClientRect(),
+      Container: containerRef.current.getBoundingClientRect(),
     };
   }
 
-  function spanMoveer(amountX) {
-    const container = containerRef.current;
-    const spans = container.querySelectorAll("span");
+  function newSpanMover(buttonRect) {
+    const spans = containerRef.current.querySelectorAll("span");
+
+    // Find the midpoint of the button (left + half of width)
+    const buttonMidpoint = buttonRect.left + buttonRect.width / 2;
+
     // Get container's left position
-    const containerLeft = container.getBoundingClientRect().left;
-    // Calculate relative X
-    // We consider the left position of the container to center the spans
-    const relativeX = amountX + containerLeft / 2;
+    const containerLeft = location.current.Container.left;
+
+    // Calculate the position relative to the container
+    // We need to center the spans (45px wide) on the button midpoint
+    const spanWidth = spans[0] ? spans[0].offsetWidth : 45;
+    const relativeX = buttonMidpoint - containerLeft - spanWidth / 2;
+
     spans.forEach((span) => {
       span.style.transform = `translateX(${relativeX}px)`;
     });
@@ -102,26 +109,26 @@ function Nav() {
         heightRef.current = 40;
       }
       locationFill();
-      spanMoveer(location.current[current.current].left);
+      newSpanMover(location.current[current.current]);
     }
     window.addEventListener("resize", handleResize);
     // Initial fill in case of resize before mount
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  //Handles path changes
   useEffect(() => {
     const basePath = "/" + pathname.split("/")[1];
     let active = "About";
     if (basePath === "/skills") active = "Skill";
     else if (basePath === "/scriptorium") active = "Script";
     else if (basePath === "/contact") active = "Contact";
+
     current.current = active;
     if (location.current[active]) {
-      spanMoveer(location.current[active].left);
+      newSpanMover(location.current[active]);
     }
   }, [pathname]);
-
   return (
     <>
       <svg style={{ display: "none" }}>
@@ -145,7 +152,7 @@ function Nav() {
       <nav className="Container" ref={containerRef}>
         <button
           className="button"
-          id="AboutBtn"
+          id="aboutBtn"
           onClick={() => {
             setValue("About", true);
           }}
@@ -154,7 +161,7 @@ function Nav() {
         </button>
         <button
           className="button"
-          id="SkillBtn"
+          id="skillBtn"
           onClick={() => {
             setValue("Skill", true);
           }}
@@ -179,7 +186,7 @@ function Nav() {
         </button>
         <button
           className="button"
-          id="ContactBtn"
+          id="contactBtn"
           onClick={() => {
             setValue("Contact", true);
           }}
