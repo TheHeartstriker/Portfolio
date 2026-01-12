@@ -1,5 +1,6 @@
 "use client";
 import { useLenis } from "@studio-freight/react-lenis";
+import PropTypes from "prop-types";
 
 export function ScrollButton({ percent, className, children, ...props }) {
   const lenis = useLenis();
@@ -17,3 +18,9 @@ export function ScrollButton({ percent, className, children, ...props }) {
     </button>
   );
 }
+
+ScrollButton.propTypes = {
+  percent: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
