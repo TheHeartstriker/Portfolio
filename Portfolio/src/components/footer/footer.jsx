@@ -52,6 +52,7 @@ function Footer() {
                     href={socials[social]}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Link to ${social} of kaden wildauer`}
                   ></a>
                   {social === "GitHub" && <GitHubLogo />}
                   {social === "LinkedIn" && <LogoLinkedIn />}
@@ -68,7 +69,10 @@ function Footer() {
             <div className="footer-content-container">
               {Object.keys(navPages).map((page, index) => (
                 <button key={index} className="footer-blue-pill">
-                  <Link href={navPages[page]}></Link>
+                  <Link
+                    href={navPages[page]}
+                    aria-label={`Link to ${page} page`}
+                  ></Link>
                   <h5>{page}</h5>
                 </button>
               ))}

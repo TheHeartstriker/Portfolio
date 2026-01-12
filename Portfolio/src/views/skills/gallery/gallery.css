@@ -11,7 +11,8 @@
   position: relative;
   display: flex;
   width: 85vw;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   margin-left: -20px;
   animation: forwards opacityReveal 2s ease-in-out;
 }

@@ -28,13 +28,23 @@ function CreateFeatured({
           {Link1 && (
             <div className="logo-container">
               <LinkIcon />
-              <a href={Link1} target="_blank" rel="noopener noreferrer"></a>
+              <a
+                href={Link1}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`links to the featured project ${Header}`}
+              ></a>
             </div>
           )}
           {Link2 && (
             <div className="logo-container logo-github">
               <Github />
-              <a href={Link2} target="_blank" rel="noopener noreferrer"></a>
+              <a
+                href={Link2}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`links to the GitHub repository of the featured project ${Header}`}
+              ></a>
             </div>
           )}
           {/* The magical bs end's here :) */}

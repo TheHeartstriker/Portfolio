@@ -4,7 +4,12 @@ import Folder from "@/components/svg/Folder";
 function CreateFolder({ Header, Para, Link }) {
   return (
     <div className="folder">
-      <a href={Link} target="_blank" rel="noopener noreferrer" />
+      <a
+        href={Link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Links to the github repo of ${Header}`}
+      />
       <div className="folder-svg-container">
         <Folder />
       </div>

@@ -52,7 +52,11 @@ function Skill() {
       <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
       {/* Over head container for tech stacks */}
       <div className="separator" id="Sep1">
-        <Link id="gallery-link" href="/skills/gallery"></Link>
+        <Link
+          id="gallery-link"
+          href="/skills/gallery"
+          aria-label="Link to gallery primarly visual"
+        ></Link>
         <h3>01.</h3>
         <h2>Known tech</h2>
         <hr></hr>

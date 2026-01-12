@@ -45,8 +45,10 @@ export default function RootLayout({ children }) {
           <Background />
           <Nav />
           <LenisProvider>
-            <FadeLayout>{children}</FadeLayout>
-            <Footer />
+            <FadeLayout>
+              {children}
+              <Footer />
+            </FadeLayout>
           </LenisProvider>
         </Provider>
       </body>

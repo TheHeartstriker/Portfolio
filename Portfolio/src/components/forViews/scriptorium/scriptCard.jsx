@@ -4,7 +4,11 @@ import Link from "next/link";
 export function ScriptCard({ articleDes, link }) {
   return (
     <div className="script-article">
-      <Link href={link} className="full-link-overlay" />
+      <Link
+        href={link}
+        className="full-link-overlay"
+        aria-label={`Link to the article ${articleDes.title}`}
+      />
       <div className="script-article-img">
         <img src={articleDes.image} alt={articleDes.title} />
       </div>

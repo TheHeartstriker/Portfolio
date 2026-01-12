@@ -36,7 +36,7 @@
 
 .card h2 {
   font-family: monospace;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: var(--space-2);
   font-weight: 500;
   color: var(--color-4-article);
@@ -45,7 +45,7 @@
 
 .card p {
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: white;
   margin: var(--space-2);
   z-index: 5;
@@ -157,18 +157,14 @@
   }
 }
 
-@media (max-width: 800px) {
-  .card {
-    width: 80vw;
-    height: 45vh;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .card h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin: var(--space-1);
   }
+
   .card p {
-    font-size: 0.875rem;
+    margin: var(--space-1);
+    font-size: 0.6rem;
   }
 }

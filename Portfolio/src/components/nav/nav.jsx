@@ -150,8 +150,7 @@ function Nav() {
             setValue("About", true);
           }}
         >
-          <Link href="/"></Link>
-          About Me
+          <Link href="/">About Me</Link>
         </button>
         <button
           className="button"
@@ -160,8 +159,13 @@ function Nav() {
             setValue("Skill", true);
           }}
         >
-          <Link href="/skills"></Link>
-          Skills and Work
+          <Link href="/skills">
+            Skills
+            <br />
+            and
+            <br />
+            Work
+          </Link>
         </button>
         {/* blog */}
         <button
@@ -171,8 +175,7 @@ function Nav() {
             setValue("Script", true);
           }}
         >
-          <Link href="/scriptorium"></Link>
-          Blog
+          <Link href="/scriptorium">Blog</Link>
         </button>
         <button
           className="button"
@@ -181,8 +184,7 @@ function Nav() {
             setValue("Contact", true);
           }}
         >
-          <Link href="/contact"></Link>
-          Contacts
+          <Link href="/contact">Contacts</Link>
         </button>
       </nav>
     </>

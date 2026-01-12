@@ -9,6 +9,8 @@ import {
   MainText3,
 } from "./text";
 import AnimatedAbout from "./animatedAbout";
+import Arrow from "../../../public/icons/arrow";
+import { ScrollButton } from "@/components/nav/scrollButton";
 
 function About() {
   return (
@@ -24,7 +26,13 @@ function About() {
             web applications. I create efficient, scalable, and visually
             appealing digital experiences. All of which can be found here!
           </p>
-          <button>See More</button>
+          <ScrollButton
+            percent={150}
+            className="scroll-button"
+            aria-label="Scroll down to the text blurbs"
+          >
+            <Arrow />
+          </ScrollButton>
         </div>
       </div>
       {/* Playground / content section */}
