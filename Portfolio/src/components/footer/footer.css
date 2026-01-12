@@ -19,6 +19,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .container-for-corners {
   width: 100%;
@@ -35,12 +36,13 @@
   justify-content: space-around;
   align-items: center;
   padding: var(--space-3);
-  gap: var(--space-7);
+  gap: var(--space-5);
   z-index: 5;
-  /* Glass */
   background-color: var(--opacity-color-3-5);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
+  /* For glass effect */
+  box-shadow: inset 0 0 8px 1px var(--opacity-color-3-5);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 .footer-bottom-section {
   width: 100%;
@@ -49,13 +51,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--opacity-color-5-5);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
+  background-color: var(--opacity-color-4-5);
+  /* For glass effect */
+  box-shadow: inset 0 0 8px 1px var(--opacity-color-4-5);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 
 .footer-bottom-section h4 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   margin: 0;
   color: var(--font-low);
@@ -76,8 +80,11 @@
     black 71%
   );
   background-color: var(--opacity-color-3-5);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
+
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
+
+  /* For glass effect */
 }
 /* Settings for each corner square */
 .corner-square:nth-child(2) {
@@ -97,8 +104,8 @@
 
 .footer-section h4 {
   font-size: 2rem;
-  font-weight: 600;
-  margin: var(--space-2);
+  font-weight: 700;
+  margin: var(--space-1);
   margin-right: auto;
   text-align: center;
   color: var(--color-1);
@@ -118,7 +125,7 @@
 /* For the two pill containers / content */
 /*  */
 .footer-blue-pill {
-  width: auto;
+  flex: 1;
   border: none;
   height: auto;
   border-radius: 100px;
@@ -131,15 +138,13 @@
   z-index: 1;
   transition: background-color 0.75s ease, color 0.75s ease;
   cursor: pointer;
-
   background-color: var(--opacity-color-1-2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 .footer-blue-pill h5 {
   color: var(--font-middle);
-  font-size: 1.3rem;
-
+  font-size: 1.25rem;
   font-weight: 500;
   margin: 0;
   text-align: center;
@@ -159,9 +164,9 @@
   margin: 0 auto;
 }
 .footer-blue-pill svg {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: var(--space-4);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 auto;
   color: var(--color-1);
   stroke: var(--color-1);
 }
@@ -244,11 +249,11 @@
 }
 
 @media (max-width: 1000px) {
+  /* Turn into a column */
   .footer-top-section {
     flex-direction: column;
     height: auto;
-    padding: var(--space-5);
-    gap: var(--space-5);
+    padding: var(--space-4);
   }
   .footer-bottom-section {
     height: auto;
@@ -256,37 +261,18 @@
   }
   .footer-content-container {
     grid-template-columns: 1fr;
-    gap: var(--space-3);
+    gap: var(--space-1);
   }
+  .footer-blue-pill {
+    padding: var(--space-2);
+  }
+
   .corner-square {
     width: 15vw;
     height: 15vw;
   }
-
-  .footer-blue-pill {
-    height: 6.5rem;
-  }
-
-  .footer-blue-pill h5 {
-    font-size: 2rem;
-  }
-
-  .footer-section h4 {
-    font-size: 4rem;
-  }
-
-  .footer-blue-pill svg {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin-right: var(--space-5);
-  }
-
   .footer-section {
     width: 100%;
-    height: auto;
-  }
-
-  .footer-bottom-section h4 {
-    font-size: 1.75rem;
+    height: 6rem;
   }
 }

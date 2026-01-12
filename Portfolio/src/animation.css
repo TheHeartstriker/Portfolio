@@ -1,6 +1,15 @@
 @keyframes fadeUpEnter0-30 {
   0% {
     transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes fadeUpEnterBigText0-30 {
+  0% {
+    transform: translateY(0);
     opacity: 0;
   }
   100% {
@@ -57,18 +66,5 @@
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes arrowOpacity {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }

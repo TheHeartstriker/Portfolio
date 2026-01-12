@@ -1,17 +1,16 @@
 // app/fonts.ts (or any file, usually in lib/ or app/)
-import { Exo_2, Protest_Guerrilla } from "next/font/google";
+import { Rajdhani } from "next/font/google";
 
-// Define your fonts
-export const exo2 = Exo_2({
+export const rajdhaniDisplay = Rajdhani({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-exo2", // optional: for CSS variables
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
 });
 
-export const protestGuerrilla = Protest_Guerrilla({
+export const rajdhaniBody = Rajdhani({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400"],
-  variable: "--font-protest-guerrilla",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
 });

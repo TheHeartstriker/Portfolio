@@ -1,8 +1,8 @@
 //
 //Object drawing functions
 //
-const headerFontSize = "2.8rem";
-const mainTextFontSize = "1.5rem";
+const headerFontSize = "2.5rem";
+const mainTextFontSize = "1.25rem";
 
 export function DrawTextBlurb(
   Header,
@@ -13,6 +13,13 @@ export function DrawTextBlurb(
   ctx,
   { bgColor, brColor, textColor }
 ) {
+  const displayFont = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--font-display");
+  const textFont = getComputedStyle(document.documentElement).getPropertyValue(
+    "--font-body"
+  );
+  if (!ctx || !Header || !MainT) return;
   //Shape
   ctx.beginPath();
   ctx.arc(x, y, Radius, 0, Math.PI * 2);
@@ -30,12 +37,12 @@ export function DrawTextBlurb(
   ctx.fillStyle = textColor;
 
   //Header
-  ctx.font = `${headerFontSize} Protest Guerrilla`;
+  ctx.font = `600 ${headerFontSize} ${displayFont}`;
   TextBreaker(Header, x, y - 100, 30, ctx);
 
   //Main Text
-  ctx.font = `${mainTextFontSize} 'Exo 2'`;
-  TextBreaker(MainT, x, y - 25, 25, ctx);
+  ctx.font = `500 ${mainTextFontSize} ${textFont}`;
+  TextBreaker(MainT, x, y - 25, 32.5, ctx);
 }
 
 function TextBreaker(text, x, y, lengthWisSpace, ctx) {

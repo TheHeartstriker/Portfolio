@@ -1,5 +1,5 @@
 body {
-  font-family: var(--font-exo2), monospace;
+  font-family: var(--font-display), monospace;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -8,6 +8,7 @@ body {
 html {
   line-height: 1.5;
   overflow-y: scroll;
+  font-size: clamp(1rem, 0.9rem + 0.7vw, 1.25rem);
 }
 
 * {
@@ -20,10 +21,11 @@ h3,
 h4,
 h5 {
   line-height: 1.2;
-  font-family: var(--font-protest-guerrilla), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 
 :root {
+  --space-0: 0.25rem;
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -34,32 +36,15 @@ h5 {
   --space-8: 5rem;
 }
 
-@media (min-width: 2000px) {
-  html {
-    font-size: 20px;
-  }
-}
+/* Notes */
+/* P tags should be set between either 1rem, 1.25rem, 1.5rem or 1.1rem IF used as readable text. H tags should use increments of 0.5rem otherwise no restrictions. As for scaling font at smaller size's around 800px should be decrease
+by 20% as needed for all present fonts in file
+To be clear
 
-@media (max-width: 1500px) {
-  html {
-    font-size: 13px;
-  }
-}
+1rem -> is for dense copy of less important text
+1.1rem -> is for dense copy of important text like a blog article
+1.25rem -> is for regular for things like descriptions on cards this should be the default for most text
+1.5rem -> is rarely used but if so mainly in a hero setting most of the case go for h tags
 
-@media (max-width: 1300px) {
-  html {
-    font-size: 11px;
-  }
-}
 
-@media (max-width: 1000px) {
-  html {
-    font-size: 9px;
-  }
-}
-
-@media (max-width: 600px) {
-  html {
-    font-size: 7px;
-  }
-}
+*/

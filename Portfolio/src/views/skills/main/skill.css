@@ -18,10 +18,9 @@
   text-align: center;
   width: 80vw;
   height: auto;
-  padding: var(--space-5);
+  padding: var(--space-3);
   border-radius: 100px;
   animation: fadeUpEnter75-0 0.9s forwards ease-in-out;
-  overflow: hidden;
 }
 
 /* Pseudo-element for blur effect on the parent */
@@ -33,39 +32,46 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border-radius: inherit;
   background-color: var(--opacity-color-3-5);
+  /* For glass effect double inset due to size*/
+  box-shadow: inset 0 0 16px 2px var(--opacity-color-3-5);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 /* Child of tech stacks */
 .blue-pill {
-  font-size: 1.3rem;
   width: 13%;
-  height: 4rem;
+  height: 3.5rem;
   border-radius: 100px;
-  margin: var(--space-1);
+  margin: 0.4rem;
   color: var(--opacity-color-1-8);
   background-color: var(--opacity-color-1-3);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color ease-out 0.3s, color ease-out 0.3s;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   position: relative;
   z-index: 1;
+  /* Glass effect */
+  box-shadow: inset 0 0 8px 1px var(--opacity-color-1-2);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  -webkit-backdrop-filter: brightness(1) blur(2px);
+}
+.blue-pill h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 .blue-pill.hovered {
   background-color: var(--opacity-color-1-6);
-  color: var(--color-2);
+  color: var(--opacity-color-1-5);
 }
 
 /* Container for the folders */
 .folder-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5.5rem;
+  grid-gap: 4rem;
   grid-template-rows: auto;
   width: 80%;
   min-height: 20vh;
@@ -85,20 +91,23 @@
   background-color: var(--opacity-color-4-5);
   overflow: hidden;
   cursor: pointer;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
+  /* Box shadow is twice as large as usual because of the increased element size */
+  box-shadow: inset 0 0 16px 2px var(--opacity-color-4-5);
+
+  -webkit-backdrop-filter: brightness(1) blur(2px);
   transition: background ease-in-out 0.6s, filter ease-in-out 0.6s;
 }
 
 .folder h6 {
   font-size: 2rem;
-  font-family: "Protest Guerrilla", sans-serif;
+  font-family: var(--font-display), sans-serif;
   color: var(--color-2);
   margin: var(--space-1);
 }
 .folder p {
   color: var(--font-middle);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: "Exo 2", sans-serif;
 }
 
@@ -140,7 +149,7 @@
   height: 100%;
   border-radius: 50px;
   color: var(--color-2);
-  margin: 4vw;
+  margin: var(--space-7);
   margin-top: 5vw;
   animation: forwards fadeUpEnter75-0 1s ease-in-out;
 }
@@ -187,8 +196,8 @@
 }
 
 .separator h2 {
-  font-size: 3.3rem;
-  margin: var(--space-5);
+  font-size: 3rem;
+  margin: var(--space-3);
   color: var(--color-1);
   filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
@@ -210,24 +219,26 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width: 1250px) {
+  .blue-pill {
+    width: 17%;
+    height: 3.5rem;
+  }
+}
 
 @media (max-width: 1000px) {
   /* Sizing changes */
   .separator {
-    margin: 15vw 0;
     width: 90%;
+    margin-top: 12.5vh;
   }
-
   .tech-stacks {
-    padding: var(--space-6);
+    width: 90vw;
   }
 
-  #Sep1 {
-    margin-top: 20vw;
-  }
-
-  .blue-pill2 {
-    width: 80%;
+  .blue-pill {
+    width: 20%;
+    height: 3.5rem;
   }
 
   .gallery-link {
@@ -238,33 +249,34 @@
   .folder-container {
     width: 95%;
   }
-
-  /* Sizing and font */
-  .blue-pill {
-    width: 30%;
-    height: 25%;
-    font-size: 2rem;
-  }
-  /* Font changes*/
-  .separator h2 {
-    font-size: 4rem;
-  }
-
-  .separator h3 {
-    font-size: 2.5rem;
-  }
-
-  .folder h6 {
-    font-size: 4rem;
-  }
-
-  .folder p {
-    font-size: 2.5rem;
-  }
 }
 
 @media (max-width: 800px) {
+  /* Sizing stuff */
   .folder-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .blue-pill {
+    width: 25%;
+    height: 4rem;
+  }
+  .tech-stacks {
+    padding: var(--space-2);
+  }
+  /* Decrease by 20% not folder copy though*/
+  .blue-pill h4 {
+    font-size: 1rem;
+  }
+
+  .folder h6 {
+    font-size: 1.6rem;
+  }
+
+  .separator h2 {
+    font-size: 2.4rem;
+  }
+
+  .separator h3 {
+    font-size: 1.2rem;
   }
 }

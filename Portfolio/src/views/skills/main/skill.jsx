@@ -31,12 +31,32 @@ function Skill() {
   ];
   return (
     <div className="main-skill-container">
+      <svg style={{ display: "none" }}>
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.01"
+            numOctaves="2"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="20"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
       <PillAnimation tags={tags} />
-      {/* For SEO */}
       <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
       {/* Over head container for tech stacks */}
       <div className="separator" id="Sep1">
-        <Link id="gallery-link" href="/skills/gallery"></Link>
+        <Link
+          id="gallery-link"
+          href="/skills/gallery"
+          aria-label="Link to gallery primarly visual"
+        ></Link>
         <h3>01.</h3>
         <h2>Known tech</h2>
         <hr></hr>
@@ -52,7 +72,7 @@ function Skill() {
           </div>
         ))}
       </div>
-      {/* Separator element */}
+      {/* Separator for the next section */}
       <div className="separator" id="Sep2">
         <hr></hr>
         <h2>Stuff I made</h2>
@@ -93,7 +113,6 @@ function Skill() {
         Link1="https://www.genesistodo.com"
         Link2="https://github.com/TheHeartstriker/ToDoApp"
       />
-      {/* Main container for folder aka less important apps and code */}
       <div className="separator">
         <h3>03.</h3>
         <h2>

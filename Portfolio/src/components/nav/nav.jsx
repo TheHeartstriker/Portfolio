@@ -131,6 +131,23 @@ function Nav() {
   }, [pathname]);
   return (
     <>
+      <svg style={{ display: "none" }}>
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.01"
+            numOctaves="2"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="20"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
       <NavCursor />
       <nav className="Container" ref={containerRef}>
         <button
@@ -140,8 +157,7 @@ function Nav() {
             setValue("About", true);
           }}
         >
-          <Link href="/"></Link>
-          About Me
+          <Link href="/">About Me</Link>
         </button>
         <button
           className="button"
@@ -150,8 +166,13 @@ function Nav() {
             setValue("Skill", true);
           }}
         >
-          <Link href="/skills"></Link>
-          Skills and Work
+          <Link href="/skills">
+            Skills
+            <br />
+            and
+            <br />
+            Work
+          </Link>
         </button>
         {/* blog */}
         <button
@@ -161,8 +182,7 @@ function Nav() {
             setValue("Script", true);
           }}
         >
-          <Link href="/scriptorium"></Link>
-          Blog
+          <Link href="/scriptorium">Blog</Link>
         </button>
         <button
           className="button"
@@ -171,8 +191,7 @@ function Nav() {
             setValue("Contact", true);
           }}
         >
-          <Link href="/contact"></Link>
-          Contacts
+          <Link href="/contact">Contacts</Link>
         </button>
       </nav>
     </>
