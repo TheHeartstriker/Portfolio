@@ -14,7 +14,7 @@ function Gallery() {
         </div>
         <hr></hr>
         <h2>Gallery</h2>
-        <h3>.04</h3>
+        <h3>04.</h3>
       </div>
       <div className="gallery-description">
         <p>

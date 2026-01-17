@@ -65,6 +65,6 @@ function tocPush(objData) {
       }`}
     >
       <h3>{objData.headingText}</h3>
-    </div>
+    </div>,
   );
 }

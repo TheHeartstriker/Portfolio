@@ -97,7 +97,7 @@
 
 .script-article-info h2 {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: var(--space-1);
   margin-bottom: var(--space-1);
   color: var(--color-1);
@@ -113,8 +113,7 @@
 
 .script-article-info p {
   font-size: 1rem;
-  font-family: var(--font-text), monospace;
-  font-weight: 400;
+  font-family: var(--font-body), monospace;
   color: var(--font-high);
   margin: 0;
   /* Line ... break */
@@ -158,7 +157,7 @@
 
 .script-article-info span h4 {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /*  */

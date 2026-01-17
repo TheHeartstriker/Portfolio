@@ -8,6 +8,7 @@ import {
   summerTheme,
   springTheme,
   autumnTheme,
+  professionalTheme1,
 } from "@/components/forStyle/themeGen/themes";
 //Create theme variables and inject into document head
 function generateCSSString(colors, isDark) {
@@ -25,9 +26,12 @@ function generateCSSString(colors, isDark) {
           hsl.l + 5
         }%);\n`;
       } else if (colorNum === "5" && !isDark) {
-        cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 10}%, ${
-          hsl.l - 5
+        cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 24}%, ${
+          hsl.l - 13
         }%);\n`;
+        console.log(
+          `--graph-lines: hsl(${hsl.h}, ${hsl.s - 24}%, ${hsl.l - 13}%);`,
+        );
       }
 
       // Generate opacity versions from 0.1 to 0.9
@@ -52,7 +56,7 @@ function generateCSSString(colors, isDark) {
   cssString += "}\n";
   return cssString;
 }
-
+//Old function for chosing the extra theme's based on  season
 export function ChooseThemeSession() {
   const currentDate = new Date();
   const month = currentDate.getMonth();
@@ -87,7 +91,7 @@ function ThemeGen() {
   const { setCurrTheme } = useContext(Context);
 
   useEffect(() => {
-    const theme = ChooseThemeSession();
+    const theme = professionalTheme1;
     if (theme) {
       setCurrTheme(theme);
       // Remove existing theme style if it exists

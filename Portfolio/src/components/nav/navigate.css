@@ -3,7 +3,8 @@
   top: 0;
   width: calc(100% - 2 * var(--space-1));
   height: 70px;
-  box-shadow: 0 0 20px var(--opacity-color-1-6),
+  box-shadow:
+    0 0 20px var(--opacity-color-1-6),
     0 0 60px var(--opacity-color-2-5);
   display: flex;
   justify-content: space-between;
@@ -40,23 +41,25 @@
 .button {
   position: relative;
   top: 65px;
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   margin: 0;
   border: none;
   border-radius: 15px;
   background-color: var(--color-1);
   color: var(--font-high);
   display: flex;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   justify-content: center;
   align-items: center;
   font-family: var(--font-display), monospace;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   cursor: pointer;
   animation: FadeIn 1s forwards ease-in;
-  transition: background-color 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+  transition:
+    background-color 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
 
   z-index: 15;
 }
@@ -94,7 +97,9 @@
   border-radius: 50%;
   border: 2px solid var(--opacity-color-2-5);
   background: transparent;
-  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.9s;
+  transition:
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.9s;
   will-change: transform, background-color;
 }
 

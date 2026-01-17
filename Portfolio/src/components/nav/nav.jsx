@@ -191,7 +191,7 @@ function Nav() {
             setValue("Contact", true);
           }}
         >
-          <Link href="/contact">Contacts</Link>
+          <Link href="/contact">Contact</Link>
         </button>
       </nav>
     </>

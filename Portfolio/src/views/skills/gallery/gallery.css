@@ -29,13 +29,12 @@
   width: 65%;
   height: auto;
   font-size: 1.25rem;
-  font-weight: 500;
   padding: var(--space-3);
   margin: var(--space-5);
   margin-top: var(--space-2);
   border-radius: 100px;
   color: var(--font-middle);
-  font-family: var(--font-text), sans-serif;
+  font-family: var(--font-body), sans-serif;
   animation: forwards fadeUpEnter75-0 1.5s ease-in-out;
   background-color: var(--opacity-color-3-5);
 

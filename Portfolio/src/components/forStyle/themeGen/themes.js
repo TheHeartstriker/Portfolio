@@ -44,3 +44,16 @@ export const autumnTheme = {
 
   dark: true,
 };
+
+export const professionalTheme1 = {
+  // The 30%
+  "color-1": "#9c6644",
+  //The 10%
+  "color-2": "#6E5B4B",
+  // The 60%
+  "color-3": "#FBFAF4",
+  "color-4": "#F3EEDD",
+  "color-5": "#e7ddbc",
+
+  dark: false,
+};

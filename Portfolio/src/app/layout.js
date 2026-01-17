@@ -6,16 +6,13 @@ import PropTypes from "prop-types";
 import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { Provider } from "@/components/forStyle/animations/animationContext";
-import { rajdhaniDisplay, rajdhaniBody } from "@/utils/fonts";
+import { Display, Body } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${rajdhaniDisplay.variable} ${rajdhaniBody.variable}`}
-    >
+    <html lang="en" className={`${Display.variable} ${Body.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

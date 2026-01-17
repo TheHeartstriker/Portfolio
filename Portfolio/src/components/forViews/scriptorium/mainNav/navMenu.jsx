@@ -20,10 +20,10 @@ function NavMenu({ article, description, articleClassName }) {
   //Collect all heading Y locations
   function collectHeadingYLocations() {
     const headings = document.querySelectorAll(
-      ".subject-container-article h1, .subject-container-article h2, .subject-container-article h3"
+      ".subject-container-article h1, .subject-container-article h2, .subject-container-article h3",
     );
     const yLocations = Array.from(headings).map(
-      (h) => h.getBoundingClientRect().top + window.scrollY
+      (h) => h.getBoundingClientRect().top + window.scrollY,
     );
     headingRef.current = headings;
     return yLocations;
@@ -97,6 +97,42 @@ function NavMenu({ article, description, articleClassName }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollPoints, screenCross]);
 
+  //
+  // Handle custom scrolling behavior for the table of contents for propagation issues fixes and smooth scrolling
+  //
+  useEffect(() => {
+    const tocElement = document.querySelector(".table-of-contents");
+    if (!tocElement) return;
+
+    const handleWheel = (e) => {
+      const { scrollTop, scrollHeight, clientHeight } = tocElement;
+      const isScrollingDown = e.deltaY > 0;
+      const isScrollingUp = e.deltaY < 0;
+
+      // Check if at bottom and trying to scroll down
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+      // Check if at top and trying to scroll up
+      const isAtTop = scrollTop <= 1;
+
+      // Only prevent default if we can actually scroll in that direction
+      if ((isScrollingDown && !isAtBottom) || (isScrollingUp && !isAtTop)) {
+        e.preventDefault();
+        e.stopPropagation();
+        tocElement.scrollTop += e.deltaY;
+      } else if (
+        (isScrollingDown && isAtBottom) ||
+        (isScrollingUp && isAtTop)
+      ) {
+        // At boundary - don't scroll, don't propagate
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    tocElement.addEventListener("wheel", handleWheel, { passive: false });
+    return () => tocElement.removeEventListener("wheel", handleWheel);
+  }, [showMenu]);
+
   if (!showMenu) return null;
 
   return (
@@ -111,8 +147,6 @@ function NavMenu({ article, description, articleClassName }) {
             : "Unknown"}
         </p>
       </div>
-      {/* Article Topics */}
-      {/*  */}
       <h2>Article Topics</h2>
       <div className="article-topic">
         {description.tags.map((tag, idx) => (

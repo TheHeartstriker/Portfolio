@@ -7,21 +7,20 @@
   background-color: var(--opacity-color-4-5);
   border-radius: 100px;
   position: fixed;
+  top: 50%;
   transform: translateY(-50%);
   right: 5vw;
   z-index: 50;
   overflow: hidden;
-
   /* Glass effect */
   box-shadow: inset 0 0 16px 2px var(--opacity-color-4-5);
   backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
   -webkit-backdrop-filter: brightness(1) blur(2px);
 }
-
 .article-nav-Menu h2 {
   color: var(--font-middle);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: var(--space-1);
 }
 
@@ -46,7 +45,7 @@
 .published-time h3 {
   color: var(--font-high);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: var(--space-2);
 }
 
@@ -54,7 +53,7 @@
   color: var(--color-1);
   font-family: var(--font-display), sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .article-topic {
@@ -72,7 +71,7 @@
   -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 .article-topic h3 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.75rem;
 }
 
@@ -81,8 +80,9 @@
   flex-direction: column;
   align-items: center;
   width: 80%;
-  height: auto;
+  min-height: 0;
   overflow-y: auto;
+  margin-bottom: var(--space-4);
   scrollbar-width: none;
 }
 
@@ -122,7 +122,7 @@
 .toc-item h3 {
   font-size: 0.75rem;
   margin: var(--space-1);
-  font-weight: 600;
+  font-weight: 500;
 }
 /* These are the smaller widths given to smaller headings levels */
 .toc-item.medium {

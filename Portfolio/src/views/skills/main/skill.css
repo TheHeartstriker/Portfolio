@@ -60,7 +60,7 @@
 }
 .blue-pill h4 {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 .blue-pill.hovered {
   background-color: var(--opacity-color-1-6);
@@ -101,6 +101,7 @@
 
 .folder h6 {
   font-size: 2rem;
+  font-weight: 600;
   font-family: var(--font-display), sans-serif;
   color: var(--color-2);
   margin: var(--space-1);
@@ -197,6 +198,7 @@
 
 .separator h2 {
   font-size: 3rem;
+  font-weight: 700;
   margin: var(--space-3);
   color: var(--color-1);
   filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
@@ -204,6 +206,7 @@
 
 .separator h3 {
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .separator hr {
