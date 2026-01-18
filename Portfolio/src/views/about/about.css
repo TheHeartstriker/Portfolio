@@ -89,10 +89,12 @@
   margin: 0;
   margin-left: auto;
   padding: var(--space-2);
-  background-color: var(--opacity-color-4-5);
+  background-color: var(--opacity-color-1-5);
   font-family: var(--font-display);
   color: var(--color-2);
-  transition: 0.5s filter ease-in-out, 0.5s font-size ease-in-out;
+  transition:
+    0.5s filter ease-in-out,
+    0.5s font-size ease-in-out;
   cursor: pointer;
   animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
