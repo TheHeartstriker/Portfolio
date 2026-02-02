@@ -53,8 +53,6 @@
   font-size: 2.25rem;
   color: var(--color-1);
   font-weight: 600;
-  filter: drop-shadow(0 0 5px var(--opacity-color-1-6));
-  animation: fadeUpEnter0-30 0.7s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
   margin: 0;
 }
 
@@ -65,8 +63,6 @@
   line-height: 1;
   position: relative;
   left: -5px; /* Shifts left by 50px */
-  animation: fadeUpEnterBigText0-30 0.9s forwards
-    cubic-bezier(0.55, 0.085, 0.68, 0.53);
   margin: 0;
   margin-top: var(--space-1);
   margin-bottom: var(--space-2);
@@ -78,7 +74,6 @@
   color: var(--font-low);
   font-family: var(--font-body), sans-serif;
   margin: 0;
-  animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
 .i-am-container button {
@@ -92,11 +87,8 @@
   background-color: var(--opacity-color-1-5);
   font-family: var(--font-display);
   color: var(--color-2);
-  transition:
-    0.5s filter ease-in-out,
-    0.5s font-size ease-in-out;
+
   cursor: pointer;
-  animation: fadeUpEnter0-30 1.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
   /* Glass effect */
   box-shadow: inset 0 0 16px 2px var(--opacity-color-2-2);
@@ -109,10 +101,6 @@
   height: 70%;
   stroke: var(--color-2);
   margin: auto;
-}
-
-.i-am-container button:hover {
-  filter: drop-shadow(0 0 15px var(--opacity-color-2-9));
 }
 
 /* For mobile stuff */

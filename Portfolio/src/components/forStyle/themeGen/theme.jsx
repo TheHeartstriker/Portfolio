@@ -48,9 +48,9 @@ function generateCSSString(colors, isDark) {
     cssString += `  --font-middle: #c5c5c5;\n`;
     cssString += `  --font-low: #969696;\n`;
   } else {
-    cssString += `  --font-high: #131313ff;\n`;
-    cssString += `  --font-middle: #3a3a3a;\n`;
-    cssString += `  --font-low: #696969;\n`;
+    cssString += `  --font-high: #181818;\n`;
+    cssString += `  --font-middle: #2F2F2F;\n`;
+    cssString += `  --font-low: #5F5F5F;\n`;
   }
 
   cssString += "}\n";

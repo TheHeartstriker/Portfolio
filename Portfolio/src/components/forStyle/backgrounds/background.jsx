@@ -83,7 +83,7 @@ function Background() {
         HeightMove + i * SquareGridSize,
         backgroundRef.current.width,
         HeightMove + i * SquareGridSize,
-        SquareLine
+        SquareLine,
       );
     }
 
@@ -95,7 +95,7 @@ function Background() {
         0,
         i * SquareGridSize,
         backgroundRef.current.height,
-        SquareLine
+        SquareLine,
       );
     }
   }
@@ -123,24 +123,27 @@ function Background() {
           backgroundRef.current.width,
           i * SquareGridSize,
           SquareLine,
-          750
+          750,
         );
       }, i * 50);
     }
 
     for (let i = GridWidth; i >= 0; i--) {
-      setTimeout(() => {
-        drawLineAnimated(
-          backgroundCtx,
-          colorRef,
-          i * SquareGridSize,
-          0,
-          i * SquareGridSize,
-          backgroundRef.current.height,
-          SquareLine,
-          750
-        );
-      }, (GridWidth - i) * 50);
+      setTimeout(
+        () => {
+          drawLineAnimated(
+            backgroundCtx,
+            colorRef,
+            i * SquareGridSize,
+            0,
+            i * SquareGridSize,
+            backgroundRef.current.height,
+            SquareLine,
+            750,
+          );
+        },
+        (GridWidth - i) * 50,
+      );
     }
     console.log(maxTimeout);
 
@@ -173,7 +176,7 @@ function Background() {
           0,
           0,
           backgroundRef.current.width,
-          backgroundRef.current.height
+          backgroundRef.current.height,
         );
         drawRadial(cursorCtx, colorRef, Mouse.current.x, Mouse.current.y);
       }

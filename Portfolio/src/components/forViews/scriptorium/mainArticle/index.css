@@ -43,7 +43,6 @@
   font-weight: 700;
   font-family: var(--font-display), monospace;
   color: var(--color-1);
-  filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
 /* Secondary headings */

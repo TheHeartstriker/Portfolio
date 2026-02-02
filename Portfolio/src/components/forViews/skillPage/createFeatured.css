@@ -8,7 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color ease-out 1s, color ease-out 1s;
+  transition:
+    background-color ease-out 1s,
+    color ease-out 1s;
   background-color: var(--opacity-color-4-5);
   /* For glass effect */
   box-shadow: inset 0 0 8px 1px var(--opacity-color-4-5);
@@ -68,7 +70,6 @@
   margin: 0;
   font-weight: 600;
   color: var(--color-1);
-  filter: drop-shadow(0 0 10px var(--opacity-color-1-6));
 }
 
 .app-header h5 {
@@ -213,10 +214,14 @@
     width: 100%;
   }
 
+  .app-header h5 {
+    color: whitesmoke;
+  }
+
   .app-para {
     width: 100%;
     right: 0%;
-    height: 40%;
+    height: 35%;
   }
 
   .app-f {
@@ -228,6 +233,15 @@
     justify-content: flex-end;
     margin-left: auto;
     width: 75%;
+    height: 40%;
+  }
+
+  .app-header {
+    height: 25%;
+  }
+
+  .app-skills > * {
+    flex-basis: 40%;
   }
 
   .app-skills.mirror {
@@ -273,11 +287,20 @@
   .app-skills {
     width: 85%;
   }
+
+  .app-header h5 {
+    margin-top: var(--space-1);
+  }
 }
 
 @media (max-height: 750px) {
   .app-f {
     width: 90lvw;
-    height: 95lvh;
+    height: 100lvh;
+  }
+
+  .logo-container {
+    width: 4rem;
+    height: 4rem;
   }
 }
