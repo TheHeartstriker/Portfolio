@@ -45,21 +45,31 @@ Now lastly something I strugled with when starting is color relationship's like 
 
 ## What a design needs
 
-We have our primarly's but we have yet to make shade's and truly pick the exact color we want. But first there is a few rule's, system's and guidlines we will use when finalizng our color that I want to go over.
+We have our primarly's but we have yet to make shade's and truly pick the exact color we want. But first there is a few rule's, system's and guidlines we will use when finalizng our color that I want to go over. Understanding these will also show you how to apply color's in a website.
 
 ### Readablity and Contrast
 
-First readablity. This mean's your accent's colors and text color's must be easily visable we placed over your backgrond color or color's. Before we move on let's go over text color's in 90% of all cases these are two or three shade's of white or black depending on weather you are making a light or dark scheme you use multiple because you want often want to empithise or dempithise certain text.
-
-Giving a quick example if we chose a light scheme and the background color is white. First our text color's two shade's of black naturally contrast well. But! Accent's are also often used as text color's for important heading's. So your accents must be clearly visable above your background. There is even a scale for this called [WAG](https/) but remember only your accent's and text color compared to your background must pass WAG.
+First readablity. This mean's your accent's colors and text color's must be easily visable when placed over your backgrond color or color's. Giving a quick example say we chose a light scheme and the background color is white. First our text color's would be two shade's of black naturally contrast well. But! Accent's are also often used as text color's for important heading's. So your accents must be clearly visable above your background. There is even a scale for this called [WAG](https/) but remember only your accent's and text color compared to your background must pass WAG.
 
 ### Hierarchy
 
-If there is one word to encompase how to make a good website its higherarchy. And of course this encompases color's as well and is something we should prorities when picking color's. Now the based way to do this is through depth/elevation and rarity/balance.
+If there is one word to encompase how to make a good design its higherarchy. And of course this encompases color's as well and is something we should understand when picking color's and applying them. Now the most important thing to understand is depth/elevation and balance
 
-Lets first discuse rarity and balance many site's follow a rule system called the 60/30/10 rule. Where 60% of the site is one color 30% is another and the last is 10%. Usually the 60% is the background and the 30 and 10 are your accent's using this balance's allowing attention to flow naturally the user will naturally know feel the flow of importance 60% is duller less rare and is low in herarchy drawing less attention the your 30% and 10%. But there are few things to keep in mind first for example 60% does not specfically need to be one color it can be a shade's of very similar color's.
+Now first let's discuse balance. Consitncy is also one of the most important thing's in design and knowing when to use color is important if you use to much of a accent or to little your entire website can seem unbalnced either in that its bland and not impactful or to impactful both of these cases attention is not flowing where you want it. User's ignore your heading's or call to actions because they don't pop out. Even if you chose great accent's and background color's and shade's this can still happen. And the best way to avoid it is to follow a rule or idea called the 60/30/10 rule. This is all about percentage's of color 60% of your website is your background and the 30% and 10% are your two accent's. Following something like this can make sure your color's, page's, buttons, heading's are impactful.
 
-Now contrast and depth. This idea's is taken from materialy UI and is very similar to the last section. In that more important elements should feel closer to the user.
+Now onto elevation. This is something in material UI where more important item's should feel closer to the user there is many way's to do this. But here its about making sure out color's increase in elevation our background shade's and subsequent accent's feel closer and bigger then there previous shade's. Making sure of this let's use further define out hierarchy where we have less intense color's and more intense all balanced by out 60/30/10 rule.
+
+## Creating a pallete
+
+We have picked our color's and defined what rule's they need to follow so now lets actual pick shade's.
+
+### Background shade's
+
+Now backgrounds are a large portion of our website since we are following the 60/30/10 rule they are around 60%. But again that 60% does not need to be a single color so lets make a few tan shade's. First we want tan so I found E6DAB3 its nice it has a old paper look and follow's our theme. But say we want a card to sit above this tan but we don't want to use our accent's because perhap's it will violate the 60/30/10 rule or maybe it just does not look good. For this we create shade's atleast three color's that are whiter then out current color but not two different that they seem like a completly diffenrt color. So we use HSL and decrease lightness by 7 percent twice to get two more color's getting these three F7F5E9, EFE8D2 and E6DAB3.
+
+![Color Shades](/)
+
+And now we have our background it subtle and fit's while being balanced and netural. We can even flip this currently the darkest shade is the main background then lighter shade's can sit ontop but there is no problem doing the reverse either it's still balanced follow's our rule's and they subtly stand out.
 
 Introduction
 The Psychology of Color | How are mental works with color's and some basic color thoery
