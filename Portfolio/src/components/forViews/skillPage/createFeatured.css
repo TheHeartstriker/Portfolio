@@ -11,9 +11,8 @@
   transition:
     background-color ease-out 1s,
     color ease-out 1s;
-  background-color: var(--opacity-color-4-5);
+  background-color: var(--color-4);
   /* For glass effect */
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-4-5);
   backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
   -webkit-backdrop-filter: brightness(1) blur(2px);
 }
@@ -25,7 +24,6 @@
   z-index: -1;
   overflow: hidden;
   border-radius: 100px;
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-4-5);
 }
 
 .blue-pill-2 h5 {
@@ -93,11 +91,8 @@
   font-size: 1.25rem;
   color: var(--font-middle);
   font-family: var(--font-body), sans-serif;
-  background-color: var(--opacity-color-3-5);
+  background-color: var(--color-3);
   /* For glass effect double inset due to size */
-  box-shadow: inset 0 0 16px 2px var(--opacity-color-3-5);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
   transition: color ease-in-out 0.5s;
 }
 

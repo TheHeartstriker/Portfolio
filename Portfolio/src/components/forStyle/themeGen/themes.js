@@ -44,16 +44,29 @@ export const autumnTheme = {
 
   dark: true,
 };
-//Try flipping
+
+// export const professionalTheme1 = {
+//   // The 30%
+//   "color-1": "#7A4F35",
+//   //The 10%
+//   "color-2": "#635147",
+//   // The 60%
+//   "color-3": "#F4EDD7",
+//   "color-4": "#EEE4C4",
+//   "color-5": "#E8DBB0",
+
+//   dark: false,
+// };
+
 export const professionalTheme1 = {
   // The 30%
-  "color-1": "#7A4F35",
+  "color-1": "#9C6644",
   //The 10%
-  "color-2": "#635147",
+  "color-2": "#6E5B4B",
   // The 60%
-  "color-3": "#F5F3E5",
-  "color-4": "#ECE6CA",
-  "color-5": "#e3d6ab",
+  "color-3": "#F5EED6",
+  "color-4": "#EFE5C3",
+  "color-5": "#EADCAE",
 
   dark: false,
 };
