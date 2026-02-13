@@ -4,7 +4,7 @@
   align-items: center;
   width: 15%;
   height: 85%;
-  background-color: var(--opacity-color-4-5);
+  background-color: var(--color-4);
   border-radius: 100px;
   position: fixed;
   top: 50%;
@@ -12,10 +12,6 @@
   right: 5vw;
   z-index: 50;
   overflow: hidden;
-  /* Glass effect */
-  box-shadow: inset 0 0 16px 2px var(--opacity-color-4-5);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 .article-nav-Menu h2 {
   color: var(--font-middle);
@@ -28,7 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--opacity-color-3-5);
+  background-color: var(--color-3);
   border-top-left-radius: 75px;
   border-top-right-radius: 75px;
   border-bottom-left-radius: 15px;
@@ -36,10 +32,6 @@
   padding: var(--space-1);
   margin-top: var(--space-2);
   width: 80%;
-  /* Glass effect */
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-3-5);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 
 .published-time h3 {
@@ -59,16 +51,12 @@
 .article-topic {
   color: var(--color-1);
   width: 80%;
-  background-color: var(--opacity-color-3-5);
+  background-color: var(--color-3);
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 50px;
-  /* Glass effect */
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-3-5);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 .article-topic h3 {
   font-weight: 500;
@@ -93,7 +81,7 @@
 .toc-item {
   color: var(--color-1);
   width: 100%;
-  background-color: var(--opacity-color-3-5);
+  background-color: var(--color-3);
   display: flex;
   flex-direction: column;
   border-radius: 50px;
@@ -101,10 +89,6 @@
   letter-spacing: 0.05em;
   transition: background-color 0.6s ease-in-out;
   cursor: pointer;
-  /* Glass effect */
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-3-5);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
 }
 
 .toc-item:hover {

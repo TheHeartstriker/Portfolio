@@ -38,7 +38,7 @@
   padding: var(--space-3);
   gap: var(--space-5);
   z-index: 5;
-  background-color: var(--color-3);
+  background-color: var(--color-4);
 }
 .footer-bottom-section {
   width: 100%;
@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-4);
+  background-color: var(--color-3);
 }
 
 .footer-bottom-section h4 {
@@ -71,7 +71,7 @@
     transparent 69%,
     black 71%
   );
-  background-color: var(--color-3);
+  background-color: var(--color-4);
 }
 /* Settings for each corner square */
 .corner-square:nth-child(2) {
@@ -127,7 +127,7 @@
     background-color 0.75s ease,
     color 0.75s ease;
   cursor: pointer;
-  background-color: var(--color-5);
+  background-color: var(--color-3);
 }
 .footer-blue-pill h5 {
   color: var(--font-middle);
