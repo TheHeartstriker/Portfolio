@@ -42,9 +42,9 @@
   height: 72px;
   margin: 0;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: var(--color-1);
-  color: var(--font-high);
+  color: var(--color-4);
   display: flex;
   font-size: 0.75rem;
   justify-content: center;
@@ -59,6 +59,14 @@
     box-shadow 0.4s ease-in-out;
 
   z-index: 15;
+}
+
+.nav-indicator {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--color-1);
+  position: absolute;
 }
 
 .button a {

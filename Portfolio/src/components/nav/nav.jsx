@@ -13,22 +13,14 @@ function Nav() {
   const pathname = usePathname();
   const current = useRef("About");
   const heightRef = useRef(45);
-  //Creates the spans for the buttons
+  //Creates the div for the buttons
   function BoxElements() {
     const container = containerRef.current;
-    // Create 40 span elements, append them and give them a movement delays
+    // Create a single div element
     if (container) {
-      for (let i = 0; i < heightRef.current; i++) {
-        let span = document.createElement("span");
-        container.appendChild(span);
-        // Get the current top value from CSS
-        let currentTop = parseFloat(window.getComputedStyle(span).top) || 0;
-        // Pushes each element slightly down
-        span.style.top = `${currentTop + i + 1}px`;
-        // Random delay
-        let ranDelay = Math.random() * 0.35;
-        span.style.transitionDelay = ranDelay + "s";
-      }
+      let div = document.createElement("div");
+      div.className = "nav-indicator";
+      container.appendChild(div);
     }
   }
 
@@ -42,8 +34,9 @@ function Nav() {
     };
   }
 
-  function newSpanMover(buttonRect) {
-    const spans = containerRef.current.querySelectorAll("span");
+  function newSpanMover(buttonRect, buttonName) {
+    const div = containerRef.current.querySelector(".nav-indicator");
+    if (!div) return;
 
     // Find the midpoint of the button (left + half of width)
     const buttonMidpoint = buttonRect.left + buttonRect.width / 2;
@@ -52,12 +45,20 @@ function Nav() {
     const containerLeft = location.current.Container.left;
 
     // Calculate the position relative to the container
-    // We need to center the spans (45px wide) on the button midpoint
-    const spanWidth = spans[0] ? spans[0].offsetWidth : 45;
-    const relativeX = buttonMidpoint - containerLeft - spanWidth / 2;
+    // We need to center the div on the button midpoint
+    const divWidth = div.offsetWidth || 45;
+    const relativeX = buttonMidpoint - containerLeft - divWidth / 2;
 
-    spans.forEach((span) => {
-      span.style.transform = `translateX(${relativeX}px)`;
+    // Use different easing for About and Contact to prevent off-screen overshoot
+    const easing =
+      buttonName === "About" || buttonName === "Contact"
+        ? "power4.out"
+        : "back.out";
+
+    gsap.to(div, {
+      x: relativeX,
+      duration: 2,
+      ease: easing,
     });
   }
 
@@ -109,7 +110,7 @@ function Nav() {
         heightRef.current = 40;
       }
       locationFill();
-      newSpanMover(location.current[current.current]);
+      newSpanMover(location.current[current.current], current.current);
     }
     window.addEventListener("resize", handleResize);
     // Initial fill in case of resize before mount
@@ -126,7 +127,7 @@ function Nav() {
 
     current.current = active;
     if (location.current[active]) {
-      newSpanMover(location.current[active]);
+      newSpanMover(location.current[active], active);
     }
   }, [pathname]);
   return (
