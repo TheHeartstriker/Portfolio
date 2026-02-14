@@ -5,9 +5,9 @@
   --spring-theme-color-5: #081c15;
   --autumn-theme-color-5: #160c06;
   /* Main colors */
-  --spring-theme-color-1: #00d66b;
-  --winter-theme-color-1: #00abd6;
   --summer-theme-color-1: #e87a00;
+  --winter-theme-color-1: #00abd6;
+  --spring-theme-color-1: #00d66b;
   --autumn-theme-color-1: #ed6d12;
 }
 /*  */
@@ -136,7 +136,9 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  transition: background-color 0.75s ease, color 0.75s ease;
+  transition:
+    background-color 0.75s ease,
+    color 0.75s ease;
   cursor: pointer;
   background-color: var(--opacity-color-1-2);
   backdrop-filter: blur(2px);

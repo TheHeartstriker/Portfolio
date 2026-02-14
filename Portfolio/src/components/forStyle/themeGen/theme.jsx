@@ -21,10 +21,12 @@ function generateCSSString(colors, isDark) {
     if (hsl) {
       // Set base color as hsl
       cssString += `  --color-${colorNum}: hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%);\n`;
+      // Adjust graph lines for dark mode
       if (colorNum === "5" && isDark) {
         cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 10}%, ${
           hsl.l + 5
         }%);\n`;
+        // Adjust graph lines for light mode
       } else if (colorNum === "5" && !isDark) {
         cssString += `  --graph-lines: hsl(${hsl.h}, ${hsl.s - 24}%, ${
           hsl.l - 13

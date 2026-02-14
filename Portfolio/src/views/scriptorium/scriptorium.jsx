@@ -5,6 +5,7 @@ import {
   desFlowField,
   desBackendLookLike,
   desHoverCards,
+  desColor,
 } from "./articles/articleDes.js";
 import { ScriptCard } from "../../components/forViews/scriptorium/scriptCard.jsx";
 import PillAnimation from "@/components/forStyle/animations/pillAnimation.jsx";
@@ -57,6 +58,10 @@ function Scriptorium() {
           <ScriptCard
             articleDes={desMappingFullstack}
             link={"/scriptorium/mapping-fullstack"}
+          />
+          <ScriptCard
+            articleDes={desColor}
+            link={"/scriptorium/how-to-color"}
           />
         </div>
       </div>
