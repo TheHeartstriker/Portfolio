@@ -145,11 +145,11 @@
 .logo-container svg {
   width: 100%;
   height: 100%;
-  stroke: var(--color-1);
+  stroke: var(--color-2);
   cursor: pointer;
 }
 .logo-github svg path {
-  fill: var(--color-1);
+  fill: var(--color-2);
 }
 
 /* Main app container */

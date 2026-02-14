@@ -45,24 +45,11 @@ export const autumnTheme = {
   dark: true,
 };
 
-// export const professionalTheme1 = {
-//   // The 30%
-//   "color-1": "#9C6644",
-//   //The 10%
-//   "color-2": "#6E5B4B",
-//   // The 60%
-//   "color-3": "#F5EED6",
-//   "color-4": "#EFE5C3",
-//   "color-5": "#EADCAE",
-
-//   dark: false,
-// };
-
 export const professionalTheme1 = {
   // The 30%
   "color-1": "#83563A",
   //The 10%
-  "color-2": "#6E5B4B",
+  "color-2": "#674C47",
   // The 60%
   "color-3": "#F7F1DE",
   "color-4": "#F0E6C7",
