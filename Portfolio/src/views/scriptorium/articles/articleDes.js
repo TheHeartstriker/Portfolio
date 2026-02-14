@@ -63,11 +63,11 @@ export const desHoverCards = {
 };
 
 export const desColor = {
-  title: "How to Choose Color When Designing a Website",
+  title: "How to Choose Colors When Designing a Website",
   tags: ["Design", "Web Development"],
-  date: { day: 12, month: "February", year: 2025 },
-  des: `This article is going to cover colors! Specifically, how to choose them when making a website, 
-  and how to choose them in a way that allows you to follow feelings, themes, and ideas like calm, trust-generating, elegance, playful, or professional. 
-  Furthermore, the goal is to showcase how to choose colors that work with real design philosophies, systems, and rules like Material UI, WCAG, and more.`,
-  image: "/scriptorium/thumb/CardThumb.webp",
+  date: { day: 13, month: "February", year: 2025 },
+  des: `This article is going to cover colors - specifically, how to choose them when designing a website,
+   and how to select them in a way that aligns with feelings, themes, and ideas like calm, trust, elegance, playfulness, or professionalism. 
+   Furthermore, the goal is to demonstrate how to choose colors that work within real design philosophies, systems, and standards such as Material UI, WCAG, and more.`,
+  image: "/scriptorium/thumb/thumb5.webp",
 };

@@ -1,28 +1,28 @@
 export const metadata = {
   metadataBase: new URL("https://www.kadenwildauer.com/"),
-  title: "How to Choose Color When Designing a Website",
+  title: "How to Choose Colors When Designing a Website",
   description: `A detailed article about how to choose colors when designing a website, covering design principles, color theory, and practical tips. Along with examples and when and how to apply them.`,
 
   openGraph: {
-    title: "How to Choose Color When Designing a Website",
+    title: "How to Choose Colors When Designing a Website",
     description:
       "A detailed article about how to choose colors when designing a website...",
     url: "https://www.kadenwildauer.com/scriptorium/how-to-color",
     images: [
       {
-        url: "/scriptorium/mapArticle/Map3.png",
+        url: "/scriptorium/thumb/thumb5.webp",
         width: 1200,
         height: 630,
-        alt: "Mapping Fullstack Example",
+        alt: "How to Choose Colors When Designing a Website",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Choose Color When Designing a Website",
+    title: "How to Choose Colors When Designing a Website",
     description:
       "A detailed article about how to choose colors when designing a website...",
-    images: ["/scriptorium/mapArticle/Map3.png"],
+    images: ["/scriptorium/thumb/thumb5.webp"],
   },
   robots: "index, follow",
 };

@@ -1,6 +1,6 @@
-# How to Choose Color When Designing a Website
+# How to Choose Colors When Designing a Website
 
-This article is going to cover colors! Specifically, how to choose them when making a website, and how to choose them in a way that allows you to follow feelings, themes, and ideas like calm, trust-generating, elegance, playful, or professional. Furthermore, the goal is to showcase how to choose colors that work with real design philosophies, systems, and rules like Material UI, WCAG, and more.
+This article is going to cover colors - specifically, how to choose them when designing a website, and how to select them in a way that aligns with feelings, themes, and ideas like calm, trust, elegance, playfulness, or professionalism. Furthermore, the goal is to demonstrate how to choose colors that work within real design philosophies, systems, and standards such as Material UI, WCAG, and more.
 
 ## How to Pick Colors
 
@@ -33,7 +33,7 @@ Well, we know we want white, but let’s add yellow, giving us a tan or ivory co
 
 ### Basic Color Theory
 
-Before we take our colors into the next section, let’s talk about color theory. What I am going to go over here is warm vs. cold, color systems, consistency, and common pitfalls thing's that will help you in the next section.
+Now before we take our colors into the next section, let’s talk about color theory. What I am going to go over here is warm vs. cold, color systems, consistency, and common pitfalls thing's that will help you in the next section.
 
 First, let’s go over warm vs. cold colors. There are many use cases in understanding warm and cold colors; for example, the separation of colors into cold and warm alone cuts your millions of choices in half. It can help you feel the difference between something like deep purple and light purple. It can also help with understanding contrast as well, as warm colors often stand out on top of colder colors and vice versa. So how can you tell what’s colder or warmer? Well, in most cases, you can just see how warm something is based on its blue vs. red. If a color has more red, it’s warmer; if it has more blue, it’s colder. This also, of course, affects some of the emotions a color gives off. You can infer that even an exciting color like yellow, which is a color close to red, can be “colder” than another yellow if it has more blue in it, and as such, that color would feel more prominent next to each other.
 
@@ -47,7 +47,7 @@ Now lastly, something I struggled with when starting is color relationships like
 
 ## What a Design Needs
 
-Now that we've picked based on feeling, let's make sure they actually work on a site. As such there are a few rules, systems, and guidelines we will use when finalizing our colors that I want to go over. Understanding these will also show you, somewhat, how to apply colors to a website.
+Now that we've picked some colors, let's make sure they actually work on a site. As such there are a few rules, systems, and guidelines we will use when finalizing our colors that I want to go over. Understanding these will also show you, somewhat, how to apply colors to a website.
 
 ### Readablity and Contrast
 
