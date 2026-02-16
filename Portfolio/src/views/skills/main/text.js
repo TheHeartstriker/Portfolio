@@ -13,7 +13,7 @@ export const TechStacks = [
   "Azure",
   "Aws",
   "Figma",
-  "WebAssembly",
+  "WebAsm",
 ];
 
 export const UsedTechApp1 = [
@@ -21,14 +21,14 @@ export const UsedTechApp1 = [
   "JavaScript",
   "HTML Canvas",
   "C++",
-  "WebAssembly",
+  "WebAsm",
   "Azure",
 ];
 
 export const UsedTechApp2 = [
   "HTML/CSS",
-  "MySQL/Express",
-  "Node.js",
+  "MySQL",
+  "Express",
   "React.js",
   "JavaScript",
   "Ec2/AWS",
@@ -36,8 +36,8 @@ export const UsedTechApp2 = [
 
 export const UsedTechApp3 = [
   "HTML/CSS",
-  "MySQL/Express",
-  "Node.js",
+  "MySQL",
+  "Express",
   "React.js",
   "TypeScript",
   "Ec2/AWS",

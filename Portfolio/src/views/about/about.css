@@ -29,15 +29,14 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 /* Container for the glowing text element */
 .i-am-container {
   display: flex;
-  position: absolute;
-  top: 25%;
-  left: 0;
-  right: 0;
+  position: relative;
   margin: 0 auto;
   justify-content: center;
   align-items: flex-start;
@@ -69,8 +68,8 @@
 }
 
 .i-am-container p {
-  font-size: 1.5rem;
-  width: 85%;
+  font-size: 1.25rem;
+  width: 90%;
   color: var(--font-middle);
   font-family: var(--font-body), sans-serif;
   margin: 0;
@@ -136,7 +135,7 @@
 .mobile-intro p {
   margin: var(--space-2) 0;
   font-size: 1.25rem;
-  font-family: "Exo 2", sans-serif;
+  font-family: var(--font-body), sans-serif;
   line-height: 1.3;
   color: var(--font-middle);
 }
@@ -154,49 +153,20 @@
 }
 
 @media (max-width: 800px) {
-  /* Decrease of 20% */
-  .i-am-container h1 {
-    font-size: 1.8rem;
-  }
-
-  .i-am-container h2 {
-    font-size: 4.8rem;
-  }
-
-  .i-am-container p {
-    font-size: 1.2rem;
-  }
-
-  .i-am-container button {
-    font-size: 1rem;
-  }
-
-  .mobile-intro h4 {
-    font-size: 2rem;
-  }
-
+  /* Decrease by 10% */
   .mobile-intro p {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
-
-  .i-am-container button {
-    width: 5rem;
-    height: 5rem;
+  .i-am-container p {
+    font-size: 1.125rem;
   }
-}
-
-@media (max-height: 800px) {
-  /* 30% decrease for ultra small phones */
+  /* Decrease by 30% */
   .i-am-container h1 {
     font-size: 1.575rem;
   }
 
   .i-am-container h2 {
     font-size: 4.2rem;
-  }
-
-  .i-am-container p {
-    font-size: 1.05rem;
   }
 
   .i-am-container button {
@@ -207,7 +177,22 @@
     font-size: 1.75rem;
   }
 
+  .i-am-container button {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .i-am-container h2 {
+    font-size: 3.8rem;
+  }
+}
+@media (max-height: 700px) {
   .mobile-intro p {
-    font-size: 0.875rem;
+    font-size: 1rem;
+  }
+  .i-am-container p {
+    font-size: 1rem;
   }
 }

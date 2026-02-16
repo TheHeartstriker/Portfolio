@@ -49,7 +49,7 @@ Now lastly, something I struggled with when starting is color relationships like
 
 Now that we've picked some colors, let's make sure they actually work on a site. As such there are a few rules, systems, and guidelines we will use when finalizing our colors that I want to go over. Understanding these will also show you, somewhat, how to apply colors to a website.
 
-### Readablity and Contrast
+### Readability and Contrast
 
 First, readability. This means your accent colors and text colors must be easily visible when placed over your background color or colors. Giving a quick example: say we choose a light scheme and the background color is white. First, our text colors would be two shades of black, naturally contrasting well. But accents are also often used as text colors for important headings, so your accents must be clearly visible above your background. There is even a scale for this called [WCAG](https://webaim.org/resources/contrastchecker/), but remember only your accents and text colors compared to your background must pass WCAG.
 
@@ -71,7 +71,7 @@ So we have picked our colors and defined what rules they need to follow, now let
 
 Backgrounds are a large portion of our website; since we are following the 60/30/10 rule, they are around 60%. But again, that 60% does not need to be a single color, so let’s make a few tan shades. But before getting into that, let’s go into the process of actually finding shades - we can’t just materialize a tan out of thousands of possibilities. So for most color picking and editing, I am again using [Coolors](https://coolors.co/?home) to find promising options.
 
-We want tan/ivory, so I found EADCAE on Coolors. It’s nice; it has an old paper look and follows our theme. But say we want a card to sit above this tan, and we don’t want to use our accents because perhaps it will violate the 60/30/10 rule, or maybe it just does not look right. And because of this, we will create mulitple shades - at least three colors that are whiter than our current color but not too different that they seem like a completely different color, because that would violate the 60/30/10 rule. So we use HSL and decrease lightness by 5 percent twice to get two more colors, getting these three: F5EED6, EFE5C3, and EADCAE.
+We want tan/ivory, so I found EADCAE on Coolors. It’s nice; it has an old paper look and follows our theme. But say we want a card to sit above this tan, and we don’t want to use our accents because perhaps it will violate the 60/30/10 rule, or maybe it just does not look right. And because of this, we will create multiple shades - at least three colors that are whiter than our current color but not too different that they seem like a completely different color, because that would violate the 60/30/10 rule. So we use HSL and decrease lightness by 5 percent twice to get two more colors, getting these three: F5EED6, EFE5C3, and EADCAE.
 
 ![Background colors](/scriptorium/colorArticle/backgroundColors.webp)
 
