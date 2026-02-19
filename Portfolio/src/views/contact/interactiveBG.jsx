@@ -88,7 +88,11 @@ function InteractiveBG() {
   }
 
   function InitData() {
-    for (let i = 0; i < 15; i++) {
+    let amount = 12;
+    if (window.innerHeight < 750) {
+      amount = 8;
+    }
+    for (let i = 0; i < amount; i++) {
       ObjectData.current.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
@@ -135,13 +139,13 @@ function InteractiveBG() {
 
       let Distance = Math.sqrt(
         Math.pow(data.x - ObjectData.current[i].x, 2) +
-          Math.pow(data.y - ObjectData.current[i].y, 2)
+          Math.pow(data.y - ObjectData.current[i].y, 2),
       );
 
       if (Distance < Radius.current * 2 && Distance > 0) {
         let angle = Math.atan2(
           data.y - ObjectData.current[i].y,
-          data.x - ObjectData.current[i].x
+          data.x - ObjectData.current[i].x,
         );
         let overlap = Radius.current * 2 - Distance;
         let moveX = (Math.cos(angle) * overlap) / 2;
@@ -204,7 +208,7 @@ function InteractiveBG() {
           data.y,
           Radius.current,
           ctx,
-          data.GitOrLi
+          data.GitOrLi,
         );
         return data;
       });

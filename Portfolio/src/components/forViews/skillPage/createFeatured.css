@@ -193,6 +193,7 @@
 }
 
 @media (max-width: 1300px) {
+  /* Decrease by 10% */
   .app-para {
     font-size: 1.125rem;
   }
@@ -285,6 +286,9 @@
 
   .app-header h5 {
     margin-top: var(--space-1);
+  }
+  .blue-pill-2 h5 {
+    font-size: 0.8rem;
   }
 }
 

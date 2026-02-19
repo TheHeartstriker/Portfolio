@@ -152,6 +152,8 @@ function Background() {
     });
   }
 
+  const cursorX = useRef(0);
+  const cursorY = useRef(0);
   useEffect(() => {
     if (!backgroundCtx) return;
     //Scrolling grid
@@ -172,13 +174,19 @@ function Background() {
     function drawCursor() {
       if (!cursorCtx) return;
       function updateCursor() {
+        const speed = 0.2;
+
+        // Update delayed cursor position
+        cursorX.current += (Mouse.current.x - cursorX.current) * speed;
+        cursorY.current += (Mouse.current.y - cursorY.current) * speed;
+
         cursorCtx.clearRect(
           0,
           0,
           backgroundRef.current.width,
           backgroundRef.current.height,
         );
-        drawRadial(cursorCtx, colorRef, Mouse.current.x, Mouse.current.y);
+        drawRadial(cursorCtx, colorRef, cursorX.current, cursorY.current);
       }
       AddMember(updateCursor);
       return () => {

@@ -17,36 +17,41 @@
 .contact h1 {
   color: var(--font-high);
   font-size: 6.5rem;
-  margin-bottom: var(--space-5);
+  margin-bottom: 0;
   font-weight: 700;
   z-index: 5;
 }
 
+.contact p {
+  font-size: 1rem;
+  z-index: 5;
+  margin-top: 0;
+  font-weight: 500;
+
+  margin-bottom: var(--space-5);
+}
+
 .contact button {
   position: relative;
-  background: linear-gradient(to top, var(--color-1) 0%, var(--color-1) 100%);
-  background-size: 100% 0%;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  border: none;
-  background-color: var(--color-2);
+  overflow: hidden;
+
+  background-color: var(--color-3);
   color: var(--font-high);
   width: 35%;
   border: 2px solid var(--color-1);
   height: 6.5vh;
   font-size: 1.25rem;
   border-radius: 50px;
-  transition: background-size 0.6s ease-in-out, color 0.6s ease-in-out,
-    border 0.6s ease-in-out;
   z-index: 10;
   font-family: var(--font-display);
   cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .contact button:hover {
-  background-size: 100% 100%;
-  color: black; /* Change text color for better visibility */
+  background-color: var(--color-2);
 }
+
 #contact-canvas {
   position: absolute;
   top: 0;
@@ -71,12 +76,9 @@
   .contact {
     width: 90%;
   }
-  .contact h1 {
-    width: 90%;
-  }
   /* Font decrerase by 20% */
   .contact h1 {
-    font-size: 5.2rem;
+    font-size: 4.55rem;
   }
   .contact button {
     font-size: 1rem;

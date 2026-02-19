@@ -8,6 +8,7 @@ function Contact() {
         <InteractiveBG />
         <div className="contact">
           <h1>Contact me</h1>
+          <p>If you want something made go ahead and contact me!</p>
           <ContactButton />
         </div>
       </div>
