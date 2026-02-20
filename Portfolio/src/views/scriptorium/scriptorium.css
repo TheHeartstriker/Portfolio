@@ -40,10 +40,8 @@
   font-weight: 600;
   height: 100%;
   text-shadow:
-    0px 4px 5px rgba(0, 0, 0, 0.1),
-    0 0 6px rgba(0, 0, 0, 0.1);
-  /* background: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(2px); */
+    0px 4px 5px rgba(0, 0, 0, 0.075),
+    0 0 6px rgba(0, 0, 0, 0.075);
 }
 
 .scriptorium-intro-body-text {
@@ -89,6 +87,7 @@
 .scriptorium-top-categories h2 {
   font-size: 2.5rem;
   color: var(--color-1);
+  font-weight: 600;
   margin: 0;
   margin-bottom: var(--space-2);
   text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
@@ -146,7 +145,6 @@
   margin: 0;
   margin-bottom: var(--space-2);
   color: var(--color-1);
-  text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 }
 
 .top-categories-card-count-info {
@@ -183,6 +181,9 @@
   font-size: 2.5rem;
   color: var(--color-1);
   margin: 0;
+  font-weight: 600;
+  text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+
   margin-bottom: var(--space-2);
 }
 

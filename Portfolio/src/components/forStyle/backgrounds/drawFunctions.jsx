@@ -1,10 +1,10 @@
-export function drawLine(ctx, colorRef, x1, y1, x2, y2, lineWidth) {
-  if (!ctx || !colorRef.current) return;
+export function drawLine(ctx, color, x1, y1, x2, y2, lineWidth) {
+  if (!ctx || !color) return;
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
   ctx.lineWidth = lineWidth;
-  ctx.strokeStyle = colorRef.current.lineColor;
+  ctx.strokeStyle = color;
   ctx.shadowBlur = 10;
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = 0;
@@ -13,15 +13,15 @@ export function drawLine(ctx, colorRef, x1, y1, x2, y2, lineWidth) {
 
 export function drawLineAnimated(
   ctx,
-  colorRef,
+  color,
   x1,
   y1,
   x2,
   y2,
   lineWidth,
-  duration
+  duration,
 ) {
-  if (!ctx || !colorRef.current) return;
+  if (!ctx || !color) return;
   const dx = x2 - x1;
   const dy = y2 - y1;
   const startTime = performance.now();
@@ -43,7 +43,7 @@ export function drawLineAnimated(
     ctx.lineTo(x1 + dx * progress, y1 + dy * progress);
 
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = colorRef.current.lineColor;
+    ctx.strokeStyle = color;
     ctx.lineCap = "round";
     ctx.stroke();
 

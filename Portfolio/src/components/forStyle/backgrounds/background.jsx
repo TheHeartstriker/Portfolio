@@ -19,7 +19,7 @@ function Background() {
   //For opening animation
   const { isAnimating, currTheme } = useContext(Context);
   const accelerationDuration = 2500;
-  const targetSpeed = 0.5;
+  const targetSpeed = 0.35;
   const animationStartTimeRef = useRef(null);
 
   // Creates a canvas
@@ -78,7 +78,7 @@ function Background() {
     for (let i = 0; i <= GridHeight; i++) {
       drawLine(
         backgroundCtx,
-        colorRef,
+        colorRef.current.lineColor,
         0,
         HeightMove + i * SquareGridSize,
         backgroundRef.current.width,
@@ -90,7 +90,7 @@ function Background() {
     for (let i = 0; i <= GridWidth; i++) {
       drawLine(
         backgroundCtx,
-        colorRef,
+        colorRef.current.lineColor,
         i * SquareGridSize,
         0,
         i * SquareGridSize,
@@ -117,7 +117,7 @@ function Background() {
       setTimeout(() => {
         drawLineAnimated(
           backgroundCtx,
-          colorRef,
+          colorRef.current.lineColor,
           0,
           i * SquareGridSize,
           backgroundRef.current.width,
@@ -133,7 +133,7 @@ function Background() {
         () => {
           drawLineAnimated(
             backgroundCtx,
-            colorRef,
+            colorRef.current.lineColor,
             i * SquareGridSize,
             0,
             i * SquareGridSize,
@@ -155,7 +155,7 @@ function Background() {
   const cursorX = useRef(0);
   const cursorY = useRef(0);
   useEffect(() => {
-    if (!backgroundCtx) return;
+    if (!backgroundCtx || !colorRef) return;
     //Scrolling grid
     async function startAnimation() {
       if (isAnimating) {
