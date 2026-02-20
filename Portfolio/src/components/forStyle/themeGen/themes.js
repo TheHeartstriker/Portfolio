@@ -49,7 +49,7 @@ export const professionalTheme1 = {
   // The 30%
   "color-1": "#83563A",
   //The 10%
-  "color-2": "#674C47",
+  "color-2": "#674846",
   // The 60%
   "color-3": "#F7F1DE",
   "color-4": "#F0E6C7",
