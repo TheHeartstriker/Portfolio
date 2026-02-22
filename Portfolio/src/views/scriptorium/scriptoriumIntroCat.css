@@ -1,0 +1,341 @@
+/*  */
+/* Main Container */
+/*  */
+.main-scriptorium-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 7.5rem 0;
+  animation: fadeUpEnter75-0 0.9s forwards ease-in-out;
+  gap: var(--space-7);
+}
+/*  */
+/* Intro section */
+/*  */
+.scriptorium-intro {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.scriptorium-intro-text {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: left;
+  margin-bottom: var(--space-5);
+}
+
+.scriptorium-intro-text h1 {
+  font-size: 4rem;
+  color: var(--color-2);
+  margin: 0;
+  padding: 0;
+  width: 60%;
+  font-weight: 600;
+  height: 100%;
+  text-shadow:
+    0px 4px 5px rgba(0, 0, 0, 0.075),
+    0 0 6px rgba(0, 0, 0, 0.075);
+}
+
+.scriptorium-intro-body-text {
+  height: 100%;
+  width: 40%;
+}
+
+.scriptorium-intro-body-text p {
+  font-size: 0.85rem;
+  color: var(--font-middle);
+  margin: 0;
+  margin-bottom: var(--space-2);
+  margin-right: var(--space-5);
+}
+
+.scriptorium-intro img {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
+}
+
+.scriptorium-intro button {
+  border: none;
+  padding: var(--space-2) var(--space-5);
+  border-radius: 100px;
+  background-color: var(--color-2);
+  color: var(--color-4);
+}
+
+.scriptorium-intro-data-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: auto;
+  min-height: 6rem;
+  background-color: var(--color-4);
+  border-radius: 40px;
+  padding: var(--space-3);
+  gap: var(--space-3);
+  margin: 0 auto;
+  top: -3rem;
+}
+
+.scriptorium-intro-data-bar-item {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  width: auto;
+  gap: var(--space-1);
+}
+
+.scriptorium-intro-data-bar-item-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.scriptorium-intro-data-bar-item svg {
+  height: 1rem;
+  aspect-ratio: 1 / 1;
+}
+
+.scriptorium-intro-data-bar-item:nth-child(2) svg path {
+  fill: var(--font-middle);
+}
+
+.scriptorium-intro-data-bar-item:nth-child(4) svg path {
+  fill: var(--font-middle);
+}
+
+.scriptorium-intro-data-bar-item svg path {
+  stroke: var(--font-middle);
+}
+.scriptorium-intro-data-bar-item-text h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-1);
+  font-weight: 500;
+  margin-bottom: var(--space-1);
+}
+
+.scriptorium-intro-data-bar-item p {
+  font-size: 0.85rem;
+  margin: 0;
+  width: auto;
+  margin: 0 auto;
+  color: var(--color-1);
+}
+
+/*  */
+/* Top categories */
+/*  */
+
+.scriptorium-recent-card {
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  background-color: var(--color-4);
+  border-radius: 50px;
+}
+/* Left section */
+.scriptorium-recent-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  gap: var(--space-2);
+  padding: var(--space-2);
+}
+/* Top header */
+.scriptorium-recent-card-content-header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+/* Top header text section */
+/* So top of the left section */
+.scriptorium-recent-card-content-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.scriptorium-recent-card-content-header-text h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--color-1);
+  font-weight: 500;
+}
+
+.scriptorium-recent-card-content-header-text p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--font-middle);
+}
+
+.scriptorium-recent-card-content-header-icon {
+  width: auto;
+  height: 100%;
+  display: flex;
+}
+
+.scriptorium-recent-card-content-header-icon span {
+  /* Height must be same as h2 */
+  height: 2.5rem;
+  background-color: var(--color-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  padding: 0.65rem var(--space-5);
+}
+
+.scriptorium-recent-card-content-header-icon span svg {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+  stroke: var(--color-1);
+  transform: rotate(-90deg);
+}
+/* Bottom section of the left section of the card */
+/* Holds images and categories */
+.scriptorium-recent-card-cat-item {
+  width: 100%;
+  height: auto;
+  padding: var(--space-3) var(--space-2);
+  background-color: var(--color-1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: left;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.scriptorium-recent-card-cat-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.scriptorium-recent-card-cat-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.scriptorium-recent-card-cat-item h3 {
+  font-size: 1rem;
+  color: var(--color-3);
+  z-index: 15;
+}
+
+.scriptorium-recent-card-cat-item-icon {
+  width: fit-content;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.scriptorium-recent-card-cat-item-icon svg {
+  height: 0.85rem;
+  aspect-ratio: 1 / 1;
+  stroke: var(--color-4);
+  z-index: 15;
+}
+.scriptorium-recent-card-cat-item-icon h4 {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--color-4);
+}
+
+.scriptorium-recent-card-cat-item-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Right section */
+.scriptorium-recent-card-articles {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.scriptorium-recent-card-articles-item {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  padding: var(--space-1);
+  justify-content: flex-end;
+  position: relative;
+}
+
+.scriptorium-recent-card-articles-item h3 {
+  font-size: 1rem;
+  color: var(--color-4);
+  margin-bottom: var(--space-1);
+  z-index: 15;
+}
+
+.scriptorium-recent-card-articles-item p {
+  font-size: 0.85rem;
+  color: var(--color-4);
+  z-index: 15;
+  margin: 0;
+}
+
+.scriptorium-recent-card-articles-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.scriptorium-recent-card-articles-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}

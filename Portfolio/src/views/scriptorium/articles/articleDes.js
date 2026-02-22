@@ -6,6 +6,8 @@ export const desParticle = {
   It's a great way to practice fundamentals and improve problem-solving skills because you see the results of your work in real time.
    Although this is just an example/baseline, hopefully, after this, you will have the tools to create anything you want things such as lightning, fire, wind the possibilities are endless.`,
   image: "/scriptorium/thumb/thumb1.webp",
+  wordCount: 1700,
+  readingTime: 1700 / 200,
 };
 
 export const desMappingFullstack = {
@@ -18,6 +20,8 @@ export const desMappingFullstack = {
    The second is logging in, this is a smaller section, but in most fullstack applications, being logged in is fundamental. The third section is common operations, this section is going to go over what happens when someone logs in and is using the application. 
    Where does JWT fit? Cookies? CORS? HTTPS? API calls? And other things that are important to understand when building a fullstack application.`,
   image: "/scriptorium/mapArticle/Map3.webp",
+  wordCount: 2700,
+  readingTime: 2700 / 200,
 };
 
 export const desPolySVG = {
@@ -29,6 +33,8 @@ export const desPolySVG = {
   It can be used as a cool add on for a hero for portfolios, interactive websites, or even in more professional settings if you're feeling like creating something interesting. 
   More specifically, this article is about manipulating a polygon background generated from Haikei, a free SVG pattern and effect generation resource.`,
   image: "/scriptorium/thumb/thumb2.webp",
+  wordCount: 1450,
+  readingTime: 1450 / 200,
 };
 
 export const desFlowField = {
@@ -40,6 +46,8 @@ export const desFlowField = {
     By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. 
    And of course all with diagrams, cool imagery and a live example at the end.`,
   image: "/scriptorium/thumb/thumb3.webp",
+  wordCount: 2600,
+  readingTime: 2600 / 200,
 };
 
 export const desBackendLookLike = {
@@ -49,6 +57,8 @@ export const desBackendLookLike = {
   des: `This article is going to go over the backend! More specifically, what a simple backend looks like, how everything fits together with a database, and most importantly, folder structures.
    We are going to go over each folder of a common backend and discuss why they exist, what they do, what they contain, and how they tie in with the frontend.`,
   image: "/scriptorium/thumb/thumb4.webp",
+  wordCount: 3000,
+  readingTime: 3000 / 200,
 };
 
 export const desHoverCards = {
@@ -60,6 +70,8 @@ export const desHoverCards = {
   The main idea? Adding unique twists to the classic subtle glow where your mouse hovers.
    As usual with my articles, expect imagery, code examples, and a live demo at the end!`,
   image: "/scriptorium/thumb/CardThumb.webp",
+  wordCount: 3000,
+  readingTime: 3000 / 200,
 };
 
 export const desColor = {
@@ -70,4 +82,6 @@ export const desColor = {
    and how to select them in a way that aligns with feelings, themes, and ideas like calm, trust, elegance, playfulness, or professionalism. 
    Furthermore, the goal is to demonstrate how to choose colors that work within real design philosophies, systems, and standards such as Material UI, WCAG, and more.`,
   image: "/scriptorium/thumb/thumb5.webp",
+  wordCount: 2500,
+  readingTime: 2500 / 200,
 };
