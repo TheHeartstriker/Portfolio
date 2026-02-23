@@ -1,26 +1,31 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
-
-export function ScriptCard({ articleDes, link }) {
+import TimeSharp from "../../../../public/icons/time-sharp";
+export function ScriptCard({ articleDes, link, reverse }) {
   return (
-    <div className="script-article">
-      <Link
-        href={link}
-        className="full-link-overlay"
-        aria-label={`Link to the article ${articleDes.title}`}
-      />
+    <div className={`script-article ${reverse ? "reverse" : ""}`}>
       <div className="script-article-img">
+        {articleDes.tags.map((tag, index) => (
+          <span key={index}>
+            <h4>{tag}</h4>
+          </span>
+        ))}
         <img src={articleDes.image} alt={articleDes.title} />
       </div>
       <div className="script-article-info">
-        <h2>{articleDes.title}</h2>
+        <h3>{articleDes.title}</h3>
+        <h4>
+          {articleDes.date.day} {articleDes.date.month} {articleDes.date.year}
+        </h4>
         <p>{articleDes.des}</p>
         <div className="script-article-tags">
-          {articleDes.tags.map((tag, index) => (
-            <span key={index}>
-              <h4>{tag}</h4>
-            </span>
-          ))}
+          <div className="script-article-tags-icon">
+            <TimeSharp />
+            <h4>{articleDes.readingTime}min</h4>
+          </div>
+          <button>
+            <h4>Read article</h4>
+          </button>
         </div>
       </div>
     </div>

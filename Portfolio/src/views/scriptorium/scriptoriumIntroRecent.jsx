@@ -4,10 +4,11 @@ import NumbersIcon from "../../../public/icons/numbers.jsx";
 import CalendarTimeIcon from "../../../public/icons/calendar-time.jsx";
 import TimeSharp from "../../../public/icons/time-sharp.jsx";
 import Arrow from "../../../out/icons/arrow.jsx";
+import "./scriptoriumIntroRecent.css";
 
 import { getTotalWords, getTotalTimeHour } from "./counters.jsx";
 
-function ScriptoriumIntroCat() {
+function ScriptoriumIntroRecent() {
   return (
     <>
       {/*  */}
@@ -147,4 +148,4 @@ function ScriptoriumIntroCat() {
   );
 }
 
-export default ScriptoriumIntroCat;
+export default ScriptoriumIntroRecent;

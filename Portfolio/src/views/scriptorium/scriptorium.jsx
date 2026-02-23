@@ -11,9 +11,8 @@ import {
 import TimeSharp from "../../../public/icons/time-sharp.jsx";
 import { ScriptCard } from "../../components/forViews/scriptorium/scriptCard.jsx";
 import PillAnimation from "@/components/forStyle/animations/pillAnimation.jsx";
-import ScriptoriumIntroCat from "./scriptoriumIntroCat.jsx";
+import ScriptoriumIntroRecent from "./scriptoriumIntroRecent.jsx";
 import Masonry from "react-masonry-css";
-import "./scriptoriumIntroCat.css";
 import "./scriptorium.css";
 
 function Scriptorium() {
@@ -21,7 +20,7 @@ function Scriptorium() {
   return (
     <>
       <div className="main-scriptorium-container">
-        <ScriptoriumIntroCat />
+        <ScriptoriumIntroRecent />
         <PillAnimation tags={tags} />
         <div className="article-container">
           <h2>Articles</h2>
@@ -29,6 +28,7 @@ function Scriptorium() {
             <ScriptCard
               articleDes={desHoverCards}
               link={"/scriptorium/hover-cards"}
+              reverse={true}
             />
             <ScriptCard
               articleDes={desBackendLookLike}
