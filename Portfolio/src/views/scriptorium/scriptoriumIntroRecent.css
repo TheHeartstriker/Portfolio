@@ -123,7 +123,7 @@
 .scriptorium-intro-data-bar-item-text h3 {
   font-size: 1rem;
   margin: 0;
-  color: var(--color-1);
+  color: var(--font-middle);
   font-weight: 500;
   margin-bottom: var(--space-1);
 }
@@ -133,7 +133,7 @@
   margin: 0;
   width: auto;
   margin: 0 auto;
-  color: var(--color-1);
+  color: var(--font-high);
 }
 
 /*  */

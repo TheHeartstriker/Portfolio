@@ -8,6 +8,7 @@ export const desParticle = {
   image: "/scriptorium/thumb/thumb1.webp",
   wordCount: 1700,
   readingTime: 1700 / 200,
+  slug: "/scriptorium/particle",
 };
 
 export const desMappingFullstack = {
@@ -22,6 +23,7 @@ export const desMappingFullstack = {
   image: "/scriptorium/mapArticle/Map3.webp",
   wordCount: 2700,
   readingTime: 2700 / 200,
+  slug: "/scriptorium/mapping-fullstack",
 };
 
 export const desPolySVG = {
@@ -35,6 +37,7 @@ export const desPolySVG = {
   image: "/scriptorium/thumb/thumb2.webp",
   wordCount: 1450,
   readingTime: 1450 / 200,
+  slug: "/scriptorium/poly-svg-background",
 };
 
 export const desFlowField = {
@@ -48,6 +51,7 @@ export const desFlowField = {
   image: "/scriptorium/thumb/thumb3.webp",
   wordCount: 2600,
   readingTime: 2600 / 200,
+  slug: "/scriptorium/flow-fields",
 };
 
 export const desBackendLookLike = {
@@ -59,6 +63,7 @@ export const desBackendLookLike = {
   image: "/scriptorium/thumb/thumb4.webp",
   wordCount: 3000,
   readingTime: 3000 / 200,
+  slug: "/scriptorium/backend-look-like",
 };
 
 export const desHoverCards = {
@@ -72,6 +77,7 @@ export const desHoverCards = {
   image: "/scriptorium/thumb/CardThumb.webp",
   wordCount: 3000,
   readingTime: 3000 / 200,
+  slug: "/scriptorium/hover-cards",
 };
 
 export const desColor = {
@@ -84,4 +90,5 @@ export const desColor = {
   image: "/scriptorium/thumb/thumb5.webp",
   wordCount: 2500,
   readingTime: 2500 / 200,
+  slug: "/scriptorium/how-to-color",
 };

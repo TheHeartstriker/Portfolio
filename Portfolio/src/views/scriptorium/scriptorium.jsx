@@ -14,54 +14,62 @@ import PillAnimation from "@/components/forStyle/animations/pillAnimation.jsx";
 import ScriptoriumIntroRecent from "./scriptoriumIntroRecent.jsx";
 import Masonry from "react-masonry-css";
 import "./scriptorium.css";
+import { useRef, useState } from "react";
 
 function Scriptorium() {
-  const tags = [".script-article-tags span"];
+  const [articles, setArticles] = useState([
+    desParticle,
+    desMappingFullstack,
+    desPolySVG,
+    desFlowField,
+    desBackendLookLike,
+    desHoverCards,
+    desColor,
+  ]);
+  const tags = ["Design", "Creative", "Web", "Visual", "Systems", "Coding"];
+
+  function handleCards() {
+    const cards = articles.map((article, index) => (
+      <ScriptCard
+        key={index}
+        articleDes={article}
+        link={article.slug}
+        reverse={index % 2 === 0}
+      />
+    ));
+
+    if (articles.length >= 3) {
+      cards.splice(3, 0, handleFilter());
+    } else {
+      cards.push(handleFilter());
+    }
+
+    return cards;
+  }
+
+  function handleFilter() {
+    return (
+      <div key="filter" className="article-filter-container">
+        <div className="article-filter-text">
+          <h3>Filter by tags</h3>
+        </div>
+        <div className="article-filter-item-container">
+          {tags.map((tag, index) => (
+            <button key={index}>
+              <h5>{tag}</h5>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="main-scriptorium-container">
         <ScriptoriumIntroRecent />
-        <PillAnimation tags={tags} />
         <div className="article-container">
-          <h2>Articles</h2>
-          <div className="article-card-container">
-            <ScriptCard
-              articleDes={desHoverCards}
-              link={"/scriptorium/hover-cards"}
-              reverse={true}
-            />
-            <ScriptCard
-              articleDes={desBackendLookLike}
-              link={"/scriptorium/backend-look-like"}
-            />
-            <ScriptCard
-              articleDes={desFlowField}
-              link={"/scriptorium/flow-fields"}
-            />
-
-            <div className="article-filter-container">
-              <h3>Search filter's</h3>
-              <Masonry className="article-filter-search-container"></Masonry>
-            </div>
-
-            <ScriptCard
-              articleDes={desPolySVG}
-              link={"/scriptorium/poly-svg-background"}
-            />
-            <ScriptCard
-              articleDes={desParticle}
-              link={"/scriptorium/particle"}
-            />
-
-            <ScriptCard
-              articleDes={desMappingFullstack}
-              link={"/scriptorium/mapping-fullstack"}
-            />
-            <ScriptCard
-              articleDes={desColor}
-              link={"/scriptorium/how-to-color"}
-            />
-          </div>
+          <div className="article-card-container">{handleCards()}</div>
         </div>
       </div>
     </>
