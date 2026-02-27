@@ -6,277 +6,154 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  margin: 7.5rem 0;
+  gap: var(--space-7);
 }
-
-/* The container that holder the skills */
-.tech-stacks {
-  position: relative;
+/*  */
+/* Top header container start */
+/*  */
+.skill-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 80vw;
-  height: auto;
-  padding: var(--space-3);
-  border-radius: 100px;
-  animation: fadeUpEnter75-0 0.9s forwards ease-in-out;
-}
-
-/* Pseudo-element for blur effect on the parent */
-.tech-stacks::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background-color: var(--color-4);
-}
-/* Child of tech stacks */
-.blue-pill {
-  width: 13%;
-  height: 3.5rem;
-  border-radius: 100px;
-  margin: 0.4rem;
-  color: var(--opacity-color-1-8);
-  background-color: var(--opacity-color-1-3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:
-    background-color ease-out 0.3s,
-    color ease-out 0.3s;
-  position: relative;
-  z-index: 1;
-  /* Glass effect */
-  box-shadow: inset 0 0 8px 1px var(--opacity-color-1-2);
-  backdrop-filter: brightness(1) blur(2px) url(#displacementFilter);
-  -webkit-backdrop-filter: brightness(1) blur(2px);
-}
-.blue-pill h4 {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-.blue-pill.hovered {
-  background-color: var(--opacity-color-1-6);
-  color: var(--opacity-color-1-5);
-}
-
-/* Container for the folders */
-.folder-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4rem;
-  grid-template-rows: auto;
-  width: 80%;
-  min-height: 20vh;
-}
-/* Folder cards */
-.folder {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  width: 90%;
+  height: auto;
+  gap: var(--space-2);
+}
+/* Intro section */
+/*  */
+.skill-header-intro {
+  display: flex;
+  height: fit-content;
   width: 100%;
-  aspect-ratio: 1/1;
-  border: 1px solid var(--color-2);
-  padding: var(--space-2);
-  border-radius: 50px;
-  background-color: var(--color-4);
-  overflow: hidden;
-  cursor: pointer;
-
-  -webkit-backdrop-filter: brightness(1) blur(2px);
-  transition:
-    background ease-in-out 0.6s,
-    filter ease-in-out 0.6s;
+  padding: 0;
+  margin: 0;
+  align-items: flex-end;
+}
+/* Leftside text */
+.skill-header-intro-text {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: first baseline;
+  gap: auto;
 }
 
-.folder h6 {
-  font-size: 2rem;
-  font-weight: 600;
-  font-family: var(--font-display), sans-serif;
+.skill-header-intro-text h1 {
   color: var(--color-2);
-  margin: var(--space-1);
+  font-size: 4rem;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: var(--space-1);
 }
-.folder p {
+
+.skill-header-intro-text h2 {
   color: var(--font-middle);
-  font-size: 1rem;
-  font-family: "Exo 2", sans-serif;
-}
-
-.folder a {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-.folder:hover::before {
-  opacity: 1;
-}
-
-.folder:hover {
-  filter: drop-shadow(0 0 15px var(--opacity-color-2-5));
-}
-
-.folder-svg-container {
-  width: 30%;
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.folder-svg-container svg {
-  color: var(--color-1);
-  width: 100%;
-  height: 100%;
-}
-/* Separator used in gallery and skills */
-.separator {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 75%;
-  height: 100%;
-  border-radius: 50px;
-  color: var(--color-2);
-  margin: var(--space-7);
-  margin-top: 5vw;
-  animation: forwards fadeUpEnter75-0 1s ease-in-out;
-}
-
-#gallery-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-}
-
-.gallery-link {
-  border: none;
-  height: 45px;
-  width: 45px;
-  margin-left: var(--space-2);
-  animation: infinite alternate rightLeft0-30 2.5s ease-in-out;
-}
-
-.gallery-link.reverse {
-  margin-left: 0;
-  margin-right: var(--space-2);
-  animation: infinite alternate leftRight0--30 2.5s ease-in-out;
-  transform: rotate(180deg);
-}
-
-.gallery-link svg {
-  width: 100%;
-  height: 100%;
-}
-
-#Sep1 {
-  animation: fadeUpEnter75-0 0.7s forwards ease-in-out;
-}
-
-#Sep2 {
-  cursor: pointer;
-  animation: fadeUpEnter75-0 1.1s forwards ease-in-out;
-}
-
-#galSep {
-  cursor: pointer;
-  margin-bottom: 0;
-}
-
-.separator h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: var(--space-3);
-  color: var(--color-1);
-}
-
-.separator h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
+  transform: translateX(15px);
+  margin: 0;
 }
-
-.separator hr {
-  width: 50vw;
-  height: 2px;
+/* Rightside button */
+.skill-header-intro button {
   border: none;
-  background-color: var(--color-2);
-  opacity: 0.5;
+  border-radius: 20px;
+  background-color: var(--color-1);
+  width: fit-content;
+  height: fit-content;
+  padding: var(--space-1) var(--space-3);
+  margin-left: auto;
+}
+.skill-header-intro h3 {
+  color: var(--color-3);
+  font-weight: 400;
+}
+/* Image area */
+/*  */
+
+.skill-header img {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
 }
 
-@media (max-width: 1500px) {
-  .folder-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 1250px) {
-  .blue-pill {
-    width: 17%;
-    height: 3.5rem;
-  }
+/* Stats */
+/*  */
+.skill-header-stats {
+  width: 100%;
+  display: flex;
+  height: auto;
+  flex-direction: row;
+  gap: var(--space-2);
 }
 
-@media (max-width: 1000px) {
-  /* Sizing changes */
-  .separator {
-    width: 90%;
-    margin-top: 12.5vh;
-  }
-  .tech-stacks {
-    width: 90vw;
-  }
-
-  .blue-pill {
-    width: 20%;
-    height: 3.5rem;
-  }
-
-  .gallery-link {
-    width: 35px;
-    height: 35px;
-  }
-
-  .folder-container {
-    width: 95%;
-  }
+.skill-header-stats-item {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-4);
+  border-radius: 25px;
+  padding: var(--space-2) var(--space-3);
+}
+.skill-header-stats-item:nth-child(3) {
+  background-color: var(--color-1);
 }
 
-@media (max-width: 800px) {
-  /* Sizing stuff */
-  .folder-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .blue-pill {
-    width: 25%;
-    height: 4rem;
-  }
-  .tech-stacks {
-    padding: var(--space-2);
-  }
-  /* Decrease by 20% not folder copy though*/
+.skill-header-stats-item:nth-child(3) h3 {
+  color: var(--color-3);
+}
 
-  .folder h6 {
-    font-size: 1.6rem;
-  }
+.skill-header-stats-item:nth-child(3) h4 {
+  color: var(--color-5);
+}
 
-  .separator h2 {
-    font-size: 2.4rem;
-  }
+.skill-header-stats-item h3 {
+  color: var(--color-1);
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: var(--space-1);
+  font-size: 2rem;
+}
 
-  .separator h3 {
-    font-size: 1.2rem;
-  }
-  /* Decrease by 30% */
-  .blue-pill h4 {
-    font-size: 0.875rem;
-  }
+.skill-header-stats-item h4 {
+  font-weight: 500;
+  color: var(--font-middle);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/*  */
+/* Past work container start */
+/*  */
+
+.skill-past {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-seperator {
+  width: 100%;
+  height: auto;
+  padding: var(--space-1) var(--space-1);
+  background-color: var(--color-4);
+  align-items: center;
+  border-radius: 30px;
+  display: flex;
+}
+
+.content-seperator h2 {
+  font-weight: 600;
+  color: var(--color-2);
+  font-size: 3.5rem;
+  width: 80%;
+  margin: 0;
+}
+
+.content-seperator p {
+  color: var(--font-middle);
+  font-size: 0.85rem;
+  width: 60%;
 }

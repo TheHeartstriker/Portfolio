@@ -1,3 +1,4 @@
+"use client";
 import "./skill.css";
 import {
   TechStacks,
@@ -14,129 +15,69 @@ const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
-import {
-  CreateFolder,
-  CreateFeatured,
-} from "@/components/forViews/skillPage/index.js";
-import Poly from "../../../components/svg/poly.jsx";
-import PillAnimation from "@/components/forStyle/animations/pillAnimation";
-import Link from "next/link";
 
 function Skill() {
-  const tags = [
-    ".blue-pill",
-    ".blue-pill h2",
-    ".blue-pill-2",
-    ".blue-pill-2 h2",
-  ];
   return (
     <div className="main-skill-container">
-      <svg style={{ display: "none" }}>
-        <filter id="displacementFilter">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.01"
-            numOctaves="2"
-            result="turbulence"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            scale="20"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </svg>
-      <PillAnimation tags={tags} />
-      <h1 style={{ display: "none" }}>Skills & Projects Portfolio</h1>
-      {/* Over head container for tech stacks */}
-      <div className="separator" id="Sep1">
-        <Link
-          id="gallery-link"
-          href="/skills/gallery"
-          aria-label="Link to gallery primarly visual"
-        ></Link>
-        <h3>01.</h3>
-        <h2>Known tech</h2>
-        <hr></hr>
-        <div className="gallery-link">
-          <Poly className="gallery-svg" />
+      {/*  */}
+      {/* Header */}
+      {/*  */}
+      <div className="skill-header">
+        {/* Intro  */}
+        {/*  */}
+        <div className="skill-header-intro">
+          {/* Intro text*/}
+          <div className="skill-header-intro-text">
+            <h1>Your website, my mission</h1>
+            <h2>Exceeding results in custom web development</h2>
+          </div>
+          <button>
+            <h3>Learn more</h3>
+          </button>
+        </div>
+        {/* Image */}
+        {/*  */}
+        <img src={"/imageTest4.png"}></img>
+        {/* Stats  */}
+        {/*  */}
+        <div className="skill-header-stats">
+          <div className="skill-header-stats-item">
+            <h3>8</h3>
+            <h4>Applications made</h4>
+          </div>
+          <div className="skill-header-stats-item">
+            <h3>3</h3>
+            <h4>Years of experience</h4>
+          </div>
+
+          <div className="skill-header-stats-item">
+            <h3>3000+</h3>
+            <h4>Hour's of work</h4>
+          </div>
         </div>
       </div>
-      {/* Tech stacks container */}
-      <div className="tech-stacks">
-        {TechStacks.map((tech, index) => (
-          <div className="blue-pill" key={index}>
-            <h4>{tech}</h4>
+      {/*  */}
+      {/* Past work*/}
+      {/*  */}
+      <div className="skill-past">
+        <div className="content-seperator">
+          <h2>My Past work</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+        </div>
+        <div className="skill-past-item">
+          <div className="skill-past-item-main">
+            <div className="skill-past-item-main-text"></div>
+            <div className="skill-past-item-main-image"></div>
           </div>
-        ))}
+          <div className="skill-past-item-stats"></div>
+        </div>
       </div>
-      {/* Separator for the next section */}
-      <div className="separator" id="Sep2">
-        <hr></hr>
-        <h2>Stuff I made</h2>
-        <h3>02.</h3>
-      </div>
-      {/* Overhead container for main apps */}
-      <CreateFeatured
-        Header={Header[1]}
-        Para={Paras[1]}
-        Skills={UsedTechApp2}
-        ImageSrc={fitShot}
-        Link1="https://www.fgraphs.com"
-        Link2="https://github.com/TheHeartstriker/FitnessApp"
-      />
-      <CreateFeatured
-        Header={Header[3]}
-        Para={Paras[3]}
-        Mirror={true}
-        Skills={UsedTechApp4}
-        ImageSrc={client1}
-        Link1="https://lively-sand-0233c801e.6.azurestaticapps.net"
-      />
-      <CreateFeatured
-        Header={Header[0]}
-        Para={Paras[0]}
-        Skills={UsedTechApp1}
-        ImageSrc={dynamicAnimations}
-        Link1="https://www.dynamicanimations.com"
-        Link2="https://github.com/TheHeartstriker/DynamicAnimations"
-      />
-      <CreateFeatured
-        Header={Header[2]}
-        Para={Paras[2]}
-        Skills={UsedTechApp3}
-        Mirror={true}
-        End={true}
-        ImageSrc={todoShot}
-        Link1="https://www.genesistodo.com"
-        Link2="https://github.com/TheHeartstriker/ToDoApp"
-      />
-      <div className="separator">
-        <h3>03.</h3>
-        <h2>
-          Other Code <br></br> stuff
-        </h2>
-        <hr></hr>
-      </div>
-      <div className="folder-container">
-        <CreateFolder
-          Header={NoteWortheyH[0]}
-          Para={NoteWortheyP[0]}
-          Link={"https://github.com/TheHeartstriker/BookApp"}
-        />
-        <CreateFolder
-          Header={NoteWortheyH[1]}
-          Para={NoteWortheyP[1]}
-          Link={"https://github.com/TheHeartstriker/Portfolio"}
-        />
-        <CreateFolder
-          Header={NoteWortheyH[2]}
-          Para={NoteWortheyP[2]}
-          Link={"https://github.com/TheHeartstriker/CS50Final"}
-        />
-      </div>
+      {/*  */}
     </div>
   );
 }
