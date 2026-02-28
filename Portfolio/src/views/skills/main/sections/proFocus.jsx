@@ -5,11 +5,7 @@ const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
-import Eye from "../../../../public/icons/eye";
-import UserGroup from "../../../../public/icons/user-group";
-import ChartPie from "../../../../public/icons/chart-pie";
-import LightSkills from "./lightSkills";
-import { WorkCard } from "./workCard";
+import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/forViews/seperator";
 
 import { lorem, smallLorem } from "@/utils/text";

@@ -5,12 +5,12 @@ const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
-import Arrow from "../../../../out/icons/arrow";
+import Arrow from "@/../public/icons/arrow";
 function LightSkills() {
   return (
     <>
       {/*  */}
-      {/* Gallery container */}
+      {/* Gallery section */}
       {/*  */}
       <div className="skill-highlights">
         <Separator header="My Highlights" para={lorem} />
@@ -37,6 +37,9 @@ function LightSkills() {
           </button>
         </div>
       </div>
+      {/*  */}
+      {/* Skill section */}
+      {/*  */}
       <div className="skill-myskills">
         <Separator header="My Skills" para={lorem} />
         <div className="skill-myskills-container">

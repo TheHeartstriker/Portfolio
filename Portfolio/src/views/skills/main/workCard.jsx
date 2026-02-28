@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Arrow from "../../../../out/icons/arrow";
 import { Separator } from "@/components/forViews/seperator";
 import { lorem } from "@/utils/text";
@@ -6,17 +7,31 @@ export function WorkCard({
   header,
   para1,
   para2,
-  imgUrl,
+  mediaArray,
   scopePara,
   rolePara,
   servicesArr,
   reverse,
   first,
+  link,
 }) {
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+
+  const totalMedia = mediaArray.length;
+
+  const handlePrevious = () => {
+    setCurrentMediaIndex((prev) => (prev - 1 + totalMedia) % totalMedia);
+  };
+
+  const handleNext = () => {
+    setCurrentMediaIndex((prev) => (prev + 1) % totalMedia);
+  };
   return (
     <div className="skill-past-item">
       {first && <Separator header="My Past Work" para={lorem} />}
-      {/* Main section */}
+      {/*  */}
+      {/* Main section both text and image*/}
+      {/*  */}
       <div className={`skill-past-item-main ${reverse ? "reverse" : ""}`}>
         <div className="skill-past-item-main-text">
           <h3>{header}</h3>
@@ -24,24 +39,43 @@ export function WorkCard({
           <p>{para2}</p>
         </div>
         <div className="skill-past-item-main-image">
-          <img src={imgUrl}></img>
+          {/*  */}
+          {/* Input our current element either image or vide */}
+          {mediaArray[currentMediaIndex].endsWith(".mp4") ||
+          mediaArray[currentMediaIndex].endsWith(".webm") ||
+          mediaArray[currentMediaIndex].endsWith(".mov") ? (
+            <video
+              src={mediaArray[currentMediaIndex]}
+              autoPlay
+              muted
+              loop
+            ></video>
+          ) : (
+            <img src={mediaArray[currentMediaIndex]} alt="" />
+          )}
           <button className="skill-past-item-main-image-link">
+            <a href={link} target="_blank" rel="noopener noreferrer" />
             <Arrow />
           </button>
           <div className="skill-past-item-main-image-con">
-            <button>
+            <button onClick={handlePrevious}>
               <Arrow />
             </button>
-            <span></span>
-            <span></span>
-            <span></span>
-            <button>
+            {/* Iterate over mediaArray */}
+            {mediaArray.map((imgVi, index) => (
+              <span
+                key={index}
+                className={currentMediaIndex === index ? "active" : ""}
+              ></span>
+            ))}
+            <button onClick={handleNext}>
               <Arrow />
             </button>
           </div>
         </div>
       </div>
-      {/* Stats section */}
+      {/*  */}
+      {/* Bottom stats section */}
       <div className={`skill-past-item-stats ${reverse ? "reverse" : ""}`}>
         <div className="skill-past-item-stats-con">
           <h4>Role</h4>
