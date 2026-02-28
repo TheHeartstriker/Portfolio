@@ -1,0 +1,167 @@
+/*  */
+/* Main process stuff */
+/*  */
+.skill-process {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+/*  */
+/* Main content */
+
+.skill-process-main {
+  display: flex;
+  margin-top: var(--space-1);
+  gap: var(--space-1);
+}
+/* left side image */
+.skill-process-main img {
+  width: 40%;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
+}
+/* Right side process points */
+.skill-process-main-con {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: var(--space-1);
+}
+
+.skill-process-main-con-item {
+  display: flex;
+  background-color: var(--color-4);
+  padding: var(--space-2);
+  gap: var(--space-2);
+  border-radius: 25px;
+}
+
+.skill-process-main-con-item-num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-3);
+  border-radius: 50%;
+}
+
+.skill-process-main-con-item-num h4 {
+  font-size: 4.5rem;
+  margin: 0;
+  color: var(--color-2);
+}
+
+.skill-process-main-con-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-process-main-con-item-text h3 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: var(--space-2);
+  color: var(--color-1);
+}
+
+.skill-process-main-con-item-text p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--font-middle);
+}
+/*  */
+/* Main skill stuff */
+/*  */
+.skill-focus {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+/*  */
+/* Top image */
+.skill-focus-image {
+  display: flex;
+  height: 15rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 25px;
+  padding: var(--space-1);
+}
+
+.skill-focus-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.skill-focus-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  z-index: 10;
+}
+
+.skill-focus-image h2 {
+  font-weight: 500;
+  color: var(--color-3);
+  font-size: 3.5rem;
+  width: 80%;
+  margin: 0;
+  z-index: 15;
+  margin: auto 0;
+}
+
+/*  */
+/* Skill cards */
+
+.skill-focus-con {
+  display: flex;
+  height: auto;
+  gap: var(--space-1);
+}
+
+.skill-focus-con-item {
+  background-color: var(--color-4);
+  padding: var(--space-2);
+  border-radius: 25px;
+}
+
+.skill-focus-con-item-heading {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.skill-focus-con-item-heading h3 {
+  font-weight: 400;
+  color: var(--color-1);
+  font-size: 2rem;
+  margin: 0;
+  margin-right: auto;
+}
+
+.skill-focus-con-item-heading svg {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+.skill-focus-con-item-heading svg path {
+  stroke: var(--color-1);
+}
+
+.skill-focus-con-item p {
+  color: var(--font-middle);
+  font-size: 1.1rem;
+}

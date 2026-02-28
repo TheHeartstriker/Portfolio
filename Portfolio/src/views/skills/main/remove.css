@@ -1,0 +1,24 @@
+.content-separator {
+  width: 100%;
+  height: auto;
+  padding: var(--space-1) var(--space-1);
+  background-color: var(--color-4);
+  align-items: center;
+  border-radius: 30px;
+  display: flex;
+  margin: 0;
+}
+
+.content-separator h2 {
+  font-weight: 600;
+  color: var(--color-2);
+  font-size: 3.5rem;
+  width: 80%;
+  margin: 0;
+}
+
+.content-separator p {
+  color: var(--font-middle);
+  font-size: 0.85rem;
+  width: 60%;
+}

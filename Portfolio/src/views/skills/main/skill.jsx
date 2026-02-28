@@ -15,6 +15,12 @@ const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
+import LightSkills from "./lightSkills";
+import "./remove.css";
+import { WorkCard } from "./workCard";
+import ProFocus from "./proFocus";
+
+import { lorem, smallLorem } from "@/utils/text";
 
 function Skill() {
   return (
@@ -60,24 +66,46 @@ function Skill() {
       {/* Past work*/}
       {/*  */}
       <div className="skill-past">
-        <div className="content-seperator">
-          <h2>My Past work</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <div className="skill-past-item">
-          <div className="skill-past-item-main">
-            <div className="skill-past-item-main-text"></div>
-            <div className="skill-past-item-main-image"></div>
-          </div>
-          <div className="skill-past-item-stats"></div>
-        </div>
+        {/* Item 1 */}
+        {/*  */}
+        <WorkCard
+          header={"FGraphs"}
+          para1={lorem}
+          para2={smallLorem}
+          imgUrl={fitShot}
+          scopePara={smallLorem}
+          rolePara={smallLorem}
+          servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
+          first={true}
+        />
+        <WorkCard
+          header={"Real estate"}
+          para1={lorem}
+          para2={smallLorem}
+          imgUrl={fitShot}
+          scopePara={smallLorem}
+          rolePara={smallLorem}
+          servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
+          reverse={true}
+        />
+        <WorkCard
+          header={"Todo"}
+          para1={lorem}
+          para2={smallLorem}
+          imgUrl={fitShot}
+          scopePara={smallLorem}
+          rolePara={smallLorem}
+          servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
+        />
       </div>
       {/*  */}
+      {/* Highlights and skills */}
+      {/*  */}
+      <LightSkills />
+      {/*  */}
+      {/* Focus and process */}
+      {/*  */}
+      <ProFocus />
     </div>
   );
 }
