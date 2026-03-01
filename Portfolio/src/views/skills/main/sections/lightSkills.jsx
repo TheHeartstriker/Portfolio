@@ -1,11 +1,13 @@
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import "./lightSkills.css";
 import { Separator } from "@/components/forViews/seperator";
 import { lorem, smallLorem } from "@/utils/text";
-const client1 = "/skill/client1.webp";
-const dynamicAnimations = "/DynamicShot.webp";
+const card1 = "/skill/card1.webp";
+const card2 = "/skill/card2.jpg";
+const card3 = "/skill/card3.jpg";
 const fitShot = "/skill/FitShot.webp";
-const todoShot = "/skill/todoShot.webp";
-import Arrow from "@/../public/icons/arrow";
+import Chevron from "../../../../../public/icons/chevron";
 function LightSkills() {
   return (
     <>
@@ -14,27 +16,24 @@ function LightSkills() {
       {/*  */}
       <div className="skill-highlights">
         <Separator header="My Highlights" para={lorem} />
-        {/* Gallery container 'the images' */}
         {/*  */}
+        {/* Gallery container 'the images' */}
         <div className="skill-highlights-gal">
-          <div className="skill-highlights-gal-item">
-            <img src={fitShot} />
+          {/* Arrow container */}
+          <div className="skill-highlights-gal-arrow">
+            <Chevron />
           </div>
+          {/* The image */}
           <div className="skill-highlights-gal-item">
             <img src={fitShot} />
             <div className="skill-highlights-gal-item-text">
               <p>{smallLorem}</p>
             </div>
           </div>
-          <div className="skill-highlights-gal-item">
-            <img src={fitShot} />
+          {/* Arrow container */}
+          <div className="skill-highlights-gal-arrow">
+            <Chevron />
           </div>
-          <button>
-            <Arrow />
-          </button>
-          <button>
-            <Arrow />
-          </button>
         </div>
       </div>
       {/*  */}
@@ -44,21 +43,21 @@ function LightSkills() {
         <Separator header="My Skills" para={lorem} />
         <div className="skill-myskills-container">
           <div className="skill-myskills-container-card">
-            <img src={fitShot}></img>
+            <img src={card1}></img>
             <div className="skill-myskills-container-card-text">
               <h3>Design</h3>
               <p>{lorem}</p>
             </div>
           </div>
           <div className="skill-myskills-container-card">
-            <img src={fitShot}></img>
+            <img src={card2}></img>
             <div className="skill-myskills-container-card-text">
               <h3>Design</h3>
               <p>{lorem}</p>
             </div>
           </div>
           <div className="skill-myskills-container-card">
-            <img src={fitShot}></img>
+            <img src={card3}></img>
             <div className="skill-myskills-container-card-text">
               <h3>Design</h3>
               <p>{lorem}</p>

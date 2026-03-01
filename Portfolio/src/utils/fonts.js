@@ -1,6 +1,6 @@
 // app/fonts.ts (or any file, usually in lib/ or app/)
 // Poppins, Source sans pro, Roboto Slab and nunito
-import { Montserrat, Inter } from "next/font/google";
+import { Montserrat, Inter, Red_Hat_Display } from "next/font/google";
 //
 //Old Techy theme
 //

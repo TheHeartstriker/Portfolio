@@ -11,15 +11,29 @@
 
 .skill-process-main {
   display: flex;
+  width: 100%;
+  height: auto;
   margin-top: var(--space-1);
   gap: var(--space-1);
 }
 /* left side image */
-.skill-process-main img {
-  width: 40%;
-  object-fit: cover;
-  display: block;
+
+.skill-process-main-image {
+  width: 35%;
+  height: auto;
   border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-process-main img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 /* Right side process points */
 .skill-process-main-con {
@@ -37,6 +51,10 @@
   border-radius: 25px;
 }
 
+.skill-process-main-con-item:nth-child(1) {
+  background-color: var(--color-1);
+}
+
 .skill-process-main-con-item-num {
   display: flex;
   justify-content: center;
@@ -44,6 +62,22 @@
   aspect-ratio: 1 / 1;
   background-color: var(--color-3);
   border-radius: 50%;
+}
+
+.skill-process-main-con-item:nth-child(1) .skill-process-main-con-item-num {
+  background-color: var(--color-4);
+}
+
+.skill-process-main-con-item:nth-child(1) .skill-process-main-con-item-num h4 {
+  color: var(--color-1);
+}
+
+.skill-process-main-con-item:nth-child(1) .skill-process-main-con-item-text h3 {
+  color: var(--color-3);
+}
+
+.skill-process-main-con-item:nth-child(1) .skill-process-main-con-item-text p {
+  color: var(--color-4);
 }
 
 .skill-process-main-con-item-num h4 {

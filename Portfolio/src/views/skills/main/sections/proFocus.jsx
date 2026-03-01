@@ -1,10 +1,8 @@
 "use client";
 import "./proFocus.css";
 
-const client1 = "/skill/client1.webp";
-const dynamicAnimations = "/DynamicShot.webp";
-const fitShot = "/skill/FitShot.webp";
-const todoShot = "/skill/todoShot.webp";
+const back1 = "/skill/back1.png";
+const back2 = "/skill/back2.jpg";
 import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/forViews/seperator";
 
@@ -22,7 +20,9 @@ function ProFocus() {
         {/* Main container */}
         <div className="skill-process-main">
           {/* Leftside iamge */}
-          <img src={dynamicAnimations} />
+          <div className="skill-process-main-image">
+            <img src={back2} />
+          </div>
           {/* Main content */}
           <div className="skill-process-main-con">
             {/* Item1 */}
@@ -38,7 +38,7 @@ function ProFocus() {
             {/* Item1 */}
             <div className="skill-process-main-con-item">
               <div className="skill-process-main-con-item-num">
-                <h4>01</h4>
+                <h4>02</h4>
               </div>
               <div className="skill-process-main-con-item-text">
                 <h3>Discovery</h3>
@@ -48,7 +48,7 @@ function ProFocus() {
             {/* Item1 */}
             <div className="skill-process-main-con-item">
               <div className="skill-process-main-con-item-num">
-                <h4>01</h4>
+                <h4>03</h4>
               </div>
               <div className="skill-process-main-con-item-text">
                 <h3>Discovery</h3>
@@ -58,7 +58,7 @@ function ProFocus() {
             {/* Item1 */}
             <div className="skill-process-main-con-item">
               <div className="skill-process-main-con-item-num">
-                <h4>01</h4>
+                <h4>04</h4>
               </div>
               <div className="skill-process-main-con-item-text">
                 <h3>Discovery</h3>
@@ -75,7 +75,7 @@ function ProFocus() {
         {/*  */}
         {/* Image part */}
         <div className="skill-focus-image">
-          <img src={fitShot} />
+          <img src={back1} />
           <h2>My focuses</h2>
         </div>
         {/*  */}

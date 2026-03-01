@@ -72,7 +72,7 @@ function HeaderIntro() {
           header={"Real estate"}
           para1={lorem}
           para2={smallLorem}
-          mediaArray={[fitShot]}
+          mediaArray={["/skill/client1.webp"]}
           scopePara={smallLorem}
           rolePara={smallLorem}
           servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
@@ -83,7 +83,7 @@ function HeaderIntro() {
           header={"Todo"}
           para1={lorem}
           para2={smallLorem}
-          mediaArray={[fitShot]}
+          mediaArray={["/skill/todoShot.webp"]}
           scopePara={smallLorem}
           rolePara={smallLorem}
           servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
