@@ -1,13 +1,36 @@
+"use client";
+import { useEffect } from "react";
 import "./headerIntro.css";
 const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
 import { WorkCard } from "../workCard.jsx";
-
+import { animateText } from "@/utils/animations/textAni.jsx";
 import { lorem, smallLorem } from "@/utils/text";
+import { gsap } from "gsap/gsap-core";
+import { animateBlocks } from "./animations";
+import { Separator } from "@/components/forViews/seperator";
 
 function HeaderIntro() {
+  function handleTextAnimation() {
+    //
+    // Create timeline and text animations
+    //
+    const timeline = gsap.timeline({ paused: true });
+    const header = document.querySelector(".skill-header-intro-text h1");
+    const subHeader = document.querySelector(".skill-header-intro-text h2");
+    animateText(500, 0, header, timeline);
+    animateText(500, 0, subHeader, timeline, "-=1");
+    //
+    // Collect the blocks
+    const blocks = document.querySelectorAll(".skill-header-stats-item");
+    animateBlocks(200, 0, blocks, timeline);
+  }
+
+  useEffect(() => {
+    handleTextAnimation();
+  }, []);
   return (
     <>
       {/*  */}
@@ -51,6 +74,7 @@ function HeaderIntro() {
       {/* Past work*/}
       {/*  */}
       <div className="skill-past">
+        <Separator headerArr={["Past work", "And Projects"]} />
         {/* Item 1 */}
         {/*  */}
         <WorkCard

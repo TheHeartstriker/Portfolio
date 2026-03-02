@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import "./lightSkills.css";
 import { Separator } from "@/components/forViews/seperator";
 import { lorem, smallLorem } from "@/utils/text";
+import { SkillCards } from "./skillCards";
+import Arrow from "@/../public/icons/arrow";
 const card1 = "/skill/card1.webp";
 const card2 = "/skill/card2.jpg";
 const card3 = "/skill/card3.jpg";
@@ -15,7 +17,7 @@ function LightSkills() {
       {/* Gallery section */}
       {/*  */}
       <div className="skill-highlights">
-        <Separator header="My Highlights" para={lorem} />
+        <Separator headerArr={["Hightlights", "And Outcomes"]} reverse={true} />
         {/*  */}
         {/* Gallery container 'the images' */}
         <div className="skill-highlights-gal">
@@ -40,29 +42,30 @@ function LightSkills() {
       {/* Skill section */}
       {/*  */}
       <div className="skill-myskills">
-        <Separator header="My Skills" para={lorem} />
+        <Separator headerArr={["Skills", "And Expertise"]} />
         <div className="skill-myskills-container">
-          <div className="skill-myskills-container-card">
-            <img src={card1}></img>
-            <div className="skill-myskills-container-card-text">
-              <h3>Design</h3>
-              <p>{lorem}</p>
-            </div>
-          </div>
-          <div className="skill-myskills-container-card">
-            <img src={card2}></img>
-            <div className="skill-myskills-container-card-text">
-              <h3>Design</h3>
-              <p>{lorem}</p>
-            </div>
-          </div>
-          <div className="skill-myskills-container-card">
-            <img src={card3}></img>
-            <div className="skill-myskills-container-card-text">
-              <h3>Design</h3>
-              <p>{lorem}</p>
-            </div>
-          </div>
+          {/* Card1 */}
+          <SkillCards
+            title="Performance And Optimization"
+            para={lorem}
+            active={false}
+            imgUrl={card1}
+          />
+          {/* Card2 */}
+          <SkillCards
+            title="Design, Layout and Flow"
+            para={lorem}
+            active={true}
+            imgUrl={card2}
+          />
+
+          {/* Card3 */}
+          <SkillCards
+            title="Choice And Customization"
+            para={lorem}
+            active={false}
+            imgUrl={card3}
+          />
         </div>
       </div>
     </>

@@ -1,5 +1,4 @@
 "use client";
-import "./skill.css";
 import {
   TechStacks,
   Header,
