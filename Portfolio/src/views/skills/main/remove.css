@@ -43,6 +43,7 @@
   margin-top: auto;
   border: none;
   height: 3px;
+  border-radius: 5px;
   background-color: var(--color-2);
   margin-bottom: var(--space-2);
 }

@@ -1,6 +1,6 @@
 // app/fonts.ts (or any file, usually in lib/ or app/)
 // Poppins, Source sans pro, Roboto Slab and nunito
-import { Montserrat, Inter, Red_Hat_Display } from "next/font/google";
+import { Montserrat, Inter, Playfair_Display } from "next/font/google";
 //
 //Old Techy theme
 //
@@ -21,7 +21,7 @@ import { Montserrat, Inter, Red_Hat_Display } from "next/font/google";
 export const Display = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-display",
 });
 

@@ -57,3 +57,16 @@ export const professionalTheme1 = {
 
   dark: false,
 };
+
+// export const professionalTheme1 = {
+//   // The 30%
+//   "color-1": "#EDEDED",
+//   //The 10%
+//   "color-2": "#C8C8C8",
+//   // The 60%
+//   "color-3": "#373737",
+//   "color-4": "#242424",
+//   "color-5": "#121212",
+
+//   dark: true,
+// };
