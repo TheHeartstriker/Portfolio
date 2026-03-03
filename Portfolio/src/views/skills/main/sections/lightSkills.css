@@ -17,42 +17,6 @@
   padding-top: var(--space-1);
 }
 
-.skill-highlights-gal button {
-  position: absolute;
-  border: none;
-  background-color: var(--color-1);
-  width: 4rem;
-  height: 4rem;
-  z-index: 15;
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Left button */
-.skill-highlights-gal button:nth-of-type(1) {
-  left: var(--space-1);
-}
-
-.skill-highlights-gal button:nth-of-type(1) svg {
-  transform: rotate(90deg);
-}
-
-/* Right button */
-.skill-highlights-gal button:last-of-type {
-  right: var(--space-1);
-}
-.skill-highlights-gal button:last-of-type svg {
-  transform: rotate(-90deg);
-}
-
-.skill-highlights-gal button svg {
-  width: 2rem;
-  width: 2rem;
-  stroke: var(--color-3);
-  transform: rotate(90deg);
-}
-
 /* image containers */
 .skill-highlights-gal-item {
   height: 100%;

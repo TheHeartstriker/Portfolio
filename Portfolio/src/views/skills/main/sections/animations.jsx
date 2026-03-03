@@ -1,32 +1,33 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function animateBlocks(startPos, endPos, elements, timeline, location) {
-  if (!elements || elements.length === 0) return;
+export function animateBlocks(pos, aniStart, aniEnd, elements, time) {
+  if (!elements?.length || !time) return;
 
-  elements.forEach((element, index) => {
-    // Set initial state
-    gsap.set(element, { x: startPos, opacity: 0 });
+  // Use provided timeline or create a new shared one
+  const sharedTimeline = time.timeline || gsap.timeline({ paused: true });
 
-    timeline.to(
-      element,
-      {
-        x: endPos,
-        opacity: 1,
-        duration: 1.75,
-        ease: "back.out(1.7)",
-        stagger: 0.03,
-      },
-      `${location || 0}+=${index * 0.2}`, // Stagger start times for each element
-    );
+  // Set initial state for all elements at once
+  gsap.set(elements, { [pos.type || "x"]: pos.start, opacity: 0 });
 
-    ScrollTrigger.create({
-      trigger: element,
-      start: "top 100%",
-      onEnter: () => timeline.play(),
-    });
+  // Add all elements to the shared timeline with stagger as a group
+  sharedTimeline.to(elements, {
+    [pos.type || "x"]: pos.end,
+    opacity: 1,
+    duration: time.duration,
+    ease: time.easing || "power1.out",
+    stagger: 0.06,
+    delay: time.delay ?? 0,
+  });
+
+  // Single ScrollTrigger on the first element as the trigger anchor
+  ScrollTrigger.create({
+    trigger: elements[0],
+    start: `${aniStart.el} ${aniStart.scroll}`,
+    end: `${aniEnd.el} ${aniEnd.scroll}`,
+    markers: false,
+    onEnter: () => sharedTimeline.play(),
   });
 }

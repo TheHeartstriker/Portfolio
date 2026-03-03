@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import "./lightSkills.css";
@@ -10,7 +11,43 @@ const card2 = "/skill/card2.jpg";
 const card3 = "/skill/card3.jpg";
 const fitShot = "/skill/FitShot.webp";
 import Chevron from "../../../../../public/icons/chevron";
+
+import { animateBlocks } from "./animations";
+
 function LightSkills() {
+  useEffect(() => {
+    animateBlocks(
+      { start: -100, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll("#gal-arrow-1"),
+      { duration: 0.85, delay: 0, easing: "power2.out" },
+    );
+    animateBlocks(
+      { start: 100, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll("#gal-arrow-2"),
+      { duration: 1.25, delay: 0, easing: "back.out(1.05)" },
+    );
+    animateBlocks(
+      { start: 100, end: 0, type: "y" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll(".skill-highlights-gal-item"),
+      { duration: 0.85, delay: 0, easing: "power2.out" },
+    );
+  }, []);
+
+  useEffect(() => {
+    animateBlocks(
+      { start: 100, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll(".skill-myskills-container-card"),
+      { duration: 1.25, delay: 0, easing: "back.out(1.05)" },
+    );
+  }, []);
   return (
     <>
       {/*  */}
@@ -22,7 +59,7 @@ function LightSkills() {
         {/* Gallery container 'the images' */}
         <div className="skill-highlights-gal">
           {/* Arrow container */}
-          <div className="skill-highlights-gal-arrow">
+          <div className="skill-highlights-gal-arrow" id="gal-arrow-1">
             <Chevron />
           </div>
           {/* The image */}
@@ -33,7 +70,7 @@ function LightSkills() {
             </div>
           </div>
           {/* Arrow container */}
-          <div className="skill-highlights-gal-arrow">
+          <div className="skill-highlights-gal-arrow" id="gal-arrow-2">
             <Chevron />
           </div>
         </div>

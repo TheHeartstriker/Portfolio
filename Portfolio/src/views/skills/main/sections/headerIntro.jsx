@@ -15,17 +15,78 @@ import { Separator } from "@/components/forViews/seperator";
 function HeaderIntro() {
   function handleTextAnimation() {
     //
-    // Create timeline and text animations
-    //
+    // Main header section
+    // header text animation
     const timeline = gsap.timeline({ paused: true });
     const header = document.querySelector(".skill-header-intro-text h1");
     const subHeader = document.querySelector(".skill-header-intro-text h2");
-    animateText(500, 0, header, timeline);
-    animateText(500, 0, subHeader, timeline, "-=1");
+    animateText(200, 0, header, timeline);
+    animateText(200, 0, subHeader, timeline, "-=1");
     //
-    // Collect the blocks
-    const blocks = document.querySelectorAll(".skill-header-stats-item");
-    animateBlocks(200, 0, blocks, timeline);
+    // Large top block and button animation
+    const Topblocks = document.querySelectorAll(
+      ".skill-header-intro button, .skill-header img",
+    );
+    animateBlocks(
+      { start: 150, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      Topblocks,
+      {
+        duration: 1.25,
+        delay: 2,
+        easing: "back.out(1.05)",
+      },
+    );
+    //
+    // Bottom stats animation
+    const Bottomblocks = document.querySelectorAll(".skill-header-stats-item");
+    animateBlocks(
+      { start: 150, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      Bottomblocks,
+      {
+        duration: 0.85,
+        delay: 2.25,
+        easing: "power2.out",
+      },
+    );
+    //
+    // Script cards animation
+    // Large main part
+    const cards = document.querySelectorAll(".skill-past-item");
+
+    cards.forEach((card) => {
+      // Animate the large block
+      animateBlocks(
+        { start: 100, end: 0, type: "x" },
+        { el: "top", scroll: "100%" },
+        { el: "bottom", scroll: "50%" },
+        [card.querySelector(".skill-past-item-main")],
+        {
+          duration: 1.25,
+          delay: 0,
+          easing: "back.out(1.05)",
+        },
+      );
+
+      // Scoped to the stats sibling, not the main block
+      const smallBlocks = card.querySelectorAll(
+        ".skill-past-item-stats-con, .skill-past-item-stats-con-sq-it",
+      );
+      animateBlocks(
+        { start: 100, end: 0, type: "x" },
+        { el: "top", scroll: "100%" },
+        { el: "bottom", scroll: "50%" },
+        smallBlocks,
+        {
+          duration: 0.85,
+          delay: 0,
+          easing: "power2.out",
+        },
+      );
+    });
   }
 
   useEffect(() => {

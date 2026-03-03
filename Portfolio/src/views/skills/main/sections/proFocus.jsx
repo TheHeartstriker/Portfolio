@@ -5,10 +5,28 @@ const back1 = "/skill/back1.png";
 const back2 = "/skill/back2.jpg";
 import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/forViews/seperator";
-
+import { use, useEffect } from "react";
 import { lorem, smallLorem } from "@/utils/text";
+import { animateBlocks } from "./animations";
 
 function ProFocus() {
+  useEffect(() => {
+    animateBlocks(
+      { start: -100, end: 0, type: "x" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll(".skill-process-main-card"),
+      { duration: 0.85, delay: 0, easing: "power2.out" },
+    );
+    animateBlocks(
+      { start: 100, end: 0, type: "y" },
+      { el: "top", scroll: "100%" },
+      { el: "bottom", scroll: "50%" },
+      document.querySelectorAll(".skill-focus-container-card"),
+      { duration: 1.25, delay: 0, easing: "back.out(1.05)" },
+    );
+  }, []);
+
   return (
     <>
       {/*  */}
