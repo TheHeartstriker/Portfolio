@@ -105,6 +105,10 @@
   overflow: hidden;
   padding: var(--space-2);
   gap: var(--space-2);
+  transition:
+    width 0.5s var(--power-1-out),
+    background-color 1.25s var(--power-1-out),
+    color 1.25s var(--power-1-out);
 }
 
 /*  */
@@ -114,6 +118,8 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  transition: width 0.5s var(--power-1-out);
+  min-width: 0;
 }
 
 /* Top card section */
@@ -141,6 +147,7 @@
 .skill-myskills-container-card-icon {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: var(--space-1);
 }
 
@@ -154,21 +161,38 @@
   width: 2.5rem;
   height: 2.5rem;
   border: none;
-  margin-left: auto;
   border-radius: 50%;
   background-color: var(--color-1);
+  transition:
+    margin-right 0.5s var(--power-1-out),
+    background-color 0.5s var(--power-1-out);
 }
 
 .skill-myskills-container-card-icon button svg {
   width: 50%;
   height: 50%;
-  margin: auto;
+  margin: 0;
   transform: rotate(225deg);
+  transition: transform 0.5s var(--power-1-out);
 }
 
 .skill-myskills-container-card-icon button svg path {
   stroke: var(--color-3);
   stroke-width: 2px;
+}
+
+/* Right side default */
+.skill-myskills-container-card-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 0%;
+  opacity: 0;
+  border-radius: 25px;
+  overflow: hidden;
+  transition:
+    width 0.5s var(--power-1-out),
+    opacity 0.5s var(--power-1-out);
 }
 
 /*  */
@@ -197,21 +221,17 @@
 
 .skill-myskills-container-card-icon.active button {
   background-color: var(--color-2);
-  margin-left: var(--space-4);
+  margin-right: 50%;
 }
 
 .skill-myskills-container-card-icon.active button svg {
   transform: rotate(180deg);
 }
 
-.skill-myskills-container-card-right {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.skill-myskills-container-card-right.active {
   width: 50%;
-  border-radius: 25px;
+  opacity: 1;
 }
-
 .skill-myskills-container-card-right img {
   width: 100%;
   height: 100%;

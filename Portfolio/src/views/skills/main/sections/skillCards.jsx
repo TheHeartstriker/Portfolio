@@ -1,7 +1,10 @@
 import Arrow from "@/../public/icons/arrow";
-export function SkillCards({ title, para, active, imgUrl }) {
+export function SkillCards({ title, para, active, imgUrl, onMouseEnter }) {
   return (
-    <div className={`skill-myskills-container-card ${active ? "active" : ""}`}>
+    <div
+      className={`skill-myskills-container-card ${active ? "active" : ""}`}
+      onMouseEnter={onMouseEnter}
+    >
       <div
         className={`skill-myskills-container-card-left ${active ? "active" : ""}`}
       >
@@ -20,7 +23,9 @@ export function SkillCards({ title, para, active, imgUrl }) {
           </button>
         </div>
       </div>
-      <div className="skill-myskills-container-card-right">
+      <div
+        className={`skill-myskills-container-card-right ${active ? "active" : ""}`}
+      >
         {active && <img src={imgUrl} alt={title} />}
       </div>
     </div>

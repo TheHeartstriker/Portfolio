@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./headerIntro.css";
 const client1 = "/skill/client1.webp";
 const dynamicAnimations = "/DynamicShot.webp";
@@ -11,8 +11,13 @@ import { lorem, smallLorem } from "@/utils/text";
 import { gsap } from "gsap/gsap-core";
 import { animateBlocks } from "./animations";
 import { Separator } from "@/components/forViews/seperator";
+import { ScrollButton } from "@/components/nav/scrollButton";
 
 function HeaderIntro() {
+  const [activeCard1, setActiveCard1] = useState(3);
+  const [activeCard2, setActiveCard2] = useState(3);
+  const [activeCard3, setActiveCard3] = useState(3);
+  const [activeCard4, setActiveCard4] = useState(3);
   function handleTextAnimation() {
     //
     // Main header section
@@ -29,8 +34,8 @@ function HeaderIntro() {
     );
     animateBlocks(
       { start: 150, end: 0, type: "x" },
-      { el: "top", scroll: "100%" },
-      { el: "bottom", scroll: "50%" },
+      { el: "top", scroll: "90%" },
+      { el: "bottom", scroll: "40%" },
       Topblocks,
       {
         duration: 1.25,
@@ -43,8 +48,8 @@ function HeaderIntro() {
     const Bottomblocks = document.querySelectorAll(".skill-header-stats-item");
     animateBlocks(
       { start: 150, end: 0, type: "x" },
-      { el: "top", scroll: "100%" },
-      { el: "bottom", scroll: "50%" },
+      { el: "top", scroll: "90%" },
+      { el: "bottom", scroll: "40%" },
       Bottomblocks,
       {
         duration: 0.85,
@@ -61,8 +66,8 @@ function HeaderIntro() {
       // Animate the large block
       animateBlocks(
         { start: 100, end: 0, type: "x" },
-        { el: "top", scroll: "100%" },
-        { el: "bottom", scroll: "50%" },
+        { el: "top", scroll: "90%" },
+        { el: "bottom", scroll: "40%" },
         [card.querySelector(".skill-past-item-main")],
         {
           duration: 1.25,
@@ -77,8 +82,8 @@ function HeaderIntro() {
       );
       animateBlocks(
         { start: 100, end: 0, type: "x" },
-        { el: "top", scroll: "100%" },
-        { el: "bottom", scroll: "50%" },
+        { el: "top", scroll: "90%" },
+        { el: "bottom", scroll: "40%" },
         smallBlocks,
         {
           duration: 0.85,
@@ -92,6 +97,10 @@ function HeaderIntro() {
   useEffect(() => {
     handleTextAnimation();
   }, []);
+
+  useEffect(() => {
+    console.log(activeCard2);
+  }, [activeCard2]);
   return (
     <>
       {/*  */}
@@ -106,9 +115,9 @@ function HeaderIntro() {
             <h1>Your website, my mission</h1>
             <h2>Exceeding results in custom web development</h2>
           </div>
-          <button>
+          <ScrollButton percent={110} className="skill-header-intro-button">
             <h3>Learn more</h3>
-          </button>
+          </ScrollButton>
         </div>
         {/* Image */}
         {/*  */}
@@ -116,16 +125,24 @@ function HeaderIntro() {
         {/* Stats  */}
         {/*  */}
         <div className="skill-header-stats">
-          <div className="skill-header-stats-item">
+          <div
+            className={`skill-header-stats-item ${activeCard1 === 1 ? "active" : ""}`}
+            onMouseEnter={() => setActiveCard1(1)}
+          >
             <h3>8</h3>
             <h4>Applications made</h4>
           </div>
-          <div className="skill-header-stats-item">
+          <div
+            className={`skill-header-stats-item ${activeCard1 === 2 ? "active" : ""}`}
+            onMouseEnter={() => setActiveCard1(2)}
+          >
             <h3>3</h3>
             <h4>Years of experience</h4>
           </div>
-
-          <div className="skill-header-stats-item">
+          <div
+            className={`skill-header-stats-item ${activeCard1 === 3 ? "active" : ""}`}
+            onMouseEnter={() => setActiveCard1(3)}
+          >
             <h3>3000+</h3>
             <h4>Hour's of work</h4>
           </div>
@@ -152,6 +169,8 @@ function HeaderIntro() {
           servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
           first={true}
           link={"https://www.fgraphs.com/"}
+          active={activeCard2}
+          onMouseEnter={setActiveCard2}
         />
         <WorkCard
           header={"Real estate"}
@@ -163,6 +182,8 @@ function HeaderIntro() {
           servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
           reverse={true}
           link={"https://lively-sand-0233c801e.6.azurestaticapps.net/"}
+          active={activeCard3}
+          onMouseEnter={setActiveCard3}
         />
         <WorkCard
           header={"Todo"}
@@ -173,6 +194,8 @@ function HeaderIntro() {
           rolePara={smallLorem}
           servicesArr={["Fullstack", "Desgin", "UI/UX", "Animation"]}
           link={"https://www.genesistodo.com/"}
+          active={activeCard4}
+          onMouseEnter={setActiveCard4}
         />
       </div>
     </>

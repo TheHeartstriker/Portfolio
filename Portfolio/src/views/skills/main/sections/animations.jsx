@@ -27,7 +27,7 @@ export function animateBlocks(pos, aniStart, aniEnd, elements, time) {
     trigger: elements[0],
     start: `${aniStart.el} ${aniStart.scroll}`,
     end: `${aniEnd.el} ${aniEnd.scroll}`,
-    markers: false,
+    markers: true,
     onEnter: () => sharedTimeline.play(),
   });
 }

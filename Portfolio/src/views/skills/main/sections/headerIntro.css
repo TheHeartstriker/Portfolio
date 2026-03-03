@@ -63,6 +63,7 @@
   height: fit-content;
   padding: var(--space-1) var(--space-3);
   margin-left: auto;
+  cursor: pointer;
 }
 .skill-header-intro h3 {
   color: var(--color-3);
@@ -95,16 +96,20 @@
   background-color: var(--color-4);
   border-radius: 25px;
   padding: var(--space-2) var(--space-3);
+  transition:
+    background-color 0.5s var(--power-1-out),
+    color 0.5s var(--power-1-out);
 }
-.skill-header-stats-item:nth-child(3) {
+
+.skill-header-stats-item.active {
   background-color: var(--color-1);
 }
 
-.skill-header-stats-item:nth-child(3) h3 {
+.skill-header-stats-item.active h3 {
   color: var(--color-3);
 }
 
-.skill-header-stats-item:nth-child(3) h4 {
+.skill-header-stats-item.active h4 {
   color: var(--color-5);
 }
 
@@ -140,7 +145,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-8);
 }
 
 .skill-past-item:nth-of-type(4) {
@@ -153,6 +158,7 @@
   display: flex;
   overflow: hidden;
   border-radius: 35px;
+  background-color: var(--color-4);
 }
 
 .skill-past-item-main.reverse {
@@ -163,19 +169,21 @@
   display: flex;
   width: 35%;
   flex-direction: column;
-  background-color: var(--color-4);
   padding: var(--space-3) var(--space-2);
 }
 
 .skill-past-item-main-text h3 {
   font-size: 2.5rem;
-  color: var(--color-2);
+  color: var(--color-1);
   font-weight: 600;
-  margin: var(--space-1) 0;
+  margin: 0;
+  margin-bottom: var(--space-1);
 }
 
 .skill-past-item-main-text p {
   font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: var(--space-3);
   color: var(--font-middle);
 }
 /* Right image part on default */
@@ -199,6 +207,28 @@
   height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  border-radius: 35px;
+  transition: opacity 0.5s var(--power-1-out);
+}
+
+.skill-past-item-main-image video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: 35px;
+  transition: opacity 0.5s var(--power-1-out);
+}
+
+.skill-past-item-main-image .fade-out {
+  opacity: 0;
+}
+
+.skill-past-item-main-image .fade-in {
+  opacity: 1;
 }
 
 .skill-past-item-main-image::before {
@@ -209,11 +239,13 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
 
   z-index: 10;
 }
 
 .skill-past-item-main-image-link {
+  position: relative;
   z-index: 15;
   width: 4rem;
   height: 4rem;
@@ -224,6 +256,20 @@
   box-shadow:
     0px 4px 6px rgba(0, 0, 0, 0.25),
     0 0 8px rgba(0, 0, 0, 0.25);
+  transition:
+    background-color 0.25s var(--power-1-out),
+    box-shadow 0.25s var(--power-1-out);
+}
+
+.skill-past-item-main-image-link:hover {
+  background-color: var(--color-1);
+  box-shadow:
+    0px 8px 12px rgba(0, 0, 0, 0.35),
+    0 0 16px rgba(0, 0, 0, 0.35);
+}
+
+.skill-past-item-main-image-link:hover svg {
+  stroke: var(--color-2);
 }
 
 .skill-past-item-main-image-link a {
@@ -238,8 +284,8 @@
 
 .skill-past-item-main-image-link svg {
   width: 2rem;
-  width: 2rem;
-  stroke: var(--color-3);
+  height: 2rem;
+  stroke: var(--color-1);
   transform: rotate(225deg);
 }
 
@@ -270,6 +316,10 @@
     0 0 8px rgba(0, 0, 0, 0.25);
 }
 
+.skill-past-item-main-image-con-span {
+  background-color: var(--color-3) !important;
+}
+
 .skill-past-item-main-image-con button {
   width: 2rem;
   height: 2rem;
@@ -279,6 +329,17 @@
   box-shadow:
     0px 4px 6px rgba(0, 0, 0, 0.15),
     0 0 8px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color 0.25s var(--power-1-out),
+    box-shadow 0.25s var(--power-1-out);
+  cursor: pointer;
+}
+
+.skill-past-item-main-image-con button:hover {
+  background-color: var(--color-2);
+  box-shadow:
+    0px 8px 12px rgba(0, 0, 0, 0.25),
+    0 0 16px rgba(0, 0, 0, 0.25);
 }
 
 .skill-past-item-main-image-con button svg {
@@ -304,6 +365,19 @@
   background-color: var(--color-4);
   border-radius: 25px;
   width: 100%;
+  transition: background-color 0.5s var(--power-1-out);
+}
+
+.skill-past-item-stats-con.active {
+  background-color: var(--color-1);
+}
+
+.skill-past-item-stats-con.active h4 {
+  color: var(--color-5);
+}
+
+.skill-past-item-stats-con.active p {
+  color: var(--color-3);
 }
 
 .skill-past-item-stats-con h4 {
@@ -334,19 +408,32 @@
   align-items: center;
   border-radius: 20px;
   height: 100%;
-  background-color: var(--color-1);
+  background-color: var(--color-4);
+  transition: background-color 0.35s var(--power-1-out);
 }
 
 .skill-past-item-stats-con-sq-it h5 {
   font-size: 1rem;
-  color: var(--color-3);
+  color: var(--color-1);
   font-weight: 500;
   margin: 0;
 }
 
 .skill-past-item-stats-con-sq-it h6 {
   font-size: 0.75rem;
-  color: var(--color-5);
-  font-weight: 500;
+  color: var(--font-middle);
+  font-weight: 400;
   margin: 0;
+}
+
+.skill-past-item-stats-con-sq-it.active {
+  background-color: var(--color-1);
+}
+
+.skill-past-item-stats-con-sq-it.active h5 {
+  color: var(--color-5);
+}
+
+.skill-past-item-stats-con-sq-it.active h6 {
+  color: var(--color-3);
 }
