@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use } from "react";
 import { gsap } from "gsap";
 import "./lightSkills.css";
 import { Separator } from "@/components/forViews/seperator";
@@ -12,10 +12,62 @@ const card3 = "/skill/card3.jpg";
 const fitShot = "/skill/FitShot.webp";
 import Chevron from "../../../../../public/icons/chevron";
 
-import { animateBlocks } from "./animations";
+import { animateBlocks } from "../../../../utils/animations/animations";
 
 function LightSkills() {
   const [activeCard, setActiveCard] = useState(1);
+  const [activeGal, setActiveGal] = useState(1);
+  const galItemRef = useRef(null);
+  const mediaData = useRef({
+    img1: {
+      src: card1,
+      para: lorem,
+    },
+    img2: {
+      src: card2,
+      para: lorem,
+    },
+    img3: {
+      src: card3,
+      para: lorem,
+    },
+  });
+
+  const animateGalleryTransition = (direction) => {
+    const xStart = direction === "next" ? 100 : -100;
+
+    gsap
+      .timeline()
+      .to(galItemRef.current, {
+        x: -xStart,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.in",
+      })
+      .set(galItemRef.current, {
+        x: xStart,
+      })
+      .to(galItemRef.current, {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+  };
+
+  const handlePrevious = () => {
+    animateGalleryTransition("prev");
+    setTimeout(() => {
+      setActiveGal(activeGal === 1 ? 3 : activeGal - 1);
+    }, 400);
+  };
+
+  const handleNext = () => {
+    animateGalleryTransition("next");
+    setTimeout(() => {
+      setActiveGal(activeGal === 3 ? 1 : activeGal + 1);
+    }, 400);
+  };
 
   useEffect(() => {
     animateBlocks(
@@ -61,18 +113,26 @@ function LightSkills() {
         {/* Gallery container 'the images' */}
         <div className="skill-highlights-gal">
           {/* Arrow container */}
-          <div className="skill-highlights-gal-arrow" id="gal-arrow-1">
+          <div
+            className="skill-highlights-gal-arrow"
+            id="gal-arrow-1"
+            onClick={handlePrevious}
+          >
             <Chevron />
           </div>
           {/* The image */}
-          <div className="skill-highlights-gal-item">
-            <img src={fitShot} />
+          <div className="skill-highlights-gal-item" ref={galItemRef}>
+            <img src={mediaData.current[`img${activeGal}`].src} />
             <div className="skill-highlights-gal-item-text">
-              <p>{smallLorem}</p>
+              {mediaData.current[`img${activeGal}`].para}
             </div>
           </div>
           {/* Arrow container */}
-          <div className="skill-highlights-gal-arrow" id="gal-arrow-2">
+          <div
+            className="skill-highlights-gal-arrow"
+            id="gal-arrow-2"
+            onClick={handleNext}
+          >
             <Chevron />
           </div>
         </div>

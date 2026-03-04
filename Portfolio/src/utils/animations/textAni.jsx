@@ -1,31 +1,30 @@
+import { stagger } from "framer-motion";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+export function animateText(pos, elements, timeline, time) {
+  // Accept either a single element or an array of elements
+  const elementArray = Array.isArray(elements) ? elements : [elements];
 
-export function animateText(startPos, endPos, element, timeline, location) {
-  if (!element) return;
+  if (!elementArray.length || !elementArray[0]) return;
 
-  const letters = new SplitText(element, { type: "chars" }).chars;
-  // Set initial state
-  gsap.set(letters, { x: startPos, opacity: 0 });
+  elementArray.forEach((element, index) => {
+    if (!element) return;
 
-  timeline.to(
-    letters,
-    {
-      x: endPos,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-      stagger: 0.03,
-    },
-    `${location || 0}`,
-  );
+    const letters = new SplitText(element, { type: "chars" }).chars;
+    // Set initial state
+    gsap.set(letters, { x: pos.start, opacity: 0 });
 
-  ScrollTrigger.create({
-    trigger: element,
-    start: "top 100%",
-    onEnter: () => timeline.play(),
+    timeline.to(
+      letters,
+      {
+        x: pos.end,
+        opacity: 1,
+        duration: time.duration,
+        ease: time.easing,
+        stagger: 0.03,
+      },
+      "-=0.2",
+    );
   });
 }

@@ -9,7 +9,7 @@ import { WorkCard } from "../workCard.jsx";
 import { animateText } from "@/utils/animations/textAni.jsx";
 import { lorem, smallLorem } from "@/utils/text";
 import { gsap } from "gsap/gsap-core";
-import { animateBlocks } from "./animations";
+import { animateBlocks } from "../../../../utils/animations/animations";
 import { Separator } from "@/components/forViews/seperator";
 import { ScrollButton } from "@/components/nav/scrollButton";
 
@@ -22,11 +22,14 @@ function HeaderIntro() {
     //
     // Main header section
     // header text animation
-    const timeline = gsap.timeline({ paused: true });
+    const timeline = gsap.timeline();
     const header = document.querySelector(".skill-header-intro-text h1");
     const subHeader = document.querySelector(".skill-header-intro-text h2");
-    animateText(200, 0, header, timeline);
-    animateText(200, 0, subHeader, timeline, "-=1");
+    animateText({ start: 150, end: 0 }, [header, subHeader], timeline, {
+      duration: 0.5,
+      easing: "power1.out",
+    });
+
     //
     // Large top block and button animation
     const Topblocks = document.querySelectorAll(
@@ -39,23 +42,25 @@ function HeaderIntro() {
       Topblocks,
       {
         duration: 1.25,
-        delay: 2,
         easing: "back.out(1.05)",
+        offset: "-=0.25",
       },
+      timeline,
     );
     //
     // Bottom stats animation
     const Bottomblocks = document.querySelectorAll(".skill-header-stats-item");
     animateBlocks(
       { start: 150, end: 0, type: "x" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
+      null,
+      null,
       Bottomblocks,
       {
-        duration: 0.85,
-        delay: 2.25,
+        duration: 0.75,
         easing: "power2.out",
+        offset: "<+0.5",
       },
+      timeline,
     );
     //
     // Script cards animation
@@ -72,6 +77,7 @@ function HeaderIntro() {
         {
           duration: 1.25,
           delay: 0,
+
           easing: "back.out(1.05)",
         },
       );
@@ -88,6 +94,7 @@ function HeaderIntro() {
         {
           duration: 0.85,
           delay: 0,
+
           easing: "power2.out",
         },
       );

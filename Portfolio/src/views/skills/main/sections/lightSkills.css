@@ -36,6 +36,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.75s var(--power-1-out);
+  cursor: pointer;
+}
+
+.skill-highlights-gal-arrow:hover {
+  background-color: var(--color-1);
+}
+.skill-highlights-gal-arrow:hover svg path {
+  stroke: var(--color-4);
 }
 
 .skill-highlights-gal-arrow svg {

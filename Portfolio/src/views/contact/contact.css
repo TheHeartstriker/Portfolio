@@ -17,6 +17,7 @@
 .contact h1 {
   color: var(--font-high);
   font-size: 6.5rem;
+  mix-blend-mode: difference;
   margin-bottom: 0;
   font-weight: 700;
   z-index: 5;
