@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect, use } from "react";
 import { gsap } from "gsap";
 import "./lightSkills.css";
-import { Separator } from "@/components/forViews/seperator";
+import { Separator } from "@/components/separator/separator";
 import { lorem, smallLorem } from "@/utils/text";
 import { SkillCards } from "./skillCards";
 import Arrow from "@/../public/icons/arrow";
@@ -10,9 +10,9 @@ const card1 = "/skill/card1.webp";
 const card2 = "/skill/card2.jpg";
 const card3 = "/skill/card3.jpg";
 const fitShot = "/skill/FitShot.webp";
-import Chevron from "../../../../../public/icons/chevron";
+import Chevron from "../../../../public/icons/chevron";
 
-import { animateBlocks } from "../../../../utils/animations/animations";
+import { animateBlocks } from "../../../utils/animations/animations";
 
 function LightSkills() {
   const [activeCard, setActiveCard] = useState(1);

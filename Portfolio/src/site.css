@@ -37,6 +37,7 @@ h5 {
   --space-7: 4rem;
   --space-8: 5rem;
   --power-1-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --power-2-out: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
 /* P tags should be set between either 1rem, 1.25rem, 1.5rem or 1.1rem IF used as readable text. H tags should use increments of 0.5rem otherwise no restrictions. As for scaling font at smaller size's around 800px should be decrease

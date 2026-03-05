@@ -1,3 +1,4 @@
+import "./separator.css";
 export function Separator({ headerArr, reverse }) {
   if (!headerArr) {
     return null;

@@ -10,7 +10,6 @@
   width: 100%;
   height: auto;
   margin: 7.5rem 0;
-  animation: fadeUpEnter75-0 0.9s forwards ease-in-out;
   gap: var(--space-7);
 }
 /*  */
@@ -22,39 +21,52 @@
   flex-direction: column;
   height: auto;
 }
-
+/*  */
+/* Top text container */
 .scriptorium-intro-text {
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: left;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-3);
+  height: auto;
 }
-
+/* Big text decides container height */
 .scriptorium-intro-text h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: var(--color-2);
   margin: 0;
   padding: 0;
-  width: 60%;
+  margin-right: auto;
+  margin-top: auto;
   font-weight: 600;
-  height: 100%;
+  height: fit-content;
   text-shadow:
     0px 4px 5px rgba(0, 0, 0, 0.075),
     0 0 6px rgba(0, 0, 0, 0.075);
 }
-
+/* Right side text container */
 .scriptorium-intro-body-text {
   height: 100%;
   width: 40%;
+  /* This pushes the content down the text sizing visually is imperfect */
+  padding-top: var(--space-2);
+}
+/* p tag content container */
+.scriptorium-intro-body-text-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-4);
+  padding: var(--space-2);
+  border-radius: 25px;
+  margin-bottom: var(--space-2);
+  margin-right: var(--space-5);
 }
 
-.scriptorium-intro-body-text p {
+.scriptorium-intro-body-text-container p {
   font-size: 0.85rem;
   color: var(--font-middle);
   margin: 0;
-  margin-bottom: var(--space-2);
-  margin-right: var(--space-5);
 }
 
 .scriptorium-intro img {

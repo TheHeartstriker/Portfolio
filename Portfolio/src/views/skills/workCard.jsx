@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Arrow from "../../../../out/icons/arrow";
-import { Separator } from "@/components/forViews/seperator";
+import Arrow from "../../../out/icons/arrow";
+import { Separator } from "@/components/separator/separator";
 import { lorem } from "@/utils/text";
 
 export function WorkCard({

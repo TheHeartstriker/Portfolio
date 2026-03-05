@@ -4,10 +4,10 @@ import "./proFocus.css";
 const back1 = "/skill/back1.png";
 const back2 = "/skill/back2.jpg";
 import UserGroup from "@/../public/icons/user-group";
-import { Separator } from "@/components/forViews/seperator";
+import { Separator } from "@/components/separator/separator";
 import { use, useEffect } from "react";
 import { lorem, smallLorem } from "@/utils/text";
-import { animateBlocks } from "../../../../utils/animations/animations";
+import { animateBlocks } from "../../../utils/animations/animations";
 import { useState } from "react";
 
 function ProFocus() {

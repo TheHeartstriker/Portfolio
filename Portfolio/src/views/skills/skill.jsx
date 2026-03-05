@@ -15,7 +15,6 @@ const dynamicAnimations = "/DynamicShot.webp";
 const fitShot = "/skill/FitShot.webp";
 const todoShot = "/skill/todoShot.webp";
 import LightSkills from "./sections/lightSkills";
-import "./remove.css";
 import { WorkCard } from "./workCard";
 import ProFocus from "./sections/proFocus";
 import HeaderIntro from "./sections/headerIntro";

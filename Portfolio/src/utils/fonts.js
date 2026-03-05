@@ -8,6 +8,7 @@ import {
   Crimson_Text,
   Spectral,
   Sora,
+  Cormorant_Garamond,
 } from "next/font/google";
 
 export const Display = Playfair_Display({
@@ -17,10 +18,10 @@ export const Display = Playfair_Display({
   variable: "--font-display",
 });
 
-// export const Display = Sora({
+// export const Display = Cormorant_Garamond({
 //   subsets: ["latin"],
 //   display: "swap",
-//   weight: ["400", "500", "600", "700", "800"],
+//   weight: ["400", "500", "600", "700"],
 //   variable: "--font-display",
 // });
 
@@ -28,20 +29,6 @@ export const Display = Playfair_Display({
 //   subsets: ["latin"],
 //   display: "swap",
 //   weight: ["400", "600", "700"],
-//   variable: "--font-display",
-// });
-
-// export const Display = Baskervville({
-//   subsets: ["latin"],
-//   display: "swap",
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-display",
-// });
-
-// export const Display = Cinzel_Decorative({
-//   subsets: ["latin"],
-//   display: "swap",
-//   weight: ["400", "700", "900"],
 //   variable: "--font-display",
 // });
 

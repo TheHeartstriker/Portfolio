@@ -9,10 +9,9 @@ import { WorkCard } from "../workCard.jsx";
 import { animateText } from "@/utils/animations/textAni.jsx";
 import { lorem, smallLorem } from "@/utils/text";
 import { gsap } from "gsap/gsap-core";
-import { animateBlocks } from "../../../../utils/animations/animations";
-import { Separator } from "@/components/forViews/seperator";
+import { animateBlocks } from "../../../utils/animations/animations";
 import { ScrollButton } from "@/components/nav/scrollButton";
-
+import { Separator } from "@/components/separator/separator.jsx";
 function HeaderIntro() {
   const [activeCard1, setActiveCard1] = useState(3);
   const [activeCard2, setActiveCard2] = useState(3);
