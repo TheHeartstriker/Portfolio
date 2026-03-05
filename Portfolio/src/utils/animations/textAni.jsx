@@ -1,4 +1,4 @@
-import { stagger } from "framer-motion";
+import { delay, stagger } from "framer-motion";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
@@ -23,6 +23,7 @@ export function animateText(pos, elements, timeline, time) {
         duration: time.duration,
         ease: time.easing,
         stagger: 0.03,
+        delay: index === 0 ? (time.delay ?? 0) : 0,
       },
       "-=0.2",
     );

@@ -9,23 +9,29 @@ import {
   MainText2,
   MainText3,
 } from "./text";
-import AnimatedAbout from "./animatedAbout";
 import Arrow from "../../../public/icons/arrow";
 import { ScrollButton } from "@/components/nav/scrollButton";
 import { gsap } from "gsap/gsap-core";
 import { useEffect } from "react";
 import { animateText } from "@/utils/animations/textAni";
 import { animateBlocks } from "@/utils/animations/animations";
-import { stagger, time } from "framer-motion";
-
+import { Context } from "@/components/forStyle/animations/animationContext.jsx";
+import { useContext } from "react";
 function About() {
+  const { opening, setOpening } = useContext(Context);
   function initAnimations() {
+    let delay = 0;
+    if (opening) {
+      delay = 1.75;
+    }
+
     const timeline = gsap.timeline();
     const header = document.querySelector(".about-hero-section h1");
     const subHeader = document.querySelector(".about-hero-section h2");
     animateText({ start: 200, end: 0 }, [subHeader, header], timeline, {
       duration: 0.75,
       easing: "power2.out",
+      delay: delay,
     });
     const blocks = document.querySelectorAll(
       ".about-hero-section-info-text, .about-hero-section-info button",
@@ -51,7 +57,6 @@ function About() {
 
   return (
     <div className="main-about-container">
-      <AnimatedAbout />
       {/* Hero Section */}
       <div className="about-hero-section">
         <h2>Hi, my name is</h2>

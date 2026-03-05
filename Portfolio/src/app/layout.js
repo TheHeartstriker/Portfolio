@@ -10,6 +10,7 @@ import { Display, Body } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
+import Opening from "@/components/forStyle/animations/opening";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${Display.variable} ${Body.variable}`}>
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <Provider>
           <ThemeGen />
           <Background />
+          <Opening />
           <Nav />
           <LenisProvider>
             <FadeLayout>

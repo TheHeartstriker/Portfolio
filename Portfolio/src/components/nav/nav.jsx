@@ -4,15 +4,15 @@ import { usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
-import { Context } from "../forStyle/animations/animationContext.jsx";
 import Link from "next/link";
+import { Context } from "@/components/forStyle/animations/animationContext.jsx";
 function Nav() {
   const containerRef = useRef(null);
-  const { isAnimating, timeline, setAddedEl } = useContext(Context);
   const location = useRef({});
   const pathname = usePathname();
   const current = useRef("About");
   const heightRef = useRef(45);
+  const { opening, setOpening } = useContext(Context);
   //Creates the div for the buttons
   function BoxElements() {
     const container = containerRef.current;
@@ -52,7 +52,7 @@ function Nav() {
     // Use different easing for About and Contact to prevent off-screen overshoot
     const easing =
       buttonName === "About" || buttonName === "Contact"
-        ? "power4.out"
+        ? "power2.out"
         : "back.out";
 
     gsap.to(div, {
@@ -65,21 +65,6 @@ function Nav() {
   function setValue(name) {
     current.current = name;
   }
-  //Gsap animation
-  function upFadeIn(element) {
-    gsap.set(element, {
-      y: 50,
-      opacity: 0,
-    });
-    // Main animation
-    timeline.to(element, {
-      y: 0,
-      opacity: 1,
-      duration: 1.75,
-      ease: "power1.out",
-    });
-    setAddedEl((prev) => prev + 1);
-  }
 
   function simpleFadeIn(element) {
     gsap.set(element, {
@@ -87,7 +72,8 @@ function Nav() {
     });
     gsap.to(element, {
       opacity: 1,
-      duration: 1.5,
+      duration: 1.25,
+      delay: 2,
       ease: "power1.out",
     });
   }
@@ -96,13 +82,13 @@ function Nav() {
   useEffect(() => {
     locationFill();
     BoxElements();
-    if (isAnimating) {
-      upFadeIn(containerRef.current);
-    } else {
+
+    if (opening) {
       simpleFadeIn(containerRef.current);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   // Handles calculations on window resize
   useEffect(() => {
     function handleResize() {
