@@ -6,6 +6,7 @@ import { Separator } from "@/components/separator/separator";
 import { lorem } from "@/utils/text";
 import { useState } from "react";
 import ProFocusAnimation from "../animations/proFocusAnimation";
+import { processText, focusText } from "../text";
 
 function ProFocus() {
   const [activeCard1, setActiveCard1] = useState(4);
@@ -28,8 +29,8 @@ function ProFocus() {
             onMouseEnter={() => setActiveCard1(1)}
           >
             <h4>01.</h4>
-            <h3>Discovery And Research</h3>
-            <p>{lorem}</p>
+            <h3>{processText.card1.header}</h3>
+            <p>{processText.card1.para}</p>
           </div>
           {/* Item 2 */}
           <div
@@ -37,8 +38,8 @@ function ProFocus() {
             onMouseEnter={() => setActiveCard1(2)}
           >
             <h4>02.</h4>
-            <h3>Discovery And Research</h3>
-            <p>{lorem}</p>
+            <h3>{processText.card2.header}</h3>
+            <p>{processText.card2.para}</p>
           </div>
           {/* Item 3 */}
           <div
@@ -46,8 +47,8 @@ function ProFocus() {
             onMouseEnter={() => setActiveCard1(3)}
           >
             <h4>03.</h4>
-            <h3>Discovery And Research</h3>
-            <p>{lorem}</p>
+            <h3>{processText.card3.header}</h3>
+            <p>{processText.card3.para}</p>
           </div>
           {/* Item 4 */}
           <div
@@ -55,8 +56,8 @@ function ProFocus() {
             onMouseEnter={() => setActiveCard1(4)}
           >
             <h4>04.</h4>
-            <h3>Discovery And Research</h3>
-            <p>{lorem}</p>
+            <h3>{processText.card4.header}</h3>
+            <p>{processText.card4.para}</p>
           </div>
         </div>
       </div>
@@ -73,12 +74,12 @@ function ProFocus() {
             className={`skill-focus-container-card ${activeCard2 === 1 ? "active" : ""}`}
             onMouseEnter={() => setActiveCard2(1)}
           >
-            <h3>User Experience Accessibility through Repetition</h3>
+            <h3>{focusText.card1.header}</h3>
             <div className="skill-focus-container-card-text">
               <div className="skill-focus-container-card-text-icon">
                 <UserGroup />
               </div>
-              <p>{lorem}</p>
+              <p>{focusText.card1.para}</p>
             </div>
           </div>
           {/* Card2 */}
@@ -86,12 +87,12 @@ function ProFocus() {
             className={`skill-focus-container-card ${activeCard2 === 2 ? "active" : ""}`}
             onMouseEnter={() => setActiveCard2(2)}
           >
-            <h3>User Experience Accessibility through Repetition</h3>
+            <h3>{focusText.card2.header}</h3>
             <div className="skill-focus-container-card-text">
               <div className="skill-focus-container-card-text-icon">
                 <UserGroup />
               </div>
-              <p>{lorem}</p>
+              <p>{focusText.card2.para}</p>
             </div>
           </div>
         </div>
@@ -103,12 +104,12 @@ function ProFocus() {
             className={`skill-focus-container-card ${activeCard2 === 3 ? "active" : ""}`}
             onMouseEnter={() => setActiveCard2(3)}
           >
-            <h3>User Experience Accessibility through Repetition</h3>
+            <h3>{focusText.card3.header}</h3>
             <div className="skill-focus-container-card-text">
               <div className="skill-focus-container-card-text-icon">
                 <UserGroup />
               </div>
-              <p>{lorem}</p>
+              <p>{focusText.card3.para}</p>
             </div>
           </div>
           {/* Card2 */}
@@ -116,12 +117,12 @@ function ProFocus() {
             className={`skill-focus-container-card ${activeCard2 === 4 ? "active" : ""}`}
             onMouseEnter={() => setActiveCard2(4)}
           >
-            <h3>User Experience Accessibility through Repetition</h3>
+            <h3>{focusText.card4.header}</h3>
             <div className="skill-focus-container-card-text">
               <div className="skill-focus-container-card-text-icon">
                 <UserGroup />
               </div>
-              <p>{lorem}</p>
+              <p>{focusText.card4.para}</p>
             </div>
           </div>
         </div>
