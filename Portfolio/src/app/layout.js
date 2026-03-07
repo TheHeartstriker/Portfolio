@@ -13,7 +13,11 @@ import Script from "next/script";
 import Opening from "@/components/forStyle/animations/opening";
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${Display.variable} ${Body.variable}`}>
+    <html
+      lang="en"
+      className={`${Display.variable} ${Body.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

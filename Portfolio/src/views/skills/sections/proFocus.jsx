@@ -1,40 +1,22 @@
 "use client";
 import "./proFocus.css";
 
-const back1 = "/skill/back1.png";
-const back2 = "/skill/back2.jpg";
 import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/separator/separator";
-import { use, useEffect } from "react";
-import { lorem, smallLorem } from "@/utils/text";
-import { animateBlocks } from "../../../utils/animations/animations";
+import { lorem } from "@/utils/text";
 import { useState } from "react";
+import ProFocusAnimation from "../animations/proFocusAnimation";
 
 function ProFocus() {
   const [activeCard1, setActiveCard1] = useState(4);
   const [activeCard2, setActiveCard2] = useState(1);
-  useEffect(() => {
-    animateBlocks(
-      { start: -100, end: 0, type: "x" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
-      document.querySelectorAll(".skill-process-main-card"),
-      { duration: 0.85, delay: 0, easing: "power2.out" },
-    );
-    animateBlocks(
-      { start: 100, end: 0, type: "y" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
-      document.querySelectorAll(".skill-focus-container-card"),
-      { duration: 1.25, delay: 0, easing: "back.out(1.05)" },
-    );
-  }, []);
 
   return (
     <>
       {/*  */}
       {/* Process container */}
       {/*  */}
+      <ProFocusAnimation />
       <div className="skill-process">
         <Separator headerArr={["Process", "And Methodology"]} reverse={true} />
         {/*  */}

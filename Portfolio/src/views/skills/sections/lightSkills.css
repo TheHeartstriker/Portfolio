@@ -74,9 +74,11 @@
 
 .skill-highlights-gal-item-text p {
   font-size: 0.85rem;
+  color: var(--font-middle);
 }
 
-.skill-highlights-gal-item img {
+.skill-highlights-gal-item img,
+.skill-highlights-gal-item video {
   position: absolute;
   top: 50%;
   left: 50%;

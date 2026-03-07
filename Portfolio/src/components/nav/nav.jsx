@@ -73,7 +73,7 @@ function Nav() {
     gsap.to(element, {
       opacity: 1,
       duration: 1.25,
-      delay: 2,
+      delay: 1.5,
       ease: "power1.out",
     });
   }

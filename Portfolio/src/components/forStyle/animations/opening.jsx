@@ -32,7 +32,7 @@ function Opening() {
       duration: duration,
       ease: easing,
 
-      delay: 0.15,
+      delay: 0.25,
     });
   }
 
@@ -44,7 +44,7 @@ function Opening() {
     const rightItems = document.querySelectorAll(
       ".opening-container-right-item",
     );
-
+    //Total takes 1.75 seconds
     const tl = gsap.timeline();
     tl.add(slideUpDown(leftItems[0], "up", 100, 0, 1.5, "power1.inOut"), 0);
     tl.add(slideUpDown(leftItems[1], "down", 100, 0, 1, "power1.inOut"), 0);

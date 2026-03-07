@@ -1,81 +1,106 @@
-///////////////////////////////////////////////TextStacks///////////////////////////////////////////////
+//
+// Bellow are text and links for past work and projects
+//
+export const FGraphsText = {
+  header: "FGraphs",
+  para1: `FGraphs is a full fitness aplication made in my spare time. It allows users to tracker their weight, calories burned, time spent working out and sharing.
+   It also uses a experimental and unique design and user interface focused on ease of use and creativity.`,
+  para2: `FGraphs is primarly a personal project, made for fun and learning. Rather then being a project for real world use foucsing on mixing creativity and fun with functionality.`,
+  role: `I was the sole developer on this project, responsible for setting up the design, frontend, backend, deployment and maintenance.`,
+  scope: `This is a full stack project, spaning around 10 pages with a backend, database and full mobile support.`,
+  media: [
+    "/skill/projects/fgraph1.webp",
+    "/skill/projects/fgraph2.webp",
+    "/skill/projects/fgraph3.webp",
+    "/skill/projects/fgraph4.webp",
+  ],
+  services: ["Fullstack", "Desgin", "UI/UX", "Animation"],
+};
 
-export const TechStacks = [
-  "HTML/CSS",
-  "JavaScript",
-  "TypeScript",
-  "Node.js",
-  "React.js",
-  "Express",
-  "Mysql",
-  "Python",
-  "C++",
-  "Azure",
-  "Aws",
-  "Figma",
-  "WebAsm",
-];
+export const RealEstateText = {
+  header: "Peyton Ray Properties",
+  para1: `Peyton Ray Properties is a landing page for a real estate company. It was made to be a simple and elegant landing page, for a small real estate company. While qucikly made, it is fully fleshed out although the client has changed thier business model and is no longer using the site.`,
+  para2: `This was my first actual client project and was a great learning experience. `,
+  role: `I was the sole developer on this project, responsible for setting up the design, frontend, lauch and client communication.`,
+  scope: `This was a frontend project, spaning around 5 pages with full mobile support.`,
+  media: [
+    "/skill/projects/estate1.webp",
+    "/skill/projects/estate2.webp",
+    "/skill/projects/estate3.webp",
+    "/skill/projects/estate4.webp",
+  ],
+  services: ["Frontend", "Desgin", "UI/UX", "Animation"],
+};
 
-export const UsedTechApp1 = [
-  "React.js",
-  "JavaScript",
-  "HTML Canvas",
-  "C++",
-  "WebAsm",
-  "Azure",
-];
+export const TodoText = {
+  header: "Todo App",
+  para1: `This is a simple todo app. It's old and was made before I had a good understanding of design and user experience. It is a simple app that allows users to add, delete and edit tasks. It's main purpose was learning and experimenting with new technologies and design.`,
+  para2: `While not a good showcase of what I can currently do, it is a good example of how much I have grown as a developer and designer. Ignoring it's very custom setup, it is a fully functional todo app with a unique design.`,
+  role: `I was the sole developer on this project, responsible for setting up the design, frontend, backend, deployment and maintenance.`,
+  scope: `This is a full stack project, spaning around 5 pages with a backend, database and full mobile support.`,
+  media: ["/skill/projects/todo.webp"],
+  services: ["Fullstack", "Desgin", "UI/UX", "Animation"],
+};
+//
+// Bellow are text and links for highlights
+//
+export const highlightText = {
+  media1: {
+    src: "/skill/highlight/highlight1.webm",
+    type: "video",
+    para: `This is a part of my portfolio website. Its a custom made text blurb that has physics it can be thrown around and reacts to
+    the mouse it also obeys so classical laws like motion and momentum. Researched and created just for this section.`,
+  },
+  media2: {
+    src: "/skill/highlight/highlight2.mp4",
+    type: "video",
+    para: `This is a landpage page for a fitness website. The background was custom made specfically for this project. Its
+    a trianglular grid that reacts upon hover.`,
+  },
+  media3: {
+    src: "/skill/highlight/highlight3.webm",
+    type: "video",
+    para: `This was a past version of my portfolio. It included another custom physics animation on the contacts page specfically for links.
+    upon clicking one of the balls it would send you off to its corresponding link/logo's site.`,
+  },
+};
 
-export const UsedTechApp2 = [
-  "HTML/CSS",
-  "MySQL",
-  "Express",
-  "React.js",
-  "JavaScript",
-  "Ec2/AWS",
-];
+//
+// Bellow are text and links for skills
+//
+export const skillText = {
+  card1: {
+    header: "Performance Optimization",
+    imgSrc: "/skill/skill/card1Performance.webp",
+    para: `As someone who hand code's my websites, animations and interactions, I can optimize every aspect to insure performane.
+    As such even creative sections with heavy interactions, animation's or custom effects dont suffer from performance issue's regardless of device.`,
+  },
+  card2: {
+    header: "Design, Layout and Flow",
+    imgSrc: "/skill/skill/card2Design.webp",
+    para: `All of my site's are custom designed by me. Esplicity reasearched and designed from scratch for each project to be usable, acessable and 
+    most importantly fit the indended audience. Any work on my portfolio was only made by me so you can see my skill level.`,
+  },
+  card3: {
+    header: "Choice and Customization",
+    imgSrc: "/skill/skill/card3Choice.webp",
+    para: `I am a devloper that designeds, code's and lauches website. So no template's, pre made code or corner cutting are done it my website's.
+      Primarly this means my sites are more performant but it also allows me to effectively recreate idea's and concepts faithfully and without 
+      comprimize.`,
+  },
+};
 
-export const UsedTechApp3 = [
-  "HTML/CSS",
-  "MySQL",
-  "Express",
-  "React.js",
-  "TypeScript",
-  "Ec2/AWS",
-];
-
-export const UsedTechApp4 = [
-  "HTML/CSS",
-  "Next.js",
-  "JavaScript",
-  "Azure",
-  "Cloudflare",
-  "Figma",
-];
-
-///////////////////////////////////////////////Larger texts///////////////////////////////////////////////
-export const Paras = [
-  `A web app to show the beauty of programming. Simulate natural phenomena such as lightning, sand, or just look at beautiful simulations all within the web browser. Built to push my skills in high performance software.`,
-  `A modern fitness tracker. Features graphs, a custom-made login system, a method to share fitness history, professional design, and data tracking. Built to test my skills in full-stack development with very little abstractions.`,
-  `A simple todo app. Add, remove, edit, folders, and marking as done are the main features. The app was made to further my backend knowledge. Pretty old but still functional!`,
-  `A freelance project for a client specifically, a marketing site for a small real estate business with the goal of attracting new clients. On delivery, average monthly visitors increased by 30% due to better design and SEO optimization.`,
-];
-
-///////////////////////////////////////////////FolderTexts///////////////////////////////////////////////
-
-export const NoteWortheyH = [
-  "Production Book app",
-  "Portfolio",
-  "CS50 Final Project",
-];
-export const NoteWortheyP = [
-  "A simple book app made as part of an interview process. I followed strict guidelines and a custom-made backend design, which I later improved upon and used in my own projects.",
-  "The code base for this website! Wondering how its done check here :)",
-  "My CS50 final project. A staging website for learning how to use WebAssembly. Mainly a personal learning project to be able to implement it in future projects.",
-];
-
-export const Header = [
-  "Dynamic Animations",
-  "FGraphs",
-  "GenesisToDo",
-  "Peyton Ray Properties",
-];
+export const processText = {
+  card1: {
+    header: "Discovery and Research",
+    para: `Every project/website starts with discovery and reasearch. Which is getting the requirments for the site then researching.
+    If undefined this research can span creating and defining theme's, color's, compoetitors, inspiration and font's. This part is more about defining
+    what the website should become and making sure it matches client specifciations.`,
+  },
+  card2: {
+    header: "Mockup and Design",
+    para: `This stage is about creating a design and having it approved. This covers using and interating on the inspiration and theme and creating page's
+    based of it. Once the design is finished it goes through revision / aproval if a client like it we move onto devlopment. Otherwise it enter's revision 
+    in which taking new specifcations, likes or dislikes for a client its revisied and brought back to the client for aproval.`,
+  },
+};

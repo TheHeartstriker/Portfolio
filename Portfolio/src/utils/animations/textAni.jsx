@@ -11,7 +11,8 @@ export function animateText(pos, elements, timeline, time) {
   elementArray.forEach((element, index) => {
     if (!element) return;
 
-    const letters = new SplitText(element, { type: "chars" }).chars;
+    const split = new SplitText(element, { type: "words,chars" });
+    const letters = split.chars;
     // Set initial state
     gsap.set(letters, { x: pos.start, opacity: 0 });
 
