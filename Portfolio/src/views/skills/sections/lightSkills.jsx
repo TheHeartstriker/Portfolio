@@ -3,11 +3,8 @@ import { useState, useRef, useEffect, use } from "react";
 import { gsap } from "gsap";
 import "./lightSkills.css";
 import { Separator } from "@/components/separator/separator";
-import { lorem } from "@/utils/text";
 import { SkillCards } from "./skillCards";
-const card1 = "/skill/card1.webp";
-const card2 = "/skill/card2.jpg";
-const card3 = "/skill/card3.jpg";
+import { isMobile } from "@/utils/isMobile";
 import Chevron from "../../../../public/icons/chevron";
 import LightSkillAnimation from "../animations/lightSkillAnimation.jsx";
 import { highlightText } from "../text";
@@ -16,6 +13,8 @@ import { skillText } from "../text";
 function LightSkills() {
   const [activeCard, setActiveCard] = useState(1);
   const [activeGal, setActiveGal] = useState(2);
+  const [mobile, setMobile] = useState(false);
+
   const galItemRef = useRef(null);
 
   const animateGalleryTransition = (direction) => {
@@ -53,6 +52,9 @@ function LightSkills() {
       setActiveGal(activeGal === 3 ? 1 : activeGal + 1);
     }, 400);
   };
+  useEffect(() => {
+    setMobile(true);
+  }, []);
 
   return (
     <>
@@ -113,6 +115,7 @@ function LightSkills() {
             active={activeCard === 0}
             onMouseEnter={() => setActiveCard(0)}
             imgUrl={skillText.card1.imgSrc}
+            mobile={mobile}
           />
           {/* Card2 */}
           <SkillCards
@@ -121,6 +124,7 @@ function LightSkills() {
             active={activeCard === 1}
             onMouseEnter={() => setActiveCard(1)}
             imgUrl={skillText.card2.imgSrc}
+            mobile={mobile}
           />
 
           {/* Card3 */}
@@ -130,6 +134,7 @@ function LightSkills() {
             active={activeCard === 2}
             onMouseEnter={() => setActiveCard(2)}
             imgUrl={skillText.card3.imgSrc}
+            mobile={mobile}
           />
         </div>
       </div>

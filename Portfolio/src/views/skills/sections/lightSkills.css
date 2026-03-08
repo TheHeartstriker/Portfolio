@@ -108,7 +108,7 @@
 /* Actual card */
 .skill-myskills-container-card {
   display: flex;
-  height: 30rem;
+  min-height: 32.5rem;
   width: 25%;
   background-color: var(--color-4);
   border-radius: 25px;
@@ -194,6 +194,7 @@
 
 /* Right side default */
 .skill-myskills-container-card-right {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -243,9 +244,167 @@
   width: 50%;
   opacity: 1;
 }
+
 .skill-myskills-container-card-right img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 25px;
+}
+/*  */
+/* For the highlights section */
+/*  */
+@media (max-width: 1300px) {
+  .skill-highlights-gal {
+    height: 30rem;
+  }
+
+  .skill-highlights-gal-arrow {
+    position: absolute;
+    height: calc(100% - var(--space-1));
+    z-index: 10;
+  }
+
+  .skill-highlights-gal-item {
+    width: 100%;
+  }
+
+  .skill-highlights-gal-arrow:last-of-type {
+    right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-highlights-gal-arrow {
+    width: 7.5%;
+  }
+}
+/*  */
+/* For the highlights section */
+/*  */
+
+@media (max-width: 1600px) {
+  /* Font decreased by 10% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 2.25rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 0.9rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1500px) {
+  .skill-myskills-container {
+    flex-direction: column;
+  }
+
+  /*  */
+  /* Think of this as giving all cards the active layout */
+  /*  */
+  .skill-myskills-container-card {
+    width: 100%;
+    min-height: unset;
+    height: 25rem;
+  }
+
+  .skill-myskills-container-card-left {
+    width: 50%;
+  }
+
+  .skill-myskills-container-card-icon button {
+    margin-right: 50%;
+  }
+
+  .skill-myskills-container-card-icon button svg {
+    transform: rotate(180deg);
+  }
+
+  .skill-myskills-container-card-right {
+    width: 50%;
+    opacity: 1;
+  }
+  /*  */
+  /* Making active only change colors */
+  /*  */
+  .skill-myskills-container-card.active {
+    width: 100%;
+    background-color: var(--color-1);
+  }
+
+  .skill-myskills-container-card-text.active h3 {
+    color: var(--color-3);
+  }
+
+  .skill-myskills-container-card-text.active p {
+    color: var(--color-4);
+  }
+
+  .skill-myskills-container-card-icon.active h4 {
+    color: var(--color-4);
+  }
+
+  .skill-myskills-container-card-icon.active button {
+    background-color: var(--color-2);
+  }
+  /*  */
+  /* Actual changes */
+  /*  */
+  /* Revert font back */
+  .skill-myskills-container-card-text h3 {
+    font-size: 2.5rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 1rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 1rem;
+  }
+  .skill-myskills-container-card-icon button {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .skill-myskills-container-card {
+    height: 32.5rem;
+  }
+  /* Font decreased by 20% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 1.8rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 0.72rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 550px) {
+  /* Decreased by 30% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 1.75rem;
+  }
+  .skill-myskills-container-card-left {
+    width: 60%;
+  }
+  .skill-myskills-container-card-left.active {
+    width: 60%;
+  }
+  .skill-myskills-container-card-right {
+    width: 40%;
+  }
+  .skill-myskills-container-card-right.active {
+    width: 40%;
+  }
 }

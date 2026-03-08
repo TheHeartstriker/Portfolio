@@ -63,6 +63,7 @@
   transition:
     background-color 0.5s var(--power-2-out),
     color 0.5s var(--power-2-out);
+  cursor: pointer;
 }
 /* Hover tag */
 .article-filter-item-container-btn:hover {
@@ -97,10 +98,39 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  height: 40rem;
+  min-height: 40rem;
   transition: transform 0.4s ease-in-out;
-  cursor: pointer;
   background-color: var(--color-4);
+  transition:
+    box-shadow 0.5s var(--power-1-out),
+    background-color 0.5s var(--power-1-out);
+}
+/*  */
+/* Hover effects */
+.script-article:hover {
+  box-shadow:
+    0px 16px 24px rgba(0, 0, 0, 0.25),
+    0 0 32px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-1);
+}
+.script-article:hover .script-article-info h4 {
+  color: var(--color-4);
+}
+.script-article:hover .script-article-info p {
+  color: var(--color-4);
+}
+
+.script-article:hover .script-article-tags-icon svg path {
+  stroke: var(--color-4);
+  fill: var(--color-4);
+}
+
+.script-article:hover .script-article-tags button {
+  background-color: var(--color-4);
+}
+
+.script-article:hover .script-article-tags button h4 {
+  color: var(--color-2);
 }
 
 .script-article.reverse {
@@ -189,6 +219,7 @@
   margin: 0;
   color: var(--font-middle);
   margin-bottom: var(--space-2);
+  transition: color 0.5s var(--power-1-out);
 }
 
 .script-article-info p {
@@ -203,6 +234,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
+  transition: color 0.5s var(--power-1-out);
 }
 
 .script-article-tags {
@@ -235,15 +267,32 @@
 .script-article-tags-icon svg path {
   stroke: var(--color-1);
   fill: var(--color-1);
+  transition:
+    fill 0.5s var(--power-1-out),
+    stroke 0.5s var(--power-1-out);
 }
 
 .script-article-tags button {
   width: 50%;
   height: 100%;
+  position: relative;
   padding: var(--space-2);
   border: none;
   background-color: var(--color-1);
   border-radius: 25px;
+  transition:
+    background-color 0.5s var(--power-1-out),
+    color 0.5s var(--power-1-out);
+  cursor: pointer;
+}
+
+.script-article-tags button a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
 .script-article-tags button h4 {

@@ -25,6 +25,7 @@ export function ScriptCard({ articleDes, link, reverse }) {
           </div>
           <button>
             <h4>Read article</h4>
+            <Link href={link} />
           </button>
         </div>
       </div>

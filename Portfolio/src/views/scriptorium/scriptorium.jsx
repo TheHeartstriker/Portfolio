@@ -8,14 +8,12 @@ import {
   desHoverCards,
   desColor,
 } from "./articles/articleDes.js";
-import TimeSharp from "../../../public/icons/time-sharp.jsx";
 import { ScriptCard } from "../../components/forViews/scriptorium/scriptCard.jsx";
-import PillAnimation from "@/components/forStyle/animations/pillAnimation.jsx";
-import ScriptoriumIntroRecent from "./scriptoriumIntroRecent.jsx";
-import Masonry from "react-masonry-css";
+import ScriptoriumIntroRecent from "./section/scriptoriumIntroRecent.jsx";
 import "./scriptorium.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Separator } from "@/components/separator/separator.jsx";
+import { animateBlocks } from "@/utils/animations/animations.jsx";
 
 const allArticles = [
   desParticle,
@@ -87,6 +85,27 @@ function Scriptorium() {
       </div>
     );
   }
+
+  function animateCards() {
+    // Scoped to the stats sibling, not the main block
+    const cards = document.querySelectorAll(".script-article");
+    animateBlocks(
+      { start: 50, end: 0, type: "y" },
+      { el: "top", scroll: "90%" },
+      { el: "bottom", scroll: "40%" },
+      cards,
+      {
+        duration: 0.25,
+        delay: 0,
+        easing: "power1.in",
+        stagger: 0.15,
+      },
+    );
+  }
+
+  useEffect(() => {
+    animateCards();
+  }, [filteredArticles]);
 
   return (
     <>
