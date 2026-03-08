@@ -53,7 +53,7 @@ function Nav() {
     const easing =
       buttonName === "About" || buttonName === "Contact"
         ? "power2.out"
-        : "back.out";
+        : "back.out(1.05)";
 
     gsap.to(div, {
       x: relativeX,

@@ -211,6 +211,13 @@
   color: var(--color-2);
   margin: 0;
   margin-bottom: var(--space-1);
+  /* Line ... break */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .script-article-info h4 {
@@ -303,56 +310,12 @@
 
 @media (max-width: 1500px) {
   .article-card-container {
-    grid-gap: var(--space-3);
-  }
-}
-
-@media (max-width: 1000px) {
-  .article-card-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .article-card-container {
-    width: 90%;
-  }
-}
-/* Phone stuff */
-
-@media (max-width: 800px) {
-  .script-article {
-    height: 30rem;
-  }
-
-  /* Font decrease by 20% */
-  .script-article-info h2 {
-    font-size: 1.4rem;
-  }
-
-  .script-article-info p {
-    font-size: 0.8rem;
-  }
-
-  .script-article-info span h4 {
-    font-size: 0.8rem;
-  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .article-card-container {
     grid-template-columns: repeat(1, 1fr);
-  }
-  .script-article {
-    height: 37.5rem;
-  }
-
-  .script-article-info h2 {
-    font-size: 1.75rem;
-  }
-
-  .script-article-info p {
-    font-size: 1rem;
-  }
-
-  .script-article-info span h4 {
-    font-size: 1rem;
   }
 }

@@ -57,7 +57,7 @@ export function drawLineAnimated(
 
 export function drawRadial(ctx, colorRef, x, y) {
   if (!ctx || !colorRef.current) return;
-  const radius = 600;
+  const radius = 0;
   const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
   gradient.addColorStop(0, colorRef.current.cursorColor);
   gradient.addColorStop(1, "transparent");

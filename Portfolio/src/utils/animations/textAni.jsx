@@ -23,7 +23,7 @@ export function animateText(pos, elements, timeline, time) {
         opacity: 1,
         duration: time.duration,
         ease: time.easing,
-        stagger: 0.03,
+        stagger: time.stagger ?? 0.03,
         delay: index === 0 ? (time.delay ?? 0) : 0,
       },
       "-=0.2",

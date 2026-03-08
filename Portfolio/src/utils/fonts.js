@@ -3,11 +3,10 @@
 import {
   Inter,
   Playfair_Display,
-  Baskervville,
-  Cinzel_Decorative,
+  Lora,
+  Libre_Bodoni,
+  Gelasio,
   Crimson_Text,
-  Spectral,
-  Sora,
   Cormorant_Garamond,
 } from "next/font/google";
 
@@ -17,6 +16,27 @@ export const Display = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-display",
 });
+
+// export const Display = Gelasio({
+//   subsets: ["latin"],
+//   display: "swap",
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   variable: "--font-display",
+// });
+
+// export const Display = Libre_Bodoni({
+//   subsets: ["latin"],
+//   display: "swap",
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   variable: "--font-display",
+// });
+
+// export const Display = Lora({
+//   subsets: ["latin"],
+//   display: "swap",
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   variable: "--font-display",
+// });
 
 // export const Display = Cormorant_Garamond({
 //   subsets: ["latin"],
