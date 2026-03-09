@@ -7,7 +7,11 @@ import { winterTheme } from "@/components/forStyle/themeGen/themes";
 
 export function Provider({ children }) {
   const pathname = usePathname();
+  //
+  //Decides if the opening should play only happens once on visit to /
   const [opening, setOpening] = useState(pathname === "/");
+  //
+  // Decides the current theme
   const [currTheme, setCurrTheme] = useState(winterTheme);
 
   return (

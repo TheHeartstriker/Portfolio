@@ -110,17 +110,6 @@
   color: var(--color-3);
 }
 
-.skill-focus-container-card.active .skill-focus-container-card-text-icon {
-  background-color: var(--color-2);
-}
-
-.skill-focus-container-card.active
-  .skill-focus-container-card-text-icon
-  svg
-  path {
-  stroke: var(--color-1);
-}
-
 /* Top text */
 .skill-focus-container-card h3 {
   font-size: 2.5rem;
@@ -136,27 +125,6 @@
   display: flex;
   align-items: center;
   margin-top: auto;
-}
-
-.skill-focus-container-card-text-icon {
-  height: 7.5rem;
-  aspect-ratio: 1/1;
-  background-color: var(--color-1);
-  padding: var(--space-1);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: var(--space-7);
-}
-
-.skill-focus-container-card-text-icon svg {
-  width: 80%;
-  height: 80%;
-}
-
-.skill-focus-container-card-text-icon svg path {
-  stroke: var(--color-4);
 }
 
 .skill-focus-container-card-text p {
@@ -224,12 +192,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .skill-focus-container-card-text-icon {
-    margin-right: var(--space-1);
-  }
-}
-
 @media (max-width: 500px) {
   .skill-focus-container-card-text {
     flex-direction: column;
@@ -237,8 +199,5 @@
   }
   .skill-focus-container-card h3 {
     margin: 0;
-  }
-  .skill-focus-container-card-text-icon {
-    margin: var(--space-3) 0;
   }
 }

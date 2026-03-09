@@ -3,7 +3,6 @@ import "./proFocus.css";
 
 import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/separator/separator";
-import { lorem } from "@/utils/text";
 import { useState } from "react";
 import ProFocusAnimation from "../animations/proFocusAnimation";
 import { processText, focusText } from "../text";
@@ -76,9 +75,6 @@ function ProFocus() {
           >
             <h3>{focusText.card1.header}</h3>
             <div className="skill-focus-container-card-text">
-              <div className="skill-focus-container-card-text-icon">
-                <UserGroup />
-              </div>
               <p>{focusText.card1.para}</p>
             </div>
           </div>
@@ -89,9 +85,6 @@ function ProFocus() {
           >
             <h3>{focusText.card2.header}</h3>
             <div className="skill-focus-container-card-text">
-              <div className="skill-focus-container-card-text-icon">
-                <UserGroup />
-              </div>
               <p>{focusText.card2.para}</p>
             </div>
           </div>
@@ -106,9 +99,6 @@ function ProFocus() {
           >
             <h3>{focusText.card3.header}</h3>
             <div className="skill-focus-container-card-text">
-              <div className="skill-focus-container-card-text-icon">
-                <UserGroup />
-              </div>
               <p>{focusText.card3.para}</p>
             </div>
           </div>
@@ -119,9 +109,6 @@ function ProFocus() {
           >
             <h3>{focusText.card4.header}</h3>
             <div className="skill-focus-container-card-text">
-              <div className="skill-focus-container-card-text-icon">
-                <UserGroup />
-              </div>
               <p>{focusText.card4.para}</p>
             </div>
           </div>

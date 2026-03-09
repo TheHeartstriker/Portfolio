@@ -7,14 +7,14 @@ function ProFocusAnimation() {
       { el: "top", scroll: "90%" },
       { el: "bottom", scroll: "40%" },
       document.querySelectorAll(".skill-process-main-card"),
-      { duration: 0.85, delay: 0, easing: "power2.out" },
+      { duration: 1, delay: 0, easing: "power2.out" },
     );
     animateBlocks(
       { start: 100, end: 0, type: "y" },
       { el: "top", scroll: "90%" },
       { el: "bottom", scroll: "40%" },
       document.querySelectorAll(".skill-focus-container-card"),
-      { duration: 1.25, delay: 0, easing: "back.out(1.05)" },
+      { duration: 1.25, delay: 0, easing: "back.out(1.1)" },
     );
   }, []);
 }

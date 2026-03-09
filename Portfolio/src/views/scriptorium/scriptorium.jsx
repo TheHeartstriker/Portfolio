@@ -27,6 +27,7 @@ const allArticles = [
 
 function Scriptorium() {
   const [activeTags, setActiveTags] = useState([]);
+  const [filterPosition, setFilterPosition] = useState(3);
   const tags = ["Design", "Creative", "Web", "Visual", "Systems", "Coding"];
 
   const filteredArticles =
@@ -52,8 +53,8 @@ function Scriptorium() {
       />
     ));
 
-    if (cards.length >= 3) {
-      cards.splice(3, 0, handleFilter());
+    if (cards.length >= filterPosition) {
+      cards.splice(filterPosition, 0, handleFilter());
     } else {
       cards.push(handleFilter());
     }
@@ -106,6 +107,22 @@ function Scriptorium() {
   useEffect(() => {
     animateCards();
   }, [filteredArticles]);
+
+  useEffect(() => {
+    function updateFilterPosition() {
+      const width = window.innerWidth;
+      if (width <= 750) {
+        setFilterPosition(0);
+      } else if (width <= 1500) {
+        setFilterPosition(1);
+      } else {
+        setFilterPosition(3);
+      }
+    }
+    updateFilterPosition();
+    window.addEventListener("resize", updateFilterPosition);
+    return () => window.removeEventListener("resize", updateFilterPosition);
+  }, []);
 
   return (
     <>

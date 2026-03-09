@@ -27,6 +27,16 @@ h5 {
 }
 
 :root {
+  /* Default theme (professionalTheme1) — prevents flash before ThemeGen hydrates */
+  --color-1: hsl(0, 0%, 93%);
+  --color-2: hsl(343, 79%, 36%);
+  --color-3: hsl(0, 0%, 22%);
+  --color-4: hsl(0, 0%, 14%);
+  --color-5: hsl(0, 0%, 7%);
+  --font-high: #f0f0f0;
+  --font-middle: #c5c5c5;
+  --font-low: #969696;
+
   --space-0: 0.25rem;
   --space-1: 0.5rem;
   --space-2: 1rem;

@@ -4,7 +4,7 @@ import { AddMember, RemoveMember } from "@/utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
 import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
 import "./background.css";
-import { Context } from "../animations/animationContext";
+import { Context } from "../../context/contextProvider";
 
 function Background() {
   const backgroundRef = useRef(null);

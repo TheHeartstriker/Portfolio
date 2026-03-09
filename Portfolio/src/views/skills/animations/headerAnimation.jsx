@@ -27,8 +27,8 @@ function HeaderAnimation() {
       { el: "bottom", scroll: "40%" },
       Topblocks,
       {
-        duration: 1.25,
-        easing: "back.out(1.05)",
+        duration: 1.5,
+        easing: "back.out(1.1)",
         offset: "-=0.25",
       },
       timeline,
@@ -52,7 +52,6 @@ function HeaderAnimation() {
     // Script cards animation
     // Large main part
     const cards = document.querySelectorAll(".skill-past-item");
-
     cards.forEach((card) => {
       // Animate the large block
       animateBlocks(
@@ -64,7 +63,7 @@ function HeaderAnimation() {
           duration: 1.25,
           delay: 0,
 
-          easing: "back.out(1.05)",
+          easing: "back.out(1.1)",
         },
       );
 

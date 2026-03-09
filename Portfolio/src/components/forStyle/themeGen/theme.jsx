@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { hexToHsl } from "@/utils/math";
 import { useContext } from "react";
-import { Context } from "../animations/animationContext";
+import { Context } from "../../context/contextProvider";
 import {
   winterTheme,
   summerTheme,

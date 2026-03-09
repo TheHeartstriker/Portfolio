@@ -1,5 +1,5 @@
 "use client";
-import { Context } from "../forStyle/animations/animationContext";
+import { Context } from "../context/contextProvider";
 import {
   winterTheme,
   summerTheme,

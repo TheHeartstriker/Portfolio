@@ -3,14 +3,12 @@ import "../animation.css";
 import Background from "../components/forStyle/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
-import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { Provider } from "@/components/forStyle/animations/animationContext";
+import { Provider } from "@/components/context/contextProvider";
 import { Display, Body } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
-import Opening from "@/components/forStyle/animations/opening";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -45,13 +43,10 @@ export default function RootLayout({ children }) {
         <Provider>
           <ThemeGen />
           <Background />
-          <Opening />
           <Nav />
           <LenisProvider>
-            <FadeLayout>
-              {children}
-              <Footer />
-            </FadeLayout>
+            {children}
+            <Footer />
           </LenisProvider>
         </Provider>
       </body>

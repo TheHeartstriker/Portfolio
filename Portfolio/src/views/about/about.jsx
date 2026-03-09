@@ -11,11 +11,11 @@ import {
 } from "./text";
 import Arrow from "../../../public/icons/arrow";
 import { ScrollButton } from "@/components/nav/scrollButton";
-import AboutAnimation from "./animations/aboutAnimation";
+import Opening from "@/views/about/animations/opening";
 function About() {
   return (
     <div className="main-about-container">
-      <AboutAnimation />
+      <Opening />
       {/* Hero Section */}
       <div className="about-hero-section">
         <h2>Hi, my name is</h2>

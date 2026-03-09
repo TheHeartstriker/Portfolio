@@ -5,14 +5,12 @@ import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
 import Link from "next/link";
-import { Context } from "@/components/forStyle/animations/animationContext.jsx";
 function Nav() {
   const containerRef = useRef(null);
   const location = useRef({});
   const pathname = usePathname();
   const current = useRef("About");
   const heightRef = useRef(45);
-  const { opening, setOpening } = useContext(Context);
   //Creates the div for the buttons
   function BoxElements() {
     const container = containerRef.current;
@@ -66,26 +64,11 @@ function Nav() {
     current.current = name;
   }
 
-  function simpleFadeIn(element) {
-    gsap.set(element, {
-      opacity: 0,
-    });
-    gsap.to(element, {
-      opacity: 1,
-      duration: 1.25,
-      delay: 1.5,
-      ease: "power1.out",
-    });
-  }
-
   //Gets location data and create elements
   useEffect(() => {
     locationFill();
     BoxElements();
 
-    if (opening) {
-      simpleFadeIn(containerRef.current);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -118,23 +101,6 @@ function Nav() {
   }, [pathname]);
   return (
     <>
-      <svg style={{ display: "none" }}>
-        <filter id="displacementFilter">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.01"
-            numOctaves="2"
-            result="turbulence"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            scale="20"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </svg>
       <NavCursor />
       <nav className="Container" ref={containerRef}>
         <button

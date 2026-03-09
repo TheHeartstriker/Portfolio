@@ -15,13 +15,14 @@ function ContactAnimation() {
     });
     const emailBlock = document.querySelectorAll(".contact-intro-left-email");
     animateBlocks(
-      { start: 50, end: 0, type: "y" },
+      { start: 25, end: 0, type: "y" },
       null,
       null,
       emailBlock,
       {
-        duration: 0.5,
-        easing: "power1.out",
+        duration: 0.75,
+        easing: "power2.out",
+        offset: "-=0.1",
       },
       timeline,
     );
@@ -29,6 +30,7 @@ function ContactAnimation() {
     animateText({ start: 50, end: 0 }, rightIntro, timeline, {
       duration: 0.25,
       easing: "power1.out",
+      offset: "-=0.25",
     });
     const rightText = document.querySelectorAll(".contact-intro-right-text");
     animateBlocks(
@@ -38,7 +40,7 @@ function ContactAnimation() {
       rightText,
       {
         duration: 0.5,
-        easing: "power1.out",
+        easing: "power2.out",
       },
       timeline,
     );
