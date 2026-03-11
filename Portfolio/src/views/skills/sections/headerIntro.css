@@ -491,6 +491,17 @@
   .skill-header-intro h3 {
     font-size: 0.765rem;
   }
+  /* Other */
+  .skill-header-intro-button {
+    padding: var(--space-3) var(--space-0) !important;
+  }
+  .skill-header-stats {
+    gap: var(--space-1);
+  }
+
+  .skill-header-stats-item {
+    padding: var(--space-1) var(--space-2);
+  }
 }
 
 /*  */

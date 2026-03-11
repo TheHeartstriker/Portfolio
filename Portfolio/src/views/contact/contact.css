@@ -141,7 +141,7 @@
   display: flex;
   background-color: var(--color-4);
   padding: var(--space-3);
-  max-height: 80px;
+  max-height: 200px;
   overflow: hidden;
   align-items: center;
   border-radius: 25px;
@@ -197,7 +197,7 @@
 
 .contact-faq-container-item-text.active p {
   color: var(--color-3);
-  max-height: 120px;
+  max-height: 300px;
 }
 
 /*  */

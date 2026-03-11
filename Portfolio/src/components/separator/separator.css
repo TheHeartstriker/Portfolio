@@ -60,11 +60,23 @@
 }
 
 @media (max-width: 700px) {
+  /* Decrease by 20% */
   .content-separator h2 {
     font-size: 2.8rem;
   }
 
   .content-separator {
     gap: var(--space-2);
+  }
+}
+
+@media (max-width: 400px) {
+  /* Decrease by 30% */
+  .content-separator h2 {
+    font-size: 2.45rem;
+  }
+
+  .content-separator {
+    gap: var(--space-0);
   }
 }
