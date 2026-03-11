@@ -3,16 +3,19 @@ import "../animation.css";
 import Background from "../components/forStyle/backgrounds/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
-import FadeLayout from "../route/fadeLayout";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { Provider } from "@/components/forStyle/animations/animationContext";
+import { Provider } from "@/components/context/contextProvider";
 import { Display, Body } from "@/utils/fonts";
 import ThemeGen from "@/components/forStyle/themeGen/theme";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${Display.variable} ${Body.variable}`}>
+    <html
+      lang="en"
+      className={`${Display.variable} ${Body.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,10 +45,8 @@ export default function RootLayout({ children }) {
           <Background />
           <Nav />
           <LenisProvider>
-            <FadeLayout>
-              {children}
-              <Footer />
-            </FadeLayout>
+            {children}
+            <Footer />
           </LenisProvider>
         </Provider>
       </body>

@@ -4,7 +4,7 @@ export const metadata = {
     "Explore my skills and expertise in web development, software engineering, and more.",
 };
 
-import Skill from "../../views/skills/main/skill.jsx";
+import Skill from "../../views/skills/skill.jsx";
 function Skills() {
   return <Skill />;
 }

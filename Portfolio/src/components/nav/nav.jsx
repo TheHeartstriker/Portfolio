@@ -1,14 +1,12 @@
 "use client";
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
 import { gsap } from "gsap";
-import { Context } from "../forStyle/animations/animationContext.jsx";
 import Link from "next/link";
 function Nav() {
   const containerRef = useRef(null);
-  const { isAnimating, timeline, setAddedEl } = useContext(Context);
   const location = useRef({});
   const pathname = usePathname();
   const current = useRef("About");
@@ -52,8 +50,8 @@ function Nav() {
     // Use different easing for About and Contact to prevent off-screen overshoot
     const easing =
       buttonName === "About" || buttonName === "Contact"
-        ? "power4.out"
-        : "back.out";
+        ? "power2.out"
+        : "back.out(1.05)";
 
     gsap.to(div, {
       x: relativeX,
@@ -65,44 +63,15 @@ function Nav() {
   function setValue(name) {
     current.current = name;
   }
-  //Gsap animation
-  function upFadeIn(element) {
-    gsap.set(element, {
-      y: 50,
-      opacity: 0,
-    });
-    // Main animation
-    timeline.to(element, {
-      y: 0,
-      opacity: 1,
-      duration: 1.75,
-      ease: "power1.out",
-    });
-    setAddedEl((prev) => prev + 1);
-  }
-
-  function simpleFadeIn(element) {
-    gsap.set(element, {
-      opacity: 0,
-    });
-    gsap.to(element, {
-      opacity: 1,
-      duration: 1.5,
-      ease: "power1.out",
-    });
-  }
 
   //Gets location data and create elements
   useEffect(() => {
     locationFill();
     BoxElements();
-    if (isAnimating) {
-      upFadeIn(containerRef.current);
-    } else {
-      simpleFadeIn(containerRef.current);
-    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   // Handles calculations on window resize
   useEffect(() => {
     function handleResize() {
@@ -132,23 +101,6 @@ function Nav() {
   }, [pathname]);
   return (
     <>
-      <svg style={{ display: "none" }}>
-        <filter id="displacementFilter">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.01"
-            numOctaves="2"
-            result="turbulence"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            scale="20"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </svg>
       <NavCursor />
       <nav className="Container" ref={containerRef}>
         <button

@@ -3,11 +3,13 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
+  background-color: var(--color-5);
 }
 
 html {
   line-height: 1.5;
   overflow-y: scroll;
+  overflow-x: hidden;
   font-size: clamp(1rem, 0.9rem + 0.7vw, 1.25rem);
 }
 
@@ -25,6 +27,16 @@ h5 {
 }
 
 :root {
+  /* Default theme (professionalTheme1) — prevents flash before ThemeGen hydrates */
+  --color-1: hsl(0, 0%, 93%);
+  --color-2: hsl(343, 79%, 36%);
+  --color-3: hsl(0, 0%, 22%);
+  --color-4: hsl(0, 0%, 14%);
+  --color-5: hsl(0, 0%, 7%);
+  --font-high: #f0f0f0;
+  --font-middle: #c5c5c5;
+  --font-low: #969696;
+
   --space-0: 0.25rem;
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -34,17 +46,18 @@ h5 {
   --space-6: 3rem;
   --space-7: 4rem;
   --space-8: 5rem;
+  --power-1-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --power-2-out: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* Notes */
 /* P tags should be set between either 1rem, 1.25rem, 1.5rem or 1.1rem IF used as readable text. H tags should use increments of 0.5rem otherwise no restrictions. As for scaling font at smaller size's around 800px should be decrease
-by 20% as needed for all present fonts in file
+by 20% as needed for all present fonts in file and we don't use varables so font can easily be calculate lesser by percentages 
 To be clear
-
-1rem -> is for dense copy of less important text
-1.1rem -> is for dense copy of important text like a blog article
+For buttons or small interactive elements:
+0.75rem -> is for small buttons
+0.85rem -> is for button text
+For readable text aka body:
+1.1rem -> is for dense copy of important text like a blog article or of text of less importance
 1.25rem -> is for regular for things like descriptions on cards this should be the default for most text
-1.5rem -> is rarely used but if so mainly in a hero setting most of the case go for h tags
-
-
-*/
+1.5rem -> is rarely used but if so mainly in a hero setting
+ */

@@ -1,0 +1,410 @@
+/*  */
+/* Highlights */
+/*  */
+.skill-highlights {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+/*  */
+/* Gallery container */
+.skill-highlights-gal {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 37.5rem;
+  gap: var(--space-1);
+  padding-top: var(--space-1);
+}
+
+/* image containers */
+.skill-highlights-gal-item {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  border-radius: 25px;
+  padding: var(--space-1);
+}
+
+.skill-highlights-gal-arrow {
+  height: 100%;
+  width: 5%;
+  background-color: var(--color-4);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.75s var(--power-1-out);
+  cursor: pointer;
+}
+
+.skill-highlights-gal-arrow:hover {
+  background-color: var(--color-1);
+}
+.skill-highlights-gal-arrow:hover svg path {
+  stroke: var(--color-4);
+}
+
+.skill-highlights-gal-arrow svg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.skill-highlights-gal-arrow:last-of-type svg {
+  transform: rotate(180deg);
+}
+
+.skill-highlights-gal-arrow svg path {
+  stroke: var(--color-1);
+  stroke-width: 3px;
+}
+
+.skill-highlights-gal-item-text {
+  background-color: var(--color-4);
+  padding: var(--space-1);
+  z-index: 15;
+  width: 80%;
+  height: fit-content;
+  border-radius: 25px;
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+.skill-highlights-gal-item-text p {
+  font-size: 0.85rem;
+  color: var(--font-middle);
+}
+
+.skill-highlights-gal-item img,
+.skill-highlights-gal-item video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: 25px;
+}
+/*  */
+/* Skills */
+/*  */
+.skill-myskills {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+/*  */
+/* Card container */
+.skill-myskills-container {
+  display: flex;
+  height: auto;
+  gap: var(--space-1);
+}
+/*  */
+/* Actual card */
+.skill-myskills-container-card {
+  display: flex;
+  min-height: 32.5rem;
+  width: 25%;
+  background-color: var(--color-4);
+  border-radius: 25px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: var(--space-2);
+  gap: var(--space-2);
+  transition:
+    width 0.75s var(--power-1-out),
+    background-color 1.25s var(--power-1-out),
+    color 1.25s var(--power-1-out);
+}
+
+/*  */
+/* Left section */
+.skill-myskills-container-card-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: width 0.5s var(--power-1-out);
+  min-width: 0;
+}
+
+/* Top card section */
+.skill-myskills-container-card-text {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1);
+  margin-bottom: auto;
+}
+
+.skill-myskills-container-card-text h3 {
+  font-size: 2.5rem;
+  color: var(--color-1);
+  font-weight: 600;
+  margin: var(--space-1) 0;
+}
+
+.skill-myskills-container-card-text p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--font-middle);
+}
+
+/* Bottom button section */
+.skill-myskills-container-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-1);
+}
+
+.skill-myskills-container-card-icon h4 {
+  font-size: 1rem;
+  color: var(--font-middle);
+  font-weight: 600;
+}
+
+.skill-myskills-container-card-icon button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-1);
+  transition:
+    margin-right 0.75s var(--power-1-out),
+    background-color 0.75s var(--power-1-out);
+}
+
+.skill-myskills-container-card-icon button svg {
+  width: 50%;
+  height: 50%;
+  margin: 0;
+  transform: rotate(225deg);
+  transition: transform 0.75s var(--power-1-out);
+}
+
+.skill-myskills-container-card-icon button svg path {
+  stroke: var(--color-3);
+  stroke-width: 2px;
+}
+
+/* Right side default */
+.skill-myskills-container-card-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 0%;
+  opacity: 0;
+  border-radius: 25px;
+  overflow: hidden;
+  transition:
+    width 0.75s var(--power-1-out),
+    opacity 0.75s var(--power-1-out);
+}
+
+/*  */
+/* Active card */
+
+.skill-myskills-container-card.active {
+  width: 50%;
+  background-color: var(--color-1);
+}
+
+.skill-myskills-container-card-text.active h3 {
+  color: var(--color-3);
+}
+
+.skill-myskills-container-card-text.active p {
+  color: var(--color-4);
+}
+
+.skill-myskills-container-card-left.active {
+  width: 50%;
+}
+
+.skill-myskills-container-card-icon.active h4 {
+  color: var(--color-4);
+}
+
+.skill-myskills-container-card-icon.active button {
+  background-color: var(--color-2);
+  margin-right: 50%;
+}
+
+.skill-myskills-container-card-icon.active button svg {
+  transform: rotate(180deg);
+}
+
+.skill-myskills-container-card-right.active {
+  width: 50%;
+  opacity: 1;
+}
+
+.skill-myskills-container-card-right img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+/*  */
+/* For the highlights section */
+/*  */
+@media (max-width: 1300px) {
+  .skill-highlights-gal {
+    height: 30rem;
+  }
+
+  .skill-highlights-gal-arrow {
+    position: absolute;
+    height: calc(100% - var(--space-1));
+    z-index: 10;
+  }
+
+  .skill-highlights-gal-item {
+    width: 100%;
+  }
+
+  .skill-highlights-gal-arrow:last-of-type {
+    right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-highlights-gal-arrow {
+    width: 7.5%;
+  }
+}
+/*  */
+/* For the highlights section */
+/*  */
+
+@media (max-width: 1600px) {
+  /* Font decreased by 10% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 2.25rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 0.9rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1500px) {
+  .skill-myskills-container {
+    flex-direction: column;
+  }
+
+  /*  */
+  /* Think of this as giving all cards the active layout */
+  /*  */
+  .skill-myskills-container-card {
+    width: 100%;
+    min-height: unset;
+    height: 25rem;
+  }
+
+  .skill-myskills-container-card-left {
+    width: 50%;
+  }
+
+  .skill-myskills-container-card-icon button {
+    margin-right: 50%;
+  }
+
+  .skill-myskills-container-card-icon button svg {
+    transform: rotate(180deg);
+  }
+
+  .skill-myskills-container-card-right {
+    width: 50%;
+    opacity: 1;
+  }
+  /*  */
+  /* Making active only change colors */
+  /*  */
+  .skill-myskills-container-card.active {
+    width: 100%;
+    background-color: var(--color-1);
+  }
+
+  .skill-myskills-container-card-text.active h3 {
+    color: var(--color-3);
+  }
+
+  .skill-myskills-container-card-text.active p {
+    color: var(--color-4);
+  }
+
+  .skill-myskills-container-card-icon.active h4 {
+    color: var(--color-4);
+  }
+
+  .skill-myskills-container-card-icon.active button {
+    background-color: var(--color-2);
+  }
+  /*  */
+  /* Actual changes */
+  /*  */
+  /* Revert font back */
+  .skill-myskills-container-card-text h3 {
+    font-size: 2.5rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 1rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 1rem;
+  }
+  .skill-myskills-container-card-icon button {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .skill-myskills-container-card {
+    height: 32.5rem;
+  }
+  /* Font decreased by 20% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 1.8rem;
+  }
+
+  .skill-myskills-container-card-text p {
+    font-size: 0.72rem;
+  }
+
+  .skill-myskills-container-card-icon h4 {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 550px) {
+  /* Decreased by 30% */
+  .skill-myskills-container-card-text h3 {
+    font-size: 1.75rem;
+  }
+  .skill-myskills-container-card-left {
+    width: 60%;
+  }
+  .skill-myskills-container-card-left.active {
+    width: 60%;
+  }
+  .skill-myskills-container-card-right {
+    width: 40%;
+  }
+  .skill-myskills-container-card-right.active {
+    width: 40%;
+  }
+}

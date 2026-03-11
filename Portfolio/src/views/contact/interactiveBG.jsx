@@ -12,6 +12,7 @@ function InteractiveBG() {
   const Contact = useRef(null);
   const colorRef = useRef("");
   const ObjectData = useRef([]);
+  const svgColorRef = useRef("");
   const fontRef = useRef("");
 
   function getImage() {
@@ -22,8 +23,9 @@ function InteractiveBG() {
         .then((svgText) => {
           // Replace original colors with desired color (e.g., white)
           const svgColor = getComputedStyle(document.documentElement)
-            .getPropertyValue("--color-1")
+            .getPropertyValue("--color-4")
             .trim();
+          svgColorRef.current = svgColor;
           const modifiedSvg = svgText
             .replace(/fill="[^"]*"/g, 'fill="' + svgColor + '"')
             .replace(/stroke="[^"]*"/g, 'stroke="' + svgColor + '"');
@@ -54,7 +56,7 @@ function InteractiveBG() {
     }
 
     function drawLi() {
-      ctx.fillStyle = "white";
+      ctx.fillStyle = svgColorRef.current;
       ctx.font = `${radius}px ${fontRef.current}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -231,7 +233,7 @@ function InteractiveBG() {
   useEffect(() => {
     const cleanup = setupCanvasBall(Contact, setCtx, Radius, 15, true);
     colorRef.current = getComputedStyle(document.documentElement)
-      .getPropertyValue("--color-2")
+      .getPropertyValue("--color-1")
       .trim();
 
     return () => {

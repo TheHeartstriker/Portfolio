@@ -16,7 +16,7 @@ import {
   Header3,
   MainText3,
 } from "../text.js";
-import { Context } from "@/components/forStyle/animations/animationContext";
+import { Context } from "@/components/context/contextProvider.jsx";
 
 function PlayGround() {
   //
@@ -120,7 +120,7 @@ function PlayGround() {
       let { velocityX, velocityY } = CalVelocity(
         InitalMouse.current,
         Mouse.current,
-        Date.now() / 1000 - MouseDownStartTime.current
+        Date.now() / 1000 - MouseDownStartTime.current,
       );
       // Actual Dragging
       Object.x = Mouse.current.x - Offset.current.x;
@@ -168,14 +168,14 @@ function PlayGround() {
 
       let Distance = Math.sqrt(
         Math.pow(data.x - ObjectData.current[i].x, 2) +
-          Math.pow(data.y - ObjectData.current[i].y, 2)
+          Math.pow(data.y - ObjectData.current[i].y, 2),
       );
 
       if (Distance < Radius.current * 2 && Distance > 0) {
         // Avoid division by zero
         let angle = Math.atan2(
           data.y - ObjectData.current[i].y,
-          data.x - ObjectData.current[i].x
+          data.x - ObjectData.current[i].x,
         );
         let overlap = Radius.current * 2 - Distance;
         let moveX = (Math.cos(angle) * overlap) / 2;
@@ -230,7 +230,7 @@ function PlayGround() {
     for (let i = 0; i < ObjectData.current.length; i++) {
       mouseDis.current[`Dis${i + 1}`] = Math.sqrt(
         (Mouse.current.x - ObjectData.current[i].x) ** 2 +
-          (Mouse.current.y - ObjectData.current[i].y) ** 2
+          (Mouse.current.y - ObjectData.current[i].y) ** 2,
       );
     }
   }
@@ -246,7 +246,7 @@ function PlayGround() {
         0,
         0,
         document.documentElement.scrollWidth,
-        document.documentElement.scrollHeight
+        document.documentElement.scrollHeight,
       );
       for (const data of ObjectData.current) {
         if (data.Active == false) {
@@ -264,7 +264,7 @@ function PlayGround() {
           data.y,
           Radius.current,
           ctx,
-          colorRef.current
+          colorRef.current,
         );
       }
       // Shadow

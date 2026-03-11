@@ -60,8 +60,8 @@
 /* Square of the corner shape */
 .corner-square {
   position: relative;
-  width: 7.5vw;
-  height: 7.5vw;
+  width: 2.5vw;
+  height: 2.5vw;
   z-index: 1;
   pointer-events: none;
   z-index: 10;
@@ -115,7 +115,7 @@
   flex: 1;
   border: none;
   height: auto;
-  border-radius: 100px;
+  border-radius: 15px;
   margin: 0;
   color: var(--color-1);
   display: flex;

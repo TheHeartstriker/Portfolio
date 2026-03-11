@@ -45,15 +45,28 @@ export const autumnTheme = {
   dark: true,
 };
 
+// export const professionalTheme1 = {
+//   // The 30%
+//   "color-1": "#83563A",
+//   //The 10%
+//   "color-2": "#614051",
+//   // The 60%
+//   "color-3": "#F6F1DF",
+//   "color-4": "#EFE5C2",
+//   "color-5": "#E8D9A6",
+
+//   dark: false,
+// };
+
 export const professionalTheme1 = {
   // The 30%
-  "color-1": "#83563A",
+  "color-1": "#EDEDED",
   //The 10%
-  "color-2": "#674C47",
+  "color-2": "#a4133c",
   // The 60%
-  "color-3": "#F7F1DE",
-  "color-4": "#F0E6C7",
-  "color-5": "#EADCAE",
+  "color-3": "#373737",
+  "color-4": "#242424",
+  "color-5": "#121212",
 
-  dark: false,
+  dark: true,
 };

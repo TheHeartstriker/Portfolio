@@ -11,13 +11,13 @@ export function DrawTextBlurb(
   y,
   Radius,
   ctx,
-  { bgColor, brColor, textColor }
+  { bgColor, brColor, textColor },
 ) {
   const displayFont = getComputedStyle(
-    document.documentElement
+    document.documentElement,
   ).getPropertyValue("--font-display");
   const textFont = getComputedStyle(document.documentElement).getPropertyValue(
-    "--font-body"
+    "--font-body",
   );
   if (!ctx || !Header || !MainT) return;
   //Shape
@@ -38,11 +38,11 @@ export function DrawTextBlurb(
 
   //Header
   ctx.font = `600 ${headerFontSize} ${displayFont}`;
-  TextBreaker(Header, x, y - 100, 30, ctx);
+  TextBreaker(Header, x, y - 200, 30, ctx);
 
   //Main Text
-  ctx.font = `500 ${mainTextFontSize} ${textFont}`;
-  TextBreaker(MainT, x, y - 25, 32.5, ctx);
+  ctx.font = `400 ${mainTextFontSize} ${textFont}`;
+  TextBreaker(MainT, x, y - 125, 32.5, ctx);
 }
 
 function TextBreaker(text, x, y, lengthWisSpace, ctx) {
@@ -99,7 +99,7 @@ export function RowGradient(Range, ObjectData, shadowCtx, Mouse, Radius) {
     0,
     0,
     document.documentElement.scrollWidth,
-    document.documentElement.scrollHeight
+    document.documentElement.scrollHeight,
   );
 
   for (let i = 0; i < ObjectData.current.length; i++) {
@@ -124,7 +124,7 @@ export function RowGradient(Range, ObjectData, shadowCtx, Mouse, Radius) {
         ObjectData.current[i].x + offsetX,
         ObjectData.current[i].y + offsetY,
         Radius.current + j * 60,
-        shadowCtx
+        shadowCtx,
       );
     }
   }

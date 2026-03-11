@@ -1,3 +1,7 @@
+/*  */
+/* Canvas html stuff */
+/*  */
+
 .play-ground {
   position: absolute;
   cursor: default;
@@ -14,7 +18,9 @@
   z-index: -1;
 }
 
-/* Container for the entire page */
+/*  */
+/* Header section */
+/*  */
 .main-about-container {
   display: flex;
   justify-content: center;
@@ -23,81 +29,121 @@
   width: auto;
   flex-direction: column;
 }
-
+/*  */
+/* Heading section */
 .about-hero-section {
   position: relative;
-  width: 100%;
-  height: 100vh;
+  width: 90%;
+  height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
-}
-
-/* Container for the glowing text element */
-.i-am-container {
-  display: flex;
-  position: relative;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-  width: 60%;
-  height: auto;
-  z-index: 1;
 }
 
-/* In the nav folder the css file consider the container appearing time */
-
-.i-am-container h1 {
-  font-size: 2.25rem;
+.about-hero-section h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0;
   color: var(--color-2);
+  letter-spacing: -0.025em;
+  transform: translateY(var(--space-2));
+}
+
+.about-hero-section h1 {
+  font-size: 9rem;
   font-weight: 600;
-  margin: 0;
-}
-
-.i-am-container h2 {
-  font-size: 6rem;
   color: var(--color-1);
-  font-weight: 700;
-  line-height: 1;
-  position: relative;
-  left: -5px; /* Shifts left by 50px */
   margin: 0;
-  margin-top: var(--space-1);
-  margin-bottom: var(--space-2);
+  letter-spacing: -0.025em;
 }
-
-.i-am-container p {
-  font-size: 1.25rem;
-  width: 90%;
-  color: var(--font-middle);
-  font-family: var(--font-body), sans-serif;
-  margin: 0;
-}
-
-.i-am-container button {
-  border: none;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  margin: 0;
+/*  */
+/* Container for the button and para container */
+.about-hero-section-info {
+  width: 60%;
   margin-left: auto;
-  padding: var(--space-2);
-  background-color: var(--color-2);
-  font-family: var(--font-display);
-  color: var(--color-2);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
 
+.about-hero-section-info-text {
+  width: 100%;
+  height: auto;
+  padding: var(--space-2);
+  background-color: var(--color-4);
+  border-radius: 25px;
+}
+
+.about-hero-section-info-text p {
+  color: var(--font-middle);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.about-hero-section-info button {
+  width: fit-content;
+  height: auto;
+  background-color: var(--color-4);
+  border-radius: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: var(--space-1);
+  gap: var(--space-2);
+  transition:
+    background-color 0.25s var(--power-2-out),
+    color 0.25s var(--power-2-out);
   cursor: pointer;
 }
 
-.i-am-container button svg {
-  width: 70%;
-  height: 70%;
-  stroke: var(--color-1);
-  margin: auto;
+.about-hero-section-info button span {
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--color-1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.25s var(--power-2-out);
 }
 
-/* For mobile stuff */
+.about-hero-section-info button svg {
+  height: calc(100% / 2);
+  aspect-ratio: 1 / 1;
+}
+
+.about-hero-section-info button svg path {
+  stroke: var(--color-2);
+  transition: stroke 0.25s var(--power-2-out);
+}
+
+.about-hero-section-info button h3 {
+  color: var(--color-1);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+.about-hero-section-info button:hover {
+  background-color: var(--color-1);
+}
+
+.about-hero-section-info button:hover h3 {
+  color: var(--color-4);
+}
+
+.about-hero-section-info button:hover span {
+  background-color: var(--color-4);
+}
+
+.about-hero-section-info button:hover svg path {
+  stroke: var(--color-2);
+}
+
+/*  */
+/* The about page animation is removed for mobile so this is what replaces it */
+/*  */
 .about-content {
   position: relative;
   width: 100%;
@@ -107,6 +153,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  gap: var(--space-3);
 }
 
 .mobile-intro {
@@ -114,12 +161,8 @@
   position: relative;
   width: 90%;
   border-radius: 25px;
-  padding: var(--space-4);
-  margin: var(--space-5) 0;
-  background-color: var(--opacity-color-4-5);
-  border: 2px var(--color-1) solid;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  padding: var(--space-2);
+  background-color: var(--color-4);
 }
 
 .mobile-intro.hidden {
@@ -129,7 +172,7 @@
 .mobile-intro h4 {
   color: var(--color-2);
   font-size: 2.5rem;
-  margin: var(--space-4) 0;
+  margin: var(--space-2) 0;
 }
 
 .mobile-intro p {
@@ -139,60 +182,63 @@
   line-height: 1.3;
   color: var(--font-middle);
 }
+/*  */
+/* For the main heading */
+/*  */
+@media (max-width: 1500px) {
+  /* 20% decrease */
+  .about-hero-section h1 {
+    font-size: 7.2rem;
+  }
+  .about-hero-section h2 {
+    font-size: 2.4rem;
+  }
+}
 
-@media (max-width: 1250px) {
-  .i-am-container {
-    width: 90%;
+@media (max-width: 1200px) {
+  /* 10% decrease */
+  .about-hero-section h1 {
+    font-size: 6.3rem;
+  }
+  .about-hero-section h2 {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 900px) {
+  .about-hero-section-info {
+    margin-left: 10rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero-section-info {
+    margin-left: 7.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero-section-info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  /* 40% decrease */
+  .about-hero-section h1 {
+    font-size: 5.4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  /* 50% decrease */
+  .about-hero-section h1 {
+    font-size: 4.5rem;
   }
 }
 
 @media (max-width: 1000px) {
   .about-content {
     height: auto;
-  }
-}
-
-@media (max-width: 800px) {
-  /* Decrease by 10% */
-  .mobile-intro p {
-    font-size: 1.125rem;
-  }
-  .i-am-container p {
-    font-size: 1.125rem;
-  }
-  /* Decrease by 30% */
-  .i-am-container h1 {
-    font-size: 1.575rem;
-  }
-
-  .i-am-container h2 {
-    font-size: 4.2rem;
-  }
-
-  .i-am-container button {
-    font-size: 0.875rem;
-  }
-
-  .mobile-intro h4 {
-    font-size: 1.75rem;
-  }
-
-  .i-am-container button {
-    width: 5rem;
-    height: 5rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .i-am-container h2 {
-    font-size: 3.8rem;
-  }
-}
-@media (max-height: 700px) {
-  .mobile-intro p {
-    font-size: 1rem;
-  }
-  .i-am-container p {
-    font-size: 1rem;
   }
 }

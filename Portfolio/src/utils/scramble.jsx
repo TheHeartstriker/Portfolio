@@ -28,6 +28,6 @@ export function TextScramble(Original, Text, Alphabet, setText, speed) {
     Iter += speed;
 
     setText(newText);
-  }, 40);
+  }, 50);
   return true;
 }

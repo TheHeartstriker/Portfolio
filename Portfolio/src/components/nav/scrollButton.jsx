@@ -13,7 +13,11 @@ export function ScrollButton({ percent, className, children, ...props }) {
     lenis.scrollTo(targetScroll, { duration: 1.2 });
   }
   return (
-    <button className={className} onClick={scrollToPercent} {...props}>
+    <button
+      className={className ? className : ""}
+      onClick={scrollToPercent}
+      {...props}
+    >
       {children}
     </button>
   );

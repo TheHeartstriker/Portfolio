@@ -1,27 +1,11 @@
 // app/fonts.ts (or any file, usually in lib/ or app/)
 // Poppins, Source sans pro, Roboto Slab and nunito
-import { Montserrat, Inter } from "next/font/google";
-//
-//Old Techy theme
-//
-// export const rajdhaniDisplay = Rajdhani({
-//   subsets: ["latin"],
-//   display: "swap",
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-display",
-// });
+import { Inter, Playfair_Display } from "next/font/google";
 
-// export const rajdhaniBody = Rajdhani({
-//   subsets: ["latin"],
-//   display: "swap",
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-body",
-// });
-
-export const Display = Montserrat({
+export const Display = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-display",
 });
 
