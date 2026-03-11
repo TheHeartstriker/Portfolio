@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Arrow from "../../../out/icons/arrow";
+import Arrow from "@/../public/icons/arrow.jsx";
 import { Separator } from "@/components/separator/separator";
 import { lorem } from "@/utils/text";
 import PropTypes from "prop-types";

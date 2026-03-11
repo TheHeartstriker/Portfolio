@@ -1,8 +1,8 @@
-import NewspaperOutline from "../../../../public/icons/newspaper-outline.jsx";
-import NumbersIcon from "../../../../public/icons/numbers.jsx";
-import CalendarTimeIcon from "../../../../public/icons/calendar-time.jsx";
-import TimeSharp from "../../../../public/icons/time-sharp.jsx";
-import Arrow from "../../../../out/icons/arrow.jsx";
+import NewspaperOutline from "@/../public/icons/newspaper-outline.jsx";
+import NumbersIcon from "@/../public/icons/numbers.jsx";
+import CalendarTimeIcon from "@/../public/icons/calendar-time.jsx";
+import TimeSharp from "@/../public/icons/time-sharp.jsx";
+import Arrow from "@/../public/icons/arrow.jsx";
 import "./scriptoriumIntroRecent.css";
 import { getTotalWords, getTotalTimeHour } from "../counters.jsx";
 import { introRecentText } from "./text.js";
