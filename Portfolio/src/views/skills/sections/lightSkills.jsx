@@ -1,10 +1,9 @@
 "use client";
-import { useState, useRef, useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import "./lightSkills.css";
 import { Separator } from "@/components/separator/separator";
 import { SkillCards } from "./skillCards";
-import { isMobile } from "@/utils/isMobile";
 import Chevron from "../../../../public/icons/chevron";
 import LightSkillAnimation from "../animations/lightSkillAnimation.jsx";
 import { highlightText } from "../text";

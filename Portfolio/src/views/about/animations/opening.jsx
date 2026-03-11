@@ -75,7 +75,7 @@ function Opening() {
     );
   }
 
-  function aboutTextAnimation(timeline, offset) {
+  function aboutTextAnimation(timeline) {
     if (timeline === undefined) {
       timeline = gsap.timeline();
     }
@@ -127,6 +127,7 @@ function Opening() {
     //
     //Text animation
     aboutTextAnimation(tl);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!isVisible) {

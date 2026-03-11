@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./separator.css";
 export function Separator({ headerArr, reverse }) {
   if (!headerArr) {
@@ -14,3 +15,8 @@ export function Separator({ headerArr, reverse }) {
     </div>
   );
 }
+
+Separator.propTypes = {
+  headerArr: PropTypes.arrayOf(PropTypes.string).isRequired,
+  reverse: PropTypes.bool,
+};

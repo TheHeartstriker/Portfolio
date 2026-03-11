@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { AddMember, RemoveMember } from "@/utils/aniFrame";
 import { isMobile } from "@/utils/isMobile";
-import { drawLine, drawLineAnimated, drawRadial } from "./drawFunctions";
+import { drawLine, drawRadial } from "./drawFunctions";
 import "./background.css";
 import { Context } from "../../context/contextProvider";
 

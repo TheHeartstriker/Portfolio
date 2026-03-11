@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, useRef } from "react";
+import { createContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import PropTypes from "prop-types";
 export const Context = createContext();

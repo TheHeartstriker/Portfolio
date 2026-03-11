@@ -1,7 +1,6 @@
 "use client";
 import "./proFocus.css";
 
-import UserGroup from "@/../public/icons/user-group";
 import { Separator } from "@/components/separator/separator";
 import { useState } from "react";
 import ProFocusAnimation from "../animations/proFocusAnimation";

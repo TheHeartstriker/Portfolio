@@ -36,9 +36,18 @@ export function ScriptCard({ articleDes, link, reverse }) {
 ScriptCard.propTypes = {
   articleDes: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    date: PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      month: PropTypes.string.isRequired,
+      year: PropTypes.number.isRequired,
+    }).isRequired,
     des: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    readingTime: PropTypes.number.isRequired,
   }).isRequired,
+  wordCount: PropTypes.number.isRequired,
+  readingTime: PropTypes.number.isRequired,
   link: PropTypes.string.isRequired,
+  reverse: PropTypes.bool,
 };

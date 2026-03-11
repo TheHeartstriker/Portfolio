@@ -40,6 +40,7 @@ function PixelHover() {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function create2DArray(Rows, Cols, leftX, topY, pixSize) {
@@ -76,7 +77,7 @@ function PixelHover() {
       cols,
       0, // leftX starts at 0
       0, // topY starts at 0
-      pixSize
+      pixSize,
     );
     gridRef.current = initialGrid;
   }
@@ -102,7 +103,7 @@ function PixelHover() {
             gridRef.current[i][j].x,
             gridRef.current[i][j].y,
             gridRef.current[i][j].color,
-            gridRef.current[i][j].opacity
+            gridRef.current[i][j].opacity,
           );
         }
       }
@@ -143,7 +144,7 @@ function PixelHover() {
 
             gridRef.current[curRow][curCol].opacity = Math.min(
               1.0,
-              gridRef.current[curRow][curCol].opacity + change
+              gridRef.current[curRow][curCol].opacity + change,
             );
           }
         }

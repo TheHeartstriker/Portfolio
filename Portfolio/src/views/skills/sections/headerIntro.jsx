@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./headerIntro.css";
 import { WorkCard } from "../workCard.jsx";
-import { lorem, smallLorem } from "@/utils/text";
 import { ScrollButton } from "@/components/nav/scrollButton";
 import { Separator } from "@/components/separator/separator.jsx";
 import HeaderAnimation from "../animations/headerAnimation.jsx";
@@ -59,7 +58,7 @@ function HeaderIntro() {
             onMouseEnter={() => setActiveCard1(3)}
           >
             <h3>3000+</h3>
-            <h4>Hour's of work</h4>
+            <h4>Hour&apos;s of work</h4>
           </div>
         </div>
       </div>

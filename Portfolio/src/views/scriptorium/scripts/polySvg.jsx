@@ -1,5 +1,5 @@
 "use client";
-import Poly from "@/components/svg/polyArt.jsx";
+import Poly from "./polyArt.jsx";
 import { useEffect, useRef } from "react";
 //
 // Helper functions
@@ -95,7 +95,7 @@ function App() {
       // Distance to mouse (relative to SVG)
       const distance = Math.sqrt(
         (centerX - mouseRef.current.x) ** 2 +
-          (centerY - mouseRef.current.y) ** 2
+          (centerY - mouseRef.current.y) ** 2,
       );
       poly["distanceToMouse"] = distance;
       let hslColor = rgbToHsl(window.getComputedStyle(el).fill);
@@ -122,7 +122,7 @@ function App() {
     if (!elCenter) return;
     const distance = Math.sqrt(
       (elCenter.x - mouseRef.current.x) ** 2 +
-        (elCenter.y - mouseRef.current.y) ** 2
+        (elCenter.y - mouseRef.current.y) ** 2,
     );
     i.distanceToMouse = distance;
   }

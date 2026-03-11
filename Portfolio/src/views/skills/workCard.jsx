@@ -2,7 +2,7 @@ import { useState } from "react";
 import Arrow from "../../../out/icons/arrow";
 import { Separator } from "@/components/separator/separator";
 import { lorem } from "@/utils/text";
-
+import PropTypes from "prop-types";
 export function WorkCard({
   header,
   para1,
@@ -126,3 +126,18 @@ export function WorkCard({
     </div>
   );
 }
+
+WorkCard.propTypes = {
+  header: PropTypes.string.isRequired,
+  para1: PropTypes.string.isRequired,
+  para2: PropTypes.string.isRequired,
+  mediaArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+  scopePara: PropTypes.string.isRequired,
+  rolePara: PropTypes.string.isRequired,
+  servicesArr: PropTypes.arrayOf(PropTypes.string).isRequired,
+  reverse: PropTypes.bool,
+  first: PropTypes.bool,
+  link: PropTypes.string.isRequired,
+  active: PropTypes.number.isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+};

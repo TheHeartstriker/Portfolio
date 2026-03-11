@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Arrow from "@/../public/icons/arrow";
 export function SkillCards({
   title,
@@ -38,3 +39,12 @@ export function SkillCards({
     </div>
   );
 }
+
+SkillCards.propTypes = {
+  title: PropTypes.string.isRequired,
+  para: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+  mobile: PropTypes.bool.isRequired,
+};

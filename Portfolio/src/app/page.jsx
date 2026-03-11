@@ -27,7 +27,7 @@ export const metadata = {
   },
   robots: "index, follow",
   alternates: {
-    canonical: "https://www.kadenwildauer.com/", // Added to enforce canonical URL
+    canonical: "https://www.kadenwildauer.com/",
   },
 };
 

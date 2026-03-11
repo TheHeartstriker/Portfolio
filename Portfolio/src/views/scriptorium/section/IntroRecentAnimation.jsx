@@ -2,7 +2,6 @@ import { animateBlocks } from "@/utils/animations/animations.jsx";
 import { animateText } from "@/utils/animations/textAni.jsx";
 import { useEffect } from "react";
 import { gsap } from "gsap/gsap-core";
-import { stagger } from "framer-motion";
 function IntroRecentAnimation() {
   //
   // Intro animation

@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import NavCursor from "./navCursor.jsx";
 import "./navigate.css";
