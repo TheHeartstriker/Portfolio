@@ -69,7 +69,7 @@ function Opening() {
         opacity: 1,
         duration: 1.25,
         y: 0,
-        ease: "power2.out",
+        ease: "power1.out",
       },
       offset,
     );
@@ -83,7 +83,7 @@ function Opening() {
     const subHeader = document.querySelector(".about-hero-section h2");
     animateText({ start: 200, end: 0 }, [subHeader, header], timeline, {
       duration: 0.75,
-      easing: "power2.out",
+      easing: "power1.out",
       delay: 0,
       offset: "-=0.25",
     });
@@ -97,7 +97,7 @@ function Opening() {
       blocks,
       {
         duration: 0.75,
-        easing: "power2.out",
+        easing: "power1.out",
         offset: "-=0.25",
         stagger: 0.25,
       },

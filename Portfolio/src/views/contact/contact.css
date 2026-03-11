@@ -133,6 +133,7 @@
   flex-direction: column;
   gap: var(--space-1);
   width: 100%;
+  min-height: 75vh;
 }
 /*  */
 /* Faq container item */
@@ -196,7 +197,7 @@
 
 .contact-faq-container-item-text.active p {
   color: var(--color-3);
-  max-height: 500px;
+  max-height: 120px;
 }
 
 /*  */

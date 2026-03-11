@@ -45,6 +45,7 @@ function HeaderAnimation() {
         duration: 0.75,
         easing: "power2.out",
         offset: "<+0.5",
+        stagger: 0.15,
       },
       timeline,
     );
@@ -79,7 +80,7 @@ function HeaderAnimation() {
         {
           duration: 0.85,
           delay: 0,
-
+          stagger: 0.15,
           easing: "power2.out",
         },
       );

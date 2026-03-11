@@ -1,10 +1,10 @@
 export const Header1 = "Who am I?";
-export const MainText1 = `I’m a freelance web developer specializing in design, usability, and performance. Over the years, I’ve spent thousands of hours honing my craft - designing websites, building applications, and writing about tech. My work is guided by balance, creativity, precision, and clarity.`;
+export const MainText1 = `I am a freelance web developer specializing in design, usability, and performance. Over the years, I have dedicated thousands of hours to refining my craft — designing websites, building applications, and writing about technology. My work is guided by a commitment to balance, creativity, precision, and clarity.`;
 
-export const Header2 = "My work";
-export const MainText2 = `All of my work is carefully designed, planned, developed in collaboration, and researched to do exactly what it’s supposed to do - and do it well.
- Whether it’s a creative website, a playful one, or something professional, this is reflected in my skills, my work, and the results I achieve. If you like what you see, you can hire me to do the same for you!`;
+export const Header2 = "My Work";
+export const MainText2 = `Every project I undertake is thoughtfully designed, carefully planned, developed in close collaboration, and thoroughly researched to fulfill its purpose effectively and excellently.  
+Whether the goal is a highly creative site, a playful experience, or a polished professional presence, this approach is consistently reflected in my skills, my portfolio, and the results delivered. If you like what you see, I would be happy to bring the same level of care and quality to your project.`;
 
-export const Header3 = "Beyond code";
-export const MainText3 = `Outside of software engineering, writing, and freelancing, I like to read, draw (I’m terrible), and play piano (also bad), but I love it anyway.
- I also listen to an almost ridiculous amount of music (about 2,000 hours a year). Beyond that, I enjoy learning new things, meeting new people, playing games and fitness. That’s pretty much me!`;
+export const Header3 = "Outside Work";
+export const MainText3 = `Outside of software engineering, technical writing, and freelancing, I enjoy reading, drawing (though I’m admittedly not very good), and playing piano (equally imperfect) — yet I continue because I genuinely love it.  
+I listen to an extraordinary amount of music (roughly 2,000 hours per year). I also enjoy continually learning new things, meeting new people, playing games, and staying active with fitness. That, in essence, is me.`;

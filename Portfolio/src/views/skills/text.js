@@ -20,7 +20,7 @@ export const RealEstateText = {
   header: "Peyton Ray Properties",
   para1: `Peyton Ray Properties is a clean, elegant landing page created for a small real estate company. 
    Although developed quickly, the site is fully realized and responsive. The client has since shifted their business model and no longer uses the website.`,
-  para2: `This was my first real client project and provided valuable early experience in client work and delivery.`,
+  para2: `This was my first real client project and provided valuable early experience in client work and delivery. This site is available for viewing on a staging environment, and is included to showcase my progression of skills.`,
   role: `I served as the sole developer, responsible for the visual design, frontend implementation, launch, and direct client communication.`,
   scope: `This is a frontend-focused project consisting of approximately 5 main views with full mobile responsiveness.`,
   media: [
@@ -88,7 +88,7 @@ export const skillText = {
   card3: {
     header: "Choice and Customization",
     imgSrc: "/skill/skill/card3Choice.webp",
-    para: `I handle the full process—design, development, and launch—without relying on templates, pre-built code, or shortcuts. 
+    para: `I handle the full process - design, development, and launch - without relying on templates, pre-built code, or shortcuts. 
     This approach results in higher performance while also enabling faithful, uncompromised recreation of creative concepts and ideas.`,
   },
 };
@@ -98,8 +98,8 @@ export const skillText = {
 export const processText = {
   card1: {
     header: "Discovery and Research",
-    para: `Every project begins with a discovery and research phase. This involves gathering detailed requirements and conducting thorough research to inform the direction of the site. 
-    When aspects such as theme, color palette, typography, or target audience are not yet defined, this stage includes exploring competitors, gathering inspiration, and establishing a cohesive visual and functional foundation — ensuring the final product aligns closely with the client’s vision and specifications.`,
+    para: `Every website begins with a discovery and research phase. This involves gathering detailed requirements and conducting thorough research to inform the direction of the site. 
+    When aspects such as theme, color palette, typography, or target audience are not yet defined, this stage includes exploring competitors, gathering inspiration, and establishing a cohesive visual and functional foundation - ensuring the final product aligns closely with the client’s vision and specifications.`,
   },
   card2: {
     header: "Mockup and Design",
@@ -127,7 +127,7 @@ export const focusText = {
   card1: {
     header: "Clarity of Purpose through Understanding",
     para: `A primary focus in my work is ensuring every website has clear purpose and strong alignment with its intended audience. 
-    This means carefully coordinating page structure, layout, typography, color choices, and overall design to support the site’s goals — 
+    This means carefully coordinating page structure, layout, typography, color choices, and overall design to support the site’s goals - 
     whether projecting professionalism and creativity for a portfolio ;), or delivering an energetic and approachable feel for a fitness platform.`,
   },
   card2: {
@@ -139,12 +139,12 @@ export const focusText = {
   card3: {
     header: "Performance through Hand-Coding and Optimization",
     para: `Performance remains a central focus, as it directly impacts user satisfaction and search engine visibility. 
-    By hand-coding every element, optimizing assets, and adhering to current best practices, I ensure fast load times and smooth interactions across devices — 
+    By hand-coding every element, optimizing assets, and adhering to current best practices, I ensure fast load times and smooth interactions across devices - 
     with ongoing testing to maintain high standards even in feature-rich or visually ambitious sections.`,
   },
   card4: {
     header: "Trust and Quality through Psychology and Attention to Detail",
     para: `Building visitor trust is essential for nearly every website, whether the goal is conversion, engagement, or credibility. 
-    I incorporate established psychological principles — including color theory, social proof, and signals of authority — while maintaining meticulous attention to detail and consistent quality across every aspect of the experience.`,
+    I incorporate established psychological principles - including color theory, social proof, and signals of authority - while maintaining meticulous attention to detail and consistent quality across every aspect of the experience.`,
   },
 };
