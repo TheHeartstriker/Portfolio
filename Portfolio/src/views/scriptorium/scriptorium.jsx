@@ -8,7 +8,7 @@ import {
   desHoverCards,
   desColor,
 } from "./articles/articleDes.js";
-import { ScriptCard } from "../../components/forViews/scriptorium/scriptCard.jsx";
+import { ScriptCard } from "./scriptCard.jsx";
 import ScriptoriumIntroRecent from "./section/scriptoriumIntroRecent.jsx";
 import "./scriptorium.css";
 import { useEffect, useState } from "react";

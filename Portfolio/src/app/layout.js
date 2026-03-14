@@ -1,12 +1,12 @@
 import "../site.css";
 import "../animation.css";
-import Background from "../components/forStyle/backgrounds/background";
+import Background from "@/providers/background/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { Provider } from "@/components/context/contextProvider";
-import { Display, Body } from "@/utils/fonts";
-import ThemeGen from "@/components/forStyle/themeGen/theme";
+import { Provider } from "@/providers/context/contextProvider";
+import { Display, Body } from "@/utils/text/fonts";
+import ThemeGen from "@/providers/themeGen/theme";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
 export default function RootLayout({ children }) {

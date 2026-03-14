@@ -26,7 +26,7 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
 import colorArticle from "@/views/scriptorium/articles/colorArticle/color.md";
 import { desColor } from "@/views/scriptorium/articles/articleDes.js";
 

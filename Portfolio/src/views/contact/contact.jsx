@@ -4,7 +4,7 @@ import { Separator } from "@/components/separator/separator.jsx";
 import { useState, useRef } from "react";
 import ContactAnimation from "./contactAnimation.jsx";
 import { introText, faq } from "./text.js";
-import { TextScramble } from "@/utils/scramble.jsx";
+import { TextScramble } from "@/utils/animations/scramble.jsx";
 function Contact() {
   const [active, setActive] = useState(1);
   const EMAIL = "serkadenwildauer@gmail.com";

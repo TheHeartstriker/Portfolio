@@ -1,7 +1,11 @@
 "use client";
-import { AddMember, RemoveMember } from "../../utils/aniFrame.jsx";
+import { AddMember, RemoveMember } from "../../utils/animations/aniFrame.jsx";
 import { useState, useEffect, useRef } from "react";
-import { setupCanvasBall, WhichOne, CursorChange } from "../../utils/shared.js";
+import {
+  setupCanvasBall,
+  WhichOne,
+  CursorChange,
+} from "../../utils/animations/shared.js";
 function InteractiveBG() {
   const Mouse = useRef({ x: 0, y: 0 });
   const TimeStep = 0.16;

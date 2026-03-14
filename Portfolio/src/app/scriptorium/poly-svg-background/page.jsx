@@ -1,4 +1,4 @@
-import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
 export const metadata = {
   metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Building a Mouse-Responsive SVG Polygon Background",

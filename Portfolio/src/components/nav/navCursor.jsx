@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { AddMember, RemoveMember } from "../../utils/aniFrame";
+import { AddMember, RemoveMember } from "../../utils/animations/aniFrame";
 import "./navigate.css";
 
 function NavCursor() {

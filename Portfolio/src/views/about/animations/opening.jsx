@@ -2,11 +2,10 @@
 import "./opening.css";
 import { gsap } from "gsap/gsap-core";
 import { useState, useEffect } from "react";
-import { Context } from "../../../components/context/contextProvider.jsx";
+import { Context } from "../../../providers/context/contextProvider.jsx";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";
-import { animateText } from "@/utils/animations/textAni";
-import { animateBlocks } from "@/utils/animations/animations";
+import { animateBlocks, animateText } from "@/utils/animations/animations";
 
 function Opening() {
   const pathname = usePathname();

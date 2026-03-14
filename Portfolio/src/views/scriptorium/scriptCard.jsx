@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
-import TimeSharp from "../../../../public/icons/time-sharp";
+import TimeSharp from "../../../public/icons/time-sharp";
 export function ScriptCard({ articleDes, link, reverse }) {
   return (
     <div className={`script-article ${reverse ? "reverse" : ""}`}>

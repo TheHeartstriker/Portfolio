@@ -1,5 +1,4 @@
-import { animateText } from "@/utils/animations/textAni.jsx";
-import { animateBlocks } from "@/utils/animations/animations";
+import { animateBlocks, animateText } from "@/utils/animations/animations";
 import { gsap } from "gsap/gsap-core";
 import { useEffect } from "react";
 

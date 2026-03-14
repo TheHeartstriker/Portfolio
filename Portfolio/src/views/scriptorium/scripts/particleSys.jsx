@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-import { defaultCanvas } from "../../../utils/canvas";
-import { AddMember, RemoveMember } from "../../../utils/aniFrame";
+import { defaultCanvas } from "../../../utils/animations/canvas";
+import { AddMember, RemoveMember } from "../../../utils/animations/aniFrame";
 
 function ParticleSys() {
   //
@@ -124,7 +124,7 @@ function ParticleSys() {
         if (other !== this) {
           //Get the distance
           const diff = new Vector(this.position.x, this.position.y).sub(
-            other.position
+            other.position,
           );
           const distance = diff.mag();
           //Check if close enough to collide
@@ -134,7 +134,7 @@ function ParticleSys() {
 
             // Relative velocity where we are moving relative to the other particle
             const relVel = new Vector(this.velocity.x, this.velocity.y).sub(
-              other.velocity
+              other.velocity,
             );
             // Velocity along normal aka are we moving towards each other also known as the dot product
             const vn = relVel.x * normal.x + relVel.y * normal.y;
@@ -147,10 +147,10 @@ function ParticleSys() {
               // Apply impulse
               const impulseVec = new Vector(normal.x, normal.y).mult(impulse);
               this.velocity.add(
-                new Vector(impulseVec.x, impulseVec.y).div(this.mass)
+                new Vector(impulseVec.x, impulseVec.y).div(this.mass),
               );
               other.velocity.sub(
-                new Vector(impulseVec.x, impulseVec.y).div(other.mass)
+                new Vector(impulseVec.x, impulseVec.y).div(other.mass),
               );
             }
 
@@ -161,11 +161,13 @@ function ParticleSys() {
             const separation = new Vector(normal.x, normal.y).mult(overlap);
             this.position.add(
               new Vector(separation.x, separation.y).mult(
-                other.mass / totalMass
-              )
+                other.mass / totalMass,
+              ),
             );
             other.position.sub(
-              new Vector(separation.x, separation.y).mult(this.mass / totalMass)
+              new Vector(separation.x, separation.y).mult(
+                this.mass / totalMass,
+              ),
             );
           }
         }
@@ -184,12 +186,12 @@ function ParticleSys() {
   function mouseAura(particle, mousePosRef) {
     const mousePos = mousePosRef.current;
     const diff = new Vector(particle.position.x, particle.position.y).sub(
-      mousePos
+      mousePos,
     );
     const distance = diff.mag();
     if (distance < 250) {
       const force = new Vector(particle.position.x, particle.position.y).sub(
-        mousePos
+        mousePos,
       );
       force.normalize();
       force.mult(0.3);

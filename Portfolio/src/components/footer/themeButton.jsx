@@ -1,12 +1,12 @@
 "use client";
-import { Context } from "../context/contextProvider";
+import { Context } from "../../providers/context/contextProvider";
 import {
   winterTheme,
   summerTheme,
   springTheme,
   autumnTheme,
-} from "@/components/forStyle/themeGen/themes";
-import { applyTheme } from "../forStyle/themeGen/theme";
+} from "@/providers/themeGen/themes";
+import { applyTheme } from "../../providers/themeGen/theme";
 import { useContext } from "react";
 import PropTypes from "prop-types";
 

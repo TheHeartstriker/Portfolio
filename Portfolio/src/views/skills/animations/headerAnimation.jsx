@@ -1,6 +1,5 @@
 import { gsap } from "gsap/gsap-core";
-import { animateBlocks } from "../../../utils/animations/animations";
-import { animateText } from "@/utils/animations/textAni.jsx";
+import { animateBlocks, animateText } from "@/utils/animations/animations";
 import { useEffect } from "react";
 
 function HeaderAnimation() {

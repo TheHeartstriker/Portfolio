@@ -1,15 +1,15 @@
 "use client";
 import { useEffect } from "react";
-import { hexToHsl } from "@/utils/math";
+import { hexToHsl } from "@/utils/math/math";
 import { useContext } from "react";
-import { Context } from "../../context/contextProvider";
+import { Context } from "../context/contextProvider";
 import {
   winterTheme,
   summerTheme,
   springTheme,
   autumnTheme,
   professionalTheme1,
-} from "@/components/forStyle/themeGen/themes";
+} from "@/providers/themeGen/themes";
 //Create theme variables and inject into document head
 function generateCSSString(colors, isDark) {
   let cssString = ":root {\n";

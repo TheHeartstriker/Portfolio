@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import PropTypes from "prop-types";
 export const Context = createContext();
-import { winterTheme } from "@/components/forStyle/themeGen/themes";
+import { winterTheme } from "@/providers/themeGen/themes";
 
 export function Provider({ children }) {
   const pathname = usePathname();

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Arrow from "@/../public/icons/arrow.jsx";
 import { Separator } from "@/components/separator/separator";
-import { lorem } from "@/utils/text";
+import { lorem } from "@/utils/text/text";
 import PropTypes from "prop-types";
 export function WorkCard({
   header,

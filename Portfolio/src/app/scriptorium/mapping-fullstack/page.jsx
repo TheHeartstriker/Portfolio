@@ -28,7 +28,7 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../components/forViews/scriptorium/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
 import mappingArticle from "@/views/scriptorium/articles/mappingArticle/map.md";
 import { desMappingFullstack } from "@/views/scriptorium/articles/articleDes.js";
 
