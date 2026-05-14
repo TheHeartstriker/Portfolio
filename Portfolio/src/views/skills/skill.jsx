@@ -1,8 +1,9 @@
 "use client";
 
-import LightSkills from "./sections/lightSkills";
-import ProFocus from "./sections/proFocus";
-import HeaderIntro from "./sections/headerIntro";
+import LightSkills from "./lightSkills/lightSkills";
+import ProFocus from "./proFocus/proFocus";
+import HeaderIntro from "./headerIntro/headerIntro";
+import "./skill.css";
 
 function Skill() {
   return (

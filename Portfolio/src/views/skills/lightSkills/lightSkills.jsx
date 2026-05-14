@@ -5,7 +5,7 @@ import "./lightSkills.css";
 import { Separator } from "@/components/separator/separator";
 import { SkillCards } from "./skillCards";
 import Chevron from "../../../../public/icons/chevron";
-import LightSkillAnimation from "../animations/lightSkillAnimation.jsx";
+import LightSkillAnimation from "./lightSkillAnimation.jsx";
 import { highlightText } from "../text";
 import { skillText } from "../text";
 

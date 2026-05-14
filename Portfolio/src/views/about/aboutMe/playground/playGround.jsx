@@ -1,16 +1,14 @@
 "use client";
 import { useState, useRef, useEffect, useContext } from "react";
 import { DrawTextBlurb } from "./helperPg.jsx";
-import {
-  AddMember,
-  RemoveMember,
-} from "../../../utils/animations/aniFrame.jsx";
+import { AddMember, RemoveMember } from "@/utils/animations/aniFrame.jsx";
 import { useColors } from "./drawColor.jsx";
+
 import {
   setupCanvasBall,
   WhichOne,
   CursorChange,
-} from "../../../utils/animations/shared.js";
+} from "@/utils/animations/shared.js";
 import {
   Header1,
   MainText1,
@@ -18,7 +16,7 @@ import {
   MainText2,
   Header3,
   MainText3,
-} from "../text.js";
+} from "../../text.js";
 import { Context } from "@/providers/context/contextProvider.jsx";
 
 function PlayGround() {

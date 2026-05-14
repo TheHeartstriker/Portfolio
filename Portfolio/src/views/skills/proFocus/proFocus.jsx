@@ -3,7 +3,7 @@ import "./proFocus.css";
 
 import { Separator } from "@/components/separator/separator";
 import { useState } from "react";
-import ProFocusAnimation from "../animations/proFocusAnimation";
+import ProFocusAnimation from "./proFocusAnimation";
 import { processText, focusText } from "../text";
 
 function ProFocus() {

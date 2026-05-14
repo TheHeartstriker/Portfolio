@@ -1,0 +1,167 @@
+/*  */
+/* Heading section */
+/*  */
+.about-hero-section {
+  position: relative;
+  width: 90%;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-hero-section h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-2);
+  letter-spacing: -0.025em;
+  transform: translateY(var(--space-2));
+}
+
+.about-hero-section h1 {
+  font-size: 9rem;
+  font-weight: 600;
+  color: var(--color-1);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+/*  */
+/* Container for the button and para container */
+.about-hero-section-info {
+  width: 60%;
+  margin-left: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.about-hero-section-info-text {
+  width: 100%;
+  height: auto;
+  padding: var(--space-2);
+  background-color: var(--color-4);
+  border-radius: 25px;
+}
+
+.about-hero-section-info-text p {
+  color: var(--font-middle);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.about-hero-section-info button {
+  width: fit-content;
+  height: auto;
+  background-color: var(--color-4);
+  border-radius: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: var(--space-1);
+  gap: var(--space-2);
+  transition:
+    background-color 0.25s var(--power-2-out),
+    color 0.25s var(--power-2-out);
+  cursor: pointer;
+}
+
+.about-hero-section-info button span {
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--color-1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.25s var(--power-2-out);
+}
+
+.about-hero-section-info button svg {
+  height: calc(100% / 2);
+  aspect-ratio: 1 / 1;
+}
+
+.about-hero-section-info button svg path {
+  stroke: var(--color-2);
+  transition: stroke 0.25s var(--power-2-out);
+}
+
+.about-hero-section-info button h3 {
+  color: var(--color-1);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+.about-hero-section-info button:hover {
+  background-color: var(--color-1);
+}
+
+.about-hero-section-info button:hover h3 {
+  color: var(--color-4);
+}
+
+.about-hero-section-info button:hover span {
+  background-color: var(--color-4);
+}
+
+.about-hero-section-info button:hover svg path {
+  stroke: var(--color-2);
+}
+
+/*  */
+/* For the main heading */
+/*  */
+@media (max-width: 1500px) {
+  /* 20% decrease */
+  .about-hero-section h1 {
+    font-size: 7.2rem;
+  }
+  .about-hero-section h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* 10% decrease */
+  .about-hero-section h1 {
+    font-size: 6.3rem;
+  }
+  .about-hero-section h2 {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 900px) {
+  .about-hero-section-info {
+    margin-left: 10rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero-section-info {
+    margin-left: 7.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero-section-info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  /* 40% decrease */
+  .about-hero-section h1 {
+    font-size: 5.4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  /* 50% decrease */
+  .about-hero-section h1 {
+    font-size: 4.5rem;
+  }
+}

@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import "./headerIntro.css";
-import { WorkCard } from "../workCard.jsx";
+import { WorkCard } from "./workCard.jsx";
 import { ScrollButton } from "@/components/nav/scrollButton";
 import { Separator } from "@/components/separator/separator.jsx";
-import HeaderAnimation from "../animations/headerAnimation.jsx";
+import HeaderAnimation from "./headerAnimation.jsx";
 import { FGraphsText, RealEstateText, TodoText } from "../text.js";
 
 function HeaderIntro() {
