@@ -1,5 +1,4 @@
 import "../site.css";
-import "../animation.css";
 import Background from "@/providers/background/background";
 import Nav from "../components/nav/nav";
 import PropTypes from "prop-types";

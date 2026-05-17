@@ -23,9 +23,9 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
-import backendArticle from "@/views/scriptorium/articles/backendLookArticle/backend.md";
-import { desBackendLookLike } from "@/views/scriptorium/articles/articleDes.js";
+import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
+import backendArticle from "@/views/scriptorium/articlesContent/articlesText/backendLookArticle/backend.md";
+import { desBackendLookLike } from "@/views/scriptorium/articlesContent/articleDes.js";
 
 function ScriptoriumPage() {
   return (

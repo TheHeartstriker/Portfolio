@@ -3,8 +3,8 @@
 /*  */
 .about-hero-section {
   position: relative;
-  width: 90%;
-  height: 90vh;
+  width: 100%;
+  height: fit-content;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -12,56 +12,54 @@
 }
 
 .about-hero-section h2 {
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-medium);
   margin: 0;
   color: var(--color-2);
-  letter-spacing: -0.025em;
-  transform: translateY(var(--space-2));
+  letter-spacing: var(--neg-letter-space-1);
+  transform: translateY(var(--space-16));
 }
 
 .about-hero-section h1 {
-  font-size: 9rem;
-  font-weight: 600;
+  font-size: var(--typo-size-128);
+  font-weight: var(--typo-weight-semi-bold);
   color: var(--color-1);
   margin: 0;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--neg-letter-space-1);
 }
-/*  */
-/* Container for the button and para container */
+
 .about-hero-section-info {
   width: 60%;
   margin-left: auto;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-8);
 }
 
 .about-hero-section-info-text {
   width: 100%;
   height: auto;
-  padding: var(--space-2);
+  padding: var(--space-16);
   background-color: var(--color-4);
-  border-radius: 25px;
+  border-radius: var(--border-radius-small);
 }
 
 .about-hero-section-info-text p {
   color: var(--font-middle);
-  font-size: 0.85rem;
-  margin: 0;
+  font-size: var(--typo-size-14);
 }
 
 .about-hero-section-info button {
   width: fit-content;
   height: auto;
   background-color: var(--color-4);
-  border-radius: 20px;
+  border-radius: var(--border-radius-small);
   border: none;
   display: flex;
   align-items: center;
-  padding: var(--space-1);
-  gap: var(--space-2);
+  padding: var(--space-8);
+  gap: var(--space-16);
   transition:
     background-color 0.25s var(--power-2-out),
     color 0.25s var(--power-2-out);
@@ -91,9 +89,8 @@
 
 .about-hero-section-info button h3 {
   color: var(--color-1);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: 0;
+  font-size: var(--typo-size-14);
+  font-weight: var(--typo-weight-regular);
 }
 .about-hero-section-info button:hover {
   background-color: var(--color-1);
@@ -112,56 +109,24 @@
 }
 
 /*  */
-/* For the main heading */
+/* Resizing */
 /*  */
-@media (max-width: 1500px) {
-  /* 20% decrease */
+@media (max-width: 1300px) {
   .about-hero-section h1 {
-    font-size: 7.2rem;
+    font-size: var(--typo-size-96);
+  }
+}
+
+@media (max-width: 1000px) {
+  .about-hero-section h1 {
+    font-size: var(--typo-size-64);
   }
   .about-hero-section h2 {
-    font-size: 2.4rem;
+    font-size: var(--typo-size-32);
+    transform: none;
   }
-}
-
-@media (max-width: 1200px) {
-  /* 10% decrease */
-  .about-hero-section h1 {
-    font-size: 6.3rem;
-  }
-  .about-hero-section h2 {
-    font-size: 2.1rem;
-  }
-}
-@media (max-width: 900px) {
-  .about-hero-section-info {
-    margin-left: 10rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .about-hero-section-info {
-    margin-left: 7.5rem;
-  }
-}
-
-@media (max-width: 600px) {
   .about-hero-section-info {
     width: 100%;
     margin-left: 0;
-  }
-}
-
-@media (max-width: 500px) {
-  /* 40% decrease */
-  .about-hero-section h1 {
-    font-size: 5.4rem;
-  }
-}
-
-@media (max-width: 450px) {
-  /* 50% decrease */
-  .about-hero-section h1 {
-    font-size: 4.5rem;
   }
 }

@@ -28,13 +28,13 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
 
-import particleArticle from "@/views/scriptorium/articles/particleArticle/particle.md";
-import ParticleSys from "@/views/scriptorium/scripts/particleSys.jsx";
+import particleArticle from "@/views/scriptorium/articlesContent/articlesText/particleArticle/particle.md";
+import ParticleSys from "@/views/scriptorium/articlesContent/articlesScript/particleSys.jsx";
 
 const articleArr = [particleArticle, ParticleSys];
-import { desParticle } from "@/views/scriptorium/articles/articleDes.js";
+import { desParticle } from "@/views/scriptorium/articlesContent/articleDes.js";
 
 function ScriptoriumPage() {
   return <SubjectContainer article={articleArr} description={desParticle} />;

@@ -1,4 +1,4 @@
-import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
+import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
 export const metadata = {
   metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Building a Mouse-Responsive SVG Polygon Background",
@@ -31,12 +31,12 @@ export const metadata = {
   robots: "index, follow",
 };
 
-import polySvgArticle1 from "@/views/scriptorium/articles/polyArticle/polySvgArticle1.md";
-import polySvgArticle2 from "@/views/scriptorium/articles/polyArticle/polySvgArticle2.md";
-import App from "@/views/scriptorium/scripts/polySvg.jsx";
+import polySvgArticle1 from "@/views/scriptorium/articlesContent/articlesText/polyArticle/polySvgArticle1.md";
+import polySvgArticle2 from "@/views/scriptorium/articlesContent/articlesText/polyArticle/polySvgArticle2.md";
+import App from "@/views/scriptorium/articlesContent/articlesScript/polySvg.jsx";
 
 const articleArr = [polySvgArticle1, App, polySvgArticle2];
-import { desPolySVG } from "@/views/scriptorium/articles/articleDes.js";
+import { desPolySVG } from "@/views/scriptorium/articlesContent/articleDes.js";
 
 function ScriptoriumPage() {
   return <SubjectContainer article={articleArr} description={desPolySVG} />;

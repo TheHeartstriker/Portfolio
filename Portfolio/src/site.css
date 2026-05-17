@@ -1,9 +1,9 @@
 body {
   font-family: var(--font-body), monospace;
-  font-size: 16px;
   margin: 0;
   padding: 0;
   background-color: var(--color-5);
+  scrollbar-color: #ece6df #121212;
 }
 
 html {
@@ -24,6 +24,11 @@ h4,
 h5 {
   line-height: 1.2;
   font-family: var(--font-display), sans-serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 :root {
@@ -37,27 +42,184 @@ h5 {
   --font-middle: #c5c5c5;
   --font-low: #969696;
 
-  --space-0: 0.25rem;
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-5: 2.5rem;
-  --space-6: 3rem;
-  --space-7: 4rem;
-  --space-8: 5rem;
-  --power-1-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --power-2-out: cubic-bezier(0.17, 0.67, 0.83, 0.67);
-}
+  /* */
+  /* Spacing */
+  /*  */
+  --space-4: 0.25rem; /* 4px */
+  --space-8: 0.5rem; /* 8px */
+  --space-16: 1rem; /* 16px */
+  --space-24: 1.5rem; /* 24px */
+  --space-32: 2rem; /* 32px */
+  --space-40: 2.5rem; /* 40px */
+  --space-48: 3rem; /* 48px */
+  --space-56: 3.5rem; /* 56px */
+  --space-64: 4rem; /* 64px */
+  --space-72: 4.5rem; /* 72px */
+  --space-80: 5rem; /* 80px */
+  --space-88: 5.5rem; /* 88px */
+  --space-96: 6rem; /* 96px */
+  --space-104: 6.5rem; /* 104px */
+  --space-120: 7.5rem; /* 120px */
+  --space-128: 8rem; /* 128px */
 
-/* P tags should be set between either 1rem, 1.25rem, 1.5rem or 1.1rem IF used as readable text. H tags should use increments of 0.5rem otherwise no restrictions. As for scaling font at smaller size's around 800px should be decrease
-by 20% as needed for all present fonts in file and we don't use varables so font can easily be calculate lesser by percentages 
-To be clear
-For buttons or small interactive elements:
-0.75rem -> is for small buttons
-0.85rem -> is for button text
-For readable text aka body:
-1.1rem -> is for dense copy of important text like a blog article or of text of less importance
-1.25rem -> is for regular for things like descriptions on cards this should be the default for most text
-1.5rem -> is rarely used but if so mainly in a hero setting
- */
+  /*  */
+  /* Typography scale */
+  /*  */
+  --typo-size-10: 0.625rem; /* 10px */
+  --typo-size-12: 0.75rem; /* 12px */
+  --typo-size-14: 0.875rem; /* 14px */
+  --typo-size-16: 1rem; /* 16px */
+  --typo-size-20: 1.25rem; /* 20px */
+  --typo-size-24: 1.5rem; /* 24px */
+  --typo-size-32: 2rem; /* 32px */
+  --typo-size-36: 2.25rem; /* 36px */
+  --typo-size-40: 2.5rem; /* 40px */
+  --typo-size-48: 3rem; /* 48px */
+  --typo-size-64: 4rem; /* 64px */
+  --typo-size-96: 6rem; /* 96px */
+  --typo-size-128: 8rem; /* 128px */
+  /*  */
+  /* Typography weights */
+  /*  */
+  --typo-weight-thin: 100;
+  --typo-weight-extra-light: 200;
+  --typo-weight-light: 300;
+  --typo-weight-regular: 400;
+  --typo-weight-medium: 500;
+  --typo-weight-semi-bold: 600;
+  --typo-weight-bold: 700;
+  --typo-weight-extra-bold: 800;
+  --typo-weight-black: 900;
+  /*  */
+  /* Motion durations */
+  /*  */
+  /* Think micro interactions */
+  --motion-small-1: 100ms;
+  --motion-small-2: 200ms;
+  --motion-medium-1: 300ms;
+  /* Think standard interactions */
+  --motion-medium-2: 400ms;
+  --motion-large-1: 500ms;
+  --motion-large-2: 600ms;
+  /* Think large interactions */
+  --motion-extra-1: 700ms;
+  --motion-extra-2: 800ms;
+  --motion-ultra-1: 900ms;
+  /*  */
+  /* Shadows */
+  /*  */
+  --shadow-small: 0 4px 8px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-large: 0 16px 32px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+  /*  */
+  /* Border radius's */
+  --border-radius-small: 15px;
+  --border-radius-medium: 30px;
+  --border-radius-large: 45px;
+
+  /*  */
+  /*  */
+  /* Easing functions */
+  /* Tool used https://codepen.io/smashingmag/pen/RwEVBmM */
+  --power-1-out: linear(
+    0,
+    0.2342,
+    0.4374,
+    0.6093 37.49%,
+    0.6835,
+    0.7499,
+    0.8086,
+    0.8593,
+    0.9023,
+    0.9375,
+    0.9648,
+    0.9844,
+    0.9961,
+    1
+  );
+  --power-2-out: linear(
+    0,
+    0.2688 9.91%,
+    0.3859 15%,
+    0.4917 20.19%,
+    0.5865 25.5%,
+    0.6705 30.93%,
+    0.7441 36.51%,
+    0.8075 42.26%,
+    0.8593 47.98%,
+    0.9022 53.93%,
+    0.9366 60.13%,
+    0.963 66.67%,
+    0.9812 73.4%,
+    0.9929 80.76%,
+    0.9986 88.89%,
+    1
+  );
+  --power-3-out: linear(
+    0,
+    0.1538 4.09%,
+    0.2926 8.29%,
+    0.4173 12.63%,
+    0.5282 17.12%,
+    0.6255 21.77%,
+    0.7099 26.61%,
+    0.782 31.67%,
+    0.8425 37%,
+    0.8887 42.23%,
+    0.9257 47.79%,
+    0.9543 53.78%,
+    0.9752 60.32%,
+    0.9883 67.11%,
+    0.9961 75%,
+    1
+  );
+  --power-2-inOut: linear(
+    0,
+    0.0036 9.62%,
+    0.0185 16.66%,
+    0.0489 23.03%,
+    0.0962 28.86%,
+    0.1705 34.93%,
+    0.269 40.66%,
+    0.3867 45.89%,
+    0.5833 52.95%,
+    0.683 57.05%,
+    0.7829 62.14%,
+    0.8621 67.46%,
+    0.8991 70.68%,
+    0.9299 74.03%,
+    0.9545 77.52%,
+    0.9735 81.21%,
+    0.9865 85%,
+    0.9949 89.15%,
+    1
+  );
+  --expo-out: linear(
+    0,
+    0.1685 2.67%,
+    0.3168 5.53%,
+    0.4471 8.62%,
+    0.5601 11.96%,
+    0.6569 15.58%,
+    0.7394 19.54%,
+    0.8082 23.88%,
+    0.8646 28.68%,
+    0.9058 33.5%,
+    0.9383 38.84%,
+    0.9627 44.83%,
+    0.98 51.69%,
+    0.9903 59.02%,
+    0.9964 68.02%,
+    1
+  );
+  /*  */
+  /* Letter spacing */
+  /* Pos spacing */
+  --pos-letter-space-1: 0.125rem; /* 2px*/
+  --pos-letter-space-2: 0.25rem; /* 4px*/
+  --pos-letter-space-3: 0.375rem; /* 6px*/
+  /* Negative spacing */
+  --neg-letter-space-1: -0.125rem; /* 2px*/
+  --neg-letter-space-2: -0.25rem; /* 4px*/
+  --neg-letter-space-3: -0.375rem; /* 6px*/
+}

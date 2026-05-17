@@ -3,7 +3,7 @@
 /*  */
 .skill-process {
   display: flex;
-  width: 90%;
+  width: 100%;
   flex-direction: column;
 }
 /*  */
@@ -13,39 +13,39 @@
   display: flex;
   width: 100%;
   height: auto;
-  margin-top: var(--space-1);
-  gap: var(--space-1);
+  margin-top: var(--space-8);
+  gap: var(--space-8);
 }
 
 .skill-process-main-card {
   background-color: var(--color-4);
-  padding: var(--space-2);
+  padding: var(--space-16);
   display: flex;
   flex-direction: column;
   width: 25%;
-  border-radius: 25px;
+  border-radius: var(--border-radius-medium);
   transition:
-    color 0.5s var(--power-1-out),
-    background-color 0.5s var(--power-1-out);
+    color var(--motion-large-1) var(--power-1-out),
+    background-color var(--motion-large-1) var(--power-1-out);
 }
 
 .skill-process-main-card h4 {
-  font-size: 2.5rem;
+  font-size: var(--typo-size-40);
   color: var(--color-1);
-  font-weight: 600;
+  font-weight: var(--typo-weight-semi-bold);
   margin: 0;
 }
 
 .skill-process-main-card h3 {
-  font-size: 2.5rem;
+  font-size: var(--typo-size-40);
   color: var(--color-1);
-  font-weight: 600;
+  font-weight: var(--typo-weight-semi-bold);
   margin: 0;
-  margin-bottom: 5rem;
+  margin-bottom: var(--space-80);
 }
 
 .skill-process-main-card p {
-  font-size: 1rem;
+  font-size: var(--typo-size-16);
   color: var(--font-middle);
   margin-top: auto;
 }
@@ -72,7 +72,7 @@
 .skill-focus {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 /*  */
 /* Card container */
@@ -80,22 +80,22 @@
   width: 100%;
   height: auto;
   display: flex;
-  gap: var(--space-1);
-  margin-bottom: var(--space-1);
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
 }
 /*  */
 /* Card styles */
 .skill-focus-container-card {
   background-color: var(--color-4);
-  padding: var(--space-3);
+  padding: var(--space-24);
   display: flex;
   flex-direction: column;
   width: 50%;
   height: auto;
-  border-radius: 25px;
+  border-radius: var(--border-radius-medium);
   transition:
-    color 0.5s var(--power-1-out),
-    background-color 0.5s var(--power-1-out);
+    color var(--motion-large-1) var(--power-1-out),
+    background-color var(--motion-large-1) var(--power-1-out);
 }
 
 .skill-focus-container-card.active {
@@ -112,12 +112,12 @@
 
 /* Top text */
 .skill-focus-container-card h3 {
-  font-size: 2.5rem;
+  font-size: var(--typo-size-40);
   color: var(--color-1);
-  width: 70%;
-  font-weight: 600;
+  width: 65%;
+  font-weight: var(--typo-weight-semi-bold);
   margin: 0;
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-48);
 }
 
 /* Bottom para and icon */
@@ -128,29 +128,14 @@
 }
 
 .skill-focus-container-card-text p {
-  font-size: 1rem;
+  font-size: var(--typo-size-16);
   color: var(--font-middle);
-  margin: 0;
+  margin-left: var(--space-96);
 }
 
 /*  */
 /* Process stuff */
 /*  */
-
-@media (max-width: 1500px) {
-  /* Decrease by 10% */
-  .skill-process-main-card h4 {
-    font-size: 2.25rem;
-  }
-
-  .skill-process-main-card h3 {
-    font-size: 2.25rem;
-  }
-
-  .skill-process-main-card p {
-    font-size: 0.9rem;
-  }
-}
 
 @media (max-width: 1500px) {
   .skill-process-main {
@@ -166,17 +151,7 @@
 /* Focus stuff */
 /*  */
 
-@media (max-width: 1500px) {
-  .skill-focus-container-card-text p {
-    font-size: 0.9rem;
-  }
-
-  .skill-focus-container-card h3 {
-    font-size: 2.25rem;
-  }
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .skill-focus-container {
     flex-direction: column;
   }
@@ -188,16 +163,21 @@
 
 @media (max-width: 800px) {
   .skill-focus-container-card h3 {
+    font-size: var(--typo-size-40);
+    margin-bottom: var(--space-40);
     width: 100%;
+  }
+
+  .skill-focus-container-card-text p {
+    margin-left: var(--space-64);
   }
 }
 
 @media (max-width: 500px) {
-  .skill-focus-container-card-text {
-    flex-direction: column;
-    align-items: flex-start;
+  .skill-focus-container-card-text p {
+    margin-left: 0;
   }
   .skill-focus-container-card h3 {
-    margin: 0;
+    font-size: var(--typo-size-32);
   }
 }

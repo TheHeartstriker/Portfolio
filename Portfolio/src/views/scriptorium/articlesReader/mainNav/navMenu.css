@@ -17,7 +17,7 @@
   color: var(--font-middle);
   font-size: 1.25rem;
   font-weight: 600;
-  margin: var(--space-1);
+  margin: var(--space-8);
 }
 
 .published-time {
@@ -29,8 +29,8 @@
   border-top-right-radius: 75px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: var(--space-1);
-  margin-top: var(--space-2);
+  padding: var(--space-8);
+  margin-top: var(--space-16);
   width: 80%;
 }
 
@@ -38,7 +38,7 @@
   color: var(--font-high);
   font-size: 1.25rem;
   font-weight: 600;
-  margin: var(--space-2);
+  margin: var(--space-16);
 }
 
 .published-time p {
@@ -70,7 +70,7 @@
   width: 80%;
   min-height: 0;
   overflow-y: auto;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-32);
   scrollbar-width: none;
 }
 
@@ -85,7 +85,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 50px;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-8);
   letter-spacing: 0.05em;
   transition: background-color 0.6s ease-in-out;
   cursor: pointer;
@@ -105,7 +105,7 @@
 
 .toc-item h3 {
   font-size: 0.75rem;
-  margin: var(--space-1);
+  margin: var(--space-8);
   font-weight: 500;
 }
 /* These are the smaller widths given to smaller headings levels */

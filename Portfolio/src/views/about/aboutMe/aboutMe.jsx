@@ -32,15 +32,15 @@ function AboutMe() {
       {/*  */}
       {/* Mobile alternative */}
       {/*  */}
-      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
         <h4>{Header1}</h4>
         <p>{MainText1}</p>
       </div>
-      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
         <h4>{Header2}</h4>
         <p>{MainText2}</p>
       </div>
-      <div className={`mobile-intro${ToSmall ? "" : " hidden"}`}>
+      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
         <h4>{Header3}</h4>
         <p>{MainText3}</p>
       </div>

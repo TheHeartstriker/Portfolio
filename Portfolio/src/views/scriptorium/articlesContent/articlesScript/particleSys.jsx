@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-import { defaultCanvas } from "../../../utils/animations/canvas";
-import { AddMember, RemoveMember } from "../../../utils/animations/aniFrame";
+import { defaultCanvas } from "@/utils/animations/canvas";
+import { AddMember, RemoveMember } from "@/utils/animations/aniFrame";
 
 function ParticleSys() {
   //

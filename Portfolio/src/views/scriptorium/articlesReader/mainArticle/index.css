@@ -10,8 +10,8 @@
   background-color: var(--color-4);
   border-radius: 100px;
   z-index: 1;
-  margin-bottom: var(--space-3);
-  padding: var(--space-5);
+  margin-bottom: var(--space-24);
+  padding: var(--space-40);
   transition: transform 0.5s ease-in-out;
   box-sizing: border-box;
   color: var(--font-high);
@@ -34,7 +34,7 @@
   align-items: center;
   border-radius: 50px;
   box-sizing: border-box;
-  padding: var(--space-3);
+  padding: var(--space-24);
 }
 
 /* Main heading */
@@ -50,7 +50,7 @@
   font-size: 2rem;
   color: var(--color-1);
   font-weight: 600;
-  margin: var(--space-2) 0;
+  margin: var(--space-16) 0;
   margin-bottom: 0;
 }
 /* Basic slightly large third heading */
@@ -58,7 +58,7 @@
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--font-high);
-  margin: var(--space-2) 0;
+  margin: var(--space-16) 0;
   margin-bottom: 0;
 }
 
@@ -128,8 +128,8 @@
 pre,
 code {
   color: var(--font-high);
-  padding: var(--space-1);
-  margin: var(--space-1);
+  padding: var(--space-8);
+  margin: var(--space-8);
   font-family: monospace;
   overflow-x: auto;
   box-sizing: border-box;

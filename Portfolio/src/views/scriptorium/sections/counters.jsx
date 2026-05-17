@@ -6,7 +6,7 @@ import {
   desBackendLookLike,
   desHoverCards,
   desColor,
-} from "./articles/articleDes";
+} from "../articlesContent/articleDes";
 
 const typeImages = {
   Design: "/scriptorium/main/design.webp",
