@@ -3,10 +3,13 @@
 /*  */
 .contact-container {
   display: flex;
-  align-items: center;
-  height: auto;
-  width: 100%;
-  margin: 7.5rem 0;
+  position: relative;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: var(--space-64) 0;
+  padding: var(--space-32);
   gap: var(--space-64);
 }

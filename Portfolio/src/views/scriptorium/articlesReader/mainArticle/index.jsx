@@ -79,16 +79,16 @@ export function SubjectContainer({ article, description }) {
   const articleClassName = "subject-container-article";
   return (
     <>
-      <div className={`subject-container-article`}>
-        {renderArticles(article)}
-      </div>
-      {description && (
+      <div className="article-container">
+        <div className={`subject-container-article`}>
+          {renderArticles(article)}
+        </div>
         <NavMenu
           article={article}
           description={description}
           articleClassName={articleClassName}
         />
-      )}
+      </div>
     </>
   );
 }

@@ -74,7 +74,7 @@ function NavMenu({ article, description, articleClassName }) {
     function handleResize() {
       setScreenCross(window.innerHeight / 3);
       setScrollPoints(collectHeadingYLocations());
-      setShowMenu(window.innerWidth > 1500);
+      setShowMenu(window.innerWidth > 1000);
     }
     window.addEventListener("resize", handleResize);
     handleResize();

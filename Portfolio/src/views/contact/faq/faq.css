@@ -3,7 +3,6 @@
 /*  */
 
 .contact-faq {
-  width: 90%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@
 .contact-faq-container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-8);
   width: 100%;
   min-height: 75vh;
 }
@@ -22,22 +21,22 @@
 .contact-faq-container-item {
   display: flex;
   background-color: var(--color-4);
-  padding: var(--space-3);
+  padding: var(--space-24);
   max-height: 200px;
   overflow: hidden;
   align-items: center;
-  border-radius: 25px;
+  border-radius: var(--border-radius-medium);
   transition:
-    background-color 0.5s var(--power-1-out),
-    max-height 0.5s var(--power-1-out);
+    background-color var(--motion-large-1) var(--power-1-out),
+    max-height var(--motion-large-1) var(--power-1-out);
 }
 
 .contact-faq-container-item h4 {
-  font-size: 1.5rem;
+  font-size: var(--typo-size-24);
   margin: 0;
   color: var(--color-2);
   margin-left: auto;
-  transition: font-size 0.5s var(--power-1-out);
+  transition: font-size var(--motion-large-1) var(--power-1-out);
 }
 
 .contact-faq-container-item-text {
@@ -46,21 +45,21 @@
 }
 
 .contact-faq-container-item-text h3 {
-  font-size: 1.5rem;
+  font-size: var(--typo-size-24);
   margin: 0;
   color: var(--color-1);
   transition:
-    margin-bottom 0.5s var(--power-1-out),
-    color 0.5s var(--power-1-out);
+    margin-bottom var(--motion-large-1) var(--power-1-out),
+    color var(--motion-large-1) var(--power-1-out);
 }
 
 .contact-faq-container-item-text p {
-  font-size: 1rem;
+  font-size: var(--typo-size-16);
   color: var(--font-middle);
   max-height: 0;
   overflow: hidden;
   margin: 0;
-  transition: max-height 0.5s var(--power-1-out);
+  transition: max-height var(--motion-large-1) var(--power-1-out);
 }
 /* Hover state */
 .contact-faq-container-item.active {
@@ -68,12 +67,12 @@
   max-height: 600px;
 }
 .contact-faq-container-item.active h4 {
-  font-size: 3rem;
+  font-size: var(--typo-size-48);
   color: var(--color-2);
 }
 
 .contact-faq-container-item-text.active h3 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-16);
   color: var(--color-4);
 }
 

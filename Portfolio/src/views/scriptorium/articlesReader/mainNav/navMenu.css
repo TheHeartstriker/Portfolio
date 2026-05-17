@@ -5,7 +5,7 @@
   width: 15%;
   height: 85%;
   background-color: var(--color-4);
-  border-radius: 100px;
+  border-radius: var(--border-radius-large);
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -15,8 +15,8 @@
 }
 .article-nav-Menu h2 {
   color: var(--font-middle);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: var(--typo-size-20);
+  font-weight: var(--typo-weight-semi-bold);
   margin: var(--space-8);
 }
 
@@ -25,10 +25,10 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--color-3);
-  border-top-left-radius: 75px;
-  border-top-right-radius: 75px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+  border-bottom-left-radius: var(--border-radius-small);
+  border-bottom-right-radius: var(--border-radius-small);
   padding: var(--space-8);
   margin-top: var(--space-16);
   width: 80%;
@@ -36,16 +36,17 @@
 
 .published-time h3 {
   color: var(--font-high);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: var(--typo-size-20);
+  font-weight: var(--typo-weight-semi-bold);
   margin: var(--space-16);
 }
 
 .published-time p {
   color: var(--color-1);
   font-family: var(--font-display), sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  font-family: var(--font-body);
 }
 
 .article-topic {
@@ -56,11 +57,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
 }
 .article-topic h3 {
-  font-weight: 500;
-  font-size: 0.75rem;
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-12);
+  margin: var(--space-8) 0;
+  font-family: var(--font-body);
 }
 
 .table-of-contents {
@@ -84,29 +87,29 @@
   background-color: var(--color-3);
   display: flex;
   flex-direction: column;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   margin-bottom: var(--space-8);
-  letter-spacing: 0.05em;
-  transition: background-color 0.6s ease-in-out;
+  transition: background-color var(--motion-large-2) ease-in-out;
   cursor: pointer;
 }
 
 .toc-item:hover {
   background-color: var(--color-1);
-  color: white;
+  color: var(--font-high);
 }
 
 .toc-item.active,
 .toc-item.medium.active,
 .toc-item.small.active {
   background-color: var(--color-1);
-  color: white;
+  color: var(--color-2);
 }
 
 .toc-item h3 {
-  font-size: 0.75rem;
+  font-size: var(--typo-size-12);
   margin: var(--space-8);
-  font-weight: 500;
+  font-weight: var(--typo-weight-regular);
+  font-family: var(--font-body);
 }
 /* These are the smaller widths given to smaller headings levels */
 .toc-item.medium {
@@ -117,4 +120,16 @@
 .toc-item.small {
   width: 70%;
   margin-left: auto;
+}
+
+@media (max-width: 1750px) {
+  .article-nav-Menu {
+    width: 20%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .article-nav-Menu {
+    width: 25%;
+  }
 }

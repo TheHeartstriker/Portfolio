@@ -3,9 +3,8 @@
 /*  */
 .contact-intro {
   display: flex;
-  width: 90%;
-  margin: 2.5rem 0;
-  margin-bottom: 7rem;
+  margin: var(--space-40) 0;
+  margin-bottom: var(--space-128);
 }
 /*  */
 /* Left side text and email */
@@ -16,22 +15,22 @@
 }
 
 .contact-intro-left h2 {
-  font-size: 12rem;
-  font-weight: 500;
+  font-size: calc(var(--typo-size-96) * 2);
+  font-weight: var(--typo-weight-medium);
   color: var(--color-1);
   line-height: 0.85;
   margin: 0;
 }
 
 .contact-intro-left h2:nth-last-of-type(1) {
-  margin-left: 13rem;
+  margin-left: calc(var(--space-104) * 2);
 }
 
 .contact-intro-left-email {
   width: auto;
   height: auto;
   margin: 0 auto;
-  margin-top: var(--space-4);
+  margin-top: var(--space-40);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -46,8 +45,8 @@
   height: 2px;
   background-color: var(--color-2);
   transition:
-    height 0.25s var(--power-1-out),
-    background-color 0.25s var(--power-1-out);
+    height var(--motion-small-2) var(--power-1-out),
+    background-color var(--motion-small-2) var(--power-1-out);
   z-index: -1;
 }
 
@@ -56,10 +55,10 @@
 }
 
 .contact-intro-left-email h3 {
-  font-size: 1.5rem;
+  font-size: var(--typo-size-24);
   margin: 0;
-  margin-bottom: var(--space-0);
-  font-weight: 400;
+  margin-bottom: var(--space-4);
+  font-weight: var(--typo-weight-regular);
   color: var(--color-1);
 }
 
@@ -67,28 +66,28 @@
 /* Right side text */
 .contact-intro-right {
   display: flex;
-  flex-direction: column;
   width: 40%;
+  flex-direction: column;
 }
 
 .contact-intro-right h3 {
-  font-size: 2rem;
-  margin-top: var(--space-5);
-  margin-bottom: var(--space-2);
-  margin-left: var(--space-2);
-  font-weight: 600;
+  font-size: var(--typo-size-32);
+  margin-top: calc(var(--typo-size-96) / 2);
+  margin-bottom: var(--space-16);
+  margin-left: var(--space-16);
+  font-weight: var(--typo-weight-semi-bold);
   color: var(--color-2);
 }
 
 .contact-intro-right-text {
-  padding: var(--space-2);
+  padding: var(--space-16);
   display: flex;
-  border-radius: 30px;
+  border-radius: var(--border-radius-small);
   background-color: var(--color-4);
 }
 
 .contact-intro-right-text p {
-  font-size: 1rem;
+  font-size: var(--typo-size-16);
   margin: 0;
   color: var(--font-middle);
 }
@@ -97,73 +96,51 @@
 /* Header section mobile changes */
 /*  */
 @media (max-width: 1700px) {
-  /* 10% decrease */
   .contact-intro-left h2 {
-    font-size: 10.8rem;
+    font-size: var(--typo-size-128);
+  }
+
+  .contact-intro-right h3 {
+    margin-top: calc(var(--typo-size-128) / 2);
   }
 }
 
-@media (max-width: 1600px) {
-  /* 20% decrease */
-  .contact-intro-left h2 {
-    font-size: 9.6rem;
-  }
-}
-
-@media (max-width: 1500px) {
-  /* 30% decrease */
-  .contact-intro-left h2 {
-    font-size: 8.4rem;
-  }
-}
-
-@media (max-width: 1400px) {
+@media (max-width: 1300px) {
   .contact-intro {
     flex-direction: column;
+    gap: var(--space-32);
   }
   .contact-intro-left {
-    width: 75%;
-    margin: 0 auto;
+    width: 100%;
   }
   .contact-intro-right {
-    width: 75%;
-    margin: 0 auto;
+    width: 100%;
   }
+  .contact-intro-right h3 {
+    margin-top: 0;
+  }
+}
 
+@media (max-width: 900px) {
   .contact-intro-left h2 {
-    margin: 0;
-    line-height: 1;
+    font-size: var(--typo-size-96);
+  }
+}
+
+@media (max-width: 650px) {
+  .contact-intro-left h2 {
+    font-size: var(--typo-size-64);
   }
 
   .contact-intro-left h2:nth-last-of-type(1) {
-    margin: 0;
+    margin-left: var(--space-96);
   }
-}
 
-@media (max-width: 700px) {
-  .contact-intro-left {
-    width: 100%;
+  .contact-intro-left-email h3 {
+    font-size: var(--typo-size-16);
   }
-  .contact-intro-right {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
 
-@media (max-width: 500px) {
-  /* 40% decrease */
-  .contact-intro-left h2 {
-    font-size: 7.2rem;
-  }
-  /* 10% decrease */
   .contact-intro-right h3 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 400px) {
-  /* 50% decrease */
-  .contact-intro-left h2 {
-    font-size: 6rem;
+    font-size: var(--typo-size-24);
   }
 }

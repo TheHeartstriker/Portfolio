@@ -1,22 +1,33 @@
 /*  */
+/* Overhead container */
+/*  */
+.article-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-32);
+}
+
+/*  */
 /* Main showcase css */
 /*  */
 .subject-container-article {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: clamp(50%, 110ch, 100%);
+  width: 60%;
   height: auto;
   background-color: var(--color-4);
-  border-radius: 100px;
+  border-radius: var(--border-radius-large);
   z-index: 1;
   margin-bottom: var(--space-24);
   padding: var(--space-40);
-  transition: transform 0.5s ease-in-out;
+  transition: transform var(--motion-large-1) ease-in-out;
   box-sizing: border-box;
   color: var(--font-high);
-  margin-left: auto;
-  margin-right: auto;
 
   font-family: var(--font-body), monospace;
   margin-top: 6%;
@@ -32,31 +43,31 @@
   margin-right: auto;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   box-sizing: border-box;
   padding: var(--space-24);
 }
 
 /* Main heading */
 .subject-container-article h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-bold);
   font-family: var(--font-display), monospace;
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 /* Secondary headings */
 .subject-container-article h2 {
-  font-size: 2rem;
+  font-size: var(--typo-size-32);
   color: var(--color-1);
-  font-weight: 600;
+  font-weight: var(--typo-weight-semi-bold);
   margin: var(--space-16) 0;
   margin-bottom: 0;
 }
 /* Basic slightly large third heading */
 .subject-container-article h3 {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: var(--typo-size-24);
+  font-weight: var(--typo-weight-semi-bold);
   color: var(--font-high);
   margin: var(--space-16) 0;
   margin-bottom: 0;
@@ -69,7 +80,7 @@
 /* Main text */
 .subject-container-article ul {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: var(--typo-weight-medium);
   color: var(--color-1);
 }
 .subject-container-article p {
@@ -78,7 +89,7 @@
 }
 
 .code-block {
-  font-size: 0.85rem;
+  font-size: var(--typo-size-14);
 }
 
 .component-container-article {
@@ -86,7 +97,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   overflow: hidden;
   width: 100%;
 }
@@ -94,12 +105,12 @@
 .component-container-article canvas {
   width: 100%;
   height: 100%;
-  background-color: black;
-  border-radius: 50px;
+  background-color: var(--color-5);
+  border-radius: var(--border-radius-large);
 }
 
 .component-container-article svg {
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
 }
 
 .subject-container-article img {
@@ -107,16 +118,16 @@
   max-height: 60vh;
   width: auto;
   height: auto;
-  border-radius: 20px;
+  border-radius: var(--border-radius-medium);
   object-fit: contain;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  background: #111;
+  box-shadow: var(--shadow-medium);
+  background: var(--color-4);
   display: block;
   margin: 0 auto;
 }
 
 .code-block {
-  border-radius: 25px;
+  border-radius: var(--border-radius-medium);
 }
 /* Code highlight text */
 .subject-container-article p code {
@@ -134,7 +145,7 @@ code {
   overflow-x: auto;
   box-sizing: border-box;
   line-height: 1.5;
-  border-radius: 15px;
+  border-radius: var(--border-radius-small);
 }
 
 p {
@@ -150,21 +161,19 @@ code {
 /* Push article to the left to make room for the navigation menu */
 @media (max-width: 1750px) {
   .subject-container-article {
-    margin-left: 10%;
-  }
-}
-/* Revert navigation menu push since its hidden */
-@media (max-width: 1500px) {
-  .subject-container-article {
-    margin-left: auto;
-  }
-}
-/* Move article down on smaller screens */
-@media (max-width: 1000px) {
-  .subject-container-article {
-    margin-top: 20%;
+    margin-right: 10%;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
+  .subject-container-article {
+    margin-right: 20%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .subject-container-article {
+    margin-right: 0;
+    width: 100%;
+  }
 }
