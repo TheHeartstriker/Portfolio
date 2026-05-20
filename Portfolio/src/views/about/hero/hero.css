@@ -10,7 +10,8 @@
   justify-content: center;
   flex-direction: column;
 }
-
+/*  */
+/* Top two heading text */
 .about-hero-section h2 {
   font-size: var(--typo-size-40);
   font-weight: var(--typo-weight-medium);
@@ -27,7 +28,8 @@
   margin: 0;
   letter-spacing: var(--neg-letter-space-1);
 }
-
+/*  */
+/* Text container and button section */
 .about-hero-section-info {
   width: 60%;
   margin-left: auto;
@@ -36,7 +38,7 @@
   flex-direction: column;
   gap: var(--space-8);
 }
-
+/* Text container */
 .about-hero-section-info-text {
   width: 100%;
   height: auto;
@@ -49,7 +51,8 @@
   color: var(--font-middle);
   font-size: var(--typo-size-14);
 }
-
+/*  */
+/* Button bellow container */
 .about-hero-section-info button {
   width: fit-content;
   height: auto;
@@ -65,10 +68,10 @@
     color 0.25s var(--power-2-out);
   cursor: pointer;
 }
-
+/* Width and height is twice the button text size */
 .about-hero-section-info button span {
-  height: 2rem;
-  width: 2rem;
+  height: calc(var(--typo-size-14) * 2);
+  width: calc(var(--typo-size-14) * 2);
   background-color: var(--color-1);
   border-radius: 50%;
   display: flex;
@@ -90,7 +93,7 @@
 .about-hero-section-info button h3 {
   color: var(--color-1);
   font-size: var(--typo-size-14);
-  font-weight: var(--typo-weight-regular);
+  font-weight: var(--typo-weight-medium);
 }
 .about-hero-section-info button:hover {
   background-color: var(--color-1);

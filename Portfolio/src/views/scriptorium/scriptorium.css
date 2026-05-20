@@ -11,5 +11,5 @@
   height: auto;
   margin: var(--space-64) 0;
   padding: var(--space-32);
-  gap: var(--space-64);
+  gap: var(--space-72);
 }

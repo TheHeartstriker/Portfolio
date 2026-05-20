@@ -30,6 +30,7 @@
   color: var(--color-2);
   font-size: var(--typo-size-64);
   font-weight: var(--typo-weight-semi-bold);
+  letter-spacing: var(--neg-letter-space-1);
   margin: 0;
   margin-bottom: var(--space-8);
 }
@@ -48,7 +49,7 @@
   background-color: var(--color-1);
   width: fit-content;
   height: fit-content;
-  padding: var(--space-8) var(--space-24);
+  padding: var(--space-16) var(--space-32);
   margin-left: auto;
   cursor: pointer;
   transition:
@@ -76,7 +77,7 @@
   height: 25rem;
   object-fit: cover;
   display: block;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
 }
 
 /* Stats */
@@ -93,7 +94,7 @@
   width: 100%;
   height: auto;
   background-color: var(--color-4);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
   padding: var(--space-16) var(--space-24);
   transition:
     background-color var(--motion-large-1) var(--power-2-out),
@@ -109,7 +110,7 @@
 }
 
 .skill-header-stats-item.active h4 {
-  color: var(--color-5);
+  color: var(--color-4);
 }
 
 .skill-header-stats-item h3 {
@@ -117,7 +118,7 @@
   font-weight: var(--typo-weight-semi-bold);
   margin: 0;
   margin-bottom: var(--space-8);
-  font-size: var(--typo-size-32);
+  font-size: var(--typo-size-36);
 }
 
 .skill-header-stats-item h4 {
@@ -143,7 +144,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
-  margin-bottom: var(--space-80);
+  margin-bottom: var(--space-64);
 }
 
 .skill-past-item:nth-of-type(4) {
@@ -155,7 +156,7 @@
 .skill-past-item-main {
   display: flex;
   overflow: hidden;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
   background-color: var(--color-4);
 }
 
@@ -168,17 +169,18 @@
   width: 35%;
   flex-direction: column;
   gap: var(--space-16);
-  padding: var(--space-40) var(--space-16);
+  padding: var(--space-32);
 }
 
 .skill-past-item-main-text h3 {
-  font-size: var(--typo-size-40);
+  font-size: var(--typo-size-48);
   color: var(--color-1);
   font-weight: var(--typo-weight-semi-bold);
 }
 
 .skill-past-item-main-text p {
   font-size: var(--typo-size-16);
+  font-weight: var(--typo-weight-regulars) !important;
   color: var(--font-middle);
 }
 
@@ -190,7 +192,7 @@
   padding: var(--space-16);
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
 }
 
 .skill-past-item-main.reverse .skill-past-item-main-image {
@@ -353,7 +355,8 @@
   flex-direction: column;
   padding: var(--space-16);
   background-color: var(--color-4);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
+  gap: var(--space-8);
   width: 100%;
   transition: background-color var(--motion-large-1) var(--power-1-out);
 }
@@ -374,13 +377,11 @@
   font-size: var(--typo-size-32);
   color: var(--color-1);
   font-weight: var(--typo-weight-medium);
-  margin: var(--space-4) 0;
 }
 
 .skill-past-item-stats-con p {
   font-size: var(--typo-size-14);
   color: var(--font-middle);
-  margin: 0;
 }
 /* Square stats area */
 .skill-past-item-stats-con-sq {
@@ -412,7 +413,7 @@
 .skill-past-item-stats-con-sq-it h6 {
   font-size: var(--typo-size-12);
   color: var(--font-middle);
-  font-weight: var(--typo-weight-light);
+  font-weight: var(--typo-weight-regular);
   margin: 0;
 }
 

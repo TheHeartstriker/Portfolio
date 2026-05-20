@@ -21,11 +21,11 @@
 .contact-faq-container-item {
   display: flex;
   background-color: var(--color-4);
-  padding: var(--space-24);
+  padding: var(--space-32);
   max-height: 200px;
   overflow: hidden;
   align-items: center;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
   transition:
     background-color var(--motion-large-1) var(--power-1-out),
     max-height var(--motion-large-1) var(--power-1-out);

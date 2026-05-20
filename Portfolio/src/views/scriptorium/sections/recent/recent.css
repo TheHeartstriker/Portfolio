@@ -17,8 +17,8 @@
   flex-direction: column;
   width: 50%;
   height: 100%;
-  gap: var(--space-16);
-  padding: var(--space-24);
+  gap: var(--space-8);
+  padding: var(--space-32);
 }
 /* Top header */
 .scriptorium-recent-card-content-header {
@@ -26,8 +26,7 @@
   height: auto;
   display: flex;
   flex-direction: row;
-  padding: 0;
-  margin: 0;
+  padding-bottom: var(--space-16);
 }
 /* Top header text section */
 /* So top of the left section */
@@ -35,6 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
+  gap: var(--space-8);
   justify-content: center;
 }
 
@@ -47,7 +47,6 @@
 
 .scriptorium-recent-card-content-header-text p {
   font-size: var(--typo-size-16);
-  margin: 0;
   color: var(--font-middle);
 }
 
@@ -58,19 +57,17 @@
 }
 
 .scriptorium-recent-card-content-header-icon span {
-  /* Height must be same as h2 */
-  height: var(--typo-size-40);
   background-color: var(--color-3);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  padding: var(--typo-size-10) var(--space-64);
+  padding: var(--typo-size-16) var(--typo-size-40);
   transition: background-color var(--motion-medium-1) var(--power-2-out);
 }
 
 .scriptorium-recent-card-content-header-icon span svg {
-  height: 100%;
+  height: var(--space-16);
   aspect-ratio: 1 / 1;
   z-index: 1;
   stroke: var(--color-1);
@@ -127,6 +124,7 @@
 
 .scriptorium-recent-card-cat-item h3 {
   font-size: var(--typo-size-16);
+  margin-bottom: var(--space-4);
   color: var(--font-high);
   z-index: 15;
 }
@@ -137,12 +135,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-8);
   z-index: 15;
 }
 
 .scriptorium-recent-card-cat-item-icon svg {
   height: var(--typo-size-14);
-  aspect-ratio: 1 / 1;
+  width: var(--typo-size-14);
   stroke: var(--font-high);
   fill: var(--font-high);
   z-index: 15;
@@ -166,7 +165,7 @@
   height: auto;
   flex-direction: row;
   align-items: center;
-  gap: var(--space-16);
+  gap: var(--space-8);
 }
 
 /* Right section */
@@ -184,7 +183,7 @@
   display: flex;
   align-items: left;
   flex-direction: column;
-  padding: var(--space-16);
+  padding: var(--space-24);
   justify-content: flex-end;
   position: relative;
   overflow: hidden;
