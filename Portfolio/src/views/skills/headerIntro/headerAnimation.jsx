@@ -1,69 +1,87 @@
 import { gsap } from "gsap/gsap-core";
-import { animateBlocks, animateText } from "@/utils/animations/animations";
+import { animateShapes } from "@/utils/animations/animateShapes";
+import { animateText } from "@/utils/animations/textAnimation";
 import { useEffect } from "react";
 
 function HeaderAnimation() {
-  function handleTextAnimation() {
-    //
+  //
+  // Animating the opening header section
+  //
+  useEffect(() => {
     // Main header section
     // header text animation
     const timeline = gsap.timeline();
     const header = document.querySelector(".skill-header-intro-text h1");
     const subHeader = document.querySelector(".skill-header-intro-text h2");
-    animateText({ start: 150, end: 0 }, [header, subHeader], timeline, {
-      duration: 0.5,
-      easing: "power1.out",
-    });
+    animateText(
+      { start: -64, end: 0, type: "chars", mask: "lines" },
+      [
+        {
+          element: header,
+          clip: true,
+          clipAmount: {
+            bottom: "0em",
+            top: "0em",
+            left: "0em",
+            right: "0.1em",
+          },
+        },
+        { element: subHeader, clip: false },
+      ],
+      {
+        duration: 0.6,
+        stagger: 0.015, //There is quite a bit more char's here so stagger is halfed
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+      },
+    );
 
     //
     // Large top block and button animation
-    const Topblocks = document.querySelectorAll(
-      ".skill-header-intro button, .skill-header img",
+    const buttonBlocks = document.querySelectorAll(
+      ".skill-header-intro button",
     );
-    animateBlocks(
-      { start: 150, end: 0, type: "x" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
-      Topblocks,
+    const imageBlock = document.querySelector(".skill-header img");
+    const Bottomblocks = document.querySelectorAll(".skill-header-stats-item");
+    animateShapes(
+      { start: 50, end: 0 },
+      [
+        { element: buttonBlocks },
+        { element: imageBlock },
+        { element: Bottomblocks },
+      ],
       {
-        duration: 1.5,
-        easing: "back.out(1.1)",
+        duration: 0.6,
+        stagger: 0.15,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
         offset: "-=0.25",
       },
-      timeline,
     );
-    //
-    // Bottom stats animation
-    const Bottomblocks = document.querySelectorAll(".skill-header-stats-item");
-    animateBlocks(
-      { start: 150, end: 0, type: "x" },
-      null,
-      null,
-      Bottomblocks,
-      {
-        duration: 0.75,
-        easing: "power2.out",
-        offset: "<+0.5",
-        stagger: 0.15,
-      },
-      timeline,
-    );
-    //
+  }, []);
+  //
+  // Animating the intro section
+  //
+  useEffect(() => {
     // Script cards animation
     // Large main part
     const cards = document.querySelectorAll(".skill-past-item");
     cards.forEach((card) => {
+      const mainCardBody = card.querySelector(".skill-past-item-main");
+      const timeline1 = gsap.timeline({ paused: true });
       // Animate the large block
-      animateBlocks(
-        { start: 100, end: 0, type: "x" },
-        { el: "top", scroll: "90%" },
-        { el: "bottom", scroll: "40%" },
-        [card.querySelector(".skill-past-item-main")],
+      animateShapes(
+        { start: 50, end: 0 },
+        [{ element: mainCardBody }],
         {
-          duration: 1.25,
-          delay: 0,
-
-          easing: "back.out(1.1)",
+          duration: 0.5,
+          easing: "power1.out",
+          timeline: timeline1,
+        },
+        {
+          start: "top 85%",
         },
       );
 
@@ -71,23 +89,23 @@ function HeaderAnimation() {
       const smallBlocks = card.querySelectorAll(
         ".skill-past-item-stats-con, .skill-past-item-stats-con-sq-it",
       );
-      animateBlocks(
-        { start: 100, end: 0, type: "x" },
-        { el: "top", scroll: "90%" },
-        { el: "bottom", scroll: "40%" },
-        smallBlocks,
+      const timeline2 = gsap.timeline({ paused: true });
+
+      animateShapes(
+        { start: 50, end: 0 },
+        [{ element: smallBlocks }],
         {
-          duration: 0.85,
-          delay: 0,
-          stagger: 0.15,
-          easing: "power2.out",
+          duration: 0.4,
+          stagger: 0.06,
+          easing: "power1.out",
+          staggerEase: "power1.out",
+          timeline: timeline2,
+        },
+        {
+          start: "top 85%",
         },
       );
     });
-  }
-
-  useEffect(() => {
-    handleTextAnimation();
   }, []);
 }
 

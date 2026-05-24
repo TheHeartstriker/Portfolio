@@ -25,8 +25,8 @@
   width: 25%;
   border-radius: var(--border-radius-small);
   transition:
-    color var(--motion-large-1) var(--power-1-out),
-    background-color var(--motion-large-1) var(--power-1-out);
+    color var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out);
 }
 
 .skill-process-main-card h4 {
@@ -92,8 +92,8 @@
   height: auto;
   border-radius: var(--border-radius-small);
   transition:
-    color var(--motion-large-1) var(--power-1-out),
-    background-color var(--motion-large-1) var(--power-1-out);
+    color var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out);
 }
 
 .skill-focus-container-card.active {

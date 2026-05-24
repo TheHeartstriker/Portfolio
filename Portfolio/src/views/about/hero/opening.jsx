@@ -1,11 +1,12 @@
 "use client";
 import "./opening.css";
 import { gsap } from "gsap/gsap-core";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { Context } from "../../../providers/context/contextProvider.jsx";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";
-import { animateBlocks, animateText } from "@/utils/animations/animations";
+import { animateText } from "@/utils/animations/textAnimation";
+import { animateShapes } from "@/utils/animations/animateShapes";
 
 function Opening() {
   const pathname = usePathname();
@@ -60,48 +61,46 @@ function Opening() {
   }
 
   function navAnimation(timeline, offset) {
-    const nav = document.querySelectorAll(".Container");
-    gsap.set(nav, { opacity: 0, y: 25 });
+    const nav = document.querySelectorAll(".nav-bar")[0];
+    gsap.set(nav, { opacity: 0, y: 35 });
     timeline.to(
       nav,
       {
         opacity: 1,
-        duration: 1.25,
+        duration: 1,
         y: 0,
-        ease: "power1.out",
+        ease: "power2.out",
       },
       offset,
     );
   }
 
   function aboutTextAnimation(timeline) {
-    if (timeline === undefined) {
-      timeline = gsap.timeline();
-    }
     const header = document.querySelector(".about-hero-section h1");
     const subHeader = document.querySelector(".about-hero-section h2");
-    animateText({ start: 200, end: 0 }, [subHeader, header], timeline, {
-      duration: 0.75,
-      easing: "power1.out",
-      delay: 0,
-      offset: "-=0.25",
-    });
+
+    animateText(
+      { start: -64, end: 0, type: "chars", mask: "lines" },
+      [{ element: subHeader }, { element: header }],
+      {
+        duration: 0.6,
+        stagger: 0.03,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+      },
+    );
     const blocks = document.querySelectorAll(
       ".about-hero-section-info-text, .about-hero-section-info button",
     );
-    animateBlocks(
-      { start: 50, end: 0, type: "y" },
-      null,
-      null,
-      blocks,
-      {
-        duration: 0.75,
-        easing: "power1.out",
-        offset: "-=0.25",
-        stagger: 0.25,
-      },
-      timeline,
-    );
+    animateShapes({ start: 50, end: 0 }, [{ element: blocks }], {
+      duration: 0.6,
+      easing: "power1.out",
+      staggerEase: "power1.out",
+      offset: "-=0.25",
+      stagger: 0.15,
+      timeline: timeline,
+    });
   }
 
   useEffect(() => {

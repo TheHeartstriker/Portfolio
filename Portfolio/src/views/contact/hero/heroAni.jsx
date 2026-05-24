@@ -1,47 +1,54 @@
-import { animateBlocks, animateText } from "@/utils/animations/animations";
 import { gsap } from "gsap/gsap-core";
 import { useEffect } from "react";
-
+import { animateText } from "@/utils/animations/textAnimation";
+import { animateShapes } from "@/utils/animations/animateShapes";
 function HeroAni() {
+  //
+  // Heading / hero animation
+  //
   useEffect(() => {
     const timeline = gsap.timeline();
     const header1 = document.querySelector("#test1");
     const header2 = document.querySelector("#test2");
-    animateText({ start: 150, end: 0 }, [header1, header2], timeline, {
-      duration: 0.75,
-      easing: "power1.out",
-      stagger: 0.05,
-    });
     const emailBlock = document.querySelectorAll(".contact-intro-left-email");
-    animateBlocks(
-      { start: 25, end: 0, type: "y" },
-      null,
-      null,
-      emailBlock,
-      {
-        duration: 0.75,
-        easing: "power2.out",
-        offset: "-=0.1",
-      },
-      timeline,
-    );
     const rightIntro = document.querySelectorAll(".contact-intro-right h3");
-    animateText({ start: 50, end: 0 }, rightIntro, timeline, {
-      duration: 0.25,
-      easing: "power1.out",
-      offset: "-=0.25",
-    });
     const rightText = document.querySelectorAll(".contact-intro-right-text");
-    animateBlocks(
-      { start: 25, end: 0, type: "y" },
-      null,
-      null,
-      rightText,
+
+    animateText(
+      { start: -64, end: 0, type: "chars", mask: "lines" },
+      [{ element: header1 }, { element: header2 }],
+      {
+        duration: 0.6,
+        stagger: 0.06,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+      },
+    );
+
+    animateText(
+      { start: -64, end: 0, type: "words", mask: "words" },
+      [{ element: rightIntro }],
       {
         duration: 0.5,
-        easing: "power2.out",
+        stagger: 0.03,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+        offset: "-=0.25",
       },
-      timeline,
+    );
+    animateShapes(
+      { start: 50, end: 0 },
+      [{ element: rightText }, { element: emailBlock }],
+      {
+        duration: 0.6,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        offset: "-=0.25",
+        stagger: 0.15,
+        timeline: timeline,
+      },
     );
   }, []);
 }

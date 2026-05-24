@@ -27,8 +27,8 @@
   align-items: center;
   border-radius: var(--border-radius-small);
   transition:
-    background-color var(--motion-large-1) var(--power-1-out),
-    max-height var(--motion-large-1) var(--power-1-out);
+    background-color var(--motion-large-1) var(--power-2-inOut),
+    max-height var(--motion-large-1) var(--power-2-inOut);
 }
 
 .contact-faq-container-item h4 {
@@ -36,7 +36,7 @@
   margin: 0;
   color: var(--color-2);
   margin-left: auto;
-  transition: font-size var(--motion-large-1) var(--power-1-out);
+  transition: font-size var(--motion-large-1) var(--power-2-inOut);
 }
 
 .contact-faq-container-item-text {
@@ -49,8 +49,8 @@
   margin: 0;
   color: var(--color-1);
   transition:
-    margin-bottom var(--motion-large-1) var(--power-1-out),
-    color var(--motion-large-1) var(--power-1-out);
+    margin-bottom var(--motion-large-1) var(--power-2-inOut),
+    color var(--motion-large-1) var(--power-2-inOut);
 }
 
 .contact-faq-container-item-text p {
@@ -59,7 +59,7 @@
   max-height: 0;
   overflow: hidden;
   margin: 0;
-  transition: max-height var(--motion-large-1) var(--power-1-out);
+  transition: max-height var(--motion-large-1) var(--power-2-inOut);
 }
 /* Hover state */
 .contact-faq-container-item.active {

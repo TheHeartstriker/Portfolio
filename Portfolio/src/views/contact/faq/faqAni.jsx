@@ -1,18 +1,22 @@
-import { animateBlocks, animateText } from "@/utils/animations/animations";
+import { animateShapes } from "@/utils/animations/animateShapes";
 import { useEffect } from "react";
-
+import gsap from "gsap";
 function FAQAni() {
   useEffect(() => {
+    const timeline = gsap.timeline({ paused: true });
     const faqCards = document.querySelectorAll(".contact-faq-container-item");
-    animateBlocks(
-      { start: 25, end: 0, type: "y" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
-      faqCards,
+    animateShapes(
+      { start: 50, end: 0 },
+      [{ element: faqCards }],
       {
-        duration: 0.75,
-        easing: "power2.out",
-        stagger: 0.15,
+        duration: 0.5,
+        stagger: 0.06,
+        staggerEase: "power1.out",
+        easing: "power1.out",
+        timeline: timeline,
+      },
+      {
+        start: "top 85%",
       },
     );
   }, []);

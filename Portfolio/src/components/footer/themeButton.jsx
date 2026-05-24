@@ -10,7 +10,7 @@ import { applyTheme } from "../../providers/themeGen/theme";
 import { useContext } from "react";
 import PropTypes from "prop-types";
 
-export default function ThemeButton({ theme, key }) {
+export default function ThemeButton({ theme }) {
   const { setCurrTheme } = useContext(Context);
 
   function handleThemeChange(theme) {
@@ -29,15 +29,14 @@ export default function ThemeButton({ theme, key }) {
     }
   }
   return (
-    <button
-      key={key}
-      className={`footer-blue-pill footer-blue-pill-${theme.toLowerCase()}`}
+    <h5
+      className="footer-links-item-theme"
       onClick={() => {
         handleThemeChange(theme);
       }}
     >
-      <h5>{theme}</h5>
-    </button>
+      {theme}
+    </h5>
   );
 }
 

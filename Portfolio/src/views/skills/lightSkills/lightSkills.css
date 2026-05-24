@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--motion-extra-1) var(--power-1-out);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
   cursor: pointer;
 }
 
@@ -118,9 +118,9 @@
   padding: var(--space-32);
   gap: var(--space-16);
   transition:
-    width var(--motion-extra-1) var(--power-1-out),
-    background-color var(--motion-extra-2) var(--power-1-out),
-    color var(--motion-extra-2) var(--power-1-out);
+    width var(--motion-large-1) var(--power-1-out),
+    background-color var(--motion-large-1) var(--power-1-out),
+    color var(--motion-large-1) var(--power-1-out);
 }
 
 /*  */
@@ -176,8 +176,8 @@
   border-radius: 50%;
   background-color: var(--color-1);
   transition:
-    margin-right var(--motion-extra-1) var(--power-1-out),
-    background-color var(--motion-extra-1) var(--power-1-out);
+    margin-right var(--motion-large-1) var(--power-1-out),
+    background-color var(--motion-large-1) var(--power-1-out);
 }
 
 .skill-myskills-container-card-icon button svg {
@@ -185,7 +185,7 @@
   height: 50%;
   margin: 0;
   transform: rotate(225deg);
-  transition: transform var(--motion-extra-1) var(--power-1-out);
+  transition: transform var(--motion-medium-2) var(--power-2-out);
 }
 
 .skill-myskills-container-card-icon button svg path {
@@ -204,8 +204,8 @@
   border-radius: var(--border-radius-small);
   overflow: hidden;
   transition:
-    width var(--motion-extra-1) var(--power-1-out),
-    opacity var(--motion-extra-1) var(--power-1-out);
+    width var(--motion-medium-2) var(--power-2-out),
+    opacity var(--motion-medium-2) var(--power-2-out);
 }
 
 /*  */

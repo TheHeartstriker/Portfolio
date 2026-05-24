@@ -1,5 +1,6 @@
 "use client";
-import { animateBlocks, animateText } from "@/utils/animations/animations.jsx";
+import { animateShapes } from "@/utils/animations/animateShapes";
+import { animateText } from "@/utils/animations/textAnimation";
 import { useEffect } from "react";
 import { gsap } from "gsap/gsap-core";
 function IntroAni() {
@@ -11,45 +12,36 @@ function IntroAni() {
     const heading = document.querySelector(".scriptorium-intro-text h1");
     //
     //Large text
-    animateText({ start: 150, end: 0 }, heading, timeline, {
-      duration: 0.5,
-      easing: "power1.out",
-    });
+    animateText(
+      { start: -64, end: 0, type: "chars", mask: "lines" },
+      [{ element: heading }],
+      {
+        duration: 0.6,
+        stagger: 0.03,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+      },
+    );
     //
     //Right side button and text block
     const textBlocks = document.querySelectorAll(
       ".scriptorium-intro-body-text-container, .scriptorium-intro-text button",
     );
-    animateBlocks(
-      { start: 150, end: 0, type: "x" },
-      null,
-      null,
-      textBlocks,
-      {
-        duration: 0.5,
-        easing: "power2.out",
-        offset: "-=0.25",
-        stagger: 0.25,
-      },
-      timeline,
-    );
     const imageBlock = document.querySelectorAll(
       ".scriptorium-intro img, .scriptorium-intro-data-bar",
     );
-    //
-    // Image
-    animateBlocks(
-      { start: 100, end: 0, type: "y" },
-      null,
-      null,
-      imageBlock,
+    animateShapes(
+      { start: 50, end: 0 },
+      [{ element: textBlocks }, { element: imageBlock }],
       {
-        duration: 1.5,
-        easing: "back.out(1.1)",
+        duration: 0.6,
+        stagger: 0.15,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
         offset: "-=0.25",
-        stagger: 0.1,
       },
-      timeline,
     );
   }, []);
 }

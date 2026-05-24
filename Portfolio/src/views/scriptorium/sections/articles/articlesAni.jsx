@@ -2,26 +2,28 @@
 import { animateShapes } from "@/utils/animations/animateShapes";
 import { useEffect } from "react";
 import { gsap } from "gsap/gsap-core";
-function RecentAni() {
+function ArticlesAni({ filteredArticles }) {
   useEffect(() => {
     //
-    // Recent card Ani
+    // Articles card Ani
     //
-    const recentCard = document.querySelectorAll(".scriptorium-recent-card");
+    const articleCards = document.querySelectorAll(".script-article");
     const timeline = gsap.timeline({ paused: true });
     animateShapes(
-      { start: 50, end: 0 },
-      [{ element: recentCard }],
+      { start: 50, end: 0, axis: "y" },
+      [{ element: articleCards }],
       {
         duration: 0.5,
         easing: "power1.out",
+        staggerEase: "power1.out",
+        stagger: 0.06,
         timeline: timeline,
       },
       {
         start: "top 85%",
       },
     );
-  }, []);
+  }, [filteredArticles]);
 }
 
-export default RecentAni;
+export default ArticlesAni;

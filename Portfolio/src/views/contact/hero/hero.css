@@ -45,8 +45,8 @@
   height: 2px;
   background-color: var(--color-2);
   transition:
-    height var(--motion-small-2) var(--power-1-out),
-    background-color var(--motion-small-2) var(--power-1-out);
+    height var(--motion-small-2) var(--power-2-out),
+    background-color var(--motion-small-2) var(--power-2-out);
   z-index: -1;
 }
 

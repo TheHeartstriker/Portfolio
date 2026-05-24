@@ -63,7 +63,7 @@
   background-color: var(--color-2);
   color: var(--color-4);
   cursor: pointer;
-  transition: background-color var(--motion-medium-1) var(--power-2-out);
+  transition: background-color var(--motion-small-2) var(--power-2-out);
 }
 
 .scriptorium-intro button h2 {

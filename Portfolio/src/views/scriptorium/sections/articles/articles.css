@@ -60,8 +60,8 @@
   border: none;
   border-radius: var(--border-radius-medium);
   transition:
-    background-color var(--motion-large-1) var(--power-2-out),
-    color var(--motion-large-1) var(--power-2-out);
+    background-color var(--motion-small-2) var(--power-2-out),
+    color var(--motion-small-2) var(--power-2-out);
   cursor: pointer;
 }
 /* Hover tag */
@@ -98,11 +98,11 @@
   justify-content: center;
   border-radius: var(--border-radius-small);
   min-height: 45rem;
-  transition: transform var(--motion-medium-2) ease-in-out;
   background-color: var(--color-4);
   transition:
-    box-shadow var(--motion-large-1) var(--power-1-out),
-    background-color var(--motion-large-1) var(--power-1-out);
+    box-shadow var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out),
+    transform var(--motion-medium-2) var(--power-2-out);
 }
 /*  */
 /* Hover effects */
@@ -271,8 +271,8 @@
   stroke: var(--color-1);
   fill: var(--color-1);
   transition:
-    fill var(--motion-large-1) var(--power-1-out),
-    stroke var(--motion-large-1) var(--power-1-out);
+    fill var(--motion-medium-2) var(--power-2-out),
+    stroke var(--motion-medium-2) var(--power-2-out);
 }
 
 .script-article-tags button {
@@ -284,8 +284,8 @@
   background-color: var(--color-1);
   border-radius: var(--border-radius-small);
   transition:
-    background-color var(--motion-large-1) var(--power-1-out),
-    color var(--motion-large-1) var(--power-1-out);
+    background-color var(--motion-medium-2) var(--power-2-out),
+    color var(--motion-medium-2) var(--power-2-out);
   cursor: pointer;
 }
 

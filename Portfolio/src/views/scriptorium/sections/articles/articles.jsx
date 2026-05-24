@@ -12,8 +12,7 @@ import { ScriptCard } from "./scriptCard.jsx";
 import "./articles.css";
 import { useEffect, useState } from "react";
 import { Separator } from "@/components/separator/separator.jsx";
-import { animateBlocks } from "@/utils/animations/animations.jsx";
-
+import ArticlesAni from "./articlesAni";
 const allArticles = [
   desParticle,
   desMappingFullstack,
@@ -86,27 +85,6 @@ function Articles() {
     );
   }
 
-  function animateCards() {
-    // Scoped to the stats sibling, not the main block
-    const cards = document.querySelectorAll(".script-article");
-    animateBlocks(
-      { start: 50, end: 0, type: "y" },
-      { el: "top", scroll: "90%" },
-      { el: "bottom", scroll: "40%" },
-      cards,
-      {
-        duration: 0.25,
-        delay: 0,
-        easing: "power1.in",
-        stagger: 0.15,
-      },
-    );
-  }
-
-  useEffect(() => {
-    animateCards();
-  }, [filteredArticles]);
-
   useEffect(() => {
     function updateFilterPosition() {
       const width = window.innerWidth;
@@ -125,6 +103,7 @@ function Articles() {
 
   return (
     <div className="article-container">
+      <ArticlesAni filteredArticles={filteredArticles} />
       <Separator headerArr={["Hightlights", "And Outcomes"]} reverse={false} />
       <div className="article-card-container">{handleCards()}</div>
     </div>

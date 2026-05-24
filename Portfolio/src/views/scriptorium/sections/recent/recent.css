@@ -63,7 +63,7 @@
   justify-content: center;
   border-radius: 100px;
   padding: var(--typo-size-16) var(--typo-size-40);
-  transition: background-color var(--motion-medium-1) var(--power-2-out);
+  transition: background-color var(--motion-small-2) var(--power-2-out);
 }
 
 .scriptorium-recent-card-content-header-icon span svg {
@@ -72,7 +72,7 @@
   z-index: 1;
   stroke: var(--color-1);
   transform: rotate(-90deg);
-  transition: stroke var(--motion-medium-1) var(--power-2-out);
+  transition: stroke var(--motion-small-2) var(--power-2-out);
 }
 
 .scriptorium-recent-card-content-header-icon:hover span {
@@ -105,7 +105,7 @@
   top: 0;
   left: 0;
   z-index: 5;
-  transition: transform var(--motion-medium-1) var(--power-2-out);
+  transition: transform var(--motion-medium-2) var(--power-2-out);
 }
 .scriptorium-recent-card-cat-item:hover img {
   transform: scale(1.05);
@@ -227,7 +227,7 @@
   top: 0;
   left: 0;
   z-index: 5;
-  transition: transform var(--motion-medium-1) var(--power-2-out);
+  transition: transform var(--motion-medium-2) var(--power-2-out);
 }
 
 .scriptorium-recent-card-articles-item:hover img {
