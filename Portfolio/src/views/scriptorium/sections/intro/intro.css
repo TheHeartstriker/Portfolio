@@ -88,7 +88,7 @@
   width: auto;
   min-height: var(--typo-size-96);
   background-color: var(--color-4);
-  border-radius: var(--border-radius-large);
+  border-radius: var(--border-radius-medium);
   padding: var(--space-32);
   gap: var(--space-24);
   margin: 0 auto;

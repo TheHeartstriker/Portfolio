@@ -5,7 +5,7 @@ import { WorkCard } from "./workCard.jsx";
 import { ScrollButton } from "@/components/nav/scrollButton";
 import { Separator } from "@/components/separator/separator.jsx";
 import HeaderAnimation from "./headerAnimation.jsx";
-import { FGraphsText, RealEstateText, TodoText } from "../text.js";
+import { FGraphsText, RealEstateText, EventText } from "../text.js";
 
 function HeaderIntro() {
   const headerimg = "/skill/headerimg.webp";
@@ -96,14 +96,14 @@ function HeaderIntro() {
           onMouseEnter={setActiveCard3}
         />
         <WorkCard
-          header={TodoText.header}
-          para1={TodoText.para1}
-          para2={TodoText.para2}
-          mediaArray={TodoText.media}
-          scopePara={TodoText.scope}
-          rolePara={TodoText.role}
-          servicesArr={TodoText.services}
-          link={"https://www.genesistodo.com/"}
+          header={EventText.header}
+          para1={EventText.para1}
+          para2={EventText.para2}
+          mediaArray={EventText.media}
+          scopePara={EventText.scope}
+          rolePara={EventText.role}
+          servicesArr={EventText.services}
+          link={"https://event-practice-sage.vercel.app/"}
           active={activeCard4}
           onMouseEnter={setActiveCard4}
         />

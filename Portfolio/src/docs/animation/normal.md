@@ -5,6 +5,57 @@ speedy to not wane on the user's attention while still being intresting and cool
 
 ## Text
 
+All text animations for normal animation opperations
+
+### Large normal text
+
+Here is a example of a longish piece of text animated in a normal fashion.
+
+```
+    animateText(
+      { start: -64, end: 0, type: "words", mask: "words" },
+      [{ element: footerHeadingText1 }, { element: footerHeadingText2 }],
+      {
+        duration: 0.5,
+        stagger: 0.09,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+      },
+    );
+```
+
+Notice the difference's
+
+-- Duration 0.5 decreased from heading ani's of 0.5
+-- Same easing
+-- Stagger tripled to roughly equal char stagger on headings for a word stagger
+
+### Short normal text
+
+Here is a example of short text animations
+
+```
+    animateText(
+      { start: 12, end: 0, type: "lines", mask: "lines" },
+      [{ element: footerTextItems }],
+      {
+        duration: 0.4,
+        easing: "power1.out",
+        staggerEase: "power1.out",
+        timeline: timeline,
+        stagger: 0.03,
+        offset: "<+=0.5",
+      },
+    );
+```
+
+These are the main differences
+
+-- Duration decreased to 0.5
+-- Same easing
+-- Stagger at 0.03 for lines. Considering heading char's get 0.03 and normal word ani's get 0.09 this visually is vastly less.
+
 ## Shape
 
 Normal shape animations look like so this was used for a large block in the skills section

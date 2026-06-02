@@ -1,7 +1,7 @@
 "use client";
 import "./opening.css";
 import { gsap } from "gsap/gsap-core";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { Context } from "../../../providers/context/contextProvider.jsx";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";

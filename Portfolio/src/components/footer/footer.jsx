@@ -2,18 +2,20 @@ import "./footer.css";
 
 import Link from "next/link";
 import ThemeButton from "./themeButton";
+import FooterAni from "./footerAni";
 
 function Footer() {
   const sessionalThemes = ["Autumn", "Spring", "Summer", "Winter"];
 
   return (
     <footer className="footer">
+      <FooterAni />
       {/*  */}
       {/*  Main heading*/}
       {/*  */}
       <div className="footer-heading">
         <h4>Have something in mind?</h4>
-        <h3>Let's talk</h3>
+        <h3>Let&apos;s talk</h3>
       </div>
       {/*  */}
       {/*  Links container*/}

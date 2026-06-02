@@ -1,4 +1,11 @@
 /*  */
+/* Ani var's */
+/*  */
+:root {
+  --footer-line-length: 0%;
+}
+
+/*  */
 /* Main overhead container */
 /*  */
 .footer {
@@ -16,10 +23,10 @@
 /*  */
 .footer-heading {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: var(--space-16);
   padding-bottom: var(--space-32);
-  border-bottom: 1px solid var(--color-1);
 }
 /*  */
 /* Text */
@@ -35,6 +42,18 @@
   font-weight: var(--typo-weight-medium);
   color: var(--color-1);
   line-height: 0.9;
+}
+/*  */
+/* Border */
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--footer-line-length);
+  height: 1px;
+  background: var(--color-1);
+  z-index: 15;
 }
 /*  */
 /* Links  */

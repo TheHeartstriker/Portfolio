@@ -41,14 +41,14 @@ function LightSkills() {
   const handlePrevious = () => {
     animateGalleryTransition("prev");
     setTimeout(() => {
-      setActiveGal(activeGal === 1 ? 3 : activeGal - 1);
+      setActiveGal(activeGal === 1 ? 4 : activeGal - 1);
     }, 400);
   };
 
   const handleNext = () => {
     animateGalleryTransition("next");
     setTimeout(() => {
-      setActiveGal(activeGal === 3 ? 1 : activeGal + 1);
+      setActiveGal(activeGal === 4 ? 1 : activeGal + 1);
     }, 400);
   };
   useEffect(() => {

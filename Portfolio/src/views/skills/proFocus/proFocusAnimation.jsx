@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { animateBlocks } from "../../../utils/animations/animations";
 import { animateShapes } from "@/utils/animations/animateShapes";
 import gsap from "gsap";
 function ProFocusAnimation() {
