@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-import About from "../views/about/about.jsx";
+import About from "@/views/about/about.jsx";
 function Index() {
   return <About />;
 }

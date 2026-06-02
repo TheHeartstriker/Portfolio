@@ -31,17 +31,20 @@ export const RealEstateText = {
   ],
   services: ["Frontend", "Design", "UI/UX", "Animation"],
 };
-
-export const TodoText = {
-  header: "Todo App",
-  para1: `This is a straightforward todo application. Created early in my learning journey, it reflects my understanding of design and UX at that time. 
-   The app allows users to add, edit, and delete tasks and was built primarily as an exercise to explore new technologies and layout approaches.`,
-  para2: `While not representative of my current work, it serves as a clear marker of my growth as both a developer and designer. 
-   Despite its unconventional setup, it remains a fully functional application with a distinctive visual style.`,
-  role: `I served as the sole developer, responsible for the visual design, frontend implementation, backend development, deployment, and ongoing maintenance.`,
-  scope: `This is a complete full-stack project consisting of approximately 5 main views, supported by a backend server, database, and full mobile responsiveness.`,
-  media: ["/skill/projects/todo.webp"],
-  services: ["Fullstack", "Design", "UI/UX", "Animation"],
+export const EventText = {
+  header: "MATSURI Digital",
+  para1: `MATSURI Digital is an event studio website I built as a practice project(not a real business) - a mockup designed to learn and showcase my skills. It's minimalistic, clean, and professional, with a strong focus on typography and layout to appeal to two target audiences: corporate clients and traditional event attendees.`,
+  para2: `It features custom animations and interactions commonly found in high-end agency websites. The project demonstrates my proficiency in polished professional design and advanced frontend development techniques.`,
+  role: `I served as the sole developer, responsible for the visual design, frontend implementation, launch and animations.`,
+  scope: `This is a frontend-focused project consisting of approximately 4 pages with a total of 10 sections, with full mobile responsiveness.`,
+  media: [
+    "/skill/projects/event1.webp",
+    "/skill/projects/event2.webp",
+    "/skill/projects/event3.webp",
+    "/skill/projects/event4.webp",
+    "/skill/projects/event5.webp",
+  ],
+  services: ["Frontend", "Design", "UI/UX", "Animation"],
 };
 //
 // Bellow are text and links for highlights
@@ -65,6 +68,12 @@ export const highlightText = {
     type: "video",
     para: `This captures a previous iteration of my portfolio site. 
     The contacts page featured a custom physics-driven animation for link elements: each interactive orb, when clicked, redirected to its corresponding external site or profile.`,
+  },
+  media4: {
+    src: "/skill/highlight/highlight4.webm",
+    type: "video",
+    para: `This shows a website I built for a fake event studio. It features a minimalistic and clean design with a strong focus on typography and layout, meant for corporate and more traditional clients.
+This project was one of the more “serious” designs I’ve done and was a great learning experience in polished, professional design and frontend development techniques.`,
   },
 };
 

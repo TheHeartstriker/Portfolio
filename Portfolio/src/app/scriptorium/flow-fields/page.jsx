@@ -28,11 +28,12 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/scriptoriumViewer/mainArticle/index.jsx";
-import flowArticle1 from "@/views/scriptorium/articles/flowFields/flow1.md";
-import flowArticle2 from "@/views/scriptorium/articles/flowFields/flow2.md";
-import FlowField from "@/views/scriptorium/scripts/flowField/flowField.jsx";
-import { desFlowField } from "@/views/scriptorium/articles/articleDes.js";
+import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
+import { desFlowField } from "@/views/scriptorium/articlesContent/articleDes.js";
+
+import flowArticle1 from "@/views/scriptorium/articlesContent/articlesText/flowFields/flow1.md";
+import flowArticle2 from "@/views/scriptorium/articlesContent/articlesText/flowFields/flow2.md";
+import FlowField from "@/views/scriptorium/articlesContent/articlesScript/flowField/flowField.jsx";
 
 function ScriptoriumPage() {
   return (

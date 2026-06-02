@@ -17,7 +17,7 @@ export const faq = {
   faq2: {
     header: "How much do your services cost",
     para: `As you might expect, it depends on factors such as the size, complexity, and overall vision of a project. As an example,
-    a standard website with around 5 pages and some custom features would currently cost around $750. Depending on the size
+    a standard website with around 6 pages and some custom features would currently cost around $750. Depending on the size
     and complexity, the price may go up or down.`,
   },
   faq3: {

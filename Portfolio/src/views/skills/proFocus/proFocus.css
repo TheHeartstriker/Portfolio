@@ -1,0 +1,181 @@
+/*  */
+/* Main process stuff */
+/*  */
+.skill-process {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+/*  */
+/* Main content */
+
+.skill-process-main {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: var(--space-8);
+  gap: var(--space-8);
+}
+
+.skill-process-main-card {
+  background-color: var(--color-4);
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border-radius: var(--border-radius-small);
+  transition:
+    color var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.skill-process-main-card h4 {
+  font-size: var(--typo-size-40);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-semi-bold);
+}
+
+.skill-process-main-card h3 {
+  font-size: var(--typo-size-40);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-semi-bold);
+  margin-bottom: var(--space-80);
+}
+
+.skill-process-main-card p {
+  font-size: var(--typo-size-16);
+  color: var(--font-middle);
+  margin-top: auto;
+}
+
+/*  */
+/* Last card */
+
+.skill-process-main-card.active {
+  background-color: var(--color-1);
+}
+
+.skill-process-main-card.active h4,
+.skill-process-main-card.active h3 {
+  color: var(--color-3);
+}
+
+.skill-process-main-card.active p {
+  color: var(--color-4);
+}
+
+/*  */
+/* Main skill stuff */
+/*  */
+.skill-focus {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/*  */
+/* Card container */
+.skill-focus-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+/*  */
+/* Card styles */
+.skill-focus-container-card {
+  background-color: var(--color-4);
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  border-radius: var(--border-radius-small);
+  transition:
+    color var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.skill-focus-container-card.active {
+  background-color: var(--color-1);
+}
+
+.skill-focus-container-card.active h3 {
+  color: var(--color-4);
+}
+
+.skill-focus-container-card.active p {
+  color: var(--color-3);
+}
+
+/* Top text */
+.skill-focus-container-card h3 {
+  font-size: var(--typo-size-40);
+  color: var(--color-1);
+  width: 65%;
+  font-weight: var(--typo-weight-semi-bold);
+  margin: 0;
+  margin-bottom: var(--space-48);
+}
+
+/* Bottom para and icon */
+.skill-focus-container-card-text {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.skill-focus-container-card-text p {
+  font-size: var(--typo-size-16);
+  color: var(--font-middle);
+  margin-left: var(--space-96);
+}
+
+/*  */
+/* Process stuff */
+/*  */
+
+@media (max-width: 1500px) {
+  .skill-process-main {
+    flex-direction: column;
+  }
+
+  .skill-process-main-card {
+    width: 100%;
+  }
+}
+
+/*  */
+/* Focus stuff */
+/*  */
+
+@media (max-width: 1300px) {
+  .skill-focus-container {
+    flex-direction: column;
+  }
+
+  .skill-focus-container-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .skill-focus-container-card h3 {
+    font-size: var(--typo-size-40);
+    margin-bottom: var(--space-40);
+    width: 100%;
+  }
+
+  .skill-focus-container-card-text p {
+    margin-left: var(--space-64);
+  }
+}
+
+@media (max-width: 500px) {
+  .skill-focus-container-card-text p {
+    margin-left: 0;
+  }
+  .skill-focus-container-card h3 {
+    font-size: var(--typo-size-32);
+  }
+}

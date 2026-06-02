@@ -1,0 +1,135 @@
+.article-nav-Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  height: 85%;
+  background-color: var(--color-4);
+  border-radius: var(--border-radius-large);
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5vw;
+  z-index: 50;
+  overflow: hidden;
+}
+.article-nav-Menu h2 {
+  color: var(--font-middle);
+  font-size: var(--typo-size-20);
+  font-weight: var(--typo-weight-semi-bold);
+  margin: var(--space-8);
+}
+
+.published-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-3);
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+  border-bottom-left-radius: var(--border-radius-small);
+  border-bottom-right-radius: var(--border-radius-small);
+  padding: var(--space-8);
+  margin-top: var(--space-16);
+  width: 80%;
+}
+
+.published-time h3 {
+  color: var(--font-high);
+  font-size: var(--typo-size-20);
+  font-weight: var(--typo-weight-semi-bold);
+  margin: var(--space-16);
+}
+
+.published-time p {
+  color: var(--color-1);
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  font-family: var(--font-body);
+}
+
+.article-topic {
+  color: var(--color-1);
+  width: 80%;
+  background-color: var(--color-3);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--border-radius-large);
+}
+.article-topic h3 {
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-12);
+  margin: var(--space-8) 0;
+  font-family: var(--font-body);
+}
+
+.table-of-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  min-height: 0;
+  overflow-y: auto;
+  margin-bottom: var(--space-32);
+  scrollbar-width: none;
+}
+
+.table-of-contents::-webkit-scrollbar {
+  display: none;
+}
+
+.toc-item {
+  color: var(--color-1);
+  width: 100%;
+  background-color: var(--color-3);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-large);
+  margin-bottom: var(--space-8);
+  transition: background-color var(--motion-large-2) ease-in-out;
+  cursor: pointer;
+}
+
+.toc-item:hover {
+  background-color: var(--color-1);
+  color: var(--font-high);
+}
+
+.toc-item.active,
+.toc-item.medium.active,
+.toc-item.small.active {
+  background-color: var(--color-1);
+  color: var(--color-2);
+}
+
+.toc-item h3 {
+  font-size: var(--typo-size-12);
+  margin: var(--space-8);
+  font-weight: var(--typo-weight-regular);
+  font-family: var(--font-body);
+}
+/* These are the smaller widths given to smaller headings levels */
+.toc-item.medium {
+  width: 85%;
+  margin-left: auto;
+}
+
+.toc-item.small {
+  width: 70%;
+  margin-left: auto;
+}
+
+@media (max-width: 1750px) {
+  .article-nav-Menu {
+    width: 20%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .article-nav-Menu {
+    width: 25%;
+  }
+}

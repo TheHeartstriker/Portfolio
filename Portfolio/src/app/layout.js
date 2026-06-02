@@ -1,7 +1,6 @@
 import "../site.css";
-import "../animation.css";
 import Background from "@/providers/background/background";
-import Nav from "../components/nav/nav";
+import NavBar from "@/components/nav/navBar/navBar";
 import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { Provider } from "@/providers/context/contextProvider";
@@ -43,7 +42,7 @@ export default function RootLayout({ children }) {
         <Provider>
           <ThemeGen />
           <Background />
-          <Nav />
+          <NavBar />
           <LenisProvider>
             {children}
             <Footer />

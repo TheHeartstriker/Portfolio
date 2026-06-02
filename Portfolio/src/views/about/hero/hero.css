@@ -1,0 +1,134 @@
+/*  */
+/* Heading section */
+/*  */
+.about-hero-section {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+/*  */
+/* Top two heading text */
+.about-hero-section h2 {
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-medium);
+  margin: 0;
+  color: var(--color-2);
+  letter-spacing: var(--neg-letter-space-1);
+  transform: translateY(var(--space-16));
+}
+
+.about-hero-section h1 {
+  font-size: var(--typo-size-128);
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--color-1);
+  margin: 0;
+  letter-spacing: var(--neg-letter-space-1);
+}
+/*  */
+/* Text container and button section */
+.about-hero-section-info {
+  width: 60%;
+  margin-left: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+/* Text container */
+.about-hero-section-info-text {
+  width: 100%;
+  height: auto;
+  padding: var(--space-16);
+  background-color: var(--color-4);
+  border-radius: var(--border-radius-small);
+}
+
+.about-hero-section-info-text p {
+  color: var(--font-middle);
+  font-size: var(--typo-size-14);
+}
+/*  */
+/* Button bellow container */
+.about-hero-section-info button {
+  width: fit-content;
+  height: auto;
+  background-color: var(--color-4);
+  border-radius: var(--border-radius-small);
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: var(--space-8);
+  gap: var(--space-16);
+  transition:
+    background-color var(--motion-small-2) var(--power-2-out),
+    color var(--motion-small-2) var(--power-2-out);
+  cursor: pointer;
+}
+/* Width and height is twice the button text size */
+.about-hero-section-info button span {
+  height: calc(var(--typo-size-14) * 2);
+  width: calc(var(--typo-size-14) * 2);
+  background-color: var(--color-1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color var(--motion-small-2) var(--power-2-out);
+}
+
+.about-hero-section-info button svg {
+  height: calc(100% / 2);
+  aspect-ratio: 1 / 1;
+}
+
+.about-hero-section-info button svg path {
+  stroke: var(--color-2);
+  transition: stroke var(--motion-small-2) var(--power-2-out);
+}
+
+.about-hero-section-info button h3 {
+  color: var(--color-1);
+  font-size: var(--typo-size-14);
+  font-weight: var(--typo-weight-medium);
+}
+.about-hero-section-info button:hover {
+  background-color: var(--color-1);
+}
+
+.about-hero-section-info button:hover h3 {
+  color: var(--color-4);
+}
+
+.about-hero-section-info button:hover span {
+  background-color: var(--color-4);
+}
+
+.about-hero-section-info button:hover svg path {
+  stroke: var(--color-2);
+}
+
+/*  */
+/* Resizing */
+/*  */
+@media (max-width: 1300px) {
+  .about-hero-section h1 {
+    font-size: var(--typo-size-96);
+  }
+}
+
+@media (max-width: 1000px) {
+  .about-hero-section h1 {
+    font-size: var(--typo-size-64);
+  }
+  .about-hero-section h2 {
+    font-size: var(--typo-size-32);
+    transform: none;
+  }
+  .about-hero-section-info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
