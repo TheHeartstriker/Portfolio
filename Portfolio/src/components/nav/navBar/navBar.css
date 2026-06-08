@@ -116,3 +116,49 @@
 .nav-bar-right:hover h4 {
   color: var(--color-4);
 }
+
+@media (max-width: 800px) {
+  .nav-bar-left a {
+    font-size: var(--typo-size-16);
+  }
+
+  .nav-bar-right h4 {
+    font-size: var(--typo-size-16);
+  }
+
+  .nav-bar-mid-item h3 {
+    font-size: var(--typo-size-14);
+  }
+  .nav-bar-mid {
+    gap: var(--space-8);
+  }
+  .nav-bar-mid-item {
+    padding: var(--space-8) var(--space-8);
+  }
+}
+
+@media (max-width: 650px) {
+  .nav-bar-right {
+    padding: var(--space-8) var(--space-8);
+  }
+  .nav-bar-left {
+    padding: var(--space-8) var(--space-8);
+  }
+}
+
+@media (max-width: 525px) {
+  .nav-bar-right {
+    display: none;
+  }
+  .nav-bar-left {
+    display: none;
+  }
+  .nav-bar-mid {
+    width: 100%;
+    gap: 0;
+    justify-content: space-around;
+  }
+  .nav-bar-mid-item {
+    padding: var(--space-8) var(--space-16);
+  }
+}

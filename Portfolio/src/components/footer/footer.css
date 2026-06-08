@@ -101,3 +101,33 @@
 .footer-links-item-theme {
   cursor: pointer;
 }
+
+@media (max-width: 800px) {
+  .footer-heading h3 {
+    font-size: var(--typo-size-64);
+  }
+
+  .footer-links-item h4 {
+    font-size: var(--typo-size-14);
+  }
+
+  .footer-links-item a {
+    font-size: var(--typo-size-10);
+  }
+
+  .footer-links-item h5 {
+    font-size: var(--typo-size-10);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-links-item {
+    flex: 0 0 calc(50% - 1rem);
+    display: flex;
+    flex-direction: column;
+  }
+}

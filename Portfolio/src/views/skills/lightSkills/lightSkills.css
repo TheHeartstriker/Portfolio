@@ -279,7 +279,7 @@
 
 @media (max-width: 900px) {
   .skill-highlights-gal {
-    height: 30rem;
+    height: 25rem;
   }
 
   .skill-highlights-gal-arrow svg {
@@ -291,7 +291,7 @@
   }
 }
 /*  */
-/* For the highlights section */
+/* For the skills section */
 /*  */
 
 @media (max-width: 1500px) {
