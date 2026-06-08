@@ -78,7 +78,7 @@
 
 .contact-faq-container-item-text.active p {
   color: var(--color-3);
-  max-height: 300px;
+  max-height: 400px;
 }
 
 @media (max-width: 1200px) {
