@@ -9,7 +9,7 @@
   padding: 0;
   flex-direction: row;
   background-color: var(--color-4);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
 }
 /* Left section */
 .scriptorium-recent-card-content {
@@ -174,7 +174,7 @@
   flex-direction: row;
   width: 50%;
   overflow: hidden;
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-small);
 }
 
 .scriptorium-recent-card-articles-item {
@@ -204,7 +204,7 @@
   left: 0;
   z-index: 15;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: var(--border-radius-small);
 }
 
 .scriptorium-recent-card-articles-item p {

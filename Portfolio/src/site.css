@@ -119,7 +119,7 @@ p {
   --shadow-large: 0 16px 32px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
   /*  */
   /* Border radius's */
-  --border-radius-small: 15px;
+  --border-radius-small: 5px;
   --border-radius-medium: 30px;
   --border-radius-large: 45px;
 

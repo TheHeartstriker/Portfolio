@@ -104,7 +104,7 @@ function Articles() {
   return (
     <div className="article-container">
       <ArticlesAni filteredArticles={filteredArticles} />
-      <Separator headerArr={["Hightlights", "And Outcomes"]} reverse={false} />
+      <Separator headerArr={["Post's", "And Content"]} reverse={false} />
       <div className="article-card-container">{handleCards()}</div>
     </div>
   );

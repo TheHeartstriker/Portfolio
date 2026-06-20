@@ -2,16 +2,16 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { AddMember, RemoveMember } from "@/utils/animations/aniFrame";
 import { isMobile } from "@/utils/isMobile";
-import { drawLine, drawRadial } from "./drawFunctions";
+import { drawLine } from "./drawFunctions";
 import "./background.css";
 import { Context } from "@/providers/context/contextProvider";
 
 function Background() {
   const backgroundRef = useRef(null);
-  const cursorBackgroundRef = useRef(null);
-  const colorRef = useRef({ lineColor: "", cursorColor: "" });
+  const colorRef = useRef({
+    lineColor: "",
+  });
   const [backgroundCtx, setBackgroundCtx] = useState(null);
-  const [cursorCtx, setCursorCtx] = useState(null);
   const offsetRef = useRef(0);
   const SquareGridSize = 50;
   const SquareLine = 1;
@@ -25,16 +25,12 @@ function Background() {
   // Creates a canvas
   useEffect(() => {
     const backgroundCanvas = backgroundRef.current;
-    const cursorCanvas = cursorBackgroundRef.current;
     const isMobileDevice = isMobile();
-    if (!backgroundCanvas || !cursorCanvas) return;
+    if (!backgroundCanvas) return;
     const resizeCanvas = () => {
       backgroundCanvas.width = window.innerWidth;
       backgroundCanvas.height = window.innerHeight * 1.2;
-      cursorCanvas.width = window.innerWidth;
-      cursorCanvas.height = window.innerHeight * 1.2;
       setBackgroundCtx(backgroundCanvas.getContext("2d"));
-      setCursorCtx(cursorCanvas.getContext("2d"));
     };
     resizeCanvas();
     //Do resizes for desktop
@@ -98,8 +94,6 @@ function Background() {
     }
   }
 
-  const cursorX = useRef(0);
-  const cursorY = useRef(0);
   useEffect(() => {
     if (!backgroundCtx || !colorRef) return;
     //Scrolling grid
@@ -114,30 +108,6 @@ function Background() {
       };
     }
 
-    function drawCursor() {
-      if (!cursorCtx) return;
-      function updateCursor() {
-        const speed = 0.2;
-
-        // Update delayed cursor position
-        cursorX.current += (Mouse.current.x - cursorX.current) * speed;
-        cursorY.current += (Mouse.current.y - cursorY.current) * speed;
-
-        cursorCtx.clearRect(
-          0,
-          0,
-          backgroundRef.current.width,
-          backgroundRef.current.height,
-        );
-        drawRadial(cursorCtx, colorRef, cursorX.current, cursorY.current);
-      }
-      AddMember(updateCursor);
-      return () => {
-        RemoveMember(updateCursor);
-      };
-    }
-
-    drawCursor();
     startAnimation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [backgroundCtx]);
@@ -145,9 +115,7 @@ function Background() {
   useEffect(() => {
     const root = getComputedStyle(document.documentElement);
     colorRef.current.lineColor = root.getPropertyValue("--graph-lines").trim();
-    colorRef.current.cursorColor = root
-      .getPropertyValue("--opacity-color-2-2")
-      .trim();
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -157,7 +125,6 @@ function Background() {
   return (
     <div>
       <canvas ref={backgroundRef} id="backgroundId" />
-      <canvas ref={cursorBackgroundRef} id="cursorBackgroundId" />
     </div>
   );
 }
