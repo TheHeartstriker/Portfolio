@@ -5,7 +5,7 @@ import { introText } from "../text.js";
 import HeroAni from "./heroAni.jsx";
 
 function Hero() {
-  const EMAIL = "serkadenwildauer@gmail.com";
+  const EMAIL = "kaden@kadenwildauer.com";
   const COPIED = "Copied to clipboard!";
   const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
   const [emailText, setEmailText] = useState(EMAIL);

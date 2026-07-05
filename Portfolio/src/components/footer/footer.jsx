@@ -76,7 +76,7 @@ function Footer() {
         {/* Page nav / discover */}
         <div className="footer-links-item">
           <h4>Discover</h4>
-          <h5>serkadenwildauer@gmail.com</h5>
+          <h5>kaden@kadenwildauer.com</h5>
         </div>
       </div>
     </footer>
