@@ -3,6 +3,7 @@ import "./navBar.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
+import Odometer from "./odometer";
 function NavBar() {
   const router = useRouter();
   const lenis = useLenis();
@@ -56,13 +57,12 @@ function NavBar() {
         {/*  */}
         {/* My current time */}
         <div className="nav-bar-right">
-          <h4>6:20 PM</h4>
+          <Odometer />
         </div>
       </nav>
       {/*  */}
       {/* Invisible nav bar */}
       {/*  */}
-
       <div className="nav-bar" style={{ opacity: 0, position: "static" }}>
         {/*  */}
         {/* Left side home button */}

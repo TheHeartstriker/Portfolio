@@ -117,6 +117,34 @@
   color: var(--color-4);
 }
 
+.nav-bar-right-clock {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar-right-clock-digit {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.nav-bar-right-clock-measure {
+  visibility: hidden;
+}
+
+.nav-bar-right-clock-current,
+.nav-bar-right-clock-next {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar-right-clock-next {
+  transform: translateY(100%);
+}
+
 @media (max-width: 800px) {
   .nav-bar-left a {
     font-size: var(--typo-size-16);
