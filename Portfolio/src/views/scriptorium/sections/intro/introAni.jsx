@@ -1,10 +1,10 @@
 "use client";
 import { animateShapes } from "@/utils/animations/animateShapes";
 import { animateText } from "@/utils/animations/textAnimation";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { gsap } from "gsap/gsap-core";
 function IntroAni() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     //
     // Intro animation
     //

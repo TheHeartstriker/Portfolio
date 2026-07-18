@@ -1,12 +1,12 @@
 import { gsap } from "gsap/gsap-core";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { animateText } from "@/utils/animations/textAnimation";
 import { animateShapes } from "@/utils/animations/animateShapes";
 function HeroAni() {
   //
   // Heading / hero animation
   //
-  useEffect(() => {
+  useLayoutEffect(() => {
     const timeline = gsap.timeline();
     const header1 = document.querySelector("#test1");
     const header2 = document.querySelector("#test2");

@@ -1,13 +1,13 @@
 import { gsap } from "gsap/gsap-core";
 import { animateShapes } from "@/utils/animations/animateShapes";
 import { animateText } from "@/utils/animations/textAnimation";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 function HeaderAnimation() {
   //
   // Animating the opening header section
   //
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Main header section
     // header text animation
     const timeline = gsap.timeline();
@@ -64,7 +64,7 @@ function HeaderAnimation() {
   //
   // Animating the intro section
   //
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Script cards animation
     // Large main part
     const cards = document.querySelectorAll(".skill-past-item");
