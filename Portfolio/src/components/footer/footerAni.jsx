@@ -13,7 +13,8 @@ function FooterAni() {
     const footerHeading = document.querySelector(".footer-heading");
     const footerHeadingText1 = document.querySelector(".footer-heading h4");
     const footerHeadingText2 = document.querySelector(".footer-heading h3");
-    const footerTextItems = document.querySelectorAll(".footer-links-item *");
+    const footerTextItems = document.querySelectorAll(".footer-links-item");
+    console.log(footerTextItems);
 
     const timeline = gsap.timeline({ paused: true });
 
@@ -51,7 +52,7 @@ function FooterAni() {
 
     animateText(
       { start: 12, end: 0, type: "lines", mask: "lines" },
-      [{ element: footerTextItems }],
+      [{ element: footerTextItems, clip: false }],
       {
         duration: 0.4,
         easing: "power1.out",

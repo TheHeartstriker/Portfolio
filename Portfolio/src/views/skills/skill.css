@@ -10,3 +10,10 @@
   padding: var(--space-32);
   gap: var(--space-72);
 }
+
+@media (max-width: 1000px) {
+  .main-skill-container {
+    margin: var(--space-32) 0;
+    padding: var(--space-16);
+  }
+}

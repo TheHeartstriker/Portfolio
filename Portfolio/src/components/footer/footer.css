@@ -67,13 +67,14 @@
 .footer-links-item {
   display: flex;
   flex-direction: column;
+  gap: var(--space-4);
 }
 /* Text  */
 .footer-links-item h4 {
   font-size: var(--typo-size-16);
   font-weight: var(--typo-weight-medium);
   color: var(--color-1);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-4);
 }
 
 .footer-links-item a {
@@ -81,8 +82,7 @@
   font-weight: var(--typo-weight-regular);
   color: var(--font-middle);
   line-height: 1.2;
-
-  margin-bottom: var(--space-4);
+  display: block;
   text-decoration: none;
 }
 
@@ -94,7 +94,6 @@
   font-size: var(--typo-size-12);
   font-weight: var(--typo-weight-regular);
   color: var(--font-middle);
-  margin-bottom: var(--space-4);
   font-family: var(--font-body);
 }
 /* Linked regular text */
