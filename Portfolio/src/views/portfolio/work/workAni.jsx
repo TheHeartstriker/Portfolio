@@ -6,9 +6,9 @@ function WorkAni() {
   useEffect(() => {
     // Script cards animation
     // Large main part
-    const cards = document.querySelectorAll(".skill-work-item");
+    const cards = document.querySelectorAll(".post-work-item");
     cards.forEach((card) => {
-      const mainCardBody = card.querySelector(".skill-work-item-main");
+      const mainCardBody = card.querySelector(".post-work-item-main");
       const timeline1 = gsap.timeline({ paused: true });
       // Animate the large block
       animateShapes(
@@ -26,7 +26,7 @@ function WorkAni() {
 
       // Scoped to the stats sibling, not the main block
       const smallBlocks = card.querySelectorAll(
-        ".skill-work-item-stats-con, .skill-work-item-stats-con-sq-it",
+        ".post-work-item-stats-con, .post-work-item-stats-con-sq-it",
       );
       const timeline2 = gsap.timeline({ paused: true });
 
