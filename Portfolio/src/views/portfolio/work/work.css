@@ -1,0 +1,382 @@
+/*  */
+/* work work container start */
+/*  */
+.port-work {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.port-work-item {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: var(--space-64);
+}
+
+.port-work-item:nth-of-type(4) {
+  margin: 0;
+}
+
+/*  */
+/* Main container large iamge small text contaienr */
+.port-work-item-main {
+  display: flex;
+  overflow: hidden;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-4);
+}
+
+.port-work-item-main.reverse {
+  flex-direction: row-reverse;
+}
+/* Left text part on default */
+.port-work-item-main-text {
+  display: flex;
+  width: 35%;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-32);
+}
+
+.port-work-item-main-text h3 {
+  font-size: var(--typo-size-48);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-semi-bold);
+}
+
+.port-work-item-main-text p {
+  font-size: var(--typo-size-16);
+  font-weight: var(--typo-weight-regulars) !important;
+  color: var(--font-middle);
+}
+
+/* Right image part on default */
+.port-work-item-main-image {
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  padding: var(--space-16);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-small);
+}
+
+.port-work-item-main.reverse .port-work-item-main-image {
+  flex-direction: row-reverse;
+}
+
+.port-work-item-main-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  transition: opacity var(--motion-medium-2) var(--power-2-out);
+}
+
+.port-work-item-main-image video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: var(--border-radius-medium);
+  transition: opacity var(--motion-medium-2) var(--power-2-out);
+}
+
+.port-work-item-main-image .fade-out {
+  opacity: 0;
+}
+
+.port-work-item-main-image .fade-in {
+  opacity: 1;
+}
+
+.port-work-item-main-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.port-work-item-main-image-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 15;
+  width: var(--typo-size-64);
+  height: var(--typo-size-64);
+  background-color: var(--color-2);
+  border: none;
+  border-radius: 50%;
+  margin-top: auto;
+  box-shadow: var(--shadow-small);
+  transition:
+    background-color var(--motion-small-2) var(--power-1-out),
+    box-shadow var(--motion-small-2) var(--power-1-out);
+}
+
+.port-work-item-main-image-link:hover {
+  background-color: var(--color-1);
+  box-shadow: var(--shadow-medium);
+}
+
+.port-work-item-main-image-link:hover svg {
+  stroke: var(--color-2);
+}
+
+.port-work-item-main-image-link a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+.port-work-item-main-image-link svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  stroke: var(--color-1);
+  transform: rotate(225deg);
+}
+
+.port-work-item-main-image-con {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  gap: var(--space-8);
+  z-index: 15;
+}
+
+.port-work-item-main.reverse .port-work-item-main-image-con {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.port-work-item-main-image-con span {
+  width: var(--typo-size-32);
+  height: var(--typo-size-32);
+  background-color: var(--color-4);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-small);
+}
+
+.port-work-item-main-image-con-span {
+  background-color: var(--color-1) !important;
+}
+
+.port-work-item-main-image-con button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--typo-size-32);
+  height: var(--typo-size-32);
+  background-color: var(--color-2);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-small);
+  transition:
+    background-color var(--motion-medium-2) var(--power-2-out),
+    box-shadow var(--motion-medium-2) var(--power-2-out),
+    stroke var(--motion-medium-2) var(--power-2-out);
+  cursor: pointer;
+}
+
+.port-work-item-main-image-con button:hover {
+  background-color: var(--color-1);
+  box-shadow: var(--shadow-medium);
+}
+
+.port-work-item-main-image-con button svg {
+  aspect-ratio: 1/1;
+  width: 75%;
+  stroke: var(--color-1);
+}
+
+.port-work-item-main-image-con button:hover svg {
+  stroke: var(--color-2);
+}
+
+.port-work-item-main-image-con button:nth-of-type(1) svg {
+  transform: rotate(180deg);
+}
+/*  */
+/* Stats section below main container */
+.port-work-item-stats {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.port-work-item-stats-con {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-16);
+  background-color: var(--color-4);
+  border-radius: var(--border-radius-small);
+  gap: var(--space-8);
+  width: 100%;
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.port-work-item-stats-con.active {
+  background-color: var(--color-1);
+}
+
+.port-work-item-stats-con.active h4 {
+  color: var(--color-5);
+}
+
+.port-work-item-stats-con.active p {
+  color: var(--color-3);
+}
+
+.port-work-item-stats-con h4 {
+  font-size: var(--typo-size-32);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-medium);
+}
+
+.port-work-item-stats-con p {
+  font-size: var(--typo-size-14);
+  color: var(--font-middle);
+}
+/* Square stats area */
+.port-work-item-stats-con-sq {
+  padding: 0;
+  display: flex;
+  width: 100%;
+  gap: var(--space-8);
+}
+
+.port-work-item-stats-con-sq-it {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-small);
+  height: 100%;
+  background-color: var(--color-4);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.port-work-item-stats-con-sq-it h5 {
+  font-size: var(--typo-size-16);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-medium);
+  margin: 0;
+}
+
+.port-work-item-stats-con-sq-it h6 {
+  font-size: var(--typo-size-12);
+  color: var(--font-middle);
+  font-weight: var(--typo-weight-regular);
+  margin: 0;
+}
+
+.port-work-item-stats-con-sq-it.active {
+  background-color: var(--color-1);
+}
+
+.port-work-item-stats-con-sq-it.active h5 {
+  color: var(--color-5);
+}
+
+.port-work-item-stats-con-sq-it.active h6 {
+  color: var(--color-3);
+}
+/*  */
+/* work work changes */
+/* Reversal to column changes */
+@media (max-width: 1500px) {
+  .port-work-item-main {
+    flex-direction: column;
+  }
+  .port-work-item-main-text {
+    width: 100%;
+  }
+  .port-work-item-main-image {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .port-work-item-main.reverse {
+    flex-direction: column;
+  }
+  .port-work-item-stats {
+    flex-direction: column;
+  }
+  .port-work-item-stats-con-sq-it {
+    padding: var(--space-16) 0;
+  }
+}
+/*  */
+/* Image sizing related changes */
+@media (max-width: 1000px) {
+  .port-work-item-main-image {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .port-work-item-main-image {
+    height: 17.5rem;
+  }
+  /* Changes the image internal buttons to match the smaller size */
+  .port-work-item-main-image-con span {
+    width: var(--typo-size-24);
+    height: var(--typo-size-24);
+  }
+
+  .port-work-item-main-image-con button {
+    width: var(--typo-size-24);
+    height: var(--typo-size-24);
+  }
+
+  .port-work-item-main-image-con {
+    gap: var(--space-4);
+  }
+  .port-work-item-main-image-link {
+    width: var(--typo-size-32);
+    height: var(--typo-size-32);
+  }
+
+  .port-work-item-main-image-link svg {
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+  .port-work-item-main-image {
+    height: 15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .port-work-item-stats-con-sq-it h5 {
+    font-size: var(--typo-size-14);
+  }
+
+  .port-work-item-stats-con-sq-it h6 {
+    font-size: var(--typo-size-12);
+  }
+}

@@ -31,8 +31,8 @@ export const metadata = {
   },
 };
 
-import About from "@/views/about/about.jsx";
+import Home from "@/views/home/home.jsx";
 function Index() {
-  return <About />;
+  return <Home />;
 }
 export default Index;

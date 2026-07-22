@@ -37,7 +37,7 @@ function NavBar() {
           </button>
           <button
             className="nav-bar-mid-item"
-            onClick={() => handleNav("/skills")}
+            onClick={() => handleNav("/portfolio")}
           >
             <h3>Portfolio</h3>
           </button>

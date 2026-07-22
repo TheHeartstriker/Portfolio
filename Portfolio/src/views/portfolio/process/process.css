@@ -1,0 +1,68 @@
+/* Main process stuff */
+.port-process {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.port-process-main {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: var(--space-8);
+  gap: var(--space-8);
+}
+
+.port-process-main-card {
+  background-color: var(--color-4);
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border-radius: var(--border-radius-small);
+  transition:
+    color var(--motion-medium-2) var(--power-2-out),
+    background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.port-process-main-card h4 {
+  font-size: var(--typo-size-40);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-semi-bold);
+}
+
+.port-process-main-card h3 {
+  font-size: var(--typo-size-40);
+  color: var(--color-1);
+  font-weight: var(--typo-weight-semi-bold);
+  margin-bottom: var(--space-80);
+}
+
+.port-process-main-card p {
+  font-size: var(--typo-size-16);
+  color: var(--font-middle);
+  margin-top: auto;
+}
+
+.port-process-main-card.active {
+  background-color: var(--color-1);
+}
+
+.port-process-main-card.active h4,
+.port-process-main-card.active h3 {
+  color: var(--color-3);
+}
+
+.port-process-main-card.active p {
+  color: var(--color-4);
+}
+
+@media (max-width: 1500px) {
+  .port-process-main {
+    flex-direction: column;
+  }
+
+  .port-process-main-card {
+    width: 100%;
+  }
+}
