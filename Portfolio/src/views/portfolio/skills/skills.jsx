@@ -4,6 +4,7 @@ import "./skills.css";
 import { Separator } from "@/components/separator/separator";
 import { SkillCard } from "./skillCard";
 import { skillText } from "../text";
+import SkillsAni from "./skillsAni";
 
 function Skills() {
   const [activeCard, setActiveCard] = useState(1);
@@ -18,6 +19,7 @@ function Skills() {
       {/*  */}
       {/* Skill section */}
       {/*  */}
+      <SkillsAni />
       <div className="port-skills">
         <Separator headerArr={["Skills", "And Expertise"]} />
         <div className="port-skills-container">

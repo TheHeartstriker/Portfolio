@@ -133,31 +133,31 @@
 /* Intro / Heading changes */
 /*  */
 @media (max-width: 1000px) {
-  .port-header-intro-text h1 {
+  .port-hero-intro-text h1 {
     font-size: var(--typo-size-48);
   }
-  .port-header-intro-text h2 {
+  .port-hero-intro-text h2 {
     color: var(--font-middle);
     font-size: var(--typo-size-20);
   }
-  .port-header-intro h3 {
+  .port-hero-intro h3 {
     font-size: var(--typo-size-12);
   }
-  .port-header-intro button {
+  .port-hero-intro button {
     padding: var(--space-16) var(--space-8);
   }
 }
 
 @media (max-width: 600px) {
-  .port-header-stats {
+  .port-hero-stats {
     flex-direction: column;
   }
 
-  .port-header-stats-item h3 {
+  .port-hero-stats-item h3 {
     font-size: var(--typo-size-24);
   }
 
-  .port-header-stats-item h4 {
+  .port-hero-stats-item h4 {
     font-size: var(--typo-size-12);
   }
 }
