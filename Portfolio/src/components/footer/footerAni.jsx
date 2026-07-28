@@ -1,11 +1,13 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { animateText } from "@/utils/animations/textAnimation";
 gsap.registerPlugin(ScrollTrigger);
 
 function FooterAni() {
+  const pathname = usePathname();
   //
   // Highlights animation
   //
@@ -14,14 +16,14 @@ function FooterAni() {
     const footerHeadingText1 = document.querySelector(".footer-heading h4");
     const footerHeadingText2 = document.querySelector(".footer-heading h3");
     const footerTextItems = document.querySelectorAll(".footer-links-item");
-    console.log(footerTextItems);
 
     const timeline = gsap.timeline({ paused: true });
 
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       trigger: footerHeading,
       start: "top 85%",
       onEnter: () => timeline.play(),
+      markers: true,
     });
     //
     // Heading text
@@ -49,7 +51,6 @@ function FooterAni() {
     );
     //
     // Item text aka links and email
-
     animateText(
       { start: 12, end: 0, type: "lines", mask: "lines" },
       [{ element: footerTextItems, clip: false }],
@@ -62,7 +63,22 @@ function FooterAni() {
         offset: "<+=0.5",
       },
     );
+
+    return () => {
+      trigger.kill();
+      timeline.kill();
+    };
   }, []);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
+
+  return null;
 }
 
 export default FooterAni;

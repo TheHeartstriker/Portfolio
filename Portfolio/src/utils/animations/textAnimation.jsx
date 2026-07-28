@@ -4,7 +4,9 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 const activeSplits = new WeakMap();
-
+//
+// Animate text in groups or singularly
+//
 export function animateText(ani, elements, time, scrollTrigger) {
   const elementArray = normalizeElements(elements);
   //
@@ -34,17 +36,19 @@ export function animateText(ani, elements, time, scrollTrigger) {
       });
     }
 
-    //
     // Text observer \ Rebuilds the splits on width change
     let lastWidth = item.element.offsetWidth;
-    function rebuildText() {
-      const currentWidth = item.element.offsetWidth;
-      if (currentWidth === lastWidth) return;
-      lastWidth = currentWidth;
-      //Rebuild the split since width has changed
-      split.revert();
-    }
+    let resizeTimeout;
 
+    function rebuildText() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const currentWidth = item.element.offsetWidth;
+        if (currentWidth === lastWidth) return;
+        lastWidth = currentWidth;
+        split.revert();
+      }, 150);
+    }
     const observer = new ResizeObserver(rebuildText);
     observer.observe(item.element);
 
