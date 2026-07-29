@@ -23,7 +23,6 @@ function FooterAni() {
       trigger: footerHeading,
       start: "top 85%",
       onEnter: () => timeline.play(),
-      markers: true,
     });
     //
     // Heading text
