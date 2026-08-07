@@ -1,0 +1,164 @@
+/*  */
+/* Main container */
+/*  */
+.footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--dark-1);
+  height: 100vh;
+  width: 100%;
+  padding: var(--space-24);
+  padding-top: var(--space-32);
+  justify-content: space-between;
+}
+/*  */
+/* Top section */
+/*  */
+.footer-top {
+  display: flex;
+}
+
+/*  */
+/* Left most sections */
+.footer-top-intro {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--column-width) * 4 + var(--gutter) * 3);
+  gap: var(--space-24);
+}
+/*  */
+/* Main intro text */
+.footer-top-intro h2 {
+  color: var(--light-1);
+  font-size: var(--typo-size-32);
+  font-weight: var(--typo-weight-semi-bold);
+  line-height: 1.1;
+}
+
+/* Contact infor */
+.footer-top-intro-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.footer-top-intro-contact h3 {
+  font-family: var(--font-body);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+}
+
+.footer-top-intro-contact h4 {
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+  font-size: var(--typo-size-14);
+}
+
+/*  */
+/* Middle sections */
+.footer-top-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: calc(var(--column-width) * 2 + var(--gutter) * 1);
+  margin-left: calc(var(--gutter) * 2 + var(--column-width));
+}
+/*  */
+/* Main nav text */
+.footer-top-nav h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  line-height: 1.1;
+}
+
+/* Contact infor */
+.footer-top-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.footer-top-nav-links a {
+  font-family: var(--font-display);
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+  font-size: var(--typo-size-36);
+  line-height: 1;
+  text-decoration: none;
+}
+
+/*  */
+/* Right most section*/
+.footer-top-social {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-left: calc(var(--gutter) * 2 + var(--column-width));
+}
+/*  */
+/* Main social text */
+.footer-top-social h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  line-height: 1.1;
+}
+
+/* Contact infor */
+.footer-top-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.footer-top-social-links a {
+  font-family: var(--font-display);
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+  font-size: var(--typo-size-24);
+  line-height: 1;
+  text-decoration: none;
+}
+
+/*  */
+/* Middle section great rune */
+/*  */
+.footer svg {
+  position: absolute;
+  z-index: 10;
+  left: 95%;
+  transform: translateX(-50%);
+}
+
+/*  */
+/* Bottom section */
+/*  */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer-bottom-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom-info h5 {
+  font-family: var(--font-body);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+}
+
+.footer-bottom h4 {
+  font-size: 10.8cqw;
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--light-1);
+  line-height: 0.8;
+}

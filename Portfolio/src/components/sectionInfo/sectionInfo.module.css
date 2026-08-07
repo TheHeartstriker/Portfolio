@@ -1,0 +1,14 @@
+.section-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  z-index: 10;
+}
+
+.section-info h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+}

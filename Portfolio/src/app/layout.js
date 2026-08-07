@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { Provider } from "@/providers/context/contextProvider";
 import { Display, Body } from "@/utils/text/fonts";
-import Footer from "@/components/footer/footer";
+import IntroXFooter from "@/components/introXfooter/introXfooter";
 import Script from "next/script";
 export default function RootLayout({ children }) {
   return (
@@ -38,10 +38,10 @@ export default function RootLayout({ children }) {
           }}
         />
         <Provider>
-          <NavBar />
+          {/* <NavBar /> */}
           <LenisProvider>
             {children}
-            <Footer />
+            <IntroXFooter />
           </LenisProvider>
         </Provider>
       </body>

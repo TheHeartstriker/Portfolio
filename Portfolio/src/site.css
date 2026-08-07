@@ -47,6 +47,15 @@ p {
   /* Accent */
   --accent-1: #d54d5d;
 
+  /*  */
+  /* Layout column width */
+  /*  */
+  --grid-columns: 12;
+  --gutter: 1.5rem;
+  --column-width: calc(
+    (100% - (var(--gutter) * (var(--grid-columns) - 1))) / var(--grid-columns)
+  );
+
   /* */
   /* Spacing */
   /*  */
