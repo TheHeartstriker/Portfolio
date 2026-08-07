@@ -32,21 +32,20 @@ p {
 }
 
 :root {
-  /* Default theme (professionalTheme1) — prevents flash before ThemeGen hydrates */
-  --color-1: hsl(0, 0%, 93%);
-  --color-2: hsl(343, 79%, 36%);
-  --color-3: hsl(0, 0%, 22%);
-  --color-4: hsl(0, 0%, 14%);
-  --color-5: hsl(0, 0%, 7%);
-  --font-high: #f0f0f0;
-  --font-middle: #c5c5c5;
-  --font-low: #969696;
-
-  --color-1-a: hsla(0, 0%, 93%, 0.5);
-  --color-2-a: hsla(343, 79%, 36%, 0.5);
-  --color-3-a: hsla(0, 0%, 22%, 0.75);
-  --color-4-a: hsla(0, 0%, 14%, 0.5);
-  --color-5-a: hsla(0, 0%, 7%, 0.5);
+  /*  */
+  /* Colors */
+  /* Light */
+  --light-1: #e2dcdc;
+  --light-2: #c2bcbc;
+  --light-3: #a39d9d;
+  /*  */
+  /* Dark */
+  --dark-1: #0b0b0b;
+  --dark-2: #222222;
+  --dark-3: #3c3c3c;
+  /*  */
+  /* Accent */
+  --accent-1: #d54d5d;
 
   /* */
   /* Spacing */
@@ -119,9 +118,7 @@ p {
   --shadow-large: 0 16px 32px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
   /*  */
   /* Border radius's */
-  --border-radius-small: 5px;
-  --border-radius-medium: 30px;
-  --border-radius-large: 45px;
+  --border-radius: 2px;
 
   /*  */
   /*  */
