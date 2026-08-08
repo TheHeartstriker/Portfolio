@@ -1,38 +1,26 @@
-function parseRem(value) {
-  return typeof value === "string" ? parseFloat(value) : value;
-}
-
-function RadahnRune({ diameter, strokeWidth, lineMult, strokeColor }) {
-  const diameterRem = parseRem(diameter);
-
-  const lineLength = diameterRem * lineMult;
-  const size = Math.max(diameterRem, lineLength);
-  const center = size / 2;
-  const lineX = center - diameterRem * 0.25;
-
+function RadahnRune() {
   return (
     <svg
-      width={`${size}rem`}
-      height={`${size}rem`}
-      viewBox={`0 0 ${size} ${size}`}
+      width="550"
+      height="750"
+      viewBox="0 0 550 750"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        cx={center}
-        cy={center}
-        r={diameterRem / 2}
-        stroke={strokeColor}
-        strokeWidth={`${strokeWidth}px`}
+        cx="275"
+        cy="375"
+        r="274"
+        stroke="#A39D9D"
+        stroke-width="2"
         vectorEffect="non-scaling-stroke"
       />
       <line
-        x1={lineX}
-        x2={lineX}
-        y1={center - lineLength / 2}
-        y2={center + lineLength / 2}
-        stroke={strokeColor}
-        strokeWidth={`${strokeWidth}px`}
+        x1="139"
+        x2="139"
+        y2="750"
+        stroke="#A39D9D"
+        stroke-width="2"
         vectorEffect="non-scaling-stroke"
       />
     </svg>

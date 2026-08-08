@@ -130,10 +130,20 @@
 /* Middle section great rune */
 /*  */
 .footer svg {
+  width: 35rem;
+  height: 35rem;
   position: absolute;
   z-index: 10;
   left: 95%;
   transform: translateX(-50%);
+}
+
+.footer svg circle {
+  stroke: var(--light-3);
+}
+
+.footer svg line {
+  stroke: var(--light-3);
 }
 
 /*  */

@@ -1,0 +1,47 @@
+/*  */
+/* Btn */
+/*  */
+
+.action-button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+  gap: var(--space-8);
+}
+/*  */
+/* Left side button */
+.action-button-left {
+  background-color: var(--accent-1);
+  padding: var(--space-16);
+  border-radius: var(--border-radius);
+}
+
+.action-button-left h4 {
+  font-family: var(--font-body);
+  font-weight: var(--typo-weight-regular);
+}
+
+.action-button-right {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-1);
+  border-radius: var(--border-radius);
+}
+
+.action-button-right svg {
+  height: 75%;
+  width: 75%;
+}
+
+.action-button-right svg circle {
+  stroke: var(--dark-1);
+}
+
+.action-button-right svg line {
+  stroke: var(--dark-1);
+}

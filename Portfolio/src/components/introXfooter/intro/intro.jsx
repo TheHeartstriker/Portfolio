@@ -1,7 +1,7 @@
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import styles from "./intro.module.css";
 import MorgottRune from "@/../public/icons/morgottRune.jsx";
-import RadahnRune from "@/../public/icons/radahnRune.jsx";
+import ActionButton from "@/components/button/actionButton";
 
 function Intro() {
   return (
@@ -19,23 +19,16 @@ function Intro() {
       {/*  */}
       {/* Main rune */}
       {/*  */}
-      <MorgottRune
-        diameter={20}
-        strokeWidth={1.5}
-        lineMult={1.5}
-        strokeColor="var(--light-1)"
-      />
+      <MorgottRune />
       {/*  */}
       {/* Main BTN */}
       {/*  */}
-      <div className={styles["intro-button"]}>
-        <div className={styles["intro-button-left"]}>
-          <h4>FIND YOUR PROJECT</h4>
-        </div>
-        <div className={styles["intro-button-right"]}>
-          <RadahnRune />
-        </div>
-      </div>
+
+      <ActionButton
+        text={"FIND YOUR PROJECT"}
+        height={"3rem"}
+        fontSize={"var(--typo-size-14)"}
+      />
       {/*  */}
       {/* Main image */}
       {/*  */}

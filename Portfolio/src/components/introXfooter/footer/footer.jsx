@@ -65,12 +65,7 @@ function Footer() {
       {/*  */}
       {/* Middle section great rune */}
       {/*  */}
-      <RadahnRune
-        diameter={22.5}
-        strokeWidth={1}
-        lineMult={1.25}
-        strokeColor="var(--light-1)"
-      />
+      <RadahnRune />
       {/*  */}
       {/* Bottom section & Text*/}
       {/*  */}

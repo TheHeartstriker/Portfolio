@@ -12,3 +12,17 @@
   font-size: var(--typo-size-12);
   font-weight: var(--typo-weight-regular);
 }
+
+.section-info svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+  stroke-width: 1px;
+}
+
+.section-info svg circle {
+  stroke: var(--light-3);
+}
+
+.section-info svg path {
+  stroke: var(--light-3);
+}
