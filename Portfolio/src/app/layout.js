@@ -6,6 +6,7 @@ import { Provider } from "@/providers/context/contextProvider";
 import { Display, Body } from "@/utils/text/fonts";
 import IntroXFooter from "@/components/introXfooter/introXfooter";
 import Script from "next/script";
+import FilmGrain from "@/components/filmGrain/filmGrain";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         />
         <Provider>
           {/* <NavBar /> */}
+          <FilmGrain />
           <LenisProvider>
             {children}
             <IntroXFooter />
