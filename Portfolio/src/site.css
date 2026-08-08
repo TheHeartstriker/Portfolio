@@ -2,8 +2,7 @@ body {
   font-family: var(--font-body), monospace;
   margin: 0;
   padding: 0;
-  background-color: var(--color-5);
-  scrollbar-color: #ece6df #121212;
+  background-color: var(--dark-1);
 }
 
 html {

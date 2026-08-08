@@ -11,6 +11,7 @@
   padding: var(--space-24);
   padding-top: var(--space-32);
   justify-content: space-between;
+  overflow: hidden;
 }
 /*  */
 /* Top section */

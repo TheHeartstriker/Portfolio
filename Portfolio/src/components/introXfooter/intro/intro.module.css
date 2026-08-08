@@ -28,6 +28,47 @@
   z-index: 10;
 }
 /*  */
+/* Btn */
+/*  */
+
+.intro-button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+  gap: var(--space-8);
+}
+/*  */
+/* Left side button */
+.intro-button-left {
+  background-color: var(--accent-1);
+  padding: var(--space-16);
+  border-radius: var(--border-radius);
+}
+
+.intro-button-left h4 {
+  font-family: var(--font-body);
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-14);
+}
+
+.intro-button-right {
+  display: flex;
+  z-index: 10;
+  background-color: var(--accent-1);
+  height: 100%;
+  aspect-ratio: 1/1;
+  padding: var(--space-16);
+}
+
+.intro-button-right svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: black;
+}
+
+/*  */
 /* Image and image overlay */
 /*  */
 .intro img {

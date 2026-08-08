@@ -1,13 +1,24 @@
-function morgottRune({ diameter, strokeWidth, lineMult, strokeColor }) {
-  const lineLength = diameter * lineMult;
-  const size = Math.max(diameter, lineLength) + strokeWidth;
+function parseRem(value) {
+  return typeof value === "string" ? parseFloat(value) : value;
+}
+
+function MorgottRune({
+  diameter = 0.5,
+  strokeWidth = 1,
+  lineMult = 1.5,
+  strokeColor = "var(--light-3)",
+}) {
+  const diameterRem = parseRem(diameter);
+
+  const lineLength = diameterRem * lineMult;
+  const size = Math.max(diameterRem, lineLength);
   const center = size / 2;
-  const lineX = center - diameter * 0;
+  const lineX = center;
 
   return (
     <svg
-      width={size}
-      height={size}
+      width={`${size}rem`}
+      height={`${size}rem`}
       viewBox={`0 0 ${size} ${size}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -15,9 +26,10 @@ function morgottRune({ diameter, strokeWidth, lineMult, strokeColor }) {
       <circle
         cx={center}
         cy={center}
-        r={diameter / 2}
+        r={diameterRem / 2}
         stroke={strokeColor}
-        strokeWidth={strokeWidth}
+        strokeWidth={`${strokeWidth}px`}
+        vectorEffect="non-scaling-stroke"
       />
       <line
         x1={lineX}
@@ -25,10 +37,11 @@ function morgottRune({ diameter, strokeWidth, lineMult, strokeColor }) {
         y1={center - lineLength / 2}
         y2={center + lineLength / 2}
         stroke={strokeColor}
-        strokeWidth={strokeWidth}
+        strokeWidth={`${strokeWidth}px`}
+        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );
 }
 
-export default morgottRune;
+export default MorgottRune;

@@ -6,7 +6,7 @@ function SectionInfo({ infoName }) {
     <div className={styles["section-info"]}>
       <h3>{infoName}</h3>
       <MorgottRune
-        diameter={8}
+        diameter={0.5}
         strokeWidth={1}
         lineMult={1.6}
         strokeColor="var(--light-3)"
