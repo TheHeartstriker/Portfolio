@@ -1,4 +1,3 @@
-import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import styles from "./intro.module.css";
 import MorgottRune from "@/../public/icons/morgottRune.jsx";
 import ActionButton from "@/components/button/actionButton";
@@ -9,7 +8,10 @@ function Intro() {
       {/*  */}
       {/* Section info */}
       {/*  */}
-      <SectionInfo infoName="Intro" />
+      <div className={styles["intro-info"]}>
+        <h3>REACH OUT</h3>
+        <MorgottRune />
+      </div>
       {/*  */}
       {/* Main heading */}
       {/*  */}
@@ -19,16 +21,14 @@ function Intro() {
       {/*  */}
       {/* Main rune */}
       {/*  */}
-      <MorgottRune />
+      <div className={styles["intro-rune"]}>
+        <MorgottRune />
+      </div>
       {/*  */}
       {/* Main BTN */}
       {/*  */}
 
-      <ActionButton
-        text={"FIND YOUR PROJECT"}
-        height={"3rem"}
-        fontSize={"var(--typo-size-14)"}
-      />
+      <ActionButton text={"FIND YOUR PROJECT"} type={"intro"} />
       {/*  */}
       {/* Main image */}
       {/*  */}

@@ -1,7 +1,6 @@
 /*  */
 /* Btn */
 /*  */
-
 .action-button {
   display: flex;
   border: none;
@@ -9,18 +8,25 @@
   cursor: pointer;
   z-index: 10;
   gap: var(--space-8);
+  margin: 0;
+  padding: 0;
 }
 /*  */
 /* Left side button */
 .action-button-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--accent-1);
   padding: var(--space-16);
   border-radius: var(--border-radius);
 }
 
 .action-button-left h4 {
+  color: var(--dark-1);
   font-family: var(--font-body);
   font-weight: var(--typo-weight-regular);
+  margin: 0;
 }
 
 .action-button-right {
@@ -34,8 +40,8 @@
 }
 
 .action-button-right svg {
-  height: 75%;
-  width: 75%;
+  height: 65%;
+  width: 65%;
 }
 
 .action-button-right svg circle {
@@ -44,4 +50,59 @@
 
 .action-button-right svg line {
   stroke: var(--dark-1);
+}
+
+/*  */
+/* Types */
+/* Intro */
+.action-button.intro {
+  height: 3rem;
+}
+
+.action-button.intro .action-button-left h4 {
+  font-size: var(--typo-size-14);
+}
+/*  */
+/* Regular */
+.action-button.regular {
+  height: 2.5rem;
+}
+
+.action-button.regular .action-button-left h4 {
+  font-size: var(--typo-size-12);
+}
+
+.action-button.regular .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.regular .action-button-right svg circle {
+  stroke-width: 1.25px;
+}
+
+.action-button.regular .action-button-right svg line {
+  stroke-width: 1.25px;
+}
+/*  */
+/* Small */
+.action-button.small {
+  height: 2rem;
+}
+
+.action-button.small .action-button-left h4 {
+  font-size: var(--typo-size-10);
+}
+
+.action-button.small .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.small .action-button-right svg circle {
+  stroke-width: 1px;
+}
+
+.action-button.small .action-button-right svg line {
+  stroke-width: 1px;
 }

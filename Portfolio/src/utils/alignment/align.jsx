@@ -7,7 +7,7 @@ function LayoutGuide({
   return (
     <div
       style={{
-        position: "absolute",
+        position: "fixed",
         inset: 0,
         pointerEvents: "none",
         zIndex: 9999,

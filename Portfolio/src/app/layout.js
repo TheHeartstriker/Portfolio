@@ -1,5 +1,5 @@
 import "../site.css";
-import NavBar from "@/components/nav/navBar/navBar";
+import Nav from "@/components/nav/nav.jsx";
 import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScrool";
 import { Provider } from "@/providers/context/contextProvider";
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
           }}
         />
         <Provider>
-          {/* <NavBar /> */}
+          <Nav />
           <FilmGrain />
           <LenisProvider>
             {children}

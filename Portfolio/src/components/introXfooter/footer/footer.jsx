@@ -1,6 +1,5 @@
 import styles from "./footer.module.css";
 import { footerText } from "../text";
-import LayoutGuide from "@/utils/alignment/align";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
 
 import Link from "next/link";
@@ -8,7 +7,6 @@ import Link from "next/link";
 function Footer() {
   return (
     <footer className={styles["footer"]}>
-      <LayoutGuide />
       {/*  */}
       {/* Top section */}
       {/*  */}

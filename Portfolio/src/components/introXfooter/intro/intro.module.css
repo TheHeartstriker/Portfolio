@@ -11,6 +11,39 @@
   align-items: center;
 }
 /*  */
+/* Intro info  */
+/*  */
+.intro-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  z-index: 10;
+}
+
+.intro-info h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+}
+
+.intro-info svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+}
+
+.intro-info svg circle {
+  stroke: var(--light-3);
+  stroke-width: 1.25px;
+}
+
+.intro-info svg path {
+  stroke: var(--light-3);
+  stroke-width: 1.25px;
+}
+
+/*  */
 /* Image heading */
 /*  */
 .intro h2 {
@@ -24,19 +57,24 @@
 /*  */
 /* Image rune */
 /*  */
-.intro svg {
+.intro-rune {
+  position: relative;
+}
+
+.intro-rune svg {
   width: 30rem;
   height: 30rem;
-  stroke-width: 1.5px;
   z-index: 10;
 }
 
-.intro svg path {
+.intro-rune svg path {
   stroke: var(--light-1);
+  stroke-width: 2px;
 }
 
-.intro svg circle {
+.intro-rune svg circle {
   stroke: var(--light-1);
+  stroke-width: 2px;
 }
 
 /*  */

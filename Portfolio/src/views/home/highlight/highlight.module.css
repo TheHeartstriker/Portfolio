@@ -1,0 +1,86 @@
+.highlight {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+  padding-top: var(--space-32);
+  height: 850px;
+  flex-direction: column-reverse;
+}
+
+/*  */
+/* Main heading and stat's container */
+/*  */
+.highlight-con {
+  display: flex;
+  flex-direction: column;
+}
+/*  */
+/* Heading and subheading */
+.highlight-con-heading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
+.highlight-con-heading h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+}
+
+.highlight-con-heading h2 {
+  font-size: var(--typo-size-64);
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+  line-height: 1;
+}
+
+/* Lines and line indocator container */
+.highlight-con-heading-indi {
+  display: flex;
+  height: 2px;
+  gap: var(--space-4);
+}
+
+/* line 1 */
+.highlight-con-heading-indi-line1 {
+  width: 25%;
+  height: 100%;
+  background-color: var(--light-1);
+}
+/* line 2 */
+.highlight-con-heading-indi-line2 {
+  width: 75%;
+  height: 100%;
+  background-color: var(--dark-3);
+}
+/*  */
+/* Detail and stat's container*/
+.highlight-con-detail {
+  display: flex;
+  gap: var(--space-24);
+}
+
+/* Item container and text */
+.highlight-con-detail-item {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--column-width) * 2 + var(--space-24));
+}
+
+.highlight-con-detail-item h3 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-64);
+  color: var(--light-1);
+  line-height: 1;
+  font-weight: var(--typo-weight-semi-bold);
+}
+.highlight-con-detail-item h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+}

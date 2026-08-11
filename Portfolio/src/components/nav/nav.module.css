@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: calc(100% - var(--space-24) * 2);
+  margin-left: var(--space-24);
+  margin-top: var(--space-16);
+  height: auto;
+  background-color: var(--dark-2);
+  padding: var(--space-16);
+  z-index: 10;
+  border-radius: var(--border-radius);
+}
+
+/*  */
+/* Left side home button */
+.nav-button {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-button h3 {
+  font-size: var(--typo-size-24);
+  font-weight: var(--typo-weight-bold);
+  color: var(--accent-1);
+}
+
+/*  */
+/* Nav links */
+.nav-links {
+  display: flex;
+  margin: auto 0;
+  gap: var(--space-16);
+}
+
+.nav-links a {
+  font-size: var(--typo-size-12);
+  color: var(--light-2);
+  text-decoration: none;
+}
