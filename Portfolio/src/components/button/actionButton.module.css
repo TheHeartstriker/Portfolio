@@ -39,19 +39,6 @@
   border-radius: var(--border-radius);
 }
 
-.action-button-right svg {
-  height: 65%;
-  width: 65%;
-}
-
-.action-button-right svg circle {
-  stroke: var(--dark-1);
-}
-
-.action-button-right svg line {
-  stroke: var(--dark-1);
-}
-
 /*  */
 /* Types */
 /* Intro */
@@ -61,6 +48,16 @@
 
 .action-button.intro .action-button-left h4 {
   font-size: var(--typo-size-14);
+}
+
+.action-button.intro .action-button-right svg {
+  height: 65%;
+  width: 65%;
+}
+
+.action-button.intro .action-button-right svg path {
+  stroke: var(--dark-1);
+  stroke-width: var(--large-stroke-width);
 }
 /*  */
 /* Regular */
@@ -77,13 +74,10 @@
   width: 50%;
 }
 
-.action-button.regular .action-button-right svg circle {
-  stroke-width: 1.25px;
+.action-button.regular .action-button-right svg path {
+  stroke-width: var(--medium-stroke-width);
 }
 
-.action-button.regular .action-button-right svg line {
-  stroke-width: 1.25px;
-}
 /*  */
 /* Small */
 .action-button.small {
@@ -99,10 +93,6 @@
   width: 50%;
 }
 
-.action-button.small .action-button-right svg circle {
-  stroke-width: 1px;
-}
-
-.action-button.small .action-button-right svg line {
-  stroke-width: 1px;
+.action-button.small .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
 }

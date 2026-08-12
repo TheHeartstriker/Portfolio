@@ -9,14 +9,18 @@ function Hero() {
       {/* The main hero intro part */}
       {/*  */}
       <div className={styles["hero-main"]}>
-        <h1>Kaden Wildauer</h1>
-        {/*  */}
-        {/* Intro para and button */}
-        <div className={styles["hero-main-content"]}>
-          <p>{lorem + smallLorem}</p>
-          <ActionButton text={"SEE THE WORK"} type={"regular"} />
+        <div className={styles["hero-main-heading"]}>
+          <h1>
+            <span>One Creative.</span>
+            <span>One Obsession: Craft</span>
+          </h1>
         </div>
+        <p>{lorem + smallLorem}</p>
       </div>
+      {/*  */}
+      {/* Background Svg */}
+      {/*  */}
+      <MorgottRune className={styles["hero-rune"]} />
       {/*  */}
       {/* The Intro details */}
       {/*  */}
