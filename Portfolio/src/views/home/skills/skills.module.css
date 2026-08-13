@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: calc(var(--space-128) * 2);
+  gap: calc(var(--space-128) * 2 + var(--space-64));
 }
 
 /*  */

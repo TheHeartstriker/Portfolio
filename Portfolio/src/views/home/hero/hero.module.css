@@ -44,7 +44,8 @@
 /* Hero p tag*/
 
 .hero-main p {
-  font-weight: var(--typo-weight-medium);
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-14);
   color: var(--light-3);
   margin-left: auto;
   width: calc(var(--column-width) * 5 + var(--space-24) * 5.5);
@@ -65,7 +66,7 @@
 }
 
 .hero-rune path {
-  stroke-width: 2px;
+  stroke-width: 3px;
   stroke: var(--dark-2);
 }
 

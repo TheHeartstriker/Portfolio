@@ -237,6 +237,7 @@ p {
   /*  */
   /* Letter spacing */
   /* Pos spacing */
+  --pos-letter-space-0: 0.0625rem; /* 1px*/
   --pos-letter-space-1: 0.125rem; /* 2px*/
   --pos-letter-space-2: 0.25rem; /* 4px*/
   --pos-letter-space-3: 0.375rem; /* 6px*/
