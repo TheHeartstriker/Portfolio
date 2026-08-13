@@ -34,10 +34,6 @@
 }
 
 .hero-main-heading h1 span {
-  display: block;
-}
-
-.hero-main-heading h1 span:last-of-type {
   margin-left: calc(var(--space-128) + var(--space-80));
 }
 /*  */
@@ -50,24 +46,6 @@
   margin-left: auto;
   width: calc(var(--column-width) * 5 + var(--space-24) * 5.5);
   z-index: 10;
-}
-/*  */
-/* Main Icon background */
-/*  */
-
-.hero-rune {
-  position: absolute;
-  height: calc(100% - var(--space-24) * 2);
-  width: calc(100% - var(--space-24) * 2);
-  aspect-ratio: 1 / 1;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.hero-rune path {
-  stroke-width: 3px;
-  stroke: var(--dark-2);
 }
 
 /*  */

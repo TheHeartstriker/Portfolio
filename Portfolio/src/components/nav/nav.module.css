@@ -5,11 +5,11 @@
   top: 0;
   width: calc(100% - var(--space-24) * 2);
   margin-left: var(--space-24);
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
   height: auto;
-  background-color: var(--dark-2);
-  padding: var(--space-16);
-  z-index: 10;
+  background-color: transparent;
+  padding: var(--space-16) 0;
+  z-index: 50;
   border-radius: var(--border-radius);
 }
 

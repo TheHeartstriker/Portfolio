@@ -1,0 +1,26 @@
+/*  */
+/* Opening container */
+/*  */
+.opening {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-1);
+  transform: translateY(0%);
+}
+
+.opening svg {
+  opacity: 0;
+  width: 30vh;
+  height: 30vh;
+}
+
+.opening svg path {
+  stroke-width: 1.5px;
+  stroke: var(--accent-1);
+}

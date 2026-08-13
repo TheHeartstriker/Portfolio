@@ -12,7 +12,7 @@
   animation: 750ms infinite noise;
   pointer-events: none;
   opacity: 0.9;
-  z-index: 100;
+  z-index: 500;
 }
 
 @keyframes noise {

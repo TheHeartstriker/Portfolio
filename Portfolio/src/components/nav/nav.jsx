@@ -1,6 +1,7 @@
 import styles from "./nav.module.css";
 import ActionButton from "../button/actionButton";
 import Link from "next/link";
+import NavAni from "./navAni";
 
 function Nav() {
   return (
@@ -8,6 +9,7 @@ function Nav() {
     // Main nav
     //
     <nav className={styles["nav"]}>
+      <NavAni />
       {/*  */}
       {/* Left side home btn */}
       <button className={styles["nav-button"]}>

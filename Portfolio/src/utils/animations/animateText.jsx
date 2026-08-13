@@ -75,7 +75,7 @@ export function animateText(ani, elements, time, scrollTrigger) {
 function animate(targets, ani, time) {
   gsap.set(targets, {
     y: ani.start ?? 60,
-    x: 25,
+    x: 0,
     opacity: 0,
   });
 

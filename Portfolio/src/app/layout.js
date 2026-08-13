@@ -2,11 +2,12 @@ import "../site.css";
 import Nav from "@/components/nav/nav.jsx";
 import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScrool";
-import { Provider } from "@/providers/context/contextProvider";
 import { Display, Body } from "@/utils/text/fonts";
 import IntroXFooter from "@/components/introXfooter/introXfooter";
 import Script from "next/script";
 import FilmGrain from "@/components/filmGrain/filmGrain";
+import Opening from "@/components/opening/opening";
+import Provider from "@/components/provider/provider";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
           }}
         />
         <Provider>
+          <Opening />
           <Nav />
           <FilmGrain />
           <LenisProvider>
