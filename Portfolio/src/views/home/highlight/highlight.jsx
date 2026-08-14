@@ -1,9 +1,38 @@
 import styles from "./highlight.module.css";
 import { lorem, smallLorem } from "@/utils/text/text";
+import HighlightAni from "./highlightAni";
 
 function Highlight() {
   return (
     <section className={styles["highlight"]}>
+      <HighlightAni />
+      {/*  */}
+      {/* Highlight heading / details */}
+      {/*  */}
+      <div className={styles["highlight-main"]}>
+        {/*  */}
+        {/* Item 1 */}
+        <div className={`${styles["highlight-main-item"]} ${styles["item1"]}`}>
+          <img src="/home/about1.jpg" />
+        </div>
+        {/*  */}
+        {/* Item 2 */}
+        <div className={`${styles["highlight-main-item"]} ${styles["item2"]}`}>
+          {" "}
+          <img src="/home/about2.jpg" />
+        </div>
+        {/*  */}
+        {/* Item 1 */}
+        <div className={`${styles["highlight-main-item"]} ${styles["item1"]}`}>
+          <img src="/home/about1.jpg" />
+        </div>
+        {/*  */}
+        {/* Item 2 */}
+        <div className={`${styles["highlight-main-item"]} ${styles["item2"]}`}>
+          {" "}
+          <img src="/home/about2.jpg" />
+        </div>
+      </div>
       {/*  */}
       {/* Highlight heading / details */}
       {/*  */}
