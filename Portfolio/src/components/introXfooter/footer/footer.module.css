@@ -12,6 +12,7 @@
   padding-top: var(--space-32);
   justify-content: space-between;
   overflow: hidden;
+  z-index: 10;
 }
 /*  */
 /* Top section */

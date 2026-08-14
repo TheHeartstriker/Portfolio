@@ -1,12 +1,14 @@
 import styles from "./footer.module.css";
 import { footerText } from "../text";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
+import FooterAni from "./footerAni";
 
 import Link from "next/link";
 
 function Footer() {
   return (
     <footer className={styles["footer"]}>
+      <FooterAni />
       {/*  */}
       {/* Top section */}
       {/*  */}

@@ -9,6 +9,7 @@
   padding-top: var(--space-32);
   gap: var(--space-64);
   align-items: center;
+  z-index: 20;
 }
 /*  */
 /* Intro info  */

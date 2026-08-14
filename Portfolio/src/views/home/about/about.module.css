@@ -1,10 +1,12 @@
 .about {
   display: flex;
   flex-direction: column;
+  position: relative;
   padding: var(--space-24);
   padding-top: var(--space-32);
   background-color: var(--light-1);
   gap: var(--space-24);
+  z-index: 20;
 }
 /*  */
 /* Main about container */
