@@ -20,6 +20,7 @@
   background-color: var(--accent-1);
   padding: var(--space-16);
   border-radius: var(--border-radius);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
 }
 
 .action-button-left h4 {
@@ -37,8 +38,40 @@
   align-items: center;
   background-color: var(--accent-1);
   border-radius: var(--border-radius);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
 }
 
+/*  */
+/* Btn Hover */
+/* Svg */
+.action-button-right svg path {
+  transition:
+    transform var(--motion-medium-2) var(--power-2-out),
+    stroke var(--motion-medium-2) var(--power-2-out);
+}
+
+.action-button:hover .action-button-right svg path:first-of-type {
+  transform: translateX(50%);
+}
+/*  */
+/* Background color switch */
+.action-button:hover .action-button-left {
+  background-color: var(--dark-3);
+}
+.action-button:hover .action-button-right {
+  background-color: var(--dark-3);
+}
+
+.action-button:hover .action-button-left h4 {
+  color: var(--accent-1);
+}
+
+.action-button:hover .action-button-right svg path {
+  stroke: var(--accent-1) !important;
+}
+
+/*  */
+/* Background color */
 /*  */
 /* Types */
 /* Intro */

@@ -1,6 +1,6 @@
 .divider {
   position: relative;
-  height: 70vh;
+  height: 65vh;
 }
 
 .divider img {
@@ -10,4 +10,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(0);
 }

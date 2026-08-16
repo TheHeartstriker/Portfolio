@@ -23,7 +23,7 @@ function Who() {
         {/*  */}
         {/* Image */}
         <div className={styles["who-bottom-image"]}>
-          <img src="/home/dev.png"></img>
+          <img src="/home/dev.jpg"></img>
         </div>
         {/*  */}
         {/* text section */}

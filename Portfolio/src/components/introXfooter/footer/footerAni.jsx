@@ -14,16 +14,15 @@ function FooterAni() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         footer,
-        { yPercent: -20 },
+        { yPercent: -15 },
         {
           yPercent: 0,
           ease: "none",
           scrollTrigger: {
             trigger: footer,
-            start: "top bottom",
+            start: "top 85%",
             end: "bottom bottom",
             scrub: true,
-            // markers: true, // uncomment to debug start/end visually
           },
         },
       );

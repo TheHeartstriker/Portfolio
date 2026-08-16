@@ -8,7 +8,7 @@
   height: 400vh;
   background: transparent url("./noise.png") repeat 0 0;
   background-repeat: repeat;
-  background-size: 325px 325px;
+  background-size: 400px 400px;
   animation: 750ms infinite noise;
   pointer-events: none;
   opacity: 0.9;
