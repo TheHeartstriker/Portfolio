@@ -23,6 +23,7 @@ function Who() {
         {/*  */}
         {/* Image */}
         <div className={styles["who-bottom-image"]}>
+          <div className={styles["who-bottom-image-overlay"]}></div>
           <img src="/home/dev.jpg"></img>
         </div>
         {/*  */}

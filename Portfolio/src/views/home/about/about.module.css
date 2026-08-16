@@ -20,6 +20,8 @@
 .about-image {
   position: relative;
   width: 50%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .about-image img {
@@ -30,6 +32,19 @@
   height: 100%;
   object-fit: cover;
 }
+
+.about-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  z-index: 5;
+  opacity: 0.05;
+}
+
 /*  */
 /* Right side image */
 .about-text {
@@ -44,6 +59,7 @@
 .about-text h2 {
   font-size: var(--typo-size-40);
   font-weight: var(--typo-weight-semi-bold);
+  margin-left: var(--space-24);
   line-height: 1.05;
 }
 

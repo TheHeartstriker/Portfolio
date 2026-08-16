@@ -14,6 +14,7 @@ function About() {
         {/*  */}
         {/* Left side image */}
         <div className={styles["about-image"]}>
+          <div className={styles["about-image-overlay"]}></div>
           <img src="/home/about1.jpg"></img>
         </div>
         {/*  */}

@@ -27,12 +27,15 @@ function Intro() {
       {/*  */}
       {/* Main BTN */}
       {/*  */}
-
       <ActionButton text={"FIND YOUR PROJECT"} type={"intro"} />
       {/*  */}
       {/* Main image */}
       {/*  */}
       <img src="/introXfooter/intro.jpg" alt="Intro" />
+      {/*  */}
+      {/* Button overlay */}
+      <div className={styles["intro-overlay-1"]}></div>
+      <div className={styles["intro-overlay-2"]}></div>
     </section>
   );
 }

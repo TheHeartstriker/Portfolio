@@ -1,0 +1,50 @@
+/*  */
+/* Main project container*/
+/*  */
+.work-project {
+  display: flex;
+  height: calc(100vh - var(--space-24) * 2);
+  width: fit-content;
+}
+/*  */
+/* Hero section */
+/*  */
+.work-project-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 80vw;
+  flex-shrink: 0;
+  padding-right: var(--space-96);
+}
+/*  */
+/* Main heading */
+.work-project-hero h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-14);
+}
+
+.work-project-hero h2 {
+  color: var(--light-1);
+  font-weight: var(--typo-weight-semi-bold);
+  font-size: var(--typo-size-96);
+  line-height: 1;
+  width: calc(var(--column-width) * 5 + var(--space-24) * 4);
+  margin-bottom: calc(var(--space-128) + var(--space-96));
+}
+/*  */
+/* Main Bottom area */
+.work-project-hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-48);
+  width: 100%;
+}
+
+.work-project-hero-bottom p {
+  color: var(--light-1);
+  font-weight: var(--typo-weight-regular);
+  font-size: var(--typo-size-14);
+}

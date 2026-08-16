@@ -19,7 +19,7 @@ function Nav() {
       {/* Middle links */}
       <div className={styles["nav-links"]}>
         <Link href="/">HOME</Link>
-        <Link href="/">PORTFOLIO</Link>
+        <Link href="/portfolio">PORTFOLIO</Link>
         <Link href="/">BLOG</Link>
         <Link href="/">CONTACT</Link>
       </div>

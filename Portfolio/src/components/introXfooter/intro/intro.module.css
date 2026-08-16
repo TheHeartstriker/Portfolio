@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-8);
-  z-index: 10;
+  z-index: 20;
 }
 
 .intro-info h3 {
@@ -53,19 +53,19 @@
   font-weight: var(--typo-weight-medium);
   text-align: center;
   line-height: 1;
-  z-index: 10;
+  z-index: 20;
 }
 /*  */
 /* Image rune */
 /*  */
 .intro-rune {
   position: relative;
+  z-index: 20;
 }
 
 .intro-rune svg {
   width: 30rem;
   height: 30rem;
-  z-index: 10;
 }
 
 .intro-rune svg path {
@@ -84,13 +84,28 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: saturate(0);
 }
 
-.intro::before {
-  content: "";
+.intro-overlay-1 {
   position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.intro-overlay-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  opacity: 0.05;
+  z-index: 10;
 }

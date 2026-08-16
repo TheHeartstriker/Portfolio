@@ -1,0 +1,9 @@
+/*  */
+/* Work*/
+/*  */
+.work {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: var(--space-24);
+}
