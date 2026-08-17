@@ -3,19 +3,33 @@
 /*  */
 .work-project {
   display: flex;
+  flex-direction: row;
   height: calc(100vh - var(--space-24) * 2);
-  width: fit-content;
+  width: auto;
 }
 /*  */
-/* Hero section */
+/* Image overlay style*/
+/*  */
+.work-project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: var(--accent-1);
+  opacity: 0.05;
+}
+/*  */
+/* Heading section */
 /*  */
 .work-project-hero {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 80vw;
+  width: calc(var(--column-width) * 8 + var(--space-24) * 7);
+  padding-right: var(--space-72);
   flex-shrink: 0;
-  padding-right: var(--space-96);
 }
 /*  */
 /* Main heading */
@@ -47,4 +61,318 @@
   color: var(--light-1);
   font-weight: var(--typo-weight-regular);
   font-size: var(--typo-size-14);
+}
+/*  */
+/* Project main image / video and details */
+/*  */
+.work-project-main {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100vw;
+  flex-shrink: 0;
+  border-radius: var(--border-radius);
+  margin-left: var(--space-24);
+  padding: var(--space-32);
+  overflow: hidden;
+}
+/*  */
+/* The image background */
+.work-project-main img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-project-main-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: var(--accent-1);
+  opacity: 0.05;
+}
+/*  */
+/* Main image details */
+.work-project-main-left {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: var(--space-32);
+  z-index: 10;
+}
+
+.work-project-main-left-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.work-project-main-left-info h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+}
+
+.work-project-main-left-info h5 {
+  font-family: var(--font-display);
+  font-size: var(--typo-size-24);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-1);
+}
+
+.work-project-main-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-left: var(--space-32);
+  z-index: 10;
+}
+
+.work-project-main-right h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+}
+
+.work-project-main-right h5 {
+  font-family: var(--font-display);
+  font-size: var(--typo-size-24);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-1);
+}
+
+/*  */
+/* Project middle section / big subheading two image and a para */
+/*  */
+.work-project-middle {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: var(--space-40);
+  flex-shrink: 0;
+  margin: 0 var(--space-40);
+}
+/*  */
+/* Text top */
+.work-project-middle-top {
+  display: flex;
+  width: auto;
+}
+
+.work-project-middle-top h3 {
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-semi-bold);
+  line-height: 1.05;
+  color: var(--light-1);
+  width: calc(var(--column-width) * 6 + var(--space-24) * 5);
+}
+
+/*  */
+/* Text and image bottom area */
+.work-project-middle-bottom {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+  gap: calc(var(--space-128) * 3);
+}
+/* Image stuff left container*/
+.work-project-middle-bottom-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--space-24);
+  width: calc(var(--column-width) * 3 + var(--space-24) * 2);
+}
+
+/* The image container */
+.work-project-middle-bottom-left-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.work-project-middle-bottom-left-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-project-middle-bottom-left-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  z-index: 5;
+  opacity: 0.05;
+}
+
+/* The para */
+.work-project-middle-bottom p {
+  font-size: var(--typo-size-14);
+  color: var(--light-1);
+  font-weight: var(--typo-weight-regular);
+  width: calc(var(--column-width) * 4 + var(--space-24) * 3);
+}
+/*  */
+/* Full large scale images */
+/*  */
+
+.work-project-image-1 {
+  position: relative;
+  height: 100%;
+  width: 100vw;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.work-project-image-2 {
+  position: relative;
+  height: 100%;
+  width: 50vw;
+  margin-left: var(--space-40);
+  flex-shrink: 0;
+
+  overflow: hidden;
+}
+
+.work-project-image-3 {
+  position: relative;
+  height: 100%;
+  width: 25vw;
+  margin-left: var(--space-40);
+  flex-shrink: 0;
+
+  overflow: hidden;
+}
+
+.work-project-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.work-project-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  z-index: 5;
+  opacity: 0.05;
+}
+
+/*  */
+/* Exit section aka last area of a project*/
+/*  */
+.work-project-exit {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-top: var(--space-24);
+  margin-left: var(--space-40);
+}
+/*  */
+/* Main top heading */
+.work-project-exit h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-14);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-1);
+}
+
+.work-project-exit h3 {
+  font-size: var(--typo-size-96);
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+  margin-right: var(--space-96);
+}
+/*  */
+/* Main next project or section card */
+.work-project-exit-tab {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: auto;
+  gap: var(--space-12);
+  width: calc(var(--column-width) * 4 + var(--space-24) * 3);
+}
+
+/* Small text and icon area */
+.work-project-exit-tab-intro {
+  display: flex;
+  width: 100%;
+}
+.work-project-exit-tab-intro h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-3);
+}
+
+.work-project-exit-tab-intro svg {
+  width: var(--typo-size-12);
+  height: var(--typo-size-12);
+  margin-left: auto;
+}
+
+.work-project-exit-tab-intro svg path {
+  stroke: var(--light-3);
+}
+
+/* Line / progress indicator */
+.work-project-exit-tab-pro {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+  height: 2px;
+}
+
+.work-project-exit-tab-pro-line1 {
+  background-color: var(--light-1);
+  height: 100%;
+  width: 25%;
+}
+
+.work-project-exit-tab-pro-line2 {
+  background-color: var(--dark-3);
+  height: 100%;
+  width: 75%;
+}
+
+/* Main image container for next section */
+
+.work-project-exit-tab-image {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+}
+
+.work-project-exit-tab-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }

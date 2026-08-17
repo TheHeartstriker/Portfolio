@@ -28,6 +28,7 @@
   color: var(--dark-1);
   font-family: var(--font-body);
   font-weight: var(--typo-weight-regular);
+  white-space: nowrap;
   margin: 0;
 }
 
@@ -57,14 +58,14 @@
 /*  */
 /* Background color switch */
 .action-button:hover .action-button-left {
-  background-color: var(--dark-3);
+  background-color: var(--dark-3) !important;
 }
 .action-button:hover .action-button-right {
-  background-color: var(--dark-3);
+  background-color: var(--dark-3) !important;
 }
 
 .action-button:hover .action-button-left h4 {
-  color: var(--accent-1);
+  color: var(--accent-1) !important;
 }
 
 .action-button:hover .action-button-right svg path {
@@ -129,4 +130,32 @@
 
 .action-button.small .action-button-right svg path {
   stroke-width: var(--small-stroke-width);
+}
+
+/*  */
+/* Small */
+.action-button.work {
+  height: 2rem;
+}
+.action-button.work .action-button-left {
+  width: 100%;
+  background-color: var(--light-1);
+}
+
+.action-button.work .action-button-left h4 {
+  font-size: var(--typo-size-10);
+  color: var(--dark-1);
+}
+.action-button.work .action-button-right {
+  background-color: var(--light-1);
+}
+
+.action-button.work .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.work .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+  stroke: var(--dark-1);
 }
