@@ -1,98 +1,38 @@
 import styles from "./who.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
-import RadahnRune from "@/../public/icons/radahnRune";
-import SectionInfo from "@/components/sectionInfo/sectionInfo";
+import { whoGroups, whoHeading, whoImage, whoIntro } from "./text";
 
 function Who() {
   return (
     <section className={styles["who"]}>
-      {/*  */}
-      {/* Row text and small heading */}
-      {/*  */}
       <div className={styles["who-text"]}>
-        <h2>WHO AM I</h2>
-        <p>
-          {lorem} <br /> <br />
-          {lorem + smallLorem}
-        </p>
+        <h2>{whoHeading}</h2>
+        <p>{whoIntro}</p>
       </div>
-      {/*  */}
-      {/* Row image and subhead text */}
-      {/*  */}
+
       <div className={styles["who-bottom"]}>
-        {/*  */}
-        {/* Image */}
         <div className={styles["who-bottom-image"]}>
           <div className={styles["who-bottom-image-overlay"]}></div>
-          <img src="/home/dev.jpg"></img>
+          <img src={whoImage} alt="Who" />
         </div>
-        {/*  */}
-        {/* text section */}
+
         <div className={styles["who-bottom-text"]}>
-          {/* Item 1 */}
-          <div className={styles["who-bottom-text-item"]}>
-            {/* Sub heading left */}
-            <div className={styles["who-bottom-text-item-sub"]}>
-              <h3>Identity</h3>
+          {whoGroups.map((group) => (
+            <div key={group.label} className={styles["who-bottom-text-item"]}>
+              <div className={styles["who-bottom-text-item-sub"]}>
+                <h3>{group.label}</h3>
+              </div>
+              <div className={styles["who-bottom-text-item-detail"]}>
+                <h4>
+                  {group.items.map((item, index) => (
+                    <span key={`${group.label}-${item}-${index}`}>
+                      {item}
+                      {index < group.items.length - 1 ? <br /> : null}
+                    </span>
+                  ))}
+                </h4>
+              </div>
             </div>
-            {/* Details right */}
-            <div className={styles["who-bottom-text-item-detail"]}>
-              <h4>
-                Brand Platform <br />
-                Brand Platform
-                <br />
-                Brand Platform
-              </h4>
-            </div>
-          </div>
-          {/* Item 1 */}
-          <div className={styles["who-bottom-text-item"]}>
-            {/* Sub heading left */}
-            <div className={styles["who-bottom-text-item-sub"]}>
-              <h3>Identity</h3>
-            </div>
-            {/* Details right */}
-            <div className={styles["who-bottom-text-item-detail"]}>
-              <h4>
-                Brand Platform <br />
-                Brand Platform
-                <br />
-                Brand Platform
-              </h4>
-            </div>
-          </div>
-          {/* Item 1 */}
-          <div className={styles["who-bottom-text-item"]}>
-            {/* Sub heading left */}
-            <div className={styles["who-bottom-text-item-sub"]}>
-              <h3>Identity</h3>
-            </div>
-            {/* Details right */}
-            <div className={styles["who-bottom-text-item-detail"]}>
-              <h4>
-                Brand Platform <br />
-                Brand Platform
-                <br />
-                Brand Platform
-              </h4>
-            </div>
-          </div>
-          {/* Item 1 */}
-          <div className={styles["who-bottom-text-item"]}>
-            {/* Sub heading left */}
-            <div className={styles["who-bottom-text-item-sub"]}>
-              <h3>Identity</h3>
-            </div>
-            {/* Details right */}
-            <div className={styles["who-bottom-text-item-detail"]}>
-              <h4>
-                Brand Platform <br />
-                Brand Platform
-                <br />
-                Brand Platform
-              </h4>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

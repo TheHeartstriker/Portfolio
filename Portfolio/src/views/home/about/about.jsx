@@ -1,36 +1,27 @@
 import styles from "./about.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
 import RadahnRune from "@/../public/icons/radahnRune";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
+import { aboutImage, aboutMetaText, aboutSubtitle, aboutTitle } from "./text";
 
 function About() {
   return (
     <section className={styles["about"]}>
       <SectionInfo infoName="ABOUT" />
-      {/*  */}
-      {/* Main content container */}
-      {/*  */}
       <div className={styles["about-con"]}>
-        {/*  */}
-        {/* Left side image */}
         <div className={styles["about-image"]}>
           <div className={styles["about-image-overlay"]}></div>
-          <img src="/home/about1.jpg"></img>
+          <img src={aboutImage} alt="About" />
         </div>
-        {/*  */}
-        {/* Right side text */}
+
         <div className={styles["about-text"]}>
           <h2>
-            A supersolid is a special quantum state of matter that’s both solid
-            and fluid at the same time. <br />
+            {aboutTitle} <br />
             <br />
-            Supersolid is a 100% creative-owned agency that’s both structured
-            and seamless, logical and unexpected, proven and future-proof.
+            {aboutSubtitle}
           </h2>
-          {/* Icon and text */}
           <div className={styles["about-text-icon"]}>
             <RadahnRune />
-            <p>{smallLorem}</p>
+            <p>{aboutMetaText}</p>
           </div>
         </div>
       </div>

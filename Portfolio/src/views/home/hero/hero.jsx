@@ -3,6 +3,7 @@ import { lorem, smallLorem } from "@/utils/text/text";
 import ActionButton from "@/components/button/actionButton";
 import MorgottRune from "@/../public/icons/morgottRune";
 import HeroAni from "./heroAni";
+import { heroHeading1, heroHeading2, heroPara, scrollPara } from "./text";
 function Hero() {
   return (
     <section className={styles["hero"]}>
@@ -13,11 +14,11 @@ function Hero() {
       <div className={styles["hero-main"]}>
         <div className={styles["hero-main-heading"]}>
           <h1>
-            One Creative. <br />
-            <span>One Obsession: Craft</span>
+            {heroHeading1} <br />
+            <span>{heroHeading2}</span>
           </h1>
         </div>
-        <p>{lorem + smallLorem}</p>
+        <p>{heroPara}</p>
       </div>
 
       {/*  */}
@@ -25,7 +26,7 @@ function Hero() {
       {/*  */}
       <div className={styles["hero-detail"]}>
         <MorgottRune />
-        <h4>Scroll to explore</h4>
+        <h4>{scrollPara}</h4>
         <MorgottRune />
       </div>
     </section>

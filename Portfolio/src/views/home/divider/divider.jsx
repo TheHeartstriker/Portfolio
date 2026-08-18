@@ -1,5 +1,6 @@
 import styles from "./divider.module.css";
 import ScrollMotion from "@/components/animations/scrollMotion";
+import { dividerImage } from "./text";
 
 function Divider() {
   return (
@@ -11,15 +12,10 @@ function Divider() {
         start="top 85%"
         end="bottom top"
       />
-      {/*  */}
-      {/* Image overlay for effect */}
       <div className={styles["divider-overlay-1"]}></div>
       <div className={styles["divider-overlay-2"]}></div>
-      {/*  */}
-      {/* Image and image wrapper  */}
-      {/*  */}
       <div className={styles["divider-wrapper"]}>
-        <img src="/home/about2.jpg"></img>
+        <img src={dividerImage} alt="Divider" />
       </div>
     </section>
   );

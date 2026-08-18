@@ -14,7 +14,7 @@
   display: flex;
   position: relative;
   align-items: flex-end;
-  height: auto;
+  height: 100%;
   width: fit-content;
 
   gap: var(--space-128);
@@ -34,17 +34,6 @@
   height: 100%;
   object-fit: cover;
   filter: saturate(0.7);
-}
-
-/* Indivdual item dimensions */
-.highlight-main-item.item1 {
-  width: 30vw;
-  height: 50vh;
-}
-
-.highlight-main-item.item2 {
-  width: 50vw;
-  height: 70vh;
 }
 
 /*  */

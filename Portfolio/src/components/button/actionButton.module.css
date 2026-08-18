@@ -6,6 +6,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  width: fit-content;
   z-index: 10;
   gap: var(--space-8);
   margin: 0;

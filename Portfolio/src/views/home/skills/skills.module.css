@@ -61,9 +61,10 @@
   border: none;
   background-color: var(--dark-2);
   border-radius: var(--border-radius);
-
+  cursor: pointer;
   height: var(--typo-size-48);
   aspect-ratio: 1 / 1;
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
 }
 
 .skills-con-heading-left-control button svg {
@@ -79,7 +80,10 @@
 .skills-con-heading-left-control button:last-child svg {
   transform: rotate(-90deg);
 }
-
+/* Button container hover*/
+.skills-con-heading-left-control button:hover {
+  background-color: var(--dark-3);
+}
 /* Heading info text*/
 .skills-con-heading-left h3 {
   font-family: var(--font-body);
