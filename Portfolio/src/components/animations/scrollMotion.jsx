@@ -1,27 +1,29 @@
 "use client";
+
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import styles from "./divider.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function DividerAni() {
+function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
   useEffect(() => {
-    const footer = document.querySelector(`.${styles["divider-wrapper"]}`);
-    if (!footer) return;
+    const element = document.querySelector(item);
+    if (!element) return;
 
     const ctx = gsap.context(() => {
+      const axis = `${moveDirection}Percent`;
+
       gsap.fromTo(
-        footer,
-        { yPercent: -15 },
+        element,
+        { [axis]: moveAmount },
         {
-          yPercent: 0,
+          [axis]: 0,
           ease: "none",
           scrollTrigger: {
-            trigger: footer,
-            start: "top 85%",
-            end: "bottom top",
+            trigger: element,
+            start,
+            end,
             scrub: true,
           },
         },
@@ -29,9 +31,9 @@ function DividerAni() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [item, moveDirection, moveAmount, start, end]);
 
   return null;
 }
 
-export default DividerAni;
+export default ScrollMotion;

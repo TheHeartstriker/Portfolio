@@ -1,0 +1,77 @@
+.journey {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+}
+
+/*  */
+/* Main hero heading */
+/*  */
+
+.journey h2 {
+  font-size: calc(var(--typo-size-128) + var(--typo-size-16));
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--light-1);
+  margin-bottom: var(--space-32);
+  margin-top: var(--space-32);
+}
+
+/*  */
+/* Main Item container  */
+/*  */
+.journey-con {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  */
+/* Main item styles */
+.journey-con-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: var(--space-32);
+  gap: var(--space-32);
+  padding-bottom: var(--space-128);
+  border-top: 2px solid var(--dark-3);
+  background-color: var(--dark-1);
+}
+/*  */
+/* Main top heading */
+.journey-con-item h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  color: var(--light-3);
+  font-weight: var(--typo-weight-regular);
+}
+/* Main text area */
+.journey-con-item-text {
+  display: flex;
+  width: 100%;
+}
+
+.journey-con-item-text h3 {
+  font-size: var(--typo-size-48);
+  color: var(--light-1);
+  font-weight: var(--typo-weight-medium);
+  width: calc(var(--column-width) * 3 + var(--space-24) * 2);
+  flex-shrink: 0;
+}
+
+.journey-con-item-text p {
+  font-size: var(--typo-size-14);
+  color: var(--light-1);
+  margin-top: var(--space-12);
+  margin-left: calc(var(--column-width) * 4 + var(--space-24) * 5);
+  margin-right: calc(var(--column-width) * 1 + var(--space-24));
+}
+/*  */
+/* Main animation styles */
+
+#s1 {
+  z-index: 5;
+}
+
+#s2 {
+  z-index: 10;
+}

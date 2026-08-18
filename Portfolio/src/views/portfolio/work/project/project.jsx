@@ -3,6 +3,11 @@ import { lorem, smallLorem } from "@/utils/text/text";
 import MorgottRune from "@/../public/icons/morgottRune";
 import ActionButton from "@/components/button/actionButton";
 import ProjectAni from "./projectAni";
+
+//
+/// Rememver to replace overlay in css and image classes
+//
+//
 function Project({ projectNum }) {
   return (
     <div className={styles["work-project"]}>

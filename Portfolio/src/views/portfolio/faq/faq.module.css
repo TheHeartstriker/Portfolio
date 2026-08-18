@@ -1,0 +1,117 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+  gap: var(--space-32);
+  background-color: var(--light-1);
+  padding-bottom: var(--space-64);
+}
+.faq-con {
+  display: flex;
+}
+
+/*  */
+/* Main left side heading */
+/*  */
+.faq-con h2 {
+  font-size: var(--typo-size-48);
+  color: var(--dark-1);
+  font-weight: var(--typo-weight-semi-bold);
+  width: calc(var(--column-width) * 4 + var(--space-24) * 3);
+  flex-shrink: 0;
+}
+
+/*  */
+/* Main right side ans container */
+/*  */
+.faq-con-ans {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto;
+  width: calc(var(--column-width) * 6 + var(--space-24) * 5);
+}
+/*  */
+/* Main ans item */
+.faq-con-ans-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 2px solid var(--dark-3);
+  overflow: hidden;
+}
+/* Main top section aka svg and subheading  */
+.faq-con-ans-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-24) 0;
+  cursor: pointer;
+}
+
+.faq-con-ans-item-top h3 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-14);
+  color: var(--dark-3);
+  font-weight: var(--typo-weight-regular);
+  line-height: 1;
+  text-align: center;
+  transition: color var(--motion-medium-2) var(--power-2-out);
+}
+
+.faq-con-ans-item-top svg {
+  width: var(--typo-size-20);
+  height: var(--typo-size-20);
+  margin: auto 0;
+  margin-left: auto;
+}
+
+.faq-con-ans-item-top svg path {
+  stroke: var(--dark-3);
+  transition:
+    stroke var(--motion-medium-2) var(--power-2-out),
+    transform var(--motion-medium-2) var(--power-2-out);
+}
+
+/* Main bottom section aka paragraph */
+.faq-con-ans-item p {
+  font-size: var(--typo-size-14);
+  color: var(--dark-3);
+  max-height: 0;
+  transition:
+    max-height var(--motion-large-2) var(--power-1-out),
+    margin-bottom var(--motion-large-2) var(--power-1-out);
+}
+/*  */
+/* Main ans item hover */
+.faq-con-ans-item:hover .faq-con-ans-item-top h3 {
+  color: var(--dark-1);
+}
+
+.faq-con-ans-item:hover .faq-con-ans-item-top svg path {
+  stroke: var(--dark-1);
+}
+
+.faq-con-ans-item:hover .faq-con-ans-item-top svg path:first-of-type {
+  transform: translateX(50%);
+}
+/*  */
+/* Main ans active state */
+.faq-con-ans-item.active p {
+  font-size: var(--typo-size-14);
+  color: var(--dark-3);
+  max-height: 300px;
+  margin-bottom: var(--space-24);
+}
+.faq-con-ans-item-top.active h3 {
+  color: var(--dark-1);
+}
+
+.faq-con-ans-item-top.active svg path {
+  stroke: var(--dark-1);
+}
+
+.faq-con-ans-item-top.active svg path:first-of-type {
+  transform: translateX(50%);
+}

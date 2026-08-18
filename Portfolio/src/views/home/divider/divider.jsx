@@ -1,13 +1,16 @@
 import styles from "./divider.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
-import RadahnRune from "@/../public/icons/radahnRune";
-import SectionInfo from "@/components/sectionInfo/sectionInfo";
-import DividerAni from "./dividerAni";
+import ScrollMotion from "@/components/animations/scrollMotion";
 
 function Divider() {
   return (
     <section className={styles["divider"]}>
-      <DividerAni />
+      <ScrollMotion
+        item={`.${styles["divider-wrapper"]}`}
+        moveDirection="y"
+        moveAmount={-15}
+        start="top 85%"
+        end="bottom top"
+      />
       {/*  */}
       {/* Image overlay for effect */}
       <div className={styles["divider-overlay-1"]}></div>
