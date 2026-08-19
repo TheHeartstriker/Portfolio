@@ -1,6 +1,7 @@
 import styles from "./hero.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
 import MorgottRune from "@/../public/icons/morgottRune";
+import { heroDescription, heroScrollLabel, heroTitle } from "./text";
+
 function Hero() {
   return (
     <section className={styles["hero"]}>
@@ -8,15 +9,15 @@ function Hero() {
       {/* Hero */}
       {/*  */}
       <div className={styles["hero-main"]}>
-        <h1>The Vision</h1>
-        <p>{smallLorem}</p>
+        <h1>{heroTitle}</h1>
+        <p>{heroDescription}</p>
       </div>
       {/*  */}
       {/* Detail bottom */}
       {/*  */}
       <div className={styles["hero-detail"]}>
         <MorgottRune />
-        <h4>Scroll to explore</h4>
+        <h4>{heroScrollLabel}</h4>
         <MorgottRune />
       </div>
     </section>

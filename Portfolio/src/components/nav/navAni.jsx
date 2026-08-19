@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import styles from "./nav.module.css";
+import workStyles from "../../views/portfolio/work/work.module.css";
 
 function NavAni() {
   //
@@ -23,7 +24,7 @@ function NavAni() {
     const BOTTOM_OFFSET = 125;
 
     //
-    // Animation
+    // Inital Animation
     //
     timeline.to(nav, {
       backgroundColor: "var(--dark-2)",
@@ -31,49 +32,93 @@ function NavAni() {
       duration: 0.45,
       ease: "power2.out",
     });
+    //
+    // Normal nav operations(aka disappearing fading background in out)
+    //
+    function handleReverse(currentScrollY, delta) {
+      if (currentScrollY <= TOP_OFFSET) {
+        //
+        // Near top, keep nav hidden
+        timeline.reverse();
+        downAccum = 0;
+      } else if (delta < 0) {
+        //
+        // Scrolling up, show nav
+        timeline.play();
+        downAccum = 0;
+      } else if (delta > 0) {
+        //
+        // Scrolling down, accumulate before reverting
+        downAccum += delta;
+
+        if (downAccum > DOWN_THRESHOLD) {
+          timeline.reverse();
+        }
+      }
+
+      gsap.to(nav, {
+        autoAlpha: 1,
+        duration: 0.45,
+        ease: "power2.out",
+      });
+    }
 
     //
-    // Animation cals on scroll
+    // Completely disappear nav
+    //
+    function handleDisappear() {
+      gsap.to(nav, {
+        autoAlpha: 0,
+        duration: 0.45,
+        ease: "power2.out",
+      });
+
+      downAccum = 0;
+    }
+    //
+    // Check whats under and if it's work
+    //
+    function isUnder() {
+      const navRect = nav.getBoundingClientRect();
+      // Point directly underneath the nav, in the middle of the screen
+      const navPoint = document.elementFromPoint(
+        window.innerWidth / 2,
+        navRect.bottom + 1,
+      );
+
+      // Point in the middle of the screen
+      const centerPoint = document.elementFromPoint(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+      );
+
+      const workClass = workStyles["work"];
+
+      const navIsOverWork = navPoint?.closest(`.${workClass}`);
+      const centerIsOverWork = centerPoint?.closest(`.${workClass}`);
+
+      if (navIsOverWork && centerIsOverWork) {
+        return true;
+      } else {
+        false;
+      }
+    }
+
+    //
+    // Animation calls on scroll
+    //
     function handleScroll() {
       const currentScrollY = window.scrollY;
       const delta = currentScrollY - lastScrollY;
-      // Calls when we are close to the bottom of the page
+
       const distanceFromBottom =
         document.documentElement.scrollHeight -
         (currentScrollY + window.innerHeight);
-      if (distanceFromBottom <= BOTTOM_OFFSET) {
-        gsap.to(nav, {
-          autoAlpha: 0,
-          duration: 0.45,
-          ease: "power2.out",
-        });
-        downAccum = 0;
-      } else {
-        gsap.to(nav, {
-          autoAlpha: 1,
-          duration: 0.45,
-          ease: "power2.out",
-        });
-        // Calls when we move upwards or downwards chnage the background
-        if (currentScrollY <= TOP_OFFSET) {
-          //
-          // Near top, keep nav hidden
-          timeline.reverse();
-          downAccum = 0;
-        } else if (delta < 0) {
-          //
-          // Scrolling up, show nav
-          timeline.play();
-          downAccum = 0;
-        } else if (delta > 0) {
-          //
-          // Scrolling down, accumulate before reverting
-          downAccum += delta;
 
-          if (downAccum > DOWN_THRESHOLD) {
-            timeline.reverse();
-          }
-        }
+      if (distanceFromBottom <= BOTTOM_OFFSET || isUnder()) {
+        handleDisappear();
+      } else {
+        handleReverse(currentScrollY, delta);
       }
 
       lastScrollY = currentScrollY;

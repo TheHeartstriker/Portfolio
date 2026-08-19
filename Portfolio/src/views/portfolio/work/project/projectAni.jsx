@@ -28,6 +28,20 @@ function ProjectAni({ projectNum }) {
 
         return main.scrollWidth - (section.clientWidth - padding);
       }
+
+      //
+      // Exit lock — extra pinned distance (px) after the horizontal pass
+      // completes, during which the exit progress lines fill in
+      const exitLockDistance = 700;
+      const scrollDistance = getScrollDistance();
+
+      const line1 = main.querySelector(
+        `.${projectStyles["work-project-exit-tab-pro-line1"]}`,
+      );
+      const line2 = main.querySelector(
+        `.${projectStyles["work-project-exit-tab-pro-line2"]}`,
+      );
+
       //
       // Timeline
       const tl = gsap.timeline();
@@ -38,9 +52,50 @@ function ProjectAni({ projectNum }) {
             return -getScrollDistance();
           },
           ease: "none",
+          duration: scrollDistance,
         },
         0,
       );
+
+      //
+      // Exit progress lines — fills over the last exitLockDistance px, scrubbed so it reverses if the user scrolls back up
+      if (line1 && line2) {
+        tl.set(
+          line1,
+          {
+            width: "0%",
+          },
+          ">",
+        );
+
+        tl.set(
+          line2,
+          {
+            width: "100%",
+          },
+          "<",
+        );
+
+        tl.to(
+          line1,
+          {
+            width: "100%",
+            ease: "none",
+            duration: exitLockDistance,
+          },
+          ">",
+        );
+
+        tl.to(
+          line2,
+          {
+            width: "0%",
+            ease: "none",
+            duration: exitLockDistance,
+          },
+          "<",
+        );
+      }
 
       //
       // ScrollTrigger
@@ -56,7 +111,7 @@ function ProjectAni({ projectNum }) {
         trigger: main,
         start: `bottom bottom-=${remToPx}`,
         end: function () {
-          return `+=${getScrollDistance()}`;
+          return `+=${getScrollDistance() + exitLockDistance}`;
         },
         pin: true,
         pinSpacing: true,

@@ -2,29 +2,12 @@
 
 import { useState } from "react";
 import styles from "./faq.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
-import MorgottRune from "@/../public/icons/morgottRune";
 import RadahnRune from "@/../public/icons/radahnRune";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
+import { faqItems, faqTitle } from "./text";
 
 function FAQ() {
   const [active, setActive] = useState(0);
-
-  const faqItems = [
-    {
-      question:
-        "HOW DO YOU WORK WITH BRANDS WITH EXISTING BOOKING AND DESIGN SYSTEMS?",
-      answer: lorem + smallLorem,
-    },
-    {
-      question: "HOW LONG DOES A WEBSITE PROJECT TAKE?",
-      answer: lorem + smallLorem,
-    },
-    {
-      question: "WHAT DOES YOUR DESIGN PROCESS LOOK LIKE?",
-      answer: lorem + smallLorem,
-    },
-  ];
 
   return (
     <section className={styles["faq"]}>
@@ -33,14 +16,13 @@ function FAQ() {
         {/*  */}
         {/* Left side heading */}
         {/*  */}
-        <h2>Common questions</h2>
+        <h2>{faqTitle}</h2>
         {/*  */}
         {/* Right side answer's container*/}
         {/*  */}
         <div className={styles["faq-con-ans"]}>
           {faqItems.map((item, index) => {
             const isActive = active === index;
-
             return (
               /*  */
               /* Ans Item */
@@ -59,7 +41,6 @@ function FAQ() {
                   <h3>{item.question}</h3>
                   <RadahnRune />
                 </div>
-
                 {/*  */}
                 {/* Bottom para / answer text */}
                 {/*  */}

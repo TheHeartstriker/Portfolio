@@ -1,6 +1,8 @@
 "use client";
-import { ReactLenis } from "@studio-freight/react-lenis";
+
+import { ReactLenis } from "lenis/react";
 import PropTypes from "prop-types";
+import "lenis/dist/lenis.css";
 
 export default function LenisProvider({ children }) {
   return (

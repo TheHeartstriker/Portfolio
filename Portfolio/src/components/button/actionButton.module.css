@@ -137,6 +137,7 @@
 /* work */
 .action-button.work {
   height: 2rem;
+  width: 100%;
 }
 .action-button.work .action-button-left {
   width: 100%;

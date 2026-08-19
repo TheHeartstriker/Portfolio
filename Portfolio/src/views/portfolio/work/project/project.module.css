@@ -344,20 +344,19 @@
 .work-project-exit-tab-pro {
   display: flex;
   gap: var(--space-4);
-  width: 100%;
   height: 2px;
 }
 
 .work-project-exit-tab-pro-line1 {
   background-color: var(--light-1);
   height: 100%;
-  width: 25%;
+  width: 0%;
 }
 
 .work-project-exit-tab-pro-line2 {
   background-color: var(--dark-3);
   height: 100%;
-  width: 75%;
+  width: 100%;
 }
 
 /* Main image container for next section */

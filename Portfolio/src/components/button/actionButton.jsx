@@ -1,9 +1,12 @@
 import styles from "./actionButton.module.css";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
 
-function ActionButton({ text, type }) {
+function ActionButton({ text, type, onClick }) {
   return (
-    <button className={`${styles["action-button"]} ${styles[type]}`}>
+    <button
+      className={`${styles["action-button"]} ${styles[type]}`}
+      onClick={onClick}
+    >
       <div className={styles["action-button-left"]}>
         <h4>{text}</h4>
       </div>

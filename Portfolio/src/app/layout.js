@@ -1,7 +1,7 @@
 import "../site.css";
 import Nav from "@/components/nav/nav.jsx";
 import PropTypes from "prop-types";
-import LenisProvider from "@/components/nav/smoothScrool";
+import LenisProvider from "@/components/nav/smoothScroll";
 import { Display, Body } from "@/utils/text/fonts";
 import IntroXFooter from "@/components/introXfooter/introXfooter";
 import Script from "next/script";
