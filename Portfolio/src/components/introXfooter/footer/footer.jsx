@@ -2,12 +2,24 @@ import styles from "./footer.module.css";
 import { footerText } from "../text";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
 import FooterAni from "./footerAni";
+import BigRadahnRune from "@/../public/icons/bigRadahnRune";
+import ScrollMotion from "@/components/animations/scrollMotion";
 
 import Link from "next/link";
 
 function Footer() {
   return (
     <footer className={styles["footer"]}>
+      {/*  */}
+      {/* Animations */}
+      {/*  */}
+      <ScrollMotion
+        item={`.${styles["footer"]}`}
+        moveDirection="y"
+        moveAmount={-15}
+        start="top 85%"
+        end="bottom bottom"
+      />
       <FooterAni />
       {/*  */}
       {/* Top section */}
@@ -65,7 +77,7 @@ function Footer() {
       {/*  */}
       {/* Middle section great rune */}
       {/*  */}
-      <RadahnRune />
+      <BigRadahnRune />
       {/*  */}
       {/* Bottom section & Text*/}
       {/*  */}

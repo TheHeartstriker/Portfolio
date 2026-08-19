@@ -40,6 +40,8 @@
   gap: var(--space-16);
   width: 100%;
   justify-content: space-between;
+  /* Text animation clip causes a reflow thing this is needed */
+  min-height: calc(var(--typo-size-64) * 1.2);
 }
 
 /* Heading info and buttons*/

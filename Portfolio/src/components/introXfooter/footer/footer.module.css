@@ -131,20 +131,18 @@
 /* Middle section great rune */
 /*  */
 .footer svg {
-  width: 35rem;
-  height: 35rem;
+  width: 37rem;
+  height: 37rem;
   position: absolute;
-  z-index: 10;
-  left: 95%;
-  transform: translateX(-50%);
+  z-index: 100;
+  bottom: calc(10.7cqw * 1 + var(--typo-size-12) * 1.2);
+  left: 50%;
+  transform: translateX(70%);
+  stroke-width: 2.5px;
 }
 
-.footer svg circle {
-  stroke: var(--light-3);
-}
-
-.footer svg line {
-  stroke: var(--light-3);
+.footer svg path {
+  stroke: var(--dark-3);
 }
 
 /*  */
@@ -169,7 +167,7 @@
 }
 
 .footer-bottom h4 {
-  font-size: 10.8cqw;
+  font-size: 10.7cqw;
   font-weight: var(--typo-weight-semi-bold);
   color: var(--light-1);
   line-height: 0.8;

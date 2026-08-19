@@ -19,16 +19,16 @@ function HeroAni() {
     timelineRef.current.to(nav, {
       opacity: 1,
       duration: 0.5,
-      ease: "power2.out",
+      ease: "power1.out",
     });
     animateText(
       { start: 96, end: 0, type: "lines", mask: "lines" },
       [{ element: heading }, { element: para }],
       {
-        duration: 0.7,
-        easing: "power2.out",
+        duration: 0.6,
+        easing: "power1.out",
         stagger: 0.06,
-        staggerEase: "power2.out",
+        staggerEase: "power1.out",
         timeline: timelineRef.current,
         offset: "-=0.15",
       },
@@ -38,7 +38,7 @@ function HeroAni() {
       {
         opacity: 1,
         duration: 0.5,
-        ease: "power2.out",
+        ease: "power1.out",
       },
       "-=0.15",
     );

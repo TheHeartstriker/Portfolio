@@ -4,11 +4,13 @@ import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import ActionButton from "@/components/button/actionButton";
 import Arrow from "../../../../out/icons/arrow";
 import { Card1, Card2, Card3 } from "./text";
+import SkillsAni from "./skillsAni";
 import { useState } from "react";
 
 function Skills() {
   const cards = [Card1, Card2, Card3];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [currentCard, setCurrentCard] = useState(Card1);
 
   const handlePrevCard = () => {
     setCurrentCardIndex((prevIndex) =>
@@ -22,19 +24,16 @@ function Skills() {
     );
   };
 
-  const currentCard = cards[currentCardIndex];
-  const cardNumber = String(currentCardIndex + 1).padStart(2, "0");
-  const totalCards = String(cards.length).padStart(2, "0");
-
   return (
     <section className={styles["skills"]}>
       <SectionInfo infoName={"SKILLS"} />
+      <SkillsAni index={currentCardIndex} set={setCurrentCard} cards={cards} />
       {/*  */}
       {/* Main container */}
       {/*  */}
       <div className={styles["skills-con"]}>
         <div className={styles["skills-con-info"]}>
-          <p>{currentCard.cardDetails}</p>
+          <p key={currentCardIndex}>{currentCard.cardDetails}</p>
           <ActionButton text={"SEE PROOF"} type={"regular"} />
         </div>
 
@@ -50,10 +49,10 @@ function Skills() {
             </div>
 
             <h3>
-              {cardNumber}—{totalCards}
+              {currentCardIndex + 1}—{cards.length}
             </h3>
           </div>
-          <h2>{currentCard.cardHeading}</h2>
+          <h2 key={currentCardIndex}>{currentCard.cardHeading}</h2>
         </div>
       </div>
     </section>
