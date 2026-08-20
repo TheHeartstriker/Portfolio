@@ -1,7 +1,7 @@
 function returnPercentage(value) {
   return `calc(
     ${value} + var(--typo-size-64) * 2 + var(--typo-size-12) + var(--space-8)
-  );`;
+  )`;
 }
 
 export const highlightImages = [

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import styles from "./journey.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,18 +17,16 @@ function cssLengthToPx(value) {
   return px;
 }
 
-function JourneyAni() {
+function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
   useEffect(() => {
-    const section = document.querySelector(`.${styles["journey"]}`);
-    const con = document.querySelector(`.${styles["journey-con"]}`);
-    const items = con
-      ? Array.from(con.querySelectorAll(`.${styles["journey-con-item"]}`))
-      : [];
+    const section = journeyRef.current;
+    const con = journeyConRef.current;
+    const items = journeyConItemRef.current.filter(Boolean);
 
     if (!section || !con || items.length < 2) return;
 
     const ctx = gsap.context(() => {
-      const space24 = cssLengthToPx(
+      const space32 = cssLengthToPx(
         getComputedStyle(document.documentElement).getPropertyValue(
           "--space-32",
         ),
@@ -49,7 +47,7 @@ function JourneyAni() {
 
         const h4BottomWithinPrev =
           prevH4Rect.top - prevRect.top + prevH4Rect.height;
-        const dockTop = prevRect.top + h4BottomWithinPrev + space24;
+        const dockTop = prevRect.top + h4BottomWithinPrev + space32;
 
         deltas.push(dockTop - currRect.top);
       }

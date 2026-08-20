@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./highlight.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +10,7 @@ function HighlightAni() {
   //
   // Scroll Animation
   //
-  useEffect(() => {
+  useLayoutEffect(() => {
     const section = document.querySelector(`.${styles["highlight"]}`);
     const main = document.querySelector(`.${styles["highlight-main"]}`);
     const line1 = document.querySelector(
