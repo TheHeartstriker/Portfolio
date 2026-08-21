@@ -1,0 +1,73 @@
+/*  */
+/* Hero intro*/
+/*  */
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: var(--space-24);
+}
+
+/*  */
+/* Main image and headings */
+/*  */
+.hero-main {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 0;
+}
+
+/*  */
+/* Left and right side text */
+.hero-main h2 {
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--light-1);
+  margin: auto 0;
+}
+
+/*  */
+/* Center image */
+.hero-main-image {
+  position: relative;
+  width: calc(var(--column-width) * 5 + var(--space-24) * 3);
+  height: 22.5rem;
+}
+.hero-main-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*  */
+/* Main details area */
+/*  */
+.hero-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-detail h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  color: var(--light-1);
+  font-weight: var(--typo-weight-regular);
+  z-index: 10;
+}
+
+.hero-detail svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+}
+
+.hero-detail svg circle {
+  stroke: var(--light-1);
+  stroke-width: 1px;
+}
+.hero-detail svg path {
+  stroke: var(--light-1);
+  stroke-width: 1px;
+}

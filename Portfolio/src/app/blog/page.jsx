@@ -4,10 +4,9 @@ export const metadata = {
     "Explore my Scriptorium, a space for my creative writing, thoughts, and experiments. A general blog on coding in web development, general software engineering, and graphics programming.",
 };
 
-import Scriptorium from "../../views/scriptorium/scriptorium.jsx";
-
-function ScriptoriumPage() {
-  return <Scriptorium />;
+import Blog from "@/views/blog/blog";
+function BlogPage() {
+  return <Blog />;
 }
 
-export default ScriptoriumPage;
+export default BlogPage;

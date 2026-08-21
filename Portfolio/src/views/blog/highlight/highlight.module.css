@@ -1,0 +1,169 @@
+.highlight {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+}
+
+/*  */
+/* Top section */
+/*  */
+.highlight-intro {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-24);
+}
+
+/*  */
+/* Top left side heading */
+.highlight-intro h2 {
+  font-size: var(--typo-size-48);
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--light-1);
+  line-height: 1.1;
+  /* Not slightly non aligned */
+  width: calc(var(--column-width) * 4 + var(--space-24) * 2);
+  flex-shrink: 0;
+}
+
+/*  */
+/* Bottom section detail / name */
+.highlight-intro-detail {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: auto;
+}
+
+.highlight-intro-detail h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+}
+
+.highlight-intro-detail svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+}
+
+.highlight-intro-detail svg path {
+  stroke: var(--light-3);
+  stroke-width: var(--small-stroke-width);
+}
+/*  */
+/* Middle gallery section */
+/*  */
+.highlight-gallery {
+  display: flex;
+  gap: var(--space-16);
+  height: 25rem;
+}
+
+/*  */
+/* Left side image */
+.highlight-gallery-image-1 {
+  position: relative;
+  height: 100%;
+  width: calc(var(--column-width) * 7 + var(--space-24) * 6);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.highlight-gallery-image-1 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform var(--motion-medium-2) var(--power-2-out);
+}
+
+.highlight-gallery-image-1:hover img {
+  transform: scale(1.1);
+}
+
+/*  */
+/* Right side image */
+.highlight-gallery-image-2 {
+  position: relative;
+  flex: 1;
+  background-color: aliceblue;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.highlight-gallery-image-2 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform var(--motion-medium-2) var(--power-2-out);
+}
+
+.highlight-gallery-image-2:hover img {
+  transform: scale(1.1);
+}
+
+.highlight-gallery-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  z-index: 5;
+  opacity: 0.05;
+}
+/*  */
+/* Bottom section stat cards*/
+/*  */
+.highlight-stat {
+  display: flex;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+/*  */
+/* Cards themselfs */
+.highlight-stat-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: calc(var(--space-128) * 2 + var(--space-32));
+  background-color: var(--dark-2);
+  padding: var(--space-16);
+  border-radius: var(--border-radius);
+}
+
+.highlight-stat-item h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-96);
+  font-weight: var(--typo-weight-medium);
+  color: var(--light-1);
+}
+
+.highlight-stat-item h3 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-14);
+  font-weight: var(--typo-weight-regular);
+  color: var(--light-1);
+}
+
+.highlight-stat-item:first-child {
+  background-color: var(--light-1);
+}
+
+.highlight-stat-item:first-child h3 {
+  color: var(--dark-1);
+}
+
+.highlight-stat-item:first-child h4 {
+  color: var(--dark-1);
+}

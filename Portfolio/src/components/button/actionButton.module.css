@@ -161,3 +161,31 @@
   stroke-width: var(--small-stroke-width);
   stroke: var(--dark-1);
 }
+
+/*  */
+/* Post */
+
+.action-button.blog {
+  height: 2.5rem;
+}
+
+.action-button.blog .action-button-left {
+  width: 100%;
+  background-color: var(--dark-1);
+}
+
+.action-button.blog .action-button-left h4 {
+  font-size: var(--typo-size-10);
+  color: var(--light-1);
+}
+.action-button.blog .action-button-right {
+  background-color: var(--dark-1);
+}
+.action-button.blog .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+.action-button.blog .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+  stroke: var(--light-1);
+}

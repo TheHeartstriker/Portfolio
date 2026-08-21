@@ -20,7 +20,7 @@ function Nav() {
       <div className={styles["nav-links"]}>
         <Link href="/">HOME</Link>
         <Link href="/portfolio">PORTFOLIO</Link>
-        <Link href="/">BLOG</Link>
+        <Link href="/blog">BLOG</Link>
         <Link href="/">CONTACT</Link>
       </div>
       {/*  */}
