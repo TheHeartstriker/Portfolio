@@ -23,9 +23,11 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import backendArticle from "@/views/blog/posts/content/articlesText/backendLookArticle/backend.md";
 import backendArticle from "@/views/scriptorium/articlesContent/articlesText/backendLookArticle/backend.md";
-import { desBackendLookLike } from "@/views/scriptorium/articlesContent/articleDes.js";
+
+import { desBackendLookLike } from "@/views/blog/posts/content/articleDes";
 
 function ScriptoriumPage() {
   return (

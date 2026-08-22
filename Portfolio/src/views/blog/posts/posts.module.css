@@ -4,6 +4,7 @@
   padding: var(--space-24);
   background-color: var(--light-1);
   padding-top: var(--space-32);
+  padding-bottom: var(--space-64);
 }
 
 /*  */
@@ -27,6 +28,7 @@
   background-color: var(--light-2);
   border-radius: var(--border-radius);
   margin-bottom: var(--space-16);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
 }
 
 .posts-menu-btn h3 {
@@ -34,6 +36,23 @@
   font-weight: var(--typo-weight-regular);
   color: var(--dark-1);
   line-height: 1;
+  transition: color var(--motion-medium-2) var(--power-2-out);
+}
+/* Active */
+.posts-menu-btn.active {
+  background-color: var(--dark-1);
+}
+
+.posts-menu-btn.active h3 {
+  color: var(--light-1);
+}
+/* Hover */
+.posts-menu-btn:hover {
+  background-color: var(--dark-1);
+}
+
+.posts-menu-btn:hover h3 {
+  color: var(--light-1);
 }
 
 /*  */
@@ -105,9 +124,12 @@
 .posts-con-card-heading h4 {
   font-size: var(--typo-size-24);
   font-weight: var(--typo-weight-semi-bold);
-  line-height: 1;
   color: var(--dark-1);
   margin-right: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .posts-con-card-heading h5 {
@@ -129,6 +151,11 @@
   color: var(--dark-1);
   width: calc(var(--column-width) * 4 + var(--space-24) * 3);
   margin-right: auto;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 /*  */
 /* Main item hover effect and related */

@@ -1,6 +1,7 @@
 import ActionButton from "@/components/button/actionButton";
 import styles from "./posts.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
+import { useRouter } from "next/navigation";
 function PostsCard({
   image,
   imageAlt,
@@ -11,12 +12,17 @@ function PostsCard({
   buttonText = "READ ME!",
   slug,
 }) {
+  const router = useRouter();
+  function handleClick() {
+    router.push(`/blog/${slug}`);
+  }
+
   return (
     <div className={styles["posts-con-card"]}>
       {/*  */}
       {/* Top card image with hover, overlay and image */}
       {/*  */}
-      <div className={styles["posts-con-card-img"]}>
+      <div className={styles["posts-con-card-img"]} onClick={handleClick}>
         <div className={styles["posts-con-card-img-overlay"]}></div>
         <img src={image} alt={imageAlt} />
         {/*  */}
@@ -48,7 +54,7 @@ function PostsCard({
       <div className={styles["posts-con-card-text"]}>
         <p>{text}</p>
 
-        <ActionButton text={buttonText} type="blog" />
+        <ActionButton text={buttonText} type="blog" onClick={handleClick} />
       </div>
     </div>
   );

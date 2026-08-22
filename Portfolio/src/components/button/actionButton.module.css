@@ -171,7 +171,7 @@
 
 .action-button.blog .action-button-left {
   width: 100%;
-  background-color: var(--dark-1);
+  background-color: var(--dark-2);
 }
 
 .action-button.blog .action-button-left h4 {
@@ -179,7 +179,7 @@
   color: var(--light-1);
 }
 .action-button.blog .action-button-right {
-  background-color: var(--dark-1);
+  background-color: var(--dark-2);
 }
 .action-button.blog .action-button-right svg {
   height: 50%;

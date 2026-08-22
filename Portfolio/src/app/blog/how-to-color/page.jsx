@@ -26,10 +26,9 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
-import colorArticle from "@/views/scriptorium/articlesContent/articlesText/colorArticle/color.md";
-import { desColor } from "@/views/scriptorium/articlesContent/articleDes.js";
-
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import colorArticle from "@/views/blog/posts/content/articlesText/colorArticle/color.md";
+import { desColor } from "@/views/blog/posts/content/articleDes";
 function ScriptoriumPage() {
   return <SubjectContainer article={[colorArticle]} description={desColor} />;
 }

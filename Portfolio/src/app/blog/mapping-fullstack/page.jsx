@@ -28,9 +28,9 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
-import mappingArticle from "@/views/scriptorium/articlesContent/articlesText/mappingArticle/map.md";
-import { desMappingFullstack } from "@/views/scriptorium/articlesContent/articleDes.js";
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import mappingArticle from "@/views/blog/posts/content/articlesText/mappingArticle/map.md";
+import { desMappingFullstack } from "@/views/blog/posts/content/articleDes";
 
 function ScriptoriumPage() {
   return (

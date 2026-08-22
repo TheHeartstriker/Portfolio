@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useRef } from "react";
 import styles from "./posts.module.css";
 import { lorem, smallLorem } from "@/utils/text/text";
 import ActionButton from "@/components/button/actionButton";
@@ -13,6 +16,8 @@ import {
   desHoverCards,
   desColor,
 } from "./content/articleDes";
+import PostsAni from "./postsAni";
+
 function Posts() {
   const filterTypes = [
     "DESIGN",
@@ -31,9 +36,31 @@ function Posts() {
     desHoverCards,
     desColor,
   ];
+
+  const [activeTags, setActiveTags] = useState([]);
+  const [trigger, setTrigger] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const cardsRef = useRef(null);
+
+  // if no filters are active, show everything
+  // otherwise show a post only if it has ALL active tags
+  const filteredPosts =
+    activeTags.length === 0
+      ? posts
+      : posts.filter((post) =>
+          activeTags.every((tag) => post.tags.includes(tag)),
+        );
+
   return (
     <section className={styles["posts"]}>
       <SectionInfo infoName="POSTS" />
+      <PostsAni
+        containerRef={cardsRef}
+        trigger={trigger}
+        setTrigger={setTrigger}
+        setActiveTags={setActiveTags}
+        setIsAnimating={setIsAnimating}
+      />
       {/*  */}
       {/* Filter menu */}
       {/*  */}
@@ -41,7 +68,14 @@ function Posts() {
         {/*  */}
         {/* Filter Item */}
         {filterTypes.map((filterType) => (
-          <button className={styles["posts-menu-btn"]} key={filterType}>
+          <button
+            className={`${styles["posts-menu-btn"]} ${
+              activeTags.includes(filterType) ? styles.active : ""
+            }`}
+            key={filterType}
+            disabled={isAnimating}
+            onClick={() => setTrigger(filterType)}
+          >
             <h3>{filterType}</h3>
           </button>
         ))}
@@ -49,10 +83,10 @@ function Posts() {
       {/*  */}
       {/* Card Container */}
       {/*  */}
-      <div className={styles["posts-con"]}>
+      <div className={styles["posts-con"]} ref={cardsRef}>
         {/*  */}
         {/* Cars */}
-        {posts.map((article) => (
+        {filteredPosts.map((article) => (
           <PostsCard
             key={article.slug}
             image={article.image}

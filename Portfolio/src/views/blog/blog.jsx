@@ -6,7 +6,7 @@ import Posts from "./posts/posts";
 function Blog() {
   return (
     <>
-      <LayoutGuide />
+      {/* <LayoutGuide /> */}
       <Hero />
       <Highlight />
       <Posts />

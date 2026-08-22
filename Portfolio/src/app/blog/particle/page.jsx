@@ -28,13 +28,12 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
-
-import particleArticle from "@/views/scriptorium/articlesContent/articlesText/particleArticle/particle.md";
-import ParticleSys from "@/views/scriptorium/articlesContent/articlesScript/particleSys.jsx";
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import particleArticle from "@/views/blog/posts/content/articlesText/particleArticle/particle.md";
+import ParticleSys from "@/views/blog/posts/content/articlesScript/particleSys";
 
 const articleArr = [particleArticle, ParticleSys];
-import { desParticle } from "@/views/scriptorium/articlesContent/articleDes.js";
+import { desParticle } from "@/views/blog/posts/content/articleDes";
 
 function ScriptoriumPage() {
   return <SubjectContainer article={articleArr} description={desParticle} />;

@@ -28,12 +28,11 @@ export const metadata = {
   robots: "index, follow",
 };
 
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
-import hoverArticle1 from "@/views/scriptorium/articlesContent/articlesText/hover-cards/hoverArticle.md";
-import hoverArticle2 from "@/views/scriptorium/articlesContent/articlesText/hover-cards/hoverArticle2.md";
-import { desHoverCards } from "@/views/scriptorium/articlesContent/articleDes.js";
-
-import Cards from "@/views/scriptorium/articlesContent/articlesScript/hover-card/card-hover.jsx";
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import hoverArticle1 from "@/views/blog/posts/content/articlesText/hover-cards/hoverArticle.md";
+import hoverArticle2 from "@/views/blog/posts/content/articlesText/hover-cards/hoverArticle2.md";
+import { desHoverCards } from "@/views/blog/posts/content/articleDes";
+import Cards from "@/views/blog/posts/content/articlesScript/hover-card/card-hover";
 
 function ScriptoriumPage() {
   return (

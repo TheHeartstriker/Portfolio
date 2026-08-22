@@ -28,12 +28,12 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "../../../views/scriptorium/articlesReader/mainArticle/index.jsx";
-import { desFlowField } from "@/views/scriptorium/articlesContent/articleDes.js";
+import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { desFlowField } from "@/views/blog/posts/content/articleDes";
 
-import flowArticle1 from "@/views/scriptorium/articlesContent/articlesText/flowFields/flow1.md";
-import flowArticle2 from "@/views/scriptorium/articlesContent/articlesText/flowFields/flow2.md";
-import FlowField from "@/views/scriptorium/articlesContent/articlesScript/flowField/flowField.jsx";
+import flowArticle1 from "@/views/blog/posts/content/articlesText/flowFields/flow1.md";
+import flowArticle2 from "@/views/blog/posts/content/articlesText/flowFields/flow2.md";
+import FlowField from "@/views/blog/posts/content/articlesScript/flowField/flowField";
 
 function ScriptoriumPage() {
   return (
