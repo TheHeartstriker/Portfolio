@@ -10,7 +10,9 @@ function Opening() {
   const counter = useRef(0);
   const { setTransition, transition, setNavOpen, navPage } =
     useContext(Context);
-
+  //
+  // This is the orgin opening aka the first one(longer more cinima)
+  //
   useEffect(() => {
     if (!transition || counter.current !== 0) {
       return;
@@ -23,39 +25,64 @@ function Opening() {
     //
     //Complete and scroll to top
     function onComplete() {
+      window.scrollTo({ top: 0, behavior: "instant" });
       counter.current = 1;
       setTransition(false);
     }
-    window.scrollTo({ top: 0, behavior: "instant" });
     //
-    // Animate
+    // Animate / Fade in svg fast
     timeline
       .to(svg, {
         opacity: 1,
         duration: 0.5,
         ease: "power1.out",
       })
+      //
+      //Shrink svg
       .to(svg, {
-        height: "5vh",
-        width: "5vh",
-        duration: 1.5,
-        ease: "power1.out",
-      })
-
-      .to(container, {
-        opacity: 0,
+        height: "10vh",
+        width: "10vh",
         duration: 1,
         ease: "power1.out",
+      })
+      //
+      // Fade out svg
+      .to(svg, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      //
+      // Cut path animation
+      .to(container, {
+        keyframes: [
+          // Put the top left at the top right
+          {
+            clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.5,
+          },
+          // Put the top left at the bottom right
+          {
+            clipPath: "polygon(100% 100%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.5,
+          },
+        ],
+        ease: "power2.inOut",
         onComplete: () => {
           onComplete();
         },
       });
+
     //
     // Closing rest opacity
     return () => {
-      timeline.kill;
+      timeline.kill();
     };
   }, []);
+
+  //
+  // Page transition handles transitions between pages
+  //
 
   return (
     <div className={styles["opening"]}>

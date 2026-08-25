@@ -10,18 +10,45 @@
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: var(--light-1);
+  background-color: var(--accent-1);
   transform: translateY(0%);
-  z-index: -1;
+  z-index: 100;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .opening svg {
   opacity: 0;
-  width: 30vh;
-  height: 30vh;
+  width: 20vh;
+  height: 20vh;
 }
 
 .opening svg path {
   stroke-width: 1.5px;
-  stroke: var(--accent-1);
+  stroke: var(--dark-1);
 }
+/*  */
+/* Intial Opening One code *
+/*  */
+
+/* Orgin */
+/*  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+/* First half */
+/*   clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%); */
+/* Second half */
+/* polygon(100% 100%, 100% 0%, 100% 100%, 0% 100%) */
+
+/*  */
+/* Intial Transition */
+/*  */
+
+/* Orgin */
+/*    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%); */
+/* First half */
+/*   polygon(0% 0%, 100% 0%, 100% 0%, 0% 100%); */
+
+/* Clip works like this
+First Two: Point 1 top left corner
+Second Two: Point 2 top right corner
+First Three: Point 3 bottom right corner
+First Four: Point 1 bottom left corner
+*/
