@@ -1,0 +1,116 @@
+/*  */
+/* Main Article container */
+/*  */
+.article {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--light-1);
+  width: calc(var(--column-width) * 7 + var(--space-24) * 7);
+  margin: calc(var(--space-128) + var(--space-32)) auto;
+  padding: var(--space-24);
+  border-radius: var(--border-radius);
+}
+
+/*  */
+/* Special top h1 container */
+/*  */
+.article-con {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: var(--space-24);
+  background-color: var(--light-2);
+  margin-bottom: var(--space-12);
+  border-radius: var(--border-radius);
+}
+
+/* Main heading */
+.article-con h1 {
+  font-size: var(--typo-size-48);
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--dark-1);
+  line-height: 1;
+}
+/*  */
+/* Secondary Headings */
+.article h2 {
+  font-size: var(--typo-size-32);
+  color: var(--dark-1);
+  font-weight: var(--typo-weight-semi-bold);
+  margin-right: auto;
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-8);
+}
+.article h3 {
+  font-size: var(--typo-size-24);
+  color: var(--dark-1);
+  font-weight: var(--typo-weight-semi-bold);
+  margin-right: auto;
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-8);
+}
+/*  */
+/* Important Main Text */
+.article p {
+  font-size: var(--typo-size-16);
+  color: var(--dark-1);
+  margin: 0 !important;
+  margin-bottom: var(--typo-size-16) !important;
+}
+.article a {
+  font-size: var(--typo-size-16);
+  color: var(--accent-1);
+  text-decoration: 0;
+}
+/* Main text */
+.article ul {
+  font-size: var(--typo-size-16);
+  font-weight: var(--typo-weight-medium);
+  color: var(--dark-3);
+  margin: 0 !important;
+}
+/*  */
+/* This is the div code block that wraps any code */
+/*  */
+.code-block {
+  border-radius: var(--border-radius);
+}
+
+/*  */
+/* This wraps components and direct jsx injection */
+/*  */
+.article-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  width: 100%;
+}
+
+.article-component canvas {
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-1);
+  border-radius: var(--border-radius);
+}
+
+.article-component svg {
+  border-radius: var(--border-radius);
+}
+/*  */
+/* Article imagery */
+.article img {
+  max-width: 100%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--border-radius-medium);
+  object-fit: contain;
+  box-shadow: var(--shadow-medium);
+  background: var(--dark-1);
+  display: block;
+  margin: 0 auto;
+}

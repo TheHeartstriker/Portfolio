@@ -28,20 +28,14 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "@/views/blog/posts/postReader";
-import { desFlowField } from "@/views/blog/posts/content/articleDes";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 
 import flowArticle1 from "@/views/blog/posts/content/articlesText/flowFields/flow1.md";
 import flowArticle2 from "@/views/blog/posts/content/articlesText/flowFields/flow2.md";
 import FlowField from "@/views/blog/posts/content/articlesScript/flowField/flowField";
 
 function ScriptoriumPage() {
-  return (
-    <SubjectContainer
-      article={[flowArticle1, FlowField, flowArticle2]}
-      description={desFlowField}
-    />
-  );
+  return <ArticleReader article={[flowArticle1, FlowField, flowArticle2]} />;
 }
 
 export default ScriptoriumPage;

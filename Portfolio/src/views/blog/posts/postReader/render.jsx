@@ -2,13 +2,9 @@ import ReactMarkdown from "react-markdown";
 import PropTypes from "prop-types";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import NavMenu from "../mainNav/navMenu.jsx";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import "./index.css";
-//
-//
-//
-
+import styles from "./render.module.css";
+import LayoutGuide from "@/utils/alignment/align";
 function articleChecker(item) {
   //
   // Check if we are code markdown
@@ -18,7 +14,7 @@ function articleChecker(item) {
       <ReactMarkdown
         components={{
           h1: ({ ...props }) => (
-            <div className="article-h1-container">
+            <div className={styles["article-con"]}>
               <h1 {...props} />
             </div>
           ),
@@ -55,18 +51,19 @@ function articleChecker(item) {
 
     //
     // Check if we are a React component
-    //
   } else if (typeof item === "function") {
     // Render as a component, not as a function call!
     return (
-      <div className="component-container-article">
+      <div className={styles["article-component"]}>
         {React.createElement(item)}
       </div>
     );
   }
 }
-
-function renderArticles(article) {
+//
+// Insert items into the article like frag's
+//
+function articleInsert(article) {
   if (Array.isArray(article)) {
     return article.map((item, idx) => (
       <React.Fragment key={idx}>{articleChecker(item)}</React.Fragment>
@@ -74,25 +71,17 @@ function renderArticles(article) {
   }
   return null;
 }
-//Remember if you change the class name update the const here
-export function SubjectContainer({ article, description }) {
-  const articleClassName = "subject-container-article";
+//
+//Actual container / parents of items and content
+//
+export function ArticleReader({ article }) {
   return (
     <>
-      <div className="article-container">
-        <div className={`subject-container-article`}>
-          {renderArticles(article)}
-        </div>
-        <NavMenu
-          article={article}
-          description={description}
-          articleClassName={articleClassName}
-        />
-      </div>
+      <div className={styles["article"]}>{articleInsert(article)}</div>
     </>
   );
 }
-SubjectContainer.propTypes = {
+ArticleReader.propTypes = {
   article: PropTypes.array.isRequired,
   description: PropTypes.object,
 };

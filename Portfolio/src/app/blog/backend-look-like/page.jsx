@@ -23,19 +23,12 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import backendArticle from "@/views/blog/posts/content/articlesText/backendLookArticle/backend.md";
 import backendArticle from "@/views/scriptorium/articlesContent/articlesText/backendLookArticle/backend.md";
 
-import { desBackendLookLike } from "@/views/blog/posts/content/articleDes";
-
 function ScriptoriumPage() {
-  return (
-    <SubjectContainer
-      article={[backendArticle]}
-      description={desBackendLookLike}
-    />
-  );
+  return <ArticleReader article={[backendArticle]} />;
 }
 
 export default ScriptoriumPage;

@@ -21,7 +21,7 @@ function Nav() {
         <Link href="/">HOME</Link>
         <Link href="/portfolio">PORTFOLIO</Link>
         <Link href="/blog">BLOG</Link>
-        <Link href="/">CONTACT</Link>
+        <Link href="/contact">CONTACT</Link>
       </div>
       {/*  */}
       {/* CTA */}

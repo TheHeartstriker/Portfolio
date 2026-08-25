@@ -26,11 +26,10 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import colorArticle from "@/views/blog/posts/content/articlesText/colorArticle/color.md";
-import { desColor } from "@/views/blog/posts/content/articleDes";
 function ScriptoriumPage() {
-  return <SubjectContainer article={[colorArticle]} description={desColor} />;
+  return <ArticleReader article={[colorArticle]} />;
 }
 
 export default ScriptoriumPage;

@@ -28,17 +28,11 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import mappingArticle from "@/views/blog/posts/content/articlesText/mappingArticle/map.md";
-import { desMappingFullstack } from "@/views/blog/posts/content/articleDes";
 
 function ScriptoriumPage() {
-  return (
-    <SubjectContainer
-      article={[mappingArticle]}
-      description={desMappingFullstack}
-    />
-  );
+  return <ArticleReader article={[mappingArticle]} />;
 }
 
 export default ScriptoriumPage;

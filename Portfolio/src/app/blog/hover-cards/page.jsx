@@ -28,19 +28,13 @@ export const metadata = {
   robots: "index, follow",
 };
 
-import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import hoverArticle1 from "@/views/blog/posts/content/articlesText/hover-cards/hoverArticle.md";
 import hoverArticle2 from "@/views/blog/posts/content/articlesText/hover-cards/hoverArticle2.md";
-import { desHoverCards } from "@/views/blog/posts/content/articleDes";
 import Cards from "@/views/blog/posts/content/articlesScript/hover-card/card-hover";
 
 function ScriptoriumPage() {
-  return (
-    <SubjectContainer
-      article={[hoverArticle1, Cards, hoverArticle2]}
-      description={desHoverCards}
-    />
-  );
+  return <ArticleReader article={[hoverArticle1, Cards, hoverArticle2]} />;
 }
 
 export default ScriptoriumPage;

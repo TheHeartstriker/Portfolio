@@ -28,15 +28,14 @@ export const metadata = {
   },
   robots: "index, follow",
 };
-import { SubjectContainer } from "@/views/blog/posts/postReader";
+import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import particleArticle from "@/views/blog/posts/content/articlesText/particleArticle/particle.md";
 import ParticleSys from "@/views/blog/posts/content/articlesScript/particleSys";
 
 const articleArr = [particleArticle, ParticleSys];
-import { desParticle } from "@/views/blog/posts/content/articleDes";
 
 function ScriptoriumPage() {
-  return <SubjectContainer article={articleArr} description={desParticle} />;
+  return <ArticleReader article={articleArr} />;
 }
 
 export default ScriptoriumPage;

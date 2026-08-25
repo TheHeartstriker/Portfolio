@@ -16,7 +16,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-1-article);
+  background-color: var(--color-1-article) !important;
 }
 
 .card {
@@ -24,11 +24,11 @@
   height: 28vh;
   margin: 20px;
   perspective: 1000px;
-  background-color: var(--color-2-article);
+  background-color: var(--color-2-article) !important;
   position: relative;
   border-radius: 50px;
   overflow: hidden;
-  border: 1px solid var(--color-3-article);
+  border: 1px solid var(--color-3-article) !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,17 +37,17 @@
 .card h2 {
   font-family: monospace;
   font-size: 1.5rem;
-  margin: var(--space-2);
+  margin: var(--space-24);
   font-weight: 500;
-  color: var(--color-4-article);
+  color: var(--color-4-article) !important;
   z-index: 5;
 }
 
 .card p {
   font-family: monospace;
   font-size: 0.75rem;
-  color: white;
-  margin: var(--space-2);
+  color: white !important;
+  margin: var(--space-24);
   z-index: 5;
 }
 /*  */
