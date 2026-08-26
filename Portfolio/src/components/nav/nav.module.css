@@ -8,7 +8,7 @@
   margin-top: var(--space-12);
   height: auto;
   background-color: transparent;
-  padding: var(--space-16) 0;
+  padding: var(--space-12) 0;
   z-index: 50;
   border-radius: var(--border-radius);
 }
@@ -39,7 +39,7 @@
 
 .nav-links button {
   font-size: var(--typo-size-12);
-  color: var(--light-2);
+  color: var(--light-3);
   font-weight: var(--typo-weight-regular);
   background-color: transparent;
   cursor: pointer;

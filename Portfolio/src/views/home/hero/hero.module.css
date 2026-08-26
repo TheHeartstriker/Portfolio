@@ -29,7 +29,7 @@
   font-size: var(--typo-size-96);
   color: var(--light-1);
   font-weight: var(--typo-weight-semi-bold);
-  line-height: 1.1;
+  line-height: 1;
   z-index: 10;
 }
 

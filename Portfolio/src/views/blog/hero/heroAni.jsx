@@ -1,0 +1,120 @@
+"use client";
+import styles from "./hero.module.css";
+import styleNav from "@/components/nav/nav.module.css";
+import { animateText } from "@/utils/animations/animateText";
+import gsap from "gsap";
+import { useEffect, useContext, useRef, useState } from "react";
+import { Context } from "@/components/provider/provider.jsx";
+import ScrollMotion from "@/components/animations/scrollMotion";
+
+function HeroAni() {
+  const { transition } = useContext(Context);
+  const playedRef = useRef(false);
+  const timelineRef = useRef(gsap.timeline({ paused: true }));
+  //
+  // Actual aniamtion
+  // Note that the animation / effcts starts in its final possition in the css
+  function animate(nav, image, headings, detail, imageWidth) {
+    //
+    //Animate headings to the left and right
+    timelineRef.current
+      .to(headings[0], {
+        duration: 1,
+        ease: "power2.out",
+        marginRight: "auto",
+        delay: "0.25",
+      })
+      //
+      // Grow image
+      .to(image, {
+        duration: 1,
+        ease: "power2.out",
+        opacity: "1",
+        height: "22.5rem",
+        width: imageWidth,
+      })
+      //
+      //Animate nav in
+      .to(nav, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      // Animate details in
+      .to(
+        detail,
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "-=0.15",
+      );
+
+    //
+    // Closing rest opacity
+    return () => {
+      timelineRef.current.kill();
+    };
+  }
+  //
+  // Actual animation call
+  //
+  useEffect(() => {
+    //
+    // This is to make sure we don't play it twice since we reflow on transition being done
+    if (playedRef.current === true) return;
+    //
+    // Collect refrences
+    const nav = document.querySelector(`.${styleNav["nav"]}`);
+    const image = document.querySelector(`.${styles["hero-main-image"]}`);
+    const headings = document.querySelectorAll(`.${styles["hero-main"]} h2`);
+    const detail = document.querySelector(`.${styles["hero-detail"]}`);
+    //
+    // Get image natural size
+    const measurement = document.createElement("div");
+    measurement.style.position = "absolute";
+    measurement.style.visibility = "hidden";
+    document.body.appendChild(measurement);
+    measurement.style.width = "var(--column-width)";
+    const columnWidth = measurement.getBoundingClientRect().width;
+    measurement.style.width = "var(--space-24)";
+    const space24 = measurement.getBoundingClientRect().width;
+    measurement.remove();
+    const imageWidth = columnWidth * 5 + space24 * 3;
+
+    //
+    // Setup for the animation
+    gsap.set([nav, detail], { opacity: 0 });
+    gsap.set(image, {
+      opacity: "0",
+      width: "0",
+      height: "0",
+    });
+    gsap.set(headings[0], { marginRight: "0" });
+    gsap.set(headings[1], { marginLeft: "0" });
+    //
+    //Clear timeline(of old animations) and attach animation
+    timelineRef.current.clear();
+    animate(nav, image, headings, detail, imageWidth);
+
+    //
+    // If transion is over play and set played to true so it's not rune twice
+    if (!transition) {
+      timelineRef.current.play();
+      playedRef.current = true;
+    }
+  }, [transition]);
+
+  return (
+    <ScrollMotion
+      item={`.${styles["hero-main-image"]} img`}
+      moveDirection="y"
+      moveAmount={-15}
+      start="top 15%"
+      end="bottom 15%"
+    />
+  );
+}
+
+export default HeroAni;

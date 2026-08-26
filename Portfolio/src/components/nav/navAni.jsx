@@ -28,7 +28,7 @@ function NavAni() {
     //
     timeline.to(nav, {
       backgroundColor: "var(--dark-2)",
-      padding: "var(--space-16)",
+      padding: "var(--space-12)",
       duration: 0.45,
       ease: "power2.out",
     });

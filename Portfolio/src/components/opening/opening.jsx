@@ -22,11 +22,25 @@ function Opening() {
     const svg = container?.querySelector("svg");
     const timeline = gsap.timeline();
     //
+    // Turn on opening
+    gsap.set(container, {
+      zIndex: "100",
+    });
+    //
     //Scroll to top
     window.scrollTo({ top: 0, behavior: "instant" });
     //
-    // Fade in svg
+    //Wait
     timeline
+      .to(
+        {},
+        {
+          duration: 0.75,
+        },
+      )
+      //
+      // Fade in svg
+
       .to(svg, {
         opacity: 1,
         duration: 0.5,
@@ -69,6 +83,9 @@ function Opening() {
       .add(() => {
         counter.current = 1;
         setTransition(false);
+        gsap.set(container, {
+          zIndex: "-1",
+        });
       });
     //
     // Closing rest opacity
@@ -88,6 +105,11 @@ function Opening() {
     const container = document.querySelector(`.${styles["opening"]}`);
     const svg = container?.querySelector("svg");
     const timeline = gsap.timeline();
+    //
+    // Turn on opening
+    gsap.set(container, {
+      zIndex: "100",
+    });
     //
     // Cut path animation
     timeline.to(container, {
@@ -153,6 +175,9 @@ function Opening() {
       // Update overhead single ani end
       .add(() => {
         setTransition(false);
+        gsap.set(container, {
+          zIndex: "-1",
+        });
       });
     return () => {
       timeline.kill();

@@ -25,6 +25,7 @@ function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
             start,
             end,
             scrub: true,
+            markers: true,
           },
         },
       );

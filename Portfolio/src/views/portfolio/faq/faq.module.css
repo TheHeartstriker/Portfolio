@@ -80,8 +80,8 @@
   color: var(--dark-3);
   max-height: 0;
   transition:
-    max-height var(--motion-large-2) var(--power-1-out),
-    margin-bottom var(--motion-large-2) var(--power-1-out);
+    max-height var(--motion-large-2) var(--power-2-inOut),
+    margin-bottom var(--motion-large-2) var(--power-2-inOut);
 }
 /*  */
 /* Main ans item hover */

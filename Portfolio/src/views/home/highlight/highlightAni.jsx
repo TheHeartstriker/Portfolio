@@ -1,10 +1,16 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import styles from "./highlight.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
+//
+// Animation vars
+const CENTER_ZONE_REM = 10;
+const MIN_OPACITY = 0.3;
+const MAX_OPACITY = 0.6;
 
 function HighlightAni() {
   //
@@ -29,6 +35,45 @@ function HighlightAni() {
       }
 
       //
+      // Overlay opacity calc
+      function updateOverlays() {
+        const items = main.querySelectorAll(
+          `.${styles["highlight-main-item"]}`,
+        );
+        if (!items.length) return;
+
+        const rootFontSize = parseFloat(
+          getComputedStyle(document.documentElement).fontSize,
+        );
+        const centerZoneHalf = (CENTER_ZONE_REM * rootFontSize) / 2;
+
+        const viewportCenter = window.innerWidth / 2;
+        const maxDist = Math.max(
+          viewportCenter,
+          window.innerWidth - viewportCenter,
+        );
+
+        items.forEach(function (item) {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + rect.width / 2;
+          const dist = Math.abs(itemCenter - viewportCenter);
+
+          let opacity;
+          if (dist <= centerZoneHalf) {
+            opacity = MIN_OPACITY;
+          } else {
+            const t = Math.min(
+              (dist - centerZoneHalf) / (maxDist - centerZoneHalf),
+              1,
+            );
+            opacity = MIN_OPACITY + t * (MAX_OPACITY - MIN_OPACITY);
+          }
+
+          item.style.setProperty("--overlay-opacity", opacity.toFixed(3));
+        });
+      }
+
+      //
       // Timeline
       const tl = gsap.timeline();
       tl.to(
@@ -38,6 +83,7 @@ function HighlightAni() {
             return -getScrollDistance();
           },
           ease: "none",
+          onUpdate: updateOverlays,
         },
         0,
       );
@@ -66,9 +112,16 @@ function HighlightAni() {
         scrub: true,
         invalidateOnRefresh: true,
         animation: tl,
+        onRefresh: updateOverlays,
       });
 
+      // Initial paint before any scroll happens
+      updateOverlays();
+
+      window.addEventListener("resize", updateOverlays);
+
       return function cleanupScrollTrigger() {
+        window.removeEventListener("resize", updateOverlays);
         st.kill();
       };
     }, section);

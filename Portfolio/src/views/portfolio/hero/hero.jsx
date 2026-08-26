@@ -1,10 +1,12 @@
 import styles from "./hero.module.css";
 import MorgottRune from "@/../public/icons/morgottRune";
 import { heroDescription, heroScrollLabel, heroTitle } from "./text";
+import HeroAni from "./heroAni";
 
 function Hero() {
   return (
     <section className={styles["hero"]}>
+      <HeroAni />
       {/*  */}
       {/* Hero */}
       {/*  */}
