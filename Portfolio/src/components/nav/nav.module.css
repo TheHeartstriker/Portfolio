@@ -37,8 +37,13 @@
   gap: var(--space-16);
 }
 
-.nav-links a {
+.nav-links button {
   font-size: var(--typo-size-12);
   color: var(--light-2);
-  text-decoration: none;
+  font-weight: var(--typo-weight-regular);
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
 }

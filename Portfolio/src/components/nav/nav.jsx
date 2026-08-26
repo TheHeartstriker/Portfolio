@@ -1,9 +1,13 @@
+"use client";
 import styles from "./nav.module.css";
 import ActionButton from "../button/actionButton";
 import Link from "next/link";
 import NavAni from "./navAni";
-
+import { Context } from "../provider/provider";
+import { useContext } from "react";
 function Nav() {
+  const { setTransition, transition, setNavPage } = useContext(Context);
+
   return (
     //
     // Main nav
@@ -18,10 +22,34 @@ function Nav() {
       {/*  */}
       {/* Middle links */}
       <div className={styles["nav-links"]}>
-        <Link href="/">HOME</Link>
-        <Link href="/portfolio">PORTFOLIO</Link>
-        <Link href="/blog">BLOG</Link>
-        <Link href="/contact">CONTACT</Link>
+        <button
+          onClick={() => {
+            (setTransition(true), setNavPage("/"));
+          }}
+        >
+          HOME
+        </button>
+        <button
+          onClick={() => {
+            (setTransition(true), setNavPage("/portfolio"));
+          }}
+        >
+          PORTFOLIO
+        </button>
+        <button
+          onClick={() => {
+            (setTransition(true), setNavPage("/blog"));
+          }}
+        >
+          BLOG
+        </button>
+        <button
+          onClick={() => {
+            (setTransition(true), setNavPage("/contact"));
+          }}
+        >
+          CONTACT
+        </button>
       </div>
       {/*  */}
       {/* CTA */}
