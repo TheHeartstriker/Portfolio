@@ -1,10 +1,12 @@
 import styles from "./hero.module.css";
 import { imageLeft, textMiddle, formRight } from "./text";
 import ActionButton from "@/components/button/actionButton";
+import HeroAni from "./heroAni";
 
 function Hero() {
   return (
     <div className={styles["hero"]}>
+      <HeroAni />
       {/*  */}
       {/* Left side image */}
       {/*  */}

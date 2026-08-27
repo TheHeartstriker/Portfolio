@@ -9,7 +9,7 @@ function Portfolio() {
     <>
       {/* <LayoutGuide /> */}
       <Hero />
-      <Work />
+      {/* <Work /> */}
       <Process />
       <Journey />
       <FAQ />

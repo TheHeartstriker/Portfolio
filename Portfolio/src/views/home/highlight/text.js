@@ -10,7 +10,7 @@ export const highlightImages = [
     width: "50vh",
     height: "50vh",
   },
-  { src: "/home/about2.jpg", width: "90vw", height: returnPercentage("90%") },
+  { src: "/home/about2.jpg", width: "90vw", height: returnPercentage("100%") },
   {
     src: "/home/about1.jpg",
     width: "50vh",

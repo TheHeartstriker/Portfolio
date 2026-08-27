@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import gsap from "gsap";
+import styles from "./posts.module.css";
 
 function PostsAni({
   containerRef,
@@ -40,6 +41,20 @@ function PostsAni({
       },
     });
   }, [trigger, containerRef, setActiveTags, setTrigger, setIsAnimating]);
+
+  useEffect(() => {
+    const container = document.querySelector(`.${styles["posts"]}`);
+    gsap.to(container, {
+      y: "-15vh",
+
+      scrollTrigger: {
+        trigger: container,
+        start: "top bottom",
+        end: "top 25%",
+        scrub: true,
+      },
+    });
+  }, []);
 
   return null;
 }

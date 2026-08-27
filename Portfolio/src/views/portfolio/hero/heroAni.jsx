@@ -3,7 +3,7 @@ import styles from "./hero.module.css";
 import styleNav from "@/components/nav/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
 import gsap from "gsap";
-import { useEffect, useContext, useRef } from "react";
+import { useEffect, useContext, useRef, useLayoutEffect } from "react";
 import { Context } from "@/components/provider/provider.jsx";
 
 function HeroAni() {

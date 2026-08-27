@@ -32,6 +32,7 @@ function HeroAni() {
         opacity: "1",
         height: "22.5rem",
         width: imageWidth,
+        borderRadius: "var(--border-radius)",
       })
       //
       //Animate nav in
@@ -90,6 +91,7 @@ function HeroAni() {
       opacity: "0",
       width: "0",
       height: "0",
+      borderRadius: "25px",
     });
     gsap.set(headings[0], { marginRight: "0" });
     gsap.set(headings[1], { marginLeft: "0" });

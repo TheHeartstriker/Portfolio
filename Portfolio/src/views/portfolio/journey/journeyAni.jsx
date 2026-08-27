@@ -17,8 +17,8 @@ function cssLengthToPx(value) {
   return px;
 }
 
-function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
-  useEffect(() => {
+export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
+  useLayoutEffect(() => {
     const section = journeyRef.current;
     const con = journeyConRef.current;
     const items = journeyConItemRef.current.filter(Boolean);
@@ -95,8 +95,4 @@ function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
 
     return () => ctx.revert();
   }, []);
-
-  return null;
 }
-
-export default JourneyAni;

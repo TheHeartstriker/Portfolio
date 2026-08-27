@@ -5,10 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./footer.module.css";
 import { animateText } from "@/utils/animations/animateText";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function FooterAni() {
+  const pathname = usePathname();
   //
   // The text animmation ps this can be considered a open / heading ani
   //
@@ -45,7 +47,7 @@ function FooterAni() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

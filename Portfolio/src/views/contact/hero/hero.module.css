@@ -60,8 +60,9 @@
   color: var(--light-3);
   font-size: var(--typo-size-14);
   font-weight: var(--typo-weight-regular);
+  line-height: 1;
   text-decoration: none;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .hero-text-links a:nth-last-child(2) {
@@ -73,7 +74,7 @@
   color: var(--light-3);
   font-size: var(--typo-size-14);
   font-weight: var(--typo-weight-regular);
-  margin-top: var(--space-40);
+  margin-top: var(--space-32);
 }
 
 /*  */
