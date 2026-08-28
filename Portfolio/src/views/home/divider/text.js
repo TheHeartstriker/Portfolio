@@ -1,1 +1,1 @@
-export const dividerImage = "/home/about2.jpg";
+export const dividerImage = "/home/divider2.jpg";

@@ -1,5 +1,5 @@
 export const imageLeft = {
-  imageSrc: "/home/about1.jpg",
+  imageSrc: "/contact/contact.jpg",
 };
 
 export const textMiddle = {

@@ -260,13 +260,15 @@
   overflow: hidden;
 }
 
-.work-project-image img {
+.work-project-image-1 img,
+.work-project-image-2 img,
+.work-project-image-3 img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .work-project-image-overlay {

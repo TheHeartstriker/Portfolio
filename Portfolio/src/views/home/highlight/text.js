@@ -6,17 +6,46 @@ function returnPercentage(value) {
 
 export const highlightImages = [
   {
-    src: "/home/about1.jpg",
+    src: "/home/highlight3.jpg",
     width: "50vh",
     height: "50vh",
   },
-  { src: "/home/about2.jpg", width: "90vw", height: returnPercentage("100%") },
   {
-    src: "/home/about1.jpg",
+    src: "/home/highlight8.jpg",
+    width: "90vw",
+    height: returnPercentage("95%"),
+  },
+  {
+    src: "/home/highlight6.jpg",
+    width: "60vw",
+    height: "55vh",
+  },
+  {
+    src: "/home/highlight1.jpg",
+    width: "90vw",
+    height: returnPercentage("95%"),
+  },
+  {
+    src: "/home/highlight4.jpg",
+    width: "60vw",
+    height: "55vh",
+  },
+  {
+    src: "/home/highlight5.jpg",
     width: "50vh",
     height: "50vh",
   },
-  { src: "/home/about2.jpg", width: "90vw", height: returnPercentage("90%") },
+
+  {
+    src: "/home/highlight7.jpg",
+    width: "75vw",
+    height: returnPercentage("75%"),
+  },
+  {
+    src: "/home/highlight2.jpg",
+    width: "65vw",
+    height: returnPercentage("75%"),
+  },
 ];
 
 export const highlightSubheading = "The work";

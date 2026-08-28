@@ -18,7 +18,7 @@ function cssLengthToPx(value) {
 }
 
 export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const section = journeyRef.current;
     const con = journeyConRef.current;
     const items = journeyConItemRef.current.filter(Boolean);

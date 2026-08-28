@@ -8,16 +8,15 @@ export const faqItems = [
   {
     question: "WHAT TECHNOLOGY DO YOU BUILD WITH?",
     answer:
-      "Webflow from the ground up. All my client work uses Webflow solely for simplicity and client experience after handoff.",
+      "Webflow from the ground up. All my client work uses Webflow solely for the client experience after handoff.",
   },
   {
     question: "WHAT HAPPENS AFTER THE SITE SHIPS?",
-    answer: `I hand over a fully working site you own from the code to design. 
-    And in an environment that's purposely easy to use, so updating and editing the website is easy even for non-technical people. 
-    As such, I usually don't offer retainers, but I am open if needed or if further building is required, but that's a separate conversation.`,
+    answer: `I hand over a fully working site — you own the code and the design outright.
+    In an environment that's purposely easy to use, so updating and editing the website is easy even for non-technical people. I also offer retainers if needed.`,
   },
   {
-    question: "WHAT IS A PROJECT COST?",
+    question: "WHAT DO PROJECTS COST?",
     answer: `Most projects start at $1,500 for something relatively small but can range higher.`,
   },
   {
