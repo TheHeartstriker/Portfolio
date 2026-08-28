@@ -1,11 +1,11 @@
 import styles from "./highlight.module.css";
 import HighlightAni from "./highlightAni";
 import {
-  highlightHeading,
+  highlightSubheading,
   highlightImages,
   highlightStats,
-  highlightSubtitle,
-  highlightTitle,
+  highlightHeading1,
+  highlightHeading2,
 } from "./text";
 
 function Highlight() {
@@ -36,9 +36,9 @@ function Highlight() {
         {/*  */}
         {/* Highlight heading */}
         <div className={styles["highlight-con-heading"]}>
-          <h4>{highlightHeading}</h4>
+          <h4>{highlightSubheading}</h4>
           <h2>
-            {highlightTitle} <br /> {highlightSubtitle}
+            {highlightHeading1} <br /> {highlightHeading2}
           </h2>
           <div className={styles["highlight-con-heading-indi"]}>
             <div className={styles["highlight-con-heading-indi-line1"]}></div>

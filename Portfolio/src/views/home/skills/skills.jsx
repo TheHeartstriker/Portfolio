@@ -3,14 +3,17 @@ import styles from "./skills.module.css";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import ActionButton from "@/components/button/actionButton";
 import Arrow from "../../../../out/icons/arrow";
-import { Card1, Card2, Card3 } from "./text";
+import { Card1, Card2, Card3, Card4 } from "./text";
 import SkillsAni from "./skillsAni";
 import { useState } from "react";
+import { Context } from "@/components/provider/provider";
+import { useContext } from "react";
 
 function Skills() {
-  const cards = [Card1, Card2, Card3];
+  const cards = [Card1, Card2, Card3, Card4];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [currentCard, setCurrentCard] = useState(Card1);
+  const { setTransition, setNavPage } = useContext(Context);
 
   const handlePrevCard = () => {
     setCurrentCardIndex((prevIndex) =>
@@ -32,11 +35,20 @@ function Skills() {
       {/* Main container */}
       {/*  */}
       <div className={styles["skills-con"]}>
+        {/*  */}
+        {/* Info area aka buttons and text */}
         <div className={styles["skills-con-info"]}>
           <p key={currentCardIndex}>{currentCard.cardDetails}</p>
-          <ActionButton text={"SEE PROOF"} type={"regular"} />
+          <ActionButton
+            text={"SEE PROOF"}
+            type={"regular"}
+            onClick={() => {
+              (setTransition(true), setNavPage("/portfolio"));
+            }}
+          />
         </div>
-
+        {/*  */}
+        {/* Heading area buttons, heading and possition */}
         <div className={styles["skills-con-heading"]}>
           <div className={styles["skills-con-heading-left"]}>
             <div className={styles["skills-con-heading-left-control"]}>

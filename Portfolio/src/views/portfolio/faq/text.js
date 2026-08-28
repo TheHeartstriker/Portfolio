@@ -1,19 +1,27 @@
 export const faqTitle = "Common questions";
 export const faqItems = [
   {
-    question:
-      "HOW DO YOU WORK WITH BRANDS WITH EXISTING BOOKING AND DESIGN SYSTEMS?",
+    question: "HOW LONG DO YOUR PROJECTS USUALLY TAKE?",
     answer:
-      "Every engagement starts with an audit of the existing system. We preserve what works, clarify what does not, and build forward from there.",
+      "Most projects run 4-8 weeks from contract to launch. Timelines can change based on scope, but milestones are set from day one so there are no surprises.",
   },
   {
-    question: "HOW LONG DOES A WEBSITE PROJECT TAKE?",
+    question: "WHAT TECHNOLOGY DO YOU BUILD WITH?",
     answer:
-      "Most projects take between six and twelve weeks, depending on scope, collaboration, and the amount of content involved.",
+      "Webflow from the ground up. All my client work uses Webflow solely for simplicity and client experience after handoff.",
   },
   {
-    question: "WHAT DOES YOUR DESIGN PROCESS LOOK LIKE?",
-    answer:
-      "The process moves from discovery and direction through design, development, testing, and a measured launch.",
+    question: "WHAT HAPPENS AFTER THE SITE SHIPS?",
+    answer: `I hand over a fully working site you own from the code to design. 
+    And in an environment that's purposely easy to use, so updating and editing the website is easy even for non-technical people. 
+    As such, I usually don't offer retainers, but I am open if needed or if further building is required, but that's a separate conversation.`,
+  },
+  {
+    question: "WHAT IS A PROJECT COST?",
+    answer: `Most projects start at $1,500 for something relatively small but can range higher.`,
+  },
+  {
+    question: "CAN YOU HANDLE BRANDING, DESIGN AND DEVELOPMENT?",
+    answer: `Yes. My specialty is creating a full digital vision. Whether big or small, the narrative, identity, visual, and functionality are aligned from day one.`,
   },
 ];

@@ -1,7 +1,12 @@
 import styles from "./about.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
-import { aboutImage, aboutMetaText, aboutSubtitle, aboutTitle } from "./text";
+import {
+  aboutImage,
+  aboutMetaText,
+  aboutHeading1,
+  aboutHeading2,
+} from "./text";
 
 function About() {
   return (
@@ -15,9 +20,9 @@ function About() {
 
         <div className={styles["about-text"]}>
           <h2>
-            {aboutTitle} <br />
+            {aboutHeading1} <br />
             <br />
-            {aboutSubtitle}
+            {aboutHeading2}
           </h2>
           <div className={styles["about-text-icon"]}>
             <RadahnRune />

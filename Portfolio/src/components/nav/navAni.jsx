@@ -1,10 +1,19 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./nav.module.css";
 import workStyles from "../../views/portfolio/work/work.module.css";
-
+import { Context } from "../provider/provider";
+import { useContext } from "react";
 function NavAni() {
+  const { transition } = useContext(Context);
+  const transitionRef = useRef(transition);
+
+  // keep the ref in sync without re-running the scroll effect
+  useEffect(() => {
+    transitionRef.current = transition;
+  }, [transition]);
+
   //
   // Nav appear and disappear
   //
@@ -108,6 +117,9 @@ function NavAni() {
     // Animation calls on scroll
     //
     function handleScroll() {
+      // Skip everything while a page transition is running
+      if (transitionRef.current) return;
+
       const currentScrollY = window.scrollY;
       const delta = currentScrollY - lastScrollY;
 

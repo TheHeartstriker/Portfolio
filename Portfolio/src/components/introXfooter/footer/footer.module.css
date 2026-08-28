@@ -81,16 +81,19 @@
 .footer-top-nav-links {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-8);
 }
 
-.footer-top-nav-links a {
+.footer-top-nav-links button {
+  background-color: transparent;
+  border: transparent;
   font-family: var(--font-display);
   font-weight: var(--typo-weight-medium);
   color: var(--light-1);
   font-size: var(--typo-size-36);
+  cursor: pointer;
   line-height: 1;
-  text-decoration: none;
 }
 
 /*  */

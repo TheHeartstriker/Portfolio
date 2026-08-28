@@ -19,12 +19,12 @@ export const highlightImages = [
   { src: "/home/about2.jpg", width: "90vw", height: returnPercentage("90%") },
 ];
 
-export const highlightHeading = "The work";
-export const highlightTitle = "Life";
-export const highlightSubtitle = "On The Web";
+export const highlightSubheading = "The work";
+export const highlightHeading1 = "Crafted";
+export const highlightHeading2 = "For The Web";
 
 export const highlightStats = [
-  { number: "4", label: "YEARS OF EXPERIANCE" },
+  { number: "5", label: "YEARS OF EXPERIENCE" },
   { number: "8", label: "PROJECTS COMPLETED" },
   { number: "1", label: "SATISFIED CLIENTS" },
 ];

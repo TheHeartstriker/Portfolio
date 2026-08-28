@@ -28,6 +28,7 @@
 .who-text p {
   font-size: var(--typo-size-14);
   color: var(--dark-1);
+  white-space: pre-line;
 }
 
 /*  */

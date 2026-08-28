@@ -1,10 +1,10 @@
 export const aboutImage = "/home/about1.jpg";
 
-export const aboutTitle =
-  "A supersolid is a special quantum state of matter that’s both solid and fluid at the same time.";
+export const aboutHeading1 =
+  "Michelangelo, Donatello, Phidias - all artists who created work fluid and alive, work that will be remembered for time immemorial";
 
-export const aboutSubtitle =
-  "Supersolid is a 100% creative-owned agency that’s both structured and seamless, logical and unexpected, proven and future-proof.";
+export const aboutHeading2 =
+  "My work strives for the same - fluid and alive, impactful and remembered, built to last yet also human.";
 
 export const aboutMetaText =
-  "We shape brands, spaces, and digital experiences with a sharp point of view and a disciplined creative process.";
+  "Shaping digital brands, spaces, and experiences with a focused point of view and a disciplined process.";

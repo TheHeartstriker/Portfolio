@@ -54,7 +54,13 @@ function Nav() {
       {/*  */}
       {/* CTA */}
 
-      <ActionButton text={"LETS WORK TOGETHER"} type={"small"} />
+      <ActionButton
+        text={"LETS WORK TOGETHER"}
+        type={"small"}
+        onClick={() => {
+          (setTransition(true), setNavPage("/contact"));
+        }}
+      />
     </nav>
   );
 }
