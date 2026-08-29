@@ -77,7 +77,7 @@ function articleInsert(article) {
 export function ArticleReader({ article }) {
   return (
     <>
-      <div className={styles["article"]}>{articleInsert(article)}</div>
+      <section className={styles["article"]}>{articleInsert(article)}</section>
     </>
   );
 }

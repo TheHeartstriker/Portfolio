@@ -148,7 +148,7 @@ export const project2 = {
     nextProjectHeading: `Next Project — Realtor`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT PROJECT`,
-    image: `./dev/dev1.jpg`,
+    image: `./portfolio/work/atkins/a1.jpg`,
     cta: `VISIT NEXT SECTION`,
   },
 };

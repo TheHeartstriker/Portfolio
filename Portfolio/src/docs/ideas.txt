@@ -1,0 +1,9 @@
+There is a high chance that all the changes bellow have already been implemented lmao
+
+-- Fix the imagery I went to crazy or lacked understanding in the direction and how filter's should be applyed to images 
+-- Bottom blur I want the bottom to blur as the user scroll down
+-- Better article images
+-- Spacing I should just generally review the websites Spacing its good but could be better in some area's mainly the blog
+-- Blog needs a new or more defined reader
+-- Blog animation's transformation could use some work
+-- Mobile

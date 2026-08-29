@@ -2,6 +2,8 @@ import ActionButton from "@/components/button/actionButton";
 import styles from "./posts.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
 import { useRouter } from "next/navigation";
+import { Context } from "@/components/provider/provider";
+import { useContext } from "react";
 function PostsCard({
   image,
   imageAlt,
@@ -12,9 +14,9 @@ function PostsCard({
   buttonText = "READ ME!",
   slug,
 }) {
-  const router = useRouter();
+  const { setTransition, transition, setNavPage } = useContext(Context);
   function handleClick() {
-    router.push(`/blog/${slug}`);
+    (setTransition(true), setNavPage(`blog/${slug}`));
   }
 
   return (

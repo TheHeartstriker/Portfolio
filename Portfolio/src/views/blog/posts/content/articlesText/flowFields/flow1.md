@@ -8,7 +8,7 @@ By the end you will (hopefully) have your own flow field to work with while also
 But what is a flow field? Well young padawan, it is a method for drawing lines using vectors, more specifically a field of vectors. When we draw lines through the field, each vector below it pushes it around, forming a shape. Like a pen over a piece of paper that's being pushed around before it reaches its destination. That is then repeated over and over
 until we have drawn the shape of the vector field with the curved lines. The result can be something like the image shown below.
 
-![Image description](/scriptorium/flowArticle/flow1.webp)
+![Image description](/blog/flowArticle/flow1.webp)
 
 This uses a smooth water-like vector field. The entire idea is switching out the program that forms the vector fields, the curve or the coloring to create an image. You can even form proper shapes like animals or faces.
 
@@ -50,10 +50,10 @@ const Pix_size = 15; //Act's like a resolution
 
 function Impose() {
   const rows = Math.floor(
-    (leftRight.current.rightX - leftRight.current.leftX) / Pix_size
+    (leftRight.current.rightX - leftRight.current.leftX) / Pix_size,
   );
   const cols = Math.floor(
-    (topBottom.current.bottomY - topBottom.current.topY) / Pix_size
+    (topBottom.current.bottomY - topBottom.current.topY) / Pix_size,
   );
   rowRef.current = rows;
   colRef.current = cols;
@@ -62,7 +62,7 @@ function Impose() {
     rows,
     cols,
     leftRight.current.leftX,
-    topBottom.current.topY
+    topBottom.current.topY,
   );
   gridRef.current = initialGrid;
 }
@@ -114,7 +114,7 @@ But in the final product we actually push an object, so in reality imagine each 
 
 Now, for a little visualization, I made a simple draw function that loops over arr and draws a rectangle around the center. Its width and height are, of course, still the `Pix_size`, but I did increase `Pix_size` temporarily to 25px so it’s more obvious.
 
-![Image description](/scriptorium/flowArticle/Grid.webp)
+![Image description](/blog/flowArticle/Grid.webp)
 
 ## Grid Vector's
 
@@ -124,7 +124,7 @@ Which is generating smooth random numbers. But what do I mean by smooth? I mean 
 
 But moving past Perlin noise, let's visualize the angles themselves. For this, I am going to draw a point in the center of each rectangle and a line a fourth the size of the `Pix_size` in the direction of each cell's angle. Furthermore, I am going to remove the Perlin noise so you don't need it to go further and to simplify the following visualization. I also increased `Pix_size` to 40 so it's easier to see.
 
-![Image description](/scriptorium/flowArticle/GridAngle.webp)
+![Image description](/blog/flowArticle/GridAngle.webp)
 
 Here is the new loop inside `create2DArray` with the angles actually added this time. I am also using the simplified angular math instead of Perlin noise here.
 
@@ -157,7 +157,7 @@ function drawCurve(
   leftRight: React.RefObject<{ leftX: number; rightX: number }>,
   topBottom: React.RefObject<{ topY: number; bottomY: number }>,
   colorValues: { h: number; s: number; l: number }, //Orginal color
-  Pix_size: number //Passing over current cell size
+  Pix_size: number, //Passing over current cell size
 ) {
   if (!ctx || !gridRef.current.length) return;
 
@@ -178,7 +178,7 @@ function drawCurve(
     num_steps,
     max_step_length * num_steps,
     step_length * num_steps,
-    colorValues
+    colorValues,
   );
 
   // Begin curve
@@ -235,13 +235,13 @@ export function lengthColorPick(
   max_length: number,
   current_length: number,
   colorValues: { h: number; s: number; l: number },
-  intensity: number = 0.5
+  intensity: number = 0.5,
 ) {
   // Normalize current_length to a value between 0 and 1
   const normalized =
     Math.max(
       0,
-      Math.min(1, (current_length - min_length) / (max_length - min_length))
+      Math.min(1, (current_length - min_length) / (max_length - min_length)),
     ) * intensity;
 
   // Use normalized value to adjust the original lightness
@@ -259,6 +259,6 @@ For some extra control, I also added `intensity`, which decreases our normal val
 Now before this gets any longer, I want to show you some variations! Below, I gave every cell a color based on its position, column wise, splitting it into 5 sections, each holding a different color in the cell. Then in `drawCurve`, I would slowly alter each stroke according to what the cell's color below it is.
 Which, if given gold and reds, looks like so.
 
-![Image description](/scriptorium/flowArticle/ColoredFlow.webp)
+![Image description](/blog/flowArticle/ColoredFlow.webp)
 
 And here is a live look. Here I went back to using `lengthColorPick` but put the logic into a render loop so we slowly see the image being created.

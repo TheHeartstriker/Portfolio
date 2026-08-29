@@ -25,7 +25,6 @@ export const metadata = {
 };
 import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import backendArticle from "@/views/blog/posts/content/articlesText/backendLookArticle/backend.md";
-import backendArticle from "@/views/scriptorium/articlesContent/articlesText/backendLookArticle/backend.md";
 
 function ScriptoriumPage() {
   return <ArticleReader article={[backendArticle]} />;

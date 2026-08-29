@@ -5,7 +5,7 @@ export const desParticle = {
   des: `The goal of this article is to introduce creative coding. The focus will be on a particle system and how to use logic, math, and programming to create something from nature. 
   It's a great way to practice fundamentals and improve problem-solving skills because you see the results of your work in real time.
    Although this is just an example/baseline, hopefully, after this, you will have the tools to create anything you want things such as lightning, fire, wind the possibilities are endless.`,
-  image: "/scriptorium/thumb/thumb1.webp",
+  image: "/blog/thumb/thumb1.webp",
   slug: "/particle",
 };
 
@@ -18,7 +18,7 @@ export const desMappingFullstack = {
    There are going to be three sections. First is serving code; this will go over what happens when you visit a fullstack application. 
    The second is logging in, this is a smaller section, but in most fullstack applications, being logged in is fundamental. The third section is common operations, this section is going to go over what happens when someone logs in and is using the application. 
    Where does JWT fit? Cookies? CORS? HTTPS? API calls? And other things that are important to understand when building a fullstack application.`,
-  image: "/scriptorium/mapArticle/Map3.webp",
+  image: "/blog/mapArticle/Map3.webp",
   slug: "/mapping-fullstack",
 };
 
@@ -30,7 +30,7 @@ export const desPolySVG = {
   des: `This article will go over how to transform a static SVG image into a cool mouse responsive background! 
   It can be used as a cool add on for a hero for portfolios, interactive websites, or even in more professional settings if you're feeling like creating something interesting. 
   More specifically, this article is about manipulating a polygon background generated from Haikei, a free SVG pattern and effect generation resource.`,
-  image: "/scriptorium/thumb/thumb2.webp",
+  image: "/blog/thumb/thumb2.webp",
   slug: "/poly-svg-background",
 };
 
@@ -42,7 +42,7 @@ export const desFlowField = {
    Flow fields can be used in so many creative ways a website background, for a card or maybe for illustrating a simple image?
     By the end you will (hopefully) have your own flow field to work with while also understanding how it works and how to dive deeper if you want. 
    And of course all with diagrams, cool imagery and a live example at the end.`,
-  image: "/scriptorium/thumb/thumb3.webp",
+  image: "/blog/thumb/thumb3.webp",
   slug: "/flow-fields",
 };
 
@@ -52,7 +52,7 @@ export const desBackendLookLike = {
   date: { day: 13, month: 10, year: 2025 },
   des: `This article is going to go over the backend! More specifically, what a simple backend looks like, how everything fits together with a database, and most importantly, folder structures.
    We are going to go over each folder of a common backend and discuss why they exist, what they do, what they contain, and how they tie in with the frontend.`,
-  image: "/scriptorium/thumb/thumb4.webp",
+  image: "/blog/thumb/thumb4.webp",
   slug: "/backend-look-like",
 };
 
@@ -64,7 +64,7 @@ export const desHoverCards = {
   This article will cover hover effects on cards, walking through three custom-made variations for a card's background. 
   The main idea? Adding unique twists to the classic subtle glow where your mouse hovers.
    As usual with my articles, expect imagery, code examples, and a live demo at the end!`,
-  image: "/scriptorium/thumb/CardThumb.webp",
+  image: "/blog/thumb/CardThumb.webp",
   slug: "/hover-cards",
 };
 
@@ -75,6 +75,6 @@ export const desColor = {
   des: `This article is going to cover colors - specifically, how to choose them when designing a website,
    and how to select them in a way that aligns with feelings, themes, and ideas like calm, trust, elegance, playfulness, or professionalism. 
    Furthermore, the goal is to demonstrate how to choose colors that work within real design philosophies, systems, and standards such as Material UI, WCAG, and more.`,
-  image: "/scriptorium/thumb/thumb5.webp",
+  image: "/blog/thumb/thumb5.webp",
   slug: "/how-to-color",
 };

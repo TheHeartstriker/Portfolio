@@ -24,7 +24,7 @@ function Opening() {
     //
     // Turn on opening
     gsap.set(container, {
-      zIndex: "100",
+      zIndex: "150",
     });
     //
     //Scroll to top
@@ -108,7 +108,7 @@ function Opening() {
     //
     // Turn on opening
     gsap.set(container, {
-      zIndex: "100",
+      zIndex: "150",
     });
     //
     // Cut path animation

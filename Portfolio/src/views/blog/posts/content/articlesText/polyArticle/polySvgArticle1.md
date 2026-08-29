@@ -10,7 +10,7 @@ The goal is to have a Haikei polygon background change colors on mouse hover. Wh
 
 Ok, let's go over where to go if you want to follow along. Here is the resource: https://app.haikei.app. Below is the image I will be using.
 
-![Image description](/scriptorium/polySvgArticle/BasicPolyBG.webp)
+![Image description](/blog/polySvgArticle/BasicPolyBG.webp)
 
 First, we need to import the image into Figma. Because Haikei exports are typically smaller than what we want for a PC screen (1920, 1080), and we can change this easily there. If you want maximum compatibility, you can also generate another smaller image for phones.
 
@@ -93,7 +93,7 @@ Now from this point, every `IdValue` has the updated distance value. Now we can 
 export function darkenDistance(
   i: IdValue,
   distanceMax = 1000,
-  intensity = [0.01, 0.99]
+  intensity = [0.01, 0.99],
 ) {
   //Collect needed elements and values
   const el = document.getElementById(i.id);
@@ -114,7 +114,7 @@ Ok, let's walk through this. First, we collect our important values from IdValue
 
 Now, the most important thing is the math. Here, it's super simple and linear, but in essence, say we are far from the mouse but still in range. Our normalized distance comes to 0.99 we multiply that by our lightness, it slightly decreases, but if we are close or the closest, our original lightness is multiplied by 0.01, shrinking drastically. Our intensity acts as a range if we don't want such drastic darkening, we make 0.01 something like 0.1 or more. As such, when moving our mouse, we will get something like so.
 
-![Image description](/scriptorium/polySvgArticle/BlackWhitePoly.webp)
+![Image description](/blog/polySvgArticle/BlackWhitePoly.webp)
 
 Now for color, we just extract and store the proper original inside i.color instead of just using pre-made values. And when inputting our new lightness, we add the original hue and saturation.
 
@@ -129,14 +129,14 @@ Now this is where it gets fun; you can add glows to it as well. Reverse the effe
 
 Here I am going to show off some images of a few variations I made before linking the showcase of my favorite effect. All of these can by altering the `darkenDistance` function or altering the SVG coloring on initialization. Before that, a side note if you don't want to regenerate a new SVG from Haikei to change the colors to something new, you can just stick something in the initialization stage that alters the colors to a range you desire! And here is my favorite, the simplified black and white with solid black strokes. Still using the purple poly svg.
 
-![Image description](/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp)
+![Image description](/blog/polySvgArticle/PolyWhiteBlackBlack.webp)
 
 Here is the original idea. A little disappointing, to be honest, but I am pretty sure that's because of the colors here.
 
-![Image description](/scriptorium/polySvgArticle/PolyGridOrginal.webp)
+![Image description](/blog/polySvgArticle/PolyGridOrginal.webp)
 
 Here is a fun one. I added a glow along with darkening the color. Furthermore, at a distance, I also added a lightening effect.
 
-![Image description](/scriptorium/polySvgArticle/PolyGridGlow.webp)
+![Image description](/blog/polySvgArticle/PolyGridGlow.webp)
 
 And finally, here is a Component of it so you can mess around with it yourself.

@@ -6,7 +6,7 @@ The third section is common operations, this section is going to go over what ha
 
 ## Serving the website
 
-![Map1](/scriptorium/mapArticle/Map1.png)
+![Map1](/blog/mapArticle/Map1.png)
 
 ### I. Initiation
 
@@ -50,7 +50,7 @@ This response is the final step in most cases. We send back the compiled fronten
 
 This is meant to be a short section that's important for understanding how a fullstack application works, and that’s logging in and how it ties into the last section, which is mapping common operations. We need to know where the data is stored in this stateless application.
 
-![Map2](/scriptorium/mapArticle/Map2.png)
+![Map2](/blog/mapArticle/Map2.png)
 
 ### I. User Submits Login Form
 
@@ -74,7 +74,7 @@ Time is like a JWT a cookie has a storage expiration time. Depending on the time
 
 This section is all about mapping common operations in a fullstack application. The definitely really cool, and well designed looking diagram below will be explained in numerical order and will be a walkthrough over each step and important pieces of information...
 
-![Map3](/scriptorium/mapArticle/Map3.webp)
+![Map3](/blog/mapArticle/Map3.webp)
 
 ### I. HTTPS
 

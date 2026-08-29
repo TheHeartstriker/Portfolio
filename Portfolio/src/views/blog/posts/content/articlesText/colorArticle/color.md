@@ -19,7 +19,7 @@ These work. They are simple and generally convey what a basic landscaping busine
 
 But before we go into actually picking colors, I want to provide some tools so you can define what feelings certain colors convey. To do so, I added a cheat sheet below so you can get an overview. You can also use Google or what I will personally be using for most of this article, [coolors](https://coolors.co/d405f4). This tool specifically can both help you find colors and understand the psychology and emotions of any color, among many other useful things the website offers.
 
-![Color psychology chart ](/scriptorium/colorArticle/colorChart.webp)
+![Color psychology chart ](/blog/colorArticle/colorChart.webp)
 
 ### Picking Initial Colors
 
@@ -73,7 +73,7 @@ Backgrounds are a large portion of our website; since we are following the 60/30
 
 We want tan/ivory, so I found EADCAE on Coolors. It’s nice; it has an old paper look and follows our theme. But say we want a card to sit above this tan, and we don’t want to use our accents because perhaps it will violate the 60/30/10 rule, or maybe it just does not look right. And because of this, we will create multiple shades - at least three colors that are whiter than our current color but not too different that they seem like a completely different color, because that would violate the 60/30/10 rule. So we use HSL and decrease lightness by 5 percent twice to get two more colors, getting these three: F5EED6, EFE5C3, and EADCAE.
 
-![Background colors](/scriptorium/colorArticle/backgroundColors.webp)
+![Background colors](/blog/colorArticle/backgroundColors.webp)
 
 And now we have our background. It’s subtle and fits while being balanced and neutral. We can even flip this: currently, the darkest shade is the main background, then lighter shades can sit on top, but there is no problem doing the reverse either. It’s still balanced, follows our rules, and the shades subtly stand out.
 
@@ -87,7 +87,7 @@ But how do we pick our colors? We want brown and green. The best way is to simpl
 
 Now we have everything - backgrounds and accents that contrast well against them. That's it, right? We can move forward! Well, no. Just because theoretically everything seems well, there is still visual testing needed. Usually, that means making something to test all variations you might or will use, like so.
 
-![Testing colors example](/scriptorium/colorArticle/testingColors.webp)
+![Testing colors example](/blog/colorArticle/testingColors.webp)
 
 What we are doing here is testing all possible variations in a card-like format, seeing our color limitations, strengths, and general visual aesthetics (ps, it’s also a great place to test fonts!).
 

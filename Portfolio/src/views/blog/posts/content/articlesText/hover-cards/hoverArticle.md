@@ -76,7 +76,7 @@ Here is the JSX for the card. This will remain generally the same, minus some ad
 
 Now here in React, we would attach our mouse move to a parent element, then pass it our cardRef and our effect works! Something to note is we attach to a parent element because we need the mouse's location even when it's outside the card to simulate the smooth fade. You could attach the mouse to a window instead and to affect multiple cards, feed an array of refs to the `basicHandleMouseMove` function. Here is an image of the effect in action!
 
-![Basic glow card](/scriptorium/cardHover/basicGlow.webp)
+![Basic glow card](/blog/cardHover/basicGlow.webp)
 
 I recommend lower opacities and perhaps a blur effect to make the glow even more subtle. It pairs well with a gradient!
 
@@ -84,9 +84,9 @@ I recommend lower opacities and perhaps a blur effect to make the glow even more
 
 And now onto effect two, the dithered effect. Here is an example of what it looks like without the blur.
 
-![Basic glow card](/scriptorium/cardHover/pixel.webp)
+![Basic glow card](/blog/cardHover/pixel.webp)
 
-The idea behind how this works is putting a canvas in our card space. Then creating a grid and 'coloring' the grid's cells randomly in a circular area on mouse hover. The logic is based on a common programming pattern sometimes referred to as a 'pixel array'. I have even covered this before in my article about [flow fields](https://www.kadenwildauer.com/scriptorium/flow-fields) if you are interested. But before we walk through how this works, I wanted to note that this section will have the most code! The third effect is a slight alteration to the following code and therefore less dense.
+The idea behind how this works is putting a canvas in our card space. Then creating a grid and 'coloring' the grid's cells randomly in a circular area on mouse hover. The logic is based on a common programming pattern sometimes referred to as a 'pixel array'. I have even covered this before in my article about [flow fields](https://www.kadenwildauer.com/blog/flow-fields) if you are interested. But before we walk through how this works, I wanted to note that this section will have the most code! The third effect is a slight alteration to the following code and therefore less dense.
 
 ### Creating the pixel array
 
@@ -216,7 +216,7 @@ function MouseEffect() {
 
           gridRef.current[curRow][curCol].opacity = Math.min(
             1.0,
-            gridRef.current[curRow][curCol].opacity + change
+            gridRef.current[curRow][curCol].opacity + change,
           );
         }
       }
@@ -246,7 +246,7 @@ function render() {
           gridRef.current[i][j].x,
           gridRef.current[i][j].y,
           gridRef.current[i][j].color,
-          gridRef.current[i][j].opacity
+          gridRef.current[i][j].opacity,
         );
       }
     }
@@ -260,7 +260,7 @@ We need this to update every cell visually as `MouseEffect` changes its opacity 
 
 And here is the final one. Here is what it looks like for reference!
 
-![Basic glow card](/scriptorium/cardHover/grid.webp)
+![Basic glow card](/blog/cardHover/grid.webp)
 
 Thankfully, this effect is heavily based on the fundamentals of the previous one, so not much more code is needed! But first, to make this, we increase `pixSize` from whatever you chose previously to a larger number like 40px. Now we have a larger grid, but! There is a problem. We have larger cells now, and if the container is not a perfect multiple of our `pixSize`, we have leftover space at the edges where there is not enough room for a new cell, causing large visible gaps. This existed before but is made more apparent at larger sizes.
 
@@ -288,7 +288,7 @@ function render() {
     gridRef.current[hovRow][hovCol].opacity = clamp(
       gridRef.current[hovRow][hovCol].opacity + 0.05,
       0,
-      1
+      1,
     );
   }
   //Iterate over all cells
@@ -300,7 +300,7 @@ function render() {
         gridRef.current[i][j].opacity = clamp(
           gridRef.current[i][j].opacity - 0.01,
           0,
-          1
+          1,
         );
       }
       //Draw cell
@@ -308,7 +308,7 @@ function render() {
         gridRef.current[i][j].x,
         gridRef.current[i][j].y,
         gridRef.current[i][j].color,
-        gridRef.current[i][j].opacity
+        gridRef.current[i][j].opacity,
       );
     }
   }
