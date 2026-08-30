@@ -8,43 +8,43 @@ export const highlightImages = [
   {
     src: "/home/highlight3.jpg",
     width: "50vh",
-    height: "50vh",
+    height: returnPercentage("50%"),
   },
   {
     src: "/home/highlight8.jpg",
-    width: "90vw",
+    width: "75vw",
     height: returnPercentage("95%"),
   },
   {
     src: "/home/highlight6.jpg",
     width: "60vw",
-    height: "55vh",
+    height: returnPercentage("65%"),
   },
   {
     src: "/home/highlight1.jpg",
-    width: "90vw",
+    width: "70vw",
     height: returnPercentage("95%"),
   },
   {
     src: "/home/highlight4.jpg",
     width: "60vw",
-    height: "55vh",
+    height: returnPercentage("65%"),
   },
   {
     src: "/home/highlight5.jpg",
     width: "50vh",
-    height: "50vh",
+    height: returnPercentage("50%"),
   },
 
   {
     src: "/home/highlight7.jpg",
-    width: "75vw",
-    height: returnPercentage("75%"),
+    width: "40vw",
+    height: returnPercentage("65%"),
   },
   {
     src: "/home/highlight2.jpg",
     width: "65vw",
-    height: returnPercentage("75%"),
+    height: returnPercentage("85%"),
   },
 ];
 

@@ -8,7 +8,7 @@ import ScrollMotion from "@/components/animations/scrollMotion";
 function Hero() {
   return (
     <section className={styles["hero"]}>
-      <HeroAni />
+      {/* <HeroAni /> */}
       {/*  */}
       {/* The main hero intro part */}
       {/*  */}

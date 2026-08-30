@@ -6,7 +6,7 @@ import HeroAni from "./heroAni";
 function Hero() {
   return (
     <div className={styles["hero"]}>
-      <HeroAni />
+      {/* <HeroAni /> */}
       {/*  */}
       {/* Left side image */}
       {/*  */}

@@ -17,14 +17,14 @@
 }
 /*  */
 /* Left side image */
-.about-image {
+.about-con-image {
   position: relative;
   width: 50%;
   border-radius: var(--border-radius);
   overflow: hidden;
 }
 
-.about-image img {
+.about-con-image img {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@
   object-fit: cover;
 }
 
-.about-image-overlay {
+.about-con-image-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
 
 /*  */
 /* Right side image */
-.about-text {
+.about-con-text {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
 
 /*  */
 /* Right side heading */
-.about-text h2 {
+.about-con-text h2 {
   font-size: var(--typo-size-40);
   font-weight: var(--typo-weight-semi-bold);
   margin-left: var(--space-24);
@@ -64,7 +64,7 @@
 }
 
 /* Right side bottom icon */
-.about-text-icon {
+.about-con-text-icon {
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
@@ -73,18 +73,82 @@
 }
 
 /* The icon itself */
-.about-text-icon svg {
+.about-con-text-icon svg {
   width: calc(var(--typo-size-128) + var(--typo-size-64));
   height: calc(var(--typo-size-128) + var(--typo-size-64));
 }
 
-.about-text-icon svg path {
+.about-con-text-icon svg path {
   stroke-width: var(--large-stroke-width);
   stroke: var(--dark-1);
 }
 
 /* The text  */
-.about-text-icon p {
+.about-con-text-icon p {
   font-size: var(--typo-size-12);
   color: var(--dark-2);
+}
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1750px) {
+  .about-con-text h2 {
+    font-size: var(--typo-size-32);
+  }
+}
+
+@media (max-width: 1500px) {
+  .about-con-text {
+    gap: calc(var(--space-128) + var(--space-96));
+  }
+}
+
+@media (max-width: 1300px) {
+  .about-con-text {
+    gap: calc(var(--space-128) + var(--space-48));
+  }
+  .about-con-text h2 {
+    font-size: var(--typo-size-24);
+  }
+}
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 1050px) {
+  .about-con {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-con-image {
+    height: 55rem;
+    width: 100%;
+  }
+  .about-con-text {
+    width: 100%;
+    gap: var(--space-96);
+  }
+  .about-con-text h2 {
+    width: calc(var(--column-width) * 5 + var(--space-24) * 4);
+    margin: 0;
+  }
+  .about-con {
+    gap: var(--space-48);
+  }
+}
+@media (max-width: 750px) {
+  .about-con-text h2 {
+    width: calc(var(--column-width) * 7 + var(--space-24) * 6);
+    margin: 0;
+  }
+  .about-con-text-icon svg {
+    width: var(--typo-size-128);
+    height: var(--typo-size-128);
+  }
+}
+
+@media (max-width: 500px) {
+  .about-con-text h2 {
+    width: 100%;
+    margin: 0;
+  }
 }

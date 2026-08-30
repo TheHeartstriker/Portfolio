@@ -40,6 +40,7 @@
   gap: var(--space-16);
   width: 100%;
   justify-content: space-between;
+  align-items: flex-end;
   /* Text animation clip causes a reflow thing this is needed */
   min-height: calc(var(--typo-size-64) * 1.2);
 }
@@ -101,4 +102,71 @@
   color: var(--light-1);
   font-weight: var(--typo-weight-semi-bold);
   line-height: 1.1;
+}
+
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1300px) {
+  .skills-con-info {
+    width: calc(var(--column-width) * 8 + var(--space-24) * 7);
+  }
+}
+
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 1050px) {
+  .skills-con-info {
+    width: calc(var(--column-width) * 6 + var(--space-24) * 5);
+  }
+  .skills-con {
+    gap: calc(var(--space-128) * 2);
+  }
+  .skills-con-heading h2 {
+    font-size: var(--typo-size-48);
+  }
+  .skills-con-heading-left h3 {
+    font-size: var(--typo-size-36);
+  }
+  .skills-con-info p {
+    font-size: var(--typo-size-26);
+  }
+}
+
+@media (max-width: 800px) {
+  .skills-con-heading-left {
+    gap: var(--space-64);
+  }
+}
+
+@media (max-width: 700px) {
+  .skills-con-heading-left {
+    gap: var(--space-64);
+  }
+
+  .skills-con-info {
+    width: 100%;
+  }
+  .skills-con-heading-left {
+    gap: var(--space-32);
+  }
+  .skills-con-heading-left h3 {
+    font-size: var(--typo-size-32);
+  }
+  .skills-con-heading h2 {
+    font-size: var(--typo-size-40);
+  }
+}
+@media (max-width: 450px) {
+  .skills-con-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .skills-con-heading-left {
+    margin-right: auto;
+  }
+  .skills-con-heading h2 {
+    font-size: var(--typo-size-64);
+  }
 }

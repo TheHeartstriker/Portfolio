@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import styles from "./highlight.module.css";
 import HighlightAni from "./highlightAni";
 import {
@@ -8,7 +10,27 @@ import {
   highlightHeading2,
 } from "./text";
 
+function getResponsiveWidth(value, viewportWidth) {
+  if (viewportWidth < 550) return `calc(${value} * 2)`;
+  if (viewportWidth < 800) return `calc(${value} * 1.75)`;
+  if (viewportWidth < 1050) return `calc(${value} * 1.5)`;
+  return value;
+}
+
 function Highlight() {
+  const [viewportWidth, setViewportWidth] = useState(() =>
+    typeof window === "undefined" ? 1440 : window.innerWidth,
+  );
+
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className={styles["highlight"]}>
       <HighlightAni />
@@ -22,7 +44,10 @@ function Highlight() {
             className={`${styles["highlight-main-item"]} ${
               index % 2 === 0 ? styles["item1"] : styles["item2"]
             }`}
-            style={{ width: `${image.width}`, height: `${image.height}` }}
+            style={{
+              width: getResponsiveWidth(image.width, viewportWidth),
+              height: `${image.height}`,
+            }}
           >
             <img src={image.src} alt="Highlight project" />
           </div>

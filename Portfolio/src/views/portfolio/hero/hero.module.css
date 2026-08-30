@@ -60,3 +60,16 @@
   stroke: var(--light-1);
   stroke-width: 1px;
 }
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 1050px) {
+  .hero-main h1 {
+    font-size: var(--typo-size-96);
+  }
+}
+@media (max-width: 700px) {
+  .hero-main h1 {
+    font-size: var(--typo-size-64);
+  }
+}

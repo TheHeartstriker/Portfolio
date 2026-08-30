@@ -140,3 +140,44 @@
 .hero-con-form textarea {
   min-height: var(--space-128);
 }
+
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1500px) {
+  .hero-text h1 {
+    font-size: var(--typo-size-48);
+  }
+}
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 1050px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    gap: var(--space-64);
+    padding-top: var(--space-128);
+  }
+  .hero-image {
+    order: 3;
+    height: 150vh;
+    flex: none;
+  }
+
+  .hero-text {
+    padding-left: 0;
+  }
+  .hero-text h1 {
+    margin-bottom: var(--space-16);
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-text h1 {
+    font-size: var(--typo-size-36);
+  }
+  .hero-con h2 {
+    font-size: var(--typo-size-24);
+  }
+}

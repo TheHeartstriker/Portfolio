@@ -126,3 +126,36 @@
   font-weight: var(--typo-weight-regular);
   color: var(--light-3);
 }
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1500px) {
+  .highlight-con-heading h2 {
+    font-size: var(--typo-size-64);
+  }
+  .highlight-main {
+    top: calc(var(--typo-size-64) * 2 + var(--space-8));
+  }
+}
+@media (max-width: 1250px) {
+  .highlight {
+    height: 75vh;
+  }
+  .highlight-con-detail-item h3 {
+    font-size: var(--typo-size-48);
+  }
+}
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 700px) {
+  .highlight {
+    height: 65vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .highlight {
+    height: 60vh;
+  }
+}

@@ -76,3 +76,56 @@
   stroke: var(--light-1);
   stroke-width: 1px;
 }
+/*  */
+/* Main heading text / desktop */
+/*  */
+@media (max-width: 1550px) {
+  .hero-main-heading h1 {
+    font-size: var(--typo-size-64);
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero-main-heading h1 {
+    font-size: var(--typo-size-48);
+  }
+}
+
+/*  */
+/* Main heading text / mobile / tablet*/
+/*  */
+
+@media (max-width: 1100px) {
+  .hero-main-heading h1 {
+    font-size: var(--typo-size-48);
+  }
+}
+@media (max-width: 1000px) {
+  .hero-main-heading h1 span {
+    margin-left: var(--space-64);
+  }
+  .hero-main p {
+    width: calc(var(--column-width) * 5 + var(--space-24) * 4);
+  }
+}
+@media (max-width: 750px) {
+  .hero-main-heading h1 span {
+    margin-left: 0;
+  }
+  .hero-main p {
+    width: calc(var(--column-width) * 6 + var(--space-24) * 5);
+  }
+
+  .hero-main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-main-heading h1 {
+    font-size: var(--typo-size-40);
+  }
+  .hero-main p {
+    width: 100%;
+  }
+}

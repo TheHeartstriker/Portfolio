@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./journey.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -26,10 +26,9 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
     if (!section || !con || items.length < 2) return;
 
     const ctx = gsap.context(() => {
-      const space32 = cssLengthToPx(
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--space-32",
-        ),
+      const gapVar = window.innerWidth <= 1050 ? "--space-16" : "--space-32";
+      const spaceGap = cssLengthToPx(
+        getComputedStyle(document.documentElement).getPropertyValue(gapVar),
       );
 
       // cache all rects up front, before any transforms exist
@@ -47,7 +46,7 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
 
         const h4BottomWithinPrev =
           prevH4Rect.top - prevRect.top + prevH4Rect.height;
-        const dockTop = prevRect.top + h4BottomWithinPrev + space32;
+        const dockTop = prevRect.top + h4BottomWithinPrev + spaceGap;
 
         deltas.push(dockTop - currRect.top);
       }

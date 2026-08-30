@@ -12,19 +12,25 @@ function About() {
   return (
     <section className={styles["about"]}>
       <SectionInfo infoName="ABOUT" />
+      {/*  */}
+      {/* Main container */}
+      {/*  */}
       <div className={styles["about-con"]}>
-        <div className={styles["about-image"]}>
-          <div className={styles["about-image-overlay"]}></div>
+        {/*  */}
+        {/* Left side image */}
+        <div className={styles["about-con-image"]}>
+          <div className={styles["about-con-image-overlay"]}></div>
           <img src={aboutImage} alt="About" />
         </div>
-
-        <div className={styles["about-text"]}>
+        {/*  */}
+        {/* Right side text */}
+        <div className={styles["about-con-text"]}>
           <h2>
             {aboutHeading1} <br />
             <br />
             {aboutHeading2}
           </h2>
-          <div className={styles["about-text-icon"]}>
+          <div className={styles["about-con-text-icon"]}>
             <RadahnRune />
             <p>{aboutMetaText}</p>
           </div>

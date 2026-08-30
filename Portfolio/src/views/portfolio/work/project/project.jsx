@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import styles from "./project.module.css";
 import MorgottRune from "@/../public/icons/morgottRune";
 import ActionButton from "@/components/button/actionButton";
@@ -12,6 +13,20 @@ import processStyles from "../../process/process.module.css";
 //
 function Project({ projectNum, project }) {
   const lenis = useLenis();
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 1050 : true,
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setIsDesktop(window.innerWidth >= 1050);
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   function scrollToProcess() {
     const processSection = document.querySelector(
@@ -28,7 +43,7 @@ function Project({ projectNum, project }) {
   }
   return (
     <div className={styles["work-project"]}>
-      <ProjectAni projectNum={projectNum} />
+      {isDesktop && <ProjectAni projectNum={projectNum} />}
       {/*  */}
       {/* Hero intro */}
       {/*  */}

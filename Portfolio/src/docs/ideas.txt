@@ -4,6 +4,12 @@ There is a high chance that all the changes bellow have already been implemented
 -- Bottom blur I want the bottom to blur as the user scroll down
 -- Better article images
 -- Spacing I should just generally review the websites Spacing its good but could be better in some area's mainly the blog
--- Blog needs a new or more defined reader
--- Blog animation's transformation could use some work
--- Mobile
+-- Blog needs a new or more algined reader
+-- Blog animation's transformation could use some slign adjustments
+-- Make mobile version of the design and match it
+-- Think about making the p tag text slightly closer together
+-- Align the svg in the footer a bit better
+-- Custom menu / nav for mobile
+-- For desktop in the post reader put the artilce on the left and put a gallery of images on the right
+-- Re think the mobile version of highlights on home
+-- Mobile pass

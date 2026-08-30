@@ -12,6 +12,8 @@ function ProjectAni({ projectNum }) {
   // Scroll Animation
   //
   useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1050) return;
+
     const section = document.querySelector(`.${workStyles["work"]}`);
     const main = document.querySelectorAll(`.${projectStyles["work-project"]}`)[
       projectNum

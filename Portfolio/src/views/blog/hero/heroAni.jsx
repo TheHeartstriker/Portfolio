@@ -11,10 +11,11 @@ function HeroAni() {
   const { transition } = useContext(Context);
   const playedRef = useRef(false);
   const timelineRef = useRef(gsap.timeline({ paused: true }));
+  const isMobile = useRef(window.innerWidth <= 1050);
   //
   // Actual aniamtion
   // Note that the animation / effcts starts in its final possition in the css
-  function animate(nav, image, headings, detail, imageWidth) {
+  function animateDesktop(nav, image, headings, detail, imageWidth) {
     //
     //Animate headings to the left and right
     timelineRef.current
@@ -36,6 +37,54 @@ function HeroAni() {
       })
       //
       //Animate nav in
+      .to(nav, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      // Animate details in
+      .to(
+        detail,
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "-=0.15",
+      );
+
+    //
+    // Closing rest opacity
+    return () => {
+      timelineRef.current.kill();
+    };
+  }
+
+  function animateMobile(nav, image, headings, detail) {
+    //
+    // Fade image in
+    timelineRef.current.to(image, {
+      duration: 1,
+      ease: "power2.out",
+      opacity: "1",
+    });
+    //
+    //Animate text
+    animateText(
+      { start: 32, end: 0, type: "lines", mask: "lines" },
+      [{ element: headings }],
+      {
+        duration: 0.6,
+        easing: "power1.out",
+        stagger: 0.06,
+        staggerEase: "power1.out",
+        timeline: timelineRef.current,
+        offset: "-=0.15",
+      },
+    );
+    //
+    //Animate nav in
+    timelineRef.current
       .to(nav, {
         opacity: 1,
         duration: 0.5,
@@ -83,22 +132,31 @@ function HeroAni() {
     const space24 = measurement.getBoundingClientRect().width;
     measurement.remove();
     const imageWidth = columnWidth * 5 + space24 * 3;
-
-    //
-    // Setup for the animation
-    gsap.set([nav, detail], { opacity: 0 });
-    gsap.set(image, {
-      opacity: "0",
-      width: "0",
-      height: "0",
-      borderRadius: "25px",
-    });
-    gsap.set(headings[0], { marginRight: "0" });
-    gsap.set(headings[1], { marginLeft: "0" });
+    if (!isMobile) {
+      //
+      // Setup for the animation
+      gsap.set([nav, detail], { opacity: 0 });
+      gsap.set(image, {
+        opacity: "0",
+        width: "0",
+        height: "0",
+        borderRadius: "25px",
+      });
+      gsap.set(headings[0], { marginRight: "0" });
+      gsap.set(headings[1], { marginLeft: "0" });
+    } else {
+      gsap.set(image, {
+        opacity: "0",
+      });
+    }
     //
     //Clear timeline(of old animations) and attach animation
     timelineRef.current.clear();
-    animate(nav, image, headings, detail, imageWidth);
+    if (!isMobile) {
+      animateDesktop(nav, image, headings, detail, imageWidth);
+    } else {
+      animateMobile(nav, image, headings, detail, imageWidth);
+    }
 
     //
     // If transion is over play and set played to true so it's not rune twice

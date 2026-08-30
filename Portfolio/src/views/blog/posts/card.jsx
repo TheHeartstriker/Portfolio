@@ -45,10 +45,12 @@ function PostsCard({
       {/*  */}
       <div className={styles["posts-con-card-heading"]}>
         <h4>{title}</h4>
-        {types.map((type, index) => (
-          <h5 key={index}>{type}</h5>
-        ))}
-        <h5>{date}</h5>
+        <div className={styles["posts-con-card-heading-details"]}>
+          {types.map((type, index) => (
+            <h5 key={index}>{type}</h5>
+          ))}
+          <h5>{date}</h5>
+        </div>
       </div>
       {/*  */}
       {/* Para and CTA */}

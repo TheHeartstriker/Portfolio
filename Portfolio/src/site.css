@@ -247,7 +247,7 @@ p {
   --neg-letter-space-2: -0.25rem; /* 4px*/
   --neg-letter-space-3: -0.375rem; /* 6px*/
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1050px) {
     --grid-columns: 8;
   }
 }
