@@ -21,12 +21,16 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  margin: auto 0;
 }
 
-.nav-button h3 {
+.nav-button h4 {
   font-size: var(--typo-size-24);
   font-weight: var(--typo-weight-bold);
   color: var(--accent-1);
+  line-height: 1;
 }
 
 /*  */
@@ -38,12 +42,23 @@
 }
 
 .nav-links button {
-  font-size: var(--typo-size-12);
-  color: var(--light-3);
-  font-weight: var(--typo-weight-regular);
   background-color: transparent;
   cursor: pointer;
   margin: 0;
   padding: 0;
   border: none;
+}
+
+.nav-links button h5 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  color: var(--light-3);
+  font-weight: var(--typo-weight-regular);
+  line-height: 1;
+}
+
+@media (max-width: 850px) {
+  .nav-cta {
+    display: none !important;
+  }
 }

@@ -1,9 +1,8 @@
 "use client";
 import styles from "./nav.module.css";
-import ActionButton from "../button/actionButton";
-import Link from "next/link";
+import ActionButton from "@/components/button/actionButton";
 import NavAni from "./navAni";
-import { Context } from "../provider/provider";
+import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 function Nav() {
   const { setTransition, transition, setNavPage } = useContext(Context);
@@ -17,7 +16,7 @@ function Nav() {
       {/*  */}
       {/* Left side home btn */}
       <button className={styles["nav-button"]}>
-        <h3>KW</h3>
+        <h4>KW</h4>
       </button>
       {/*  */}
       {/* Middle links */}
@@ -27,28 +26,30 @@ function Nav() {
             (setTransition(true), setNavPage("/"));
           }}
         >
-          HOME
+          <h5>HOME</h5>
         </button>
         <button
           onClick={() => {
             (setTransition(true), setNavPage("/portfolio"));
           }}
         >
-          PORTFOLIO
+          {" "}
+          <h5>PORTFOLIO</h5>
         </button>
         <button
           onClick={() => {
             (setTransition(true), setNavPage("/blog"));
           }}
         >
-          BLOG
+          <h5>BLOG</h5>
         </button>
         <button
           onClick={() => {
             (setTransition(true), setNavPage("/contact"));
           }}
         >
-          CONTACT
+          {" "}
+          <h5>CONTACT</h5>
         </button>
       </div>
       {/*  */}
@@ -57,6 +58,7 @@ function Nav() {
       <ActionButton
         text={"LETS WORK TOGETHER"}
         type={"small"}
+        className={styles["nav-cta"]}
         onClick={() => {
           (setTransition(true), setNavPage("/contact"));
         }}

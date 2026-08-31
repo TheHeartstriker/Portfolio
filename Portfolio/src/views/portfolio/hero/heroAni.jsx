@@ -1,6 +1,6 @@
 "use client";
 import styles from "./hero.module.css";
-import styleNav from "@/components/nav/nav.module.css";
+import styleNav from "@/components/nav/navMenu/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
 import gsap from "gsap";
 import { useEffect, useContext, useRef, useLayoutEffect } from "react";

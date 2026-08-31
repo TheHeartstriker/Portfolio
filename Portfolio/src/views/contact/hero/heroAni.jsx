@@ -1,32 +1,34 @@
 "use client";
 import styles from "./hero.module.css";
-import styleNav from "@/components/nav/nav.module.css";
+import styleNav from "@/components/nav/navMenu/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
-import { animateShapes } from "@/utils/animations/animateShapes";
 import gsap from "gsap";
-import { useEffect, useContext, useRef } from "react";
+import { useEffect, useContext, useRef, useState } from "react";
 import { Context } from "@/components/provider/provider.jsx";
 
 function HeroAni() {
   const { transition } = useContext(Context);
   const playedRef = useRef(false);
   const timelineRef = useRef(gsap.timeline({ paused: true }));
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkMobile = () => setIsMobile(window.innerWidth <= 1050);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   //
-  // Actual aniamtion
+  // Actual aniamtion for desktop
   //
-  function animate(nav, image, textHeading, textLink, textEmail, form) {
-    timelineRef.current.to(nav, {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power1.out",
-      offset: "-=0.15",
-    });
+  function animateDesktop(nav, image, textHeading, textLink, textEmail, form) {
     timelineRef.current.to(image, {
       opacity: 1,
       duration: 0.5,
       ease: "power1.in",
-      offset: "-=0.15",
     });
     animateText(
       { start: 64, end: 0, type: "lines", mask: "lines" },
@@ -59,6 +61,59 @@ function HeroAni() {
       ease: "power1.out",
       offset: "-=0.3",
     });
+    timelineRef.current.to(nav, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      offset: "-=0.15",
+    });
+  }
+  //
+  // Actual animation for mobile
+  //
+  function animateMobile(nav, image, textHeading, textLink, textEmail, form) {
+    animateText(
+      { start: 128, end: 0, type: "lines", mask: "lines" },
+      [
+        {
+          element: textHeading,
+          clip: true,
+          clipAmount: {
+            bottom: "0.1em",
+            top: "0em",
+            left: "0em",
+            right: "0em",
+          },
+        },
+        { element: textLink },
+        { element: textEmail },
+      ],
+      {
+        duration: 0.6,
+        easing: "power1.out",
+        stagger: 0.06,
+        staggerEase: "power1.out",
+        timeline: timelineRef.current,
+        offset: "-=0.15",
+      },
+    );
+    timelineRef.current.to(form, {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power1.out",
+      offset: "-=0.3",
+    });
+    timelineRef.current.to(nav, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      offset: "-=0.15",
+    });
+    timelineRef.current.to(image, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.in",
+    });
   }
   //
   // Actual animation call
@@ -87,14 +142,18 @@ function HeroAni() {
     //
     //Clear timeline(of old animations) and attach animation
     timelineRef.current.clear();
-    animate(nav, image, textHeading, textLink, textEmail, form);
+    if (!isMobile) {
+      animateDesktop(nav, image, textHeading, textLink, textEmail, form);
+    } else {
+      animateMobile(nav, image, textHeading, textLink, textEmail, form);
+    }
     //
     // If transion is over play and set played to true so it's not rune twice
     if (!transition) {
       timelineRef.current.play();
       playedRef.current = true;
     }
-  }, [transition]);
+  }, [transition, isMobile]);
 }
 
 export default HeroAni;

@@ -229,3 +229,9 @@
     margin-left: auto;
   }
 }
+
+@media (max-width: 450px) {
+  .highlight-stat {
+    flex-direction: column;
+  }
+}

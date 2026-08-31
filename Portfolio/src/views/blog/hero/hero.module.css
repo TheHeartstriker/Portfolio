@@ -52,6 +52,7 @@
 
 .hero-main-image img {
   width: calc(var(--column-width) * 5 + var(--space-24) * 3);
+  /* 15% larger */
   height: 26rem;
   object-fit: cover;
   display: block;
@@ -102,6 +103,11 @@
   .hero-main-image {
     width: calc(var(--column-width) * 3 + var(--space-24) * 1);
     height: 25rem;
+  }
+
+  .hero-main-image img {
+    /* 15% biger */
+    height: 30rem;
   }
 }
 /*  */

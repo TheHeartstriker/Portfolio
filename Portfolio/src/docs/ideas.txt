@@ -13,3 +13,4 @@ There is a high chance that all the changes bellow have already been implemented
 -- For desktop in the post reader put the artilce on the left and put a gallery of images on the right
 -- Re think the mobile version of highlights on home
 -- Mobile pass
+-- Rethink the work projects sizing mainly for desktop

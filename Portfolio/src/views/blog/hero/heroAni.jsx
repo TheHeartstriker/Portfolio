@@ -1,6 +1,6 @@
 "use client";
 import styles from "./hero.module.css";
-import styleNav from "@/components/nav/nav.module.css";
+import styleNav from "@/components/nav/navMenu/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
 import gsap from "gsap";
 import { useEffect, useContext, useRef, useState } from "react";
@@ -11,7 +11,17 @@ function HeroAni() {
   const { transition } = useContext(Context);
   const playedRef = useRef(false);
   const timelineRef = useRef(gsap.timeline({ paused: true }));
-  const isMobile = useRef(window.innerWidth <= 1050);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkMobile = () => setIsMobile(window.innerWidth <= 1050);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   //
   // Actual aniamtion
   // Note that the animation / effcts starts in its final possition in the css
@@ -72,7 +82,18 @@ function HeroAni() {
     //Animate text
     animateText(
       { start: 32, end: 0, type: "lines", mask: "lines" },
-      [{ element: headings }],
+      [
+        {
+          element: headings,
+          clip: true,
+          clipAmount: {
+            bottom: "0.1em",
+            top: "0",
+            left: "0",
+            right: "0",
+          },
+        },
+      ],
       {
         duration: 0.6,
         easing: "power1.out",
@@ -146,6 +167,11 @@ function HeroAni() {
       gsap.set(headings[1], { marginLeft: "0" });
     } else {
       gsap.set(image, {
+        clearProps: "all",
+      });
+      gsap.set(headings[0], { marginRight: "auto" });
+      gsap.set(headings[1], { marginLeft: "auto" });
+      gsap.set(image, {
         opacity: "0",
       });
     }
@@ -164,7 +190,7 @@ function HeroAni() {
       timelineRef.current.play();
       playedRef.current = true;
     }
-  }, [transition]);
+  }, [transition, isMobile]);
 
   return (
     <ScrollMotion

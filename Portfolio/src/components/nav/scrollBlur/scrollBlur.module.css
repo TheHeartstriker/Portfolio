@@ -1,0 +1,81 @@
+.blur-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30vh;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.blur-wrap > div {
+  position: absolute;
+  inset: 0;
+}
+
+.blur-wrap > div:nth-child(1) {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 40%,
+    transparent 60%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 40%,
+    transparent 60%
+  );
+}
+.blur-wrap > div:nth-child(2) {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%
+  );
+}
+.blur-wrap > div:nth-child(3) {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 40%,
+    black 60%,
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 40%,
+    black 60%,
+    black 80%,
+    transparent 100%
+  );
+}
+.blur-wrap > div:nth-child(4) {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 60%,
+    black 80%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 60%,
+    black 80%,
+    black 100%
+  );
+}
+.blur-wrap > div:nth-child(5) {
+  mask-image: linear-gradient(to bottom, transparent 80%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 80%, black 100%);
+}

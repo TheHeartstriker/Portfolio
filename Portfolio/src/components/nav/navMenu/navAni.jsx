@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./nav.module.css";
-import workStyles from "../../views/portfolio/work/work.module.css";
-import { Context } from "../provider/provider";
+import workStyles from "@/views/portfolio/work/work.module.css";
+import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 function NavAni() {
   const { transition } = useContext(Context);

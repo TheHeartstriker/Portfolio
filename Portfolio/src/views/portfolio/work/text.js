@@ -223,7 +223,7 @@ export const project3 = {
     nextProjectHeading: `Next Section — Design Process`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT SECTION`,
-    image: `./dev/dev1.jpg`,
+    image: `./portfolio/design/process1.jpg`,
     cta: `VISIT NEXT SECTION`,
   },
 };

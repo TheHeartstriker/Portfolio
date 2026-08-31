@@ -1,5 +1,5 @@
 import "../site.css";
-import Nav from "@/components/nav/nav.jsx";
+import Nav from "@/components/nav/navMenu/nav.jsx";
 import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScroll";
 import { Display, Body } from "@/utils/text/fonts";
@@ -8,6 +8,7 @@ import Script from "next/script";
 import FilmGrain from "@/components/filmGrain/filmGrain";
 import Opening from "@/components/opening/opening";
 import Provider from "@/components/provider/provider";
+import ScrollBlur from "@/components/nav/scrollBlur/scrollBlur";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -40,9 +41,10 @@ export default function RootLayout({ children }) {
           }}
         />
         <Provider>
-          {/* <Opening /> */}
+          <Opening />
           <Nav />
           <FilmGrain />
+          <ScrollBlur />
           <LenisProvider>
             {children}
             <IntroXFooter />

@@ -6,7 +6,7 @@ import HeroAni from "./heroAni";
 function Hero() {
   return (
     <section className={styles["hero"]}>
-      {/* <HeroAni /> */}
+      <HeroAni />
       {/*  */}
       {/* Hero */}
       {/*  */}

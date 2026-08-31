@@ -11,19 +11,37 @@ import {
 } from "./text";
 
 function getResponsiveWidth(value, viewportWidth) {
-  if (viewportWidth < 550) return `calc(${value} * 2)`;
-  if (viewportWidth < 800) return `calc(${value} * 1.75)`;
-  if (viewportWidth < 1050) return `calc(${value} * 1.5)`;
+  if (viewportWidth < 500) return `calc(${value} * 4.25)`;
+  if (viewportWidth < 600) return `calc(${value} * 3.25)`;
+  if (viewportWidth < 800) return `calc(${value} * 2.5)`;
+  if (viewportWidth < 1000) return `calc(${value} * 2.1)`;
+  if (viewportWidth < 1300) return `calc(${value} * 1.6)`;
+  if (viewportWidth < 1600) return `calc(${value} * 1.4)`;
   return value;
 }
 
+function getResponsiveHeight(value, viewportWidth) {
+  if (viewportWidth < 1000) {
+    return `calc(${value} + var(--typo-size-48) * 2 + var(--typo-size-12))`;
+  }
+
+  if (viewportWidth < 1500) {
+    return `calc(${value} + var(--typo-size-64) * 2 + var(--typo-size-12))`;
+  }
+
+  return `calc(${value} + var(--typo-size-96) * 2 + var(--typo-size-12))`;
+}
+
 function Highlight() {
-  const [viewportWidth, setViewportWidth] = useState(() =>
-    typeof window === "undefined" ? 1440 : window.innerWidth,
+  const [viewportWidth, setViewportWidth] = useState(
+    document.documentElement.clientWidth,
   );
 
   useEffect(() => {
-    const handleResize = () => setViewportWidth(window.innerWidth);
+    const handleResize = () => {
+      const next = document.documentElement.clientWidth;
+      setViewportWidth((prev) => (prev === next ? prev : next));
+    };
 
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -46,7 +64,7 @@ function Highlight() {
             }`}
             style={{
               width: getResponsiveWidth(image.width, viewportWidth),
-              height: `${image.height}`,
+              height: getResponsiveHeight(image.height, viewportWidth),
             }}
           >
             <img src={image.src} alt="Highlight project" />

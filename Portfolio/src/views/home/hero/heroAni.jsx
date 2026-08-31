@@ -1,10 +1,9 @@
 "use client";
 import styles from "./hero.module.css";
-import styleNav from "@/components/nav/nav.module.css";
+import styleNav from "@/components/nav/navMenu/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
-import { animateShapes } from "@/utils/animations/animateShapes";
 import gsap from "gsap";
-import { useEffect, useContext, useRef, useLayoutEffect } from "react";
+import { useEffect, useContext, useRef } from "react";
 import { Context } from "@/components/provider/provider.jsx";
 
 function HeroAni() {
