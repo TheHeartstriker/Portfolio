@@ -41,7 +41,7 @@ function Intro() {
       {/*  */}
       {/* Main image */}
       {/*  */}
-      <img src="/introXfooter/intro.jpg" alt={introText.imageAlt} />
+      <img src="/introXfooter/intro.webp" alt={introText.imageAlt} />
       {/*  */}
       {/* Button overlay */}
       <div className={styles["intro-overlay-1"]}></div>

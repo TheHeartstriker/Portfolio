@@ -1,8 +1,8 @@
 export const highlightHeading = `Some blog highlights and stats I am proud of.`;
 export const highlightSectionName = `HIGHLIGHT`;
 
-export const highlightImage1 = `/blog/b3.jpg`;
-export const highlightImage2 = `/blog/b2.jpg`;
+export const highlightImage1 = `/blog/b3.webp`;
+export const highlightImage2 = `/blog/b2.webp`;
 
 export const highlightStatCard1 = {
   heading: `ARTICLES WRITTEN`,

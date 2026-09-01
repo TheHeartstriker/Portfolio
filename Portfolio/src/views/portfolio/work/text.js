@@ -18,7 +18,7 @@ export const project1 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/fgraphs/f1.png`,
+    image: `./portfolio/work/fgraphs/f1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -41,10 +41,10 @@ export const project1 = {
     heading: `I created a bold, impactful fitness website to save time and learn how to build a brand.`,
     images: [
       {
-        source: `./portfolio/work/fgraphs/f4.jpg`,
+        source: `./portfolio/work/fgraphs/f4.webp`,
       },
       {
-        source: `./portfolio/work/fgraphs/f6.jpg`,
+        source: `./portfolio/work/fgraphs/f6.webp`,
       },
     ],
     // Why it worked
@@ -56,13 +56,13 @@ export const project1 = {
   image: {
     images: [
       {
-        source: `./portfolio/work/fgraphs/f2.jpg`,
+        source: `./portfolio/work/fgraphs/f2.webp`,
       },
       {
-        source: `./portfolio/work/fgraphs/f4.jpg`,
+        source: `./portfolio/work/fgraphs/f4.webp`,
       },
       {
-        source: `./portfolio/work/fgraphs/f3.jpg`,
+        source: `./portfolio/work/fgraphs/f3.webp`,
       },
     ],
   },
@@ -72,7 +72,7 @@ export const project1 = {
     nextProjectHeading: `Next Project — Event Agency`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT PROJECT`,
-    image: `./portfolio/work/matsuri/m1.jpg`,
+    image: `./portfolio/work/matsuri/m1.webp`,
     cta: `VISIT NEXT SECTION`,
   },
 };
@@ -94,7 +94,7 @@ export const project2 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/matsuri/m1.jpg`,
+    image: `./portfolio/work/matsuri/m1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -117,10 +117,10 @@ export const project2 = {
     heading: `I built a clean, typography-focused website to develop my focus, visual taste, and direction.`,
     images: [
       {
-        source: `./portfolio/work/matsuri/m2.jpg`,
+        source: `./portfolio/work/matsuri/m2.webp`,
       },
       {
-        source: `./portfolio/work/matsuri/m6.jpg`,
+        source: `./portfolio/work/matsuri/m6.webp`,
       },
     ],
     // Why it worked
@@ -132,13 +132,13 @@ export const project2 = {
   image: {
     images: [
       {
-        source: `./portfolio/work/matsuri/m3.jpg`,
+        source: `./portfolio/work/matsuri/m3.webp`,
       },
       {
-        source: `./portfolio/work/matsuri/m5.jpg`,
+        source: `./portfolio/work/matsuri/m5.webp`,
       },
       {
-        source: `./portfolio/work/matsuri/m4.jpg`,
+        source: `./portfolio/work/matsuri/m4.webp`,
       },
     ],
   },
@@ -148,7 +148,7 @@ export const project2 = {
     nextProjectHeading: `Next Project — Realtor`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT PROJECT`,
-    image: `./portfolio/work/atkins/a1.jpg`,
+    image: `./portfolio/work/atkins/a1.webp`,
     cta: `VISIT NEXT SECTION`,
   },
 };
@@ -169,7 +169,7 @@ export const project3 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/atkins/a1.jpg`,
+    image: `./portfolio/work/atkins/a1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -192,10 +192,10 @@ export const project3 = {
     heading: `I built a clean, simple landing page for a retail agent, focusing on improving visual presence.`,
     images: [
       {
-        source: `./portfolio/work/atkins/a3.jpg`,
+        source: `./portfolio/work/atkins/a3.webp`,
       },
       {
-        source: `./portfolio/work/atkins/a6.jpg`,
+        source: `./portfolio/work/atkins/a6.webp`,
       },
     ],
     // Why it worked
@@ -207,13 +207,13 @@ export const project3 = {
   image: {
     images: [
       {
-        source: `./portfolio/work/atkins/a2.jpg`,
+        source: `./portfolio/work/atkins/a2.webp`,
       },
       {
-        source: `./portfolio/work/atkins/a5.jpg`,
+        source: `./portfolio/work/atkins/a5.webp`,
       },
       {
-        source: `./portfolio/work/atkins/a4.jpg`,
+        source: `./portfolio/work/atkins/a4.webp`,
       },
     ],
   },
@@ -223,7 +223,7 @@ export const project3 = {
     nextProjectHeading: `Next Section — Design Process`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT SECTION`,
-    image: `./portfolio/design/process1.jpg`,
+    image: `./portfolio/design/process1.webp`,
     cta: `VISIT NEXT SECTION`,
   },
 };

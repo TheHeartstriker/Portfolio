@@ -1,5 +1,5 @@
 export const imageLeft = {
-  imageSrc: "/contact/contact.jpg",
+  imageSrc: "/contact/contact.webp",
 };
 
 export const textMiddle = {

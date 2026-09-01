@@ -1,42 +1,42 @@
 export const highlightImages = [
   {
-    src: "/home/highlight3.jpg",
+    src: "/home/highlight3.webp",
     width: "50vh",
     height: "50%",
   },
   {
-    src: "/home/highlight8.jpg",
+    src: "/home/highlight8.webp",
     width: "75vw",
     height: "95%",
   },
   {
-    src: "/home/highlight6.jpg",
+    src: "/home/highlight6.webp",
     width: "60vw",
     height: "65%",
   },
   {
-    src: "/home/highlight1.jpg",
+    src: "/home/highlight1.webp",
     width: "70vw",
     height: "95%",
   },
   {
-    src: "/home/highlight4.jpg",
+    src: "/home/highlight4.webp",
     width: "60vw",
     height: "65%",
   },
   {
-    src: "/home/highlight5.jpg",
+    src: "/home/highlight5.webp",
     width: "50vh",
     height: "50%",
   },
 
   {
-    src: "/home/highlight7.jpg",
+    src: "/home/highlight7.webp",
     width: "40vw",
     height: "65%",
   },
   {
-    src: "/home/highlight2.jpg",
+    src: "/home/highlight2.webp",
     width: "65vw",
     height: "85%",
   },

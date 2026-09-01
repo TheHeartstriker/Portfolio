@@ -7,7 +7,7 @@ export const whoIntro = `I am Kaden Wildauer and at my core, I'm a creative. I l
   As for my more personal life, if I am not creating, then I like playing video games, watching TV, working out, and talking to people.
   `;
 
-export const whoImage = "/home/who.jpg";
+export const whoImage = "/home/who.webp";
 
 export const whoGroups = [
   {
