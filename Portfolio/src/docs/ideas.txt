@@ -14,3 +14,5 @@ There is a high chance that all the changes bellow have already been implemented
 -- Re think the mobile version of highlights on home
 -- Mobile pass
 -- Rethink the work projects sizing mainly for desktop
+-- Rember that time I took a svg and created a canvas of pixel's that moved from random possitions to form the svg shape? Recreate that in the opening and maybe transition.
+-- Re think the whole backend of the blog aka how it all connects and exports how endpoints are that kind of thing

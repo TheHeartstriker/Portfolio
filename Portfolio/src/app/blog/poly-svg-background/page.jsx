@@ -1,32 +1,36 @@
 import { ArticleReader } from "@/views/blog/posts/postReader/render";
 export const metadata = {
+  //
+  // Base / web / chrome
   metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "Building a Mouse-Responsive SVG Polygon Background",
   description: `This article will go over how to transform a static SVG image into a cool mouse responsive background! Use's
   include portfolios, interactive websites, or even in more professional settings if you're feeling like creating something interesting.
   Built with css and javascript.`,
-
+  //
+  // Open Graph
   openGraph: {
     title: "Building a Mouse-Responsive SVG Polygon Background",
     description:
       "This article will go over how to transform a static SVG image into a cool mouse responsive background...",
-    url: "https://www.kadenwildauer.com/scriptorium/poly-svg-background",
+    url: "https://www.kadenwildauer.com/blog/poly-svg-background",
     images: [
       {
-        url: "/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp",
+        url: "/blog/polySvgArticle/PolyWhiteBlackBlack.webp",
         width: 1200,
         height: 630,
         alt: "Mouse-Responsive SVG Polygon Background Example",
       },
     ],
   },
-
+  //
+  // Twitter
   twitter: {
     card: "summary_large_image",
     title: "Building a Mouse-Responsive SVG Polygon Background",
     description:
       "This article will go over how to transform a static SVG image into a cool mouse responsive background...",
-    images: ["/scriptorium/polySvgArticle/PolyWhiteBlackBlack.webp"],
+    images: ["/blog/polySvgArticle/PolyWhiteBlackBlack.webp"],
   },
   robots: "index, follow",
 };
@@ -37,8 +41,8 @@ import App from "@/views/blog/posts/content/articlesScript/polySvg";
 
 const articleArr = [polySvgArticle1, App, polySvgArticle2];
 
-function ScriptoriumPage() {
+function BlogPage() {
   return <ArticleReader article={articleArr} />;
 }
 
-export default ScriptoriumPage;
+export default BlogPage;

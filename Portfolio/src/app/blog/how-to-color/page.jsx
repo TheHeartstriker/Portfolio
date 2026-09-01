@@ -1,35 +1,40 @@
 export const metadata = {
+  //
+  // Base / web / chrome
   metadataBase: new URL("https://www.kadenwildauer.com/"),
   title: "How to Choose Colors When Designing a Website",
   description: `A detailed article about how to choose colors when designing a website, covering design principles, color theory, and practical tips. Along with examples and when and how to apply them.`,
-
+  //
+  // Open Graph
   openGraph: {
     title: "How to Choose Colors When Designing a Website",
     description:
       "A detailed article about how to choose colors when designing a website...",
-    url: "https://www.kadenwildauer.com/scriptorium/how-to-color",
+    url: "https://www.kadenwildauer.com/blog/how-to-color",
     images: [
       {
-        url: "/scriptorium/thumb/thumb5.webp",
+        url: "/blog/thumb/thumb5.webp",
         width: 1200,
         height: 630,
         alt: "How to Choose Colors When Designing a Website",
       },
     ],
   },
+  //
+  // Twitter
   twitter: {
     card: "summary_large_image",
     title: "How to Choose Colors When Designing a Website",
     description:
       "A detailed article about how to choose colors when designing a website...",
-    images: ["/scriptorium/thumb/thumb5.webp"],
+    images: ["/blog/thumb/thumb5.webp"],
   },
   robots: "index, follow",
 };
 import { ArticleReader } from "@/views/blog/posts/postReader/render";
 import colorArticle from "@/views/blog/posts/content/articlesText/colorArticle/color.md";
-function ScriptoriumPage() {
+function BlogPage() {
   return <ArticleReader article={[colorArticle]} />;
 }
 
-export default ScriptoriumPage;
+export default BlogPage;
