@@ -1,7 +1,6 @@
 "use client";
 import styles from "./footer.module.css";
 import { footerBottom, footerLeft, footerMiddle, footerRight } from "./text";
-import RadahnRune from "@/../public/icons/radahnRune.jsx";
 import FooterAni from "./footerAni";
 import BigRadahnRune from "@/../public/icons/bigRadahnRune";
 import ScrollMotion from "@/components/animations/scrollMotion";

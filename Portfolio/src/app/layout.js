@@ -9,6 +9,7 @@ import FilmGrain from "@/components/filmGrain/filmGrain";
 import Opening from "@/components/opening/opening";
 import Provider from "@/components/provider/provider";
 import ScrollBlur from "@/components/nav/scrollBlur/scrollBlur";
+import Tab from "@/components/tabChange/tab";
 export default function RootLayout({ children }) {
   return (
     <html
@@ -19,8 +20,8 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" />
+        <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" />
       </head>
       <body>
         {/* Google analytics */}
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
           <Nav />
           <FilmGrain />
           <ScrollBlur />
+          <Tab />
           <LenisProvider>
             {children}
             <IntroXFooter />

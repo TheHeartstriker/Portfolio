@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import workStyles from "../work.module.css";
 import projectStyles from "./project.module.css";
@@ -129,6 +129,7 @@ function ProjectAni({ projectNum }) {
     return function cleanupContext() {
       ctx.revert();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 

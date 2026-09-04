@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import styles from "./filmGrain.module.css";
 
 function FilmGrain() {

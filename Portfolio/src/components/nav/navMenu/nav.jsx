@@ -5,7 +5,7 @@ import NavAni from "./navAni";
 import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 function Nav() {
-  const { setTransition, transition, setNavPage } = useContext(Context);
+  const { setTransition, setNavPage } = useContext(Context);
 
   return (
     //

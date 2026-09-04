@@ -4,7 +4,6 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import styles from "./render.module.css";
-import LayoutGuide from "@/utils/alignment/align";
 function articleChecker(item) {
   //
   // Check if we are code markdown

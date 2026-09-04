@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
+import PropTypes from "prop-types";
 gsap.registerPlugin(ScrollTrigger);
 
 function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
@@ -47,5 +48,13 @@ function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
 
   return null;
 }
+
+ScrollMotion.propTypes = {
+  item: PropTypes.string.isRequired,
+  moveDirection: PropTypes.string.isRequired,
+  moveAmount: PropTypes.number.isRequired,
+  start: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired,
+};
 
 export default ScrollMotion;

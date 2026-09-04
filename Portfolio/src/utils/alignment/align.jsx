@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 function getCssNumber(name, fallback) {
   if (typeof window === "undefined") return fallback;
@@ -63,5 +64,9 @@ function LayoutGuide({ color = "rgba(255, 0, 0, 0.15)" }) {
     </div>
   );
 }
+
+LayoutGuide.propTypes = {
+  color: PropTypes.string,
+};
 
 export default LayoutGuide;

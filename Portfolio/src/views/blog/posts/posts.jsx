@@ -2,10 +2,7 @@
 
 import { useState, useRef } from "react";
 import styles from "./posts.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
-import ActionButton from "@/components/button/actionButton";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
-import RadahnRune from "@/../public/icons/radahnRune";
 import PostsCard from "./card";
 import {
   desParticle,

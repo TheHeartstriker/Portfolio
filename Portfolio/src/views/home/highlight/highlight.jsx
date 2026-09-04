@@ -33,21 +33,25 @@ function getResponsiveHeight(value, viewportWidth) {
 }
 
 function Highlight() {
-  const [viewportWidth, setViewportWidth] = useState(
-    document.documentElement.clientWidth,
-  );
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      const next = document.documentElement.clientWidth;
-      setViewportWidth((prev) => (prev === next ? prev : next));
+      setViewportWidth(window.innerWidth);
     };
 
     handleResize();
+
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  if (viewportWidth === null) {
+    return null;
+  }
 
   return (
     <section className={styles["highlight"]}>

@@ -1,5 +1,6 @@
 import styles from "./actionButton.module.css";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
+import PropTypes from "prop-types";
 
 function ActionButton({ text, type, onClick, className }) {
   return (
@@ -17,5 +18,12 @@ function ActionButton({ text, type, onClick, className }) {
     </button>
   );
 }
+
+ActionButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+};
 
 export default ActionButton;

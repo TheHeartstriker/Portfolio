@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { animateText } from "@/utils/animations/animateText";
 import styles from "./skills.module.css";
+import PropTypes from "prop-types";
 function SkillsAni({ index, set, cards }) {
   const hasMounted = useRef(false);
 
@@ -75,9 +76,16 @@ function SkillsAni({ index, set, cards }) {
         });
       },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
   return null;
 }
+
+SkillsAni.propTypes = {
+  index: PropTypes.number.isRequired,
+  set: PropTypes.func.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default SkillsAni;

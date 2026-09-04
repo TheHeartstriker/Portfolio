@@ -1,9 +1,9 @@
 import ActionButton from "@/components/button/actionButton";
 import styles from "./posts.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
-import { useRouter } from "next/navigation";
 import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
+import PropTypes from "prop-types";
 function PostsCard({
   image,
   imageAlt,
@@ -14,7 +14,7 @@ function PostsCard({
   buttonText = "READ ME!",
   slug,
 }) {
-  const { setTransition, transition, setNavPage } = useContext(Context);
+  const { setTransition, setNavPage } = useContext(Context);
   function handleClick() {
     (setTransition(true), setNavPage(`blog/${slug}`));
   }
@@ -63,5 +63,16 @@ function PostsCard({
     </div>
   );
 }
+
+PostsCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string),
+  date: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+};
 
 export default PostsCard;

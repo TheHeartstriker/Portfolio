@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
-import styles from "./journey.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -93,5 +92,6 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
     }, section);
 
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }

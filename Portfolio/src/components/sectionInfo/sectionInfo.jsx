@@ -1,5 +1,6 @@
 import styles from "./sectionInfo.module.css";
 import MorgottRune from "@/../public/icons/morgottRune.jsx";
+import PropTypes from "prop-types";
 
 function SectionInfo({ infoName }) {
   return (
@@ -9,5 +10,9 @@ function SectionInfo({ infoName }) {
     </div>
   );
 }
+
+SectionInfo.propTypes = {
+  infoName: PropTypes.string.isRequired,
+};
 
 export default SectionInfo;

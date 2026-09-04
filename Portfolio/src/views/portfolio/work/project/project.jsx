@@ -6,6 +6,7 @@ import ActionButton from "@/components/button/actionButton";
 import ProjectAni from "./projectAni";
 import { useLenis } from "lenis/react";
 import processStyles from "../../process/process.module.css";
+import PropTypes from "prop-types";
 
 //
 /// Rememver to replace overlay in css and image classes
@@ -184,5 +185,51 @@ function Project({ projectNum, project }) {
     </div>
   );
 }
+
+const projectTextShape = PropTypes.shape({
+  subHeading: PropTypes.string,
+  heading: PropTypes.string,
+  detailsPara: PropTypes.string,
+  cta: PropTypes.string,
+});
+
+Project.propTypes = {
+  projectNum: PropTypes.number.isRequired,
+  project: PropTypes.shape({
+    hero: projectTextShape.isRequired,
+    main: PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      leftDetails: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          value: PropTypes.string.isRequired,
+        }),
+      ).isRequired,
+      rightDetails: PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        values: PropTypes.arrayOf(PropTypes.string).isRequired,
+      }).isRequired,
+    }).isRequired,
+    middle: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      images: PropTypes.arrayOf(
+        PropTypes.shape({ source: PropTypes.string.isRequired }),
+      ).isRequired,
+      detailsPara: PropTypes.string.isRequired,
+    }).isRequired,
+    image: PropTypes.shape({
+      images: PropTypes.arrayOf(
+        PropTypes.shape({ source: PropTypes.string.isRequired }),
+      ).isRequired,
+    }).isRequired,
+    exit: PropTypes.shape({
+      nextProjectHeading: PropTypes.string.isRequired,
+      heading: PropTypes.string.isRequired,
+      instruction: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      cta: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default Project;

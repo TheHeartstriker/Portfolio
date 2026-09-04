@@ -148,6 +148,7 @@ function HighlightAni() {
     return function cleanupContext() {
       ctx.revert();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 

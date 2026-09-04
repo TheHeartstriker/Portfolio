@@ -1,5 +1,3 @@
-import { lorem } from "@/utils/text/text";
-
 //
 // Project One
 //

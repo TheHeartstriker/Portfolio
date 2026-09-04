@@ -1,10 +1,7 @@
 import styles from "./hero.module.css";
-import { lorem, smallLorem } from "@/utils/text/text";
-import ActionButton from "@/components/button/actionButton";
 import MorgottRune from "@/../public/icons/morgottRune";
 import { heroHeading1, heroHeading2, heroImage, scrollText } from "./text";
 import HeroAni from "./heroAni";
-import ScrollMotion from "@/components/animations/scrollMotion";
 function Hero() {
   return (
     <section className={styles["hero"]}>

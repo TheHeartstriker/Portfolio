@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import gsap from "gsap";
-import styles from "./posts.module.css";
+import PropTypes from "prop-types";
 
 function PostsAni({
   containerRef,
@@ -44,5 +44,13 @@ function PostsAni({
 
   return null;
 }
+
+PostsAni.propTypes = {
+  containerRef: PropTypes.shape({ current: PropTypes.object }),
+  trigger: PropTypes.string,
+  setActiveTags: PropTypes.func.isRequired,
+  setTrigger: PropTypes.func.isRequired,
+  setIsAnimating: PropTypes.func.isRequired,
+};
 
 export default PostsAni;

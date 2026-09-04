@@ -92,6 +92,7 @@ function Opening() {
     return () => {
       timeline.kill();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //
@@ -182,6 +183,7 @@ function Opening() {
     return () => {
       timeline.kill();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition]);
 
   return (
