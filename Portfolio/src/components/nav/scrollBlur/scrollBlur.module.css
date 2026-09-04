@@ -1,3 +1,6 @@
+/*  */
+/* Main bottom scroll blur */
+/*  */
 .blur-wrap {
   position: fixed;
   left: 0;
@@ -78,4 +81,77 @@
 .blur-wrap > div:nth-child(5) {
   mask-image: linear-gradient(to bottom, transparent 80%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 80%, black 100%);
+}
+/*  */
+/* Main right scroll blur*/
+/*  */
+.blur-wrap--right {
+  left: auto;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: 30vw; /* or a fixed value like 320px if you want it constant */
+}
+
+.blur-wrap--right > div:nth-child(1) {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 40%,
+    transparent 60%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 40%,
+    transparent 60%
+  );
+}
+.blur-wrap--right > div:nth-child(2) {
+  mask-image: linear-gradient(
+    to right,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%
+  );
+}
+.blur-wrap--right > div:nth-child(3) {
+  mask-image: linear-gradient(
+    to right,
+    transparent 40%,
+    black 60%,
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 40%,
+    black 60%,
+    black 80%,
+    transparent 100%
+  );
+}
+.blur-wrap--right > div:nth-child(4) {
+  mask-image: linear-gradient(to right, transparent 60%, black 80%, black 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 60%,
+    black 80%,
+    black 100%
+  );
+}
+.blur-wrap--right > div:nth-child(5) {
+  mask-image: linear-gradient(to right, transparent 80%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 80%, black 100%);
 }

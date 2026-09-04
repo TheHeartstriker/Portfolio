@@ -1,8 +1,9 @@
 "use client";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
 import gsap from "gsap";
 import styles from "./highlight.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Context } from "@/components/provider/provider.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ const MIN_OPACITY = 0;
 const MAX_OPACITY = 0.2;
 
 function HighlightAni() {
+  const { setLeftMove } = useContext(Context);
   //
   // Scroll Animation
   //
@@ -112,6 +114,23 @@ function HighlightAni() {
         scrub: true,
         invalidateOnRefresh: true,
         animation: tl,
+
+        onEnter: function () {
+          setLeftMove(true);
+        },
+
+        onLeave: function () {
+          setLeftMove(false);
+        },
+
+        onEnterBack: function () {
+          setLeftMove(true);
+        },
+
+        onLeaveBack: function () {
+          setLeftMove(false);
+        },
+
         onRefresh: updateOverlays,
       });
 

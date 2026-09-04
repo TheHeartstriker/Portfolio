@@ -11,6 +11,9 @@ function Provider({ children }) {
   //
   // Decides what page when need to nav to when transitioning
   const [navPage, setNavPage] = useState("/");
+  //
+  // Left movement aka we are pining and scrolling content from the right
+  const [leftMove, setLeftMove] = useState(false);
 
   return (
     <Context.Provider
@@ -19,6 +22,8 @@ function Provider({ children }) {
         setTransition: setTransition,
         navPage: navPage,
         setNavPage: setNavPage,
+        leftMove: leftMove,
+        setLeftMove: setLeftMove,
       }}
     >
       {children}

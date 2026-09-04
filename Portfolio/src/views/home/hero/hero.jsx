@@ -7,7 +7,7 @@ import { heroHeading1, heroHeading2, heroPara, scrollPara } from "./text";
 function Hero() {
   return (
     <section className={styles["hero"]}>
-      {/* <HeroAni /> */}
+      <HeroAni />
       {/*  */}
       {/* The main hero intro part */}
       {/*  */}

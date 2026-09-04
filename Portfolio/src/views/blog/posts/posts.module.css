@@ -98,6 +98,7 @@
     width var(--motion-medium-2) var(--power-2-out),
     height var(--motion-medium-2) var(--power-2-out);
   z-index: 5;
+  filter: contrast(1.1) saturate(0.8) brightness(0.9);
 }
 
 .posts-con-card-img-overlay {

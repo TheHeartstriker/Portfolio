@@ -24,6 +24,7 @@
   transform: scale(1);
   transform-origin: center;
   transition: transform var(--motion-medium-2) var(--power-2-out);
+  filter: contrast(1.1) saturate(0.8) brightness(0.9);
 }
 
 .hero-image:hover img {

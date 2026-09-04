@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import styles from "./scrollBlur.module.css";
 import gsap from "gsap";
+import { Context } from "@/components/provider/provider.jsx";
 
 // relative blur "weight" per layer — bottom layer gets the strongest blur sum is 16
 const LAYER_WEIGHTS = [1, 2, 4, 8, 16];
@@ -26,6 +27,7 @@ function ScrollBlur() {
   const targetIntensity = useRef(0);
   const lastScrollY = useRef(0);
   const lastTime = useRef(0);
+  const { leftMove } = useContext(Context);
 
   useEffect(() => {
     //
@@ -94,8 +96,16 @@ function ScrollBlur() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(leftMove, "We changed");
+  }, [leftMove]);
+
   return (
-    <nav className={styles["blur-wrap"]}>
+    <nav
+      className={`${styles["blur-wrap"]} ${
+        leftMove ? styles["blur-wrap--right"] : ""
+      }`}
+    >
       {LAYER_WEIGHTS.map((_, i) => (
         <div key={i} ref={(el) => (layerRefs.current[i] = el)} />
       ))}
