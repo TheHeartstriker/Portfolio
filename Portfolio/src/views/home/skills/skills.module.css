@@ -77,12 +77,9 @@
 }
 
 .skills-con-heading-left-control button:first-child svg {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
-.skills-con-heading-left-control button:last-child svg {
-  transform: rotate(-90deg);
-}
 /* Button container hover*/
 .skills-con-heading-left-control button:hover {
   background-color: var(--dark-3);

@@ -12,6 +12,7 @@ export const project1 = {
     The entire project's core goal was to challenge myself and create something I was proud of — something unique, impactful, and interesting — both for fun
     and to improve my focus and skills before selling them.`,
     cta: `SEE LIVE WEBSITE`,
+    ctaLink: `https://fgraphs.com/`,
   },
   //
   // Big image section
@@ -88,6 +89,7 @@ export const project2 = {
     detailsPara: `MATSURI Digital is an event organization website. This was for me. The core goal was the same as the previous project: to learn and practice, to develop my process and vision.
     But in a modern setting — something clean, minimal, but just as unique`,
     cta: `SEE LIVE WEBSITE`,
+    ctaLink: `https://event-practice-sage.vercel.app/`,
   },
   //
   // Big image section
@@ -163,6 +165,7 @@ export const project3 = {
     detailsPara: `Peyton Ray Properties was a landing page for a retail agent. It was made for Haily Atkins. The core goal was to make a simple but unique landing page for a retailer.
     This was an old project of mine, made before I had much practice or confidence in my skills, at the behest of a friend.`,
     cta: `SEE LIVE WEBSITE`,
+    ctaLink: `https://lively-sand-0233c801e.6.azurestaticapps.net/`,
   },
   //
   // Big image section

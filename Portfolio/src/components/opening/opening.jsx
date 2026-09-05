@@ -5,9 +5,11 @@ import { Context } from "@/components/provider/provider.jsx";
 import { useRouter } from "next/navigation";
 import styles from "./opening.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
+import { usePathname } from "next/navigation";
 function Opening() {
   const router = useRouter();
   const counter = useRef(0);
+  const pathname = usePathname();
   const { setTransition, transition, navPage } = useContext(Context);
   //
   // This is the orgin opening aka the first one(longer more cinima)
@@ -24,11 +26,8 @@ function Opening() {
     //
     // Turn on opening
     gsap.set(container, {
-      zIndex: "150",
+      zIndex: "300",
     });
-    //
-    //Scroll to top
-    window.scrollTo({ top: 0, behavior: "instant" });
     //
     //Wait
     timeline
@@ -109,7 +108,7 @@ function Opening() {
     //
     // Turn on opening
     gsap.set(container, {
-      zIndex: "150",
+      zIndex: "300",
     });
     //
     // Cut path animation
@@ -130,7 +129,6 @@ function Opening() {
       // Switch pages the screen and scroll to top while screen is covered
       onComplete: () => {
         router.push(navPage);
-        window.scrollTo({ top: 0, behavior: "instant" });
       },
     });
     //
@@ -185,6 +183,14 @@ function Opening() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition]);
+  //
+  // For moving to the top on any page transtion
+  //
+  useEffect(() => {
+    if (counter.current === 0) return;
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
 
   return (
     <div className={styles["opening"]}>

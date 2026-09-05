@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import styles from "./highlight.module.css";
 import HighlightAni from "./highlightAni";
 import {
@@ -33,9 +33,9 @@ function getResponsiveHeight(value, viewportWidth) {
 }
 
 function Highlight() {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
     };

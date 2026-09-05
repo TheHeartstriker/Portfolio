@@ -1,13 +1,15 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import gsap from "gsap";
 import workStyles from "../work.module.css";
 import projectStyles from "./project.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Context } from "@/components/provider/provider.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function ProjectAni({ projectNum }) {
+  const { setLeftMove } = useContext(Context);
   //
   // Scroll Animation
   //
@@ -120,6 +122,22 @@ function ProjectAni({ projectNum }) {
         scrub: true,
         invalidateOnRefresh: true,
         animation: tl,
+
+        onEnter: function () {
+          setLeftMove(true);
+        },
+
+        onLeave: function () {
+          setLeftMove(false);
+        },
+
+        onEnterBack: function () {
+          setLeftMove(true);
+        },
+
+        onLeaveBack: function () {
+          setLeftMove(false);
+        },
       });
       return function cleanupScrollTrigger() {
         st.kill();

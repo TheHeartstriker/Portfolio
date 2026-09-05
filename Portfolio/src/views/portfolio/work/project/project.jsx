@@ -55,7 +55,13 @@ function Project({ projectNum, project }) {
         {/* Para details and btn */}
         <div className={styles["work-project-hero-bottom"]}>
           <p>{project.hero.detailsPara}</p>
-          <ActionButton text={project.hero.cta} type={"regular"} />
+          <ActionButton
+            text={project.hero.cta}
+            type={"regular"}
+            onClick={() => {
+              window.open(`${project.hero.ctaLink}`, "_blank");
+            }}
+          />
         </div>
       </div>
       {/*  */}
@@ -191,6 +197,7 @@ const projectTextShape = PropTypes.shape({
   heading: PropTypes.string,
   detailsPara: PropTypes.string,
   cta: PropTypes.string,
+  ctaLink: PropTypes.string,
 });
 
 Project.propTypes = {

@@ -9,11 +9,15 @@ function Journey() {
   const journeyRef = useRef(null);
   const journeyConRef = useRef(null);
   const journeyConItemRef = useRef([]);
-  JourneyAni({ journeyRef, journeyConRef, journeyConItemRef });
 
   return (
     <section className={styles["journey"]} ref={journeyRef}>
       <SectionInfo infoName={"CLIENT PROCESS"} />
+      <JourneyAni
+        journeyRef={journeyRef}
+        journeyConRef={journeyConRef}
+        journeyConItemRef={journeyConItemRef}
+      />
 
       {/*  */}
       {/* Main heading */}

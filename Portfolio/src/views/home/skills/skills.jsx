@@ -2,7 +2,7 @@
 import styles from "./skills.module.css";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import ActionButton from "@/components/button/actionButton";
-import Arrow from "../../../../out/icons/arrow";
+import Arrow from "@/../public/icons/arrow";
 import { Card1, Card2, Card3, Card4 } from "./text";
 import SkillsAni from "./skillsAni";
 import { useState } from "react";

@@ -72,10 +72,10 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${totalDistance}`,
+          //   end: () => `+=${totalDistance}`,
           pin: true,
-          scrub: true,
-          invalidateOnRefresh: true,
+          //   scrub: true,
+          //   invalidateOnRefresh: true,
         },
       });
 
@@ -92,6 +92,7 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
     }, section);
 
     return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  return null;
 }
