@@ -6,6 +6,7 @@ function Hero() {
   return (
     <section className={styles["hero"]}>
       <HeroAni />
+
       {/*  */}
       {/* The main hero intro part */}
       {/*  */}

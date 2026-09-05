@@ -25,7 +25,7 @@ function HeroAni() {
   //
   // Actual aniamtion
   // Note that the animation / effcts starts in its final possition in the css
-  function animateDesktop(nav, image, headings, detail, imageWidth) {
+  function animateDesktop(nav, image, headings, detail) {
     //
     //Animate headings to the left and right
     timelineRef.current
@@ -36,14 +36,11 @@ function HeroAni() {
         delay: "0.25",
       })
       //
-      // Grow image
+      // Reveal image from center pos never changes
       .to(image, {
         duration: 1,
         ease: "power2.out",
-        opacity: "1",
-        height: "22.5rem",
-        width: imageWidth,
-        borderRadius: "var(--border-radius)",
+        clipPath: "inset(0% round var(--border-radius))",
       })
       //
       //Animate nav in
@@ -76,7 +73,7 @@ function HeroAni() {
     timelineRef.current.to(image, {
       duration: 1,
       ease: "power2.out",
-      opacity: "1",
+      clipPath: "inset(0% round var(--border-radius))",
     });
     //
     //Animate text
@@ -141,47 +138,36 @@ function HeroAni() {
     const image = document.querySelector(`.${styles["hero-main-image"]}`);
     const headings = document.querySelectorAll(`.${styles["hero-main"]} h2`);
     const detail = document.querySelector(`.${styles["hero-detail"]}`);
-    //
-    // Get image natural size
-    const measurement = document.createElement("div");
-    measurement.style.position = "absolute";
-    measurement.style.visibility = "hidden";
-    document.body.appendChild(measurement);
-    measurement.style.width = "var(--column-width)";
-    const columnWidth = measurement.getBoundingClientRect().width;
-    measurement.style.width = "var(--space-24)";
-    const space24 = measurement.getBoundingClientRect().width;
-    measurement.remove();
-    const imageWidth = columnWidth * 5 + space24 * 3;
+
     if (!isMobile) {
       //
-      // Setup for the animation
+      // Animation setup for desktop
       gsap.set([nav, detail], { opacity: 0 });
       gsap.set(image, {
-        opacity: "0",
-        width: "0",
-        height: "0",
-        borderRadius: "25px",
+        clipPath: "inset(50% round 25px)",
       });
       gsap.set(headings[0], { marginRight: "0" });
       gsap.set(headings[1], { marginLeft: "0" });
-    } else {
+    }
+    //
+    // Animation setup for mobile
+    else {
       gsap.set(image, {
         clearProps: "all",
       });
       gsap.set(headings[0], { marginRight: "auto" });
       gsap.set(headings[1], { marginLeft: "auto" });
       gsap.set(image, {
-        opacity: "0",
+        clipPath: "inset(50% round 25px)",
       });
     }
     //
     //Clear timeline(of old animations) and attach animation
     timelineRef.current.clear();
     if (!isMobile) {
-      animateDesktop(nav, image, headings, detail, imageWidth);
+      animateDesktop(nav, image, headings, detail);
     } else {
-      animateMobile(nav, image, headings, detail, imageWidth);
+      animateMobile(nav, image, headings, detail);
     }
 
     //
@@ -191,7 +177,6 @@ function HeroAni() {
       playedRef.current = true;
     }
   }, [transition, isMobile]);
-
   return (
     <ScrollMotion
       item={`.${styles["hero-main-image"]} img`}

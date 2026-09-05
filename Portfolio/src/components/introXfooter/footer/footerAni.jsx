@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 function FooterAni() {
   const { transition } = useContext(Context);
   const pathname = usePathname();
+  if (transition) return null;
   //
   // The text animmation ps this can be considered a open / heading ani
   //

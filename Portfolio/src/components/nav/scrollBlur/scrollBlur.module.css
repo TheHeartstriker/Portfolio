@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 30vh;
+  height: 15vh;
   pointer-events: none;
   z-index: 100;
 }
@@ -91,7 +91,8 @@
   top: 0;
   bottom: 0;
   height: auto;
-  width: 30vw; /* or a fixed value like 320px if you want it constant */
+  width: 15vh;
+  z-index: 100;
 }
 
 .blur-wrap--right > div:nth-child(1) {

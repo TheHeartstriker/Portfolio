@@ -7,13 +7,13 @@ import { Context } from "@/components/provider/provider.jsx";
 // relative blur "weight" per layer — bottom layer gets the strongest blur sum is 16
 const LAYER_WEIGHTS = [1, 2, 4, 8, 16];
 // hard cap in px for the strongest layer — tune down, 50 is heavy
-const MAX_BLUR = 24;
+const MAX_BLUR = 20;
 // px/sec considered "full speed" — tune to taste, log e.velocity to calibrate
-const VELOCITY_CAP = 2000;
+const VELOCITY_CAP = 2500;
 // how fast intensity ramps up when scrolling speeds up
-const ATTACK = 0.1;
+const ATTACK = 0.5;
 // how fast it fades when scrolling slows/stops
-const RELEASE = 0.1;
+const RELEASE = 0.2;
 // per-frame decay so it fades even without new scroll events
 const TARGET_DECAY = 0.75;
 
