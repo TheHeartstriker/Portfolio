@@ -5,9 +5,11 @@ import styles from "./nav.module.css";
 import workStyles from "@/views/portfolio/work/work.module.css";
 import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
+import { usePathname } from "next/navigation";
 function NavAni() {
   const { transition } = useContext(Context);
   const transitionRef = useRef(transition);
+  const pathname = usePathname();
 
   // keep the ref in sync without re-running the scroll effect
   useEffect(() => {
@@ -28,7 +30,7 @@ function NavAni() {
     // How far the user has to scroll down before the nav reverts
     const DOWN_THRESHOLD = 50;
     // Ignore direction changes before the user leaves the very top
-    const TOP_OFFSET = 10;
+    const TOP_OFFSET = 25;
     // How close to the bottom before the nav completely disappears
     const BOTTOM_OFFSET = 125;
 
@@ -109,7 +111,7 @@ function NavAni() {
       if (navIsOverWork && centerIsOverWork) {
         return true;
       } else {
-        false;
+        return false;
       }
     }
 
@@ -140,9 +142,10 @@ function NavAni() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      gsap.set(nav, { clearProps: "all" });
       timeline.kill();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

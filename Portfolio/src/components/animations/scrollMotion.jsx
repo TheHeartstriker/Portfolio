@@ -5,9 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
 import PropTypes from "prop-types";
+import { Context } from "@/components/provider/provider";
+import { useContext } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
+  const { transition } = useContext(Context);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -44,7 +47,7 @@ function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
       cancelAnimationFrame(frameId);
       ctx.revert();
     };
-  }, [item, moveDirection, moveAmount, start, end, pathname]);
+  }, [item, moveDirection, moveAmount, start, end, pathname, transition]);
 
   return null;
 }

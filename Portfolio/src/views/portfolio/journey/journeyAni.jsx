@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,82 +16,100 @@ function cssLengthToPx(value) {
   return px;
 }
 
-export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
-  useEffect(() => {
-    const section = journeyRef.current;
-    const con = journeyConRef.current;
-    const items = journeyConItemRef.current.filter(Boolean);
+function initializeJourneyAnimation({
+  journeyRef,
+  journeyConRef,
+  journeyConItemRef,
+}) {
+  const section = journeyRef.current;
+  const con = journeyConRef.current;
+  const items = journeyConItemRef.current.filter(Boolean);
 
-    if (!section || !con || items.length < 2) return;
+  if (!section || !con || items.length < 2) return null;
 
-    const ctx = gsap.context(() => {
-      const gapVar = window.innerWidth <= 1050 ? "--space-16" : "--space-32";
-      const spaceGap = cssLengthToPx(
-        getComputedStyle(document.documentElement).getPropertyValue(gapVar),
-      );
+  return gsap.context(() => {
+    const gapVar = window.innerWidth <= 1050 ? "--space-16" : "--space-32";
+    const spaceGap = cssLengthToPx(
+      getComputedStyle(document.documentElement).getPropertyValue(gapVar),
+    );
 
-      // cache all rects up front, before any transforms exist
-      const conRect = con.getBoundingClientRect();
-      const itemRects = items.map((it) => it.getBoundingClientRect());
-      const h4Rects = items.map((it) =>
-        it.querySelector("h4").getBoundingClientRect(),
-      );
+    // cache all rects up front, before any transforms exist
+    const conRect = con.getBoundingClientRect();
+    const itemRects = items.map((it) => it.getBoundingClientRect());
+    const h4Rects = items.map((it) =>
+      it.querySelector("h4").getBoundingClientRect(),
+    );
 
-      const deltas = [null]; // deltas[i] = shift applied at step i
-      for (let i = 1; i < items.length; i++) {
-        const prevRect = itemRects[i - 1];
-        const currRect = itemRects[i];
-        const prevH4Rect = h4Rects[i - 1];
+    const deltas = [null]; // deltas[i] = shift applied at step i
+    for (let i = 1; i < items.length; i++) {
+      const prevRect = itemRects[i - 1];
+      const currRect = itemRects[i];
+      const prevH4Rect = h4Rects[i - 1];
 
-        const h4BottomWithinPrev =
-          prevH4Rect.top - prevRect.top + prevH4Rect.height;
-        const dockTop = prevRect.top + h4BottomWithinPrev + spaceGap;
+      const h4BottomWithinPrev =
+        prevH4Rect.top - prevRect.top + prevH4Rect.height;
+      const dockTop = prevRect.top + h4BottomWithinPrev + spaceGap;
 
-        deltas.push(dockTop - currRect.top);
-      }
+      deltas.push(dockTop - currRect.top);
+    }
 
-      // total cumulative shift on the LAST item = sum of every step's delta
-      const totalShiftLast = deltas.slice(1).reduce((acc, d) => acc + d, 0);
+    // total cumulative shift on the LAST item = sum of every step's delta
+    const totalShiftLast = deltas.slice(1).reduce((acc, d) => acc + d, 0);
 
-      const lastRect = itemRects[items.length - 1];
-      const finalHeight =
-        lastRect.top - conRect.top + lastRect.height + totalShiftLast;
+    const lastRect = itemRects[items.length - 1];
+    const finalHeight =
+      lastRect.top - conRect.top + lastRect.height + totalShiftLast;
 
-      // collapse the container to its true final height so nothing
-      // leaves a gap once the pin releases
-      con.style.height = `${finalHeight}px`;
-      con.style.position = con.style.position || "relative";
+    // collapse the container to its true final height so nothing
+    // leaves a gap once the pin releases
+    con.style.height = `${finalHeight}px`;
+    con.style.position = con.style.position || "relative";
 
-      // total scroll distance = total pixels actually traveled,
-      // so scroll speed and visual movement speed match 1:1
-      const totalDistance = deltas
-        .slice(1)
-        .reduce((acc, d) => acc + Math.abs(d), 0);
+    // total scroll distance = total pixels actually traveled,
+    // so scroll speed and visual movement speed match 1:1
+    const totalDistance = deltas
+      .slice(1)
+      .reduce((acc, d) => acc + Math.abs(d), 0);
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          //   end: () => `+=${totalDistance}`,
-          pin: true,
-          //   scrub: true,
-          //   invalidateOnRefresh: true,
-        },
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => `+=${totalDistance}`,
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    for (let i = 1; i < items.length; i++) {
+      const delta = deltas[i];
+      const movingItems = items.slice(i);
+
+      tl.to(movingItems, {
+        y: `+=${delta}`,
+        ease: "none",
+        duration: Math.abs(delta) || 0.0001,
       });
+    }
+  }, section);
+}
 
-      for (let i = 1; i < items.length; i++) {
-        const delta = deltas[i];
-        const movingItems = items.slice(i);
+export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
+  useLayoutEffect(() => {
+    let ctx;
+    const timeoutId = setTimeout(() => {
+      ctx = initializeJourneyAnimation({
+        journeyRef,
+        journeyConRef,
+        journeyConItemRef,
+      });
+    }, 100);
 
-        tl.to(movingItems, {
-          y: `+=${delta}`,
-          ease: "none",
-          duration: Math.abs(delta) || 0.0001,
-        });
-      }
-    }, section);
-
-    return () => ctx.revert();
+    return () => {
+      clearTimeout(timeoutId);
+      ctx?.revert();
+    };
   }, []);
 
   return null;

@@ -14,6 +14,9 @@ function Provider({ children }) {
   //
   // Left movement aka we are pining and scrolling content from the right
   const [leftMove, setLeftMove] = useState(false);
+  //
+  // Test
+  const [projectsDone, setProjectsDone] = useState(false);
 
   return (
     <Context.Provider
@@ -24,6 +27,8 @@ function Provider({ children }) {
         setNavPage: setNavPage,
         leftMove: leftMove,
         setLeftMove: setLeftMove,
+        projectsDone: projectsDone,
+        setProjectsDone: setProjectsDone,
       }}
     >
       {children}
