@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import styles from "./journey.module.css";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import { JourneyAni } from "./journeyAni";

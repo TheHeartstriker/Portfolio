@@ -1,5 +1,6 @@
 "use client";
 import { useLayoutEffect } from "react";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -110,7 +111,16 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
       clearTimeout(timeoutId);
       ctx?.revert();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;
 }
+
+JourneyAni.propTypes = {
+  journeyRef: PropTypes.shape({ current: PropTypes.object }),
+  journeyConRef: PropTypes.shape({ current: PropTypes.object }),
+  journeyConItemRef: PropTypes.shape({
+    current: PropTypes.arrayOf(PropTypes.object),
+  }),
+};
