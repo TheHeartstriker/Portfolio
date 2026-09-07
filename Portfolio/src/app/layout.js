@@ -24,23 +24,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" />
       </head>
       <body>
-        {/* Google analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-EKDZD6L7ZT"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-EKDZD6L7ZT');
-      `,
-          }}
-        />
         <Provider>
           <Opening />
           <Nav />

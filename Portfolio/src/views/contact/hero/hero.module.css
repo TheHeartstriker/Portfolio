@@ -21,14 +21,14 @@
   width: 100%;
   height: 110%;
   object-fit: cover;
-  transform: scale(1);
+  transform: scale(1.01);
   transform-origin: center;
   transition: transform var(--motion-medium-2) var(--power-2-out);
   filter: contrast(1.1) saturate(0.8) brightness(0.9);
 }
 
 .hero-image:hover img {
-  transform: scale(1.1);
+  transform: scale(1.11);
 }
 /*  */
 /* Middle text section */

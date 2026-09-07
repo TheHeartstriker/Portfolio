@@ -2,11 +2,13 @@ import styles from "./actionButton.module.css";
 import RadahnRune from "@/../public/icons/radahnRune.jsx";
 import PropTypes from "prop-types";
 
-function ActionButton({ text, type, onClick, className }) {
+function ActionButton({ text, type, onClick, className, trueForm, disabled }) {
   return (
     <button
       className={`${styles["action-button"]} ${styles[type]} ${className || ""}`}
       onClick={onClick}
+      type={trueForm ? "submit" : "button"}
+      disabled={disabled}
     >
       <div className={styles["action-button-left"]}>
         <h4>{text}</h4>
