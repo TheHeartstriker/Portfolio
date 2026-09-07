@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -19,6 +17,9 @@ function getTextField(formData, name) {
 
 export async function POST(request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    const resend = new Resend(apiKey);
+
     //
     // Get data
     const formData = await request.formData();
