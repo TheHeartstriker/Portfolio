@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import LenisProvider from "@/components/nav/smoothScroll";
 import { Display, Body } from "@/utils/text/fonts";
 import IntroXFooter from "@/components/introXfooter/introXfooter";
-import Script from "next/script";
 import FilmGrain from "@/components/filmGrain/filmGrain";
 import Opening from "@/components/opening/opening";
 import Provider from "@/components/provider/provider";

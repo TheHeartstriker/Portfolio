@@ -26,6 +26,8 @@ ActionButton.propTypes = {
   type: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  trueForm: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default ActionButton;
