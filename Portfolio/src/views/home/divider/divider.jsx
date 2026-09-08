@@ -6,7 +6,7 @@ function Divider() {
   return (
     <section className={styles["divider"]}>
       <ScrollMotion
-        item={`.${styles["divider-wrapper"]}`}
+        item={`.${styles["divider"]} img`}
         moveDirection="y"
         moveAmount={-15}
         start="top 85%"
@@ -14,9 +14,7 @@ function Divider() {
       />
       <div className={styles["divider-overlay-1"]}></div>
       <div className={styles["divider-overlay-2"]}></div>
-      <div className={styles["divider-wrapper"]}>
-        <img src={dividerImage} alt="Divider" />
-      </div>
+      <img src={dividerImage} alt="Divider" />
     </section>
   );
 }

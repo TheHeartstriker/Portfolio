@@ -19,3 +19,8 @@ There is a high chance that all the changes bellow have already been implemented
 -- Document the animation's a bit better
 -- Re organize the components folder
 -- Disappear nav on client process pin
+-- Some images need cutting
+-- Some images can be replaced with videos
+-- Optimize images by using Image tag
+-- Smooth out the scroll down button in projects
+-- Review and try to polish animations a bit

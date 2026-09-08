@@ -9,6 +9,8 @@ import Opening from "@/components/opening/opening";
 import Provider from "@/components/provider/provider";
 import ScrollBlur from "@/components/nav/scrollBlur/scrollBlur";
 import Tab from "@/components/tabChange/tab";
+import { Analytics } from "@vercel/analytics/next";
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
             <IntroXFooter />
           </LenisProvider>
         </Provider>
+        <Analytics />
       </body>
     </html>
   );
