@@ -1,0 +1,219 @@
+/*  */
+/* Btn */
+/*  */
+.action-button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: fit-content;
+  z-index: 10;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  z-index: 50;
+}
+/*  */
+/* Left side button */
+.action-button-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-1);
+  padding: var(--space-16);
+  border-radius: var(--border-radius);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+.action-button-left h4 {
+  color: var(--dark-1);
+  font-family: var(--font-body);
+  font-weight: var(--typo-weight-regular);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.action-button-right {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-1);
+  border-radius: var(--border-radius);
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
+}
+
+/*  */
+/* Btn Hover */
+/* Svg */
+.action-button-right svg path {
+  transition:
+    transform var(--motion-medium-2) var(--power-2-out),
+    stroke var(--motion-medium-2) var(--power-2-out);
+}
+
+.action-button:hover .action-button-right svg path:first-of-type {
+  transform: translateX(50%);
+}
+/*  */
+/* Background color switch */
+.action-button:hover .action-button-left {
+  background-color: var(--dark-3) !important;
+}
+.action-button:hover .action-button-right {
+  background-color: var(--dark-3) !important;
+}
+
+.action-button:hover .action-button-left h4 {
+  color: var(--accent-1) !important;
+}
+
+.action-button:hover .action-button-right svg path {
+  stroke: var(--accent-1) !important;
+}
+
+/*  */
+/* Background color */
+/*  */
+/* Types */
+/* Intro */
+.action-button.intro {
+  height: 3rem;
+}
+
+.action-button.intro .action-button-left h4 {
+  font-size: var(--typo-size-14);
+}
+
+.action-button.intro .action-button-right svg {
+  height: 65%;
+  width: 65%;
+}
+
+.action-button.intro .action-button-right svg path {
+  stroke: var(--dark-1);
+  stroke-width: var(--large-stroke-width);
+}
+/*  */
+/* Regular */
+.action-button.regular {
+  height: 2.5rem;
+}
+
+.action-button.regular .action-button-left h4 {
+  font-size: var(--typo-size-12);
+}
+
+.action-button.regular .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.regular .action-button-right svg path {
+  stroke-width: var(--medium-stroke-width);
+}
+
+/*  */
+/* Small */
+.action-button.small {
+  height: 2rem;
+}
+
+.action-button.small .action-button-left h4 {
+  font-size: var(--typo-size-10);
+}
+
+.action-button.small .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.small .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+}
+
+/*  */
+/* work */
+.action-button.work {
+  height: 2rem;
+  width: 100%;
+}
+.action-button.work .action-button-left {
+  width: 100%;
+  background-color: var(--light-1);
+}
+
+.action-button.work .action-button-left h4 {
+  font-size: var(--typo-size-10);
+  color: var(--dark-1);
+}
+.action-button.work .action-button-right {
+  background-color: var(--light-1);
+}
+
+.action-button.work .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.work .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+  stroke: var(--dark-1);
+}
+
+/*  */
+/* Post */
+
+.action-button.blog {
+  height: 2.5rem;
+}
+
+.action-button.blog .action-button-left {
+  width: 100%;
+  background-color: var(--dark-2);
+}
+
+.action-button.blog .action-button-left h4 {
+  font-size: var(--typo-size-10);
+  color: var(--light-1);
+}
+.action-button.blog .action-button-right {
+  background-color: var(--dark-2);
+}
+.action-button.blog .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+.action-button.blog .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+  stroke: var(--light-1);
+}
+/*  */
+/* form */
+.action-button.form {
+  height: 2rem;
+  width: 100%;
+}
+.action-button.form .action-button-left {
+  width: 100%;
+  background-color: var(--accent-1);
+}
+
+.action-button.form .action-button-left h4 {
+  font-size: var(--typo-size-10);
+  color: var(--dark-1);
+}
+.action-button.form .action-button-right {
+  background-color: var(--accent-1);
+}
+
+.action-button.form .action-button-right svg {
+  height: 50%;
+  width: 50%;
+}
+
+.action-button.form .action-button-right svg path {
+  stroke-width: var(--small-stroke-width);
+  stroke: var(--dark-1);
+}

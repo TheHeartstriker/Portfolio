@@ -1,0 +1,78 @@
+import ActionButton from "@/components/button/actionButton";
+import styles from "./posts.module.css";
+import RadahnRune from "@/../public/icons/radahnRune";
+import { Context } from "@/components/provider/provider";
+import { useContext } from "react";
+import PropTypes from "prop-types";
+function PostsCard({
+  image,
+  imageAlt,
+  title,
+  types = [],
+  date,
+  text,
+  buttonText = "READ ME!",
+  slug,
+}) {
+  const { setTransition, setNavPage } = useContext(Context);
+  function handleClick() {
+    (setTransition(true), setNavPage(`blog/${slug}`));
+  }
+
+  return (
+    <div className={styles["posts-con-card"]}>
+      {/*  */}
+      {/* Top card image with hover, overlay and image */}
+      {/*  */}
+      <div className={styles["posts-con-card-img"]} onClick={handleClick}>
+        <div className={styles["posts-con-card-img-overlay"]}></div>
+        <img src={image} alt={imageAlt} />
+        {/*  */}
+        {/* Hover background */}
+        <div className={styles["posts-con-card-img-hover"]}>
+          <div className={styles["posts-con-card-img-hover-con"]}>
+            <RadahnRune />
+            <RadahnRune />
+          </div>
+          <div className={styles["posts-con-card-img-hover-con"]}>
+            <RadahnRune />
+            <RadahnRune />
+          </div>
+        </div>
+      </div>
+      {/*  */}
+      {/* Heading and article type */}
+      {/*  */}
+      <div className={styles["posts-con-card-heading"]}>
+        <h4>{title}</h4>
+        <div className={styles["posts-con-card-heading-details"]}>
+          {types.map((type, index) => (
+            <h5 key={index}>{type}</h5>
+          ))}
+          <h5>{date}</h5>
+        </div>
+      </div>
+      {/*  */}
+      {/* Para and CTA */}
+      {/*  */}
+      <div className={styles["posts-con-card-text"]}>
+        <p>{text}</p>
+
+        <ActionButton text={buttonText} type="blog" onClick={handleClick} />
+      </div>
+    </div>
+  );
+}
+
+PostsCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string),
+  date: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+};
+
+export default PostsCard;

@@ -1,34 +1,32 @@
-"use client";
-
-import Arrow from "../../../../public/icons/arrow";
-import { ScrollButton } from "@/components/nav/scrollButton";
-import Opening from "@/views/home/hero/opening";
-import "./hero.css";
+import styles from "./hero.module.css";
+import MorgottRune from "@/../public/icons/morgottRune";
+import HeroAni from "./heroAni";
+import { heroHeading1, heroHeading2, heroPara, scrollPara } from "./text";
 function Hero() {
   return (
-    <div className="about-hero-section">
-      <Opening />
-      <h2>Hi, my name is</h2>
-      <h1>Kaden Wildauer</h1>
-      <div className="about-hero-section-info">
-        <div className="about-hero-section-info-text">
-          <p>
-            I am a freelance web developer specializing in designing and
-            building websites and web applications. I create engaging,
-            handcrafted websites for businesses worldwide, using creativity and
-            precision to deliver beautiful, effective online presences that
-            truly stand out.
-          </p>
+    <section className={styles["hero"]}>
+      <HeroAni />
+      {/*  */}
+      {/* The main hero intro part */}
+      {/*  */}
+      <div className={styles["hero-main"]}>
+        <div className={styles["hero-main-heading"]}>
+          <h1>
+            {heroHeading1} <br />
+            <span>{heroHeading2}</span>
+          </h1>
         </div>
-
-        <ScrollButton percent={125}>
-          <span>
-            <Arrow />
-          </span>
-          <h3>Learn More</h3>
-        </ScrollButton>
+        <p>{heroPara}</p>
       </div>
-    </div>
+      {/*  */}
+      {/* The Intro details */}
+      {/*  */}
+      <div className={styles["hero-detail"]}>
+        <MorgottRune />
+        <h4>{scrollPara}</h4>
+        <MorgottRune />
+      </div>
+    </section>
   );
 }
 

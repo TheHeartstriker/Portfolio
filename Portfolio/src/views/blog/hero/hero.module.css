@@ -1,0 +1,145 @@
+/*  */
+/* Hero intro*/
+/*  */
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: var(--space-24);
+}
+
+/*  */
+/* Main image and headings */
+/*  */
+.hero-main {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  margin: auto 0;
+}
+
+/*  */
+/* Left and right side text */
+.hero-main h2 {
+  font-size: var(--typo-size-40);
+  font-weight: var(--typo-weight-semi-bold);
+  color: var(--light-1);
+  line-height: 1;
+  margin: auto 0;
+  white-space: nowrap;
+}
+
+.hero-main h2:nth-of-type(1) {
+  margin-right: auto;
+}
+
+.hero-main h2:nth-of-type(2) {
+  margin-left: auto;
+}
+
+/*  */
+/* Center image */
+.hero-main-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--column-width) * 5 + var(--space-24) * 3);
+  height: 22.5rem;
+  overflow: hidden;
+}
+
+.hero-main-image img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(0.8) brightness(0.9);
+}
+/*  */
+/* Main details area */
+/*  */
+.hero-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-detail h4 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  color: var(--light-1);
+  font-weight: var(--typo-weight-regular);
+  z-index: 10;
+}
+
+.hero-detail svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+}
+
+.hero-detail svg circle {
+  stroke: var(--light-1);
+  stroke-width: 1px;
+}
+.hero-detail svg path {
+  stroke: var(--light-1);
+  stroke-width: 1px;
+}
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1700px) {
+  .hero-main h2 {
+    font-size: var(--typo-size-32);
+  }
+}
+@media (max-width: 1400px) {
+  .hero-main-image {
+    width: calc(var(--column-width) * 4 + var(--space-24) * 2);
+  }
+}
+@media (max-width: 1250px) {
+  .hero-main-image {
+    width: calc(var(--column-width) * 3 + var(--space-24) * 1);
+    height: 25rem;
+  }
+
+  .hero-main-image img {
+    /* 15% biger */
+    height: 30rem;
+  }
+}
+/*  */
+/* Mobile */
+/*  */
+
+@media (max-width: 1050px) {
+  .hero-main {
+    flex-direction: column;
+  }
+  .hero-main-image {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    order: 3;
+    width: 100%;
+  }
+
+  .hero-main-image img {
+    width: 100%;
+    order: 2;
+  }
+
+  .hero-main h2:first-of-type {
+    order: 1;
+    margin-bottom: var(--space-16);
+  }
+  .hero-main h2:last-of-type {
+    margin-bottom: var(--space-24);
+    order: 3;
+    margin-top: var(--space-16);
+  }
+}

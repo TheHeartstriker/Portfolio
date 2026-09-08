@@ -1,56 +1,159 @@
-import { gsap } from "gsap/gsap-core";
-import { useLayoutEffect } from "react";
-import { animateText } from "@/utils/animations/textAnimation";
-import { animateShapes } from "@/utils/animations/animateShapes";
+"use client";
+import styles from "./hero.module.css";
+import styleNav from "@/components/nav/navMenu/nav.module.css";
+import { animateText } from "@/utils/animations/animateText";
+import gsap from "gsap";
+import { useEffect, useContext, useRef, useState } from "react";
+import { Context } from "@/components/provider/provider.jsx";
+
 function HeroAni() {
-  //
-  // Heading / hero animation
-  //
-  useLayoutEffect(() => {
-    const timeline = gsap.timeline();
-    const header1 = document.querySelector("#test1");
-    const header2 = document.querySelector("#test2");
-    const emailBlock = document.querySelectorAll(".contact-intro-left-email");
-    const rightIntro = document.querySelectorAll(".contact-intro-right h3");
-    const rightText = document.querySelectorAll(".contact-intro-right-text");
+  const { transition } = useContext(Context);
+  const playedRef = useRef(false);
+  const timelineRef = useRef(gsap.timeline({ paused: true }));
+  const [isMobile, setIsMobile] = useState(false);
 
-    animateText(
-      { start: -64, end: 0, type: "chars", mask: "lines" },
-      [{ element: header1 }, { element: header2 }],
-      {
-        duration: 0.6,
-        stagger: 0.06,
-        easing: "power1.out",
-        staggerEase: "power1.out",
-        timeline: timeline,
-      },
-    );
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-    animateText(
-      { start: -64, end: 0, type: "words", mask: "words" },
-      [{ element: rightIntro }],
-      {
-        duration: 0.5,
-        stagger: 0.03,
-        easing: "power1.out",
-        staggerEase: "power1.out",
-        timeline: timeline,
-        offset: "-=0.25",
-      },
-    );
-    animateShapes(
-      { start: 50, end: 0 },
-      [{ element: rightText }, { element: emailBlock }],
-      {
-        duration: 0.6,
-        easing: "power1.out",
-        staggerEase: "power1.out",
-        offset: "-=0.25",
-        stagger: 0.15,
-        timeline: timeline,
-      },
-    );
+    const checkMobile = () => setIsMobile(window.innerWidth <= 1050);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+  //
+  // Actual aniamtion for desktop
+  //
+  function animateDesktop(nav, image, textHeading, textLink, textEmail, form) {
+    timelineRef.current.to(image, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.in",
+    });
+    animateText(
+      { start: 64, end: 0, type: "lines", mask: "lines" },
+      [
+        {
+          element: textHeading,
+          clip: true,
+          clipAmount: {
+            bottom: "0.1em",
+            top: "0em",
+            left: "0em",
+            right: "0em",
+          },
+        },
+        { element: textLink },
+        { element: textEmail },
+      ],
+      {
+        duration: 0.6,
+        easing: "power1.out",
+        stagger: 0.06,
+        staggerEase: "power1.out",
+        timeline: timelineRef.current,
+        offset: "-=0.15",
+      },
+    );
+    timelineRef.current.to(form, {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power1.out",
+      offset: "-=0.3",
+    });
+    timelineRef.current.to(nav, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      offset: "-=0.15",
+    });
+  }
+  //
+  // Actual animation for mobile
+  //
+  function animateMobile(nav, image, textHeading, textLink, textEmail, form) {
+    animateText(
+      { start: 128, end: 0, type: "lines", mask: "lines" },
+      [
+        {
+          element: textHeading,
+          clip: true,
+          clipAmount: {
+            bottom: "0.1em",
+            top: "0em",
+            left: "0em",
+            right: "0em",
+          },
+        },
+        { element: textLink },
+        { element: textEmail },
+      ],
+      {
+        duration: 0.6,
+        easing: "power1.out",
+        stagger: 0.06,
+        staggerEase: "power1.out",
+        timeline: timelineRef.current,
+        offset: "-=0.15",
+      },
+    );
+    timelineRef.current.to(form, {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power1.out",
+      offset: "-=0.3",
+    });
+    timelineRef.current.to(nav, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      offset: "-=0.15",
+    });
+    timelineRef.current.to(image, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.in",
+    });
+  }
+  //
+  // Actual animation call
+  //
+  useEffect(() => {
+    //
+    // This is to make sure we don't play it twice since we reflow on transition being done
+    if (playedRef.current === true) {
+      console.log("Already played");
+      return;
+    }
+    //
+    // Collect refrences
+    const nav = document.querySelector(`.${styleNav["nav"]}`);
+    const image = document.querySelector(`.${styles["hero-image"]}`);
+    const textHeading = document.querySelector(`.${styles["hero-text"]} h1`);
+    const textLink = document.querySelectorAll(`.${styles["hero-text"]} a`);
+    const textEmail = document.querySelector(`.${styles["hero-text"]} h3`);
+    const form = document.querySelector(`.${styles["hero-con"]}`);
+
+    //
+    // Setup for the animation
+    gsap.set([nav, image, form], {
+      opacity: 0,
+    });
+    //
+    //Clear timeline(of old animations) and attach animation
+    timelineRef.current.clear();
+    if (!isMobile) {
+      animateDesktop(nav, image, textHeading, textLink, textEmail, form);
+    } else {
+      animateMobile(nav, image, textHeading, textLink, textEmail, form);
+    }
+    //
+    // If transion is over play and set played to true so it's not rune twice
+    if (!transition) {
+      timelineRef.current.play();
+      playedRef.current = true;
+    }
+  }, [transition, isMobile]);
 }
 
 export default HeroAni;

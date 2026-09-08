@@ -1,0 +1,135 @@
+/*  */
+/* Main section container */
+/*  */
+.intro {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: var(--space-24);
+  padding-top: var(--space-32);
+  gap: var(--space-64);
+  align-items: center;
+  z-index: 20;
+}
+/*  */
+/* Intro info  */
+/*  */
+.intro-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  z-index: 20;
+}
+
+.intro-info h3 {
+  font-family: var(--font-body);
+  color: var(--light-3);
+  font-size: var(--typo-size-12);
+  font-weight: var(--typo-weight-regular);
+}
+
+.intro-info svg {
+  height: var(--typo-size-12);
+  width: var(--typo-size-12);
+}
+
+.intro-info svg circle {
+  stroke: var(--light-3);
+  stroke-width: 1.25px;
+}
+
+.intro-info svg path {
+  stroke: var(--light-3);
+  stroke-width: 1.25px;
+}
+
+/*  */
+/* Image heading */
+/*  */
+.intro h2 {
+  color: var(--light-1);
+  font-size: var(--typo-size-128);
+  font-weight: var(--typo-weight-medium);
+  text-align: center;
+  line-height: 1;
+  z-index: 20;
+}
+/*  */
+/* Image rune */
+/*  */
+.intro-rune {
+  position: relative;
+  z-index: 20;
+}
+
+.intro-rune svg {
+  width: 30rem;
+  height: 30rem;
+}
+
+.intro-rune svg path {
+  stroke: var(--light-1);
+  stroke-width: 2px;
+}
+
+/*  */
+/* Image and image overlay */
+/*  */
+.intro img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: contrast(1.1) saturate(0.8) brightness(0.9);
+}
+
+.intro-overlay-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.intro-overlay-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--accent-1);
+  opacity: 0.05;
+  z-index: 10;
+}
+
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1050px) {
+  .intro h2 {
+    font-size: var(--typo-size-96);
+  }
+  .intro-rune svg {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro h2 {
+    font-size: var(--typo-size-64);
+  }
+  .intro-rune svg {
+    width: 22.5rem;
+    height: 22.5rem;
+  }
+}

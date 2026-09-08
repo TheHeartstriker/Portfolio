@@ -1,50 +1,42 @@
-"use client";
-import PlayGround from "./playground/playGround";
-import { useState, useEffect } from "react";
-import "./about.css";
-
+import styles from "./about.module.css";
+import RadahnRune from "@/../public/icons/radahnRune";
+import SectionInfo from "@/components/sectionInfo/sectionInfo";
 import {
-  Header1,
-  Header2,
-  Header3,
-  MainText1,
-  MainText2,
-  MainText3,
-} from "../text";
+  aboutImage,
+  aboutMetaText,
+  aboutHeading1,
+  aboutHeading2,
+} from "./text";
 
 function About() {
-  //
-  // Mobile alternative
-  //
-  const [ToSmall, setToSmall] = useState(false);
-  useEffect(() => {
-    function handleResize() {
-      setToSmall(window.innerWidth < 1000);
-    }
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <div className="about-content">
-      {ToSmall === false && <PlayGround />}
+    <section className={styles["about"]}>
+      <SectionInfo infoName="ABOUT" />
       {/*  */}
-      {/* Mobile alternative */}
+      {/* Main container */}
       {/*  */}
-      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
-        <h4>{Header1}</h4>
-        <p>{MainText1}</p>
+      <div className={styles["about-con"]}>
+        {/*  */}
+        {/* Left side image */}
+        <div className={styles["about-con-image"]}>
+          <div className={styles["about-con-image-overlay"]}></div>
+          <img src={aboutImage} alt="About" />
+        </div>
+        {/*  */}
+        {/* Right side text */}
+        <div className={styles["about-con-text"]}>
+          <h2>
+            {aboutHeading1} <br />
+            <br />
+            {aboutHeading2}
+          </h2>
+          <div className={styles["about-con-text-icon"]}>
+            <RadahnRune />
+            <p>{aboutMetaText}</p>
+          </div>
+        </div>
       </div>
-      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
-        <h4>{Header2}</h4>
-        <p>{MainText2}</p>
-      </div>
-      <div className={`about-content-intro${ToSmall ? "" : " hidden"}`}>
-        <h4>{Header3}</h4>
-        <p>{MainText3}</p>
-      </div>
-    </div>
+    </section>
   );
 }
 

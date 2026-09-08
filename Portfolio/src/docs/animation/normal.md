@@ -3,103 +3,146 @@
 These are the more normal operations and use cases of animating text and shape inside a page so generally faster then the openings. Being more
 speedy to not wane on the user's attention while still being intresting and cool smoothing out the experiance.
 
-## Text
+//
+//
+//
+//
+//
 
-All text animations for normal animation opperations
+## Buttons
 
-### Large normal text
+All text animations for normal animation opperations or similar in nature animations
 
-Here is a example of a longish piece of text animated in a normal fashion.
+### Normal button
+
+Here is a example of a normal button animation
 
 ```
-    animateText(
-      { start: -64, end: 0, type: "words", mask: "words" },
-      [{ element: footerHeadingText1 }, { element: footerHeadingText2 }],
-      {
-        duration: 0.5,
-        stagger: 0.09,
-        easing: "power1.out",
-        staggerEase: "power1.out",
-        timeline: timeline,
-      },
-    );
+.skills-con-heading-left-control button {
+  border: none;
+  background-color: var(--dark-2);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  height: var(--typo-size-48);
+  aspect-ratio: 1 / 1;
+  transition: background-color var(--motion-medium-2) var(--power-2-out);
+}
 ```
 
 Notice the difference's
 
--- Duration 0.5 decreased from heading ani's of 0.5
--- Same easing
--- Stagger tripled to roughly equal char stagger on headings for a word stagger
+-- Note medium duration
+-- Power 2 out for snapper ani
 
-### Short normal text
+### Decending button / list
 
-Here is a example of short text animations
+Here is a example of a decending button used in the FAQ it's longer then normal as a result of being a larger action
 
 ```
-    animateText(
-      { start: 12, end: 0, type: "lines", mask: "lines" },
-      [{ element: footerTextItems }],
-      {
-        duration: 0.4,
-        easing: "power1.out",
-        staggerEase: "power1.out",
-        timeline: timeline,
-        stagger: 0.03,
-        offset: "<+=0.5",
+.faq-con-ans-item p {
+  font-size: var(--typo-size-14);
+  color: var(--dark-3);
+  max-height: 0;
+  transition:
+    max-height var(--motion-large-2) var(--power-1-out),
+    margin-bottom var(--motion-large-2) var(--power-1-out);
+}
+```
+
+While the animations till user's this for it quciker sections following normal behovior
+
+```
+.faq-con-ans-item-top svg path {
+  stroke: var(--dark-3);
+  transition:
+    stroke var(--motion-medium-2) var(--power-2-out),
+    transform var(--motion-medium-2) var(--power-2-out);
+}
+```
+
+Notice the difference's
+
+-- The duration move up two dobule so from a 300ms button to a 600ms
+-- Easing lower to power-1 on the long animation
+-- We still follow the button animation comon aka 400ms at power-2
+
+//
+//
+//
+//
+//
+
+## Text
+
+All normal text opperations / timings.
+
+### Skills page text change
+
+This is largely just a text change nothing special really just animated
+
+```
+animateText(
+  { start: 32, end: 0, type: "lines", mask: "lines" },
+  [
+    { element: newDetails },
+    {
+      element: newHeading,
+      clip: true,
+      clipAmount: {
+        bottom: "0.1em",
+        top: "0em",
+        left: "0em",
+        right: "0em",
       },
-    );
+    },
+  ],
+  {
+    duration: 0.3,
+    easing: "power2.out",
+    stagger: 0.06,
+    staggerEase: "power2.out",
+    timeline: revealTimeline,
+    offset: "+=0",
+  },
+);
 ```
 
-These are the main differences
+But notice the difference's
 
--- Duration decreased to 0.5
--- Same easing
--- Stagger at 0.03 for lines. Considering heading char's get 0.03 and normal word ani's get 0.09 this visually is vastly less.
+-- The easing is power-2 out longer hero text is power-1 out
+-- The easing power-2 is the same as most normal animations
+-- The duration is the same as the button's hover duration at 400ms
 
-## Shape
+//
+//
+//
+//
+//
 
-Normal shape animations look like so this was used for a large block in the skills section
+## Fades
 
-```
-      animateShapes(
-        { start: 50, end: 0 },
-        [{ element: mainCardBody }],
-        {
-          duration: 0.5,
-          easing: "power1.out",
-          timeline: timeline1,
-        },
-        {
-          start: "top 85%",
-        },
-      );
-```
+Fades are slightly special in a sense. There is long form fade's and short
 
-Again note the following
+### Short form
 
--- Duration 0.5 decreased from the openings by 1s
--- Same easing
--- Same 50px movement
-
-This is a smaller section of shapes used in the skills section
+This is a text fade it's largely the same as most normal animation's aka power-2
 
 ```
-      animateShapes(
-        { start: 50, end: 0 },
-        [{ element: smallBlocks }],
-        {
-          duration: 0.4,
-          stagger: 0.06,
-          easing: "power1.out",
-          staggerEase: "power1.out",
-          timeline: timeline2,
-        },
-        {
-          start: "top 85%",
-        },
+     opacity: 0,
+      duration: 0.2,
+      ease: "power2.out",
 ```
 
-Again the main notes are
+-- This is exactly half the duraction of it's child ani(the normal text ani)
 
--- Duration decreased by 1s
--- Stagger at 0.6
+### Long form
+
+The long form is like so pretty much the same but the duration is doubled plus a but more
+
+```
+          autoAlpha: 0,
+          duration: 0.45,
+          ease: "power2.out",
+```
+
+-- This is almost double what came before plus some becuase this is used to encompase a large item(nav)

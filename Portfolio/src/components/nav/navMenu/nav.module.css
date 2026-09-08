@@ -1,0 +1,64 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: calc(100% - var(--space-24) * 2);
+  margin-left: var(--space-24);
+  margin-top: var(--space-12);
+  height: auto;
+  background-color: transparent;
+  padding: var(--space-12) 0;
+  z-index: 200;
+  border-radius: var(--border-radius);
+}
+
+/*  */
+/* Left side home button */
+.nav-button {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  margin: auto 0;
+}
+
+.nav-button h4 {
+  font-size: var(--typo-size-24);
+  font-weight: var(--typo-weight-bold);
+  color: var(--accent-1);
+  line-height: 1;
+}
+
+/*  */
+/* Nav links */
+.nav-links {
+  display: flex;
+  margin: auto 0;
+  gap: var(--space-16);
+}
+
+.nav-links button {
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.nav-links button h5 {
+  font-family: var(--font-body);
+  font-size: var(--typo-size-12);
+  color: var(--light-3);
+  font-weight: var(--typo-weight-regular);
+  line-height: 1;
+}
+
+@media (max-width: 850px) {
+  .nav-cta {
+    display: none !important;
+  }
+}

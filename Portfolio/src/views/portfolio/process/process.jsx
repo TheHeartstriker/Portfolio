@@ -1,56 +1,54 @@
-"use client";
-import "./process.css";
-
-import { useState } from "react";
-import { Separator } from "@/components/separator/separator";
-import ProcessAni from "./processAni";
-import { processText } from "../text";
+import styles from "./process.module.css";
+import SectionInfo from "@/components/sectionInfo/sectionInfo";
+import ScrollMotion from "@/components/animations/scrollMotion";
+import { processItems } from "./text";
 
 function Process() {
-  const [activeCard, setActiveCard] = useState(4);
-
   return (
-    <div className="port-process">
-      <ProcessAni />
-      <Separator headerArr={["Process", "And Methodology"]} reverse={true} />
-      <div className="port-process-main">
-        <div
-          className={`port-process-main-card ${activeCard === 1 ? "active" : ""}`}
-          onMouseEnter={() => setActiveCard(1)}
-        >
-          <h4>01.</h4>
-          <h3>{processText.card1.header}</h3>
-          <p>{processText.card1.para}</p>
-        </div>
-
-        <div
-          className={`port-process-main-card ${activeCard === 2 ? "active" : ""}`}
-          onMouseEnter={() => setActiveCard(2)}
-        >
-          <h4>02.</h4>
-          <h3>{processText.card2.header}</h3>
-          <p>{processText.card2.para}</p>
-        </div>
-
-        <div
-          className={`port-process-main-card ${activeCard === 3 ? "active" : ""}`}
-          onMouseEnter={() => setActiveCard(3)}
-        >
-          <h4>03.</h4>
-          <h3>{processText.card3.header}</h3>
-          <p>{processText.card3.para}</p>
-        </div>
-
-        <div
-          className={`port-process-main-card ${activeCard === 4 ? "active" : ""}`}
-          onMouseEnter={() => setActiveCard(4)}
-        >
-          <h4>04.</h4>
-          <h3>{processText.card4.header}</h3>
-          <p>{processText.card4.para}</p>
-        </div>
+    <section className={styles["process"]}>
+      <SectionInfo infoName={"DESIGN PROCESS"} />
+      {/*  */}
+      {/* Main item container */}
+      {/*  */}
+      <div className={styles["process-con"]}>
+        {processItems.map((item, index) => (
+          //
+          // Overhead container(for the line seprator)
+          <div key={item.title}>
+            <div className={styles["process-con-item"]}>
+              {/* Item image animation effect */}
+              <ScrollMotion
+                item={`[data-process-image="${index}"]`}
+                moveDirection="y"
+                moveAmount={-10}
+                start="top 85%"
+                end="bottom top"
+              />
+              {/* Left side text */}
+              <div className={styles["process-con-item-text"]}>
+                <p>{item.description}</p>
+                <h2>{item.title}</h2>
+              </div>
+              {/* Right side image */}
+              <div className={styles["process-con-item-image"]}>
+                <div className={styles["process-con-item-image-overlay"]}></div>
+                <img
+                  src={item.image}
+                  className={styles["process-con-item-image-media"]}
+                  data-process-image={index}
+                  alt={item.title}
+                />
+              </div>
+            </div>
+            {/*  */}
+            {/* Line sep */}
+            {index < processItems.length - 1 ? (
+              <div className={styles["process-con-line"]}></div>
+            ) : null}
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
