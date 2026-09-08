@@ -1,12 +1,11 @@
 "use client";
-import styles from "./hero.module.css";
 import styleNav from "@/components/nav/navMenu/nav.module.css";
 import { animateText } from "@/utils/animations/animateText";
 import gsap from "gsap";
 import { useEffect, useContext, useRef } from "react";
 import { Context } from "@/components/provider/provider.jsx";
 
-function HeroAni() {
+function HeroAni({ headingRef, paraRef, detailRef }) {
   const { transition } = useContext(Context);
   const playedRef = useRef(false);
   const timelineRef = useRef(gsap.timeline({ paused: true }));
@@ -20,6 +19,7 @@ function HeroAni() {
       duration: 0.5,
       ease: "power1.out",
     });
+
     animateText(
       { start: 96, end: 0, type: "lines", mask: "lines" },
       [{ element: heading }, { element: para }],
@@ -32,6 +32,7 @@ function HeroAni() {
         offset: "-=0.15",
       },
     );
+
     timelineRef.current.to(
       detail,
       {
@@ -55,18 +56,18 @@ function HeroAni() {
     //
     // Collect refrences
     const nav = document.querySelector(`.${styleNav["nav"]}`);
-    const heading = document.querySelector(
-      `.${styles["hero-main-heading"]} h1`,
-    );
-    const para = document.querySelector(`.${styles["hero-main"]} p`);
-    const detail = document.querySelector(`.${styles["hero-detail"]}`);
+    const heading = headingRef.current;
+    const para = paraRef.current;
+    const detail = detailRef.current;
+    if (!heading || !para || !detail) return;
+
     //
     // Setup for the animation
-    gsap.set([nav, detail], {
-      opacity: 0,
-    });
+
+    gsap.set([nav, detail], { opacity: 0 });
     //
     //Clear timeline(of old animations) and attach animation
+
     timelineRef.current.clear();
     animate(nav, heading, para, detail);
     //
@@ -75,7 +76,7 @@ function HeroAni() {
       timelineRef.current.play();
       playedRef.current = true;
     }
-  }, [transition]);
+  }, [transition, headingRef, paraRef, detailRef]);
 }
 
 export default HeroAni;
