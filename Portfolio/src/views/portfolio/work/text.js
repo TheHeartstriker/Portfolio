@@ -41,9 +41,13 @@ export const project1 = {
     images: [
       {
         source: `./portfolio/work/fgraphs/f4.webp`,
+        imageFit: `cover`,
+        imagePos: `right center`,
       },
       {
         source: `./portfolio/work/fgraphs/f6.webp`,
+        imageFit: `cover`,
+        imagePos: `left center`,
       },
     ],
     // Why it worked
@@ -53,17 +57,19 @@ export const project1 = {
   //
   // Large scale denending image section
   image: {
-    images: [
-      {
-        source: `./portfolio/work/fgraphs/f2.webp`,
-      },
-      {
-        source: `./portfolio/work/fgraphs/f4.webp`,
-      },
-      {
-        source: `./portfolio/work/fgraphs/f3.webp`,
-      },
-    ],
+    image1: {
+      source: `./portfolio/work/fgraphs/f2.webp`,
+    },
+    image2: {
+      source: `./portfolio/work/fgraphs/f4.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
+    image3: {
+      source: `./portfolio/work/fgraphs/f3.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
   },
   //
   // Exist / outrow section
@@ -121,6 +127,8 @@ export const project2 = {
       },
       {
         source: `./portfolio/work/matsuri/m6.webp`,
+        imageFit: `cover`,
+        imagePos: `left center`,
       },
     ],
     // Why it worked
@@ -130,17 +138,19 @@ export const project2 = {
   //
   // Large scale denending image section
   image: {
-    images: [
-      {
-        source: `./portfolio/work/matsuri/m3.webp`,
-      },
-      {
-        source: `./portfolio/work/matsuri/m5.webp`,
-      },
-      {
-        source: `./portfolio/work/matsuri/m4.webp`,
-      },
-    ],
+    image1: {
+      source: `./portfolio/work/matsuri/m3.webp`,
+    },
+    image2: {
+      source: `./portfolio/work/matsuri/m5.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
+    image3: {
+      source: `./portfolio/work/matsuri/m4.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
   },
   //
   // Exist / outrow section
@@ -194,9 +204,13 @@ export const project3 = {
     images: [
       {
         source: `./portfolio/work/atkins/a3.webp`,
+        imageFit: `cover`,
+        imagePos: `left center`,
       },
       {
         source: `./portfolio/work/atkins/a6.webp`,
+        imageFit: `cover`,
+        imagePos: `right center`,
       },
     ],
     // Why it worked
@@ -206,17 +220,19 @@ export const project3 = {
   //
   // Large scale denending image section
   image: {
-    images: [
-      {
-        source: `./portfolio/work/atkins/a2.webp`,
-      },
-      {
-        source: `./portfolio/work/atkins/a5.webp`,
-      },
-      {
-        source: `./portfolio/work/atkins/a4.webp`,
-      },
-    ],
+    image1: {
+      source: `./portfolio/work/atkins/a2.webp`,
+    },
+    image2: {
+      source: `./portfolio/work/atkins/a5.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
+    image3: {
+      source: `./portfolio/work/atkins/a4.webp`,
+      imageFit: `cover`,
+      imagePos: `left center`,
+    },
   },
   //
   // Exist / outrow section

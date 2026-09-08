@@ -42,6 +42,14 @@ function Project({ projectNum, project }) {
       easing: (t) => t * (2 - t),
     });
   }
+
+  function getImageStyle(image, fallback = {}) {
+    return {
+      objectFit: image?.imageFit ?? fallback.imageFit,
+      objectPosition: image?.imagePos ?? fallback.imagePos,
+    };
+  }
+
   return (
     <div className={styles["work-project"]}>
       {isDesktop && <ProjectAni projectNum={projectNum} />}
@@ -70,7 +78,10 @@ function Project({ projectNum, project }) {
       <div className={styles["work-project-main"]}>
         {/*  */}
         {/* Image */}
-        <img src={project.main.image}></img>
+        <img
+          src={project.main.image}
+          style={getImageStyle(project.main, project.main)}
+        ></img>
         <div className={styles["work-project-main-overlay"]}></div>
         {/*  */}
         {/* Left detail section */}
@@ -117,7 +128,10 @@ function Project({ projectNum, project }) {
                   styles["work-project-middle-bottom-left-image-overlay"]
                 }
               ></div>
-              <img src={project.middle.images[0].source}></img>
+              <img
+                src={project.middle.images[0].source}
+                style={getImageStyle(project.middle.images[0], project.middle)}
+              ></img>
             </div>
             {/* Image 2 */}
 
@@ -130,7 +144,10 @@ function Project({ projectNum, project }) {
                 }
               ></div>
 
-              <img src={project.middle.images[1].source}></img>
+              <img
+                src={project.middle.images[1].source}
+                style={getImageStyle(project.middle.images[1], project.middle)}
+              ></img>
             </div>
           </div>
           {/* Text area right */}
@@ -142,17 +159,26 @@ function Project({ projectNum, project }) {
       {/*  */}
       <div className={styles["work-project-image-1"]}>
         <div className={styles["work-project-image-overlay"]}></div>
-        <img src={project.image.images[0].source}></img>
+        <img
+          src={project.image.image1.source}
+          style={getImageStyle(project.image.image1, project.image)}
+        ></img>
       </div>
       <div className={styles["work-project-image-2"]}>
         <div className={styles["work-project-image-overlay"]}></div>
 
-        <img src={project.image.images[1].source}></img>
+        <img
+          src={project.image.image2.source}
+          style={getImageStyle(project.image.image2, project.image)}
+        ></img>
       </div>
       <div className={styles["work-project-image-3"]}>
         <div className={styles["work-project-image-overlay"]}></div>
 
-        <img src={project.image.images[2].source}></img>
+        <img
+          src={project.image.image3.source}
+          style={getImageStyle(project.image.image3, project.image)}
+        ></img>
       </div>
       {/*  */}
       {/* Exit section */}
@@ -178,7 +204,10 @@ function Project({ projectNum, project }) {
           {/* Image next section / details */}
           <div className={styles["work-project-exit-tab-image"]}>
             <div className={styles["work-project-overlay"]}></div>
-            <img src={project.exit.image}></img>
+            <img
+              src={project.exit.image}
+              style={getImageStyle(project.exit, project.exit)}
+            ></img>
           </div>
           {/* Action button */}
           <ActionButton
@@ -225,9 +254,21 @@ Project.propTypes = {
       detailsPara: PropTypes.string.isRequired,
     }).isRequired,
     image: PropTypes.shape({
-      images: PropTypes.arrayOf(
-        PropTypes.shape({ source: PropTypes.string.isRequired }),
-      ).isRequired,
+      image1: PropTypes.shape({
+        source: PropTypes.string.isRequired,
+        imageFit: PropTypes.string,
+        imagePos: PropTypes.string,
+      }).isRequired,
+      image2: PropTypes.shape({
+        source: PropTypes.string.isRequired,
+        imageFit: PropTypes.string,
+        imagePos: PropTypes.string,
+      }).isRequired,
+      image3: PropTypes.shape({
+        source: PropTypes.string.isRequired,
+        imageFit: PropTypes.string,
+        imagePos: PropTypes.string,
+      }).isRequired,
     }).isRequired,
     exit: PropTypes.shape({
       nextProjectHeading: PropTypes.string.isRequired,

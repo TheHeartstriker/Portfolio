@@ -12,7 +12,7 @@ function Hero() {
       <div className={styles["hero-main"]}>
         <div className={styles["hero-main-heading"]}>
           <h1>
-            {heroHeading1} <br />
+            {heroHeading1}
             <span>{heroHeading2}</span>
           </h1>
         </div>

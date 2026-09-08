@@ -1,26 +1,41 @@
-There is a high chance that all the changes bellow have already been implemented lmao
-
--- Review the Spacing / figma and code
--- Blog needs new reader(add images to the right and put the article on the left)
--- Blog opening animation needs work
--- Make mobile design in figma then match in code / live
--- Think about making the p tag text slightly closer together
--- Align the svg in the footer a bit better
--- Custom menu / nav for mobile
--- Algin the process with vh units and other applicable locations / size from remains
--- Make the new opening animation
--- Make sure every image is using the subtle radius and accent overlay
--- Re do the backend part of the blog
--- Exlude certain parts of the project from the scroll blur
--- Favcon needs a update aka more zoomed in and the like
--- Better article images
--- Fix the who page personal details(the slight limitation and non alignment)
--- Review text
--- Document the animation's a bit better
--- Re organize the components folder
+QUICK
+Set 1
+-- Align the SVG in the footer a bit better | DONE
+-- Favicon update — more zoomed in
+-- Smooth out the scroll-down button in projects
+Set 2
+-- Think about making the <p> tag text slightly closer together
+-- Fix the "Who" page personal details — slight limitation/non-alignment
 -- Disappear nav on client process pin
+Set 3
+-- Make sure every image uses the subtle radius + accent overlay
+-- Review text
 -- Some images need cutting
+
+MEDIUM
+Set 1
+-- Review the spacing — Figma and code
+-- Optimize images by using the Image tag
+-- Reorganize the components folder
+Set 2
+-- Exclude certain parts of the project from the scroll blur
+-- Blog opening animation needs work
+-- Document the animations a bit better
+Set 3
+-- Better article images
 -- Some images can be replaced with videos
--- Optimize images by using Image tag
--- Smooth out the scroll down button in projects
+-- Align the process with vh units and other applicable locations/sizes from rem
+
+LONG
+Set 1
+-- Blog needs new reader — images on the right, article on the left
+-- Custom menu/nav for mobile
+-- Redo the backend part of the blog
+Set 2
+-- Make mobile design in Figma, then match it in code/live
+-- Make the new opening animation
 -- Review and try to polish animations a bit
+Set 3
+-- Blog reader + article presentation overhaul (if you want to treat the reader work as a larger design task rather than just layout)
+-- Mobile responsive pass across the entire site (the Figma + code work will likely uncover additional adjustments)
+-- Final animation polish pass across the site (especially once the new opening animation and scroll behavior are finished)
