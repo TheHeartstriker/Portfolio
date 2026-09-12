@@ -26,15 +26,28 @@
 /* Main image container */
 .highlight-main-item {
   position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
 }
 
-.highlight-main-item::after {
+.highlight-main-item::before {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--dark-1);
   opacity: var(--overlay-opacity, 0);
   pointer-events: none;
+  z-index: 10;
+}
+
+.highlight-main-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
   z-index: 5;
 }
 

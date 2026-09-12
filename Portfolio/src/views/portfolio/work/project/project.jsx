@@ -38,8 +38,8 @@ function Project({ projectNum, project }) {
 
     lenis?.scrollTo(processSection, {
       offset: 0,
-      duration: 1.5,
-      easing: (t) => t * (2 - t),
+      duration: 2,
+      easing: (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2),
     });
   }
 
@@ -122,28 +122,15 @@ function Project({ projectNum, project }) {
           <div className={styles["work-project-middle-bottom-left"]}>
             {/* Image 1 */}
             <div className={styles["work-project-middle-bottom-left-image"]}>
-              {/* Overlay and image */}
-              <div
-                className={
-                  styles["work-project-middle-bottom-left-image-overlay"]
-                }
-              ></div>
+              {/* image */}
               <img
                 src={project.middle.images[0].source}
                 style={getImageStyle(project.middle.images[0], project.middle)}
               ></img>
             </div>
             {/* Image 2 */}
-
             <div className={styles["work-project-middle-bottom-left-image"]}>
-              {/* Overlay and image */}
-
-              <div
-                className={
-                  styles["work-project-middle-bottom-left-image-overlay"]
-                }
-              ></div>
-
+              {/*  image */}
               <img
                 src={project.middle.images[1].source}
                 style={getImageStyle(project.middle.images[1], project.middle)}
@@ -158,23 +145,18 @@ function Project({ projectNum, project }) {
       {/* Full large scale image's */}
       {/*  */}
       <div className={styles["work-project-image-1"]}>
-        <div className={styles["work-project-image-overlay"]}></div>
         <img
           src={project.image.image1.source}
           style={getImageStyle(project.image.image1, project.image)}
         ></img>
       </div>
       <div className={styles["work-project-image-2"]}>
-        <div className={styles["work-project-image-overlay"]}></div>
-
         <img
           src={project.image.image2.source}
           style={getImageStyle(project.image.image2, project.image)}
         ></img>
       </div>
       <div className={styles["work-project-image-3"]}>
-        <div className={styles["work-project-image-overlay"]}></div>
-
         <img
           src={project.image.image3.source}
           style={getImageStyle(project.image.image3, project.image)}

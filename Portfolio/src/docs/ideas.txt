@@ -1,14 +1,14 @@
 QUICK
 Set 1
 -- Align the SVG in the footer a bit better | DONE
--- Favicon update — more zoomed in
--- Smooth out the scroll-down button in projects
+-- Favicon update — more zoomed in | DONE
+-- Smooth out the scroll-down button in projects | DONE
 Set 2
--- Think about making the <p> tag text slightly closer together
+-- Think about making the <p> tag text slightly closer together | DONE
 -- Fix the "Who" page personal details — slight limitation/non-alignment
--- Disappear nav on client process pin
+-- Disappear nav on client process pin  | DONE
 Set 3
--- Make sure every image uses the subtle radius + accent overlay
+-- Make sure every image uses the subtle radius + accent overlay | DONE
 -- Review text
 -- Some images need cutting
 

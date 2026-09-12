@@ -13,7 +13,19 @@
   position: relative;
   flex: 1;
   overflow: hidden;
+  border-radius: var(--border-radius);
 }
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
 .hero-image img {
   position: absolute;
   top: 0;

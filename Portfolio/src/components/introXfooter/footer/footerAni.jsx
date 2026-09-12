@@ -37,7 +37,18 @@ function FooterAni() {
       //Text ani
       animateText(
         { start: 128, end: 0, type: "chars", mask: "chars" },
-        [{ element: text }],
+        [
+          {
+            element: text,
+            clip: true,
+            clipAmount: {
+              bottom: "0.1em",
+              top: "0em",
+              left: "0em",
+              right: "0em",
+            },
+          },
+        ],
         {
           duration: 0.6,
           easing: "power1.out",

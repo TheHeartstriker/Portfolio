@@ -1,8 +1,9 @@
 "use client";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Context } from "@/components/provider/provider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ function initializeJourneyAnimation({
   journeyRef,
   journeyConRef,
   journeyConItemRef,
+  setNavDisappear,
 }) {
   const section = journeyRef.current;
   const con = journeyConRef.current;
@@ -80,6 +82,7 @@ function initializeJourneyAnimation({
         pin: true,
         scrub: true,
         invalidateOnRefresh: true,
+        onToggle: (self) => setNavDisappear(self.isActive),
       },
     });
 
@@ -97,6 +100,8 @@ function initializeJourneyAnimation({
 }
 
 export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
+  const { setNavDisappear } = useContext(Context);
+
   useLayoutEffect(() => {
     let ctx;
     const timeoutId = setTimeout(() => {
@@ -104,6 +109,7 @@ export function JourneyAni({ journeyRef, journeyConRef, journeyConItemRef }) {
         journeyRef,
         journeyConRef,
         journeyConItemRef,
+        setNavDisappear,
       });
     }, 100);
 

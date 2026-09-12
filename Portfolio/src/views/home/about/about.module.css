@@ -24,6 +24,17 @@
   overflow: hidden;
 }
 
+.about-con-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
 .about-con-image img {
   position: absolute;
   top: 0;
@@ -32,18 +43,6 @@
   height: 100%;
   object-fit: cover;
   filter: contrast(1.1) saturate(0.8) brightness(0.9);
-}
-
-.about-con-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: var(--accent-1);
-  z-index: 5;
-  opacity: 0.05;
 }
 
 /*  */

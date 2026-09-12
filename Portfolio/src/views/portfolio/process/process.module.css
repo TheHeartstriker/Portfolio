@@ -47,7 +47,19 @@
   flex: 1;
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius);
   height: 35rem;
+}
+
+.process-con-item-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
 }
 
 .process-con-item-image img {

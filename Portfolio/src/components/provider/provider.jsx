@@ -7,7 +7,6 @@ function Provider({ children }) {
   //
   // Decides true if we are currently transitioning page's and animating as such
   const [transition, setTransition] = useState(true);
-
   //
   // Decides what page when need to nav to when transitioning
   const [navPage, setNavPage] = useState("/");
@@ -17,6 +16,9 @@ function Provider({ children }) {
   //
   // Test
   const [projectsDone, setProjectsDone] = useState(false);
+  //
+  // Nav disappear and appear value
+  const [navDisappear, setNavDisappear] = useState(false);
 
   return (
     <Context.Provider
@@ -29,6 +31,8 @@ function Provider({ children }) {
         setLeftMove: setLeftMove,
         projectsDone: projectsDone,
         setProjectsDone: setProjectsDone,
+        navDisappear: navDisappear,
+        setNavDisappear: setNavDisappear,
       }}
     >
       {children}

@@ -13,7 +13,6 @@ function Divider() {
         end="bottom top"
       />
       <div className={styles["divider-overlay-1"]}></div>
-      <div className={styles["divider-overlay-2"]}></div>
       <img src={dividerImage} alt="Divider" />
     </section>
   );

@@ -93,6 +93,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: var(--border-radius);
   transform: translate(-50%, -50%);
   transition:
     width var(--motion-medium-2) var(--power-2-out),
@@ -110,7 +111,8 @@
   transform: translate(-50%, -50%);
   background-color: var(--accent-1);
   z-index: 10;
-  opacity: 0.05;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
   transition:
     width var(--motion-medium-2) var(--power-2-out),
     height var(--motion-medium-2) var(--power-2-out);

@@ -11,7 +11,6 @@ function Who() {
 
       <div className={styles["who-bottom"]}>
         <div className={styles["who-bottom-image"]}>
-          <div className={styles["who-bottom-image-overlay"]}></div>
           <img src={whoImage} alt="Who" />
         </div>
 

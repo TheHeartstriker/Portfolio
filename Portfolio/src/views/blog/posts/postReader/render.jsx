@@ -17,7 +17,11 @@ function articleChecker(item) {
               <h1 {...props} />
             </div>
           ),
-          img: ({ ...props }) => <img {...props} />,
+          img: ({ ...props }) => (
+            <div className={styles["article-image"]}>
+              <img {...props} />
+            </div>
+          ),
 
           code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");

@@ -21,8 +21,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon" />
-        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" />
+        <link rel="icon" href="/favicons/favicon-32x32.png" type="image/png" />
       </head>
       <body>
         <Provider>

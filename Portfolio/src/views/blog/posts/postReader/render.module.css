@@ -104,17 +104,35 @@
 }
 /*  */
 /* Article imagery */
-.article img {
+.article-image {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  max-height: 60vh;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: var(--dark-1);
+}
+
+.article-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
+.article-image img {
+  display: block;
   max-width: 100%;
   max-height: 60vh;
   width: auto;
   height: auto;
-  border-radius: var(--border-radius-medium);
   object-fit: contain;
-  box-shadow: var(--shadow-medium);
-  background: var(--dark-1);
-  display: block;
-  margin: 0 auto;
   filter: contrast(1.1) saturate(0.8) brightness(0.9);
 }
 

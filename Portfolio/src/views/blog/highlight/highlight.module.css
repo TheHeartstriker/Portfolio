@@ -68,6 +68,17 @@
   overflow: hidden;
 }
 
+.highlight-gallery-image-1:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
 .highlight-gallery-image-1 img {
   position: absolute;
   top: 0;
@@ -95,6 +106,17 @@
   overflow: hidden;
 }
 
+.highlight-gallery-image-2:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
 .highlight-gallery-image-2 img {
   position: absolute;
   top: 0;
@@ -112,17 +134,6 @@
   transform: scale(1.1);
 }
 
-.highlight-gallery-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: var(--accent-1);
-  z-index: 5;
-  opacity: 0.05;
-}
 /*  */
 /* Bottom section stat cards*/
 /*  */

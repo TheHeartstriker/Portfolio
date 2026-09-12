@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Animation vars
 const CENTER_ZONE_REM = 10;
 const MIN_OPACITY = 0;
-const MAX_OPACITY = 0.2;
+const MAX_OPACITY = 0.15;
 
 function HighlightAni() {
   const { setLeftMove } = useContext(Context);

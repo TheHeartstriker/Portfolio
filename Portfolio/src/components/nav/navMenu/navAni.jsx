@@ -7,7 +7,7 @@ import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";
 function NavAni() {
-  const { transition } = useContext(Context);
+  const { transition, navDisappear } = useContext(Context);
   const transitionRef = useRef(transition);
   const pathname = usePathname();
 
@@ -129,7 +129,7 @@ function NavAni() {
         document.documentElement.scrollHeight -
         (currentScrollY + window.innerHeight);
 
-      if (distanceFromBottom <= BOTTOM_OFFSET || isUnder()) {
+      if (distanceFromBottom <= BOTTOM_OFFSET || isUnder() || navDisappear) {
         handleDisappear();
       } else {
         handleReverse(currentScrollY, delta);
@@ -145,7 +145,7 @@ function NavAni() {
       gsap.set(nav, { clearProps: "all" });
       timeline.kill();
     };
-  }, [pathname]);
+  }, [pathname, navDisappear]);
 
   return null;
 }
