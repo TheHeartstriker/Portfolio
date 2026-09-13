@@ -3,11 +3,15 @@ import Work from "./work/work";
 import Process from "./process/process";
 import Journey from "./journey/journey";
 import FAQ from "./faq/faq";
+import LayoutGuide from "@/utils/alignment/align";
+import NewWork from "./newWork/work";
 function Portfolio() {
   return (
     <>
+      {/* <LayoutGuide /> */}
       <Hero />
-      <Work />
+      <NewWork />
+      {/* <Work /> */}
       <Process />
       <Journey />
       <FAQ />
