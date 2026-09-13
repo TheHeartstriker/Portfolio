@@ -89,6 +89,8 @@
 /* Text container item sub heading left*/
 .who-bottom-text-item-sub {
   display: flex;
+  width: var(--column-width);
+  justify-content: end;
 }
 
 .who-bottom-text-item-sub h3 {
@@ -149,7 +151,12 @@
     gap: var(--space-32);
   }
   .who-bottom-text-item {
-    gap: var(--space-128);
+    gap: var(--space-64);
+  }
+
+  .who-bottom-text-item-sub {
+    justify-content: start;
+    width: calc((var(--column-width) * 2 + var(--space-24)));
   }
 }
 

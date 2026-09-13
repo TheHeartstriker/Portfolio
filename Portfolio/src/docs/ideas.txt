@@ -5,7 +5,7 @@ Set 1
 -- Smooth out the scroll-down button in projects | DONE
 Set 2
 -- Think about making the <p> tag text slightly closer together | DONE
--- Fix the "Who" page personal details — slight limitation/non-alignment
+-- Fix the "Who" page personal details — slight limitation/non-alignment | DONE
 -- Disappear nav on client process pin  | DONE
 Set 3
 -- Make sure every image uses the subtle radius + accent overlay | DONE
@@ -15,7 +15,6 @@ Set 3
 MEDIUM
 Set 1
 -- Review the spacing — Figma and code
--- Optimize images by using the Image tag
 -- Reorganize the components folder
 Set 2
 -- Exclude certain parts of the project from the scroll blur
