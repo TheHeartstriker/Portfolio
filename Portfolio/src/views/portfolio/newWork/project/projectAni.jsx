@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useContext } from "react";
 import gsap from "gsap";
-import workStyles from "../work.module.css";
 import projectStyles from "./project.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Context } from "@/components/provider/provider.jsx";
@@ -14,12 +13,15 @@ function ProjectAni({ projectNum }) {
   // Scroll Animation
   //
   useEffect(() => {
+    console.log("running");
+
     if (typeof window !== "undefined" && window.innerWidth < 1050) return;
 
-    const section = document.querySelector(`.${workStyles["work"]}`);
+    const section = document.querySelector(`.${projectStyles["work"]}`);
     const main = document.querySelectorAll(`.${projectStyles["work-project"]}`)[
       projectNum
     ];
+
     if (!section || !main) return;
 
     const ctx = gsap.context(function () {
@@ -113,10 +115,11 @@ function ProjectAni({ projectNum }) {
 
       const st = ScrollTrigger.create({
         trigger: main,
-        start: `bottom bottom-=${remToPx}`,
+        start: `top top`,
         end: function () {
           return `+=${getScrollDistance() + exitLockDistance}`;
         },
+        markers: true,
         pin: true,
         pinSpacing: true,
         scrub: true,

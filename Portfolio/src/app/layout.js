@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Provider>
-          {/* <Opening /> */}
+          <Opening />
           <Nav />
           <FilmGrain />
           <ScrollBlur />

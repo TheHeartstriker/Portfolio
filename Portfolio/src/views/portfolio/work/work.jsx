@@ -1,6 +1,6 @@
 import styles from "./work.module.css";
-import Project from "./project/project";
-import { project1, project2, project3 } from "./text.js";
+import Project from "../newWork/project/project";
+import { project1, project2, project3 } from "../newWork/project/text.js";
 function Work() {
   return (
     <section className={styles["work"]}>

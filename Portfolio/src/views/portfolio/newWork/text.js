@@ -1,4 +1,4 @@
-import { project1, project2, project3 } from "../work/text";
+import { project1, project2, project3 } from "./project/text";
 
 export const mainLeft = {
   heading: `Selected Work`,

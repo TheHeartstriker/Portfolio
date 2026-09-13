@@ -20,7 +20,7 @@ function Process() {
               <ScrollMotion
                 item={`[data-process-image="${index}"]`}
                 moveDirection="y"
-                moveAmount={-10}
+                moveAmount={-15}
                 start="top 85%"
                 end="bottom top"
               />

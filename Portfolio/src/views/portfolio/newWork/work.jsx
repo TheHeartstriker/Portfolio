@@ -3,6 +3,8 @@
 import styles from "./work.module.css";
 import RadahnRune from "@/../public/icons/radahnRune";
 import SectionInfo from "@/components/sectionInfo/sectionInfo";
+import ScrollMotion from "@/components/animations/scrollMotion";
+import WorkAni from "./workAni";
 import { mainLeft, mainRight, cta } from "./text";
 import ActionButton from "@/components/button/actionButton";
 import { Context } from "@/components/provider/provider";
@@ -14,7 +16,7 @@ function NewWork() {
   const { setTransition, setNavPage } = useContext(Context);
   return (
     <section className={styles["work"]}>
-      <SectionInfo infoName="MY WORK" />
+      <WorkAni />
       {/*  */}
       {/* Main preview link section */}
       {/*  */}
@@ -48,11 +50,20 @@ function NewWork() {
         {/*  */}
         {/* Project preveiws and links to there showcase */}
         <div className={styles["work-main-con"]}>
-          {workItems.map((item) => (
+          {workItems.map((item, index) => (
             <div className={styles["work-main-con-item"]} key={item.heading}>
               {/* Image or media container and input */}
               <div className={styles["work-main-con-item-media"]}>
-                <img src={item.imgSrc} alt={item.heading} />
+                <ScrollMotion
+                  item={`[data-work-image="${index}"]`}
+                  moveDirection="y"
+                  moveAmount={-15}
+                  start="top 85%"
+                  end="bottom top"
+                />
+                <div data-work-image={index}>
+                  <img src={item.imgSrc} alt={item.heading} />
+                </div>
               </div>
               {/* Bottom details */}
               <div className={styles["work-main-con-item-details"]}>
@@ -77,7 +88,7 @@ function NewWork() {
           <h3>{cta.mainText}</h3>
           <ActionButton
             text={cta.ctaText}
-            type={"regular"}
+            type={"work"}
             onClick={() => {
               (setTransition(true), setNavPage("/contact"));
             }}

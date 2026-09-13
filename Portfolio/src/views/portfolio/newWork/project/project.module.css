@@ -1,10 +1,18 @@
 /*  */
+/* Work*/
+/*  */
+.work {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+/*  */
 /* Main project container*/
 /*  */
 .work-project {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - var(--space-24) * 2);
+  height: 100vh;
   width: auto;
 }
 
@@ -411,7 +419,6 @@
 /*  */
 /* Desktop */
 /*  */
-
 @media (max-width: 1500px) {
   .work-project-hero h2 {
     font-size: var(--typo-size-64);
@@ -494,6 +501,12 @@
   }
   .work-project-exit-tab {
     width: calc(var(--column-width) * 4 + var(--space-24) * 3);
+  }
+  /*  */
+  /* Main overhead */
+  .work {
+    gap: calc(var(--space-128) + var(--space-64));
+    padding-top: var(--space-96);
   }
   /*  */
   /* Main intro for project */
