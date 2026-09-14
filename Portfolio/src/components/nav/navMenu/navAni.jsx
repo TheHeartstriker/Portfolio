@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./nav.module.css";
-import workStyles from "@/views/portfolio/work/work.module.css";
+import workStyles from "@/views/portfolio/newWork/work.module.css";
 import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";

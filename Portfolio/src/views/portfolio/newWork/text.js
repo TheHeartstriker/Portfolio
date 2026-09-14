@@ -17,6 +17,7 @@ export const mainRight = {
       project1.main.rightDetails.values[0],
       project1.main.rightDetails.values[1],
     ],
+    endPoint: "/portfolio/fgraphs",
   },
   item2: {
     imgSrc: project2.main.image,
@@ -26,6 +27,7 @@ export const mainRight = {
       project2.main.rightDetails.values[0],
       project2.main.rightDetails.values[1],
     ],
+    endPoint: "/portfolio/matsuri",
   },
   item3: {
     imgSrc: project3.main.image,
@@ -35,11 +37,12 @@ export const mainRight = {
       project3.main.rightDetails.values[0],
       project3.main.rightDetails.values[1],
     ],
+    endPoint: "/portfolio/peyton",
   },
 };
 
 export const cta = {
-  mainText: `See some\nof my work`,
+  mainText: `See some\nof my creations`,
   ctaText: `SEE A EXAMPLE`,
   numberCount: `03`,
 };

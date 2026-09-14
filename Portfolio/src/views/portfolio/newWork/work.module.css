@@ -4,6 +4,7 @@
   width: 100%;
   gap: var(--space-32);
   padding: var(--space-24);
+  padding-top: var(--space-64);
 }
 /*  */
 /* Main item section column */
@@ -17,14 +18,12 @@
 /*  */
 .work-main-info {
   position: sticky;
-  top: 0;
+  top: 10vh;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   width: calc((var(--column-width) * 4) + var(--space-24) * 3);
   padding-right: calc(var(--column-width) + var(--space-24));
-  padding-top: var(--space-96);
-  padding-bottom: var(--space-96);
   flex-shrink: 0;
 }
 /*  */
@@ -52,7 +51,7 @@
   position: relative;
   gap: var(--space-12);
   width: calc((var(--column-width) * 1));
-  margin: auto 0;
+  margin-top: auto;
 }
 /* Main item */
 .work-main-info-indi-item {
@@ -122,7 +121,7 @@
 .work-main-con {
   display: flex;
   flex-direction: column;
-  gap: var(--space-48);
+  gap: var(--space-64);
   width: calc((var(--column-width) * 8) + var(--space-24) * 7);
 }
 /*  */
@@ -172,7 +171,7 @@
 }
 
 .work-main-con-item-media:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 /* Bottom text and details */
 .work-main-con-item-details {
@@ -237,4 +236,76 @@
   color: var(--light-1);
   line-height: 1;
   font-weight: var(--typo-weight-semi-bold);
+}
+
+/*  */
+/* Desktop */
+/*  */
+@media (max-width: 1500px) {
+  .work-main-info {
+    padding-right: calc(var(--column-width) * 0.5 + var(--space-24) * 0.5);
+  }
+  .work-main-info-text h2 {
+    font-size: var(--typo-size-40);
+  }
+  .work-cta-action {
+    width: calc(var(--column-width) * 5 + var(--space-24) * 4);
+  }
+}
+
+@media (max-width: 1250px) {
+  .work-main-con-item {
+    height: 70vh;
+  }
+  .work-main-info {
+    top: 15vh;
+    height: 70vh;
+  }
+}
+/*  */
+/* Mobile */
+/*  */
+@media (max-width: 1050px) {
+  .work-main {
+    flex-direction: column;
+  }
+  .work-cta {
+    padding-left: 0;
+  }
+  .work-cta-action h3 {
+    font-size: var(--typo-size-36);
+  }
+
+  .work-cta h4 {
+    font-size: var(--typo-size-32);
+  }
+
+  .work-main-info {
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+    padding-right: 0;
+  }
+  .work-main-info-indi {
+    display: none;
+  }
+  .work-main-con-item {
+    height: 65vh;
+  }
+}
+@media (max-width: 800px) {
+  .work-main-con-item-details {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 500px) {
+  .work-main-con-item {
+    height: 40vh;
+  }
+  .work-cta-action {
+    width: 100%;
+  }
 }

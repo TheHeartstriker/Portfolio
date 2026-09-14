@@ -51,7 +51,13 @@ function NewWork() {
         {/* Project preveiws and links to there showcase */}
         <div className={styles["work-main-con"]}>
           {workItems.map((item, index) => (
-            <div className={styles["work-main-con-item"]} key={item.heading}>
+            <div
+              className={styles["work-main-con-item"]}
+              key={item.heading}
+              onClick={() => {
+                (setTransition(true), setNavPage(item.endPoint));
+              }}
+            >
               {/* Image or media container and input */}
               <div className={styles["work-main-con-item-media"]}>
                 <ScrollMotion
@@ -90,7 +96,7 @@ function NewWork() {
             text={cta.ctaText}
             type={"work"}
             onClick={() => {
-              (setTransition(true), setNavPage("/contact"));
+              (setTransition(true), setNavPage("/portfolio/fgraphs"));
             }}
           />
         </div>

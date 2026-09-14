@@ -8,7 +8,6 @@ import NewWork from "./newWork/work";
 function Portfolio() {
   return (
     <>
-      {/* <LayoutGuide /> */}
       <Hero />
       <NewWork />
       {/* <Work /> */}

@@ -17,7 +17,7 @@ export const project1 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/fgraphs/f1.webp`,
+    image: `/portfolio/work/fgraphs/f1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -40,12 +40,12 @@ export const project1 = {
     heading: `I created a bold, impactful fitness website to save time and learn how to build a brand.`,
     images: [
       {
-        source: `./portfolio/work/fgraphs/f4.webp`,
+        source: `/portfolio/work/fgraphs/f4.webp`,
         imageFit: `cover`,
         imagePos: `right center`,
       },
       {
-        source: `./portfolio/work/fgraphs/f6.webp`,
+        source: `/portfolio/work/fgraphs/f6.webp`,
         imageFit: `cover`,
         imagePos: `left center`,
       },
@@ -58,15 +58,15 @@ export const project1 = {
   // Large scale denending image section
   image: {
     image1: {
-      source: `./portfolio/work/fgraphs/f2.webp`,
+      source: `/portfolio/work/fgraphs/f2.webp`,
     },
     image2: {
-      source: `./portfolio/work/fgraphs/f4.webp`,
+      source: `/portfolio/work/fgraphs/f4.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
     image3: {
-      source: `./portfolio/work/fgraphs/f3.webp`,
+      source: `/portfolio/work/fgraphs/f3.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
@@ -77,8 +77,9 @@ export const project1 = {
     nextProjectHeading: `Next Project — Event Agency`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT PROJECT`,
-    image: `./portfolio/work/matsuri/m1.webp`,
-    cta: `VISIT NEXT SECTION`,
+    image: `/portfolio/work/matsuri/m1.webp`,
+    cta: `BACK TO PORTFOLIO?`,
+    next: `/portfolio/matsuri`,
   },
 };
 
@@ -100,7 +101,7 @@ export const project2 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/matsuri/m1.webp`,
+    image: `/portfolio/work/matsuri/m1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -123,10 +124,10 @@ export const project2 = {
     heading: `I built a clean, typography-focused website to develop my focus, visual taste, and direction.`,
     images: [
       {
-        source: `./portfolio/work/matsuri/m2.webp`,
+        source: `/portfolio/work/matsuri/m2.webp`,
       },
       {
-        source: `./portfolio/work/matsuri/m6.webp`,
+        source: `/portfolio/work/matsuri/m6.webp`,
         imageFit: `cover`,
         imagePos: `left center`,
       },
@@ -139,15 +140,15 @@ export const project2 = {
   // Large scale denending image section
   image: {
     image1: {
-      source: `./portfolio/work/matsuri/m3.webp`,
+      source: `/portfolio/work/matsuri/m3.webp`,
     },
     image2: {
-      source: `./portfolio/work/matsuri/m5.webp`,
+      source: `/portfolio/work/matsuri/m5.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
     image3: {
-      source: `./portfolio/work/matsuri/m4.webp`,
+      source: `/portfolio/work/matsuri/m4.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
@@ -158,8 +159,9 @@ export const project2 = {
     nextProjectHeading: `Next Project — Realtor`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT PROJECT`,
-    image: `./portfolio/work/atkins/a1.webp`,
-    cta: `VISIT NEXT SECTION`,
+    image: `/portfolio/work/atkins/a1.webp`,
+    cta: `BACK TO PORTFOLIO?`,
+    next: `/portfolio/peyton`,
   },
 };
 //
@@ -180,7 +182,7 @@ export const project3 = {
   //
   // Big image section
   main: {
-    image: `./portfolio/work/atkins/a1.webp`,
+    image: `/portfolio/work/atkins/a1.webp`,
     leftDetails: [
       {
         label: `CLIENT`,
@@ -203,12 +205,12 @@ export const project3 = {
     heading: `I built a clean, simple landing page for a retail agent, focusing on improving visual presence.`,
     images: [
       {
-        source: `./portfolio/work/atkins/a3.webp`,
+        source: `/portfolio/work/atkins/a3.webp`,
         imageFit: `cover`,
         imagePos: `left center`,
       },
       {
-        source: `./portfolio/work/atkins/a6.webp`,
+        source: `/portfolio/work/atkins/a6.webp`,
         imageFit: `cover`,
         imagePos: `right center`,
       },
@@ -221,15 +223,15 @@ export const project3 = {
   // Large scale denending image section
   image: {
     image1: {
-      source: `./portfolio/work/atkins/a2.webp`,
+      source: `/portfolio/work/atkins/a2.webp`,
     },
     image2: {
-      source: `./portfolio/work/atkins/a5.webp`,
+      source: `/portfolio/work/atkins/a5.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
     image3: {
-      source: `./portfolio/work/atkins/a4.webp`,
+      source: `/portfolio/work/atkins/a4.webp`,
       imageFit: `cover`,
       imagePos: `left center`,
     },
@@ -240,7 +242,8 @@ export const project3 = {
     nextProjectHeading: `Next Section — Design Process`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT SECTION`,
-    image: `./portfolio/design/process1.webp`,
-    cta: `VISIT NEXT SECTION`,
+    image: `/portfolio/design/process1.webp`,
+    cta: `BACK TO PORTFOLIO?`,
+    next: `/portfolio/fgraphs`,
   },
 };

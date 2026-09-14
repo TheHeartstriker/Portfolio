@@ -38,3 +38,12 @@ Set 3
 -- Blog reader + article presentation overhaul (if you want to treat the reader work as a larger design task rather than just layout)
 -- Mobile responsive pass across the entire site (the Figma + code work will likely uncover additional adjustments)
 -- Final animation polish pass across the site (especially once the new opening animation and scroll behavior are finished)
+
+EXTRA
+
+Add the line finish line as the user scroll inside the journey tag
+Change the text in the work section the details area mirror the good fela version
+Smooth out svg animation in work
+Add hover button inside the wor section
+Check if the journey animation errror handle thing is still needed
+Project section needs opening animation

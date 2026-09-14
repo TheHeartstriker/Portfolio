@@ -4,12 +4,11 @@ import styles from "./project.module.css";
 import MorgottRune from "@/../public/icons/morgottRune";
 import ActionButton from "@/components/button/actionButton";
 import ProjectAni from "./projectAni";
-import { useLenis } from "lenis/react";
-import processStyles from "../../process/process.module.css";
 import PropTypes from "prop-types";
-
+import { Context } from "@/components/provider/provider";
+import { useContext } from "react";
 function Project({ projectNum, project }) {
-  const lenis = useLenis();
+  const { setTransition, setNavPage } = useContext(Context);
   const [isDesktop, setIsDesktop] = useState(
     typeof window !== "undefined" ? window.innerWidth >= 1050 : true,
   );
@@ -24,20 +23,6 @@ function Project({ projectNum, project }) {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  function scrollToProcess() {
-    const processSection = document.querySelector(
-      `.${processStyles["process"]}`,
-    );
-
-    if (!processSection) return;
-
-    lenis?.scrollTo(processSection, {
-      offset: 0,
-      duration: 2,
-      easing: (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2),
-    });
-  }
 
   function getImageStyle(image, fallback = {}) {
     return {
@@ -198,7 +183,9 @@ function Project({ projectNum, project }) {
             <ActionButton
               text={project.exit.cta}
               type={"project"}
-              onClick={scrollToProcess}
+              onClick={() => {
+                (setTransition(true), setNavPage("/portfolio"));
+              }}
             />
           </div>
         </div>
