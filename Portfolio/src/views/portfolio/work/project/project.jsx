@@ -1,28 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
 import styles from "./project.module.css";
 import MorgottRune from "@/../public/icons/morgottRune";
 import ActionButton from "@/components/button/actionButton";
+import ScrollAni from "./scrollAni";
 import ProjectAni from "./projectAni";
 import PropTypes from "prop-types";
 import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 function Project({ projectNum, project }) {
   const { setTransition, setNavPage } = useContext(Context);
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth >= 1050 : true,
-  );
-
-  useEffect(() => {
-    function handleResize() {
-      setIsDesktop(window.innerWidth >= 1050);
-    }
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   function getImageStyle(image, fallback = {}) {
     return {
@@ -34,13 +20,14 @@ function Project({ projectNum, project }) {
   return (
     <div className={styles["work"]}>
       <div className={styles["work-project"]}>
-        {isDesktop && <ProjectAni projectNum={projectNum} />}
+        <ScrollAni projectNum={projectNum} />
+        <ProjectAni />
         {/*  */}
         {/* Hero intro */}
         {/*  */}
         <div className={styles["work-project-hero"]}>
-          <h3>{project.hero.subHeading}</h3>
-          <h2>{project.hero.heading}</h2>
+          <h2>{project.hero.subHeading}</h2>
+          <h1>{project.hero.heading}</h1>
           {/*  */}
           {/* Para details and btn */}
           <div className={styles["work-project-hero-bottom"]}>
@@ -70,22 +57,22 @@ function Project({ projectNum, project }) {
           <div className={styles["work-project-main-left"]}>
             {/* Detail 1 */}
             <div className={styles["work-project-main-left-info"]}>
-              <h4>{project.main.leftDetails[0].label}</h4>
-              <h5>{project.main.leftDetails[0].value}</h5>
+              <h3>{project.main.leftDetails[0].label}</h3>
+              <h4>{project.main.leftDetails[0].value}</h4>
             </div>
             {/* Detail 1 */}
             <div className={styles["work-project-main-left-info"]}>
-              <h4>{project.main.leftDetails[1].label}</h4>
-              <h5>{project.main.leftDetails[1].value}</h5>
+              <h3>{project.main.leftDetails[1].label}</h3>
+              <h4>{project.main.leftDetails[1].value}</h4>
             </div>
           </div>
           {/*  */}
           {/* Right detail section */}
           <div className={styles["work-project-main-right"]}>
-            <h4>{project.main.rightDetails.label}</h4>
-            <h5>{project.main.rightDetails.values[0]}</h5>
-            <h5>{project.main.rightDetails.values[1]}</h5>
-            <h5>{project.main.rightDetails.values[2]}</h5>
+            <h3>{project.main.rightDetails.label}</h3>
+            <h4>{project.main.rightDetails.values[0]}</h4>
+            <h4>{project.main.rightDetails.values[1]}</h4>
+            <h4>{project.main.rightDetails.values[2]}</h4>
           </div>
         </div>
         {/*  */}
@@ -95,7 +82,7 @@ function Project({ projectNum, project }) {
           {/*  */}
           {/* Top subheading */}
           <div className={styles["work-project-middle-top"]}>
-            <h3>{project.middle.heading}</h3>
+            <h2>{project.middle.heading}</h2>
           </div>
           {/*  */}
           {/* Bottom area para and left side image*/}
@@ -156,14 +143,14 @@ function Project({ projectNum, project }) {
         <div className={styles["work-project-exit"]}>
           {/*  */}
           {/* Heading */}
-          <h4>{project.exit.nextProjectHeading}</h4>
-          <h3>{project.exit.heading}</h3>
+          <h3>{project.exit.nextProjectHeading}</h3>
+          <h2>{project.exit.heading}</h2>
           {/*  */}
           {/* Main next tab */}
           <div className={styles["work-project-exit-tab"]}>
             {/* Intro area */}
             <div className={styles["work-project-exit-tab-intro"]}>
-              <h4>{project.exit.instruction}</h4>
+              <h3>{project.exit.instruction}</h3>
               <MorgottRune />
             </div>
             {/* Line details */}

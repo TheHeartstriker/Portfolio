@@ -1,50 +1,38 @@
-QUICK
-Set 1
--- Align the SVG in the footer a bit better | DONE
--- Favicon update — more zoomed in | DONE
--- Smooth out the scroll-down button in projects | DONE
-Set 2
--- Think about making the <p> tag text slightly closer together | DONE
--- Fix the "Who" page personal details — slight limitation/non-alignment | DONE
--- Disappear nav on client process pin  | DONE
-Set 3
--- Make sure every image uses the subtle radius + accent overlay | DONE
+
 -- Review text
 -- Some images need cutting
 
-MEDIUM
-Set 1
 -- Review the spacing — Figma and code
 -- Reorganize the components folder
-Set 2
+
 -- Exclude certain parts of the project from the scroll blur
 -- Blog opening animation needs work
 -- Document the animations a bit better
-Set 3
+
 -- Better article images
 -- Some images can be replaced with videos
 -- Align the process with vh units and other applicable locations/sizes from rem
 
-LONG
-Set 1
+
 -- Blog needs new reader — images on the right, article on the left
 -- Custom menu/nav for mobile
 -- Redo the backend part of the blog
-Set 2
+
 -- Make mobile design in Figma, then match it in code/live
 -- Make the new opening animation
 -- Review and try to polish animations a bit
-Set 3
+
 -- Blog reader + article presentation overhaul (if you want to treat the reader work as a larger design task rather than just layout)
 -- Mobile responsive pass across the entire site (the Figma + code work will likely uncover additional adjustments)
 -- Final animation polish pass across the site (especially once the new opening animation and scroll behavior are finished)
 
-EXTRA
 
-Add the line finish line as the user scroll inside the journey tag
-Change the text in the work section the details area mirror the good fela version
-Smooth out svg animation in work
-Add hover button inside the wor section
-Check if the journey animation errror handle thing is still needed
-Project section needs opening animation
-Change the padding for mobile update the column width calcs to match
+
+-- Add the line finish line as the user scroll inside the journey tag
+-- Change the text in the work section the details area mirror the good fela version
+-- Smooth out svg animation in work
+-- Add hover button inside the work section
+-- Check if the journey animation errror handle thing is still needed
+-- Project section needs opening animation
+-- Change the padding for mobile update the column width calcs to match
+
