@@ -20,16 +20,15 @@ function Process() {
               <ScrollMotion
                 item={`[data-process-image="${index}"]`}
                 moveDirection="y"
-                moveAmount={-10}
+                moveAmount={-15}
                 start="top 85%"
                 end="bottom top"
               />
-              {/* Left side text */}
-              <div className={styles["process-con-item-text"]}>
-                <p>{item.description}</p>
-                <h2>{item.title}</h2>
+              {/* Left side detail */}
+              <div className={styles["process-con-item-detail"]}>
+                <h4>{String(index + 1).padStart(2, "0")}—04</h4>
               </div>
-              {/* Right side image */}
+              {/* Middle image */}
               <div className={styles["process-con-item-image"]}>
                 <div className={styles["process-con-item-image-overlay"]}></div>
                 <img
@@ -38,6 +37,11 @@ function Process() {
                   data-process-image={index}
                   alt={item.title}
                 />
+              </div>
+              {/* Right side text */}
+              <div className={styles["process-con-item-text"]}>
+                <p>{item.description}</p>
+                <h3>{item.title}</h3>
               </div>
             </div>
             {/*  */}

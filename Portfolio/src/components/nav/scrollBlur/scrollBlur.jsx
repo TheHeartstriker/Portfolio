@@ -96,10 +96,6 @@ function ScrollBlur() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(leftMove, "We changed");
-  }, [leftMove]);
-
   return (
     <nav
       className={`${styles["blur-wrap"]} ${

@@ -10,7 +10,8 @@ function Opening() {
   const router = useRouter();
   const counter = useRef(0);
   const pathname = usePathname();
-  const { setTransition, transition, navPage } = useContext(Context);
+  const { setTransition, transition, navPage, setLeftMove } =
+    useContext(Context);
   //
   // This is the orgin opening aka the first one(longer more cinima)
   //
@@ -128,6 +129,7 @@ function Opening() {
       ease: "power2.inOut",
       // Switch pages the screen and scroll to top while screen is covered
       onComplete: () => {
+        setLeftMove(false);
         router.push(navPage);
       },
     });

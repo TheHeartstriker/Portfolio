@@ -1,8 +1,8 @@
 import Hero from "./hero/hero";
-import Work from "./work/work";
 import Process from "./process/process";
 import Journey from "./journey/journey";
 import FAQ from "./faq/faq";
+import Work from "./work/work";
 function Portfolio() {
   return (
     <>

@@ -33,7 +33,7 @@
   padding-top: var(--space-32);
   gap: var(--space-32);
   padding-bottom: var(--space-128);
-  border-top: 2px solid var(--dark-3);
+  border-top: 1px solid var(--dark-3);
   background-color: var(--dark-1);
 }
 /*  */

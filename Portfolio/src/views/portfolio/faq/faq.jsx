@@ -11,7 +11,7 @@ function FAQ() {
 
   return (
     <section className={styles["faq"]}>
-      <SectionInfo infoName={"DESIGN PROCESS"} />
+      <SectionInfo infoName={"FAQ"} />
       <div className={styles["faq-con"]}>
         {/*  */}
         {/* Left side heading */}
