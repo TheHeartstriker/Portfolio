@@ -2,7 +2,7 @@ import { project1, project2, project3 } from "./project/text";
 
 export const mainLeft = {
   heading: `Selected Work`,
-  subHeading: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt`,
+  subHeading: `Case studies of selected websites designed to be visual, distinctive, and purposeful.`,
   image1: project1.main.image,
   image2: project2.main.image,
   image3: project3.main.image,

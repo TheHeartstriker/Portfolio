@@ -47,3 +47,4 @@ Smooth out svg animation in work
 Add hover button inside the wor section
 Check if the journey animation errror handle thing is still needed
 Project section needs opening animation
+Change the padding for mobile update the column width calcs to match

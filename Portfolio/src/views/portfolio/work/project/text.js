@@ -239,11 +239,11 @@ export const project3 = {
   //
   // Exist / outrow section
   exit: {
-    nextProjectHeading: `Next Section — Design Process`,
+    nextProjectHeading: `Next Section — Fitness`,
     heading: `To The Next One`,
     instruction: `KEEP SCROLLING FOR THE NEXT SECTION`,
     image: `/portfolio/design/process1.webp`,
-    cta: `BACK TO PORTFOLIO?`,
+    cta: `OR BACK TO THE PORTFOLIO?`,
     next: `/portfolio/fgraphs`,
   },
 };

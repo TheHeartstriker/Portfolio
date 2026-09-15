@@ -55,7 +55,6 @@ function HeroAni() {
     //
     // This is to make sure we don't play it twice since we reflow on transition being done
     if (playedRef.current === true) {
-      console.log("Already played");
       return;
     }
     //

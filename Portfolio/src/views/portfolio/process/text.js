@@ -20,7 +20,7 @@ export const processItems = [
     image: "/portfolio/design/process3.webp",
   },
   {
-    title: "The finished vision",
+    title: "The end",
     description: `This is the final part of my design process and is the culmination of those that came before. 
     Using the outline, narrative, and visual direction, I move into implementing and finalizing the concluding website, including details like color, typography, spacing, flow, and motion.
     Lastly, I refine and iterate until it works as a whole and meets my standards of excellence.`,
