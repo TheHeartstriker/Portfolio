@@ -50,7 +50,7 @@ function Posts() {
 
   return (
     <section className={styles["posts"]}>
-      <SectionInfo infoName="POSTS" />
+      <SectionInfo infoName="POSTS" type="dark" />
       <PostsAni
         containerRef={cardsRef}
         trigger={trigger}

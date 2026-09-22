@@ -1,8 +1,6 @@
 
 -- Review text
--- Some images need cutting
 
--- Review the spacing — Figma and code
 -- Reorganize the components folder
 
 -- Exclude certain parts of the project from the scroll blur
@@ -15,24 +13,26 @@
 
 
 -- Blog needs new reader — images on the right, article on the left
--- Custom menu/nav for mobile
 -- Redo the backend part of the blog
 
--- Make mobile design in Figma, then match it in code/live
 -- Make the new opening animation
 -- Review and try to polish animations a bit
 
 -- Blog reader + article presentation overhaul (if you want to treat the reader work as a larger design task rather than just layout)
--- Mobile responsive pass across the entire site (the Figma + code work will likely uncover additional adjustments)
+-- Heavy Mobile pass across the site
 -- Final animation polish pass across the site (especially once the new opening animation and scroll behavior are finished)
 
 
 
 -- Add the line finish line as the user scroll inside the journey tag
--- Change the text in the work section the details area mirror the good fela version
 -- Smooth out svg animation in work
 -- Add hover button inside the work section
 -- Check if the journey animation errror handle thing is still needed
 -- Project section needs opening animation
--- Change the padding for mobile update the column width calcs to match
 
+
+
+-- Some images need cutting
+-- Change the padding for mobile update the column width calcs to match
+-- Descript line color checking
+-- Review the spacing — Figma and code

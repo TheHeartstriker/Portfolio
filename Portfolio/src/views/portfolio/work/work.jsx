@@ -73,11 +73,7 @@ function Work() {
               {/* Bottom details */}
               <div className={styles["work-main-con-item-details"]}>
                 <h3>{item.heading}</h3>
-                <div className={styles["work-main-con-item-details-small"]}>
-                  {item.details.map((detail) => (
-                    <h4 key={detail}>{detail}</h4>
-                  ))}
-                </div>
+                <h4>{item.details}</h4>
               </div>
             </div>
           ))}

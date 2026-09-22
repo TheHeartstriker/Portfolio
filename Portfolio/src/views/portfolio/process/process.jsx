@@ -6,7 +6,7 @@ import { processItems } from "./text";
 function Process() {
   return (
     <section className={styles["process"]}>
-      <SectionInfo infoName={"DESIGN PROCESS"} />
+      <SectionInfo infoName={"DESIGN PROCESS"} type="dark" />
       {/*  */}
       {/* Main item container */}
       {/*  */}

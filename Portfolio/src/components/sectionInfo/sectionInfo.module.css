@@ -7,9 +7,16 @@
   z-index: 10;
 }
 
+.section-info.light h3 {
+  color: var(--light-3);
+}
+
+.section-info.dark h3 {
+  color: var(--dark-3);
+}
+
 .section-info h3 {
   font-family: var(--font-body);
-  color: var(--light-3);
   font-size: var(--typo-size-12);
   font-weight: var(--typo-weight-regular);
 }
@@ -19,7 +26,14 @@
   width: var(--typo-size-12);
 }
 
-.section-info svg path {
+.section-info.light svg path {
   stroke: var(--light-3);
+}
+
+.section-info.dark svg path {
+  stroke: var(--dark-3);
+}
+
+.section-info svg path {
   stroke-width: var(--small-stroke-width);
 }

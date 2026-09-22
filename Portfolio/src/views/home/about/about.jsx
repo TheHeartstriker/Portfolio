@@ -11,7 +11,7 @@ import {
 function About() {
   return (
     <section className={styles["about"]}>
-      <SectionInfo infoName="ABOUT" />
+      <SectionInfo infoName="ABOUT" type="dark" />
       {/*  */}
       {/* Main container */}
       {/*  */}
