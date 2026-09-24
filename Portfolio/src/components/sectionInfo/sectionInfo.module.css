@@ -37,3 +37,9 @@
 .section-info svg path {
   stroke-width: var(--small-stroke-width);
 }
+
+@media (max-width: 1050px) {
+  .section-info {
+    margin-top: var(--space-8);
+  }
+}

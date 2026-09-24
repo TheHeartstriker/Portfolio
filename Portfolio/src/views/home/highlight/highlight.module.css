@@ -164,6 +164,9 @@
   .highlight-main {
     height: 75%;
   }
+  .highlight {
+    padding: var(--space-16);
+  }
 }
 @media (max-width: 600px) {
   .highlight-con-heading h2 {

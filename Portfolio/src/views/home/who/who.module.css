@@ -135,6 +135,13 @@
 /*  */
 
 @media (max-width: 1050px) {
+  .who {
+    padding: var(--space-16);
+  }
+
+  .who-text h2 {
+    margin-top: var(--space-8);
+  }
   .who-bottom {
     display: flex;
     flex-direction: column;

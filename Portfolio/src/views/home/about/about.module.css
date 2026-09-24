@@ -3,9 +3,8 @@
   flex-direction: column;
   position: relative;
   padding: var(--space-24);
-  padding-top: var(--space-32);
   background-color: var(--light-1);
-  gap: var(--space-24);
+  gap: var(--space-32);
   z-index: 20;
 }
 /*  */
@@ -115,6 +114,9 @@
 /* Mobile */
 /*  */
 @media (max-width: 1050px) {
+  .about {
+    padding: var(--space-16);
+  }
   .about-con {
     display: flex;
     flex-direction: column;

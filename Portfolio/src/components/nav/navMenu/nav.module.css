@@ -57,6 +57,13 @@
   line-height: 1;
 }
 
+@media (max-width: 1050px) {
+  .nav {
+    width: calc(100% - var(--space-16) * 2);
+    margin-left: var(--space-16);
+  }
+}
+
 @media (max-width: 850px) {
   .nav-cta {
     display: none !important;

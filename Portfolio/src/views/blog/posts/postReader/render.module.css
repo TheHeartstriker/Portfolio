@@ -151,6 +151,7 @@
   .article {
     width: auto;
     margin: 0;
+    padding: var(--space-16);
     margin-top: calc(var(--space-128) + var(--space-48));
     margin-left: var(--space-24);
     margin-right: var(--space-24);

@@ -115,6 +115,10 @@
 /* Mobile */
 /*  */
 @media (max-width: 1050px) {
+  .process {
+    padding: var(--space-16);
+  }
+
   .process-con-item {
     flex-direction: column;
   }

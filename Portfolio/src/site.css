@@ -249,5 +249,13 @@ p {
 
   @media (max-width: 1050px) {
     --grid-columns: 8;
+    --gutter: var(--space-16);
+    --margin: var(--space-16);
+    --grid-width: calc(100vw - (var(--margin) * 2));
+
+    --column-width: calc(
+      (var(--grid-width) - (var(--gutter) * (var(--grid-columns) - 1))) /
+        var(--grid-columns)
+    );
   }
 }

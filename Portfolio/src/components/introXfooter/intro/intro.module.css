@@ -6,7 +6,6 @@
   flex-direction: column;
   position: relative;
   padding: var(--space-24);
-  padding-top: var(--space-32);
   gap: var(--space-64);
   align-items: center;
   z-index: 20;
@@ -121,6 +120,9 @@
   .intro-rune svg {
     width: 25rem;
     height: 25rem;
+  }
+  .intro {
+    padding: var(--space-16);
   }
 }
 

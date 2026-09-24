@@ -87,6 +87,10 @@
 /* Mobile */
 /*  */
 @media (max-width: 1050px) {
+  .journey {
+    padding: var(--space-16);
+  }
+
   .journey-con-item-text {
     flex-direction: column;
   }

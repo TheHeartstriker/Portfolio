@@ -127,6 +127,10 @@
 /*  */
 
 @media (max-width: 1050px) {
+  .hero {
+    padding: var(--space-16);
+  }
+
   .hero-main {
     flex-direction: column;
   }

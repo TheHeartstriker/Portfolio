@@ -167,6 +167,7 @@
 /*  */
 @media (max-width: 1050px) {
   .hero {
+    padding: var(--space-16);
     flex-direction: column;
     height: auto;
     gap: var(--space-64);

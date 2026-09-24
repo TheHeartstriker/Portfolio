@@ -512,6 +512,7 @@
   /* Main overhead */
   .work {
     gap: calc(var(--space-128) + var(--space-64));
+    padding: var(--space-16);
     padding-top: var(--space-96);
     width: 100%;
     height: fit-content;

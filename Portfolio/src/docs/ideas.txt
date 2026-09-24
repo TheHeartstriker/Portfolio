@@ -9,7 +9,7 @@
 
 -- Better article images
 -- Some images can be replaced with videos
--- Align the process with vh units and other applicable locations/sizes from rem
+
 
 
 -- Blog needs new reader — images on the right, article on the left
@@ -28,11 +28,11 @@
 -- Smooth out svg animation in work
 -- Add hover button inside the work section
 -- Check if the journey animation errror handle thing is still needed
--- Project section needs opening animation
+-- Projects could use some stats on the intro / landing
 
-
+------------------------
 
 -- Some images need cutting
--- Change the padding for mobile update the column width calcs to match
--- Descript line color checking
--- Review the spacing — Figma and code
+-- Align the process with vh units and other applicable locations/sizes from rem(mobile as well look at super solid for mobile vh changes)
+-- Make nav not have background on scroll up for mobile
+-- Scroll blur mobile slight decrease
