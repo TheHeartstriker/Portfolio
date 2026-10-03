@@ -29,7 +29,7 @@
 -- Add hover button inside the work section
 -- Check if the journey animation errror handle thing is still needed
 -- Projects could use some stats on the intro / landing
-
+-- Project section needs a look at for mobile(one improvment is image size / shape look at supersolid as well as options in text.js for mobile image cropping indvidual for each image)
 ------------------------
 
 -- Some images need cutting

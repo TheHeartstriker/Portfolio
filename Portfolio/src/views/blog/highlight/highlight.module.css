@@ -56,7 +56,7 @@
 .highlight-gallery {
   display: flex;
   gap: var(--space-16);
-  height: 25rem;
+  height: 50vh;
 }
 
 /*  */
@@ -205,11 +205,10 @@
     padding: var(--space-16);
   }
 
-  .highlight-intro {
-    width: 100%;
-  }
   .highlight-intro h2 {
     font-size: var(--typo-size-36);
+    width: auto;
+    flex-shrink: 1;
   }
   .highlight-stat {
     flex-wrap: wrap;
@@ -228,12 +227,12 @@
   }
   .highlight-gallery-image-1 {
     width: 100%;
-    height: 20rem;
+    height: 40vh;
   }
   .highlight-gallery-image-2 {
     width: 100%;
     flex: none;
-    height: 20rem;
+    height: 40vh;
   }
 }
 @media (max-width: 500px) {

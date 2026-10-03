@@ -132,6 +132,7 @@
 @media (max-width: 1050px) {
   .faq {
     padding: var(--space-16);
+    padding-bottom: var(--space-96);
   }
 
   .faq-con {
