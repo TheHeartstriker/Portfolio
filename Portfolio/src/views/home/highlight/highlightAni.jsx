@@ -137,10 +137,25 @@ function HighlightAni() {
       // Initial paint before any scroll happens
       updateOverlays();
 
-      window.addEventListener("resize", updateOverlays);
+      let refreshTimeout;
+      function handleViewportResize() {
+        updateOverlays();
+        window.clearTimeout(refreshTimeout);
+        refreshTimeout = window.setTimeout(function () {
+          ScrollTrigger.refresh();
+        }, 200);
+      }
+
+      window.addEventListener("resize", handleViewportResize);
+      window.visualViewport?.addEventListener("resize", handleViewportResize);
 
       return function cleanupScrollTrigger() {
-        window.removeEventListener("resize", updateOverlays);
+        window.clearTimeout(refreshTimeout);
+        window.removeEventListener("resize", handleViewportResize);
+        window.visualViewport?.removeEventListener(
+          "resize",
+          handleViewportResize,
+        );
         st.kill();
       };
     }, section);
