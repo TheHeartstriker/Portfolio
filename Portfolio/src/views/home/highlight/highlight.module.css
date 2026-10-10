@@ -5,7 +5,7 @@
   padding: var(--space-24);
   padding-top: var(--space-64);
   margin-top: var(--space-64);
-  height: 100vh;
+  min-height: 100lvh;
 }
 
 /*  */
