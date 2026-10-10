@@ -37,6 +37,8 @@ function Work() {
                     <img
                       src={image}
                       alt={`${workItems[index].heading} preview`}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
@@ -65,9 +67,15 @@ function Work() {
                   moveAmount={-15}
                   start="top 85%"
                   end="bottom top"
+                  mobile={true}
                 />
                 <div data-work-image={index}>
-                  <img src={item.imgSrc} alt={item.heading} />
+                  <img
+                    src={item.imgSrc}
+                    alt={item.heading}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               {/* Bottom details */}

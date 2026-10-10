@@ -9,11 +9,21 @@ import { Context } from "@/components/provider/provider";
 import { useContext } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
-function ScrollMotion({ item, moveDirection, moveAmount, start, end }) {
+function ScrollMotion({
+  item,
+  moveDirection,
+  moveAmount,
+  start,
+  end,
+  mobile = false,
+}) {
   const { transition } = useContext(Context);
   const pathname = usePathname();
 
   useEffect(() => {
+    if (mobile && window.innerWidth < 1050) {
+      return;
+    }
     let frameId;
     const ctx = gsap.context(() => {});
 
@@ -58,6 +68,7 @@ ScrollMotion.propTypes = {
   moveAmount: PropTypes.number.isRequired,
   start: PropTypes.string.isRequired,
   end: PropTypes.string.isRequired,
+  mobile: PropTypes.bool,
 };
 
 export default ScrollMotion;

@@ -71,7 +71,12 @@ function Highlight() {
               height: getResponsiveHeight(image.height, viewportWidth),
             }}
           >
-            <img src={image.src} alt="Highlight project" />
+            <img
+              src={image.src}
+              alt="Highlight project"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         ))}
       </div>

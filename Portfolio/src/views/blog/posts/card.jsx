@@ -26,7 +26,7 @@ function PostsCard({
       {/*  */}
       <div className={styles["posts-con-card-img"]} onClick={handleClick}>
         <div className={styles["posts-con-card-img-overlay"]}></div>
-        <img src={image} alt={imageAlt} />
+        <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
         {/*  */}
         {/* Hover background */}
         <div className={styles["posts-con-card-img-hover"]}>

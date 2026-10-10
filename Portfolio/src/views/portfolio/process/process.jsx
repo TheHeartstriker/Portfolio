@@ -36,6 +36,8 @@ function Process() {
                   className={styles["process-con-item-image-media"]}
                   data-process-image={index}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               {/* Right side text */}

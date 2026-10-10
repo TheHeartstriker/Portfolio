@@ -42,13 +42,23 @@ function Highlight() {
         {/* Image One */}
         <div className={styles["highlight-gallery-image-1"]}>
           <div className={styles["highlight-gallery-image-overlay"]}></div>
-          <img src={highlightImage1} alt="About" />
+          <img
+            src={highlightImage1}
+            alt="About"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         {/*  */}
         {/* Image Two */}
         <div className={styles["highlight-gallery-image-2"]}>
           <div className={styles["highlight-gallery-image-overlay"]}></div>
-          <img src={highlightImage2} alt="About" />
+          <img
+            src={highlightImage2}
+            alt="About"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       {/*  */}
